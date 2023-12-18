@@ -1,0 +1,75 @@
+//Typography
+$font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+$body-color: $qld-text-grey;
+
+$font-size-base:              1rem;
+$h1-font-size:                $font-size-base * 2.5;
+$h2-font-size:                $font-size-base * 2;
+$h3-font-size:                $font-size-base * 1.5;
+$h4-font-size:                $font-size-base * 1.25;
+$h5-font-size:                $font-size-base 1;
+$h6-font-size:                $font-size-base * 0.875;
+
+$headings-font-weight:        600;
+$headings-line-height:        2;
+$headings-color:              $qld-text-headings;
+
+$link-color:                    $qld-brand-primary;
+
+
+//Links
+:root {
+    --qld-link-underline-offset: 3px;
+    --qld-link-underline-thickness: 0.5px;
+    --qld-link-underline-thickness-hover: 2px;
+    --qld-headings-color: $headings-color;
+    --qld-body-color: $body-color;
+    --qld-link-font-weight: 600;
+}
+
+:root[data-bs-theme=dark] {
+    --qld-link-underline-offset: 3px;
+    --qld-link-underline-thickness: 0.5px;
+    --qld-link-underline-thickness-hover: 2px;
+    --qld-headings-color: #FFF;
+    --qld-body-color: #FFF;
+    --qld-body-bg: var(--qld-brand-primary);
+    
+    --qld-link-color: #FFF;
+    --qld-link-color-rgb: 255, 255, 255;
+
+    --qld-link-hover-color: var(--qld-brand-accent);
+    --qld-link-hover-color-rgb: 255, 229, 0;
+
+}
+
+
+
+//Content and links
+a {
+    font-weight: var(--qld-link-font-weight);
+}
+
+a,
+a.nav-link {
+    text-decoration: underline;
+    text-underline-offset: var(--qld-link-underline-offset);
+    text-decoration-thickness: var(--qld-link-underline-thickness);
+    
+    &:hover {
+        text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    }
+}
+
+
+a.nostyle {
+
+    text-decoration: unset;
+    text-underline-offset: unset;
+    text-decoration-thickness: unset;
+    
+    &:hover {
+        text-decoration-thickness: unset;
+    }
+}

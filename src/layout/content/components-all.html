@@ -1,0 +1,681 @@
+    <!--  Accordion 1 -->
+    <h3 class="mt-5" id="accordion">Accordion</h3>
+
+    <div class="accordion" id="accordionExample">
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button active" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    This is the first accordion headline
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>This is the first item's accordion body.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    This is the second accordion headline
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>This is the second item's accordion body.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <!-- Alerts -->
+    <h3 class="mt-5" id="alerts">Alerts</h3>
+
+    <div class="row">
+        <div class="col">
+
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Complete</h4>
+                You're transaction receipt is <strong>A-12345</strong>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Check your information</h4>
+                A simple information alert—check it out!
+            </div>
+
+            <div class="alert alert-warning" role="alert">
+                A simple warning alert—check it out!
+            </div>
+
+            <div class="alert alert-danger" role="alert">
+                A simple danger alert—check it out!
+            </div>
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>Great success!</strong> You can also remove this alert by clicking the close
+                button.
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Blockquote -->
+    <h3 class="mt-5" id="blockquote">Blockquote</h3>
+
+    <blockquote>
+        <h3 class="blockquote-title">Title of the blockquote</h3>
+        <p class="callout-text">Reference</p>
+    </blockquote>
+    
+
+    <!-- Breadcrumb -->
+    <h3 class="mt-5" id="breadcrumbs">Breadcrumbs</h3>
+
+    <div class="row">
+        <div class="col">
+            <nav class="breadcrumb">
+                <a class="breadcrumb-item" href="#">Home</a>
+                <a class="breadcrumb-item" href="#">Level 1</a>
+                <a class="breadcrumb-item" href="#">Level 2</a>
+                <a class="breadcrumb-item" href="#">Level 3</a>
+                <span class="breadcrumb-item active" aria-current="page">Active</span>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- Buttons -->
+    <h3 class="mt-5" id="buttons">Buttons</h3>
+
+    <div class="row mb-2">
+        <div class="col">
+            <button class="btn btn-primary me-2">Primary button</button>
+            <button class="btn btn-outline-secondary me-2">Secondary button</button>
+            <button class="btn btn-tertiary me-2">Tertiary button</button>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col">
+            <button class="btn btn-primary me-2" disabled>Disabled primary</button>
+            <button class="btn btn-secondary" disabled>Disabled secondary</button>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col">
+            <button class="btn btn-primary me-2">
+                <span class="fa-solid fa-download"></span> Download the report
+            </button>
+            <button class="btn btn-outline-secondary">
+                <span class="fa-solid fa-download"></span> Download the report
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <!-- Callout -->
+    <h3 class="mt-5" id="callouts">Callouts</h3>
+
+    <div class="callout">
+        <h3 class="callout-title">Title of the callout</h3>
+        <p class="callout-text">Call out components site close to the content they support. Use for
+            summaries, examples or additional information. Read more about when to use text boxes
+            and callouts in the <a href="https://www.stylemanual.gov.au/structuring-content/text-boxes-and-callouts"
+                target="_blank">Australian Government Style Manual</a>. </p>
+    </div>
+
+
+
+    <!-- Cards -->
+    <h3 class="mt-5" id="cards">Cards</h3>
+
+    <h4 class="mt-3">Default</h4>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Card default</h5>
+                    <p class="card-text">
+                        Card body text
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Default 2 -->
+        <div class="col">
+            <div class="card card-alternative">
+                <div class="card-body">
+                    <h5 class="card-title">Card alternative</h5>
+                    <p class="card-text">
+                        Card body text
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Default 3 -->
+        <div class="col">
+            <div class="card card-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Card dark</h5>
+                    <p class="card-text">
+                        Card body text
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Default 3 -->
+        <div class="col">
+            <div class="card card-primary--dark">
+                <div class="card-body">
+                    <h5 class="card-title">Card dark alternative</h5>
+                    <p class="card-text">
+                        Card body text
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <h4 class="mt-5">With links</h4>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#" class="stretched-link">Card default</a>
+                    </h5>
+                    <p class="card-text">
+                        Card body text with a stretch link
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-alternative">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#" class="stretched-link">Card default</a>
+                    </h5>
+                    <p class="card-text">
+                        Card body text with a stretch link
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-primary">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#" class="stretched-link">Card dark</a>
+                    </h5>
+                    <p class="card-text">
+                        Card body text with a stretch link
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-primary--dark">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#" class="stretched-link">Card dark alternative</a>
+                    </h5>
+                    <p class="card-text">
+                        Card body text with a stretch link
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <h4 class="mt-5">With images</h4>
+
+    <!-- Grid cards https://getbootstrap.com/docs/5.2/components/card/#grid-cards -->
+    <div class="row row-cols-1 row-cols-md-3 g-2">
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://picsum.photos/id/89/450/254" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural
+                        lead-in to additional content.
+                    </p>
+                </div>
+                <div class="card-footer">Last updated 12 mins ago</div>
+            </div>
+        </div>
+
+        <!-- Default 2 -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://picsum.photos/id/59/450/254" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural
+                        lead-in to additional content. This card has even longer content
+                        than the first to show that equal height action.
+                    </p>
+                </div>
+                <div class="card-footer">Last updated 3 days ago</div>
+            </div>
+        </div>
+
+        <!-- Default 3 -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://picsum.photos/id/172/450/254" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#">Card title as a link</a>
+                    </h5>
+
+                    <p class="card-text">
+                        This card has includes a heading link and a call to action button. The
+                        button is pinned to the bottom of the card with layout utility classes.
+                    </p>
+
+                    <div class="position-absolute bottom-0 start-0"
+                        style="margin: var(--qld-card-spacer-y) var(--qld-card-spacer-x)">
+                        <a href="#" class="btn btn-primary">Apply online</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <h4 class="mt-5">Alternative, Primary and Dark</h4>
+
+    <div class="row row-cols-1 row-cols-md-3 g-2">
+
+        <!-- Default 2 -->
+        <div class="col">
+            <div class="card card-alternative  h-100">
+                <img src="https://picsum.photos/id/412/450/254" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#">Card title with a link</a>
+                    </h5>
+
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural
+                        lead-in to additional content. This card has even longer content
+                        than the first to show that equal height action.
+                    </p>
+                </div>
+                <div class="card-footer">Last updated 3 days ago</div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-primary h-100">
+                <img src="https://picsum.photos/id/259/450/254" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural
+                        lead-in to additional content.
+                    </p>
+                </div>
+                <div class="card-footer">Last updated 12 mins ago</div>
+            </div>
+        </div>
+
+
+
+        <!-- Default 3 -->
+        <div class="col">
+            <div class="card card-primary--dark h-100">
+                <img src="https://picsum.photos/id/434/450/254" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural
+                        lead-in to additional content. This card has even longer content
+                        than the first to show that equal height action.
+                    </p>
+                </div>
+                <div class="card-footer">Last updated 3 days ago</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Pagination -->
+    <h3 class="mt-5" id="pagination">Pagination</h3>
+
+    <div class="row">
+        <div class="col">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item previous">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span class="visually-hidden" aria-hidden="true">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item more"><a class="page-link" href="#"></a></li>
+                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                    <li class="page-item next">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span class="visually-hidden" aria-hidden="true">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- TABLES -->
+    <h3 class="mt-5" id="tables">Tables</h3>
+
+    <!-- Table - Regular -->
+    <div class="qld-table table-responsive">
+        <table class="table">
+            <caption>Table - Regular<span class="sub-caption">Ordered by Name</span></caption>
+            <thead>
+                <tr>
+                    <th scope="col">Column 1</th>
+                    <th scope="col">Column 2</th>
+                    <th scope="col">Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row">Totals</th>
+                    <td>321.00</td>
+                    <td>1,850.00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- Table - Striped/Banded -->
+    <div class="qld-table table-responsive">
+        <table class="table table-striped">
+            <caption>Table - Striped/Banded<span class="sub-caption">Ordered by Name</span>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col">Column 1</th>
+                    <th scope="col">Column 2</th>
+                    <th scope="col">Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row">Totals</th>
+                    <td>321.00</td>
+                    <td>1,850.00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+
+    <!-- Table - Borderless -->
+    <div class="qld-table table-responsive">
+        <table class="table table-borderless">
+            <caption>Table borderless <span class="sub-caption">Updated 3 days ago</span></caption>
+            <thead>
+                <tr>
+                    <th scope="col">Column 1</th>
+                    <th scope="col">Column 2</th>
+                    <th scope="col">Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Table Dark theme -->
+    <div class="qld-table table-responsive">
+        <table class="table table-dark">
+            <caption>Table - Dark theme<span class="sub-caption">Updated 3 days ago</span></caption>
+            <thead>
+                <tr>
+                    <th scope="col">Column 1</th>
+                    <th scope="col">Column 2</th>
+                    <th scope="col">Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+ 
+
+
+    <!-- From input fields -->
+    <h2 class="mt-5" id="forms">Forms</h2>
+    <h3 class="mt-2 mb-3" id="formcontrols">Text inputs and textarea</h3>
+
+    <div class="row mb-4">
+        <div class="col col-md-6">
+            <label for="lastname" class="form-label">Last name</label>
+            <div class="form-label-hint">This should match your identification document</div>
+            <input type="text" class="form-control" id="lastname" placeholder="Example input placeholder">
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col col-md-6">
+            <label for="email" class="form-label">Email address</label>
+            <div class="form-label-hint">Optional</div>
+            <input type="text" class="form-control" id="email" placeholder="Example input placeholder">
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col col-md-6">
+            <label for="moreinfo" class="form-label">Textarea</label>
+            <textarea class="form-control" id="moreinfo" placeholder="Example textarea placeholder"
+                rows="10"></textarea>
+        </div>
+    </div>
+
+    <!-- Select -->
+    <h3 class="mt-2 mb-3" id="selects">Select / Dropdown</h3>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <select class="form-select form-select-lg" name="city" id="city" aria-label="size 3 select example">
+                    <option selected>Select one</option>
+                    <option value="">Brisbane</option>
+                    <option value="">Townsville</option>
+                    <option value="">Cairns</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Radios -->
+    <h3 class="mt-2 mb-3" id="radios">Radios</h3>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Default radio
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Default checked radio
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkboxes -->
+    <h3 class="mt-2 mb-3" id="radios">Checkboxes</h3>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Default checkbox
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                    Checked checkbox
+                </label>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,109 @@
+.qld-banner {
+
+    //Defaults variables
+    --bg-color: var(--qld-light-grey);
+    --title-color: var(--headings-color);
+    --lead-color: var(--body-color);
+
+    // Variants (text colour and backgrounds)
+    &.banner-alt {
+        --bg-color: var(--qld-alt-grey);
+    }
+
+    &.banner-dark,
+    &.banner-dark-alt {
+        --title-color: var(--qld-white);
+        --lead-color: var(--qld-white);
+
+        .breadcrumb {
+            //Redfine variables already scoped in .breadcrumbs
+            //These new values will only be scoped to breadcrumbs within the .banner-* class
+            --breadcrumb-color: var(--qld-white);
+            --qld-breadcrumb-divider-color: var(--qld-white);
+            --qld-breadcrumb-item-active-color: var(--qld-white); 
+            --qld-link-color-rgb: var(--qld-white);
+        }
+    }
+
+    &.banner-dark {
+        --bg-color: var(--qld-primary);
+    }
+
+    &.banner-dark-alt {
+        --bg-color: #0C3B71; //Todo, add this colour to variables.scss (?) Was defined in Figma. 
+    }
+
+    //Padding
+    --padding-top: 1rem;
+    --padding-bottom: 2rem;
+
+    @include media-breakpoint-up(md) {
+        --padding-top: 2.5rem;
+        --padding-bottom: 3rem;
+    }
+}
+
+// DARK THEME
+@include color-mode(dark) {
+    .qld-banner {
+        // Inherits from :root dark mode variables, but can be overridden here.
+        --banner-title-color: var(--headings-color);
+        --banner-lead-color: var(--body-color);
+    }
+}
+
+
+//Component
+.qld-banner {
+
+    background-color: var(--bg-color);
+    padding: var(--padding-top) 0 var(--padding-bottom) 0;
+    position: relative;
+
+    .banner-title {
+        // Line height (52px) / Font-size (40px) = 1.3
+        line-height: 1.3;
+        color: var(--title-color);
+        margin-bottom: 1.5rem;
+        max-width: 90%;
+    }
+
+    .banner-lead {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        max-width: 50rem;
+        color: var(--lead-color);
+    }
+
+    .breadcrumb {
+        color: var(--breadcrumb-color);
+    }
+
+    //Image
+    .banner-image {
+        --image-height: calc(100% + var(--padding-top) + var(--padding-bottom));
+        position: absolute;
+        top: calc(var(--padding-top) * -1);
+        right: 0;
+        height: var(--image-height);
+        width: calc(var(--image-height)/1.33);
+        background: url('../img/banner-example-3-to-2.jpg');
+        background-size: cover;
+        background-position: center center;
+
+        //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle" 
+        &--angle {
+            --banner-angle: 29%; //(angle in degrees)
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--banner-angle) 100%);
+        }
+
+    }
+
+    //Hide banner image below tablet
+    @include media-breakpoint-down(md) {
+        .banner-image {
+            display: none;
+        }
+    }
+
+}

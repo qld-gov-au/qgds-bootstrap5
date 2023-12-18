@@ -1,0 +1,41 @@
+{
+  "name": "design-system-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "build": "npm run build:theme && npm run build:templates",
+    "build:theme": "node build.js",
+    "build:templates": "node build-template.js",
+    "serve": "live-server dist",
+    "watch:theme": "onchange 'src/**/*' -- npm run build:theme",
+    "watch:templates": "onchange 'src/**/*' -- npm run build:templates"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "bootstrap": "^5.3.1",
+    "esbuild-sass-plugin": "^2.15.0",
+    "live-server": "^1.2.2",
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "esbuild": "^0.19.2",
+    "esbuild-plugin-copy": "^2.1.1",
+    "esbuild-plugin-handlebars": "^1.0.2",
+    "onchange": "^7.1.0",
+    "postcss": "^8.4.29",
+    "rimraf": "^5.0.5",
+    "watch": "^1.0.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

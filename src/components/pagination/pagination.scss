@@ -1,0 +1,138 @@
+$pagination-padding-y:              0.5rem;
+$pagination-padding-x:              1rem;
+$pagination-padding-y-sm:           1rem;
+$pagination-padding-x-sm:           1rem;
+$pagination-padding-y-lg:           1rem;
+$pagination-padding-x-lg:           1rem;
+
+$pagination-font-size:              $font-size-base;
+
+$pagination-color:                  var(--#{$prefix}link-color);
+$pagination-bg:                     var(--#{$prefix}body-bg);
+$pagination-border-radius:          var(--#{$prefix}border-radius);
+$pagination-border-width:           var(--#{$prefix}border-width);
+$pagination-margin-start:           calc(#{$pagination-border-width} * -1); // stylelint-disable-line function-disallowed-list
+$pagination-border-color:           #7A7A7A;
+
+$pagination-focus-color:            var(--#{$prefix}link-hover-color);
+$pagination-focus-bg:               var(--#{$prefix}secondary-bg);
+$pagination-focus-box-shadow:       $focus-ring-box-shadow;
+$pagination-focus-outline:          0;
+
+$pagination-hover-color:            $primary;
+$pagination-hover-bg:               #FFF;
+$pagination-hover-border-color:     $qld-brand-secondary-dark; // Todo in v6: remove this?
+
+$pagination-active-color:           #FFF;
+$pagination-active-bg:              $primary;
+$pagination-active-border-color:    $primary;
+
+$pagination-disabled-color:         var(--#{$prefix}secondary-color);
+$pagination-disabled-bg:            var(--#{$prefix}secondary-bg);
+$pagination-disabled-border-color:  var(--#{$prefix}border-color);
+
+$pagination-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+$pagination-border-radius-sm:       0.25rem;
+$pagination-border-radius-lg:       0.25rem;
+
+//Pagination "previous and next" arrows
+$pagination-icon-prevnext-color:            $qld-brand-secondary-dark;
+$pagination-icon-prevnext-hover-color:      darken($qld-brand-secondary-dark, 10%);
+$pagination-icon-prevnext:                  url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 15.6081C27 16.1011 26.5897 16.4845 26.1282 16.4845L6.79487 16.4845L13.9744 24.7008C14.2821 25.0295 14.2821 25.5772 13.9231 25.9059C13.7692 26.0702 13.5641 26.125 13.359 26.125C13.1026 26.125 12.8974 26.0702 12.7436 25.8511L4.23077 16.2106C3.92308 15.882 3.92308 15.389 4.23077 15.0603L12.7436 5.41981C13.0513 5.03639 13.5641 5.03639 13.9231 5.36504C14.2821 5.69369 14.2821 6.24145 13.9744 6.5701L6.79487 14.7317L26.1282 14.7317C26.5897 14.7317 27 15.1699 27 15.6081Z" fill="#{$pagination-icon-prevnext-color}"/></svg>');
+$pagination-icon-prevnext-hover:            url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 15.6081C27 16.1011 26.5897 16.4845 26.1282 16.4845L6.79487 16.4845L13.9744 24.7008C14.2821 25.0295 14.2821 25.5772 13.9231 25.9059C13.7692 26.0702 13.5641 26.125 13.359 26.125C13.1026 26.125 12.8974 26.0702 12.7436 25.8511L4.23077 16.2106C3.92308 15.882 3.92308 15.389 4.23077 15.0603L12.7436 5.41981C13.0513 5.03639 13.5641 5.03639 13.9231 5.36504C14.2821 5.69369 14.2821 6.24145 13.9744 6.5701L6.79487 14.7317L26.1282 14.7317C26.5897 14.7317 27 15.1699 27 15.6081Z" fill="#{$pagination-icon-prevnext-hover-color}"/></svg>');
+
+//Pagination "more" dots
+$pagination-icon-more-color:        $qld-brand-primary;
+$pagination-icon-more-hover-color:  $qld-brand-secondary-dark;
+$pagination-icon-more:              url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="16" r="2" fill="#{$pagination-icon-more-color}"/><circle cx="16" cy="16" r="2" fill="#{$pagination-icon-more-color}"/><circle cx="24" cy="16" r="2" fill="#{$pagination-icon-more-color}"/></svg>');
+$pagination-icon-more-hover:        url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="16" r="2" fill="#{$pagination-icon-more-hover-color}"/><circle cx="16" cy="16" r="2" fill="#{$pagination-icon-more-hover-color}"/><circle cx="24" cy="16" r="2" fill="#{$pagination-icon-more-hover-color}"/></svg>');
+
+.pagination {
+
+    --#{$prefix}pagination-active-bg: #{$qld-brand-primary};
+    --#{$prefix}pagination-active-border-color: #{$qld-brand-primary};
+    --#{$prefix}pagination-border-color: #7A7A7A;
+    --#{$prefix}pagination-border-width: 1px;
+    --#{$prefix}pagination-hover-color: var(--qld-link-hover-color);
+    --#{$prefix}pagination-hover-bg: transparent;
+    --#{$prefix}pagination-hover-border-color: var(--qld-secondary);
+    --#{$prefix}pagination-icon-prevnext: #{escape-svg($pagination-icon-prevnext)};
+    --#{$prefix}pagination-icon-prevnext-hover: #{escape-svg($pagination-icon-prevnext-hover)};
+    --#{$prefix}pagination-icon-more: #{escape-svg($pagination-icon-more)};
+    --#{$prefix}pagination-icon-more-hover: #{escape-svg($pagination-icon-more-hover)};
+
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    .page-item {
+        
+        .page-link {
+            border-radius: 3px;
+            width: 2rem;
+            height: 2rem;
+            padding: 0;
+            text-align: center;
+            line-height: calc(2rem - 2px);
+            &:hover {
+                box-shadow: inset 0 0 0 1px var(--#{$prefix}pagination-hover-border-color);
+            }
+        }
+
+        &.previous .page-link:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--#{$prefix}pagination-icon-prevnext);
+        }
+
+        &.next .page-link:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--#{$prefix}pagination-icon-prevnext);
+            transform: rotate(180deg);
+        }
+
+        &.previous .page-link:hover:before,
+        &.next .page-link:hover:before {
+            background: var(--#{$prefix}pagination-icon-prevnext-hover);
+        }
+
+        &.more .page-link:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--#{$prefix}pagination-icon-more);   
+        }
+
+        &.more .page-link:hover:before {
+            background: var(--#{$prefix}pagination-icon-more-hover);   
+        }
+            
+        &.active,
+        &.previous,
+        &.next,
+        &.more {
+            .page-link {
+                border: none;
+                position: relative;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+
+    }
+}

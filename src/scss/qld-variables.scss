@@ -1,0 +1,178 @@
+// GLOBALlLY SCOPED VARIABLES
+// These variables are avaiable to the full project and all components. (This file is included at the top of main.scss to ensure this)
+
+// These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss, 
+
+//QLD Names Colours
+$qld-dark-blue            : #05325F; 
+$qld-sapphire-blue        : #09549F; 
+$qld-light-blue           : #0085B3;
+$qld-light-green          : #6BBE27;
+$qld-dark-green           : #008635;
+$qld-golden-yellow        : #FFE500;
+$qld-maroon-traditional   : #771E32;
+$qld-maroon-modern        : #A70240;
+
+//Hypothetical
+$cobrand-blue             : #132D4E;
+$cobrand-grey             : #294d7b;
+$cobrand-maroon           : #A70240;
+$cobrand-purple           : #634B78;        
+$cobrand-yellow           : #FBAF54;
+$cobrand-orange           : #FD855D;
+
+
+//QGOV Brand Mapping - QLD.GOV.AU
+$qld-brand-primary-dark   : #121212; //$qld-dark-blue; 
+$qld-brand-primary        : $qld-sapphire-blue;
+$qld-brand-primary-light  : $qld-light-blue;
+$qld-brand-secondary-dark : $qld-dark-green;
+$qld-brand-secondary      : $qld-light-green;
+$qld-brand-accent         : $qld-golden-yellow;
+
+
+// Uncoment to switch primary palette 
+// $qld-brand-primary-dark   : $cobrand-grey; 
+// $qld-brand-primary        : $cobrand-maroon;
+// $qld-brand-primary-light  : $cobrand-blue;
+// $qld-brand-secondary-dark : $cobrand-orange;
+// $qld-brand-secondary      : $cobrand-purple;
+// $qld-brand-accent         : $cobrand-yellow;
+
+
+//Grays
+$qld-system-darkest    : #1D1D1D;
+$qld-text-grey         : #414141;
+$qld-text-headings     : #03213F;
+$qld-dark-grey         : #595959;
+$qld-dark-grey-muted   : #636363;
+$qld-medium-grey       : #78797E;
+$qld-soft-grey         : #7A7A7A;
+$qld-alt-grey          : #DADADA;
+$qld-grey              : #E0E0E0;
+$qld-light-grey        : #EBEBEB;
+$qld-light-grey-alt    : #E8E8E8;
+$qld-extra-light-grey  : #F5F5F5; 
+$qld-white             : #FFFFFF;
+$qld-white-underline   : rgba(255, 255, 255, 0.72);
+$qld-dark-underline    : rgba(3, 33, 63, 0.72);
+$qld-maroon-traditional: #771E32;
+$qld-maroon-modern     : #A70240;
+$qld-notify-warning    : #E22339;
+$qld-notify-information: #0085B3;
+$qld-notify-success    : #339D37;
+$qld-notify-alert      : #FFCC2C;
+$qld-syntax-values     : #6BBE27;
+$qld-syntax-elements   : #A7E5FF;
+$qld-syntax-properties : #C88DF7;
+$qld-syntax-comments   : #C0D7EC;
+
+
+// Map colours to bootstrap theme variables
+$primary                : $qld-brand-primary;
+$primary-dark           : $qld-brand-primary-dark;
+$secondary              : $qld-dark-green;
+$success                : $qld-notify-success;
+$info                   : $qld-notify-information;
+$warning                : $qld-notify-alert;
+$danger                 : $qld-notify-warning;
+$light                  : $qld-extra-light-grey;
+$dark                   : $qld-dark-grey;
+
+// Prefixed with -qld on the ::root node. For example: var(--qld-dark-green) 
+$project-colors: (
+  "brand-primary-dark"   : $qld-brand-primary-dark,
+  "brand-primary"        : $qld-brand-primary,
+  "brand-primary-light"  : $qld-brand-primary-light,
+  "brand-secondary-dark" : $qld-brand-secondary-dark,
+  "brand-secondary-light": $qld-brand-secondary,
+  "brand-accent"         : $qld-brand-accent,
+  //...
+  "dark-blue"            : $qld-dark-blue,
+  "sapphire-blue"        : $qld-sapphire-blue,
+  "light-blue"           : $qld-light-blue,
+  "light-green"          : $qld-light-green,
+  "dark-green"           : $qld-dark-green,
+  "golden-yellow"        : $qld-golden-yellow,
+  "system-darkest"       : $qld-system-darkest,
+  "text-grey"            : $qld-text-grey,
+  "dark-grey"            : $qld-dark-grey,
+  "dark-grey-muted"      : $qld-dark-grey-muted,
+  "soft-grey"            : $qld-soft-grey,
+  "medium-grey"          : $qld-medium-grey,
+  "grey"                 : $qld-grey,
+  "alt-grey"             : $qld-alt-grey,
+  "light-grey"           : $qld-light-grey,
+  "light-grey-alt"       : $qld-light-grey-alt,
+  "extra-light-grey"     : $qld-extra-light-grey,
+  "white"                : $qld-white,
+  "white-underline"      : $qld-white-underline,
+  "dark-underline"       : $qld-dark-underline,
+  "maroon-traditional"   : $qld-maroon-traditional,
+  "maroon-modern"        : $qld-maroon-modern,
+  "notify-warning"       : $qld-notify-warning,
+  "notify-information"   : $qld-notify-information,
+  "notify-success"       : $qld-notify-success,
+  "notify-alert"         : $qld-notify-alert,
+  "syntax-values"        : $qld-syntax-values,
+  "syntax-elements"      : $qld-syntax-elements,
+  "syntax-properties"    : $qld-syntax-properties,
+  "syntax-comments"      : $qld-syntax-comments,
+  "primary"              : $qld-sapphire-blue,
+  "primary-dark"         : $qld-brand-primary-dark,
+  "secondary"            : $qld-dark-green,
+  "success"              : $qld-notify-success,
+  "info"                 : $qld-notify-information,
+  "warning"              : $qld-notify-alert,
+  "danger"               : $qld-notify-warning,
+  "light"                : $qld-extra-light-grey,
+  "dark"                 : $qld-dark-grey
+);
+
+$theme-colors: map-merge($theme-colors, $project-colors);
+
+
+// Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
+$grid-breakpoints: (
+  xs: 0,
+  sm: 400px,
+  md: 700px,
+  lg: 992px,
+  xl: 1312px
+);
+
+
+
+// Default border radius
+$border-radius:                         0.25rem;
+$border-radius-sm:                      0.25rem;
+$border-radius-lg:                      0.25rem;
+
+
+
+// QGOV Borders
+$qld-border-width-thin                  : 1px;
+$qld-border-width-default               : 2px;
+$qld-border-width-medium                : 3px;
+$qld-border-width-thick                 : 4px;
+$qld-border-width-extra-thick           : 8px;
+
+
+
+// Extended spacers to procude 8px and 16px increments
+// use px-16, py-sm-16, ml-40, mr-40, etc
+$qld-custom-spacers: (
+  16: $spacer,
+  20: ($spacer * 1.25),
+  24: ($spacer * 1.5),
+  32: ($spacer * 2),
+  40: ($spacer * 2.5),
+  48: ($spacer * 3.0),
+  56: ($spacer * 3.5),
+  64: ($spacer * 4),
+  72: ($spacer * 4.5),
+  80: ($spacer * 5)
+);
+
+$spacers: map-merge($spacers, $qld-custom-spacers);
+
