@@ -1,0 +1,13 @@
+{
+    "classes": "",
+    "headers": [
+        "Name",
+        "Age",
+        "Team",
+        "Status"
+    ],
+    "rows": [
+        { "cells": ["John Doe", "26", "A", "Active"] }, 
+        { "cells": ["Jane Doe", "24", "B","Active"] }
+    ]
+}

@@ -1,0 +1,118 @@
+// Define variables
+header {
+
+	--pagetop-icon-color: var(--qld-brand-accent);
+	--pagetop-bg-color: var(--qld-brand-primary);
+	--pagetop-text-color: var(--qld-white);
+
+    --site-logo-color: var(--qld-system-darkest);
+    
+    --site-search-bg: var(--#{$prefix}extra-light-grey);
+    --site-search-btn-bg: var(--qld-brand-primary);
+    --site-search-border-color: var(--qld-soft-grey);
+    --site-search-icon-color: var(--qld-dark-grey-muted);
+
+    --header-main-bg: var(--qld-white, transparent);
+
+}
+
+@include color-mode(dark) {
+	header {
+		--pagetop-icon-color: var(--qld-brand-accent);
+		--pagetop-bg-color: var(--qld-brand-primary-dark);
+		--pagetop-text-color: var(--qld-white);
+		--site-logo-color: var(--qld-white);
+        
+        --site-search-bg: var(--qld-brand-primary-dark);
+        --site-search-btn-bg: var(--qld-brand-secondary-dark);
+		--site-search-border-color: var(--qld-brand-primary-light);
+        --site-search-icon-color: #FFF;
+
+        --header-main-bg: var(--qld-brand-primary-dark);
+
+	}
+}
+
+// Component
+header {
+	.pagetop {
+		padding: 0.5rem 0;
+		margin: 0;
+		background: var(--pagetop-bg-color);
+
+		.pagetop-tag {
+			display: flex;
+			color: var(--pagetop-text-color);
+			align-items: center;
+			font-size: 0.875rem;
+		}
+
+		.qld-icon {
+			margin-right: 0.25rem;
+			background-color: var(--pagetop-icon-color);
+		}
+	}
+
+	.header-main {
+		display: flex;
+		padding: 2rem 0;
+		background: var(--header-main-bg);
+	}
+
+	.header-site-logo {
+		margin-right: 1.5rem;
+
+		svg path {
+			fill: var(--site-logo-color);
+		}
+	}
+
+	.header-site-name {
+		padding-left: 1.5rem;
+		border-left: 2px solid var(--qld-brand-secondary);
+		font-size: 1.25rem;
+		font-weight: 600;
+		font-family: "Fira Sans", "Noto Sans", sans-serif;
+		line-height: 56px;
+	}
+
+	.header-site-search {
+		
+		//Auto margins for LTR and RTL
+		@extend .ms-auto;
+
+		form {
+			display: flex;
+			position: relative;
+
+			input[type="text"] {
+				border: none;
+				width: 320px;
+				border-bottom: 2px solid var(--site-search-border-color);
+				background: var(--site-search-bg);
+				border-radius: 0.25rem 0 0 0;
+				padding-left: 3rem;
+			}
+
+			input[type="submit"] {
+				border: none;
+				border-radius: 0 0.25rem 0.25rem 0;
+                background: var(--site-search-btn-bg);
+			}
+
+			//Icon
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 2px;
+				width: 3rem;
+				mask-position: center center;
+				mask-repeat: no-repeat;
+				mask-image: var(--icon-search);
+				background-color: var(--site-search-icon-color);
+			}
+		}
+	}
+}

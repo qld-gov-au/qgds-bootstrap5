@@ -1,0 +1,19 @@
+{
+	"breadcrumbs": [
+		{
+			"linkclass": "",
+			"link": "#",
+			"linktext": "Home"
+		},
+		{
+			"linkclass": "",
+			"link": "#",
+			"linktext": "Topic"
+		},
+		{
+			"linkclass": "active",
+			"link": "#",
+			"linktext": "Current page"
+		}
+	]
+}

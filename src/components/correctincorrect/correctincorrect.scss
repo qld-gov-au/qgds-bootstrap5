@@ -1,0 +1,53 @@
+.example-component {
+
+    // Creating custom CSS variables scoped to .example-component
+
+    //Inherit from global variables
+    --#{$prefix}component-bg-color:     var(--#{$prefix}bg-color);
+    --#{$prefix}component-text-color:   var(--#{$prefix}body-color);
+
+    //or set manually
+    --#{$prefix}component-padding:      1.25rem;
+    --#{$prefix}component-margin:       1.25rem 0;
+    --#{$prefix}component-border-color: #414141;
+}
+
+//Dark theme
+@include color-mode(dark) {
+
+    .example-component {
+
+        // Re-define custom CSS variableS for dark mode
+        // https://getbootstrap.com/docs/5.3/customize/color-modes/#enable-dark-mode
+
+        --#{$prefix}component-border-color: #F1F1F1;
+    
+    }
+}
+
+
+// Assign custom properties as required
+// Define other component styles
+.example-component {
+    
+    background-color: var(--#{$prefix}component-bg-color);
+    color: var(--#{$prefix}component-text-color);
+
+    padding: var(--#{$prefix}component-padding);
+    margin: var(--#{$prefix}component-margin);
+    border: 1px solid var(--#{$prefix}component-border-color);
+    
+
+    &-title {
+        font-weight: 600;
+        margin-bottom: 0;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    &-text {
+        padding-top: 1rem;
+        margin-bottom: 0;
+        line-height: 1.5rem;
+    }
+}

@@ -1,0 +1,89 @@
+<div class="container">
+
+    <!-- From input fields -->
+    <h3 class="mt-2 mb-3" id="formControls">Your details</h3>
+
+
+    <div class="row mb-4">
+        <div class="col col-md-6">
+            <label for="lastname" class="form-label">Last name</label>
+            <div class="form-label-hint">This should match your identification document</div>
+            <input type="text" class="form-control" id="lastname" placeholder="Example input placeholder">
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col col-md-6">
+            <label for="email" class="form-label">Email address</label>
+            <div class="form-label-hint">Optional</div>
+            <input type="text" class="form-control" id="email" placeholder="Example input placeholder">
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col col-md-6">
+            <label for="moreinfo" class="form-label">Textarea</label>
+            <textarea class="form-control" id="moreinfo" placeholder="Example textarea placeholder"
+                rows="10"></textarea>
+        </div>
+    </div>
+
+    <!-- Select -->
+    <h3 class="mt-2 mb-3" id="selects">Region</h3>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <select class="form-select form-select-lg" name="city" id="city" aria-label="size 3 select example">
+                    <option selected>Select one</option>
+                    <option value="">Brisbane</option>
+                    <option value="">Townsville</option>
+                    <option value="">Cairns</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Radios -->
+    <h3 class="mt-2 mb-3" id="radios">Radios</h3>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Default radio
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Default checked radio
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkboxes -->
+    <h3 class="mt-2 mb-3" id="radios">Checkboxes</h3>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Default checkbox
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                    Checked checkbox
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+</div>

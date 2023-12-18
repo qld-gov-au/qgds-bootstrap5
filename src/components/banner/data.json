@@ -1,0 +1,9 @@
+{
+	"classes": "banner-dark-alt",
+    "title": "Blockquote title",
+	"content": "Fees will increase from 1 July 2024. The new fees will be available on this page from 1 July 2024.",
+	"image": {
+		"url": "assets/img/banner-example-3-to-2.jpg",
+		"classes": "banner-image--angle"
+	}
+}

@@ -1,0 +1,138 @@
+.nav {
+    --qld-nav-link-color: var(--qld-brand-primary);
+}
+
+@include color-mode(dark) {
+    .nav {
+        --qld-nav-link-color: #FFF;
+    }
+}
+
+
+.qld-side-navigation {
+
+    --sidenav-level-one-left-padding: 0;
+    --sidenav-level-two-padding: 2rem;
+    --sidenav-level-three-padding: 3.5rem;
+    --sidenav-navlink-padding: 1rem;
+
+    --sidenav-hover-bg: var(--qld-extra-light-grey);
+    --sidenav-hover-color: var(--qld-brand-primary);
+
+    --sidenav-heading-border-color: #{$qld-brand-secondary};
+    --sidenav-item-border-color: #{$qld-soft-grey};
+    --sidenav-subitem-border-color: #{$qld-light-grey};
+
+    --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='var(--QLD-color-light-border)' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
+
+}
+
+@include color-mode(dark) {
+    .qld-side-navigation {
+        --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFFFFF' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
+
+        --sidenav-hover-bg: var(--qld-brand-primary-dark);
+        --sidenav-hover-color: var(--qld-white);
+        --sidenav-heading-border-color: var(--qld-brand-secondary);
+        --sidenav-item-border-color:    var(--qld-brand-primary-light);
+        --sidenav-subitem-border-color: var(--qld-brand-primary-light);
+    }
+}
+
+.qld-side-navigation {
+
+    .nav-title {
+        color: var(--#{$prefix}-headings-color);
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 1rem;
+        margin: 0;
+        border-bottom: 2px solid var(--sidenav-heading-border-color);
+    }
+
+    //Side navigation (ul.nav) 
+    
+    ul.nav {
+
+        //Side navigation all items remove all bullets
+        //Reset all left padding  
+        ul, ol {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        display: flex;
+        flex-direction: column;
+
+        //Specifically target the first level LI's only
+        > li.nav-item {
+
+            border-top: 1px solid var(--sidenav-item-border-color);
+
+            &:first-child {
+                border-top: none;
+            }
+
+        }
+
+        //All nav items, all levels
+        li.nav-item {
+
+            //Level two menu LI's
+            > ul > li { border-top: 1px solid var(--sidenav-subitem-border-color) }
+            > ul > li  > a.nav-link { padding-left: var( --sidenav-level-two-padding); }
+            
+            //Level three menu LI's
+            > ul > li > ul > li { border-top: none }
+            > ul > li > ul > li > a.nav-link {  padding-left: var( --sidenav-level-three-padding); }
+
+            //All nav item links, all levels
+            a.nav-link {
+
+                padding: var(--sidenav-navlink-padding);
+                font-size: 0.875rem;
+                color: var(--body-color);
+                text-decoration: none;
+
+                 //li a.nav-link.active
+                &.active {
+                    font-weight: 600;
+                }
+
+                //a.nav-link Hover state
+                &:hover {
+                    background-color: var(--sidenav-hover-bg);
+                    color: var(--sidenav-hover-color);
+                    text-decoration: underline;
+                }
+
+            }
+
+        }
+
+        //Add stalks to a UL menu (usually level 3) 
+        // <ul class="nav ... with-stalks">...</ul> 
+        .with-stalks {
+
+            .nav-item {
+                
+                position: relative;
+            
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background: escape-svg(var(--sidenav-submenu-divider));
+                    background-repeat: no-repeat;
+                    // background-position: center center;
+                    top: 1rem;
+                    left: 2rem;
+                    bottom: 0;
+                    width: 1rem;
+                }
+            }
+        }
+
+    }
+
+}
+
