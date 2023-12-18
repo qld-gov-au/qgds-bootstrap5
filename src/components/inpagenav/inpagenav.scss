@@ -1,0 +1,47 @@
+.qld-inpage-nav {
+	--inpage-nav-padding-left: 1rem;
+	--inpage-nav-title-padding-left: $nav-link-padding-x;
+  	--inpage-nav-link-padding-left: $nav-link-padding-x;
+	--inpage-nav-link-padding-y: 0.25rem;
+  	--inpage-nav-border-color: var(--qld-brand-primary);
+}
+
+@include color-mode(dark) {
+  .qld-inpage-nav {
+    --inpage-nav-border-color:        var(--qld-brand-secondary);
+    --#{$prefix}nav-link-color:       #FFF;
+    --#{$prefix}nav-link-hover-color: var(--qld-brand-accent);
+  }
+}
+
+.qld-inpage-nav {
+
+	border-left: 4px solid var(--inpage-nav-border-color);
+	padding-left: var(--inpage-nav-padding-left);
+
+	ul.nav {
+		display: flex;
+		flex-direction: column;
+		padding-left: 0;
+	}
+
+	.nav-title {
+		font-size: 1rem;
+		line-height: 1.25;
+		margin-bottom: 1rem;
+		padding-left: var(--inpage-nav-title-padding-left);
+	}
+
+	.nav-item {
+		.nav-link {
+			padding-top: var(--inpage-nav-link-padding-y);
+			padding-bottom: var(--inpage-nav-link-padding-y);
+      		padding-left: var(--inpage-nav-title-padding-left);
+      		color: var(--#{$prefix}nav-link-color);
+		}
+
+		&:first-child .nav-link {
+			padding-top: 0;
+		}
+	}
+}

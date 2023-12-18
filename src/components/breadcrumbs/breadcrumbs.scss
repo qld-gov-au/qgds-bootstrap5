@@ -1,0 +1,18 @@
+//Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
+
+
+//OR using custom CSS properties scoped to the component 
+.breadcrumb {
+    --#{$prefix}breadcrumb-divider: ">";
+    --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}brand-secondary-dark);
+    --#{$prefix}breadcrumb-item-active-color: #636363;
+    --#{$prefix}breadcrumb-bg: transparent;
+    --#{$prefix}breadcrumb-margin-bottom: 1.5rem;
+}
+
+@include color-mode(dark) {
+    .breadcrumb {
+        --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}-extra-light-grey);
+        --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}-extra-light-grey);
+    }
+}

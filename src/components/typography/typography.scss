@@ -1,0 +1,51 @@
+//Site defaults
+:root {
+	--heading-line-height: 1.5;
+	--heading-margin-bottom: 1rem;
+}
+
+h1,
+.h1 {
+	line-height: 1.3;
+	margin-top: 0;
+	margin-bottom: 1.5rem;
+}
+
+h2,
+.h2 {
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+	&:not(:first-child) {
+		margin-top: 3rem;
+	}
+}
+
+h3,
+.h3 {
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+	&:not(:first-child) {
+		margin-top: 2.25rem;
+	}
+}
+
+h4,
+.h4 {
+	line-height: 1;
+	margin-bottom: 1.5rem;
+	margin-top: 2rem;
+}
+
+h5,
+.h5 {
+	line-height: 1;
+	margin-bottom: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h6,
+.h6 {
+	line-height: 1;
+	margin-bottom: 1.5rem;
+	margin-top: 1.5rem;
+}
