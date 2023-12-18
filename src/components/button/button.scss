@@ -1,0 +1,82 @@
+// Buttons: https://getbootstrap.com/docs/5.2/components/buttons/#variables
+// #{$prefix} defined in main.scss
+
+// CSS Scoped Variables
+// --#{$prefix}{component}-{property}
+
+.btn {
+    --#{$prefix}btn-padding-x: 1rem;
+    --#{$prefix}btn-padding-y: 0.75rem;
+    --#{$prefix}btn-font-family: #{$font-family-sans-serif};
+    --#{$prefix}btn-border-width: 3px;
+    --#{$prefix}btn-border-radius: 0.25rem;
+    --#{$prefix}btn-box-shadow: 0 4px 8px 3px rgba(0,0,0, 0.1);
+    --#{$prefix}btn-disabled-opacity: 0.5;
+    --#{$prefix}btn-focus-box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.2);
+    
+    &-primary {
+    --#{$prefix}btn-hover-bg: #003E7D;
+    --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
+    --#{$prefix}btn-disabled-bg: #E8E8E8;
+    --#{$prefix}btn-disabled-color: #636363;
+    --#{$prefix}btn-disabled-opacity: 1;
+    --#{$prefix}btn-disabled-border-color: transparent;
+    }
+    &-secondary,
+    &-outline-secondary {
+    --#{$prefix}btn-border-color: #008635;
+    --#{$prefix}btn-hover-color: #{$primary};
+    --#{$prefix}btn-hover-bg: #FFF;
+    --#{$prefix}btn-hover-border-color: #005B23;
+    --#{$prefix}btn-active-color: #03213F;
+    --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
+    --#{$prefix}btn-active-border-color: #{$qld-extra-light-grey} ;
+    --#{$prefix}btn-active-shadow: none;
+    --#{$prefix}btn-disabled-bg: transparent;
+    --#{$prefix}btn-disabled-color: #636363;
+    --#{$prefix}btn-disabled-opacity: 1;
+    --#{$prefix}btn-disabled-border-color:#E8E8E8;
+    --#{$prefix}gradient: none;
+    }
+
+    &-tertiary {
+    --#{$prefix}btn-border-color: transparent;
+    --#{$prefix}btn-hover-color: #{$primary};
+    --#{$prefix}btn-hover-bg: #{$qld-extra-light-grey};
+    --#{$prefix}btn-hover-border-color: transparent;
+    --#{$prefix}btn-active-color: #03213F;
+    --#{$prefix}btn-active-bg: transparent;
+    --#{$prefix}btn-active-border-color: transparent;
+    --#{$prefix}btn-active-shadow: none;
+    --#{$prefix}btn-disabled-bg: transparent;
+    --#{$prefix}btn-disabled-color: #636363;
+    --#{$prefix}btn-disabled-opacity: 1;
+    --#{$prefix}btn-disabled-border-color: transparent;
+    --#{$prefix}gradient: none;
+    }
+}
+
+[data-theme="dark"] {
+    .btn {
+        //...
+    }
+}
+
+
+.btn {
+
+    white-space: nowrap;
+
+    span[class^=icon-],
+    span[class^=fa-] {
+        margin-right: 0.5rem;
+    }
+
+    //Hover state for all .btn
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+}
+

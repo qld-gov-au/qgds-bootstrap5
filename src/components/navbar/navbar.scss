@@ -1,0 +1,115 @@
+// Variables
+.navbar {
+
+    --#{$prefix}navbar-color: #{$body-color};
+    --#{$prefix}navbar-hover-color: #{$qld-brand-primary};
+    --#{$prefix}navbar-hover-bg: #E8E8E8;
+    --#{$prefix}navbar-active-color: #{$qld-brand-primary};
+    --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
+    
+    --#{$prefix}navbar-bg-color: #{$qld-extra-light-grey};
+    --#{$prefix}navbar-border-color: #{$qld-brand-secondary};
+
+    --#{$prefix}icon-color: #{$qld-brand-secondary-dark};
+
+    --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
+    --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
+    --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
+
+    --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
+    --#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
+    --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
+    --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
+    --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
+
+    --#{$prefix}navbar-border-width: 8px;
+
+}
+
+@include color-mode(dark) {
+    .navbar {
+        --#{$prefix}navbar-color: #{$qld-extra-light-grey};
+        --#{$prefix}navbar-hover-color: #{$qld-white};
+        --#{$prefix}navbar-hover-bg: #{$qld-system-darkest};
+        --#{$prefix}navbar-active-color: #{$qld-system-darkest};
+        --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
+        --#{$prefix}navbar-bg-color: #{$qld-brand-primary-dark};
+        --#{$prefix}navbar-border-color: #{$qld-brand-secondary-dark};
+        --#{$prefix}icon-color: #{$qld-brand-accent};
+
+        //Supercede
+        --#{$prefix}navbar-bg-color: #{$qld-brand-primary};
+    }
+}
+
+
+//Component
+
+.navbar {
+
+    margin: 0;
+    padding: 0;
+    background-color: var(--#{$prefix}navbar-bg-color);
+    border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-color);
+    align-items: center;
+
+    .navbar-nav {
+
+        $navbar-padding-x: 0;
+        $navbar-padding-y: 0;
+        --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
+        --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
+        
+        $navbar-light-toggler-icon-bg: url("data:image/svg+xml,%3Csvg width='12' height='6' viewBox='0 0 12 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.117443 0.160356C-0.0433562 0.320713 -0.0433562 0.587973 0.144242 0.74833L5.7186 5.87973C5.8794 6.04009 6.1206 6.04009 6.2814 5.87973L11.8558 0.74833C12.0434 0.587973 12.0434 0.320713 11.8826 0.160356C11.7218 -0.0267261 11.4538 -0.0267261 11.293 0.13363L5.9866 4.99777L0.707038 0.13363C0.626639 0.0534521 0.51944 0 0.41224 0C0.305041 0 0.197842 0.0534521 0.117443 0.160356Z' fill='#008635'/%3E%3C/svg%3E");
+        
+    }
+
+    .nav-item {
+
+        .nav-link {
+
+            $navbar-nav-link-padding-x: 0.75rem;
+            $navbar-nav-link-padding-y: 0.75rem;
+        
+            --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+            --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
+            --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
+
+            line-height: 2rem;
+            overflow-y: visible;
+            position: relative;
+
+            &:hover {
+                background: var(--#{$prefix}navbar-hover-bg);
+                color: var(--#{$prefix}navbar-hover-color);
+                text-decoration: underline;
+                text-underline-offset: 2px;
+                
+                &:after {
+                    content: "";
+                    position: absolute;
+                    content: "";
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    height: 8px;
+                    background: transparent;
+                }
+            }
+
+        }
+    }
+
+    //Specific use case - home icon sits within a flex container
+    .nav-item-home {
+        display: flex;
+        
+        .qld-icon {
+            display: block;
+            height: 2rem;
+            width: 1.5rem;
+            background-color: var(--qld-icon-color);
+        }
+    }
+
+}

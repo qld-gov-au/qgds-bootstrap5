@@ -1,0 +1,44 @@
+//VARIABLES
+blockquote, 
+.blockquote {
+    --#{$prefix}blockquote-padding: 0.25rem 1.5rem;
+    --#{$prefix}blockquote-bg-color: #{$body-bg};
+    --#{$prefix}blockquote-border-color: #{$qld-syntax-values};
+    --#{$prefix}blockquote-border-width: 0.25rem;
+    --#{$prefix}blockquote-title-color: #03213F;
+    --#{$prefix}blockquote-text-color: #414141;
+}
+
+//VARIABLES - DARK MODE
+@include color-mode(dark) {
+    blockquote,
+    .blockquote {
+        --#{$prefix}blockquote-bg-color: #{$qld-dark-grey};
+        --#{$prefix}blockquote-border-color: #{$qld-syntax-values};
+        --#{$prefix}blockquote-title-color: #fff;
+        --#{$prefix}blockquote-text-color: #fff;
+    }
+}
+
+//COMPONENT
+blockquote,
+.blockquote {
+    background-color: var(--#{$prefix}blockquote-bg-color);
+    border-left: solid var(--#{$prefix}blockquote-border-width) var(--#{$prefix}blockquote-border-color);
+    padding: var(--#{$prefix}blockquote-padding);
+
+    &-title {
+        font-weight: 600;
+        margin-bottom: 0;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: var(--#{$prefix}blockquote-title-color);
+    }
+
+    &-text {
+        padding-top: 0.75rem;
+        margin-bottom: 0;
+        line-height: 1.5rem;
+        color: var(--#{$prefix}blockquote-text-color);
+    }
+}

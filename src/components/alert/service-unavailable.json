@@ -1,0 +1,6 @@
+{
+	"classes": "alert-info",
+	"title": "This service will be unavailable tonight",
+    "content": "This service will be unavailable between 2am and 5am, Friday 10 February 2023",
+    "dismiss": true
+}

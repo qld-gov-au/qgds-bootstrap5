@@ -1,0 +1,20 @@
+
+// Dark mode.  
+// Note that you can't read custom variables into media queries (as at Sep 2023).
+// Example: "background: var(--theme-background);"  
+
+// However, you can set them, however:
+// example: --theme-background: #000;
+
+//You can also fall back to SASS variable to set at compile time.
+
+@include color-mode(dark) {
+    :root {
+        --#{$prefix}body-bg:                var(--qld-brand-primary-dark);
+        --#{$prefix}body-color:             #FFF;
+        --#{$prefix}heading-color:          #FFF;
+        --#{$prefix}link-color:             #FFF;
+        --#{$prefix}link-hover-color:       var(--qld-brand-accent);
+    }
+    //...etc
+}
