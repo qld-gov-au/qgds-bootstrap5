@@ -4,6 +4,7 @@ import * as path from 'path';
 
 //Required libraries
 import {sassPlugin} from 'esbuild-sass-plugin';
+import eslint from 'esbuild-plugin-eslint';
 import handlebarsPlugin from "esbuild-plugin-handlebars";
 import postcss from 'postcss';
 import autoprefixer from 'autoprefixer';
@@ -42,6 +43,7 @@ const buildConfig = {
 				return css;
 			},
 		}),
+		eslint({ /* config */ }),
 		// Handlebars processing
 		handlebarsPlugin(),
 
