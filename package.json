@@ -7,6 +7,7 @@
     "start": "npm run build && npm run serve",
     "build": "npm run build:theme && npm run build:templates",
     "build:theme": "node build.js",
+    "build:components": "node build.js",
     "build:templates": "node build-template.js",
     "serve": "live-server dist",
     "watch:theme": "onchange 'src/**/*' -- npm run build:theme",
@@ -25,6 +26,7 @@
     "mustache": "^4.2.0"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin-js": "^1.5.3",
     "autoprefixer": "^10.4.15",
     "esbuild": "^0.19.2",
     "esbuild-plugin-copy": "^2.1.1",

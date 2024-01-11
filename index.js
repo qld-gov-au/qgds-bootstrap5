@@ -1,8 +1,2 @@
-const server = Bun.serve({
-    port: Bun.env.port || 8000,
-    fetch(req) {
-        return new Response('Hello world 123')
-    }
-})
+// Enrty point for JS required by the project
 
-console.log(`Listening on port ${server.port}`);

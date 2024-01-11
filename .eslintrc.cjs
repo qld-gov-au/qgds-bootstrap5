@@ -1,30 +1,33 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+  },
+  "extends": "eslint:recommended",
+  "overrides": [
+    {
+      "env": {
+        "node": true,
+      },
+      "files": [
+        ".eslintrc.{js,cjs}",
+      ],
+      "parserOptions": {
+        "sourceType": "script",
+      },
     },
-    "extends": "eslint:recommended",
-    "overrides": [
-        {
-            "env": {
-                "node": true
-            },
-            "files": [
-                ".eslintrc.{js,cjs}"
-            ],
-            "parserOptions": {
-                "sourceType": "script"
-            }
-        }
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "rules": {
-        "indent": [1, 2],
-    "one-var": 2,
-    "no-tabs": 1,
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  },
+  "plugins": [
+    "@stylistic/js",
+  ],
+  "rules": {
+    "@stylistic/js/indent": ["warn", 2],
+    "one-var": 0,
+    "no-tabs": 0,
     "no-path-concat": 0,
     "valid-jsdoc": "warn",
     "spaced-comment": 0,
@@ -32,6 +35,7 @@ module.exports = {
     "space-before-function-paren": 0,
     "comma-dangle": [1, "always-multiline"],
     "eol-last": 1,
+    "no-mixed-spaces-and-tabs": 0,
     "no-multi-spaces": [
       2,
       {
@@ -44,5 +48,5 @@ module.exports = {
       },
     ],
     "no-warning-comments": 1,
-    }
+  },
 }
