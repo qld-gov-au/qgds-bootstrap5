@@ -11,7 +11,7 @@ const QGDSTemplate = {
 
   layouts: {
     contentpage: fs.readFileSync("./src/layout/template/contentpage.html", "utf8"),
-    landingpage: fs.readFileSync("./src/layout/template/landingpage.html", "utf8")
+    landingpage: fs.readFileSync("./src/layout/template/landingpage.html", "utf8"),
   },
 
   sections: {
@@ -19,7 +19,7 @@ const QGDSTemplate = {
     footer: fs.readFileSync("./src/layout/footer/footer.html", "utf8"),
     inpagenav: '',
     breadcrumbs: '',
-    sidenav: fs.readFileSync("./src/components/nav/sidenav-example.html", "utf8"),
+    sidenav: fs.readFileSync("./src/components/bs5/nav/sidenav-example.html", "utf8"),
   },
 
   /**
@@ -48,14 +48,14 @@ const QGDSTemplate = {
         footer: options.footer || this.sections.footer,
         main: mustache.render( content, options || {}),
         theme: options.theme || "qgds-default",
-        ...options
-      }
+        ...options,
+      },
     );
 
     fs.writeFileSync(`./dist/${options.outfile}`, compiledHTML);
     console.log(`Built template ./dist/${options.outfile}`);
 
-  }
+  },
 };
 
 export default QGDSTemplate;
