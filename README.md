@@ -23,7 +23,8 @@ Recommend using VSCode as the IDE for development.
 ## 3. NPM Scripts descriptions
 | Name        | Description     |
 | ------------- | ------------- |
-| npm run **build**  | Builds the components and templates
-| npm **start**  | Builds the components and templates and runs on a local server |
+| npm run **build**  | Builds the components and templates |
+| npm run **serve** | Serves "dist" at a local server |
+| npm **start**  | Builds the components and templates and serves at a local server |
 | npm run **build:templates** | Creates example HTML pages using theh layouts and components files and data, and generates output file /dist/index.html |
 | npm run **build:theme** or npm run **build:components** | Iterates over each src/component and exports HTML snippets - including their {{placeholders}} - to output directory dist/components/bs5/name/name.bs5.html.  
