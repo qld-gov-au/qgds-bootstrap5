@@ -1,0 +1,8 @@
+{
+	"classes": "btn-outline-secondary",
+	"isbutton": false,
+	"islink": true,
+	"href": "https://google.com",
+	"label": "Call to action",
+	"target": "_blank"
+}

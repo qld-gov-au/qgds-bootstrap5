@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="{{theme}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {{{metadata}}}
+
+    <title>{{pagetitle}} | QLD.GOV.AU</title>
+    <link rel="stylesheet" href="assets/css/qld.bootstrap.css">
+    <script src="assets/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    
+    {{{header}}}
+    
+    <main class="qld-body">
+
+        <!-- Banner -->
+        {{{banner}}} 
+
+        <!-- Main content -->
+        <div class="container qld-content">
+
+                <div class="row">
+
+                    <!-- Left Aside -->
+                    <!-- //order-lg-last -->
+                    <div class="col-12 col-lg-3 order-lg-first">
+                        {{{ sidenav }}}
+                    </div>
+
+                    <!-- //order-lg-first -->
+                    <div class="col-12 col-lg-9 order-lg-last ps-lg-72">
+                        
+                        {{{inpagenav}}}
+
+                        {{{ content }}}
+                        
+                    </div>
+                                    
+            </div>
+        </div>
+    
+        {{{footer}}}
+
+    </main>
+
+</body>
+</html>

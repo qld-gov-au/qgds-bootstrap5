@@ -79,7 +79,10 @@ $danger                 : $qld-notify-warning;
 $light                  : $qld-extra-light-grey;
 $dark                   : $qld-dark-grey;
 
-// Prefixed with -qld on the ::root node. For example: var(--qld-dark-green) 
+// The Bootstrap map-merge will create custom CSS variables against the ::root node. 
+// These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
+// The PREFIX is defined at the top of main.SCSS file (ie CSS entry point)
+
 $project-colors: (
   "brand-primary-dark"   : $qld-brand-primary-dark,
   "brand-primary"        : $qld-brand-primary,
