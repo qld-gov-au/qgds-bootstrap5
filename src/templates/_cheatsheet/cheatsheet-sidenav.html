@@ -1,0 +1,21 @@
+<aside class="qld-aside">
+
+    <div class="qld-side-navigation">
+
+        <h2 class="nav-title">{{heading}}</h2>
+
+        <!-- Level One -->
+        <ul class="nav" aria-label="section navigation">
+
+            {{ #links }}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ href }}">
+                    {{ label }}
+                </a>
+            </li>
+            {{ /links }}
+
+        </ul>
+    </div>
+
+</aside>

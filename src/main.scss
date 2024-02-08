@@ -3,7 +3,7 @@
 // ~fontawesome is an alias for node_modules/fontawesome/ as defined in vite.config.js
 
 // Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
- 
+
 // External fonts
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&Noto+Sans:wght@400;600&display=swap');
 $font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
@@ -153,19 +153,19 @@ $enable-dark-mode: true;
 // @import "./components/bs5/header-search/header-search.scss";
 @import "./components/bs5/icons/icons.scss";
 @import "./components/bs5/inpagenav/inpagenav.scss";
-@import "./components/bs5/nav/nav.scss"; //includes side-nav.scss
+@import "./components/bs5/sidenav/sidenav.scss"; //includes side-nav.scss
 @import "./components/bs5/navbar/navbar.scss";
 @import "./components/bs5/table/table.scss";
 @import "./components/bs5/pagination/pagination.scss";
 @import "./components/bs5/typography/typography.scss";
 
 // Example (for demo)
-@import "./components/bs5/_example/example.scss";
+// @import "./components/bs5/_example/example.scss";
 
 // Common Layout Blocks
-@import "./layout/footer/footer.scss";
-@import "./layout/header/header.scss";
-@import "./layout/content/content.scss";
+@import "./components/common/footer/footer.scss";
+@import "./components/common/header/header.scss";
+@import "./components/common/layout/content.scss";
 
 // Themes
 @import "./scss/qld-theme.scss";
