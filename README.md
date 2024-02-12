@@ -5,29 +5,49 @@
 ## Technical overview
 
 - ES6 Javascript
-- ES Build for bundling, minification and transpiling
+- ESbuild for bundling, minification and transpiling
 - Storybook for component development
 - Mustache for component and HTML templating
 - Figma for design and prototyping
 - CSS/SCSS, extending Bootstrap 5.3 core components with custom CSS properties
 - NPM for package management
 
-## Prerequisites
+# Getting started
+
+## 1. Download
+
+```bash
+git clone https://github.com/qld-gov-au/qgds-qol-mvp
+```
+
+## 2. Setup
+
+### Prerequisites
 
 - Node 18.17.1
 - NPM 10.2.5
 
-### Build the code
+### Install dependencies
 
-npm run build _or_ node build.js
+```bash
+npm install
+```
+
+### Build the Desing System CSS, Components and templates
+
+npm run **build** _or_ **node build.js**
 
 ### Watch for changes and rebuild automatically
 
-npm run watch _or_ node build.js --watch
+npm run **watch** _or_ **node build.js --watch**
 
 ### Start Storybook for component development
 
-npm run storybook
+npm run **storybook**
+
+### Start a local server from /dist folder
+
+npm run **serve**
 
 ### Next steps
 
@@ -37,3 +57,11 @@ npm run storybook
 ## Documentation
 
 - Storybook examples available at [https://qld-gov-au.github.io/qgds-qol-mvp/](https://qld-gov-au.github.io/qgds-qol-mvp/)
+
+## Development
+
+We recommend using VSCode as the IDE for development with the following plugins:
+
+- Prettier
+- ESLint
+- Mustache template support
