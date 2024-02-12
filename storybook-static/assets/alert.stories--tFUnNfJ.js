@@ -1,7 +1,7 @@
 import{C as F}from"./QGDSComponent-ZBBO6_jp.js";const R=`<div class="alert {{classes}}" role="alert">
         
-    <h4 class="alert-heading">{{{heading}}}</h4>
-    {{{content}}}
+    <h4 class="alert-heading">{{{ heading }}}</h4>
+    {{{ content }}}
 
     {{#dismiss}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

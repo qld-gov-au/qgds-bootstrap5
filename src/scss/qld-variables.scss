@@ -4,31 +4,31 @@
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss, 
 
 //QLD Names Colours
-$qld-dark-blue            : #05325F; 
-$qld-sapphire-blue        : #09549F; 
-$qld-light-blue           : #0085B3;
-$qld-light-green          : #6BBE27;
-$qld-dark-green           : #008635;
-$qld-golden-yellow        : #FFE500;
-$qld-maroon-traditional   : #771E32;
-$qld-maroon-modern        : #A70240;
+$qld-dark-blue : #05325F;
+$qld-sapphire-blue : #09549F;
+$qld-light-blue : #0085B3;
+$qld-light-green : #6BBE27;
+$qld-dark-green : #008635;
+$qld-golden-yellow : #FFE500;
+$qld-maroon-traditional : #771E32;
+$qld-maroon-modern : #A70240;
 
 //Hypothetical
-$cobrand-blue             : #132D4E;
-$cobrand-grey             : #294d7b;
-$cobrand-maroon           : #A70240;
-$cobrand-purple           : #634B78;        
-$cobrand-yellow           : #FBAF54;
-$cobrand-orange           : #FD855D;
+$cobrand-blue : #132D4E;
+$cobrand-grey : #294d7b;
+$cobrand-maroon : #A70240;
+$cobrand-purple : #634B78;
+$cobrand-yellow : #FBAF54;
+$cobrand-orange : #FD855D;
 
 
 //QGOV Brand Mapping - QLD.GOV.AU
-$qld-brand-primary-dark   : #121212; //$qld-dark-blue; 
-$qld-brand-primary        : $qld-sapphire-blue;
-$qld-brand-primary-light  : $qld-light-blue;
+$qld-brand-primary-dark : #121212; //$qld-dark-blue; 
+$qld-brand-primary : $qld-sapphire-blue;
+$qld-brand-primary-light : $qld-light-blue;
 $qld-brand-secondary-dark : $qld-dark-green;
-$qld-brand-secondary      : $qld-light-green;
-$qld-brand-accent         : $qld-golden-yellow;
+$qld-brand-secondary : $qld-light-green;
+$qld-brand-accent : $qld-golden-yellow;
 
 
 // Uncoment to switch primary palette 
@@ -41,95 +41,95 @@ $qld-brand-accent         : $qld-golden-yellow;
 
 
 //Grays
-$qld-system-darkest    : #1D1D1D;
-$qld-text-grey         : #414141;
-$qld-text-headings     : #03213F;
-$qld-dark-grey         : #595959;
-$qld-dark-grey-muted   : #636363;
-$qld-medium-grey       : #78797E;
-$qld-soft-grey         : #7A7A7A;
-$qld-alt-grey          : #DADADA;
-$qld-grey              : #E0E0E0;
-$qld-light-grey        : #EBEBEB;
-$qld-light-grey-alt    : #E8E8E8;
-$qld-extra-light-grey  : #F5F5F5; 
-$qld-white             : #FFFFFF;
-$qld-white-underline   : rgba(255, 255, 255, 0.72);
-$qld-dark-underline    : rgba(3, 33, 63, 0.72);
+$qld-system-darkest : #1D1D1D;
+$qld-text-grey : #414141;
+$qld-text-headings : #03213F;
+$qld-dark-grey : #595959;
+$qld-dark-grey-muted : #636363;
+$qld-medium-grey : #78797E;
+$qld-soft-grey : #7A7A7A;
+$qld-alt-grey : #DADADA;
+$qld-grey : #E0E0E0;
+$qld-light-grey : #EBEBEB;
+$qld-light-grey-alt : #E8E8E8;
+$qld-extra-light-grey : #F5F5F5;
+$qld-white : #FFFFFF;
+$qld-white-underline : rgba(255, 255, 255, 0.72);
+$qld-dark-underline : rgba(3, 33, 63, 0.72);
 $qld-maroon-traditional: #771E32;
-$qld-maroon-modern     : #A70240;
-$qld-notify-warning    : #E22339;
+$qld-maroon-modern : #A70240;
+$qld-notify-warning : #E22339;
 $qld-notify-information: #0085B3;
-$qld-notify-success    : #339D37;
-$qld-notify-alert      : #FFCC2C;
-$qld-syntax-values     : #6BBE27;
-$qld-syntax-elements   : #A7E5FF;
+$qld-notify-success : #339D37;
+$qld-notify-alert : #FFCC2C;
+$qld-syntax-values : #6BBE27;
+$qld-syntax-elements : #A7E5FF;
 $qld-syntax-properties : #C88DF7;
-$qld-syntax-comments   : #C0D7EC;
+$qld-syntax-comments : #C0D7EC;
 
 
 // Map colours to bootstrap theme variables
-$primary                : $qld-brand-primary;
-$primary-dark           : $qld-brand-primary-dark;
-$secondary              : $qld-dark-green;
-$success                : $qld-notify-success;
-$info                   : $qld-notify-information;
-$warning                : $qld-notify-alert;
-$danger                 : $qld-notify-warning;
-$light                  : $qld-extra-light-grey;
-$dark                   : $qld-dark-grey;
+$primary : $qld-brand-primary;
+$primary-dark : $qld-brand-primary-dark;
+$secondary : $qld-dark-green;
+$success : $qld-notify-success;
+$info : $qld-notify-information;
+$warning : $qld-notify-alert;
+$danger : $qld-notify-warning;
+$light : $qld-extra-light-grey;
+$dark : $qld-dark-grey;
 
 // The Bootstrap map-merge will create custom CSS variables against the ::root node. 
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
 // The PREFIX is defined at the top of main.SCSS file (ie CSS entry point)
 
 $project-colors: (
-  "brand-primary-dark"   : $qld-brand-primary-dark,
-  "brand-primary"        : $qld-brand-primary,
-  "brand-primary-light"  : $qld-brand-primary-light,
-  "brand-secondary-dark" : $qld-brand-secondary-dark,
+  "brand-primary-dark": $qld-brand-primary-dark,
+  "brand-primary": $qld-brand-primary,
+  "brand-primary-light": $qld-brand-primary-light,
+  "brand-secondary-dark": $qld-brand-secondary-dark,
   "brand-secondary-light": $qld-brand-secondary,
-  "brand-accent"         : $qld-brand-accent,
+  "brand-accent": $qld-brand-accent,
   //...
-  "dark-blue"            : $qld-dark-blue,
-  "sapphire-blue"        : $qld-sapphire-blue,
-  "light-blue"           : $qld-light-blue,
-  "light-green"          : $qld-light-green,
-  "dark-green"           : $qld-dark-green,
-  "golden-yellow"        : $qld-golden-yellow,
-  "system-darkest"       : $qld-system-darkest,
-  "text-grey"            : $qld-text-grey,
-  "dark-grey"            : $qld-dark-grey,
-  "dark-grey-muted"      : $qld-dark-grey-muted,
-  "soft-grey"            : $qld-soft-grey,
-  "medium-grey"          : $qld-medium-grey,
-  "grey"                 : $qld-grey,
-  "alt-grey"             : $qld-alt-grey,
-  "light-grey"           : $qld-light-grey,
-  "light-grey-alt"       : $qld-light-grey-alt,
-  "extra-light-grey"     : $qld-extra-light-grey,
-  "white"                : $qld-white,
-  "white-underline"      : $qld-white-underline,
-  "dark-underline"       : $qld-dark-underline,
-  "maroon-traditional"   : $qld-maroon-traditional,
-  "maroon-modern"        : $qld-maroon-modern,
-  "notify-warning"       : $qld-notify-warning,
-  "notify-information"   : $qld-notify-information,
-  "notify-success"       : $qld-notify-success,
-  "notify-alert"         : $qld-notify-alert,
-  "syntax-values"        : $qld-syntax-values,
-  "syntax-elements"      : $qld-syntax-elements,
-  "syntax-properties"    : $qld-syntax-properties,
-  "syntax-comments"      : $qld-syntax-comments,
-  "primary"              : $qld-sapphire-blue,
-  "primary-dark"         : $qld-brand-primary-dark,
-  "secondary"            : $qld-dark-green,
-  "success"              : $qld-notify-success,
-  "info"                 : $qld-notify-information,
-  "warning"              : $qld-notify-alert,
-  "danger"               : $qld-notify-warning,
-  "light"                : $qld-extra-light-grey,
-  "dark"                 : $qld-dark-grey
+  "dark-blue": $qld-dark-blue,
+  "sapphire-blue": $qld-sapphire-blue,
+  "light-blue": $qld-light-blue,
+  "light-green": $qld-light-green,
+  "dark-green": $qld-dark-green,
+  "golden-yellow": $qld-golden-yellow,
+  "system-darkest": $qld-system-darkest,
+  "text-grey": $qld-text-grey,
+  "dark-grey": $qld-dark-grey,
+  "dark-grey-muted": $qld-dark-grey-muted,
+  "soft-grey": $qld-soft-grey,
+  "medium-grey": $qld-medium-grey,
+  "grey": $qld-grey,
+  "alt-grey": $qld-alt-grey,
+  "light-grey": $qld-light-grey,
+  "light-grey-alt": $qld-light-grey-alt,
+  "extra-light-grey": $qld-extra-light-grey,
+  "white": $qld-white,
+  "white-underline": $qld-white-underline,
+  "dark-underline": $qld-dark-underline,
+  "maroon-traditional": $qld-maroon-traditional,
+  "maroon-modern": $qld-maroon-modern,
+  "notify-warning": $qld-notify-warning,
+  "notify-information": $qld-notify-information,
+  "notify-success": $qld-notify-success,
+  "notify-alert": $qld-notify-alert,
+  "syntax-values": $qld-syntax-values,
+  "syntax-elements": $qld-syntax-elements,
+  "syntax-properties": $qld-syntax-properties,
+  "syntax-comments": $qld-syntax-comments,
+  "primary": $qld-sapphire-blue,
+  "primary-dark": $qld-brand-primary-dark,
+  "secondary": $qld-dark-green,
+  "success": $qld-notify-success,
+  "info": $qld-notify-information,
+  "warning": $qld-notify-alert,
+  "danger": $qld-notify-warning,
+  "light": $qld-extra-light-grey,
+  "dark": $qld-dark-grey
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);
@@ -147,18 +147,18 @@ $grid-breakpoints: (
 
 
 // Default border radius
-$border-radius:                         0.25rem;
-$border-radius-sm:                      0.25rem;
-$border-radius-lg:                      0.25rem;
+$border-radius: 0.25rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.25rem;
 
 
 
 // QGOV Borders
-$qld-border-width-thin                  : 1px;
-$qld-border-width-default               : 2px;
-$qld-border-width-medium                : 3px;
-$qld-border-width-thick                 : 4px;
-$qld-border-width-extra-thick           : 8px;
+$qld-border-width-thin : 1px;
+$qld-border-width-default : 2px;
+$qld-border-width-medium : 3px;
+$qld-border-width-thick : 4px;
+$qld-border-width-extra-thick : 8px;
 
 
 
@@ -178,4 +178,3 @@ $qld-custom-spacers: (
 );
 
 $spacers: map-merge($spacers, $qld-custom-spacers);
-

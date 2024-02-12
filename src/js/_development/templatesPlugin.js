@@ -3,8 +3,8 @@ import mustache from "mustache";
 
 //JS Components we are using in the template. Load as required.
 //They are referenced by mustcahe syntax e.g. {{ components.banner }}
-import Alert from "../components/bs5/alert/Alert.js";
-import Banner from "../components/bs5/banner/Banner.js";
+import Alert from "../../components/bs5/alert/Alert.js";
+import Banner from "../../components/bs5/banner/Banner.js";
 
 /**
  * Setup example page templates.

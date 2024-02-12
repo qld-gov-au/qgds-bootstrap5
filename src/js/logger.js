@@ -1,5 +1,8 @@
 /**
  * Logs a message with color.
+ * @param {string} color - The color of the message.
+ * @param {string} message - The message to be logged.
+ * @returns {void}
  */
 export default function log(color, message) {
   const colors = {

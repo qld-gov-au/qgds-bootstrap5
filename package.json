@@ -4,19 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && npm run serve",
-    "compile": "node --trace-warnings main.mjs",
+    "start": "npm run build",
     "build": "node build.js",
-    "build:components": "npm run build",
-    "build:templates": "node scripts/build-templates.js",
-    "watch:theme": "onchange 'src/**/*' -- npm run build:components",
-    "watch:templates": "onchange 'src/**/*' 'scripts/**/*' -- npm run build:templates",
+    "watch": "node build.js --watch",
     "serve": "live-server dist",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "vite-dev": "vite",
-    "vite-build": "vite build",
-    "vite-serve": "vite preview"
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +23,7 @@
     "esbuild-sass-plugin": "^2.15.0",
     "live-server": "^1.1.0",
     "material-symbols": "^0.14.7",
+    "minimist": "^1.2.8",
     "mustache": "^4.2.0"
   },
   "devDependencies": {
@@ -54,8 +48,6 @@
     "esbuild-plugin-handlebars": "^1.0.2",
     "eslint": "^8.56.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "lit": "^3.1.2",
-    "lit-html": "^3.1.2",
     "mustache-loader": "^1.4.3",
     "onchange": "^7.1.0",
     "postcss": "^8.4.29",
