@@ -1,31 +1,31 @@
-// PROJECT ESBUILD CONFIGURATION and BUILD FILE
-import rawLoaderPlugin from "./src/js/rawLoaderPlugin.js";
+// ESBUILD PROJECT DEPENDENCIES
+import * as esbuild from "esbuild";
+import log from "./src/js/logger.js";
+import listFiles from "./src/js/listfiles.js";
 
-import fs from "fs";
-import mustache from "mustache";
+//Local build plugins
+import rawLoaderPlugin from "./src/js/plugins/raw-loader-plugin.js";
+import cleanOutputFoldersPlugin from "./src/js/plugins/clean-output-folders.js";
 
-//Required libraries
+//Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
 import { copy } from "esbuild-plugin-copy";
-import eslint from "esbuild-plugin-eslint";
 import handlebarsPlugin from "esbuild-plugin-handlebars";
-import postcss from "postcss";
-import autoprefixer from "autoprefixer";
-import log from "./src/js/logger.js";
+import eslint from "esbuild-plugin-eslint";
 
-import * as esbuild from "esbuild";
+//Command line arguments are available in argv object
+import minimist from "minimist";
 
-//import templatesPlugin from "./src/js/templatesPlugin.js";
+const argv = minimist(process.argv.slice(2));
+const timerName = `Build time`;
 
-// Configuration
-// https://esbuild.github.io/getting-started/#build-scripts
-
+// Configuration https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
   outdir: "./dist/",
   external: ["fs", "path", "../img/*"],
   entryPoints: [
     {
-      in: "./node_modules/bootstrap/dist/js/bootstrap.js",
+      in: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
       out: "./assets/js/bootstrap.min",
     },
     {
@@ -45,128 +45,96 @@ const buildConfig = {
     ".mustache": "text",
     ".js": "jsx",
     ".jpg": "file",
+    ".png": "file",
   },
 
   target: ["es6"],
   logLevel: "info",
 
   plugins: [
-    rawLoaderPlugin,
-
-    // Pass the following plugins to ESBuild during transpilation
-    sassPlugin({
-      type: "css",
-      async transform(source) {
-        const { css } = await postcss([autoprefixer]).process(source, {
-          from: "src/main.scss",
-          to: "dist/assets/css/qld.bootstrap.css",
-          map: true,
-        });
-        return css;
-      },
-    }),
-
-    eslint({
-      /* config */
-    }),
-
-    // Handlebars/mustache processing
+    cleanOutputFoldersPlugin(),
+    rawLoaderPlugin(),
     handlebarsPlugin(),
+    sassPlugin(),
+    // eslint({}), //todo
 
-    //An inline plugin to remove all files from /dist folder.
-    //Runs in the onStart phase of the build.
-    {
-      name: "Clean Dist",
-      setup: (build) => {
-        build.onStart(() => {
-          const { outdir, outfile } = build.initialOptions;
-
-          //Delete all items in the outdir
-          if (outdir && fs.existsSync(outdir)) {
-            fs.rmSync(outdir, { recursive: true });
-          }
-          //Delete the outfile if it exists
-          if (outfile && fs.existsSync(outfile)) {
-            fs.rmSync(outfile);
-          }
-        });
-      },
-    },
-
-    //An inline plugin to compile our example templates, and replace the mustache placeholders their respective component.
-    //templatesPlugin({}),
-
-    // 1. Copy various files from /src to /dist as part of workflow.
-    // 2. Copy files from /dist to /docs as part of workflow.
+    // https://www.npmjs.com/package/esbuild-plugin-copy
+    // Copy sepcific assets into /dist folder for frontend use and exporting to /docs
     copy({
-      // this is equal to process.cwd(), which means we use cwd path as base path to resolve `to` path
-      // if not specified, this plugin uses ESBuild.build outdir/outfile options as base path.
       resolveFrom: "cwd",
       verbose: false,
       assets: [
-        {
-          from: ["./src/templates/compiled/*.html"],
-          to: ["./dist/"],
-        },
+        { from: ["./src/templates/compiled/*.html"], to: ["./dist/"] },
         {
           from: ["./src/components/bs5/**/*.mustache"],
           to: ["./dist/components/bs5/"],
         },
-        {
-          from: ["./src/assets/img/*"],
-          to: ["./dist/assets/img"],
-        },
-        {
-          from: ["./dist/**/*"],
-          to: ["./docs/"],
-        },
+        { from: ["./src/assets/img/*"], to: ["./dist/assets/img"] },
+        { from: ["./dist/**/*"], to: ["./docs/"] },
       ],
-      watch: true,
+      watch: false,
     }),
+
+    //Plugins printing status to the console
+    {
+      name: "build-logging",
+      setup(build) {
+        build.onStart(() => {
+          //Start a timer on console
+          console.time(timerName);
+        });
+        build.onEnd((result) => {
+          //Logging to console
+          log("magenta", "CSS created:");
+          log("magenta", `./dist/assets/css/qld.bootstrap.css`);
+          console.log(`\n`);
+
+          //JS
+          log("blue", "JS created:");
+          log("blue", "./dist/assets/js/bootstrap.min.js");
+          log("blue", `./dist/assets/js/main.js`);
+          console.log(`\n`);
+
+          //Components
+          const newMustacheFiles = listFiles("./dist/components/bs5");
+          log("green", "COMPONENT partials (mustache) created:");
+          log("green", newMustacheFiles.join("\n"));
+          console.log(`\n`);
+
+          //HTML templates
+          log("cyan", "HTML templates created:");
+          log("cyan", "Preview templates compiled to: dist/index.html");
+          console.log(`\n`);
+
+          //Complete
+          let watchMsg = argv.watch
+            ? `✓ Build process completed. Watching for changes...`
+            : `✓ Build process completed.`;
+
+          log("yellow", watchMsg);
+          console.log(`\n\n`);
+
+          //Timer end on console
+          console.timeEnd(timerName);
+          console.log(`\n`);
+        });
+      },
+    },
   ],
 };
 
-(async () => {
-  //await esbuild.build(buildConfig);
-  // Summary of build:
-  // src/main.scss => dist/assets/css/qld.bootstrap.css
-  // src/main.js => dist/assets/js/main.js
-  // node_modules/..../bootstrap.js => dist/assets/js/bootstrap.min.js
-  // src/components/bs5/name/{name}/{name}.mustache => /dist/components/bs5/{name}/{name}.mustache
-  // Frontend example templates:
-  // src/templates/index.html => dist/index.html
-  // src/templates/content.html => dist/content.html
-  // src/templates/reference.html => dist/reference.html
-})();
-
-//WATCH for code changes
-
-async function BuildAndWatch() {
+async function StartBuild() {
   let ctx = await esbuild.context(buildConfig);
-  await ctx.watch();
 
-  log("green", `Build summary:\n`);
-
-  log(
-    "blue",
-    `
-    ✓ Removed previous build from /dist folder`,
-  );
-
-  log(
-    "green",
-    `
-    \u2713 Compiled dist/assets/css/qld.bootstrap.css
-    \u2713 Compiled dist/assets/js/bootstrap.min.js
-    \u2713 Compiled dist/assets/js/main.js
-    \u2713 Copied component mustache templates to /dist/components/bs5.html
-    \u2713 Compiled preview templates to dist/index.html`,
-  );
-
-  log("yellow", `   \u2713 Build complete\n\n`);
-
-  log("cyan", `   Watching for changes...\n`);
+  if (argv.watch === true) {
+    // "npm run watch" or "node build.js --watch"
+    await ctx.watch();
+  } else {
+    // "npm run build" or "node build.js"
+    await ctx.rebuild();
+    await ctx.dispose();
+  }
 }
 
 //Initate the project build...
-BuildAndWatch();
+StartBuild();

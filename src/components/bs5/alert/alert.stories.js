@@ -4,36 +4,35 @@
  * @module Alert.stories
  */
 
-
 import { Alert } from "./Alert.js";
 import exampleData from "./alert.data.json";
 
 /**
- * The Alert component is also known as Page Alert.  
+ * The Alert component is also known as Page Alert.
  */
 
 export default {
   /**
-     * Automatically create documentation (overview) page.
-     *
-     * @type {string[]}
-     */
+   * Automatically create documentation (overview) page.
+   *
+   * @type {string[]}
+   */
   tags: ["autodocs"],
 
   /**
-     * Name of the story.
-     *
-     * @type {string}
-     */
+   * Name of the story.
+   *
+   * @type {string}
+   */
   title: "Components/Alert",
-    
+
   /**
-     * Function that renders the HTML snippet for the story.
-     *
-     * @type {Function}
-     * @param {Object} args - Arguments for rendering the story, including data for the mustache template placeholders.
-     * @returns {string} - The rendered HTML snippet.
-     */
+   * Function that renders the HTML snippet for the story.
+   *
+   * @type {Function}
+   * @param {Object} args - Arguments for rendering the story, including data for the mustache template placeholders.
+   * @returns {string} - The rendered HTML snippet.
+   */
   render: (args) => {
     return new Alert({ ...exampleData.success, ...args }).html;
   },
@@ -66,14 +65,14 @@ export default {
   },
 
   /**
-     * Additional parameters for the story.
-     *
-     * @type {Object}
-     * @property {Object} design - Configuration for the design parameter.
-     * @property {string} design.name - Name of the design parameter.
-     * @property {string} design.type - Type of the design parameter.
-     * @property {string} design.url - URL of the design parameter.
-     */
+   * Additional parameters for the story.
+   *
+   * @type {Object}
+   * @property {Object} design - Configuration for the design parameter.
+   * @property {string} design.name - Name of the design parameter.
+   * @property {string} design.type - Type of the design parameter.
+   * @property {string} design.url - URL of the design parameter.
+   */
   parameters: {
     design: {
       name: "QGDS Figma Reference",
@@ -83,20 +82,18 @@ export default {
   },
 };
 
-
 /**
  * Use class <code>.alert-success</code>.
  */
 
 export const Success = {
-  name: "Success",
   args: {
     //Mustache {{ placeholder }} replacements
     heading: "Your order has been completed",
-    content: "Your order number is A-1234567890. A receipt has been sent to your email address.",
+    content:
+      "Your order number is A-1234567890. A receipt has been sent to your email address.",
   },
 };
-
 
 /**
  * Use class <code>.alert-info</code>.
@@ -113,7 +110,13 @@ export const Info = {
 
 export const Warning = {
   // This example does not specify any arguments, so the default values from the exampleData object will be used.
-  args: { ...exampleData.warning, ...{ heading: "I am a warning", content: "My data is merged with the Alert.warning example data object "} },
+  args: {
+    ...exampleData.warning,
+    ...{
+      heading: "I am a warning",
+      content: "My data is merged with the Alert.warning example data object ",
+    },
+  },
 };
 
 /**
@@ -123,4 +126,3 @@ export const Warning = {
 export const Danger = {
   args: exampleData.danger,
 };
-
