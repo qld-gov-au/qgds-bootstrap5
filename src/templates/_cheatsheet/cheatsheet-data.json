@@ -1,0 +1,25 @@
+{
+	"heading": "Components",
+	"links": [
+		{ "href": "#accordion", "label": "Accordion" },
+		{ "href": "#alert", "label": "Alert" },
+		{ "href": "#banner", "label": "Banner" },
+		{ "href": "#blockquote", "label": "Blockquote" },
+		{ "href": "#breadcrumbs", "label": "Breadcrumbs" },
+		{ "href": "#button", "label": "Button" },
+		{ "href": "#callout", "label": "Callout" },
+		{ "href": "#card", "label": "Card" },
+		{ "href": "#checkbox", "label": "Checkbox" },
+		{ "href": "#correctincorrect", "label": "Correctincorrect" },
+		{ "href": "#forms", "label": "Forms" },
+		{ "href": "#icons", "label": "Icons" },
+		{ "href": "#inpagenav", "label": "Inpagenav" },
+		{ "href": "#navbar", "label": "Navbar" },
+		{ "href": "#pagination", "label": "Pagination" },
+		{ "href": "#radio", "label": "Radio" },
+		{ "href": "#sidenav", "label": "Sidenav" },
+		{ "href": "#table", "label": "Table" },
+		{ "href": "#typography", "label": "Typography" }
+	]
+}
+

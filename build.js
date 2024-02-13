@@ -1,90 +1,140 @@
-// PROJECT ESBUILD CONFIGURATION and BUILD FILE
-import * as esbuild from 'esbuild';
-import * as path from 'path';
+// ESBUILD PROJECT DEPENDENCIES
+import * as esbuild from "esbuild";
+import log from "./src/js/logger.js";
+import listFiles from "./src/js/listfiles.js";
 
-//Required libraries
-import {sassPlugin} from 'esbuild-sass-plugin';
+//Local build plugins
+import rawLoaderPlugin from "./src/js/plugins/raw-loader-plugin.js";
+import cleanOutputFoldersPlugin from "./src/js/plugins/clean-output-folders.js";
+
+//Open source ESBUILD PLUGINS
+import { sassPlugin } from "esbuild-sass-plugin";
+import { copy } from "esbuild-plugin-copy";
 import handlebarsPlugin from "esbuild-plugin-handlebars";
-import postcss from 'postcss';
-import autoprefixer from 'autoprefixer';
-import { copy } from 'esbuild-plugin-copy';
+import eslint from "esbuild-plugin-eslint";
 
-// Configuration
-// https://esbuild.github.io/getting-started/#build-scripts
+//Command line arguments are available in argv object
+import minimist from "minimist";
 
+const argv = minimist(process.argv.slice(2));
+const timerName = `Build time`;
+
+// Configuration https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
-	outdir: './dist/',
-	external: ['fs', 'path', "../img/*"],
-	entryPoints: [
-		{ out: './assets/js/bootstrap.min', in: './node_modules/bootstrap/dist/js/bootstrap.js' },
-		{ out: './assets/js/main', in: './src/main.js' },
-		{ out: './assets/css/qld.bootstrap', in: './src/main.scss' },
-  	],
-  	bundle: true,
-  	minify: false,
-	loader: {
-		'.html' : 'text',
-		'.js': 'jsx',
-		'.jpg': 'file',
-	},
-	target: ['es6'],
-  	plugins: [
-		//Pass the following plugins to ESBuild to help with compiling
-		// SASS processing, includes POSTCSS
-		sassPlugin({
-			type: 'css',
-			async transform(source) {
-				const { css } = await postcss([autoprefixer]).process(source, { 
-					from: 'src/main.scss', 
-					to: 'dist/assets/css/qld.bootstrap.css', 
-					map: true
-				});
-				return css;
-			},
-		}),
-		// Handlebars processing
-		handlebarsPlugin(),
+  outdir: "./dist/",
+  external: ["fs", "path", "../img/*"],
+  entryPoints: [
+    {
+      in: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+      out: "./assets/js/bootstrap.min",
+    },
+    {
+      in: "./src/main.js",
+      out: "./assets/js/main",
+    },
+    {
+      in: "./src/main.scss",
+      out: "./assets/css/qld.bootstrap",
+    },
+  ],
+  bundle: true,
+  minify: false,
+  sourcemap: true,
+  loader: {
+    ".html": "text",
+    ".mustache": "text",
+    ".js": "jsx",
+    ".jpg": "file",
+    ".png": "file",
+  },
 
-		// 1. Copy various files from /src to /dist as part of workflow.
-		// 2. Copy files from /dist to /docs as part of workflow. 
-		copy({
-			// this is equal to process.cwd(), which means we use cwd path as base path to resolve `to` path
-			// if not specified, this plugin uses ESBuild.build outdir/outfile options as base path.
-			resolveFrom: 'cwd',
-			assets: [
-				{
-			  		from: ['./src/templates/*.html'],
-			  		to: ['./dist/'],
-				},
-				{
-					from: ['./src/components/**/*.dxp.html'],
-					to: ['./dist/components/dxp/'],
-			  	},
-				{
-					from: ['./src/components/**/*.bs5.html'],
-					to: ['./dist/components/bs5/'],
-			  	},
-				{
-					from: ['./src/components/**/*.hbs.html'],
-					to: ['./dist/components/dxp/'],
-			  	},
-				{
-					from: ['./src/img/*'],
-					to: ['./dist/assets/img'],
-				},
-				{
-					from: ['./dist/**/*'],
-					to: ['./docs/'],
-				}
-			],
-			watch: true,
-		}),
-  	]
+  target: ["es6"],
+  logLevel: "info",
+
+  plugins: [
+    cleanOutputFoldersPlugin(),
+    rawLoaderPlugin(),
+    handlebarsPlugin(),
+    sassPlugin(),
+    // eslint({}), //todo
+
+    // https://www.npmjs.com/package/esbuild-plugin-copy
+    // Copy sepcific assets into /dist folder for frontend use and exporting to /docs
+    copy({
+      resolveFrom: "cwd",
+      verbose: false,
+      assets: [
+        { from: ["./src/templates/compiled/*.html"], to: ["./dist/"] },
+        {
+          from: ["./src/components/bs5/**/*.mustache"],
+          to: ["./dist/components/bs5/"],
+        },
+        { from: ["./src/assets/img/*"], to: ["./dist/assets/img"] },
+        { from: ["./dist/**/*"], to: ["./docs/"] },
+      ],
+      watch: false,
+    }),
+
+    //Plugins printing status to the console
+    {
+      name: "build-logging",
+      setup(build) {
+        build.onStart(() => {
+          //Start a timer on console
+          console.time(timerName);
+        });
+        build.onEnd((result) => {
+          //Logging to console
+          log("magenta", "CSS created:");
+          log("magenta", `./dist/assets/css/qld.bootstrap.css`);
+          console.log(`\n`);
+
+          //JS
+          log("blue", "JS created:");
+          log("blue", "./dist/assets/js/bootstrap.min.js");
+          log("blue", `./dist/assets/js/main.js`);
+          console.log(`\n`);
+
+          //Components
+          const newMustacheFiles = listFiles("./dist/components/bs5");
+          log("green", "COMPONENT partials (mustache) created:");
+          log("green", newMustacheFiles.join("\n"));
+          console.log(`\n`);
+
+          //HTML templates
+          log("cyan", "HTML templates created:");
+          log("cyan", "Preview templates compiled to: dist/index.html");
+          console.log(`\n`);
+
+          //Complete
+          let watchMsg = argv.watch
+            ? `✓ Build process completed. Watching for changes...`
+            : `✓ Build process completed.`;
+
+          log("yellow", watchMsg);
+          console.log(`\n\n`);
+
+          //Timer end on console
+          console.timeEnd(timerName);
+          console.log(`\n`);
+        });
+      },
+    },
+  ],
 };
 
-// Call esbuild's build() function with our configuration
-// This is the default project build function, it runs when we call "node build.js", or "npm run build" 
-(async () => {
-	await esbuild.build(buildConfig);
-	console.log('⚡ Build successful ⚡');
-})();
+async function StartBuild() {
+  let ctx = await esbuild.context(buildConfig);
+
+  if (argv.watch === true) {
+    // "npm run watch" or "node build.js --watch"
+    await ctx.watch();
+  } else {
+    // "npm run build" or "node build.js"
+    await ctx.rebuild();
+    await ctx.dispose();
+  }
+}
+
+//Initate the project build...
+StartBuild();

@@ -3,14 +3,14 @@
 // ~fontawesome is an alias for node_modules/fontawesome/ as defined in vite.config.js
 
 // Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
- 
+
 // External fonts
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&Noto+Sans:wght@400;600&display=swap');
 $font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 //Icons
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css");
-//@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 
 //Prefix to namespace design-system classes
@@ -107,25 +107,25 @@ $enable-dark-mode: true;
 
 
 // 8. QLD Design System components (bootsrap overrides and custom)
-// @import "./components/accordion";
-// @import "./components/alerts";
-// @import "./components/banner";
-// @import "./components/blockquote";
-// @import "./components/breadcrumbs";
-// @import "./components/buttons";
-// @import "./components/callout";
-// @import "./components/cards";
-// @import "./components/cards";
-// @import "./components/carousel";
-// @import "./components/forms";
-// @import "./components/header-search";
-// @import "./components/icons";
-// @import "./components/inpage-nav";
-// @import "./components/nav"; //includes side nav
-// @import "./components/navbar";
-// @import "./components/tables";
-// @import "./components/pagination";
-// @import "./components/typography";
+// @import "./components/bs5/accordion";
+// @import "./components/bs5/alerts";
+// @import "./components/bs5/banner";
+// @import "./components/bs5/blockquote";
+// @import "./components/bs5/breadcrumbs";
+// @import "./components/bs5/buttons";
+// @import "./components/bs5/callout";
+// @import "./components/bs5/cards";
+// @import "./components/bs5/cards";
+// @import "./components/bs5/carousel";
+// @import "./components/bs5/forms";
+// @import "./components/bs5/header-search";
+// @import "./components/bs5/icons";
+// @import "./components/bs5/inpage-nav";
+// @import "./components/bs5/nav"; //includes side nav
+// @import "./components/bs5/navbar";
+// @import "./components/bs5/tables";
+// @import "./components/bs5/pagination";
+// @import "./components/bs5/typography";
 
 //@import "./themes/qld-theme";
 
@@ -138,34 +138,34 @@ $enable-dark-mode: true;
 //... as needed.  Please maintain naming consistency
 
 
-@import "./components/accordion/accordion.scss";
-@import "./components/alert/alert.scss";
-@import "./components/banner/banner.scss";
-@import "./components/blockquote/blockquote.scss";
-@import "./components/breadcrumbs/breadcrumbs.scss";
-@import "./components/button/button.scss";
-@import "./components/callout/callout.scss";
-@import "./components/card/card.scss";
-@import "./components/correctincorrect/correctincorrect.scss";
-//@import "./components/carousel/carousel.scss";
-@import "./components/forms/forms.scss";
-// @import "./components/header/header.scss";
-// @import "./components/header-search/header-search.scss";
-@import "./components/icons/icons.scss";
-@import "./components/inpagenav/inpagenav.scss";
-@import "./components/nav/nav.scss"; //includes side-nav.scss
-@import "./components/navbar/navbar.scss";
-@import "./components/table/table.scss";
-@import "./components/pagination/pagination.scss";
-@import "./components/typography/typography.scss";
+@import "./components/bs5/accordion/accordion.scss";
+@import "./components/bs5/alert/alert.scss";
+@import "./components/bs5/banner/banner.scss";
+@import "./components/bs5/blockquote/blockquote.scss";
+@import "./components/bs5/breadcrumbs/breadcrumbs.scss";
+@import "./components/bs5/button/button.scss";
+@import "./components/bs5/callout/callout.scss";
+@import "./components/bs5/card/card.scss";
+@import "./components/bs5/correctincorrect/correctincorrect.scss";
+//@import "./components/bs5/carousel/carousel.scss";
+@import "./components/bs5/forms/forms.scss";
+// @import "./components/bs5/header/header.scss";
+// @import "./components/bs5/header-search/header-search.scss";
+@import "./components/bs5/icons/icons.scss";
+@import "./components/bs5/inpagenav/inpagenav.scss";
+@import "./components/bs5/sidenav/sidenav.scss"; //includes side-nav.scss
+@import "./components/bs5/navbar/navbar.scss";
+@import "./components/bs5/table/table.scss";
+@import "./components/bs5/pagination/pagination.scss";
+@import "./components/bs5/typography/typography.scss";
 
 // Example (for demo)
-@import "./components/_example/example.scss";
+// @import "./components/bs5/_example/example.scss";
 
 // Common Layout Blocks
-@import "./layout/footer/footer.scss";
-@import "./layout/header/header.scss";
-@import "./layout/content/content.scss";
+@import "./components/common/footer/footer.scss";
+@import "./components/common/header/header.scss";
+@import "./components/common/layout/content.scss";
 
 // Themes
 @import "./scss/qld-theme.scss";

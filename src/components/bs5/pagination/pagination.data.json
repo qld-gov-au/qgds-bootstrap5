@@ -1,0 +1,27 @@
+{
+    "arialabel" : "Pagination for search results",
+	"prev": {
+        "href": "#",
+        "linktext": "",
+        "arialabel": "Previous page",
+        "classes": ""
+    },
+    "next": {
+        "href": "#",
+        "linktext": "",
+        "arialabel": "Next page",
+        "classes": ""
+    },
+	"pages": [
+        { "href": "#", "linktext": "1" },
+        { "href": "#", "linktext": "2" },
+        { "href": "#", "linktext": "3" },
+        { "href": "#", "linktext": "4" },
+        { "href": "#", "linktext": "5", "classes": "active" },
+        { "href": "#", "linktext": "", "classes": "more" },
+        { "href": "#", "linktext": "7" },
+        { "href": "#", "linktext": "8" },
+        { "href": "#", "linktext": "9" },
+        { "href": "#", "linktext": "10" }
+    ]
+}

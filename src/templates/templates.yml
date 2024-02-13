@@ -1,0 +1,33 @@
+# FILEPATH: templates.yaml and  
+
+# This YAML file defines the configuration for different templates used in the project.
+# Each template has a title, theme, layout, content, and outfile.
+# The 'home' template is used for the home page, while the 'cheatsheet' template is used for a cheatsheet page.
+# The 'layout' property specifies the path to the layout file for each template.
+# The 'content' property specifies the path to the content file for each template.
+# The 'content' property can contain a YAML list if your template needs to nested multiple content areas.
+
+# The 'outfile' property specifies the output file name for each template.  The project build script will use this property to generate the output file in the /dist folder. 
+
+# This file is used by QGDS-template.js as a reference for generating the templates.
+
+home:
+  title: Home
+  theme: default
+  layout: ../src/templates/page/index.html
+  content: ../src/templates/content/main.html
+  outfile: index.html
+
+cheatsheet:
+  title: Cheatsheet
+  theme: default
+  layout: ../src/templates/page/index.html
+  content: ../src/templates/content/reference-sheet-body.html
+  outfile: cheatsheet.html
+
+cmpreference:
+  title: Component reference
+  theme: default
+  layout: ../src/templates/page/index.html
+  content: ../src/templates/content/component-example.html
+  outfile: component-example.html
