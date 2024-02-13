@@ -21,7 +21,7 @@
     "bootstrap": "^5.3.1",
     "esbuild-plugin-eslint": "^0.3.7",
     "esbuild-sass-plugin": "^2.15.0",
-    "live-server": "^1.1.0",
+    "live-server": "^1.2.2",
     "material-symbols": "^0.14.7",
     "minimist": "^1.2.8",
     "mustache": "^4.2.0"
