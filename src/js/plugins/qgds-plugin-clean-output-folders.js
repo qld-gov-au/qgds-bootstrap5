@@ -1,9 +1,9 @@
 import fs from "fs";
-import log from "../logger.js";
+import log from "../helpers/logger.js";
 
-export default function cleanOutputFoldersPlugin() {
+export default function cleanFoldersPlugin() {
   return {
-    name: "CleanOutputFolders",
+    name: "qgds-clean-output-folders",
     setup(build) {
       build.onStart(() => {
         //Console feedback

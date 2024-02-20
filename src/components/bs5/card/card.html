@@ -1,9 +1,9 @@
 <!-- QGDS Partial: card -->
 
 <div class="card h-100">
-    
+
     <img src="{{image}}" class="card-img-top" alt="{{alt}}" />
-    
+
     <div class="card-body">
         <h3 class="card-title">
             {{#link}}<a href="{{link}}">{{title}}</a>{{/link}}
@@ -16,7 +16,9 @@
     </div>
 
     {{#footer}}
-    <div class="card-footer">{{footer}}</div>
+    <div class="card-footer">
+        {{footer}}
+    </div>
     {{/footer}}
 
 </div>
