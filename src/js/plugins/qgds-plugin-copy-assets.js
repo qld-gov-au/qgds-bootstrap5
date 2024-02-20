@@ -10,7 +10,7 @@ export default function copyPlugin() {
     assets: [
       { from: ["./src/templates/compiled/*.html"], to: ["./dist/"] },
       {
-        from: ["./src/components/bs5/**/*.mustache"],
+        from: ["./src/components/bs5/**/*.hbs"],
         to: ["./dist/components/bs5/"],
       },
       { from: ["./src/assets/img/*"], to: ["./dist/assets/img"] },
