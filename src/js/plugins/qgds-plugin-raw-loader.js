@@ -1,10 +1,10 @@
 // rawLoaderPlugin.js
 import fs from "fs";
-import log from "../logger.js";
+import log from "../helpers/logger.js";
 
 export default function rawLoaderPlugin(showlog = false) {
   return {
-    name: "raw-loader",
+    name: "qgds-raw-loader",
     setup(build) {
       build.onLoad({ filter: /\.(html|mustache)$/ }, async (args) => {
         const contents = await fs.promises.readFile(args.path, "utf8");
