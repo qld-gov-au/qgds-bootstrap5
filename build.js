@@ -1,6 +1,5 @@
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
-import log from "./src/js/helpers/logger.js";
 
 //Local ESBUILD PLUGINS
 import QGDSrawLoader from "./src/js/plugins/qgds-plugin-raw-loader.js";
@@ -45,7 +44,7 @@ const buildConfig = {
 
   loader: {
     ".html": "text",
-    ".mustache": "text",
+    ".hbs": "text",
     ".js": "jsx",
     ".jpg": "file",
     ".png": "file",
