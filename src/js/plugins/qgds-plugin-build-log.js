@@ -1,4 +1,3 @@
-import path from "path";
 import log from "../helpers/logger.js";
 import listFiles from "../helpers/listfiles.js";
 
@@ -27,11 +26,11 @@ export default function buildlog() {
         //List new components
         const root = process.cwd();
         const relativePath = "/dist/components/bs5/";
-        const newMustacheFiles = listFiles(root + relativePath);
+        const newTemplateFiles = listFiles(root + relativePath);
         
-        newMustacheFiles.forEach((file) => {
+        newTemplateFiles.forEach((file) => {
           let newfile = file.replace(root, "");
-          log("cyan", `Mustache:\t.${newfile}`);
+          log("cyan", `Template:\t.${newfile}`);
         });
 
       });

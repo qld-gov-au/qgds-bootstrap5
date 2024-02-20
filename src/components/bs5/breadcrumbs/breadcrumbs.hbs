@@ -1,14 +1,12 @@
-<!-- QGDS Component: Breadcrumbs -->
-
 <div class="row">
     <div class="col-12">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                {{#breadcrumbs}}
+                {{#each breadcrumbs}}
                 <li class="breadcrumb-item {{linkclass}}">
                     <a href="{{link}}">{{linktext}}</a>
                 </li>
-                {{/breadcrumbs}}
+                {{/each}}
             </ol>
         </nav>
     </div>

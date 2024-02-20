@@ -6,8 +6,11 @@
 
     <div class="card-body">
         <h3 class="card-title">
-            {{#link}}<a href="{{link}}">{{title}}</a>{{/link}}
-            {{^link}}{{title}}{{/link}}
+            {{#if link }}
+            <a href="{{link}}">{{title}}</a>
+            {{/else }}
+            {{ title }}
+            {{/if }}
         </h3>
 
         <p class="card-text">
@@ -15,10 +18,10 @@
         </p>
     </div>
 
-    {{#footer}}
+    {{#if footer}}
     <div class="card-footer">
         {{footer}}
     </div>
-    {{/footer}}
+    {{/if }}
 
 </div>

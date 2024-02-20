@@ -6,7 +6,7 @@ const listFiles = (dir, filelist = []) => {
     const dirFile = path.join(dir, file.name);
     if (file.isDirectory()) {
       filelist = listFiles(dirFile, filelist);
-    } else if (file.name.endsWith(".mustache")) {
+    } else if (file.name.endsWith(".hbs")) {
       filelist.push(dirFile);
     }
   });

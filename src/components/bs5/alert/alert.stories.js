@@ -30,7 +30,7 @@ export default {
    * Function that renders the HTML snippet for the story.
    *
    * @type {Function}
-   * @param {Object} args - Arguments for rendering the story, including data for the mustache template placeholders.
+   * @param {Object} args - Arguments for rendering the story, including data for the Handlebars template placeholders.
    * @returns {string} - The rendered HTML snippet.
    */
   render: (args) => {
@@ -88,7 +88,7 @@ export default {
 
 export const Success = {
   args: {
-    //Mustache {{ placeholder }} replacements
+    //Handlebars {{ placeholder }} replacements
     heading: "Your order has been completed",
     content:
       "Your order number is A-1234567890. A receipt has been sent to your email address.",
