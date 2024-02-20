@@ -31,15 +31,15 @@ const buildConfig = {
   entryPoints: [
     {
       in: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-      out: "./assets/js/bootstrap.min.js",
+      out: "./assets/js/bootstrap.min",
     },
     {
       in: "./src/main.js",
-      out: "./assets/js/main.js",
+      out: "./assets/js/main",
     },
     {
       in: "./src/main.scss",
-      out: "./assets/css/qld.bootstrap.css",
+      out: "./assets/css/qld.bootstrap",
     },
   ],
 

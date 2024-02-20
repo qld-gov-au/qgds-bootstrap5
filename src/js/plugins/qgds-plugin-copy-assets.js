@@ -15,6 +15,7 @@ export default function copyPlugin() {
       },
       { from: ["./src/assets/img/*"], to: ["./dist/assets/img"] },
       { from: ["./dist/**/*"], to: ["./docs/"] },
+      { from: ["./storybook-static/**/*"], to: ["./docs/storybook-static/"] },
     ],
   });
 
