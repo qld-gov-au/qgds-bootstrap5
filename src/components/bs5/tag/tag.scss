@@ -18,9 +18,6 @@
     font-size: 0.875rem;
     line-height: 1.5rem;
     text-align: center;
-    //background-color: green;
-    //@extend .badge;
-    //@extend .rounded-pill;
 }
 
 .tag-large {
@@ -28,4 +25,22 @@
     font-size: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 32px;
+}
+
+.tag-link {
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+            color: white;
+        }
+    }
+
+    &:hover,
+    &:active {
+        background-color: $qld-sapphire-blue;
+    }
 }
