@@ -4,17 +4,17 @@
 			{
 				"id": "One",
 				"content": "Babies",
-				"classes" : ""
+				"classes": ""
 			},
 			{
 				"id": "Two",
 				"content": "Maternity",
-				"classes" : ""
+				"classes": ""
 			},
 			{
 				"id": "Three",
 				"content": "General public",
-				"classes" : ""
+				"classes": ""
 			}
 		]
 	},
@@ -23,17 +23,17 @@
 			{
 				"id": "One",
 				"content": "Babies",
-				"classes" : "tag-large"
+				"classes": "tag-large"
 			},
 			{
 				"id": "Two",
 				"content": "Maternity",
-				"classes" : "tag-large"
+				"classes": "tag-large"
 			},
 			{
 				"id": "Three",
 				"content": "General public",
-				"classes" : "tag-large"
+				"classes": "tag-large"
 			}
 		]
 	},
@@ -42,19 +42,18 @@
 			{
 				"id": "One",
 				"content": "<a href='javascript:void(0)'>Babies</a>",
-				"classes" : "tag-link"
+				"classes": "tag-link"
 			},
 			{
 				"id": "Two",
 				"content": "<a href='javascript:void(0)'>Maternity</a>",
-				"classes" : "tag-link"
+				"classes": "tag-link"
 			},
 			{
 				"id": "Three",
 				"content": "<a href='javascript:void(0)'>General public</a>",
-				"classes" : "tag-link"
+				"classes": "tag-link"
 			}
 		]
 	}
 }
-
