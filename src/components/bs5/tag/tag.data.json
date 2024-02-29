@@ -1,0 +1,60 @@
+{
+	"default": {
+		"tagItems": [
+			{
+				"id": "One",
+				"content": "Babies",
+				"classes" : ""
+			},
+			{
+				"id": "Two",
+				"content": "Maternity",
+				"classes" : ""
+			},
+			{
+				"id": "Three",
+				"content": "General public",
+				"classes" : ""
+			}
+		]
+	},
+	"large": {
+		"tagItems": [
+			{
+				"id": "One",
+				"content": "Babies",
+				"classes" : "tag-large"
+			},
+			{
+				"id": "Two",
+				"content": "Maternity",
+				"classes" : "tag-large"
+			},
+			{
+				"id": "Three",
+				"content": "General public",
+				"classes" : "tag-large"
+			}
+		]
+	},
+	"action": {
+		"tagItems": [
+			{
+				"id": "One",
+				"content": "<a href='javascript:void(0)'>Babies</a>",
+				"classes" : "tag-link"
+			},
+			{
+				"id": "Two",
+				"content": "<a href='javascript:void(0)'>Maternity</a>",
+				"classes" : "tag-link"
+			},
+			{
+				"id": "Three",
+				"content": "<a href='javascript:void(0)'>General public</a>",
+				"classes" : "tag-link"
+			}
+		]
+	}
+}
+

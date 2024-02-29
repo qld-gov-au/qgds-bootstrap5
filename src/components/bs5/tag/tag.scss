@@ -1,0 +1,81 @@
+//VARIABLES
+blockquote, 
+.blockquote {
+    --#{$prefix}blockquote-padding: 0.25rem 1.5rem;
+    --#{$prefix}blockquote-bg-color: #{$body-bg};
+    --#{$prefix}blockquote-border-color: #{$qld-syntax-values};
+    --#{$prefix}blockquote-border-width: 0.25rem;
+    --#{$prefix}blockquote-title-color: #03213F;
+    --#{$prefix}blockquote-text-color: #414141;
+}
+
+//VARIABLES - DARK MODE
+@include color-mode(dark) {
+    blockquote,
+    .blockquote {
+        --#{$prefix}blockquote-bg-color: #{$qld-dark-grey};
+        --#{$prefix}blockquote-border-color: #{$qld-syntax-values};
+        --#{$prefix}blockquote-title-color: #fff;
+        --#{$prefix}blockquote-text-color: #fff;
+    }
+}
+
+//COMPONENT
+blockquote,
+.blockquote {
+    background-color: var(--#{$prefix}blockquote-bg-color);
+    border-left: solid var(--#{$prefix}blockquote-border-width) var(--#{$prefix}blockquote-border-color);
+    padding: var(--#{$prefix}blockquote-padding);
+
+    &-title {
+        font-weight: 600;
+        margin-bottom: 0;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: var(--#{$prefix}blockquote-title-color);
+    }
+
+    &-text {
+        padding-top: 0.75rem;
+        margin-bottom: 0;
+        line-height: 1.5rem;
+        color: var(--#{$prefix}blockquote-text-color);
+    }
+}
+
+//qld__tag
+//qld__tag--large 
+//qld__tag--link
+//qld__tag-list
+
+.tag-list {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    list-style-type: none;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
+
+.tag-item {
+    margin: 0.5rem 0.5rem 0 0;
+    list-style-type: none;
+    display: inline-block;
+    border-radius: 16px;
+    padding: 0 0.5rem;
+    color: $qld-dark-grey-muted;
+    border: 1px solid $qld-light-grey;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    text-align: center;
+    //background-color: green;
+    //@extend .badge;
+    //@extend .rounded-pill;
+}
+
+.tag-large {
+    line-height: 1.5;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 32px;
+}
