@@ -2,14 +2,13 @@
 
 // Default
 .callout {
-    --#{$prefix}callout-padding: 1.25rem;
+    --#{$prefix}callout-padding: 1.5rem 1rem 1.5rem 1.5rem;
     --#{$prefix}callout-bg-color: #{$qld-extra-light-grey};
     --#{$prefix}callout-border-color: #{$qld-brand-secondary};
     --#{$prefix}callout-border-width: 0.25rem;
-    --#{$prefix}callout-title-color: #03213f;
-    --#{$prefix}callout-text-color: #414141;
-    --#{$prefix}callout-margin-bottom: 1rem;
-
+    --#{$prefix}callout-title-color: #{$qld-text-headings};
+    --#{$prefix}callout-text-color: #{$qld-text-grey};
+    --#{$prefix}callout-spacer: 1.25rem;
 }
 
 //Dark theme
@@ -25,29 +24,26 @@
     background-color: var(--#{$prefix}callout-bg-color);
     border-left: solid var(--#{$prefix}callout-border-width) var(--#{$prefix}callout-border-color);
     padding: var(--#{$prefix}callout-padding);
-    margin-bottom: var(--#{$prefix}callout-margin-bottom);
-    
+
     &-title {
-        font-weight: 600;
         margin-bottom: 0;
-        font-size: 1.5rem;
-        line-height: 2rem;
-        color: var(--#{$prefix}callout-title-color);
     }
 
     &-text {
 
-        padding-top: 1rem;
-        margin-bottom: 0;
-        
+        color: var(--#{$prefix}callout-text-color);
+
         p, ul, ol {
-            line-height: 1.5;
-            color: var(--#{$prefix}callout-text-color);    
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
 
-        p:last-of-type {
-            margin-bottom: 0;
-        }
 
+    }
+
+    &-title + &-text {
+        // Add space above text only if there is a title
+        margin-top: var(--#{$prefix}callout-spacer);
     }
 }
