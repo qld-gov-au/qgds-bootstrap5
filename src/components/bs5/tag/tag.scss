@@ -6,7 +6,6 @@
     flex-wrap: wrap;
     margin: 0.5rem 0;
     padding: 30px;
-    //color: $qld-dark-grey-muted;
     &.tag-default {
         .tag-item {
             border-color: $qld-light-grey;
@@ -46,27 +45,24 @@
     font-size: 0.875rem;
     line-height: 1.5rem;
     text-align: center;
-}
-
-.tag-large {
-    line-height: 1.5;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 32px;
-}
-
-.tag-link {
-    a {
-        text-decoration: none;
+    &.tag-large {
+        line-height: 1.5;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 32px;
+    }
+    &.tag-link {
+        a {
+            text-decoration: none;
+        }
         &:hover,
         &:active,
         &:focus {
-            text-decoration: underline;
-            color: white;
+            background-color: $qld-sapphire-blue;
+            a {
+                color: white;
+                text-decoration: underline;
+            }
         }
-    }
-    &:hover,
-    &:active {
-        background-color: $qld-sapphire-blue;
     }
 }
