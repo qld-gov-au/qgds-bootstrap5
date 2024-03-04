@@ -5,16 +5,44 @@
     list-style-type: none;
     flex-wrap: wrap;
     margin: 0.5rem 0;
+    padding: 30px;
+    //color: $qld-dark-grey-muted;
+    &.tag-default {
+        .tag-item {
+            border-color: $qld-light-grey;
+            color: $qld-dark-grey-muted;
+        }
+    }
+    &.tag-dark {
+        background-color: $qld-sapphire-blue;
+        .tag-item {
+            color: $qld-dark-text;
+        }
+    }
+    &.tag-alt {
+        background-color: $qld-light-grey-alt;
+        .tag-item {
+            color: $qld-dark-grey-muted;
+            border-color: $qld-soft-grey;
+        }
+    }
+    &.tag-dark-alt {
+        background-color: $qld-dark-blue;
+        .tag-item {
+            color: $qld-dark-text;
+            border-color: $qld-dark-border;
+        }
+    }
 }
 
 .tag-item {
-    margin: 0.5rem 0.5rem 0 0;
+    margin: 0 0.5rem 0 0;
     list-style-type: none;
     display: inline-block;
     border-radius: 16px;
     padding: 0 0.5rem;
-    color: $qld-dark-grey-muted;
-    border: 1px solid $qld-light-grey;
+    border-width: 1px;
+    border-style: solid;
     font-size: 0.875rem;
     line-height: 1.5rem;
     text-align: center;
@@ -30,7 +58,6 @@
 .tag-link {
     a {
         text-decoration: none;
-
         &:hover,
         &:active,
         &:focus {
@@ -38,7 +65,6 @@
             color: white;
         }
     }
-
     &:hover,
     &:active {
         background-color: $qld-sapphire-blue;

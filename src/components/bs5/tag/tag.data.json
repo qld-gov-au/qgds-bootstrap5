@@ -1,24 +1,23 @@
 {
 	"default": {
+		"varient": "tag-default",
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies",
-				"classes": ""
+				"content": "Babies"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity",
-				"classes": ""
+				"content": "Maternity"
 			},
 			{
 				"id": "Three",
-				"content": "General public",
-				"classes": ""
+				"content": "General public"
 			}
 		]
 	},
 	"large": {
+		"varient": "",
 		"tagItems": [
 			{
 				"id": "One",
@@ -38,6 +37,7 @@
 		]
 	},
 	"action": {
+		"varient": "",
 		"tagItems": [
 			{
 				"id": "One",
@@ -53,6 +53,24 @@
 				"id": "Three",
 				"content": "<a href='javascript:void(0)'>General public</a>",
 				"classes": "tag-link"
+			}
+		]
+	},
+	"dark": {
+		"classes": "",
+		"varient": "tag-dark",
+		"tagItems": [
+			{
+				"id": "One",
+				"content": "Babies"
+			},
+			{
+				"id": "Two",
+				"content": "Maternity"
+			},
+			{
+				"id": "Three",
+				"content": "General public"
 			}
 		]
 	}
