@@ -1,11 +1,11 @@
-// DEV Notes: 
+// DEV Notes:
 // ~bootstrap is an alias for node_modules/bootstrap/ as defined in vite.config.js
 // ~fontawesome is an alias for node_modules/fontawesome/ as defined in vite.config.js
 
 // Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
 
 // External fonts
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&Noto+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600&display=swap');
 $font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 //Icons
@@ -64,7 +64,7 @@ $enable-dark-mode: true;
 @import "~bootstrap/scss/utilities";
 
 
-// 3.2 Recommended, Resets and shared 
+// 3.2 Recommended, Resets and shared
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
@@ -72,7 +72,7 @@ $enable-dark-mode: true;
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/helpers";
 
-// 3.3 Optional components 
+// 3.3 Optional components
 @import "~bootstrap/scss/accordion";
 @import "~bootstrap/scss/alert";
 @import "~bootstrap/scss/badge";
