@@ -15,7 +15,7 @@ $headings-font-weight:        600;
 $headings-line-height:        2;
 $headings-color:              $qld-text-headings;
 
-$link-color:                    $qld-brand-primary;
+$link-color:                  $qld-brand-primary;
 
 
 //Links
@@ -25,7 +25,7 @@ $link-color:                    $qld-brand-primary;
     --qld-link-underline-thickness-hover: 2px;
     --qld-headings-color: $headings-color;
     --qld-body-color: $body-color;
-    --qld-link-font-weight: 600;
+    --qld-link-font-weight: 400;
 }
 
 :root[data-bs-theme=dark] {
@@ -35,7 +35,7 @@ $link-color:                    $qld-brand-primary;
     --qld-headings-color: #FFF;
     --qld-body-color: #FFF;
     --qld-body-bg: var(--qld-brand-primary);
-    
+
     --qld-link-color: #FFF;
     --qld-link-color-rgb: 255, 255, 255;
 
@@ -56,7 +56,7 @@ a.nav-link {
     text-decoration: underline;
     text-underline-offset: var(--qld-link-underline-offset);
     text-decoration-thickness: var(--qld-link-underline-thickness);
-    
+
     &:hover {
         text-decoration-thickness: var(--qld-link-underline-thickness-hover);
     }
@@ -68,7 +68,7 @@ a.nostyle {
     text-decoration: unset;
     text-underline-offset: unset;
     text-decoration-thickness: unset;
-    
+
     &:hover {
         text-decoration-thickness: unset;
     }
