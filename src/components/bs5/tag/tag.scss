@@ -52,6 +52,8 @@
         border-radius: 32px;
     }
     &.tag-link {
+        color: $qld-sapphire-blue;
+        border-color: $qld-sapphire-blue;
         a {
             text-decoration: none;
         }
