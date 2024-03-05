@@ -9,6 +9,20 @@
     --#{$prefix}callout-title-color: #{$qld-text-headings};
     --#{$prefix}callout-text-color: #{$qld-text-grey};
     --#{$prefix}callout-spacer: 1.25rem;
+
+    .qld-alternative & {
+        --#{$prefix}callout-bg-color: #{$qld-grey};
+    }
+
+    .qld-dark & {
+        --#{$prefix}callout-bg-color: #{$qld-dark-background};
+        --#{$prefix}callout-title-color: #{$qld-dark-text};
+        --#{$prefix}callout-text-color: #{$qld-dark-text};
+    }
+
+    .qld-dark.qld-alternative & {
+        --#{$prefix}callout-bg-color: #{$qld-dark-blue-shade};
+    }
 }
 
 //Dark theme
@@ -26,11 +40,11 @@
     padding: var(--#{$prefix}callout-padding);
 
     &-title {
+        color: var(--#{$prefix}callout-title-color);
         margin-bottom: 0;
     }
 
     &-text {
-
         color: var(--#{$prefix}callout-text-color);
 
         p, ul, ol {
@@ -38,8 +52,6 @@
                 margin-bottom: 0;
             }
         }
-
-
     }
 
     &-title + &-text {
