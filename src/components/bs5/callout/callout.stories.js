@@ -49,3 +49,51 @@ export const Default = {
 export const NoTitle = {
   args: defaultdata.noTitle,
 };
+
+/**
+ * Alternative Callout
+ */
+export const Alternative = {
+  args: defaultdata.default,
+  decorators: [
+    (Story) => {
+      return `
+      <div class="qld-alternative">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
+ * Dark Callout
+ */
+export const Dark = {
+  args: defaultdata.default,
+  decorators: [
+    (Story) => {
+      return `
+      <div class="qld-dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
+ * Dark alternative Callout
+ */
+export const DarkAlternative = {
+  args: defaultdata.default,
+  decorators: [
+    (Story) => {
+      return `
+      <div class="qld-dark qld-alternative">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
