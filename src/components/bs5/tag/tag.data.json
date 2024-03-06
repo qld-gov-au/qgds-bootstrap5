@@ -73,5 +73,40 @@
 				"content": "General public"
 			}
 		]
+	},
+	"info": {
+		"varient": "",
+		"tagItems": [
+			{
+				"id": "One",
+				"content": "Babies",
+				"classes": "tag-info"
+			},
+			{
+				"id": "Two",
+				"content": "Maternity",
+				"classes": "tag-info"
+			},
+			{
+				"id": "Three",
+				"content": "General public",
+				"classes": "tag-info"
+			}
+		]
+	},
+	"filter": {
+		"varient": "",
+		"tagItems": [
+			{
+				"id": "One",
+				"content": "Policies and procedures<button class='close-icon'><span class='visually-hidden'>Policies and procedures</span></button>",
+				"classes": "tag-large"
+			},
+			{
+				"id": "Two",
+				"content": "Publications<button class='close-icon'><span class='visually-hidden'>Publications</span></button>",
+				"classes": "tag-large"
+			}
+		]
 	}
 }
