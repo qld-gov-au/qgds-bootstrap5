@@ -1,0 +1,43 @@
+{
+	"critical": {
+		"alertItems": [
+			{
+				"varient": "global-alert-critical",
+				"content": "<strong>Testing:</strong> This website is currently undergoing testing"
+			}
+		]
+	},
+	"warning": {
+		"alertItems": [
+			{
+				"varient": "global-alert-warning",
+				"content": "<strong>Testing:</strong> This website is currently undergoing testing"
+			}
+		]
+	},
+	"info": {
+		"alertItems": [
+			{
+				"varient": "global-alert-info",
+				"content": "<strong>Testing:</strong> This website is currently undergoing testing"
+			}
+		]
+	},
+	"multiple": {
+		"varient": "global-alert-multiple",
+		"alertItems": [
+			{
+				"varient": "global-alert-info",
+				"content": "<strong>Testing:</strong> This website is currently undergoing testing"
+			},
+			{
+				"varient": "global-alert-warning",
+				"content": "<strong>Testing:</strong> This website is currently undergoing testing"
+			},
+			{
+				"varient": "global-alert-critical",
+				"content": "<strong>Testing:</strong> This website is currently undergoing testing"
+			}
+		]
+	}
+}
