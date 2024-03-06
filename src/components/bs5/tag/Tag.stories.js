@@ -42,3 +42,13 @@ export const Action = {
 export const Dark = {
   args: defaultdata.dark,
 };
+
+// Info Tag story
+export const Information = {
+  args: defaultdata.info,
+};
+
+// Filter Tag story
+export const Filter = {
+  args: defaultdata.filter,
+};
