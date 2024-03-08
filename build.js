@@ -20,7 +20,7 @@ const argv = minimist(process.argv.slice(2));
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
   bundle: true,
-  minify: true,
+  minify: false,
   sourcemap: true,
   target: ["es6"],
   logLevel: "info",
@@ -49,7 +49,7 @@ const buildConfig = {
     ".jpg": "file",
     ".png": "file",
   },
-  
+
   plugins: [
     QDGScopy(),
     QDGSbuildLog(),
@@ -74,7 +74,7 @@ async function StartBuild() {
     await ctx.dispose();
   }
 
-  
+
 }
 
 //Initate the project build...
