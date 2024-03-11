@@ -3,7 +3,7 @@
 		{
 			"title": "An article title",
 			"description": "This is a wider card with supporting text below as a natural lead-in to additional content.",
-			"image": "assets/img/ds-example-image-1.jpg",
+			"image": "src/assets/img/ds-example-image-1.jpg",
 			"alt": "A photo of cliffs by the ocean with trees in the foreground",
 			"link": "https://web.dev",
 			"footer": false
