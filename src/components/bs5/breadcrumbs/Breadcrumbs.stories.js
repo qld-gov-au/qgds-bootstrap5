@@ -5,6 +5,7 @@ import defaultdata from './breadcrumbs.data.json';
 export default {
   tags: ['autodocs'],
   title: 'Components/Breadcrumbs',
+  args: defaultdata.default,
   render: (args) => new Breadcrumbs(args).html,
 
   argTypes: {
@@ -14,7 +15,6 @@ export default {
       description: `Pass a JSON object containing an array of links to the component.`,
     },
   },
-
 
   /**
    * Additional parameters for the story.
@@ -37,13 +37,34 @@ export default {
 /**
  * Default Breadcrumbs story
  * */
-export const Default = {
-  args: defaultdata.default,
+export const Default = { };
+
+/**
+ * Dark Breadcrumbs story
+ * */
+export const Dark = {
+  parameters: {
+    backgrounds: {
+      default: 'Dark',
+      values: [
+        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 /**
- * Default Breadcrumbs story
+ * Deep page Breadcrumbs example
  * */
-export const forGov = {
+export const DeepPage = {
   args: defaultdata.forGov,
 };
