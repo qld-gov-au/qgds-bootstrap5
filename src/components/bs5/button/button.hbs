@@ -1,11 +1,19 @@
 <!-- // QGDS Component: Button -->
 <!-- // https://getbootstrap.com/docs/5.3/components/buttons -->
 
+{{#unless isButton}}
+<button class="btn {{classes}}" onclick="{{{onclick}}}" disabled>
+    {{label}}
+</button>
+{{/unless }}
+
 {{#if isButton}}
 <button class="btn {{classes}}" onclick="{{{onclick}}}">
     {{label}}
 </button>
 {{/if }}
+
+
 
 {{#if islink}}
 <a class="btn {{classes}}" href="{{href}}" target="{{target}}">

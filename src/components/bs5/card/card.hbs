@@ -1,6 +1,6 @@
 <!-- QGDS Partial: card -->
 
-<div class="card h-100">
+<div class="card h-100 {{#if feature}} card-feature {{/if}} {{classes}} {{sizes}}">
 
     <img src="{{image}}" class="card-img-top" alt="{{alt}}" />
 
@@ -14,15 +14,19 @@
             {{/if }}
         </h3>
 
-        <p class="card-text">
-            {{description}}
-        </p>
+                <p class="card-text">
+                    {{description}}
+                </p>
+            </div>
+
+            {{#if footer}}
+            <div class="card-footer">{{footer}}</div>
+            {{/if}}
+        </div>
     </div>
 
-    {{#if footer}}
-    <div class="card-footer">
-        {{footer}}
-    </div>
-    {{/if }}
+    {{!-- Feature --}}
+    {{/if}}
+
 
 </div>

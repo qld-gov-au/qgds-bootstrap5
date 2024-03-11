@@ -4,19 +4,25 @@
 // CSS Scoped Variables
 // --#{$prefix}{component}-{property}
 
+// overriding built-in bootstrap variables. already used in bootstrap design
 .btn {
     --#{$prefix}btn-padding-x: 1rem;
     --#{$prefix}btn-padding-y: 0.75rem;
     --#{$prefix}btn-font-family: #{$font-family-sans-serif};
     --#{$prefix}btn-border-width: 3px;
+    --#{$prefix}btn-active-border-color: #{$qld-extra-light-grey};
     --#{$prefix}btn-border-radius: 0.25rem;
-    --#{$prefix}btn-box-shadow: 0 4px 8px 3px rgba(0,0,0, 0.1);
+//    --#{$prefix}btn-box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
     --#{$prefix}btn-disabled-opacity: 0.5;
     --#{$prefix}btn-focus-box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.2);
+    // --#{$prefix}btn-text-decoration: none;
     
     &-primary {
+    --#{$prefix}btn-bg: #{$qld-sapphire-blue};
     --#{$prefix}btn-hover-bg: #003E7D;
+    --#{$prefix}btn-focus-bg: rgb(125, 0, 46);
     --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
+    --#{$prefix}btn-active-color: #{$qld-text-headings};
     --#{$prefix}btn-disabled-bg: #E8E8E8;
     --#{$prefix}btn-disabled-color: #636363;
     --#{$prefix}btn-disabled-opacity: 1;
@@ -24,32 +30,34 @@
     }
     &-secondary,
     &-outline-secondary {
-    --#{$prefix}btn-border-color: #008635;
-    --#{$prefix}btn-hover-color: #{$primary};
+    --#{$prefix}btn-color: #{$qld-sapphire-blue};
+    --#{$prefix}btn-border-color: #{$qld-dark-green};
+    --#{$prefix}btn-hover-color: #{$qld-light-blue};
     --#{$prefix}btn-hover-bg: #FFF;
-    --#{$prefix}btn-hover-border-color: #005B23;
-    --#{$prefix}btn-active-color: #03213F;
+    --#{$prefix}btn-hover-border-color: #{$qld-darker-green};
+    --#{$prefix}btn-active-color: #{$qld-text-headings};
     --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
     --#{$prefix}btn-active-border-color: #{$qld-extra-light-grey} ;
     --#{$prefix}btn-active-shadow: none;
     --#{$prefix}btn-disabled-bg: transparent;
-    --#{$prefix}btn-disabled-color: #636363;
+    --#{$prefix}btn-disabled-color: #{qld-btn-disabled-color};
     --#{$prefix}btn-disabled-opacity: 1;
     --#{$prefix}btn-disabled-border-color:#E8E8E8;
+    --#{$prefix}btn-outline: #{$qld-light-blue} solid 3px;
     --#{$prefix}gradient: none;
     }
 
     &-tertiary {
-    --#{$prefix}btn-border-color: transparent;
+    --#{$prefix}btn-color: #{$primary};
+    --#{$prefix}btn-border-color: transparent; //have to change to white
     --#{$prefix}btn-hover-color: #{$primary};
     --#{$prefix}btn-hover-bg: #{$qld-extra-light-grey};
     --#{$prefix}btn-hover-border-color: transparent;
     --#{$prefix}btn-active-color: #03213F;
     --#{$prefix}btn-active-bg: transparent;
-    --#{$prefix}btn-active-border-color: transparent;
     --#{$prefix}btn-active-shadow: none;
     --#{$prefix}btn-disabled-bg: transparent;
-    --#{$prefix}btn-disabled-color: #636363;
+    --#{$prefix}btn-disabled-color: #{$qld-dark-grey-muted};
     --#{$prefix}btn-disabled-opacity: 1;
     --#{$prefix}btn-disabled-border-color: transparent;
     --#{$prefix}gradient: none;
@@ -59,14 +67,16 @@
 [data-theme="dark"] {
     .btn {
         //...
+        &:hover {
+            
+        }
     }
+
 }
 
-
+// writing actual css rules, when bootstrap variables don't meet criteria
 .btn {
-
     white-space: nowrap;
-
     span[class^=icon-],
     span[class^=fa-] {
         margin-right: 0.5rem;
@@ -77,6 +87,54 @@
         text-decoration: underline;
         text-underline-offset: 3px;
     }
+    &:focus {   
+        outline: #{$qld-light-blue} solid 3px;
+        outline-offset: 2px;
+        text-underline-offset: 3px;
+      }
+  
+    &-primary {
+        box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+        box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
+        }
+        &:active {
+            box-shadow: 0px 1px 2px rgba(0,0,0,.2),0px 1px 3px 1px rgba(0,0,0,.1);
+        }
+        &:focus {
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        }
+        &:disabled {
+            box-shadow: none;
+        }
+    }
+
+    &-secondary,
+    &-outline-secondary {
+        &:focus {
+            text-decoration: underline;
+        }
+        &:active {
+            text-decoration: none;
+        }
+    }
+    
+    // offset underline to match og button
+    &-tertiary:not(:active, :disabled) {
+        text-decoration: underline;
+    }
+    
+
+    
+    // box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
+    &-tertiary:hover, &-outline-secondary:hover {
+        box-shadow: none;
+    }
+    &-tertiary:focus {
+
+    }
+    
+
 
 }
-

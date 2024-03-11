@@ -7,25 +7,27 @@ export default {
   title: 'Components/Button',
   render: (args) => new Button(args).html,
 
-  //https://storybook.js.org/docs/api/arg-types
+  //https://storybook.js.org/docs/api/arg-types 
   argTypes: {
     classes: {
       name: "Classes",
-      description: `Settable classes for the component`,
+      description: `Settable classes for the compo nent`,
       control: {
         type: "radio",
         labels: {
           "btn-primary": "Primary",
           "btn-secondary": "Secondary",
-          "btn-outline-primary": "Primary outline",
+          // "btn-outline-primary": "Primary outline",
           "btn-outline-secondary": "Secondary outline",
+          "btn-tertiary": "Tertiary",
         },
       },
       options: [
         "btn-primary",
         "btn-secondary",
-        "btn-outline-primary",
+        // "btn-outline-primary",
         "btn-outline-secondary",
+        "btn-tertiary",
       ],
     },
   },

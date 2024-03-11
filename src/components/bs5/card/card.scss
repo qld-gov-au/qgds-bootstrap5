@@ -33,6 +33,9 @@
     --#{$prefix}card-footer-border: #{$qld-light-grey};
     --#{$prefix}card-border-radius: 0.75rem;
 
+    &:hover {
+        box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
+    }
         //Variants
     &.card-alternative {
         --#{$prefix}card-title-color: #{$headings-color};
@@ -178,8 +181,24 @@
 
 @include media-breakpoint-down(md) { //bootstrap mixin that writes rules into media breakpoint. in this case writes rules into 'md' i.e 992px breakpoint etc
     .card {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        &:hover {
+            box-shadow: none;
+        }
         .card-title {
             font-size: 1.25rem;
         }
     }
+}
+
+@include media-breakpoint-down(sm) {
+    .card {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        &:hover {
+            box-shadow: none;
+        }
+        .card-title {
+            font-size: 1.25rem;
+        }
+    }   
 }
