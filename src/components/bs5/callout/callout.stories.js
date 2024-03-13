@@ -51,14 +51,46 @@ export const NoTitle = {
 };
 
 /**
+ * Light colour Callout
+ */
+export const Light = {
+  args: defaultdata.default,
+  parameters: {
+    backgrounds: {
+      default: 'Light',
+      values: [
+        { name: 'Light', value: 'var(--qld-light-background)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="light">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
  * Alternative Callout
  */
 export const Alternative = {
   args: defaultdata.default,
+  parameters: {
+    backgrounds: {
+      default: 'Alternative',
+      values: [
+        { name: 'Alternative', value: 'var(--qld-light-grey-alt)' },
+      ],
+    },
+  },
   decorators: [
     (Story) => {
       return `
-      <div class="qld-alternative">
+      <div class="alt">
           ${Story()}
       </div>
       `;
@@ -71,10 +103,18 @@ export const Alternative = {
  */
 export const Dark = {
   args: defaultdata.default,
+  parameters: {
+    backgrounds: {
+      default: 'Dark',
+      values: [
+        { name: 'Dark', value: 'var(--qld-brand-primary)' },
+      ],
+    },
+  },
   decorators: [
     (Story) => {
       return `
-      <div class="qld-dark">
+      <div class="dark">
           ${Story()}
       </div>
       `;
@@ -87,10 +127,18 @@ export const Dark = {
  */
 export const DarkAlternative = {
   args: defaultdata.default,
+  parameters: {
+    backgrounds: {
+      default: 'Dark alternative',
+      values: [
+        { name: 'Dark alternative', value: 'var(--qld-dark-blue)' },
+      ],
+    },
+  },
   decorators: [
     (Story) => {
       return `
-      <div class="qld-dark qld-alternative">
+      <div class="dark-alt">
           ${Story()}
       </div>
       `;
