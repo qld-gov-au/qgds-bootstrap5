@@ -21,6 +21,8 @@ $qld-red-border: #8A1220;
 $qld-blue-border: #5C94C0;
 $qld-yellow-border: #B38800;
 $qld-dark-blue-shade : #052C53;
+$qld-light-background: #EFF4F9;
+$qld-light-background-shade: #E5EEF5;
 
 //Hypothetical
 $cobrand-blue : #132D4E;
@@ -96,6 +98,7 @@ $project-colors: (
   "brand-primary-dark": $qld-brand-primary-dark,
   "brand-primary": $qld-brand-primary,
   "brand-primary-light": $qld-brand-primary-light,
+  "brand-secondary": $qld-brand-secondary,
   "brand-secondary-dark": $qld-brand-secondary-dark,
   "brand-secondary-light": $qld-brand-secondary,
   "brand-accent": $qld-brand-accent,
@@ -142,7 +145,9 @@ $project-colors: (
   "dark-background": $qld-dark-background,
   "dark-text": $qld-dark-text,
   "dark-border": $qld-dark-border,
-  "dark-blue-shade": $qld-dark-blue-shade
+  "dark-blue-shade": $qld-dark-blue-shade,
+  "light-background": $qld-light-background,
+  "light-background-shade": $qld-light-background-shade
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);
