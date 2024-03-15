@@ -49,7 +49,7 @@ const buildConfig = {
     ".jpg": "file",
     ".png": "file",
   },
-  
+
   plugins: [
     QDGScopy(),
     QDGSbuildLog(),
@@ -74,7 +74,7 @@ async function StartBuild() {
     await ctx.dispose();
   }
 
-  
+
 }
 
 //Initate the project build...

@@ -1,19 +1,46 @@
 {
-	"breadcrumbs": [
-		{
-			"linkclass": "",
-			"link": "#",
-			"linktext": "Home"
-		},
-		{
-			"linkclass": "",
-			"link": "#",
-			"linktext": "Topic"
-		},
-		{
-			"linkclass": "active",
-			"link": "#",
-			"linktext": "Current page"
-		}
-	]
+	"default": {
+		"breadcrumbs": [
+			{
+				"link": "#",
+				"linktext": "Home"
+			},
+			{
+				"link": "#",
+				"linktext": "Topic"
+			},
+			{
+				"link": "#",
+				"linktext": "Current page"
+			}
+		]
+	},
+	"forGov": {
+		"breadcrumbs": [
+			{
+				"link": "#",
+				"linktext": "For government"
+			},
+			{
+				"link": "#",
+				"linktext": "Information and communication technology"
+			},
+			{
+				"link": "#",
+				"linktext": "Communication and publishing"
+			},
+			{
+				"link": "#",
+				"linktext": "Website and digital publishing"
+			},
+			{
+				"link": "#",
+				"linktext": "Website standards, guidelines and templates"
+			},
+			{
+				"link": "#",
+				"linktext": "Single Website Experience"
+			}
+		]
+	}
 }
