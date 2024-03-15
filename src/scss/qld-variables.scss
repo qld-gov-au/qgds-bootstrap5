@@ -1,7 +1,7 @@
 // GLOBALlLY SCOPED VARIABLES
 // These variables are avaiable to the full project and all components. (This file is included at the top of main.scss to ensure this)
 
-// These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss, 
+// These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss,
 
 //QLD Names Colours
 $qld-dark-blue : #05325F;
@@ -20,6 +20,9 @@ $qld-general-info-alert: #e5eef5;
 $qld-red-border: #8A1220;
 $qld-blue-border: #5C94C0;
 $qld-yellow-border: #B38800;
+$qld-dark-blue-shade : #052C53;
+$qld-light-background: #EFF4F9;
+$qld-light-background-shade: #E5EEF5;
 
 //Hypothetical
 $cobrand-blue : #132D4E;
@@ -31,7 +34,7 @@ $cobrand-orange : #FD855D;
 
 
 //QGOV Brand Mapping - QLD.GOV.AU
-$qld-brand-primary-dark : #121212; //$qld-dark-blue; 
+$qld-brand-primary-dark : #121212; //$qld-dark-blue;
 $qld-brand-primary : $qld-sapphire-blue;
 $qld-brand-primary-light : $qld-light-blue;
 $qld-brand-secondary-dark : $qld-dark-green;
@@ -39,8 +42,8 @@ $qld-brand-secondary : $qld-light-green;
 $qld-brand-accent : $qld-golden-yellow;
 
 
-// Uncoment to switch primary palette 
-// $qld-brand-primary-dark   : $cobrand-grey; 
+// Uncoment to switch primary palette
+// $qld-brand-primary-dark   : $cobrand-grey;
 // $qld-brand-primary        : $cobrand-maroon;
 // $qld-brand-primary-light  : $cobrand-blue;
 // $qld-brand-secondary-dark : $cobrand-orange;
@@ -87,7 +90,7 @@ $danger : $qld-notify-warning;
 $light : $qld-extra-light-grey;
 $dark : $qld-dark-grey;
 
-// The Bootstrap map-merge will create custom CSS variables against the ::root node. 
+// The Bootstrap map-merge will create custom CSS variables against the ::root node.
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
 // The PREFIX is defined at the top of main.SCSS file (ie CSS entry point)
 
@@ -95,6 +98,7 @@ $project-colors: (
   "brand-primary-dark": $qld-brand-primary-dark,
   "brand-primary": $qld-brand-primary,
   "brand-primary-light": $qld-brand-primary-light,
+  "brand-secondary": $qld-brand-secondary,
   "brand-secondary-dark": $qld-brand-secondary-dark,
   "brand-secondary-light": $qld-brand-secondary,
   "brand-accent": $qld-brand-accent,
@@ -137,7 +141,13 @@ $project-colors: (
   "warning": $qld-notify-alert,
   "danger": $qld-notify-warning,
   "light": $qld-extra-light-grey,
-  "dark": $qld-dark-grey
+  "dark": $qld-dark-grey,
+  "dark-background": $qld-dark-background,
+  "dark-text": $qld-dark-text,
+  "dark-border": $qld-dark-border,
+  "dark-blue-shade": $qld-dark-blue-shade,
+  "light-background": $qld-light-background,
+  "light-background-shade": $qld-light-background-shade
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);
