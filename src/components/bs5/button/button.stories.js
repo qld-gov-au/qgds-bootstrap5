@@ -5,20 +5,30 @@ import defaultdata from './button.data.json';
 export default {
   tags: ['autodocs'],
   title: 'Components/Button',
-  render: (args) => new Button(args).html,
+  render: (args) => {
+    return `
+    ${new Button(args).html}
+    ${new Button({...args, isdisabled: true}).html}
+    `//expand arguments, specifically turn isdisabled into true
+  },
 
   //https://storybook.js.org/docs/api/arg-types 
   argTypes: {
-    classes: {
-      name: "Classes",
-      description: `Settable classes for the compo nent`,
+    isdisabled: {
+      table: {
+        disable: true,
+      },
+    },
+    variantClass: {
+      name: "Variants",
+      description: `Settable variant for the component`,
       control: {
         type: "radio",
         labels: {
           "btn-primary": "Primary",
           "btn-secondary": "Secondary",
           // "btn-outline-primary": "Primary outline",
-          "btn-outline-secondary": "Secondary outline",
+          //"btn-outline-secondary": "Secondary outline",
           "btn-tertiary": "Tertiary",
         },
       },
@@ -26,8 +36,9 @@ export default {
         "btn-primary",
         "btn-secondary",
         // "btn-outline-primary",
-        "btn-outline-secondary",
+        //"btn-outline-secondary",
         "btn-tertiary",
+        //"dark btn-primary",
       ],
     },
   },
@@ -40,7 +51,8 @@ export default {
     },
     docs: {
       controls: {
-        //exclude: ["headers", "rows", "footer"],
+        //exclude: ["isdisabled"], // hide isdisabled controls
+        
       },
     },
   },
@@ -51,4 +63,29 @@ export default {
 // Default blockquote story
 export const Default = {
   args: defaultdata,
+};
+
+/**
+ * Dark Breadcrumbs story
+ * */
+export const Dark = {
+  
+  args: defaultdata,
+  parameters: {
+    backgrounds: {
+      default: 'Dark',
+      values: [
+        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };

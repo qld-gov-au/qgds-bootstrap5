@@ -18,11 +18,10 @@
     // --#{$prefix}btn-text-decoration: none;
     
     &-primary {
-    --#{$prefix}btn-bg: #{$qld-sapphire-blue};
+    --#{$prefix}btn-bg: var(--#{$prefix}sapphire-blue);
     --#{$prefix}btn-hover-bg: #003E7D;
-    --#{$prefix}btn-focus-bg: rgb(125, 0, 46);
-    --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
-    --#{$prefix}btn-active-color: #{$qld-text-headings};
+    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
+    --#{$prefix}btn-active-color: var(--#{$prefix}text-dark-blue);
     --#{$prefix}btn-disabled-bg: #E8E8E8;
     --#{$prefix}btn-disabled-color: #636363;
     --#{$prefix}btn-disabled-opacity: 1;
@@ -30,17 +29,18 @@
     }
     &-secondary,
     &-outline-secondary {
-    --#{$prefix}btn-color: #{$qld-sapphire-blue};
-    --#{$prefix}btn-border-color: #{$qld-dark-green};
-    --#{$prefix}btn-hover-color: #{$qld-light-blue};
+    --#{$prefix}btn-bg: transparent;
+    --#{$prefix}btn-color: var(--#{$prefix}sapphire-blue);
+    --#{$prefix}btn-border-color: var(--#{$prefix}dark-green);
+    --#{$prefix}btn-hover-color: var(--#{$prefix}light-blue);
     --#{$prefix}btn-hover-bg: #FFF;
-    --#{$prefix}btn-hover-border-color: #{$qld-darker-green};
-    --#{$prefix}btn-active-color: #{$qld-text-headings};
+    --#{$prefix}btn-hover-border-color: #005B23; //not sure why this isnt working????
+    --#{$prefix}btn-active-color: #{$qld-text-dark-blue};
     --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
     --#{$prefix}btn-active-border-color: #{$qld-extra-light-grey} ;
     --#{$prefix}btn-active-shadow: none;
     --#{$prefix}btn-disabled-bg: transparent;
-    --#{$prefix}btn-disabled-color: #{qld-btn-disabled-color};
+    --#{$prefix}btn-disabled-color: #{$qld-dark-grey-muted};
     --#{$prefix}btn-disabled-opacity: 1;
     --#{$prefix}btn-disabled-border-color:#E8E8E8;
     --#{$prefix}btn-outline: #{$qld-light-blue} solid 3px;
@@ -62,16 +62,50 @@
     --#{$prefix}btn-disabled-border-color: transparent;
     --#{$prefix}gradient: none;
     }
-}
 
-[data-theme="dark"] {
-    .btn {
-        //...
-        &:hover {
-            
+    .dark & { // .dark .btn {...}
+    &-primary {
+        --#{$prefix}btn-bg: #{$qld-dark-green-dark};
+        --#{$prefix}btn-border-color: #{$qld-dark-green-dark};
+        --#{$prefix}btn-color: #{$qld-text-darkest};
+        --#{$prefix}btn-hover-color: #{$qld-text-darkest};
+        --#{$prefix}btn-hover-bg: #{$qld-light-green-dark};
+        --#{$prefix}btn-hover-border-color: #{$qld-light-green-dark};
+        --#{$prefix}btn-active-color: #{$qld-text-dark-blue};
+        --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
+        --#{$prefix}btn-disabled-bg: #{$qld-grey-transparent};
+        --#{$prefix}btn-disabled-color: #{$qld-text-light-blue-dark};
+        --#{$prefix}btn-disabled-border-color: transparent;
         }
+    
+    &-secondary {
+        --#{$prefix}btn-border-color: #{$qld-golden-yellow};
+        --#{$prefix}btn-color: #{$qld-white};
+        --#{$prefix}btn-hover-border-color: #{$qld-light-yellow};
+        --#{$prefix}btn-hover-bg: transparent;
+        --#{$prefix}btn-hover-color: #{$qld-white};
+        --#{$prefix}btn-active-bg: #{$qld-extra-light-grey};
+        --#{$prefix}btn-active-color: #{$qld-text-dark-blue};
+        --#{$prefix}btn-disabled-bg: transparent;
+        --#{$prefix}btn-disabled-color: #{$qld-text-light-blue-dark};
+        --#{$prefix}btn-disabled-border-color: #{$qld-grey-transparent};
     }
-
+    &-tertiary {
+        --#{$prefix}btn-color: #{$qld-white};
+        // --#{$prefix}btn-hover-border-color: #{$qld-light-yellow};
+        --#{$prefix}btn-bg: transparent;
+        --#{$prefix}btn-hover-color: #{$qld-white};
+        --#{$prefix}btn-hover-bg: #{$qld-dark-background};
+        --#{$prefix}btn-active-bg: transparent;
+        --#{$prefix}btn-active-border-color: transparent;
+        --#{$prefix}btn-active-color: #{$qld-white};
+        --#{$prefix}btn-focus-bg: #{$qld-dark-background};
+         
+        --#{$prefix}btn-disabled-bg: transparent;
+        --#{$prefix}btn-disabled-color: #{$qld-text-light-blue-dark};
+        --#{$prefix}btn-disabled-border-color: transparent;
+    }
+    }
 }
 
 // writing actual css rules, when bootstrap variables don't meet criteria
@@ -87,12 +121,16 @@
         text-decoration: underline;
         text-underline-offset: 3px;
     }
-    &:focus {   
+    &:active {
+        text-decoration: none;
+    }
+    &:focus {
         outline: #{$qld-light-blue} solid 3px;
+        text-decoration: underline;
         outline-offset: 2px;
         text-underline-offset: 3px;
       }
-  
+      
     &-primary {
         box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
 
@@ -105,13 +143,22 @@
         &:focus {
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
         }
-        &:disabled {
+        &:disabled,
+        &.disabled {
             box-shadow: none;
         }
     }
 
     &-secondary,
     &-outline-secondary {
+        .btn-icon {
+            color: var(--#{$prefix}btn-border-color);
+            margin-right: 0.5em;
+        }
+        &:hover .btn-icon { // when the <a> tag is hovered, button icon inside it takes this color value
+            color: var(--#{$prefix}btn-hover-border-color);
+        }
+    
         &:focus {
             text-decoration: underline;
         }
@@ -121,20 +168,40 @@
     }
     
     // offset underline to match og button
-    &-tertiary:not(:active, :disabled) {
-        text-decoration: underline;
-    }
+    // &-tertiary:not(:active, :disabled) {
+    //     text-decoration: underline;
+    // }
     
 
-    
+    &-tertiary {
+        text-decoration: underline;
+        &:disabled,
+        &.disabled {
+            text-decoration: none;
+        }
+    }
     // box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
     &-tertiary:hover, &-outline-secondary:hover {
         box-shadow: none;
     }
-    &-tertiary:focus {
-
+    &-tertiary:active {
+        text-decoration: none;
     }
     
+    .dark & { 
+        &-secondary,
+        &-outline-secondary {
+            .btn-icon {
+                color: #{$qld-golden-yellow};
+            }
+        }
+        &:focus {
+            outline: #{$qld-light-blue-dark} solid 3px;
+            outline-offset: 2px;
+            text-underline-offset: 3px;
+          }
+    }
 
 
 }
+
