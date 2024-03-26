@@ -31,6 +31,8 @@ $link-color:                  $qld-brand-primary;
     --qld-link-color: $link-color;
 }
 
+.dark,
+.dark-alt,
 :root[data-bs-theme=dark] {
     --qld-headings-color: #FFF;
     --qld-body-color: #FFF;
