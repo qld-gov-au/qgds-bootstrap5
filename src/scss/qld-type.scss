@@ -21,19 +21,17 @@ $link-color:                  $qld-brand-primary;
 
 //Links
 :root {
-    --qld-link-underline-offset: 3px;
+    --qld-link-underline-offset: 0.3rem;
     --qld-link-underline-thickness: 0.5px;
     --qld-link-underline-thickness-hover: 2px;
     --qld-headings-color: $headings-color;
     --qld-body-color: $body-color;
     --qld-body-font-weight: $body-font-weight;
     --qld-link-font-weight: 400;
+    --qld-link-color: $link-color;
 }
 
 :root[data-bs-theme=dark] {
-    --qld-link-underline-offset: 3px;
-    --qld-link-underline-thickness: 0.5px;
-    --qld-link-underline-thickness-hover: 2px;
     --qld-headings-color: #FFF;
     --qld-body-color: #FFF;
     --qld-body-bg: var(--qld-brand-primary);
@@ -41,8 +39,8 @@ $link-color:                  $qld-brand-primary;
     --qld-link-color: #FFF;
     --qld-link-color-rgb: 255, 255, 255;
 
-    --qld-link-hover-color: var(--qld-brand-accent);
-    --qld-link-hover-color-rgb: 255, 229, 0;
+    --qld-link-hover-color: #FFF;
+    --qld-link-hover-color-rgb: 255, 255, 255;
 
 }
 
