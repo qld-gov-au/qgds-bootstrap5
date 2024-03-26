@@ -74,19 +74,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     }
 }
 
-// Dark theme wll inherit most properties from globally scoped variables.
-// For example, .body-bg-color will already be defined on :root, no need to redefine here.
-// Only provide specific variables that aren't available from the global (:root) scope
-
-[data-bs-theme="dark"] {
-    .accordion {
-        --#{$prefix}accordion-btn-bg: var(--#{$prefix}body-bg);
-        --#{$prefix}accordion-btn-color: var(--#{$prefix}white );
-        --#{$prefix}accordion-active-bg: var(--#{$prefix}brand-primary-dark );
-        --#{$prefix}accordion-active-color: var(--#{$prefix}white );
-    }
-}
-
+// Component styles
 .accordion {
 
     margin-bottom: 2rem;
@@ -115,4 +103,54 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
         font-weight: var(--#{$prefix}body-font-weight);
     }
 
+}
+
+// Toggle all button styles
+.accordion-toggle {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+
+    .accordion-toggle-btn {
+        background-color: transparent;
+        border: none;
+        color: var(--#{$prefix}link-color);
+        font-size: inherit;
+        margin-right: 0.5rem;
+        position: relative;
+        text-decoration: underline;
+        text-underline-offset: var(--#{$prefix}link-underline-offset);
+        text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+
+        &:hover {
+            text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+        }
+
+        &:after {
+            content: #{escape-svg($accordion-button-icon)};
+            display: inline-block;
+            width: 0.5rem;
+            height: 1rem;
+            position: absolute;
+            top: 50%;
+            margin-top: -0.5rem;
+            right: -0.5rem;
+            transition: transform .25s ease-in;
+
+            .dark &,
+            .dark-alt & {
+                content: #{escape-svg($accordion-button-icon-dark)};
+            }
+        }
+
+        .dark &,
+        .dark-alt & {
+            color: var(--#{$prefix}white);
+        }
+
+        &--open:after {
+            transform: rotate(180deg);
+        }
+    }
 }
