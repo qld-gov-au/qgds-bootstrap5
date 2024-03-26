@@ -31,6 +31,7 @@ $qld-text-light-blue-dark : #DEEBF9;
 $qld-light-green-dark : #ADD33F;
 $qld-dark-green-dark : #78BA00;
 $qld-light-yellow : #FFEF60;
+$qld-button-dark-blue : #003E7D;
 
 //Hypothetical
 $cobrand-blue : #132D4E;
@@ -87,7 +88,6 @@ $qld-syntax-properties : #C88DF7;
 $qld-syntax-comments : #C0D7EC;
 
 $qld-text-darkest : #121940;
-$qld-grey-transparent : rgba(224, 224, 224, 0.1);
 
 
 // Map colours to bootstrap theme variables
@@ -119,9 +119,11 @@ $project-colors: (
   "light-blue": $qld-light-blue,
   "light-green": $qld-light-green,
   "dark-green": $qld-dark-green,
+  "darker-green" : $qld-darker-green,
   "golden-yellow": $qld-golden-yellow,
   "system-darkest": $qld-system-darkest,
   "text-grey": $qld-text-grey,
+  "text-headings": $qld-text-headings,
   "dark-grey": $qld-dark-grey,
   "dark-grey-muted": $qld-dark-grey-muted,
   "soft-grey": $qld-soft-grey,
@@ -165,6 +167,7 @@ $project-colors: (
   "light-green-dark": $qld-light-green-dark,
   "dark-green-dark": $qld-dark-green-dark,
   "light-yellow": $qld-light-yellow,
+  "button-dark-blue": $qld-button-dark-blue,
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);
