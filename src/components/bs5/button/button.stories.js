@@ -27,18 +27,13 @@ export default {
         labels: {
           "btn-primary": "Primary",
           "btn-secondary": "Secondary",
-          // "btn-outline-primary": "Primary outline",
-          //"btn-outline-secondary": "Secondary outline",
           "btn-tertiary": "Tertiary",
         },
       },
       options: [
         "btn-primary",
         "btn-secondary",
-        // "btn-outline-primary",
-        //"btn-outline-secondary",
         "btn-tertiary",
-        //"dark btn-primary",
       ],
     },
   },
