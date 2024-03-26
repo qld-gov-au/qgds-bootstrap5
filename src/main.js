@@ -6,9 +6,7 @@ import {
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
-    let accordionToggleButton = document.querySelectorAll(
-      ".accordion-toggle-btn"
-    );
+    let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
 
     accordionToggleButton.forEach(function (toggleButton) {
       toggleButton.addEventListener("click", accordionToggleAll);
