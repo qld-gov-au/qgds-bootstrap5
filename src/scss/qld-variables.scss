@@ -14,7 +14,8 @@ $qld-maroon-traditional : #771E32;
 $qld-maroon-modern : #A70240;
 $qld-dark-background: #04498F;
 $qld-dark-text: #FFFFFF;
-$qld-dark-border: #2573C1;
+$qld-dark-border: #1D9AC6;
+$qld-dark-alt-border: #09ACFE;
 $qld-alt-button-hover: #005B23;
 $qld-general-info-alert: #e5eef5;
 $qld-red-border: #8A1220;
@@ -23,6 +24,8 @@ $qld-yellow-border: #B38800;
 $qld-dark-blue-shade : #052C53;
 $qld-light-background: #EFF4F9;
 $qld-light-background-shade: #E5EEF5;
+$qld-light-border: #CCDDEE;
+$qld-dark-focus: #01B0E5;
 
 //Hypothetical
 $cobrand-blue : #132D4E;
@@ -34,7 +37,7 @@ $cobrand-orange : #FD855D;
 
 
 //QGOV Brand Mapping - QLD.GOV.AU
-$qld-brand-primary-dark : #121212; //$qld-dark-blue;
+$qld-brand-primary-dark : $qld-dark-blue;
 $qld-brand-primary : $qld-sapphire-blue;
 $qld-brand-primary-light : $qld-light-blue;
 $qld-brand-secondary-dark : $qld-dark-green;
@@ -145,9 +148,12 @@ $project-colors: (
   "dark-background": $qld-dark-background,
   "dark-text": $qld-dark-text,
   "dark-border": $qld-dark-border,
+  "dark-alt-border": $qld-dark-alt-border,
   "dark-blue-shade": $qld-dark-blue-shade,
   "light-background": $qld-light-background,
-  "light-background-shade": $qld-light-background-shade
+  "light-background-shade": $qld-light-background-shade,
+  "light-border": $qld-light-border,
+  "dark-focus": $qld-dark-focus
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);
