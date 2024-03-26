@@ -1,5 +1,6 @@
 {
 	"groupid": "accordion-group-1",
+	"toggleAll": true,
 	"accordionItems": [
 		{
 			"id": "One",
