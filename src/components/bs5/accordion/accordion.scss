@@ -15,29 +15,26 @@ $accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w
 .accordion {
     --#{$prefix}accordion-color: var(--#{$prefix}body-color);
     --#{$prefix}accordion-bg: var(--#{$prefix}body-bg);
-    --#{$prefix}accordion-transition: #{$accordion-transition};
-    --#{$prefix}accordion-border-color: #{$qld-light-grey};
+    --#{$prefix}accordion-border-color: var(--#{$prefix}light-grey);
     --#{$prefix}accordion-border-width: 1px;
     --#{$prefix}accordion-border-radius: 0;
     --#{$prefix}accordion-inner-border-radius: 0;
     --#{$prefix}accordion-btn-padding-x: 1rem;
     --#{$prefix}accordion-btn-padding-y: 1rem;
-    --#{$prefix}accordion-btn-color: #{$link-color};
-    --#{$prefix}accordion-btn-bg: #{$qld-extra-light-grey};
+    --#{$prefix}accordion-btn-color: var(--#{$prefix}link-color);
+    --#{$prefix}accordion-btn-bg: var(--#{$prefix}extra-light-grey);
     --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon)};
     --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon)};
-    --#{$prefix}accordion-btn-icon-width: #{$accordion-icon-width};
-    --#{$prefix}accordion-btn-icon-transform: #{$accordion-icon-transform};
-    --#{$prefix}accordion-btn-icon-transition: #{$accordion-icon-transition};
-    --#{$prefix}accordion-btn-focus-border-color: #{$accordion-button-focus-border-color};
-    --#{$prefix}accordion-btn-focus-box-shadow: #{$accordion-button-focus-box-shadow};
-    --#{$prefix}accordion-body-padding-x: #{$accordion-padding};
-    --#{$prefix}accordion-body-padding-y: #{$accordion-padding};
-    --#{$prefix}accordion-active-color: #{$link-color};
-    --#{$prefix}accordion-active-bg: #FFF;
+    --#{$prefix}accordion-btn-icon-width: 1.5rem;
+    --#{$prefix}accordion-btn-icon-transform: rotate(180deg);
+    --#{$prefix}accordion-btn-icon-transition: transform .25s ease-in;
+    --#{$prefix}accordion-btn-focus-box-shadow: none;
+    --#{$prefix}accordion-active-bg: var(--#{$prefix}accordion-btn-bg);
+    --#{$prefix}accordion-active-color: var(--#{$prefix}accordion-btn-color);
+    --#{$prefix}focus: var(--#{$prefix}light-blue);
 }
 
-// Dark theme wll inherit most properties from globally scoped variables. 
+// Dark theme wll inherit most properties from globally scoped variables.
 // For example, .body-bg-color will already be defined on :root, no need to redefine here.
 // Only provide specific variables that aren't available from the global (:root) scope
 
@@ -56,12 +53,26 @@ $accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w
 
     &-button {
         font-size: 1.25rem;
-        font-weight: 600;
-        line-height: 1.5rem;
+        font-weight: 400;
+        line-height: 1.2;
         text-decoration-line: underline;
+        text-underline-offset: var(--#{$prefix}link-underline-offset);
+        text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
 
         &:hover {
-            background: #FFF;
+            background: var(--#{$prefix}accordion-bg);
+            text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+        }
+
+        &:focus,
+        &:focus:not(:focus-visible) {
+            outline: 3px solid var(--#{$prefix}focus);
+            outline-offset: 2px;
         }
     }
+
+    &-header {
+        font-weight: var(--#{$prefix}body-font-weight);
+    }
+
 }
