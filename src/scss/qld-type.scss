@@ -49,6 +49,9 @@ $link-color:                  $qld-brand-primary;
 
 
 //Content and links
+body {
+    -webkit-font-smoothing: antialiased;
+}
 a {
     font-weight: var(--qld-link-font-weight);
 }
