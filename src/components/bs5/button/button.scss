@@ -39,7 +39,7 @@
 
     &-tertiary {
     --#{$prefix}btn-color: #{$primary};
-    --#{$prefix}btn-border-color: transparent; //have to change to white
+    --#{$prefix}btn-border-color: transparent;
     --#{$prefix}btn-hover-color: #{$primary};
     --#{$prefix}btn-hover-bg: var(--#{$prefix}extra-light-grey);
     --#{$prefix}btn-hover-border-color: transparent;
