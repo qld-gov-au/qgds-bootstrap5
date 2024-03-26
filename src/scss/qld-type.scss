@@ -29,6 +29,8 @@ $link-color:                  $qld-brand-primary;
     --qld-body-font-weight: $body-font-weight;
     --qld-link-font-weight: 400;
     --qld-link-color: $link-color;
+    --qld-selection-color: var(--qld-white);
+    --qld-selection-bg: var(--qld-brand-primary);
 }
 
 .dark,
@@ -44,6 +46,8 @@ $link-color:                  $qld-brand-primary;
     --qld-link-hover-color: #FFF;
     --qld-link-hover-color-rgb: 255, 255, 255;
 
+    --qld-selection-color: var(--qld-brand-primary);
+    --qld-selection-bg: var(--qld-white);
 }
 
 
@@ -77,4 +81,15 @@ a.nostyle {
     &:hover {
         text-decoration-thickness: unset;
     }
+}
+
+::-moz-selection {
+    background: var(--qld-selection-bg);
+    text-shadow: none;
+}
+
+::selection {
+    color: var(--qld-selection-color);
+    background: var(--qld-selection-bg);
+    text-shadow: none;
 }
