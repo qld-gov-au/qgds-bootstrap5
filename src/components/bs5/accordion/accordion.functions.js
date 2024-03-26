@@ -86,10 +86,11 @@ export function accordionToggleAllButtonState(event) {
  */
 export function accordionHashLinks (event) {
   let urlHash = window.location.hash,
+    urlHashId = urlHash.substring(1),
     cleanHash = filterSpecialChar(urlHash);
 
   if (cleanHash.length > 0) {
-    let targetElement = document.querySelector(urlHash),
+    let targetElement = document.querySelector(`#collapse-${urlHashId}`),
       targetPanelButton = false;
 
     // Stop default hash link behaviour if target matches current hash location.
@@ -100,9 +101,11 @@ export function accordionHashLinks (event) {
       event.preventDefault();
     }
 
+    // ID matching
     if (targetElement && targetElement.closest('.accordion-item')) {
       targetPanelButton = targetElement.closest(".accordion-item").querySelector(".accordion-button");
     }
+    // Title matching
     else {
       let accordionButtons = document.querySelectorAll(".accordion-button");
 
