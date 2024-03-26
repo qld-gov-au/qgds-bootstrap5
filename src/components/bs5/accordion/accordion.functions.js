@@ -75,3 +75,58 @@ export function accordionToggleAllButtonState(event) {
     toggleAllButton.textContent = "Open all";
   }
 }
+
+/**
+ * Open and scroll to an accordion panel specified via URL hash.
+ *
+ * @memberof module:Accordion
+ *
+ * @param {Object} event - (optional) The event that triggered this function.
+ * @returns {void}
+ */
+export function accordionHashLinks (event) {
+  let urlHash = window.location.hash,
+    cleanHash = filterSpecialChar(urlHash);
+
+  if (cleanHash.length > 0) {
+    let targetElement = document.querySelector(urlHash),
+      targetPanelButton = false;
+
+    // Stop default hash link behaviour if target matches current hash location.
+    if (event &&
+      ((event.type === 'hashchange' && event.newURL === event.oldURL) ||
+      (event.type === 'click' && event.target.hash === urlHash))
+    ) {
+      event.preventDefault();
+    }
+
+    if (targetElement && targetElement.closest('.accordion-item')) {
+      targetPanelButton = targetElement.closest(".accordion-item").querySelector(".accordion-button");
+    }
+    else {
+      let accordionButtons = document.querySelectorAll(".accordion-button");
+
+      if (event && event.type === 'click') {
+        cleanHash = filterSpecialChar(event.target.hash);
+      }
+
+      targetPanelButton = Array.from(accordionButtons).find((button) => filterSpecialChar(button.innerText) === cleanHash);
+    }
+
+    if (targetPanelButton){
+      if (targetPanelButton.matches(".collapsed")) targetPanelButton.click();
+
+      window.scrollTo(0, targetPanelButton.getBoundingClientRect().top +
+      document.documentElement.scrollTop);
+    }
+  }
+}
+
+/**
+ * filterSpecialChar
+ * @param {string} value - value to filter
+ * @return {undefined}
+ **/
+function filterSpecialChar(value) {
+  return decodeURI(value.toLowerCase().replace(/[^a-zA-Z0-9/]/g, ''));
+}
