@@ -1,13 +1,14 @@
 //PREP REUSABLE VARIABLES, SCOPED TO .blockquote
-blockquote,
 .blockquote {
 
     //DEFAULT
     --#{$prefix}quote-padding: 1.5rem 1rem 1.5rem 1.5rem;
     --#{$prefix}quote-bg-color: var(--qld-default-background-shade);
     --#{$prefix}quote-border-color: var(--qld-syntax-values);
-    --#{$prefix}quote-title-color: var(--qld-light-text-heading);
     --#{$prefix}quote-text-color: var(--qld-light-text-text);
+
+    --#{$prefix}quote-font-size: 1.25rem;
+    --#{$prefix}quote-line-height: 1.4;
 
     --#{$prefix}quote-border-width: 0.25rem;
 
@@ -28,19 +29,30 @@ blockquote,
 
 
 //Ruleset for COMPONENT, reference our scoped variables, or use variables of ::root node
-blockquote,
 .blockquote {
     background-color: var(--#{$prefix}quote-bg-color);
     border-left: solid var(--#{$prefix}quote-border-width) var(--#{$prefix}quote-border-color);
     padding: var(--#{$prefix}quote-padding);
-    color: var(--#{$prefix}quote-text-color);
-    line-height: 1.5rem;
 
-    p {
+    blockquote {
+
         max-width: 54rem;
+        margin-bottom: 0;
+        color: var(--#{$prefix}quote-text-color);
+        font-size: var(--#{$prefix}quote-font-size);
+        line-height: var(--#{$prefix}quote-line-height);
+
+        p:last-child {
+            margin-bottom: 0;
+        }
     }
 
-    p:last-child {
-        margin-bottom: 0;
+    .quote-source {
+        color: var(--qld-dark-grey-muted);
+        font-size: 0.875rem;
+        margin-top: 0.625rem;
     }
+
+
+
 }
