@@ -1,6 +1,7 @@
 import { themes } from "@storybook/theming";
 
 import "../dist/assets/js/bootstrap.min.js";
+import "../dist/assets/js/main.js";
 import "../dist/assets/css/qld.bootstrap.css";
 
 
