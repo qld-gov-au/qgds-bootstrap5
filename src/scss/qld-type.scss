@@ -62,6 +62,23 @@ $link-color:                  $qld-brand-primary;
 body {
     -webkit-font-smoothing: antialiased;
 }
+
+.dark,
+.dark-alt {
+    body & {
+        color: var(--qld-body-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--qld-headings-color);
+    }
+}
+
 a {
     font-weight: var(--qld-link-font-weight);
 }
