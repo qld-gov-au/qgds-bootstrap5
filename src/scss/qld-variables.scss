@@ -26,6 +26,8 @@ $qld-light-background: #EFF4F9;
 $qld-light-background-shade: #E5EEF5;
 $qld-light-border: #CCDDEE;
 $qld-dark-focus: #01B0E5;
+$qld-link-visited: #8B63B0;
+$qld-link-visited-dark: #E1C2FF;
 
 //Hypothetical
 $cobrand-blue : #132D4E;
@@ -153,7 +155,9 @@ $project-colors: (
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
   "light-border": $qld-light-border,
-  "dark-focus": $qld-dark-focus
+  "dark-focus": $qld-dark-focus,
+  "link-visited": $qld-link-visited,
+  "link-visited-dark": $qld-link-visited-dark,
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);

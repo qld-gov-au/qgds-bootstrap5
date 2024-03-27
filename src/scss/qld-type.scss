@@ -29,6 +29,7 @@ $link-color:                  $qld-brand-primary;
     --qld-body-font-weight: $body-font-weight;
     --qld-link-font-weight: 400;
     --qld-link-color: $link-color;
+    --qld-link-visited: var(--qld-link-visited-color);
     --qld-selection-color: var(--qld-white);
     --qld-selection-bg: var(--qld-brand-primary);
 }
@@ -45,6 +46,8 @@ $link-color:                  $qld-brand-primary;
 
     --qld-link-hover-color: #FFF;
     --qld-link-hover-color-rgb: 255, 255, 255;
+
+    --qld-link-visited: var(--qld-link-visited-dark);
 
     --qld-selection-color: var(--qld-brand-primary);
     --qld-selection-bg: var(--qld-white);
@@ -68,6 +71,10 @@ a.nav-link {
 
     &:hover {
         text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    }
+
+    &:visited {
+        color: var(--qld-link-visited);
     }
 }
 
