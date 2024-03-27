@@ -32,6 +32,7 @@ $link-color:                  $qld-brand-primary;
     --qld-link-visited: var(--qld-link-visited-color);
     --qld-selection-color: var(--qld-white);
     --qld-selection-bg: var(--qld-brand-primary);
+    --qld-focus-color: var(--qld-light-blue);
 }
 
 .dark,
@@ -51,6 +52,8 @@ $link-color:                  $qld-brand-primary;
 
     --qld-selection-color: var(--qld-brand-primary);
     --qld-selection-bg: var(--qld-white);
+
+    --qld-focus-color: var(--qld-dark-focus);
 }
 
 
@@ -75,6 +78,11 @@ a.nav-link {
 
     &:visited {
         color: var(--qld-link-visited);
+    }
+
+    &:focus {
+        outline: 2px solid var(--qld-focus-color);
+        outline-offset: 2px
     }
 }
 
