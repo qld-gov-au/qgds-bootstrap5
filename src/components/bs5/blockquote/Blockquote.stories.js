@@ -8,7 +8,52 @@ export default {
   render: (args) => new Blockquote(args).html,
 };
 
-// Default blockquote story
+/**
+ * Default blockquote
+ */
 export const Default = {
-    args: defaultdata
+  args: defaultdata,
+};
+
+
+/**
+ * Light colour blockquote
+ */
+export const Light = {
+  args: defaultdata,
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="light">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
+ * Alternative colour blockquote
+ */
+export const Alternative = {
+  args: defaultdata,
+  parameters: {
+    backgrounds: {
+      default: 'alternative',
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="alt">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };

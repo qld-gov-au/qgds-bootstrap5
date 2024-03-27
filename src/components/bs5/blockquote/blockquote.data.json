@@ -1,4 +1,4 @@
 {
-	"heading": "Blockquote title",
-	"content": "<p>Fees will increase from 1 July 2024. The new fees will be available on this page from 1 July 2024.</p>"
+	"citeurl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#attributes",
+	"content": "<p>A blockquote is a section of content that is quoted from another source.</p><p>It includes a a cite attribute, that should point to information explaining the context or the reference for the quote.</p>"
 }
