@@ -57,7 +57,7 @@ $qld-brand-accent : $qld-golden-yellow;
 //Grays
 $qld-system-darkest : #1D1D1D;
 $qld-text-grey : #414141;
-$qld-text-headings : #03213F;
+$qld-text-headings : #04284C;
 $qld-dark-grey : #595959;
 $qld-dark-grey-muted : #636363;
 $qld-medium-grey : #78797E;
@@ -81,8 +81,15 @@ $qld-syntax-elements : #A7E5FF;
 $qld-syntax-properties : #C88DF7;
 $qld-syntax-comments : #C0D7EC;
 
+// Define new figma variables as SASS variables
+$qld-color-background: #FFFFFF;
+$qld-color-background--shade: #F5F5F5;
+$qld-color-light-background: #EFF4F9;
+$qld-color-light-background--shade: #E5EEF5;
+$qld-color-light-alt-background: #E8E8E8;
+$qld-color-light-alt-background--shade: #E0E0E0;
 
-// Map colours to bootstrap theme variables
+
 $primary : $qld-brand-primary;
 $primary-dark : $qld-brand-primary-dark;
 $secondary : $qld-dark-green;
@@ -150,10 +157,22 @@ $project-colors: (
   "dark-border": $qld-dark-border,
   "dark-alt-border": $qld-dark-alt-border,
   "dark-blue-shade": $qld-dark-blue-shade,
+  "dark-focus": $qld-dark-focus,
+
+  //Define new BEM colour variables from Figma
+  //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
+  "default-background": $qld-color-background,
+  "default-background-shade": $qld-color-background--shade,
+
+  "light-text-heading": $qld-text-headings,
+  "light-text-text": $qld-text-grey,
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
   "light-border": $qld-light-border,
-  "dark-focus": $qld-dark-focus
+
+  "light-alt-background": $qld-color-light-alt-background,
+  "light-alt-background-shade": $qld-color-light-alt-background--shade,
+
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);

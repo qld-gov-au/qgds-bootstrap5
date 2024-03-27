@@ -1,4 +1,3 @@
-
 // Dark mode.  
 // Note that you can't read custom variables into media queries (as at Sep 2023).
 // Example: "background: var(--theme-background);"  
@@ -10,11 +9,21 @@
 
 @include color-mode(dark) {
     :root {
-        --#{$prefix}body-bg:                var(--qld-brand-primary-dark);
-        --#{$prefix}body-color:             #FFF;
-        --#{$prefix}heading-color:          #FFF;
-        --#{$prefix}link-color:             #FFF;
-        --#{$prefix}link-hover-color:       var(--qld-brand-accent);
+        --#{$prefix}body-bg: var(--qld-brand-primary-dark);
+        --#{$prefix}body-color: #FFF;
+        --#{$prefix}heading-color: #FFF;
+        --#{$prefix}link-color: #FFF;
+        --#{$prefix}link-hover-color: var(--qld-brand-accent);
     }
+
     //...etc
+}
+
+
+.light {
+    background: var(--#{$prefix}light-background);
+}
+
+.alt {
+    background: var(--#{$prefix}light-alt-background);
 }
