@@ -1,4 +1,6 @@
 {
-	"citeurl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#attributes",
-	"content": "<p>A blockquote is a section of content that is quoted from another source.</p><p>It includes a a cite attribute, that should point to information explaining the context or the reference for the quote.</p>"
+	"cite-url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#attributes",
+	"cite-text": "Sir Tim Berners-Lee",
+	"content": "The goal of the Web is to serve humanity. We build it now so that those who come to it later will be able to create things we cannot ourselves imagine.",
+	"classes": ""
 }
