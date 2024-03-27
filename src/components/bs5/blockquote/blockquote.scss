@@ -3,7 +3,7 @@
 
     //DEFAULT
     --#{$prefix}quote-padding: 1.5rem 1rem 1.5rem 1.5rem;
-    --#{$prefix}quote-bg-color: var(--qld-default-background-shade);
+    --#{$prefix}quote-bg-color: var(--qld-default-background);
     --#{$prefix}quote-border-color: var(--qld-syntax-values);
     --#{$prefix}quote-text-color: var(--qld-light-text-text);
 
@@ -14,12 +14,12 @@
 
     //Blockquote inside a .light parent container 
     .light & {
-        --#{$prefix}quote-bg-color: var(--qld-light-background-shade);
+        --#{$prefix}quote-bg-color: var(--qld-light-background);
     }
 
     //Blockquote inside a .alt parent container
     .alt & {
-        --#{$prefix}quote-bg-color: var(--qld-light-alt-background-shade);
+        --#{$prefix}quote-bg-color: var(--qld-light-alt-background);
     }
 
     ////Blockquote in dark mode (by media query: prefers color scheme (dark))
