@@ -1,3 +1,4 @@
+/* global process */
 // build-templates.js
 import fs from 'fs';
 import path from 'path';

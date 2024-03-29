@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
+    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' .",
     "build": "node build.js",
+    "test": "echo 'no tests yet'",
     "watch": "node build.js --watch",
     "serve": "live-server dist",
     "storybook": "storybook dev -p 6006",
@@ -17,16 +19,16 @@
   "type": "module",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
-    "@vitejs/plugin-vue": "^5.0.3",
     "bootstrap": "^5.3.1",
-    "esbuild-plugin-eslint": "^0.3.7",
-    "esbuild-sass-plugin": "^2.15.0",
-    "live-server": "^1.1.0",
     "material-symbols": "^0.14.7",
-    "minimist": "^1.2.8",
-    "mustache": "^4.2.0"
+    "minimist": "^1.2.8"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "mustache": "^4.2.0",
+    "live-server": "^1.1.0",
+    "esbuild-plugin-eslint": "^0.3.7",
+    "esbuild-sass-plugin": "^2.15.0",
     "@storybook/addon-designs": "^7.0.9",
     "@storybook/addon-essentials": "^7.6.12",
     "@storybook/addon-interactions": "^7.6.12",
@@ -48,6 +50,7 @@
     "esbuild-plugin-handlebars": "^1.0.2",
     "eslint": "^8.56.0",
     "eslint-plugin-storybook": "^0.6.15",
+    "eslint-plugin-json": "^3.1.0",
     "mustache-loader": "^1.4.3",
     "onchange": "^7.1.0",
     "postcss": "^8.4.29",
