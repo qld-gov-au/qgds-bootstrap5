@@ -10,5 +10,5 @@ export default {
 
 // Default blockquote story
 export const Default = {
-    args: defaultdata
+  args: defaultdata,
 };

@@ -1,2 +1,8 @@
+node
 node_modules
 .env
+.DS_Store
+.vscode
+storybook-static/
+docs/
+dist/

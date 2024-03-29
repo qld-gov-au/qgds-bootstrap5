@@ -5,14 +5,13 @@
 
 import QGDSTemplate from "../../src/js/qgds-template.js";
 import QGDSComponent from "../../src/js/qgds-component.js";
-import chalk from "chalk";
+//import chalk from "chalk";
 
 //QGDSComponent.setFramework("material");
 let allcomponents = {
   alert: QGDSComponent.make("alert"),
   accordion: QGDSComponent.make("accordion"),
   breadcrumbs: QGDSComponent.make("breadcrumbs"),
-  alert: QGDSComponent.make("alert"),
   blockquote: QGDSComponent.make("blockquote"),
   button: QGDSComponent.make("button"),
   card: QGDSComponent.make("card"),

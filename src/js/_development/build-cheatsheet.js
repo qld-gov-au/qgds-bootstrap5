@@ -27,8 +27,8 @@ QGDSTemplate.make({
           classes: "alert-success",
           dismiss: true,
           title: "Your order has been completed",
-          content: "Your receipt number is <strong>A-1234-6789</strong>. A copy of this receipt has been sent to your email address."
-        }
+          content: "Your receipt number is <strong>A-1234-6789</strong>. A copy of this receipt has been sent to your email address.",
+        },
       }),
       info: QGDSComponent.make("alert", {
         data: { 
@@ -37,33 +37,33 @@ QGDSTemplate.make({
           content: `<p>I am a content message for an information alert. I support HTML and variables such as event names</p>
                     <p>
                       <a href='#'>Find your closest shelter</a>
-                    <p>`
-        }
+                    <p>`,
+        },
       }),
       warning: QGDSComponent.make("alert", {
         data: { 
           classes: "alert-warning",
           dismiss: true,
           title: "I am a dismissble warning alert",
-        }
+        },
       }),
       danger: QGDSComponent.make("alert", {
         data: { 
           classes: "alert-danger",
           title: "Road closure",
-        }
+        },
       }),
       light: QGDSComponent.make("alert", {
         data: { 
           classes: "alert-light",
           title: "I am a light alert",
-        }
+        },
       }),
       dark: QGDSComponent.make("alert", {
         data: { 
           classes: "alert-dark",
           title: "I am a dark alert",
-        }
+        },
       }),
     },
     blockquote: QGDSComponent.make("blockquote"),
