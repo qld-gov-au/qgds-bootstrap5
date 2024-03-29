@@ -161,7 +161,7 @@ jobs:
       - name: Publish qgds-qol-dist
         uses: qld-gov-au/gha-publish-to-git@master
         with:
-          repository: ${{ secrets.TARGET_REPO }}
+          repository: ${{ vars.TARGET_REPO }}
           git_ref: '${{ github.ref }}'
           branch: '${{ steps.extract_branch.outputs.branch }}'
           github_token: '${{ secrets.GH_TOKEN }}'
@@ -170,10 +170,10 @@ jobs:
           tag_branch: main
         if: success()
 
-      - name: Publish to qgds-qol-cdn
+      - name: Publish to qld-gov-au/qgds-qol-mvp-cdn
         uses: qld-gov-au/gha-cdn-version-tree-by-tag-builder@main
         with:
-          repository: 'qld-gov-au/formio-qld-cdn'
+          repository: ${{ vars.TARGET_REPO_CDN }}
           git_ref: '${{ github.ref }}'
           branch: 'release'
           github_token: '${{ secrets.GH_TOKEN }}'
