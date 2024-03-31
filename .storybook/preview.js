@@ -28,6 +28,13 @@ const preview = {
 			},
 
 		},
+		backgrounds: {
+			values: [
+				{ name: 'default', value: '#FFFFFF' },
+				{ name: 'light', value: '#EFF4F9' },
+				{ name: 'alternative', value: '#E8E8E8' },
+			],
+		},
 	},
 
 	decorators: [
@@ -40,6 +47,7 @@ const preview = {
 					</div>
 				</div>
 			</div>
+
       		`;
 		},
 	],

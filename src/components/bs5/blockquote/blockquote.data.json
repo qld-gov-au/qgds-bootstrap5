@@ -1,4 +1,6 @@
 {
-	"heading": "Blockquote title",
-	"content": "<p>Fees will increase from 1 July 2024. The new fees will be available on this page from 1 July 2024.</p>"
+	"cite-url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#attributes",
+	"cite-text": "Sir Tim Berners-Lee",
+	"content": "The goal of the Web is to serve humanity. We build it now so that those who come to it later will be able to create things we cannot ourselves imagine.",
+	"classes": ""
 }
