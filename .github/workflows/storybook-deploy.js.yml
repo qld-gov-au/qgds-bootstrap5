@@ -1,0 +1,92 @@
+name: Storybook deploy
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Build and Test] # Reuse the name of your tests workflow
+    branches: [main, develop]
+    types: [completed ]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  actions: read
+  id-token: write
+
+concurrency:
+  group: deploy-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '20' ]
+    name: Deploy with Node ${{ matrix.node }}
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+          #always-auth: 'true'
+          #registry-url: 'https://nexus.tools.services.qld.gov.au/nexus/repository/npm_all/'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install
+        run: | # Install packages
+          npm install --prefer-offline --no-audit --ignore-scripts
+        #env:
+        #  NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
+
+      # `npm rebuild` will run all those post-install scripts for us. Without our secret key in ENV
+      - name: rebuild and prepare
+        run: npm rebuild && npm run prepare --if-present
+
+      - name: Build 🔧
+        run: | # build the files
+          npm run build
+      - name: Build Storybook 🔧
+        run: | # build the Storybook files
+          npm run build-storybook
+      - uses: actions/upload-artifact@v4 #provide nice artifact
+        with:
+          name: Storybook
+          path: storybook-static
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./storybook-static"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5
