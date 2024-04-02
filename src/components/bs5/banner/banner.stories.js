@@ -19,8 +19,8 @@ export default {
 export const Default = {
   args: {
     ...defaultdata,
-    breadcrumbs: ""
-  }
+    breadcrumbs: "",
+  },
 };
 
 // Default Breadcrumbs story
@@ -28,6 +28,6 @@ const breadcrumbs = new Breadcrumbs(breadcrumbdata);
 export const WithBreadcrumbs = {
   args: { 
     ...defaultdata,
-    breadcrumbs: breadcrumbs.html
-  }
+    breadcrumbs: breadcrumbs.html,
+  },
 }
