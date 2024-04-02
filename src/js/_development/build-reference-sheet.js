@@ -18,7 +18,7 @@ QGDSTemplate.make({
     datafile: "./src/components/_cheatsheet/data.json",
   }),
 
-//Components that will be used on either the layout or content
+  //Components that will be used on either the layout or content
   components: {
     breadcrumbs: QGDSComponent.make("breadcrumbs"),
     accordion: QGDSComponent.make("accordion"),

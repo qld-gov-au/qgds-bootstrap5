@@ -1,3 +1,4 @@
+/* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
 import log from "./src/js/logger.js";
@@ -11,7 +12,6 @@ import cleanOutputFoldersPlugin from "./src/js/plugins/clean-output-folders.js";
 import { sassPlugin } from "esbuild-sass-plugin";
 import { copy } from "esbuild-plugin-copy";
 import handlebarsPlugin from "esbuild-plugin-handlebars";
-import eslint from "esbuild-plugin-eslint";
 
 //Command line arguments are available in argv object
 import minimist from "minimist";
@@ -83,6 +83,7 @@ const buildConfig = {
           //Start a timer on console
           console.time(timerName);
         });
+        // eslint-disable-next-line no-unused-vars
         build.onEnd((result) => {
           //Logging to console
           log("magenta", "CSS created:");

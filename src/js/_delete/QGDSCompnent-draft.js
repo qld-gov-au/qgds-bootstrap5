@@ -4,6 +4,7 @@ let componentName = 'Alert';
 
 import(`../components/bs5/${componentName}.html?raw`)
   .then(module => {
+    // eslint-disable-next-line no-unused-vars
     let Alert = module.default;
     // You can now use Alert
   })

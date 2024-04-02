@@ -1,7 +1,7 @@
 import fs from "fs";
 import mustache from "mustache";
 import chalk from "chalk";
-import QGDSconfig from "./qgds-config.js";
+//import QGDSconfig from "./qgds-config.js";
 
 //import QGDSIcons from "./qgds-icons.js";
 
