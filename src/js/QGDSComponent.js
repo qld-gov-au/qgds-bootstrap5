@@ -1,4 +1,4 @@
-import mustache from "mustache";
+import Handlebars from "handlebars";
 
 export default class Component {
   /**
@@ -8,13 +8,20 @@ export default class Component {
    */
 
   constructor(template, data = {}) {
+    
     this.template = template;
     this.data = data;
+    this.compiled = Handlebars.compile(this.template)(this.data);
+    
+    // Debug via storybook and browser console
+    // console.log(this.template);
+    // console.log(this.data);
+    // console.log(this.compiled);
 
     return {
       template: this.template,
       data: this.data,
-      html: mustache.render(this.template, { ...this.data }),
+      html: this.compiled,
     };
   }
 }
