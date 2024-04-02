@@ -1,0 +1,76 @@
+{
+    "default_state": {
+        "metadata": {
+            "target_url": "metadata-index.html"
+        },
+        "navigation": [
+            {
+                "title": "Link 1",
+                "icon": "",
+                "target_url": "index.html"
+            },
+            {
+                "title": "Link 2",
+                "icon": "",
+                "target_url": "index.html"
+            }
+        ]
+    },
+    "menu_state": {
+        "metadata": {
+            "target_url": "metadata-index.html"
+        },
+        "navigation": [
+            {
+                "title": "Link 1",
+                "icon": "",
+                "target_url": "index.html",
+                "dropdown_enabled": true,
+                "dropdown_menu": {
+                    "navigation": [
+                        {
+                            "title": "Menu link 1",
+                            "description": "Lorem ipsum dolor sit amet - Link 1",
+                            "target_url": "index.html"
+                        },
+                        {
+                            "title": "Menu link 2",
+                            "description": "Lorem ipsum dolor sit amet - Link 2",
+                            "target_url": "index.html"
+                        },
+                        {
+                            "title": "Menu link 3",
+                            "description": "Lorem ipsum dolor sit amet - Link 3",
+                            "target_url": "index.html"
+                        },
+                        {
+                            "title": "Menu link 4",
+                            "description": "Lorem ipsum dolor sit amet - Link 4",
+                            "target_url": "index.html"
+                        },
+                        {
+                            "title": "Menu link 5",
+                            "description": "Lorem ipsum dolor sit amet - Link 5",
+                            "target_url": "index.html"
+                        },
+                        {
+                            "title": "Menu link 6",
+                            "description": "Lorem ipsum dolor sit amet - Link 6",
+                            "target_url": "index.html"
+                        },
+                        {
+                            "title": "Menu link 7",
+                            "description": "Lorem ipsum dolor sit amet - Link 7",
+                            "target_url": "index.html"
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Link 2",
+                "icon": "",
+                "target_url": "index.html"
+            }
+        ]
+    }
+}
