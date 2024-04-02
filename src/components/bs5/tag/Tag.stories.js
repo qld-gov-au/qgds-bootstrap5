@@ -16,7 +16,7 @@ export default {
           "tag-alt": "Alt",
           "tag-dark": "Dark",
           "tag-dark-alt": "Dark-alt",
-        }
+        },
       },
       options: ["tag-default", "tag-alt", "tag-dark", "tag-dark-alt"],
     },

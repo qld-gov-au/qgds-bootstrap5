@@ -16,7 +16,7 @@ export default {
           "global-alert-warning": "Warning",
           "global-alert-info": "General information",
           "global-alert-multiple": "Multiple",
-        }
+        },
       },
       options: ["global-alert-critical", "global-alert-warning", "global-alert-info", "global-alert-multiple"],
     },
