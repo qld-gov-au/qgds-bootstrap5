@@ -1,3 +1,4 @@
+/* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
 
@@ -10,7 +11,6 @@ import QDGScopy from "./src/js/plugins/qgds-plugin-copy-assets.js";
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
 import handlebarsPlugin from "esbuild-plugin-handlebars";
-import eslint from "esbuild-plugin-eslint";
 
 //Command line arguments are available via argv object
 import minimist from "minimist";
