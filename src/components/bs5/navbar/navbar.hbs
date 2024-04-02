@@ -17,10 +17,10 @@
                             <a class="nav-link dropdown-toggle" href="{{target_url}}" id="megaMenuDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">{{title}}</a>
                             {{#if dropdown_menu}}
-                            <div class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu w-100" aria-labelledby="megaMenuDropdown">
                                 <div class="row">
                                     {{#each dropdown_menu.navigation}}
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4"> <!-- I need to add styling/rows/cols etc -->
                                         <a class="dropdown-item" href="{{target_url}}">{{title}}</a>
                                         <p>{{description}}</p>
                                     </div>
