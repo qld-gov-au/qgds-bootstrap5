@@ -1,0 +1,24 @@
+{
+	"groupid": "accordion-group-1",
+	"toggleAll": true,
+	"accordionItems": [
+		{
+			"id": "One",
+			"title": "Accordion Item #1",
+			"expanded": true,
+			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+		},
+		{
+			"id": "Two",
+			"title": "Accordion Item #2",
+			"expanded": false,
+			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+		},
+		{
+			"id": "Three",
+			"title": "Accordion Item #3",
+			"expanded": false,
+			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+		}
+	]
+}

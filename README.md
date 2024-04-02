@@ -7,7 +7,7 @@
 - ES6 Javascript
 - ESbuild for bundling, minification and transpiling
 - Storybook for component development
-- Mustache for component and HTML templating
+- Mustache JS / Handlebars JS for component and HTML templating
 - Figma for design and prototyping
 - CSS/SCSS, extending Bootstrap 5.3 core components with custom CSS properties
 - NPM for package management
@@ -64,4 +64,4 @@ We recommend using VSCode as the IDE for development with the following plugins:
 
 - Prettier
 - ESLint
-- Mustache template support
+- Mustache JS or Handlebars JS template support

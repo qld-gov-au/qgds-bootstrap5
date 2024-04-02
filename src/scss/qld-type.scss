@@ -2,51 +2,83 @@
 $font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 $body-color: $qld-text-grey;
+$body-font-weight: 400;
 
 $font-size-base:              1rem;
 $h1-font-size:                $font-size-base * 2.5;
 $h2-font-size:                $font-size-base * 2;
 $h3-font-size:                $font-size-base * 1.5;
 $h4-font-size:                $font-size-base * 1.25;
-$h5-font-size:                $font-size-base 1;
+$h5-font-size:                $font-size-base * 1;
 $h6-font-size:                $font-size-base * 0.875;
 
 $headings-font-weight:        600;
 $headings-line-height:        2;
 $headings-color:              $qld-text-headings;
 
-$link-color:                    $qld-brand-primary;
+$link-color:                  $qld-brand-primary;
 
 
 //Links
 :root {
-    --qld-link-underline-offset: 3px;
+    --qld-link-underline-offset: 0.3rem;
     --qld-link-underline-thickness: 0.5px;
     --qld-link-underline-thickness-hover: 2px;
     --qld-headings-color: $headings-color;
     --qld-body-color: $body-color;
-    --qld-link-font-weight: 600;
+    --qld-body-font-weight: $body-font-weight;
+    --qld-link-font-weight: 400;
+    --qld-link-color: $link-color;
+    --qld-link-visited: var(--qld-link-visited-color);
+    --qld-selection-color: var(--qld-white);
+    --qld-selection-bg: var(--qld-brand-primary);
+    --qld-focus-color: var(--qld-light-blue);
 }
 
+.dark,
+.dark-alt,
 :root[data-bs-theme=dark] {
-    --qld-link-underline-offset: 3px;
-    --qld-link-underline-thickness: 0.5px;
-    --qld-link-underline-thickness-hover: 2px;
     --qld-headings-color: #FFF;
     --qld-body-color: #FFF;
     --qld-body-bg: var(--qld-brand-primary);
-    
+
     --qld-link-color: #FFF;
     --qld-link-color-rgb: 255, 255, 255;
 
-    --qld-link-hover-color: var(--qld-brand-accent);
-    --qld-link-hover-color-rgb: 255, 229, 0;
+    --qld-link-hover-color: #FFF;
+    --qld-link-hover-color-rgb: 255, 255, 255;
 
+    --qld-link-visited: var(--qld-link-visited-dark);
+
+    --qld-selection-color: var(--qld-brand-primary);
+    --qld-selection-bg: var(--qld-white);
+
+    --qld-focus-color: var(--qld-dark-focus);
 }
 
 
 
 //Content and links
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+.dark,
+.dark-alt {
+    body & {
+        color: var(--qld-body-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--qld-headings-color);
+    }
+}
+
 a {
     font-weight: var(--qld-link-font-weight);
 }
@@ -56,9 +88,18 @@ a.nav-link {
     text-decoration: underline;
     text-underline-offset: var(--qld-link-underline-offset);
     text-decoration-thickness: var(--qld-link-underline-thickness);
-    
+
     &:hover {
         text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    }
+
+    &:visited {
+        color: var(--qld-link-visited);
+    }
+
+    &:focus {
+        outline: 2px solid var(--qld-focus-color);
+        outline-offset: 2px
     }
 }
 
@@ -68,8 +109,19 @@ a.nostyle {
     text-decoration: unset;
     text-underline-offset: unset;
     text-decoration-thickness: unset;
-    
+
     &:hover {
         text-decoration-thickness: unset;
     }
+}
+
+::-moz-selection {
+    background: var(--qld-selection-bg);
+    text-shadow: none;
+}
+
+::selection {
+    color: var(--qld-selection-color);
+    background: var(--qld-selection-bg);
+    text-shadow: none;
 }

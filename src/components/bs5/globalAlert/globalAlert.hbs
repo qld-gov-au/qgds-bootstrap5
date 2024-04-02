@@ -1,0 +1,24 @@
+<!-- QGDS Component: Global Alert -->
+
+<div class="global-alert-include">
+  {{#each alertItems}}
+  <section class="global-alert {{varient}}">
+    <div class="container-fluid">
+      <div class="qld-global-alert-main">
+        <div class="global-alert-icon"></div>
+        <div class="global-alert-content">
+          <div class="global-alert-message">
+            {{{content}}}
+          </div>
+          <div class="global-alert-action">
+            {{{action}}}
+          </div>
+        </div>
+        <div class="global-alert-close">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{/each }}
+</div>
