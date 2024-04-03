@@ -11,8 +11,7 @@
     "watch": "node build.js --watch",
     "serve": "live-server dist",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "postinstall": "npm run build"
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
