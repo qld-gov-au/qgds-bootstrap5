@@ -1,16 +1,19 @@
 <!-- QGDS Component: Table -->
 
-<div class="table-responsive qld-table">
+<div class="table-responsive qld-table {{customClass}}">
 
-    <table class="table {{classes}}">
+    <table class="table {{variantClass}}">
 
-        {{#data.caption}}
+        {{#if caption}}
         <caption class="caption">
-            {{data.caption}}
+            {{caption}}
+            {{#if subcaption}}
             <span class="sub-caption">{{{ subcaption }}}</span>
+            {{/if}}
         </caption>
-        {{/data.caption}}
+        {{/if}}
 
+        {{#if headers}}
         <thead>
             <tr>
                 {{#headers}}
@@ -18,6 +21,7 @@
                 {{/headers}}
             </tr>
         </thead>
+        {{/if}}
 
         <tbody>
             {{#rows}}
@@ -29,6 +33,7 @@
             {{/rows}}
         </tbody>
 
+        {{#if footer}}
         <tfoot>
             {{#footer}}
             <tr class="">
@@ -37,7 +42,8 @@
                 {{/cells}}
             </tr>
             {{/footer}}
-            </tbody>
+        </tfoot>
+        {{/if}}
 
     </table>
 </div>
