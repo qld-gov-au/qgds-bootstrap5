@@ -129,14 +129,14 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Chromatic
-          if: ${{ github.actor != 'dependabot[bot]' }}
-          uses: chromaui/action@latest
-          # Options required to the GitHub Chromatic Action
-          with:
-            # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-            token: ${{ secrets.GH_TOKEN }}
-            projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-            storybookBuildDir: "storybook-static"
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        uses: chromaui/action@latest
+        # Options required to the GitHub Chromatic Action
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          token: ${{ secrets.GH_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: "storybook-static"
 
       - name: Package storybook files
         uses: actions/upload-artifact@v4 #provide nice artifact
