@@ -42,11 +42,8 @@
     }
 }
 
-
 //Component
-
 .navbar {
-
     margin: 0;
     padding: 0;
     background-color: var(--#{$prefix}navbar-bg-color);
@@ -54,27 +51,59 @@
     align-items: center;
 
     .navbar-nav {
-
         $navbar-padding-x: 0;
         $navbar-padding-y: 0;
         --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
         --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
-
         $navbar-light-toggler-icon-bg: url("data:image/svg+xml,%3Csvg width='12' height='6' viewBox='0 0 12 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.117443 0.160356C-0.0433562 0.320713 -0.0433562 0.587973 0.144242 0.74833L5.7186 5.87973C5.8794 6.04009 6.1206 6.04009 6.2814 5.87973L11.8558 0.74833C12.0434 0.587973 12.0434 0.320713 11.8826 0.160356C11.7218 -0.0267261 11.4538 -0.0267261 11.293 0.13363L5.9866 4.99777L0.707038 0.13363C0.626639 0.0534521 0.51944 0 0.41224 0C0.305041 0 0.197842 0.0534521 0.117443 0.160356Z' fill='#008635'/%3E%3C/svg%3E");
+    }
 
+    .dropdown-menu {
+        left:0;
+        right:0;
+        margin-top:0;
+        padding: 1rem;
+        max-width: 90%;
+        margin: 0px auto;
+
+        a { 
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .dropdown-menu__inner {
+            padding: 48px 64px;
+            padding: 3rem 4rem;
+
+            .dropdown-item {
+                
+            }
+
+            .dropdown-menu__featured {
+                font-size: 1.5rem;
+            }
+
+            .dropdown-menu__view_all {
+                font-size: 1.25rem;
+                text-align: right;
+            }
+
+            hr {
+                height: 2px;
+                margin: 31px 0px 31px 0px;
+                margin: 2rem 0 2rem 0;
+            }
+        }
     }
 
     .nav-item {
-
         .nav-link {
-
             $navbar-nav-link-padding-x: 0.75rem;
             $navbar-nav-link-padding-y: 0.75rem;
-
             --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
-
             line-height: 2rem;
             overflow-y: visible;
             position: relative;
@@ -103,7 +132,6 @@
     //Specific use case - home icon sits within a flex container
     .nav-item-home {
         display: flex;
-
         .qld-icon {
             display: block;
             height: 2rem;

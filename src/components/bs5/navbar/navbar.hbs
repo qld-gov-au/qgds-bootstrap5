@@ -3,6 +3,7 @@
 <!-- Primary Navigation / Desktop -->
 <nav class="navbar navbar-expand-lg" aria-label="Navbar example">
     <div class="container-xl">
+
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item nav-item-home">
@@ -12,30 +13,51 @@
                     </a>
                 </li>
                 {{#each navigation}}
-                    {{#if dropdown_enabled}}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{target_url}}" id="megaMenuDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">{{title}}</a>
-                            {{#if dropdown_menu}}
-                            <div class="dropdown-menu w-100" aria-labelledby="megaMenuDropdown">
-                                <div class="row">
-                                    {{#each dropdown_menu.navigation}}
-                                    <div class="col-lg-4"> <!-- I need to add styling/rows/cols etc -->
-                                        <a class="dropdown-item" href="{{target_url}}">{{title}}</a>
-                                        <p>{{description}}</p>
-                                    </div>
-                                    {{/each}}
-                                </div>
-                            </div>
-                            {{/if}}
-                        </li>
-                    {{else}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{target_url}}">{{title}}</a>
-                        </li>
-                    {{/if}}
+                {{#if dropdown_enabled}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{target_url}}" id="menuDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">{{title}}</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{target_url}}">{{title}}</a>
+                </li>
+                {{/if}}
                 {{/each }}
             </ul>
+            {{#each navigation}}
+            {{#if dropdown_enabled}}
+            {{#if navigation_items}}
+
+            <ul class="dropdown-menu megamenu show" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
+                <div class="row dropdown-menu__inner">
+                    {{#if dropdown_options.feature_link_value}}
+                    <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                        <span class="">{{dropdown_options.feature_link_value}}</span>
+                    </a>
+                    <hr>
+                    {{/if}}
+                    {{#each navigation_items}}
+                    <div class="col-lg-3 col-6">
+                        <li>
+                            <a class="dropdown-item" href="{{target_url}}">{{title}}</a>
+                            <p>{{description}}</p>
+                        </li>
+                    </div>
+                    {{/each }}
+                    <hr>
+                    <a class="dropdown-menu__view_all" href="{{dropdown_options.view_all_href}}">
+                        <span class="">{{dropdown_options.view_all_value}}</span>
+                    </a>
+                </div>
+            </ul>
+
+
+            {{/if}}
+            {{/if}}
+            {{/each }}
         </div>
+
+
     </div>
 </nav>
