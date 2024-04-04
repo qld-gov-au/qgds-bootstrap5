@@ -4,5 +4,6 @@ node_modules
 .DS_Store
 .vscode
 storybook-static/
+build-storybook.log
 docs/
 dist/
