@@ -19,7 +19,9 @@ jobs:
         node: [ '20' ]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Cache node modules
         id: cache-npm
