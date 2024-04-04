@@ -4,12 +4,7 @@
 // Source CSS variables: var(--variable-name)  /node_modules/bootstrap/scss/components/_card.scss   
 
 // Override as required to suit Design System
-@include color-mode(dark) {
-    .card {
-        --#{$prefix}card-bg: var(--qld-white);
-        --#{$prefix}card-color: var(--qld-text-grey);
-    }
-}
+
 
 .card {
     
@@ -37,9 +32,8 @@
     --#{$prefix}card-link-color: #{$link-color};
     --#{$prefix}card-footer-border: #{$qld-light-grey};
     --#{$prefix}card-border-radius: 0.75rem;
-    
 
-    //Variants
+        //Variants
     &.card-alternative {
         --#{$prefix}card-title-color: #{$headings-color};
         --#{$prefix}card-bg: #{$qld-light-grey};
@@ -59,10 +53,72 @@
     &.card-primary--dark {
         --#{$prefix}card-title-color: #fff;
         --#{$prefix}card-bg: #{$primary-dark};
-        --#{$prefix}card-color: #fff;
-        --#{$prefix}card-link-color: #fff;
+        --#{$prefix}card-color: #{$qld-white};
+        --#{$prefix}card-link-color: #{$qld-white};
         --#{$prefix}card-footer-border: #ffffff30; //white at 30%
     }
+
+}
+
+.card {
+    a {
+        &:hover {
+            box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
+        }
+        &:focus {
+            outline: 3px solid;
+            outline-color: #{$qld-light-blue};
+            outline-offset: 2px;
+        }
+    }
+}
+
+
+@include color-mode(alternative) {
+    .card {
+        --#{$prefix}card-title-color: #{$headings-color};
+        --#{$prefix}card-bg: #{$qld-light-grey};
+        --#{$prefix}card-color: #{$body-color};
+        --#{$prefix}card-border-color: #7a7a7a;
+        --#{$prefix}card-footer-border: #7a7a7a;
+    }
+}
+
+@include color-mode(dark) {
+
+    .card {
+
+        --#{$prefix}card-title-color: #fff;
+        --#{$prefix}card-bg: #{$primary};
+        --#{$prefix}card-color: #fff;
+        --#{$prefix}card-link-color: #fff;
+        --#{$prefix}card-border-color: #2573c1;
+        --#{$prefix}card-footer-border: #ffffff30; //white at 30%
+    }
+
+    // &.card-alternative {
+    //     --#{$prefix}card-title-color: #fff;
+    //     --#{$prefix}card-bg: #{$primary-dark};
+    //     --#{$prefix}card-color: #{$qld-white};
+    //     --#{$prefix}card-link-color: #{$qld-white};
+    //     --#{$prefix}card-footer-border: #ffffff30; //white at 30%
+    // }
+
+}
+
+@include color-mode(dark-alternative) {
+    .card {
+
+        --#{$prefix}card-title-color: #fff;
+        --#{$prefix}card-bg: #{$qld-dark-blue};
+        --#{$prefix}card-color: #fff;
+        --#{$prefix}card-link-color: #fff;
+        --#{$prefix}card-border-color: #09ACFE;
+        --#{$prefix}card-footer-border: #ffffff30; //white at 30%
+    }
+}
+
+.card {
 
     .card-title {
         line-height: 2rem;
@@ -79,12 +135,22 @@
                 text-underline-offset: 3px;
             }
         }
+        &.card-medium {
+            font-size: 200px;
+        }
+    }
+    &.card-large {
+        .card-title {
+        // font-size: 400px;
+        }
     }
     .card-img-top {
         border-top-left-radius: var(--qld-card-border-radius);
         border-top-right-radius: var(--qld-card-border-radius);
         border-bottom-right-radius: 1.875rem;
-    }
+        // border-bottom-left-radius: 1.875rem;
+        
+    } 
 
     .card-footer {
         color: var(--#{$prefix}card-color);
@@ -110,5 +176,31 @@
 
     small {
         font-size: 0.875rem;
+        color: #{$qld-dark-grey-muted};
     }
+
+}
+
+@include media-breakpoint-down(md) { //bootstrap mixin that writes rules into media breakpoint. in this case writes rules into 'md' i.e 992px breakpoint etc
+    .card {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        &:hover {
+            box-shadow: none;
+        }
+        .card-title {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .card {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        &:hover {
+            box-shadow: none;
+        }
+        .card-title {
+            font-size: 1.25rem;
+        }
+    }   
 }
