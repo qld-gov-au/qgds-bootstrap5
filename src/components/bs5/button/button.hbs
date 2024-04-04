@@ -1,14 +1,12 @@
 <!-- // QGDS Component: Button -->
 <!-- // https://getbootstrap.com/docs/5.3/components/buttons -->
 
-{{#if isButton}}
-<button class="btn {{classes}}" onclick="{{{onclick}}}">
-    {{label}}
+{{#unless islink}}
+<button class="btn {{variantClass}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}}>
+    {{#if iconClass}}<span class="btn-icon {{iconClass}}"></span>{{/if}}{{label}}
 </button>
-{{/if }}
-
-{{#if islink}}
-<a class="btn {{classes}}" href="{{href}}" target="{{target}}">
-    {{label}}
+{{else}}
+<a class="btn {{variantClass}} {{#if isdisabled}}disabled" aria-disabled="true{{/if}}" href="{{href}}" target="{{target}}">
+    {{#if iconClass}}<span class="btn-icon {{iconClass}}"></span>{{/if}}{{label}}
 </a>
-{{/if }}
+{{/unless }}
