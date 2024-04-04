@@ -14,7 +14,7 @@ const config = {
     //https://storybook.js.org/addons/
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-designs",
+    //"@storybook/addon-designs",
     "@storybook/addon-links",
   ],
 

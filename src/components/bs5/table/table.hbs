@@ -16,9 +16,9 @@
         {{#if headers}}
         <thead>
             <tr>
-                {{#headers}}
-                <th scope="col">{{.}}</th>
-                {{/headers}}
+                {{#each headers}}
+                <th scope="col">{{this}}</th>
+                {{/each}}
             </tr>
         </thead>
         {{/if}}
@@ -26,22 +26,22 @@
         <tbody>
             {{#rows}}
             <tr class="">
-                {{#cells}}
-                <td>{{.}}</td>
-                {{/cells}}
+                {{#each cells}}
+                <td>{{this}}</td>
+                {{/each}}
             </tr>
             {{/rows}}
         </tbody>
 
         {{#if footer}}
         <tfoot>
-            {{#footer}}
+            {{#each footer}}
             <tr class="">
-                {{#cells}}
-                <td>{{.}}</td>
-                {{/cells}}
+                {{#each cells}}
+                <td>{{this}}</td>
+                {{/each}}
             </tr>
-            {{/footer}}
+            {{/each}}
         </tfoot>
         {{/if}}
 
