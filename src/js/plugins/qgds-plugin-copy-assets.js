@@ -13,9 +13,14 @@ export default function copyPlugin() {
         from: ["./src/components/bs5/**/*.hbs"],
         to: ["./dist/components/bs5/"],
       },
+      {
+        from: ["./src/components/bs5/**/*.data.json"],
+        to: ["./dist/sample-data/"],
+      },
       { from: ["./src/assets/img/*"], to: ["./dist/assets/img"] },
       { from: ["./dist/**/*"], to: ["./docs/"] },
       { from: ["./storybook-static/**/*"], to: ["./docs/storybook-static/"] },
+      
     ],
   });
 
