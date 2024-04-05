@@ -9,9 +9,6 @@ export default {
     
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 
     //We can't use commas on our class="..." attribute, so we need to replace the commas with spaces.
-    
-    console.log(args);
-
     if( typeof(args.variantClass) === 'string' ) {
       args.variantClass = args.variantClass.replaceAll(","," ");
     } else if ( typeof(args.variantClass) === 'object' ) {
