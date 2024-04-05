@@ -1,0 +1,71 @@
+// according to classes: form-check, form-check-input, form-check-label
+// variables: https://getbootstrap.com/docs/5.0/forms/checks-radios/
+.form-check {
+
+    --#{$prefix}border-color: red;
+    --#{$prefix}form-check-input-border: var(--#{$prefix}border-width) solid var(--#{$prefix}border-color);
+
+    .form-check-input {
+    // --#{$prefix}form-check-input-border: 3px solid red;
+    --#{$prefix}form-check-input-checked-bg-color: red;
+    }
+}
+
+.valid .form-check { // reference dark mode buttons for semantics
+    .form-check-input[type="radio"] {
+        outline: #339D37 solid 2px;
+    }
+}
+.invalid .form-check {
+    .form-check-input[type="radio"] {
+        outline: #E22339 solid 2px;
+    }
+}
+.form-check {
+    //valid
+    .form-check-input[type="radio"] {
+        cursor: pointer;
+        // outline: #339D37 solid 2px;
+    }
+    .form-check-input[type="radio"] {
+        &:hover, &:active, &:focus {
+        background-color: #F5F5F5;
+        }
+        &:active {
+            filter: brightness(100%);
+          }
+    }
+}
+
+// .form-check .form-check-input[type="radio"] {
+//     border: 2px solid #d65252;
+// }
+
+
+
+// add dark mode
+
+// .btn {
+//     --#{$prefix}btn-padding-x: 1rem;
+//     --#{$prefix}btn-padding-y: 0.75rem;
+//     --#{$prefix}btn-font-family: #{$font-family-sans-serif};
+//     --#{$prefix}btn-border-width: 3px;
+//     --#{$prefix}btn-active-border-color: transparent;
+//     --#{$prefix}btn-border-radius: 0.25rem;
+//     --#{$prefix}btn-focus-box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.2);
+//     --#{$prefix}btn-disabled-opacity: 0.5;
+    
+// .dark &, .dark-alt & {
+//     &-primary {
+//         --#{$prefix}btn-bg: var(--#{$prefix}dark-green-dark);
+//         --#{$prefix}btn-border-color: var(--#{$prefix}dark-green-dark);
+//         --#{$prefix}btn-color: var(--#{$prefix}text-darkest);
+//         --#{$prefix}btn-hover-color: var(--#{$prefix}text-darkest);
+//         --#{$prefix}btn-hover-bg: var(--#{$prefix}light-green-dark);
+//         --#{$prefix}btn-hover-border-color: var(--#{$prefix}light-green-dark);
+//         --#{$prefix}btn-active-color: var(--#{$prefix}text-dark-blue);
+//         --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
+//         --#{$prefix}btn-disabled-bg: rgba(224, 224, 224, 0.1);
+//         --#{$prefix}btn-disabled-color: var(--#{$prefix}text-light-blue-dark);
+//         --#{$prefix}btn-disabled-border-color: transparent;
+//         }

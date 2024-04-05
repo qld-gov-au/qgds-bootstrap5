@@ -1,0 +1,19 @@
+{
+    "options": [
+        {
+            "type": "radio",
+            "name": "radioOption",
+            "label": "Option 1",
+            "value": "1",
+            "state": ""
+        },
+        {
+            "type": "radio",
+            "name": "radioOption",
+            "label": "Option 2",
+            "value": "2",
+            "state": "disabled"
+        }
+
+    ]
+}
