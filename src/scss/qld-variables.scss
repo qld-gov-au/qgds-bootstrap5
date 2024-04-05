@@ -33,6 +33,7 @@ $qld-light-green-dark : #ADD33F;
 $qld-dark-green-dark : #78BA00;
 $qld-light-yellow : #FFEF60;
 $qld-button-dark-blue : #003E7D;
+$qld-text-darkest : #121940;
 
 //Hypothetical
 $cobrand-blue : #132D4E;
@@ -173,6 +174,7 @@ $project-colors: (
   "dark-green-dark": $qld-dark-green-dark,
   "light-yellow": $qld-light-yellow,
   "button-dark-blue": $qld-button-dark-blue,
+  "text-darkest": $qld-text-darkest,
 
   //Define new BEM colour variables from Figma
   //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
