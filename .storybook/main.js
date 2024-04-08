@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-import { mergeConfig } from "vite";
 
+/** @type { import('@storybook/html-vite').StorybookConfig } */
 const config = {
   stories: [
     // Include all stories found under the src/components directory ( For example: alert/alert.stories.js )
@@ -12,6 +12,7 @@ const config = {
   addons: [
     //Storybook addons
     //https://storybook.js.org/addons/
+    "@storybook/addon-themes",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-links",
@@ -20,7 +21,6 @@ const config = {
   framework: {
     //Build the storybook with html-vite rendered - faster than webpack
     //https://www.npmjs.com/package/@storybook/html-vite
-    // todo: consider @storybook/builder-vite instead?
     name: "@storybook/html-vite",
     options: {},
   },

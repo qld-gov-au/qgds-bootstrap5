@@ -50,6 +50,9 @@ export const Light = {
     },
   },
   parameters: {
+    themes: {
+      themeOverride: 'Light', // component level override
+    },
     backgrounds: {
       default: "Light",
       values: [{ name: "Light", value: "var(--qld-light-background)" }],
@@ -80,6 +83,9 @@ export const Alternative = {
     },
   },
   parameters: {
+    themes: {
+      themeOverride: 'Light alternative', // component level override
+    },
     backgrounds: {
       default: "Alternative",
       values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
@@ -110,6 +116,9 @@ export const Dark = {
     },
   },
   parameters: {
+    themes: {
+      themeOverride: 'Dark', // component level override
+    },
     backgrounds: {
       default: "Dark",
       values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
@@ -141,6 +150,9 @@ export const DarkAlternative = {
   },
   parameters: {
     backgrounds: {
+      themes: {
+        themeOverride: 'Dark alternative', // component level override
+      },
       default: "Dark alternative",
       values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
     },
