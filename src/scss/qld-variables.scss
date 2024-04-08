@@ -65,6 +65,9 @@ $qld-brand-accent : $qld-golden-yellow;
 //Grays
 $qld-system-darkest : #1D1D1D;
 $qld-text-grey : #414141;
+$qld-hint-text-color: #6F777b;
+$qld-hint-text-color-muted: #DEEBF9;
+$qld-color-dark-button-hover: #ADD33F;
 $qld-text-headings : #04284C;
 $qld-dark-grey : #595959;
 $qld-dark-grey-muted : #636363;
@@ -88,6 +91,7 @@ $qld-syntax-values : #6BBE27;
 $qld-syntax-elements : #A7E5FF;
 $qld-syntax-properties : #C88DF7;
 $qld-syntax-comments : #C0D7EC;
+$qld-textbox-border-color: #003E7D;
 
 // Define new figma variables as SASS variables
 $qld-color-background: #FFFFFF;
