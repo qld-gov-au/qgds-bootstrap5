@@ -149,6 +149,17 @@ $form-check-inline-margin-end: 1rem;
         }
     }
 
+    .valid & { // reference dark mode buttons for semantics
+        .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
+            outline: #339D37 solid 2px;
+        }
+    }
+    .invalid & {
+        .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
+            outline: #E22339 solid 2px;
+        }
+    }
+
     &-label {
         margin-left: 1rem;
     }

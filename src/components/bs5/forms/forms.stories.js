@@ -1,11 +1,11 @@
 // Blockquote.stories.js
-import { FormCheck } from './FormCheck.js';
-import defaultdata from './form-check.data.json';
+import { Forms } from './Forms.js';
+import defaultdata from './forms.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/FormCheck',
-  render: (args) => new FormCheck(args).html,
+  title: 'Components/Forms',
+  render: (args) => new Forms(args).html,
 };
 
 // Default blockquote story
@@ -39,8 +39,8 @@ export const Validation = {
   args: defaultdata,
   render: (args) => {
     return `
-    <div class="valid">${new FormCheck(args).html}</div>
-    <div class="invalid">${new FormCheck(args).html}</div>
+    <div class="valid">${new Forms(args).html}</div>
+    <div class="invalid">${new Forms(args).html}</div>
     `
   }
 }

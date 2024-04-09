@@ -2,38 +2,62 @@
 // variables: https://getbootstrap.com/docs/5.0/forms/checks-radios/
 .form-check {
 
-    --#{$prefix}border-color: red;
-    --#{$prefix}form-check-input-border: var(--#{$prefix}border-width) solid var(--#{$prefix}border-color);
+    // --#{$prefix}border-color: red;
+    // --#{$prefix}form-check-input-border: var(--#{$prefix}border-width) solid var(--#{$prefix}border-color);
 
-    .form-check-input {
-    // --#{$prefix}form-check-input-border: 3px solid red;
-    --#{$prefix}form-check-input-checked-bg-color: red;
-    }
+    // .form-check-input {
+    // // --#{$prefix}form-check-input-border: 3px solid red;
+    // --#{$prefix}form-check-input-checked-bg-color: red;
+    // }
+    --#{$prefix}form-check-input-checked-color: red;
 }
 
-.valid .form-check { // reference dark mode buttons for semantics
-    .form-check-input[type="radio"] {
-        outline: #339D37 solid 2px;
-    }
-}
-.invalid .form-check {
-    .form-check-input[type="radio"] {
-        outline: #E22339 solid 2px;
-    }
-}
+
 .form-check {
     //valid
-    .form-check-input[type="radio"] {
+    .valid & { // reference dark mode buttons for semantics
+        .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
+            outline: #339D37 solid 2px;
+        }
+    }
+    .invalid & {
+        .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
+            outline: #E22339 solid 2px;
+        }
+    }
+    .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
         cursor: pointer;
         // outline: #339D37 solid 2px;
     }
-    .form-check-input[type="radio"] {
-        &:hover, &:active, &:focus {
-        background-color: #F5F5F5;
-        }
+    .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
+        // &:hover, */ &:active, &:focus {
+        // background-color: #F5F5F5;
+        // }
         &:active {
             filter: brightness(100%);
           }
+    }
+    .dark &, .dark-alt & {
+        .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
+            border: 0.15em solid #09ACFE;
+        }
+        // &:hover, &:active, &:focus {
+        //     background-color: #F5F5F5;
+        //     }
+        &:active {
+            filter: brightness(100%);
+        }
+
+        //hide appearance
+        .form-check-input[type="radio"]:checked::after {
+            background-color: yellow;
+            border-radius: 100%;
+          }
+        .form-check-input[type="radio"]:focus {
+            outline: #01B0E5 solid 2px;
+            //check component library
+            
+        }
     }
 }
 
