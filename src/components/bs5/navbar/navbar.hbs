@@ -16,20 +16,21 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="{{target_url}}" id="menuDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">{{title}}</a>
-
                     {{#if navigation_items}}
                     <ul class="dropdown-menu show" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
                         <div class="row dropdown-menu__inner">
                             {{#if dropdown_options}}
-                            <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                <span class="">{{dropdown_options.feature_link_value}}</span>
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M26.7687 16.2106L18.2369 25.8511C18.0827 26.0702 17.8257 26.125 17.6201 26.125C17.4145 26.125 17.2089 26.0702 17.0547 25.9059C16.695 25.5772 16.695 25.0295 17.0034 24.7008L24.1989 16.4845H4.82235C4.35978 16.4845 4 16.1011 4 15.6629C4 15.2247 4.35978 14.7317 4.82235 14.7317L24.1989 14.7317L17.0034 6.5701C16.695 6.24145 16.695 5.69369 17.0547 5.36504C17.4145 5.03639 17.9285 5.03639 18.2369 5.41981L26.7687 15.0603C27.0771 15.389 27.0771 15.882 26.7687 16.2106Z"
-                                        fill="#008635" />
-                                </svg>
-                            </a>
+                            <div class="col-12"> 
+                                <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                                    <span class="">{{dropdown_options.feature_link_value}}</span>
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M26.7687 16.2106L18.2369 25.8511C18.0827 26.0702 17.8257 26.125 17.6201 26.125C17.4145 26.125 17.2089 26.0702 17.0547 25.9059C16.695 25.5772 16.695 25.0295 17.0034 24.7008L24.1989 16.4845H4.82235C4.35978 16.4845 4 16.1011 4 15.6629C4 15.2247 4.35978 14.7317 4.82235 14.7317L24.1989 14.7317L17.0034 6.5701C16.695 6.24145 16.695 5.69369 17.0547 5.36504C17.4145 5.03639 17.9285 5.03639 18.2369 5.41981L26.7687 15.0603C27.0771 15.389 27.0771 15.882 26.7687 16.2106Z"
+                                            fill="#008635" />
+                                    </svg>
+                                </a>
+                            </div>
                             {{#if dropdown_options.feature_link_description}}
                             <p>{{dropdown_options.feature_link_description}}</p>
                             {{/if}}
@@ -46,6 +47,7 @@
                             </li>
                             {{/each }}
                             <hr>
+                            <li class="col-12 text-end">
                             <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
                                 <span class="">{{dropdown_options.view_value}}</span>
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -55,6 +57,7 @@
                                         fill="#008635" />
                                 </svg>
                             </a>
+                            </li>
                         </div>
                     </ul>
                     {{/if}}
