@@ -6,9 +6,9 @@
   "scripts": {
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' .",
-    "build": "node build.js",
+    "build": "node esbuild.js",
     "test": "echo 'no tests yet'",
-    "watch": "node build.js --watch",
+    "watch": "node esbuild.js --watch",
     "serve": "live-server dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

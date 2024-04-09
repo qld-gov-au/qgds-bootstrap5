@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-
 
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 const config = {

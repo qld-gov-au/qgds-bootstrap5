@@ -48,10 +48,13 @@ const preview = {
             },
         },
         viewport: {
-            viewports: {
-                small: {name: "Small", styles: {width: "640px", height: "800px"}},
-                //TODO: add tablet style
-                large: {name: "Large", styles: {width: "1024px", height: "1000px"}},
+            viewports: { //QLD-media Breakpoints
+                small: {name: "Small", styles: {width: "400px", height: "800px"}},
+                medium: {name: "Medium", styles: {width: "699px", height: "800px"}},
+                large: {name: "Large", styles: {width: "992px", height: "800px"}},
+                xlarge: {name: "Extra Large", styles: {width: "1312px", height: "1000px"}},
+                xxlarge: {name: "Extra Large", styles: {width: "1599px", height: "1000px"}},
+                navbreakpoint: {name: "Nave Breakpoint", styles: {width: "992px", height: "800px"}},
             },
         },
     },

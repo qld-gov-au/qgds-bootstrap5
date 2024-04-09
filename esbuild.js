@@ -3,10 +3,10 @@
 import * as esbuild from "esbuild";
 
 //Local ESBUILD PLUGINS
-import QGDSrawLoader from "./src/js/plugins/qgds-plugin-raw-loader.js";
-import QDGScleanFolders from "./src/js/plugins/qgds-plugin-clean-output-folders.js";
-import QDGSbuildLog from "./src/js/plugins/qgds-plugin-build-log.js";
-import QDGScopy from "./src/js/plugins/qgds-plugin-copy-assets.js";
+import QGDSrawLoader from "./.esbuild/js/plugins/qgds-plugin-raw-loader.js";
+import QDGScleanFolders from "./.esbuild/js/plugins/qgds-plugin-clean-output-folders.js";
+import QDGSbuildLog from "./.esbuild/js/plugins/qgds-plugin-build-log.js";
+import QDGScopy from "./.esbuild/js/plugins/qgds-plugin-copy-assets.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
