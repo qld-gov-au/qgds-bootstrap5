@@ -1,29 +1,22 @@
 // Variables
 .navbar {
-
     --#{$prefix}navbar-color: #{$body-color};
     --#{$prefix}navbar-hover-color: #{$qld-brand-primary};
     --#{$prefix}navbar-hover-bg: #E8E8E8;
     --#{$prefix}navbar-active-color: #{$qld-brand-primary};
     --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
-
     --#{$prefix}navbar-bg-color: #{$qld-extra-light-grey};
     --#{$prefix}navbar-border-color: #{$qld-brand-secondary};
-
     --#{$prefix}icon-color: #{$qld-brand-secondary-dark};
-
     --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
     --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
     --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
-
     --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
     --#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
     --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
     --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
     --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
-
     --#{$prefix}navbar-border-width: 8px;
-
 }
 
 @include color-mode(dark) {
@@ -59,51 +52,117 @@
     }
 
     .dropdown-menu {
-        left:0;
-        right:0;
-        margin-top:0;
-        padding: 1rem;
-        max-width: 90%;
-        margin: 0px auto;
 
-        a { 
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+        left: 0;
+        right: 0;
+        margin-top: 0;
+
+        width: 1320px;
+        margin: 0px auto;
+        margin-top: 0.5rem;
+
+        border-radius: 12px;
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .3), 0px 2px 6px 2px rgba(0, 0, 0, .15);
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, .3), 0px 2px 6px 2px rgba(0, 0, 0, .15);
+
+        padding: 48px 64px;
+        padding: 3rem 4rem;
 
         .dropdown-menu__inner {
-            padding: 48px 64px;
-            padding: 3rem 4rem;
-
-            .dropdown-item {
-                
-            }
 
             .dropdown-menu__featured {
                 font-size: 1.5rem;
+                text-decoration: none;
+                font-weight: 700;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: 5px;
+                    background-color: inherit;
+                }
+
+                &:focus {
+                    text-decoration: underline;
+                    text-underline-offset: 5px;
+                    background-color: inherit;
+                }
             }
 
             .dropdown-menu__view_all {
                 font-size: 1.25rem;
                 text-align: right;
+                font-weight: 700;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: 5px;
+                    background-color: inherit;
+                }
+
+                &:focus {
+                    text-decoration: underline;
+                    text-underline-offset: 5px;
+                    background-color: inherit;
+                }
+
+
             }
 
             hr {
-                height: 2px;
                 margin: 31px 0px 31px 0px;
                 margin: 2rem 0 2rem 0;
+                border-bottom: solid 1px $qld-light-border;
+                height: 1px;
             }
+
+            .dropdown-item {
+                padding: 1rem 0;
+                border-bottom: 2px;
+                color: $qld-light-link;
+                border-bottom: solid 1px $qld-light-border;
+                font-weight: 700;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: 5px;
+                    background-color: inherit;
+                }
+
+                &:focus {
+                    text-decoration: underline;
+                    text-underline-offset: 5px;
+                    background-color: inherit;
+                }
+            }
+
         }
+
+        .dropdown-item__description {
+            color: var($qld-dark-grey-muted);
+            font-size: 14px;
+            font-size: .875rem;
+            line-height: 1.4285714286;
+            font-weight: normal;
+            padding: 1rem 0rem;
+        }
+
+        hr {
+            height: 2px;
+            margin: 0 0;
+        }
+
     }
 
     .nav-item {
         .nav-link {
             $navbar-nav-link-padding-x: 0.75rem;
             $navbar-nav-link-padding-y: 0.75rem;
+
             --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
+
             line-height: 2rem;
             overflow-y: visible;
             position: relative;
@@ -125,13 +184,13 @@
                     background: transparent;
                 }
             }
-
         }
     }
 
     //Specific use case - home icon sits within a flex container
     .nav-item-home {
         display: flex;
+
         .qld-icon {
             display: block;
             height: 2rem;

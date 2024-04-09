@@ -1,6 +1,6 @@
 // Navbar.stories.js
 import { Navbar } from './Navbar.js';
-import { default_state, menu_state} from './navbar.data.json';
+import { default_state, menu_state, test_states} from './navbar.data.json';
 
 export default {
   tags: ['autodocs'],
@@ -18,8 +18,15 @@ export const defaultState = {
 }
 
 // Default megaMenu story
-export const withMenu = {
+export const withFullMenuOptions = {
   args: { 
     ...menu_state,
+  }
+}
+
+// Default megaMenu story
+export const withMenuNoDescriptions = {
+  args: { 
+    ...test_states,
   }
 }
