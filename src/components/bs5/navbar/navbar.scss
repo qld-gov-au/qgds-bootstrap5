@@ -52,35 +52,27 @@
     }
 
     .dropdown-menu {
-
         left: 0;
         right: 0;
         margin-top: 0;
-
         width: 1320px;
         margin: 0px auto;
         margin-top: 0.5rem;
-
         border-radius: 12px;
         -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .3), 0px 2px 6px 2px rgba(0, 0, 0, .15);
         box-shadow: 0px 1px 2px rgba(0, 0, 0, .3), 0px 2px 6px 2px rgba(0, 0, 0, .15);
-
         padding: 48px 64px;
         padding: 3rem 4rem;
-
         .dropdown-menu__inner {
-
             .dropdown-menu__featured {
                 font-size: 1.5rem;
                 text-decoration: none;
                 font-weight: 700;
-
                 &:hover {
                     text-decoration: underline;
                     text-underline-offset: 5px;
                     background-color: inherit;
                 }
-
                 &:focus {
                     text-decoration: underline;
                     text-underline-offset: 5px;
@@ -93,20 +85,16 @@
                 text-align: right;
                 font-weight: 700;
                 text-decoration: none;
-
                 &:hover {
                     text-decoration: underline;
                     text-underline-offset: 5px;
                     background-color: inherit;
                 }
-
                 &:focus {
                     text-decoration: underline;
                     text-underline-offset: 5px;
                     background-color: inherit;
                 }
-
-
             }
 
             hr {
@@ -185,12 +173,20 @@
                 }
             }
         }
+        .dropdown-toggle {
+            &::after {
+                content: '';
+                background-image: url('./chevron.svg');
+                width: 14px; 
+                height: 7px;
+                display: inline-block;
+            }
+        }
     }
 
     //Specific use case - home icon sits within a flex container
     .nav-item-home {
         display: flex;
-
         .qld-icon {
             display: block;
             height: 2rem;
