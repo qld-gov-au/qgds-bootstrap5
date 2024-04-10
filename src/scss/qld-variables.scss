@@ -47,15 +47,6 @@ $qld-brand-secondary : $qld-light-green;
 $qld-brand-accent : $qld-golden-yellow;
 
 
-// Uncoment to switch primary palette
-// $qld-brand-primary-dark   : $cobrand-grey;
-// $qld-brand-primary        : $cobrand-maroon;
-// $qld-brand-primary-light  : $cobrand-blue;
-// $qld-brand-secondary-dark : $cobrand-orange;
-// $qld-brand-secondary      : $cobrand-purple;
-// $qld-brand-accent         : $cobrand-yellow;
-
-
 //Grays
 $qld-system-darkest : #1D1D1D;
 $qld-text-grey : #414141;
@@ -69,19 +60,25 @@ $qld-grey : #E0E0E0;
 $qld-light-grey : #EBEBEB;
 $qld-light-grey-alt : #E8E8E8;
 $qld-extra-light-grey : #F5F5F5;
+
 $qld-white : #FFFFFF;
 $qld-white-underline : rgba(255, 255, 255, 0.72);
 $qld-dark-underline : rgba(3, 33, 63, 0.72);
 $qld-maroon-traditional: #771E32;
 $qld-maroon-modern : #A70240;
+
 $qld-notify-warning : #E22339;
 $qld-notify-information: #0085B3;
 $qld-notify-success : #339D37;
 $qld-notify-alert : #FFCC2C;
+
 $qld-syntax-values : #6BBE27;
 $qld-syntax-elements : #A7E5FF;
 $qld-syntax-properties : #C88DF7;
 $qld-syntax-comments : #C0D7EC;
+
+$qld-action-primary-dark: #78BA00;
+
 
 // Define new figma variables as SASS variables
 $qld-color-background: #FFFFFF;
@@ -95,6 +92,7 @@ $qld-color-light-alt-background--shade: #E0E0E0;
 $primary : $qld-brand-primary;
 $primary-dark : $qld-brand-primary-dark;
 $secondary : $qld-dark-green;
+$secondary-dark: $qld-alt-button-hover;
 $success : $qld-notify-success;
 $info : $qld-notify-information;
 $warning : $qld-notify-alert;
@@ -105,7 +103,6 @@ $dark : $qld-dark-grey;
 // The Bootstrap map-merge will create custom CSS variables against the ::root node.
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
 // The PREFIX is defined at the top of main.SCSS file (ie CSS entry point)
-
 $project-colors: (
   "brand-primary-dark": $qld-brand-primary-dark,
   "brand-primary": $qld-brand-primary,
@@ -137,29 +134,28 @@ $project-colors: (
   "dark-underline": $qld-dark-underline,
   "maroon-traditional": $qld-maroon-traditional,
   "maroon-modern": $qld-maroon-modern,
+
   "notify-warning": $qld-notify-warning,
   "notify-information": $qld-notify-information,
   "notify-success": $qld-notify-success,
   "notify-alert": $qld-notify-alert,
+
   "syntax-values": $qld-syntax-values,
   "syntax-elements": $qld-syntax-elements,
   "syntax-properties": $qld-syntax-properties,
   "syntax-comments": $qld-syntax-comments,
-  "primary": $qld-sapphire-blue,
-  "primary-dark": $qld-brand-primary-dark,
-  "secondary": $qld-dark-green,
+
+  "primary": $primary,
+  "primary-dark": $primary-dark,
+  "secondary": $secondary,
+  "secondary-dark": $secondary-dark,
+
   "success": $qld-notify-success,
   "info": $qld-notify-information,
   "warning": $qld-notify-alert,
   "danger": $qld-notify-warning,
   "light": $qld-extra-light-grey,
   "dark": $qld-dark-grey,
-  "dark-background": $qld-dark-background,
-  "dark-text": $qld-dark-text,
-  "dark-border": $qld-dark-border,
-  "dark-alt-border": $qld-dark-alt-border,
-  "dark-blue-shade": $qld-dark-blue-shade,
-  "dark-focus": $qld-dark-focus,
 
   //Define new BEM colour variables from Figma
   //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
@@ -174,7 +170,16 @@ $project-colors: (
 
   "light-alt-background": $qld-color-light-alt-background,
   "light-alt-background-shade": $qld-color-light-alt-background--shade,
-        
+
+  "dark-background": $qld-dark-background,
+  "dark-blue-shade": $qld-dark-blue-shade,
+  //^ todo rename to dark-background-shade, update references
+  "dark-text": $qld-dark-text,
+  "dark-border": $qld-dark-border,
+
+  "dark-alt-border": $qld-dark-alt-border,
+  "dark-focus": $qld-dark-focus,
+
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
 
