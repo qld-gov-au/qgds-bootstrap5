@@ -56,7 +56,7 @@ export default {
 };
 
 /**
- * 
+ * Default textbox
  */
 export const Default = {
   args: defaultdata
@@ -129,6 +129,3 @@ export const Invalid = {
     ...{states: "qld-input-error"}
   },
 };
-
-
-
