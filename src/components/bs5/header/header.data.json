@@ -1,0 +1,11 @@
+{
+    "default_state": {
+        "metadata": {
+            "masterbrand": true,
+            "subbrand": false,
+            "cobrand": false,
+            "endorsed": false,
+            "standalone": false
+        }
+    }
+}
