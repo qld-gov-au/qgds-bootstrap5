@@ -1,24 +1,22 @@
 <!-- QGDS Component: Textbox -->
 
-<div class="code-preview-body {{variantClass}}">
-    <!-- Label for the first input field -->
-    <label class="qld-textbox-label" for="example-1">Label</label>
+<!-- Label for the first input field -->
+<label class="qld-textbox-label" for="example-1">Label</label>
 
-    <!-- Hint text for the first input field -->
-    <span class="qld-hint-text" id="example-1-hint">Hint text</span>
+<!-- Hint text for the first input field -->
+<span class="qld-hint-text" id="example-1-hint">Hint text</span>
 
-    {{#contains "qld-input-success" states}}
-    <span id="text-field-success" class="qld-input-success">
-    Success message
-    </span>
-    {{/contains}}
+{{#contains "qld-input-success" states}}
+<span id="text-field-success" class="qld-input-success">
+Success message
+</span>
+{{/contains}}
 
-    {{#contains "qld-input-error" states}}
-    <span id="text-field-error" class="qld-input-error">
-    Error message
-    </span>
-    {{/contains}}
+{{#contains "qld-input-error" states}}
+<span id="text-field-error" class="qld-input-error">
+Error message
+</span>
+{{/contains}}
 
-    <!-- First text input field, described by the hint text above -->
-    <input class="qld-textbox {{customClass}} {{states}}" {{#if isDisabled}}disabled{{/if}}/>
-</div>
+<!-- First text input field, described by the hint text above -->
+<input class="qld-textbox {{customClass}} {{states}}" {{#if isDisabled}}disabled{{/if}}/>
