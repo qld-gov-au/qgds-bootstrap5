@@ -1,22 +1,29 @@
 .qld-table {
-    
-    border: 1px solid $qld-light-grey;
+
+    border: 1px solid var(--qld-light-grey);
     border-radius: 0.75rem;
     margin-bottom: 1rem;
 
-    --table-row-border-color: var(--qld-extra-light-grey);
-
-    @media (prefers-color-scheme: dark) {
-        --table-row-border-color: var(--qld-white);
+    // DS includes a version of the table without borders ("quiet table").
+    // This is achieved by setting the border on a wrapping .qld-table--borderless class
+    &--borderless {
+        border: 1px solid transparent;
     }
+
+
+    // @media (prefers-color-scheme: dark) {
+    //     --qld-table-border-color: var(--qld-white);
+    // }
 
     .table {
 
+        --qld-table-border-color: var(--qld-light-grey);
+
         margin-bottom: 0;
         border-radius: 0.75rem;
-        
+
         //required to maintain effective border-radius on the table
-        overflow: hidden; 
+        overflow: hidden;
 
         caption {
             caption-side: top;
@@ -25,6 +32,7 @@
             line-height: 2rem;
             font-size: 1.25rem;
         }
+
         .sub-caption {
             color: var(--qld-dark-grey-muted);
             font-size: 0.875rem;
@@ -45,27 +53,25 @@
         }
     }
 
-    //Table dark
-    @include table-variant("dark", $qld-brand-primary);
 
+    //Build a bootstrap ".table-dark" class dynamically, passing in a background colour
+    @include table-variant("dark", #09549F);
 
+    //Then, we extend .table-dark with some additional rules 
     .table-dark {
-        
-        --table-dark-bg: var(--qld-brand-primary) !important;
-        --table-dark-header-bg: #04498F;
-        --table-dark-text-color: #FFF;
-        
+
         caption,
-        .sub-caption  {
-            background-color: var(--table-dark-bg);
-            color: var(--table-dark-text-color);
+        .sub-caption {
+            background-color: #09549F;
+            color: #FFF;
+
         }
 
         thead th {
-            background-color: var(--table-dark-header-bg);
+            background-color: #04498F;
+            border-top: 1px solid var(--qld-table-border-color);
         }
     }
 
 
 }
-
