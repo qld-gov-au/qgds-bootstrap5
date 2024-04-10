@@ -1,5 +1,5 @@
 {
-    "default_state": {
+    "master_brand": {
         "metadata": {
             "brand_type": { 
                 "masterbrand_enabled": true,
