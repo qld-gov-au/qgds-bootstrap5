@@ -8,16 +8,6 @@ export default {
   render: (args) => new Navbar(args).html,
   argTypes: {
   },
-  decorators: [
-    (Story, { parameters }) => {
-      const { background } = parameters;
-      return `
-        <div class="${background}">
-          ${Story()}
-        </div>
-      `;
-    },
-  ],
 };
 
 // Default navigation story
@@ -52,6 +42,15 @@ export const LightMode = {
       values: [{ name: "Light", value: "var(--qld-light-background)" }],
     },
   },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="light">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 // Navbar story with 'Alternative' color theme
@@ -65,6 +64,15 @@ export const Alternative = {
       values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
     },
   },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="alt">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 // Navbar story with 'Dark' color theme
@@ -78,6 +86,15 @@ export const Dark = {
       values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
     },
   },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 // Navbar story with 'DarkAlternative' color theme
@@ -91,4 +108,13 @@ export const DarkAlternative = {
       values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
     },
   },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark-alt">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
