@@ -149,9 +149,11 @@ export const Responsive = {
   decorators: [
     (Story) => {
       return `
+        <div class="container-fluid"><div class="row">
         <div class="col-6">
         ${Story()}
         </div>
+        </div></div>
       `;
     },
   ],
