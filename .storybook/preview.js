@@ -18,7 +18,7 @@ const preview = {
                 // "Dark alternative": allModes["Dark alternative"],
                 //mobile: allModes["mobile"],
                 //desktop: allModes["desktop"],
-                "1200px": {viewport: 1200}, //original non-modes based baseline
+                //"1200px": {viewport: 1200}, //original non-modes based baseline
             },
         },
         viewport: {
