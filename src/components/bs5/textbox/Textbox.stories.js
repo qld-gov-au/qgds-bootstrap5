@@ -22,21 +22,6 @@ export default {
 
   //https://storybook.js.org/docs/api/arg-types
   argTypes: {
-    variantClass: {
-      name: "Theme",
-      description: `Settable classes for the component's wrapper`,
-      control: {
-        type: "radio",
-        labels: {
-          "default": "Default",
-          "dark": "Dark"
-        },
-      },
-      options: [
-        "default",
-        "dark"
-      ],
-    },
     customClass: {
       name: "Classes",
       description: 'Settable classes for the component',
@@ -49,18 +34,25 @@ export default {
       options: [
         "form-style-filled"
       ],
-    }
-  },
-
-  /*parameters: {
-    backgrounds: {
-      default: 'Default',
-      values: [
-        { name: 'Default', value: '$qld-white' },
-        //{ name: 'Dark', value: 'var(--qld-dark-background)' },
+    },
+    states: {
+      name: "States",
+      description: `Valid/Invalid states`,
+      control: {
+        type: "radio",
+        labels: {
+          "default": "Default",
+          "qld-input-success": "Success",
+          "qld-input-error": "Error"
+        },
+      },
+      options: [
+        "default",
+        "qld-input-success",
+        "qld-input-error"
       ],
     },
-  },*/
+  },
 };
 
 /**
@@ -73,19 +65,33 @@ export const Default = {
 /**
  * Dark themed textbox
  */
-
 export const Dark = {
   args: { 
-    ...defaultdata,
-    ...{variantClass: "dark"},
+	  ...defaultdata,
+	  ...{isDisabled: false},
   },
+  parameters: {
+    backgrounds: {
+      default: 'Dark',
+      values: [
+        { name: 'Dark', value: 'var(--qld-brand-primary)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
-  
 
 /**
  * Filled style textbox
  */
-
 export const Filled = {
   args: { 
 	  ...defaultdata,
@@ -100,7 +106,27 @@ export const Filled = {
 export const Disabled = {
   args: { 
 	  ...defaultdata,
-	  ...{isDisabled: "true"},
+	  ...{isDisabled: true},
+  },
+};
+
+/**
+ * Valid textbox
+ */
+export const Valid = {
+  args: {
+	  ...defaultdata,
+    ...{states: "qld-input-success"}
+  },
+};
+
+/**
+ * Invalid textbox
+ */
+export const Invalid = {
+  args: {
+	  ...defaultdata,
+    ...{states: "qld-input-error"}
   },
 };
 
