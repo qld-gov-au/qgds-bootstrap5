@@ -16,7 +16,27 @@
     --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
     --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
     --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
-    --#{$prefix}navbar-border-width: 8px;
+    --#{$prefix}navbar-border-width: 0.5rem;
+
+    .light & {
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}light-background);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}light-border);
+    }
+
+    .alt & {
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}light-grey-alt);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}soft-grey);
+    }
+
+    .dark & {
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}brand-primary);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
+    }
+
+    .dark-alt & {
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-blue);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-alt-border);
+    }
 }
 
 @include color-mode(dark) {
@@ -172,7 +192,7 @@
             &.show,
             &:hover,
             &:focus {
-                border-bottom: solid 0.5rem black;
+                border-bottom: solid 0.5rem $qld-brand-accent;
                 margin-bottom: -0.5rem;
             }
 
