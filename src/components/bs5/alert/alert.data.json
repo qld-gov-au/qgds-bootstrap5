@@ -1,36 +1,24 @@
 {
 	"success": {
-		"classes": "alert-success",
+		"variantClass": "alert-success",
 		"heading": "Road closure",
 		"content": "<p>The Bruce Highway is closed at Caloundara due to bushfire activity. <a href='#'>Find our more</a>.</p>",
 		"dismiss": true
 	},
 	"info": {
-		"classes": "alert-info",
+		"variantClass": "alert-info",
 		"heading": "Road closure",
 		"content": "The Bruce Highway is closed at Caloundara due to bushfire activity. <a href='#'>Find our more</a>.",
 		"dismiss": true
 	},
 	"warning": {
-		"classes": "alert-warning",
+		"variantClass": "alert-warning",
 		"heading": "Road closure",
 		"content": "The Bruce Highway is closed at Caloundara due to bushfire activity. <a href='#'>Find our more</a>.",
 		"dismiss": true
 	},
 	"danger": {
-		"classes": "alert-danger",
-		"heading": "Road closure",
-		"content": "The Bruce Highway is closed at Caloundara due to bushfire activity. <a href='#'>Find our more</a>.",
-		"dismiss": true
-	},
-	"light": {
-		"classes": "alert-light",
-		"heading": "Road closure",
-		"content": "The Bruce Highway is closed at Caloundara due to bushfire activity. <a href='#'>Find our more</a>.",
-		"dismiss": true
-	},
-	"dark": {
-		"classes": "alert-dark",
+		"variantClass": "alert-danger",
 		"heading": "Road closure",
 		"content": "The Bruce Highway is closed at Caloundara due to bushfire activity. <a href='#'>Find our more</a>.",
 		"dismiss": true

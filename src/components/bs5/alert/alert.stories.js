@@ -74,11 +74,12 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98125&mode=design&t=qwjFV2DLRYNST9Sr-0",
-    },
+    // PENDING STORYBOOK 8 DESIGN ADDON UPDATE 4/4/24. SP.
+    // design: {
+    //   name: "QGDS Figma Reference",
+    //   type: "figma",
+    //   url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98125&mode=design&t=qwjFV2DLRYNST9Sr-0",
+    // },
   },
 };
 
