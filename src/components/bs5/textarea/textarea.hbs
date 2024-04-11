@@ -1,0 +1,22 @@
+<!-- QGDS Component: Textarea -->
+
+<!-- Label for the first input field -->
+<label class="qld-text-input-label" for="example-1">Label</label>
+
+<!-- Hint text for the first input field -->
+<span class="qld-hint-text" id="example-1-hint">Hint text</span>
+
+{{#contains "qld-input-success" states}}
+<span class="qld-input-success">
+Success message
+</span>
+{{/contains}}
+
+{{#contains "qld-input-error" states}}
+<span class="qld-input-error">
+Error message
+</span>
+{{/contains}}
+
+<!-- First text input field, described by the hint text above -->
+<textarea class="qld-text-input {{customClass}} {{states}}" {{#if isDisabled}}disabled{{/if}}></textarea>
