@@ -14,6 +14,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HAVE_CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN != '' }}
     strategy:
       matrix:
         node: [ '20' ]
@@ -131,7 +133,7 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Chromatic
-        if: ${{ github.actor != 'dependabot[bot]' }}
+        if: ${{ github.actor != 'dependabot[bot]' && env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' }}
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
         with:
@@ -139,6 +141,13 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "storybook-static"
+      - name: Publish to Chromatic - Is Skipped
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
+        run: |  
+          echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
+          echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
+          echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
+          echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
 
       - name: Package storybook files
         uses: actions/upload-artifact@v4 #provide nice artifact
