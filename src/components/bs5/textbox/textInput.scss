@@ -1,4 +1,4 @@
-.qld-textbox {
+.qld-text-input {
     padding: 12px 16px;
     border-radius: 4px;
     border: 2px solid $qld-soft-grey;
@@ -36,7 +36,7 @@
         opacity: .5;
     }
 }
-.qld-textbox-label {
+.qld-text-input-label {
     color: $qld-text-grey;
     display: block;
     font-weight: 600;
@@ -97,30 +97,30 @@
 .qld-input-success+input[type=text], .qld-input-error+input[type=text],
 .qld-input-success+input[type=email], .qld-input-error+input[type=email],
 .qld-input-success+input[type=date], .qld-input-error+input[type=date],
-.qld-input-success+.qld-textbox, .qld-input-error+.qld-textbox,
+.qld-input-success+.qld-text-input, .qld-input-error+.qld-text-input,
 .qld-input-success+textarea, .qld-input-error+textarea {
     margin-top: 8px;
     margin-top: 0.5rem;
 }
 
-input.qld-textbox.qld-input-error:not(:focus),
-input.qld-textbox.qld-input-error.form-style-filled:not(:focus),
-textarea.qld-textbox.qld-input-error:not(:focus),
+input.qld-text-input.qld-input-error:not(:focus),
+input.qld-text-input.qld-input-error.form-style-filled:not(:focus),
+textarea.qld-text-input.qld-input-error:not(:focus),
 select.qld__select.qld-input-error:not(:focus),
-.dark input.qld-textbox.qld-input-error:not(:focus),
-.dark input.qld-textbox.qld-input-error.form-style-filled:not(:focus),
-.dark textarea.qld-textbox.qld-input-error:not(:focus),
+.dark input.qld-text-input.qld-input-error:not(:focus),
+.dark input.qld-text-input.qld-input-error.form-style-filled:not(:focus),
+.dark textarea.qld-text-input.qld-input-error:not(:focus),
 .dark select.qld__select.qld-input-error:not(:focus) {
     border-color: $qld-notify-warning;
     background-color: $qld-color-error-light;
     color: $qld-text-grey;
 }
 
-input.qld-textbox.qld-input-success:not(:focus),
-input.qld-textbox.qld-input-success.form-style-filled:not(:focus),
-textarea.qld-textbox.qld-input-success:not(:focus),
+input.qld-text-input.qld-input-success:not(:focus),
+input.qld-text-input.qld-input-success.form-style-filled:not(:focus),
+textarea.qld-text-input.qld-input-success:not(:focus),
  select.qld__select.qld-input-success:not(:focus),
- .dark input.qld-textbox.qld-input-success:not(:focus),
+ .dark input.qld-text-input.qld-input-success:not(:focus),
  .dark input.qld__text-input.form-style-filled.qld-input-success:not(:focus),
  .dark textarea.qld__text-input.qld-input-success:not(:focus),
  .dark select.qld__select.qld-input-success:not(:focus) {
@@ -131,7 +131,7 @@ textarea.qld-textbox.qld-input-success:not(:focus),
 
 .dark {
     background-color: $qld-sapphire-blue;
-    .qld-textbox {
+    .qld-text-input {
         border-color: $qld-dark-alt-border;
         background-color: $qld-sapphire-blue;
         color: $qld-hint-text-color-muted;
@@ -145,7 +145,7 @@ textarea.qld-textbox.qld-input-success:not(:focus),
             color: $qld-text-grey;
         }
     }
-    .qld-textbox-label {
+    .qld-text-input-label {
         color: $qld-white;
     }
     .qld-hint-text {
