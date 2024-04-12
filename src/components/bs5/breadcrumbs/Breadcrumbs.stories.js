@@ -54,9 +54,11 @@ export const Dark = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="dark">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],
