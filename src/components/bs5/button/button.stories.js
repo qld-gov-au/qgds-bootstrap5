@@ -46,8 +46,6 @@ export default {
     },
     docs: {
       controls: {
-        //exclude: ["isdisabled"], // hide isdisabled controls
-        
       },
     },
   },
