@@ -17,18 +17,12 @@
                         <a class="nav-link dropdown-toggle" href="{{target_url}}" id="menuDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">{{title}}</a>
                         {{#if navigation_items}}
-                            <ul class="dropdown-menu show" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
+                            <ul class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
                                 <div class="row dropdown-menu__inner">
                                     {{#if dropdown_options}}
                                     <div class="col-12">
                                         <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
                                             <span class="">{{dropdown_options.feature_link_value}}</span>
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M26.7687 16.2106L18.2369 25.8511C18.0827 26.0702 17.8257 26.125 17.6201 26.125C17.4145 26.125 17.2089 26.0702 17.0547 25.9059C16.695 25.5772 16.695 25.0295 17.0034 24.7008L24.1989 16.4845H4.82235C4.35978 16.4845 4 16.1011 4 15.6629C4 15.2247 4.35978 14.7317 4.82235 14.7317L24.1989 14.7317L17.0034 6.5701C16.695 6.24145 16.695 5.69369 17.0547 5.36504C17.4145 5.03639 17.9285 5.03639 18.2369 5.41981L26.7687 15.0603C27.0771 15.389 27.0771 15.882 26.7687 16.2106Z"
-                                                    fill="#008635" />
-                                            </svg>
                                         </a>
                                     </div>
                                     {{#if dropdown_options.feature_link_description}}
@@ -50,12 +44,6 @@
                                     <li class="col-12 text-end">
                                         <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
                                             <span class="">{{dropdown_options.view_value}}</span>
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M17.4766 10.6484C17.1484 10.3203 16.5469 10.3203 16.2188 10.6484C15.8906 10.9766 15.8906 11.5781 16.2188 11.9062L19.9922 15.625H9.875C9.38281 15.625 9 16.0625 9 16.5C9 16.9922 9.38281 17.375 9.875 17.375H19.9922L16.2188 21.1484C15.8906 21.4766 15.8906 22.0781 16.2188 22.4062C16.5469 22.7344 17.1484 22.7344 17.4766 22.4062L22.7266 17.1562C22.8906 16.9922 23 16.7734 23 16.5C23 16.2812 22.8906 16.0625 22.7266 15.8984L17.4766 10.6484ZM16 2.5C8.23438 2.5 2 8.78906 2 16.5C2 24.2656 8.23438 30.5 16 30.5C23.7109 30.5 30 24.2656 30 16.5C30 8.78906 23.7109 2.5 16 2.5ZM16 28.75C9.21875 28.75 3.75 23.2812 3.75 16.5C3.75 9.77344 9.21875 4.25 16 4.25C22.7266 4.25 28.25 9.77344 28.25 16.5C28.25 23.2812 22.7266 28.75 16 28.75Z"
-                                                    fill="#008635" />
-                                            </svg>
                                         </a>
                                     </li>
                                 </div>

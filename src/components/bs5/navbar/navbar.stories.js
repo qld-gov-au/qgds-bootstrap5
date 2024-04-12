@@ -34,7 +34,7 @@ export const withMenuNoDescriptions = {
 // Navbar story with 'Light' color theme
 export const LightMode = {
   args: {
-    // Define args specific to Light mode
+    ...menu_state,
   },
   parameters: {
     backgrounds: {
@@ -56,7 +56,7 @@ export const LightMode = {
 // Navbar story with 'Alternative' color theme
 export const Alternative = {
   args: {
-    // Define args specific to Light mode
+    ...menu_state,
   },
   parameters: {
     backgrounds: {
@@ -78,7 +78,7 @@ export const Alternative = {
 // Navbar story with 'Dark' color theme
 export const Dark = {
   args: {
-    // Define args specific to Light mode
+    ...menu_state,
   },
   parameters: {
     backgrounds: {
@@ -100,7 +100,7 @@ export const Dark = {
 // Navbar story with 'DarkAlternative' color theme
 export const DarkAlternative = {
   args: {
-    // Define args specific to Light mode
+    ...menu_state,
   },
   parameters: {
     backgrounds: {

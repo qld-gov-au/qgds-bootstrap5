@@ -1,57 +1,50 @@
 // Variables
 .navbar {
+    --#{$prefix}navbar-border-width: 0.5rem;
     --#{$prefix}navbar-color: #{$body-color};
+
+    --#{$prefix}navbar-text-color: #{$qld-brand-primary};
     --#{$prefix}navbar-hover-color: #{$qld-brand-primary};
-    --#{$prefix}navbar-hover-bg: #E8E8E8;
+    --#{$prefix}navbar-hover-bg: #{$qld-brand-primary};
     --#{$prefix}navbar-active-color: #{$qld-brand-primary};
     --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
+
     --#{$prefix}navbar-bg-color: #{$qld-extra-light-grey};
     --#{$prefix}navbar-border-color: #{$qld-brand-secondary};
     --#{$prefix}icon-color: #{$qld-brand-secondary-dark};
+
     --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
     --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
     --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
-    --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
+
     --#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
     --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
     --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
     --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
-    --#{$prefix}navbar-border-width: 0.5rem;
 
     .light & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}light-background);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}light-border);
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}light-background-shade);
     }
 
     .alt & {
         --#{$prefix}navbar-bg-color: var(--#{$prefix}light-grey-alt);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}soft-grey);
     }
 
     .dark & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}brand-primary);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
+        --#{$prefix}navbar-hover-color: var(--#{$prefix}dark-background);
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-background);
     }
 
     .dark-alt & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-blue);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-alt-border);
+        --#{$prefix}navbar-hover-color: var(--#{$prefix}dark-blue-shade);
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-blue-shade);
     }
-}
 
-@include color-mode(dark) {
-    .navbar {
-        --#{$prefix}navbar-color: #{$qld-extra-light-grey};
-        --#{$prefix}navbar-hover-color: #{$qld-white};
-        --#{$prefix}navbar-hover-bg: #{$qld-system-darkest};
-        --#{$prefix}navbar-active-color: #{$qld-system-darkest};
-        --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
-        --#{$prefix}navbar-bg-color: #{$qld-brand-primary-dark};
-        --#{$prefix}navbar-border-color: #{$qld-brand-secondary-dark};
-        --#{$prefix}icon-color: #{$qld-brand-accent};
-
-        //Supercede
-        --#{$prefix}navbar-bg-color: #{$qld-brand-primary};
+    .dark &,
+    .dark-alt & {
+        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-text-color: var(--#{$prefix}white);
+        --#{$prefix}icon-color: var(--#{$prefix}white);
     }
 }
 
@@ -68,26 +61,26 @@
         $navbar-padding-y: 0;
         --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
         --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
-        $navbar-light-toggler-icon-bg: url("data:image/svg+xml,%3Csvg width='12' height='6' viewBox='0 0 12 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.117443 0.160356C-0.0433562 0.320713 -0.0433562 0.587973 0.144242 0.74833L5.7186 5.87973C5.8794 6.04009 6.1206 6.04009 6.2814 5.87973L11.8558 0.74833C12.0434 0.587973 12.0434 0.320713 11.8826 0.160356C11.7218 -0.0267261 11.4538 -0.0267261 11.293 0.13363L5.9866 4.99777L0.707038 0.13363C0.626639 0.0534521 0.51944 0 0.41224 0C0.305041 0 0.197842 0.0534521 0.117443 0.160356Z' fill='#008635'/%3E%3C/svg%3E");
     }
 
     .dropdown-menu {
         left: 0;
         right: 0;
-        
-        margin-left: -4rem; //TO DO: FIX
-        width: 1320px; //TO DO: FIX
 
+        width: 1320px; //TO DO: FIX
+        padding: 3rem 4rem;
         margin-top: 0.5rem;
+        margin-left: -4rem;
         border-radius: 0.75rem;
         
-        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .3), 0px 2px 6px 2px rgba(0, 0, 0, .15);
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, .3), 0px 2px 6px 2px rgba(0, 0, 0, .15);
-
-        padding: 3rem 4rem;
+        -webkit-box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, .3), 0rem 0.125rem 0.375rem 0.125rem rgba(0, 0, 0, .15);
+        box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, .3), 0rem 0.125rem 0.375rem 0.125rem rgba(0, 0, 0, .15);        
+        
+        background-color: var(--#{$prefix}navbar-bg-color);
 
         .dropdown-menu__inner {
             .dropdown-menu__featured {
+                color: var(--#{$prefix}navbar-text-color);
                 font-size: 1.5rem;
                 text-decoration: none;
                 font-weight: 700;
@@ -96,7 +89,6 @@
                     text-decoration: underline;
                     text-underline-offset: 5px;
                     background-color: inherit;
-                    
                 }
 
                 &:focus {
@@ -114,6 +106,7 @@
                 font-size: 1.25rem;
                 font-weight: 700;
                 text-decoration: none;
+                color: var(--#{$prefix}navbar-text-color);
 
                 &:hover {
                     text-decoration: underline;
@@ -129,23 +122,16 @@
             }
 
             hr {
-                margin: 31px 0px 31px 0px;
                 margin: 2rem 0 2rem 0;
-                border-bottom: solid 1px $qld-light-border;
                 height: 1px;
             }
 
             li {
-                background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z" fill="#008635"/></svg>');
-                &:hover {
-                    background-position: calc(100% - 10px) center; // Adjust the value to control the movement distance
-                }
-
                 .dropdown-item {
-                    padding: 1rem 0;
-                    color: $qld-light-link;
-                    border-bottom: solid 1px $qld-light-border;
                     font-weight: 700;
+                    padding: 1rem 0;
+                    color: var(--#{$prefix}navbar-text-color);
+                    border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
     
                     &:hover {
                         text-decoration: underline;
@@ -160,11 +146,10 @@
                     }
                 }
             }
-
         }
 
         .dropdown-item__description {
-            color: var($qld-dark-grey-muted);
+            color: var(--#{$prefix}navbar-text-color);
             font-size: 2rem;
             font-size: .875rem;
             line-height: 1.4285714286;
@@ -176,31 +161,28 @@
             height: 2px;
             margin: 0 0;
         }
-
     }
 
     .nav-item {
         .nav-link {
-            $navbar-nav-link-padding-x: 0.75rem;
-            $navbar-nav-link-padding-y: 0.75rem;
-            --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
-            --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
-            --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
-
+            color: var(--#{$prefix}navbar-text-color);
             line-height: 2rem;
             overflow-y: visible;
             position: relative;
 
+            $navbar-nav-link-padding-x: 0.75rem;
+            $navbar-nav-link-padding-y: 0.75rem;
+            
+            --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+            --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
+            --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
+
             &.show,
             &:hover {
-                border-bottom: solid 0.5rem $qld-brand-accent;
                 margin-bottom: -0.5rem;
-                background: var(--#{$prefix}navbar-hover-bg);
-                color: var(--#{$prefix}navbar-hover-color);
                 text-decoration: underline;
                 text-underline-offset: 2px;
             }
-
         }
 
         .dropdown-toggle {
@@ -208,9 +190,14 @@
             &::after {
                 content: none;
                 position: relative;
-                //background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.11744 5.16036C1.95664 5.32071 1.95664 5.58797 2.14424 5.74833L7.7186 10.8797C7.8794 11.0401 8.1206 11.0401 8.2814 10.8797L13.8558 5.74833C14.0434 5.58797 14.0434 5.32071 13.8826 5.16036C13.7218 4.97327 13.4538 4.97327 13.293 5.13363L7.9866 9.99777L2.70704 5.13363C2.62664 5.05345 2.51944 5 2.41224 5C2.30504 5 2.19784 5.05345 2.11744 5.16036Z" fill="#008635"/></svg>');
                 width: 1rem;
-                height: 1rem;
+                
+                $navbar-toggle-height: 1rem;
+                $navbar-toggle-width: 1rem;
+                $navbar-icon-color: var(--#{$prefix}icon-color);
+
+                height: $navbar-toggle-height;
+                width: $navbar-toggle-width;
             }
         }
     }
@@ -218,12 +205,11 @@
     //Specific use case - home icon sits within a flex container
     .nav-item-home {
         display: flex;
-
         .qld-icon {
             display: block;
             height: 2rem;
             width: 1.5rem;
-            background-color: var(--qld-icon-color);
+            background-color: var(--#{$prefix}icon-color);
         }
     }
 
