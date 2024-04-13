@@ -1,9 +1,11 @@
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 const config = {
     stories: [
+        "../src/stories/Introduction.mdx",
         // Include all stories found under the src/components directory ( For example: alert/alert.stories.js )
         // Exlude any stories starting with an underscore ( For example: _exludeme.stories.js )
-        "../src/components/**/!(*_)*.stories.js",
+        "../src/**/!(*_)*.mdx",
+        "../src/**/!(*_)*.stories.js",
     ],
     addons: [//Storybook addons
     //https://storybook.js.org/addons/
@@ -28,20 +30,20 @@ const config = {
     //We add a plugin to handle these .hbs extensions. (Or .mustache, .html etc)
     //https://storybook.js.org/docs/api/main-config-vite-final
 
-    // viteFinal: async (config, {configType}) => {
-    //     config.root = './dist'
-    //     config.plugins.push({
-    //         name: "html-transform",
-    //         transform(src, id) {
-    //             if (id.endsWith(".mustache") || id.endsWith(".html") || id.endsWith(".hbs")) {
-    //                 // Transform your HTML files here (src is the file content as a string)
-    //                 return src;
-    //             }
-    //         },
-    //     });
-    //
-    //     return config;
-    // },
+    viteFinal: async (config, {configType}) => {
+        config.root = './dist'
+        // config.plugins.push({
+        //     name: "html-transform",
+        //     transform(src, id) {
+        //         if (id.endsWith(".mustache") || id.endsWith(".html") || id.endsWith(".hbs")) {
+        //             // Transform your HTML files here (src is the file content as a string)
+        //             return src;
+        //         }
+        //     },
+        // });
+
+        return config;
+    },
 };
 
 export default config;

@@ -35,19 +35,27 @@ npm install
 
 ### Build the Desing System CSS, Components and templates
 
-npm run **build** _or_ **node build.js**
+```bash
+npm run build
+```
 
 ### Watch for changes and rebuild automatically
 
-npm run **watch** _or_ **node build.js --watch**
+```bash
+npm run watch
+```
 
-### Start Storybook for component development
+### Start Storybook for component development and watch
 
-npm run **storybook**
+```bash
+npm run dev-storybook
+```
 
 ### Start a local server from /dist folder
 
-npm run **serve**
+```bash
+npm run serve
+```
 
 ### Next steps
 
