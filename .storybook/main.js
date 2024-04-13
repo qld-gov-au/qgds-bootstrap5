@@ -5,14 +5,9 @@ const config = {
         // Exlude any stories starting with an underscore ( For example: _exludeme.stories.js )
         "../src/components/**/!(*_)*.stories.js",
     ],
-    addons: [
-        //Storybook addons
-        //https://storybook.js.org/addons/
-        "@storybook/addon-themes",
-        "@storybook/addon-essentials",
-        "@storybook/addon-interactions",
-        "@storybook/addon-links",
-    ],
+    addons: [//Storybook addons
+    //https://storybook.js.org/addons/
+    "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@storybook/addon-mdx-gfm", "@chromatic-com/storybook"],
 
     framework: {
         //Build the storybook with html-vite rendered - faster than webpack
