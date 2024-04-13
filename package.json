@@ -6,10 +6,11 @@
   "scripts": {
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' .",
-    "build": "node build.js",
+    "build": "node esbuild.js",
     "test": "echo 'no tests yet'",
-    "watch": "node build.js --watch",
+    "watch": "node esbuild.js --watch",
     "serve": "live-server dist",
+    "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -50,6 +51,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "live-server": "1.2.2",
     "minimist": "^1.2.8",
+    "npm-run-all2": "^6.1.2",
     "onchange": "^7.1.0",
     "postcss": "^8.4.29",
     "prettier": "3.2.5",
@@ -62,5 +64,10 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "exports": {
+    "qld.bootstrap.min.js": "./dist/assets/js/qld.bootstrap.min.js",
+    "qld.bootstrap.css": "./dist/assets/css/qld.bootstrap.css",
+    "bootstrap.min.js": "./dist/assets/js/boostrap.min.js"
   }
 }
