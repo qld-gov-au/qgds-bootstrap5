@@ -23,7 +23,7 @@ export default function buildlog() {
         console.log("CREATED:");
         log("magenta", `CSS\t\t./dist/assets/css/qld.bootstrap.css`);
         log("blue", "JS\t\t./dist/assets/js/bootstrap.min.js");
-        log("blue", `JS\t\t./dist/assets/js/main.js`);
+        log("blue", `JS\t\t./dist/assets/js/qld.bootstrap.min.js`);
 
         //List new components
         const root = process.cwd();
