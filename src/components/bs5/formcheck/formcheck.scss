@@ -22,7 +22,7 @@
     $input-border-radius: $border-radius;
     $input-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-    // Checks and radios
+    // Checks and radios (LARGE)
     $form-check-input-width: 2rem;
     $form-check-min-height: $font-size-base * $line-height-base;
     $form-check-padding-start: $form-check-input-width + 0.5rem;
@@ -72,6 +72,17 @@
 
     $form-check-inline-margin-end: 1rem;
 // }
+
+.issmall {
+        // Checks and radios (LARGE)
+        $form-check-input-width: 22px;
+        // $form-check-min-height: $font-size-base * $line-height-base;
+        // $form-check-padding-start: $form-check-input-width + 0.5rem;
+        // $form-check-margin-bottom: 1rem;
+        // $form-check-label-color: $body-color;
+        // $form-check-label-cursor: null;
+        // $form-check-transition: null;
+}
 .form-label {
     font-weight: 600;
     line-height: 1.5;
@@ -219,6 +230,13 @@
             
         }
     }
+
+    .small & {
+        .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
+            
+        }
+    }
+
     
     .valid & { // reference dark mode buttons for semantics
         .form-check-input[type="radio"], .form-check-input[type="checkbox"] {

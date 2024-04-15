@@ -1,0 +1,7 @@
+{
+    "type": "radio",
+    "name": "radioOption",
+    "label": "Option 1",
+    "value": "1",
+    "state": ""
+}
