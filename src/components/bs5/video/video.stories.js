@@ -32,6 +32,8 @@ export default {
       options: {
         Youtube: "youtube",
         Vimeo: "vimeo",
+        Custom: "custom",
+        NotProvided: ""
       },
     },
     videoSize: {
@@ -82,7 +84,14 @@ export const Vimeo = {
 };
 
 /**
- * Light colour Callout
+ * Custom video
+*/
+export const Custom = {
+  args: defaultdata.custom,
+};
+
+/**
+ * Light colour Video
  */
 export const Light = {
   parameters: {
@@ -105,7 +114,7 @@ export const Light = {
 };
 
 /**
- * Alternative Callout
+ * Alternative Video
  */
 export const Alternative = {
   parameters: {
@@ -128,7 +137,7 @@ export const Alternative = {
 };
 
 /**
- * Dark Callout
+ * Dark Video
  */
 export const Dark = {
   parameters: {
@@ -151,7 +160,7 @@ export const Dark = {
 };
 
 /**
- * Dark alternative Callout
+ * Dark alternative Video
  */
 export const DarkAlternative = {
   parameters: {

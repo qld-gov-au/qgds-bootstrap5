@@ -15,7 +15,12 @@ export function videoEmbedPlay(event) {
 
   component.classList.remove("not-ready")
 
-  iframe.src = `${iframe.src}&autoplay=1`
+  if (
+    !iframe.classList.contains("video-custom")
+  ) {
+    iframe.src = `${iframe.src}&autoplay=1`;
+  }
+
   iframe.focus()
 
 }
