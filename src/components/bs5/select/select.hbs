@@ -1,0 +1,27 @@
+<!-- QGDS Component: Select -->
+
+<!-- Label for the first input field -->
+<label class="qld-textbox-label" for="example-1">Label</label>
+
+<!-- Hint text for the first input field -->
+<span class="qld-hint-text" id="example-1-hint">Hint text</span>
+
+{{#contains "qld-input-success" states}}
+<span id="text-field-success" class="qld-input-success">
+Success message
+</span>
+{{/contains}}
+
+{{#contains "qld-input-error" states}}
+<span id="text-field-error" class="qld-input-error">
+Error message
+</span>
+{{/contains}}
+
+<!-- First text input field, described by the hint text above -->
+<select class="qld-text-input qld-select qld-field-width-1-quarter {{customClass}} {{states}}" {{#if isDisabled}}disabled{{/if}}>
+    <option value="">Please select</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+</select>

@@ -90,7 +90,7 @@
     }
 }
 
-.qld_-hint-text + select, .qld-hint-text + input, .qld-hint-text + textarea, .sq-form-question-note + select, .sq-form-question-note + input, .sq-form-question-note + textarea {
+.qld-hint-text + select, .qld-hint-text + input, .qld-hint-text + textarea, .sq-form-question-note + select, .sq-form-question-note + input, .sq-form-question-note + textarea {
     margin-top: 0.5rem;
 }
 
@@ -106,11 +106,11 @@
 input.qld-text-input.qld-input-error:not(:focus),
 input.qld-text-input.qld-input-error.form-style-filled:not(:focus),
 textarea.qld-text-input.qld-input-error:not(:focus),
-select.qld__select.qld-input-error:not(:focus),
+select.qld-select.qld-input-error:not(:focus),
 .dark input.qld-text-input.qld-input-error:not(:focus),
 .dark input.qld-text-input.qld-input-error.form-style-filled:not(:focus),
 .dark textarea.qld-text-input.qld-input-error:not(:focus),
-.dark select.qld__select.qld-input-error:not(:focus) {
+.dark select.qld-select.qld-input-error:not(:focus) {
     border-color: $qld-notify-warning;
     background-color: $qld-color-error-light;
     color: $qld-text-grey;
@@ -119,14 +119,41 @@ select.qld__select.qld-input-error:not(:focus),
 input.qld-text-input.qld-input-success:not(:focus),
 input.qld-text-input.qld-input-success.form-style-filled:not(:focus),
 textarea.qld-text-input.qld-input-success:not(:focus),
- select.qld__select.qld-input-success:not(:focus),
+ select.qld-select.qld-input-success:not(:focus),
  .dark input.qld-text-input.qld-input-success:not(:focus),
- .dark input.qld__text-input.form-style-filled.qld-input-success:not(:focus),
- .dark textarea.qld__text-input.qld-input-success:not(:focus),
- .dark select.qld__select.qld-input-success:not(:focus) {
+ .dark input.qld-text-input.form-style-filled.qld-input-success:not(:focus),
+ .dark textarea.qld-text-input.qld-input-success:not(:focus),
+ .dark select.qld-select.qld-input-success:not(:focus) {
     border-color: $qld-notify-success;
     background-color: $qld-color-success-light;
     color: $qld-text-grey;
+ }
+
+ .qld-select {
+    padding: 14px 18px 12px 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='currentColor' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    appearance: none;
+    background-position: right 11px center;
+    background-size: 1rem auto;
+    width: 100%;
+ }
+
+ @include media-breakpoint-up(md) {
+    input.qld-field-width-1-quarter,
+    select.qld-field-width-1-quarter {
+        max-width: $qld-fluid-width-1-quarter;
+    }
+
+    input.qld-field-width-half,
+    select.qld-field-width-half {
+        max-width: $qld-fluid-width-half;
+    }
+
+    input.qld-field-width-3-quarters,
+    select.qld-field-width-3-quarters {
+        max-width: $qld-fluid-width-3-quarters;
+    }
  }
 
 .dark {

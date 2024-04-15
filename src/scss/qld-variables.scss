@@ -114,6 +114,11 @@ $danger : $qld-notify-warning;
 $light : $qld-extra-light-grey;
 $dark : $qld-dark-grey;
 
+$qld-fluid-width-full: 100%;
+$qld-fluid-width-3-quarters: 75%;
+$qld-fluid-width-half: 48.5%;
+$qld-fluid-width-1-quarter: 25%;
+
 // The Bootstrap map-merge will create custom CSS variables against the ::root node.
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
 // The PREFIX is defined at the top of main.SCSS file (ie CSS entry point)
