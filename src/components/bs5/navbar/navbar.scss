@@ -3,16 +3,20 @@
     --#{$prefix}navbar-border-width: 0.5rem;
     --#{$prefix}navbar-color: #{$body-color};
 
+    --#{$prefix}navbar-link-color: #{$qld-sapphire-blue};
     --#{$prefix}navbar-text-color: #{$qld-brand-primary};
+    --#{$prefix}navbar-navlink-text-color: #{$qld-text-grey};
+
     --#{$prefix}navbar-hover-color: #{$qld-brand-primary};
     --#{$prefix}navbar-hover-bg: #{$qld-brand-primary};
     --#{$prefix}navbar-active-color: #{$qld-brand-primary};
     --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
 
-    --#{$prefix}navbar-bg-color: #{$qld-extra-light-grey};
+    --#{$prefix}navbar-bg-color: #{$qld-white};
     --#{$prefix}navbar-border-color: #{$qld-brand-secondary};
-    --#{$prefix}icon-color: #{$qld-brand-secondary-dark};
+    --#{$prefix}navbar-border-accent: #{$qld-brand-secondary};
 
+    --#{$prefix}icon-color: #{$qld-brand-secondary-dark};
     --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
     --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
     --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
@@ -23,11 +27,19 @@
     --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
 
     .light & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}light-background-shade);
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}white);
     }
 
     .alt & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}light-grey-alt);
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}white);
+    }
+
+    .alt &,
+    .light & {
+        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-text-color: var(--#{$prefix}text-grey);
+        --#{$prefix}icon-color: var(--#{$prefix}text-grey);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
     }
 
     .dark & {
@@ -44,7 +56,10 @@
     .dark-alt & {
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-navlink-text-color: var(--#{$prefix}white);
         --#{$prefix}icon-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-link-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
     }
 }
 
@@ -53,7 +68,7 @@
     margin: 0;
     padding: 0;
     background-color: var(--#{$prefix}navbar-bg-color);
-    border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-color);
+    border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-accent);
     align-items: center;
 
     .navbar-nav {
@@ -128,10 +143,10 @@
 
             li {
                 .dropdown-item {
-                    font-weight: 700;
+                    font-weight: 600;
                     padding: 1rem 0;
-                    color: var(--#{$prefix}navbar-text-color);
                     border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
+                    color: var(--#{$prefix}navbar-link-color);
     
                     &:hover {
                         text-decoration: underline;
@@ -165,7 +180,7 @@
 
     .nav-item {
         .nav-link {
-            color: var(--#{$prefix}navbar-text-color);
+            color: var(--#{$prefix}navbar-navlink-text-color);
             line-height: 2rem;
             overflow-y: visible;
             position: relative;
@@ -179,6 +194,8 @@
 
             &.show,
             &:hover {
+                background-color: var(--#{$prefix}navbar-bg-color);
+                border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-bg-color);
                 margin-bottom: -0.5rem;
                 text-decoration: underline;
                 text-underline-offset: 2px;
