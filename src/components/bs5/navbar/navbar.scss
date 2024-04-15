@@ -1,61 +1,36 @@
-$navbar-icon-color: #{$qld-brand-accent};
+//WIP: Icons
+$navbar-icon-color: $qld-brand-accent;
 $navbar-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$navbar-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$navbar-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 
 .navbar {
     --#{$prefix}navbar-border-width: 0.5rem;
-    --#{$prefix}navbar-color: #{$body-color};
-
     --#{$prefix}navbar-link-color: #{$qld-sapphire-blue};
     --#{$prefix}navbar-text-color: #{$qld-brand-primary};
     --#{$prefix}navbar-navlink-text-color: #{$qld-text-grey};
 
-    --#{$prefix}navbar-hover-color: #{$qld-brand-primary};
-    --#{$prefix}navbar-hover-bg: #{$qld-brand-primary};
-    --#{$prefix}navbar-active-color: #{$qld-brand-primary};
-    --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
-
     --#{$prefix}navbar-bg-color: #{$qld-white};
     --#{$prefix}navbar-border-color: #{$qld-light-grey};
     --#{$prefix}navbar-border-accent: #{$qld-brand-secondary};
-
-    --#{$prefix}icon-color: #{$qld-brand-secondary-dark};
-
-    --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
-    --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
-    --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
-
-    --#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
-    --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
-    --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
-    --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
-
+    
+    --#{$prefix}navbar-home-icon-color: #{$qld-brand-secondary-dark};
     --#{$prefix}navbar-icon: #{escape-svg($navbar-icon)};
     --#{$prefix}navbar-active-icon: #{escape-svg($navbar-active-icon)};
 
-    .light & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}white);
-    }
-
-    .alt & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}white);
-    }
-
     .alt &,
     .light & {
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}white);
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}text-grey);
-        --#{$prefix}icon-color: var(--#{$prefix}text-grey);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
         --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
     }
 
     .dark & {
-        --#{$prefix}navbar-hover-color: var(--#{$prefix}dark-background);
         --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-background);
     }
 
     .dark-alt & {
-        --#{$prefix}navbar-hover-color: var(--#{$prefix}dark-blue-shade);
         --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-blue-shade);
     }
 
@@ -64,7 +39,7 @@ $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}white);
         --#{$prefix}navbar-navlink-text-color: var(--#{$prefix}white);
-        --#{$prefix}icon-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
         --#{$prefix}navbar-link-color: var(--#{$prefix}white);
         --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
     }
@@ -88,16 +63,13 @@ $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000
     .dropdown-menu {
         left: 0;
         right: 0;
-
         width: 1320px; //TO DO: FIX
         padding: 3rem 4rem;
         margin-top: 0.5rem;
         margin-left: -4rem;
         border-radius: 0.75rem;
-        
         -webkit-box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, .3), 0rem 0.125rem 0.375rem 0.125rem rgba(0, 0, 0, .15);
         box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, .3), 0rem 0.125rem 0.375rem 0.125rem rgba(0, 0, 0, .15);        
-        
         background-color: var(--#{$prefix}navbar-bg-color);
 
         .dropdown-menu__inner {
@@ -106,7 +78,6 @@ $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000
                 font-size: 1.5rem;
                 text-decoration: none;
                 font-weight: 700;
-
                 &:hover {
                     text-decoration: underline;
                     text-underline-offset: 5px;
@@ -129,13 +100,11 @@ $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000
                 font-weight: 700;
                 text-decoration: none;
                 color: var(--#{$prefix}navbar-text-color);
-
                 &:hover {
                     text-decoration: underline;
                     text-underline-offset: 5px;
                     background-color: inherit;
                 }
-
                 &:focus {
                     text-decoration: underline;
                     text-underline-offset: 5px;
@@ -154,13 +123,11 @@ $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000
                     padding: 1rem 0;
                     border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
                     color: var(--#{$prefix}navbar-link-color);
-    
                     &:hover {
                         text-decoration: underline;
                         text-underline-offset: 5px;
                         background-color: inherit;
                     }
-    
                     &:focus {
                         text-decoration: underline;
                         text-underline-offset: 5px;
@@ -186,19 +153,18 @@ $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000
     }
 
     .nav-item {
+
         .nav-link {
             color: var(--#{$prefix}navbar-navlink-text-color);
             line-height: 2rem;
             overflow-y: visible;
             position: relative;
-
             $navbar-nav-link-padding-x: 0.75rem;
             $navbar-nav-link-padding-y: 0.75rem;
-            
             --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
-
+            
             &.show,
             &:hover {
                 background-color: var(--#{$prefix}navbar-bg-color);
@@ -213,28 +179,25 @@ $navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000
             &::before,
             &::after {
                 content: none;
-                position: relative;
-                width: 1rem;
-                
-                $navbar-toggle-height: 1rem;
-                $navbar-toggle-width: 1rem;
-                $navbar-icon-color: var(--#{$prefix}icon-color);
-
-                height: $navbar-toggle-height;
-                width: $navbar-toggle-width;
+                /** awaiting icons -
+                    position: relative;
+                    width: 1rem;
+                    $navbar-toggle-height: 1rem;
+                    $navbar-toggle-width: 1rem;
+                    height: $navbar-toggle-height;
+                    width: $navbar-toggle-width;
+                **/
             }
         }
     }
-
-    //Specific use case - home icon sits within a flex container
+    
     .nav-item-home {
         display: flex;
         .qld-icon {
             display: block;
             height: 2rem;
             width: 1.5rem;
-            background-color: var(--#{$prefix}icon-color);
+            background-color: var(--#{$prefix}navbar-home-icon-color);
         }
     }
-
 }
