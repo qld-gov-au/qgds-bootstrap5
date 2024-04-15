@@ -1,4 +1,7 @@
-// Variables
+$navbar-icon-color: #{$qld-brand-accent};
+$navbar-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$navbar-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$navbar-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$navbar-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+
 .navbar {
     --#{$prefix}navbar-border-width: 0.5rem;
     --#{$prefix}navbar-color: #{$body-color};
@@ -13,10 +16,11 @@
     --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
 
     --#{$prefix}navbar-bg-color: #{$qld-white};
-    --#{$prefix}navbar-border-color: #{$qld-brand-secondary};
+    --#{$prefix}navbar-border-color: #{$qld-light-grey};
     --#{$prefix}navbar-border-accent: #{$qld-brand-secondary};
 
     --#{$prefix}icon-color: #{$qld-brand-secondary-dark};
+
     --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
     --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
     --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
@@ -25,6 +29,9 @@
     --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
     --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
     --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
+
+    --#{$prefix}navbar-icon: #{escape-svg($navbar-icon)};
+    --#{$prefix}navbar-active-icon: #{escape-svg($navbar-active-icon)};
 
     .light & {
         --#{$prefix}navbar-bg-color: var(--#{$prefix}white);
@@ -164,7 +171,7 @@
         }
 
         .dropdown-item__description {
-            color: var(--#{$prefix}navbar-text-color);
+            color: var(--#{$prefix}navbar-navlink-text-color);
             font-size: 2rem;
             font-size: .875rem;
             line-height: 1.4285714286;
