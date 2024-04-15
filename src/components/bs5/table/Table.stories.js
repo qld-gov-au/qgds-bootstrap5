@@ -197,9 +197,9 @@ export const Responsive = {
             "Footer",
             "Footer",
             "Footer",
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
     ...{ variantClass: ["table-striped","table-hover"] },
   	},

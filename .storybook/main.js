@@ -9,7 +9,7 @@ const config = {
     ],
     addons: [//Storybook addons
     //https://storybook.js.org/addons/
-    "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@storybook/addon-mdx-gfm", "@chromatic-com/storybook"],
+    "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@chromatic-com/storybook"],
 
     framework: {
         //Build the storybook with html-vite rendered - faster than webpack
