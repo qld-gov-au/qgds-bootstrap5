@@ -3,10 +3,7 @@
         "metadata": {
             "brand_type": { 
                 "masterbrand_enabled": true,
-                "subbrand_enabled": false,
-                "cobrand_enabled": false,
-                "endorsed_enabled": false,
-                "standalone_enabled": false
+                "subbrand_enabled": false
             },
             "options": {
                 "site_title": "Masterbrand title should not display",
@@ -26,117 +23,5 @@
                 ]
             }    
         }
-    },
-    "sub_brand": {
-        "metadata": {
-            "brand_type": { 
-                "masterbrand_enabled": false,
-                "subbrand_enabled": true,
-                "cobrand_enabled": false,
-                "endorsed_enabled": false,
-                "standalone_enabled": false
-            }      
-        },
-        "options": {
-            "site_title": "Subbrand",
-            "default_target": "index.html",
-            "search_enabled": true,
-            "attribution_bar": [
-                {
-                    "position": "left",
-                    "value": "Queensland Government websites",
-                    "icon": "apps"
-                },
-                {
-                    "position": "right",
-                    "value": "Contact information",
-                    "icon": "phone"
-                }
-            ]
-        }    
-    },
-    "co_brand": {
-        "metadata": {
-            "brand_type": { 
-                "masterbrand_enabled": false,
-                "subbrand_enabled": false,
-                "cobrand_enabled": true,
-                "endorsed_enabled": false,
-                "standalone_enabled": false
-            }      
-        },
-        "options": {
-            "site_title": "Cobrand",
-            "default_target": "index.html",
-            "search_enabled": true,
-            "attribution_bar": [
-                {
-                    "position": "left",
-                    "value": "Queensland Government websites",
-                    "icon": "apps"
-                },
-                {
-                    "position": "right",
-                    "value": "Contact information",
-                    "icon": "phone"
-                }
-            ]
-        }    
-    },
-    "endorsed": {
-        "metadata": {
-            "brand_type": { 
-                "masterbrand_enabled": false,
-                "subbrand_enabled": false,
-                "cobrand_enabled": false,
-                "endorsed_enabled": true,
-                "standalone_enabled": false
-            }      
-        },
-        "options": {
-            "site_title": "Endorsed",
-            "default_target": "index.html",
-            "search_enabled": true,
-            "attribution_bar": [
-                {
-                    "position": "left",
-                    "value": "Queensland Government websites",
-                    "icon": "apps"
-                },
-                {
-                    "position": "right",
-                    "value": "Contact information",
-                    "icon": "phone"
-                }
-            ]
-        }    
-    },
-    "standalone": {
-        "metadata": {
-            "brand_type": { 
-                "masterbrand_enabled": false,
-                "subbrand_enabled": false,
-                "cobrand_enabled": false,
-                "endorsed_enabled": false,
-                "standalone_enabled": true
-            }      
-        },
-        "options": {
-            "site_title": "Standalone",
-            "default_target": "index.html",
-            "search_enabled": true,
-            "attribution_bar": [
-                {
-                    "position": "left",
-                    "value": "Queensland Government websites",
-                    "icon": "apps"
-                },
-                {
-                    "position": "right",
-                    "value": "Contact information",
-                    "icon": "phone"
-                }
-            ]
-        }    
     }
 }

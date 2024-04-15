@@ -1,6 +1,6 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
-import { master_brand, sub_brand, co_brand, endorsed, standalone} from './header.data.json';
+import { master_brand } from './header.data.json';
 
 export default {
     tags: ['autodocs'],
@@ -10,45 +10,10 @@ export default {
     },
 };
 
-// Default navigation story
-export const Masterbrand = {
-    args: {
-        ...master_brand,
-    }
-}
-
-// Default navigation story
-export const Subbrand = {
-    args: {
-        ...sub_brand,
-    }
-}
-
-// Default navigation story
-export const Cobrand = {
-    args: {
-        ...co_brand,
-    }
-}
-
-// Default navigation story
-export const Endorsed = {
-    args: {
-        ...endorsed,
-    }
-}
-
-// Default navigation story
-export const Standalone = {
-    args: {
-        ...standalone,
-    }
-}
-
 // Navbar story with 'Light' color theme
 export const LightMode = {
     args: {
-        // Define args specific to Light mode
+        ...master_brand,
     },
     parameters: {
         backgrounds: {
@@ -70,7 +35,7 @@ export const LightMode = {
 // Navbar story with 'Alternative' color theme
 export const Alternative = {
     args: {
-        // Define args specific to Alternative mode
+        ...master_brand,
     },
     parameters: {
         backgrounds: {
@@ -92,7 +57,7 @@ export const Alternative = {
 // Navbar story with 'Dark' color theme
 export const Dark = {
     args: {
-        // Define args specific to Dark mode
+        ...master_brand,
     },
     parameters: {
         backgrounds: {
@@ -114,7 +79,7 @@ export const Dark = {
 // Navbar story with 'DarkAlternative' color theme
 export const DarkAlternative = {
     args: {
-        // Define args specific to DarkAlternative mode
+        ...master_brand,
     },
     parameters: {
         backgrounds: {
