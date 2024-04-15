@@ -1,10 +1,10 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import {allModes} from "./../../../.storybook/modes.js";
 
 export const getCanvasMobileProps = () => ({ style: INITIAL_VIEWPORTS.iphone12.styles });
 
 export const getStoryMobileParameters = () => ({
   viewport: {
-    viewports: INITIAL_VIEWPORTS,
     defaultViewport: 'iphone12',
   },
   docs: {
@@ -14,10 +14,7 @@ export const getStoryMobileParameters = () => ({
     },
   },
   chromatic: {
-    viewports: [
-      parseInt(INITIAL_VIEWPORTS.iphone12.styles.width),
-      parseInt(INITIAL_VIEWPORTS.iphone12.styles.height),
-    ],
+    modes: allModes["mobile"],
   },
 });
 

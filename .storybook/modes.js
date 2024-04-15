@@ -2,7 +2,7 @@
 
 export const allModes = {
   mobile: {
-    viewport: "small",
+    viewport: "iphone12",
   },
   desktop: {
     viewport: "large",
