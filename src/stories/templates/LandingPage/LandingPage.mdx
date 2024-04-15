@@ -1,7 +1,6 @@
 import { Canvas, Meta, Story } from "@storybook/blocks";
 import * as LandingPageStories from './LandingPage.stories';
 
-import { getCanvasMobileProps } from "../../helpers";
 
 
 <Meta of={LandingPageStories} />
@@ -16,6 +15,6 @@ import { getCanvasMobileProps } from "../../helpers";
 
 ## Mobile
 
-<Canvas withSource="none" {...getCanvasMobileProps()}>
+<Canvas withSource="none">
   <Story of={LandingPageStories.Mobile} />
 </Canvas>

@@ -7,3 +7,5 @@ storybook-static/
 build-storybook.log
 docs/
 dist/
+.idea
+*.iml

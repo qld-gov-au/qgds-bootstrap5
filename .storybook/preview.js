@@ -3,6 +3,7 @@ import "../dist/assets/js/qld.bootstrap.min.js";
 import "../dist/assets/css/qld.bootstrap.css";
 import {withThemeByClassName} from '@storybook/addon-themes';
 import {allBackgrounds} from "./modes.js";
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
@@ -29,6 +30,7 @@ const preview = {
                 xlarge: {name: "Extra Large", styles: {width: "1312px", height: "1000px"}},
                 xxlarge: {name: "Extra Extra Large", styles: {width: "1599px", height: "1000px"}},
                 navbreakpoint: {name: "Nave Breakpoint", styles: {width: "992px", height: "800px"}},
+                ...INITIAL_VIEWPORTS
             },
         },
         hideNoControlsWarning: true,
