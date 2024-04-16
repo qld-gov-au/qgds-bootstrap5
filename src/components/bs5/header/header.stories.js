@@ -32,27 +32,7 @@ export const LightMode = {
     ],
 };
 
-// Navbar story with 'Alternative' color theme
-export const Alternative = {
-    args: {
-        ...master_brand,
-    },
-    parameters: {
-        backgrounds: {
-            default: "Alternative",
-            values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
-        },
-    },
-    decorators: [
-        (Story) => {
-            return `
-      <div class="alt">
-          ${Story()}
-      </div>
-      `;
-        },
-    ],
-};
+
 
 // Navbar story with 'Dark' color theme
 export const Dark = {
@@ -69,28 +49,6 @@ export const Dark = {
         (Story) => {
             return `
       <div class="dark">
-          ${Story()}
-      </div>
-      `;
-        },
-    ],
-};
-
-// Navbar story with 'DarkAlternative' color theme
-export const DarkAlternative = {
-    args: {
-        ...master_brand,
-    },
-    parameters: {
-        backgrounds: {
-            default: "Dark alternative",
-            values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
-        },
-    },
-    decorators: [
-        (Story) => {
-            return `
-      <div class="dark-alt">
           ${Story()}
       </div>
       `;
