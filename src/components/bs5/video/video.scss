@@ -75,6 +75,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   }
 
   &-thumbnail {
+    background-image: var(--thumbnail);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -123,8 +124,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
     .video-embed {
       opacity: 0;
-      // display: none;
-      // z-index: 0;
     }
   }
 
@@ -135,7 +134,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     display: flex;
     left: 0;
     bottom: 0;
-    // vertical-align: middle;
     background-color: rgba(var(--#{$prefix}video-nav-bg-rgb), var(--#{$prefix}video-nav-bg-opacity));
     border-top-right-radius: 0.75rem;
     overflow: clip;
@@ -210,5 +208,3 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
   }
 }
-
-
