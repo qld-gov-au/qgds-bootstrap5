@@ -23,6 +23,7 @@ header {
 }
 
 header {
+
 	.pagetop {
 		padding: 0.5rem 0;
 		margin: 0;
@@ -41,8 +42,13 @@ header {
 		background-color: var(--pagetop-icon-color);
 	}
 
+	.controls {
+		
+	}
+
 	.skip-link {
 		line-height: 1;
+
 		&_link {
 			position: absolute;
 			width: 1px;
@@ -157,13 +163,19 @@ header {
 	.pagetop {
 		height: 4.5rem;
 	}
-
 	.header-site-logo {
 		display: none;
 	}
-
 	.pagetop-tag {
 		display: none;
+	}
+	button.search {
+		width: 4.5rem;
+		height: 4.5rem;
+	}
+	button.menu {
+		width: 4.5rem;
+		height: 4.5rem;
 	}
 }
 
