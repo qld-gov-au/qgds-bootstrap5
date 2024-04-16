@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import handlebarsHelpers from "./helpers/handlebars.helpers";
+import handlebarsHelpers from "./handlebars.helpers";
 
 export default class Component {
   /**
