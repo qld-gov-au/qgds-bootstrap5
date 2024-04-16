@@ -87,7 +87,7 @@
         right: 0;
         height: var(--image-height);
         width: calc(var(--image-height)/1.33);
-        background: url('../img/banner-example-3-to-2.jpg');
+        background: var(--background-img);
         background-size: cover;
         background-position: center center;
 
