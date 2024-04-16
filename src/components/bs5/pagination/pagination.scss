@@ -122,17 +122,6 @@ $pagination-icon-more-dark-hover: url('data:image/svg+xml,<svg width="32" height
 
 .pagination {
 
-    // Styles for sm screens and up
-    @include media-breakpoint-up(sm) {}
-
-    // Styles for md screens and up
-    @include media-breakpoint-up(md) {}
-
-    // Styles for lg screens and up
-    @include media-breakpoint-up(lg) {}
-
-    // Styles for xl screens and up
-    @include media-breakpoint-up(xl) {}
 
 
     // General ruleset
@@ -200,9 +189,18 @@ $pagination-icon-more-dark-hover: url('data:image/svg+xml,<svg width="32" height
                 background-repeat: no-repeat;
             }
 
+            //Previous and Next "link text" 
             span {
                 text-decoration: underline;
                 text-underline-offset: 2px;
+            }
+
+            //Remove Previous and Next "link text" from smaller devices
+            //(The arrows remain for smaller devices)
+            @include media-breakpoint-down(md) {
+                span {
+                    display: none;
+                }
             }
         }
 
@@ -210,6 +208,7 @@ $pagination-icon-more-dark-hover: url('data:image/svg+xml,<svg width="32" height
             //Replica of previous arrow (defined above), but rotated 10 degrees
             transform: rotate(180deg);
             right: 0;
+            top: -1px;
             left: unset;
         }
 
@@ -273,4 +272,5 @@ $pagination-icon-more-dark-hover: url('data:image/svg+xml,<svg width="32" height
         }
 
     }
+
 }
