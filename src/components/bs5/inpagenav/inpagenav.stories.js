@@ -1,5 +1,4 @@
 // inpagenav.stories.js
-import { decorators } from "../../../../storybook-static/assets/entry-preview-docs-D8VAhhWu.js";
 import { Inpagenav } from "./Inpagenav.js";
 import defaultdata from "./inpagenav.data.json";
 
