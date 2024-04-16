@@ -2,21 +2,21 @@
     "master_brand": {
         "metadata": {
             "brand_type": { 
-                "masterbrand_enabled": true,
-                "subbrand_enabled": false
+                "masterbrand_enabled": true
             },
             "options": {
                 "site_title": "Masterbrand title should not display",
                 "default_target": "index.html",
                 "search_enabled": true,
-                "attribution_bar": [
+                "attribution_bar": true,
+                "items": [
                     {
-                        "position": "left",
+                        "first": true,
                         "value": "Queensland Government websites",
                         "icon": "apps"
                     },
                     {
-                        "position": "right",
+                        "last": true,
                         "value": "Contact information",
                         "icon": "phone"
                     }
