@@ -11,29 +11,14 @@ header {
 	--header-main-bg: var(--qld-white, transparent);
 
 	.alt &,
-    .light & {
-        --header-main-bg: var(--qld-white);
-    }
+	.light & {
+		--header-main-bg: var(--qld-white);
+	}
 
-    .dark &,
-    .dark-alt & {
+	.dark &,
+	.dark-alt & {
 		--header-main-bg: var(--qld-brand-primary-dark);
 		--site-search-icon-color: var(--qld-white);
-    }
-
-}
-
-@include color-mode(dark) {
-	header {
-		--pagetop-icon-color: var(--qld-brand-accent);
-		--pagetop-bg-color: var(--qld-brand-primary-dark);
-		--pagetop-text-color: var(--qld-white);
-		--site-logo-color: var(--qld-white);
-		--site-search-bg: var(--qld-brand-primary-dark);
-		--site-search-btn-bg: var(--qld-brand-secondary-dark);
-		--site-search-border-color: var(--qld-brand-primary-light);
-		--site-search-icon-color: var(--qld-white);
-		--header-main-bg: var(--qld-brand-primary-dark);
 	}
 }
 
@@ -89,7 +74,6 @@ header {
 				z-index: 600;
 			}
 		}
-
 	}
 
 	.header-main {
@@ -100,6 +84,7 @@ header {
 
 	.header-site-logo {
 		margin-right: 1.5rem;
+
 		svg path {
 			fill: var(--site-logo-color);
 		}
@@ -151,44 +136,48 @@ header {
 			}
 		}
 	}
+}
 
-	//Small devices
-	@include media-breakpoint-up(sm) {
-		.pagetop {
-			height: 3rem;
-		}
-		.header-site-logo {
-			display: none;
-		}
-		.pagetop-tag {
-			display: none;
-		}
+//Small devices
+@include media-breakpoint-up(sm) {
+	.pagetop {
+		height: 3rem;
 	}
 
-	//Medium devices
-	@include media-breakpoint-up(md) {
-		.pagetop {
-			height: 4.5rem;
-		}
-		.header-site-logo {
-			display: none;
-		}
-		.pagetop-tag {
-			display: none;
-		}
+	.header-site-logo {
+		display: none;
 	}
 
-	//Large devices
-	@include media-breakpoint-up(lg) {
-		.mobile-logo {
-			display:none;
-		}
+	.pagetop-tag {
+		display: none;
+	}
+}
+
+//Medium devices
+@include media-breakpoint-up(md) {
+	.pagetop {
+		height: 4.5rem;
 	}
 
-	//Extra large devices
-	@include media-breakpoint-up(xl) {
-		.mobile-logo {
-			display:none;
-		}
+	.header-site-logo {
+		display: none;
+	}
+
+	.pagetop-tag {
+		display: none;
+	}
+}
+
+//Large devices
+@include media-breakpoint-up(lg) {
+	.mobile-logo {
+		display: none;
+	}
+}
+
+//Extra large devices
+@include media-breakpoint-up(xl) {
+	.mobile-logo {
+		display: none;
 	}
 }
