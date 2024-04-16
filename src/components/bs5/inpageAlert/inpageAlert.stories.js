@@ -36,21 +36,21 @@ export default {
   argTypes: {
     variantClass: {
       name: "Classes",
-      description: `Settable classes for the Inpage Alert component`,
+      description: `Settable classes for the In-page Alert component`,
       control: {
         type: "radio",
         labels: {
           "alert-success": "Success",
           "alert-info": "Info",
           "alert-warning": "Warning",
-          "alert-danger": "Danger",
+          "alert-error": "Error",
         },
       },
       options: [
         "alert-success",
         "alert-info",
         "alert-warning",
-        "alert-danger"
+        "alert-error"
       ],
     },
   },
