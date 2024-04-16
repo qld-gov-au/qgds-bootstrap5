@@ -121,9 +121,9 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
     margin: 1rem 0;
 
 
+    //Page item buttons
     .page-item {
 
-        //Normal page links
         .page-link {
             border-radius: 3px;
             width: 2rem;
@@ -187,13 +187,6 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
                 text-underline-offset: 2px;
             }
 
-            //Remove Previous and Next "link text" from smaller devices
-            //(The arrows remain for smaller devices)
-            @include media-breakpoint-down(md) {
-                span {
-                    display: none;
-                }
-            }
         }
 
         &.next .page-link:before {
@@ -264,4 +257,29 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
             }
         }
     }
+
+
+    // RESPONSIVE ADJUSTMENTS
+
+    // Pagination fallback on small devices
+    // Hide page numbers, show previous and next arrows
+    @include media-breakpoint-down(sm) {
+
+        .page-item {
+            display: none;
+        }
+
+        .page-item.previous,
+        .page-item.next {
+            display: inline-flex;
+        }
+    }
+
+    //Remove Previous and Next "link text" from smaller devices
+    @include media-breakpoint-down(md) {
+        span {
+            display: none;
+        }
+    }
+
 }
