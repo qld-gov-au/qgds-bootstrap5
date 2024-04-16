@@ -1,22 +1,40 @@
 // QLD Desing System Bootstrap 5 library
 // Extends: https://getbootstrap.com/docs/5.3/components/alerts/#variables
 
-// Principles
-// 1. Do not use SASS. Extend custom variables from Bootstrap where possible
-// 2. Only update variables that need changing. All others will already exists in Bootstrap.
+//All alerts have the same text and background color, even on darker themes
+//To account for this, we redefine the global vars at the .alert scope 
+
+.alert,
+.light .alert,
+.light-alt .alert,
+.dark .alert,
+.dark-alt .alert {
+
+    --qld-headings-color: var(--#{$prefix}light-text-text);
+    --qld-body-color: var(--#{$prefix}light-text-text);
+    --qld-alert-bg: #FFF;
+    --qld-link-color: #{$link-color};
+    --qld-link-hover-color: #{$link-hover-color};
+    --qld-link-visited: #{$link-visited-color};
+    --qld-selection-color: var(--qld-white);
+    --qld-selection-bg: var(--qld-brand-primary);
+    --qld-focus-color: var(--qld-light-focus);
+}
+
 
 
 .alert {
 
-    --#{$prefix}alert-color: var(--body-color);
-    --#{$prefix}alert-bg: var(--body-bg);
     padding-left: 4rem;
+    // color: var(--text-color);
+    // background: var(--alert-bg);
 
     .alert-heading {
         line-height: 1.5;
         font-size: 1.5rem;
         margin: 0 0 1rem 0;
         padding: 0;
+        color: var(--qld-headings-color);
     }
 
     p,
@@ -28,6 +46,15 @@
             margin-bottom: 0;
         }
     }
+
+    a {
+        color: var(--qld-link-color);
+
+        &:visited {
+            color: var(--qld-link-visited);
+        }
+    }
+
 
 
     // Close button for dismissible alerts
@@ -80,7 +107,7 @@
         )
     );
 
-
+//Sets colors (border and icon-background) and icons for each alert type
 @each $key, $properties in $alert-colors-map {
 
     $color: map-get($properties, color);
@@ -99,4 +126,5 @@
 
     }
 }
+
 }

@@ -139,15 +139,14 @@ $enable-dark-mode: true;
 
 
 @import "./components/bs5/accordion/accordion.scss";
-@import "./components/bs5/alert/alert.scss";
 @import "./components/bs5/banner/banner.scss";
 @import "./components/bs5/blockquote/blockquote.scss";
 @import "./components/bs5/breadcrumbs/breadcrumbs.scss";
 @import "./components/bs5/button/button.scss";
 @import "./components/bs5/callout/callout.scss";
 @import "./components/bs5/card/card.scss";
-@import "./components/bs5/tag/tag.scss";
 @import "./components/bs5/globalAlert/globalAlert.scss";
+@import "./components/bs5/inpageAlert/inpageAlert.scss";
 @import "./components/bs5/correctincorrect/correctincorrect.scss";
 //@import "./components/bs5/carousel/carousel.scss";
 @import "./components/bs5/forms/forms.scss";
@@ -158,6 +157,7 @@ $enable-dark-mode: true;
 @import "./components/bs5/sidenav/sidenav.scss"; //includes side-nav.scss
 @import "./components/bs5/navbar/navbar.scss";
 @import "./components/bs5/table/table.scss";
+@import "./components/bs5/tag/tag.scss";
 @import "./components/bs5/pagination/pagination.scss";
 @import "./components/bs5/typography/typography.scss";
 @import "./components/bs5/video/video.scss";
