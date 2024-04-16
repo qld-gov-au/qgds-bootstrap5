@@ -17,7 +17,8 @@ header {
 
     .dark &,
     .dark-alt & {
-		--header-main-bg: var(--qld-sapphire-blue);
+		--header-main-bg: var(--qld-brand-primary-dark);
+		--site-search-icon-color: var(--qld-white);
     }
 
 }
@@ -31,13 +32,12 @@ header {
 		--site-search-bg: var(--qld-brand-primary-dark);
 		--site-search-btn-bg: var(--qld-brand-secondary-dark);
 		--site-search-border-color: var(--qld-brand-primary-light);
-		--site-search-icon-color: #FFF;
+		--site-search-icon-color: var(--qld-white);
 		--header-main-bg: var(--qld-brand-primary-dark);
 	}
 }
 
 header {
-
 	.pagetop {
 		padding: 0.5rem 0;
 		margin: 0;
@@ -179,8 +179,16 @@ header {
 	}
 
 	//Large devices
-	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(lg) {
+		.mobile-logo {
+			display:none;
+		}
+	}
 
 	//Extra large devices
-	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(xl) {
+		.mobile-logo {
+			display:none;
+		}
+	}
 }
