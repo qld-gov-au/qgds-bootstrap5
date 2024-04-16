@@ -19,10 +19,15 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 
         {{#each pages}}
         <li class="page-item {{customClasses}}">
-            <a class="page-link" href="{{href}}" aria-label="{{arialabel}}">
-                {{ linktext }}
-            </a>
+            {{#if more}}
+            {{! More button }}
+            <span></span>
+            {{else}}
+            {{! Page button }}
+            <a class="page-link" href="{{href}}" aria-label="{{arialabel}}">{{ linktext }}</a>
+            {{/if}}
         </li>
+
         {{/each }}
 
         {{#if next }}

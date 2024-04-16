@@ -10,7 +10,8 @@ export default {
   parameters: {
     docs: {
       controls: {
-        include: ['previous', 'next'],
+        exclude: ['previous', 'next', 'pages'],
+        hideNoControlsWarning: true,
       },
     },
   },
