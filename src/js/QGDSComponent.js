@@ -9,11 +9,11 @@ export default class Component {
    */
 
   constructor(template, data = {}) {
-    
+
     this.template = template;
     this.data = data;
     this.compiled = Handlebars.compile(this.template)(this.data);
-    
+
     // Debug via storybook and browser console
     // console.log(this.template);
     // console.log(this.data);

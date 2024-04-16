@@ -103,6 +103,12 @@ $qld-color-light-background--shade: #E5EEF5;
 $qld-color-light-alt-background: #E8E8E8;
 $qld-color-light-alt-background--shade: #E0E0E0;
 
+$qld-light-action-primary: $qld-sapphire-blue;
+$qld-light-action-primary-hover: $qld-button-dark-blue;
+
+$qld-dark-action-primary: $qld-dark-green-dark;
+$qld-dark-action-primary-hover: $qld-light-green-dark;
+$qld-dark-action-text: $qld-text-darkest;
 
 $primary : $qld-brand-primary;
 $primary-dark : $qld-brand-primary-dark;
@@ -185,6 +191,13 @@ $project-colors: (
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
 
+  "light-action-primary":  $qld-light-action-primary,
+  "light-action-primary-hover":  $qld-light-action-primary-hover,
+
+  "dark-action-primary": $qld-dark-action-primary,
+  "dark-action-primary-hover": $qld-dark-action-primary-hover,
+  "dark-action-text": $qld-dark-action-text,
+
   //Define new BEM colour variables from Figma
   //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
   "default-background": $qld-color-background,
@@ -198,7 +211,7 @@ $project-colors: (
 
   "light-alt-background": $qld-color-light-alt-background,
   "light-alt-background-shade": $qld-color-light-alt-background--shade,
-        
+
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
 

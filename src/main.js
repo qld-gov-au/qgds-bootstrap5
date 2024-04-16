@@ -4,8 +4,14 @@ import {
   accordionHashLinks,
 } from "./components/bs5/accordion/accordion.functions";
 
+import {
+  videoEmbedPlay,
+  videoTranscriptTitle,
+} from "./components/bs5/video/video.functions";
+
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
+    // Accordion
     let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
 
     accordionToggleButton.forEach(function (toggleButton) {
@@ -27,5 +33,20 @@ window.addEventListener("DOMContentLoaded", () => {
     inPageLinks.forEach(function (link) {
       link.addEventListener("click", accordionHashLinks);
     });
+
+
+    // Video
+    let videoThumbnails = document.querySelectorAll('.video-thumbnail');
+
+    videoThumbnails.forEach(function (thumbnail) {
+      thumbnail.addEventListener("click", videoEmbedPlay)
+    })
+
+    let videoTranscripts = document.querySelectorAll('.video .accordion .accordion-button');
+
+    videoTranscripts.forEach(function (transcript) {
+      transcript.addEventListener("click", videoTranscriptTitle)
+    })
+
   })();
 });
