@@ -140,6 +140,10 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           token: ${{ secrets.GH_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # 👇 tell Chromatic to rebuild the entire project when a file matching the pattern is changed https://www.chromatic.com/docs/github-actions/#enable-turbosnap
+          #externals: |
+          #  *.sass
+          #  public/**
           onlyChanged: true # 👈 Required option to enable TurboSnap
           storybookBuildDir: "storybook-static"
       - name: Publish to Chromatic - Is Skipped
