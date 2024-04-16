@@ -1,3 +1,7 @@
+/**
+ * Registers Handlebars Helper for 'contains' for if conditionals
+ * @param Handlebars
+ */
 export default function handlebarsHelpers (Handlebars) {
     Handlebars.registerHelper("contains", function(needle, haystack, options) {
         needle = Handlebars.escapeExpression(needle);
