@@ -19,8 +19,8 @@ Error message
 {{/contains}}
 
 <!-- First text input field, described by the hint text above -->
-<select class="qld-text-input qld-select qld-field-width-1-quarter {{customClass}} {{states}}" {{#if isDisabled}}disabled{{/if}}>
-    <option value="">Please select</option>
+<select class="qld-text-input form-select qld-select qld-field-width-1-quarter {{customClass}} {{states}}" aria-label="Default select example" {{#if isDisabled}}disabled{{/if}}>
+    <option selected>Please select</option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
