@@ -11,7 +11,7 @@
                 "value": "qld.gov.au"
             },
             "logo": {
-                "value": "./img/header-logo-qgov--light.svg"
+                "value": "./dist/assets/img/header-logo-qgov--light.svg"
             },
             "mainNavCtaOne": {
                 "value": "#",
@@ -40,7 +40,7 @@
                 "value": ""
             },
             "logo": {
-                "value": ""
+                "value": "./dist/assets/img/header-logo-qgov-dark.svg"
             },
             "secondaryType": {
                 "logo": {

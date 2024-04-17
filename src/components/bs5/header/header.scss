@@ -3,42 +3,72 @@
 // //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__header {
-	//Default
-	--#{$prefix}color-light-text: var($qld-text-grey);
-	--#{$prefix}color-light-background: var($qld-white);
-	--#{$prefix}color-light-link: var($qld-sapphire-blue);
-	--#{$prefix}color-light-border: var($qld-light-grey);
-	--#{$prefix}color-light-hover-underline:;
-	--#{$prefix}color-light-siteTitle:;
-	--#{$prefix}color-light-text__muted:;
-	--#{$prefix}color-light-designAccent:;
-	--#{$prefix}color-light-background__shade: var($qld-extra-light-grey);
-	--#{$prefix}color-light-alt-button: #008733;
-	--#{$prefix}color-light-alt-button__hover: #005b23;
-	--#{$prefix}color-light-underline:;
-	--#{$prefix}color-light-focus:;
 
-	// Dark theme colors
-	--#{$prefix}color-dark-text: var($qld-white);
-	--#{$prefix}color-dark-focus: var($qld-dark-focus);
-	--#{$prefix}color-dark-link: var($qld-white);
-	--#{$prefix}color-dark-background: var($qld-sapphire-blue);
-	--#{$prefix}color-dark-border:;
-	--#{$prefix}color-dark-alt-button:;
-	--#{$prefix}color-dark-alt-button__hover:;
-	--#{$prefix}color-dark-alt-background:;
-	--#{$prefix}color-dark-underline:;
-	--#{$prefix}color-dark-hover-underline:;
-	--#{$prefix}color-dark-siteTitle:;
-	--#{$prefix}color-dark-text__muted:;
-	--#{$prefix}color-dark-designAccent:;
-	--#{$prefix}color-dark-heading:;
+	//QH - extract from health.qld.gov.au
+	--#{$prefix}color-light-siteTitle: #022A50;
+    --#{$prefix}color-light-designAccent: #6BBE27;
+    --#{$prefix}color-light-heading: #03213F;
+    --#{$prefix}color-light-text: #414141;
+    --#{$prefix}color-light-text__muted: #636363;
+    --#{$prefix}color-light-link: #09549F;
+    --#{$prefix}color-light-link__visited: #551A8B;
+    --#{$prefix}color-light-button__text: #FFFFFF;
+    --#{$prefix}color-light-button: #09549F;
+    --#{$prefix}color-light-button__hover: #003E7D;
+    --#{$prefix}color-light-focus: #0085B3;
+    --#{$prefix}color-light-border: #EBEBEB;
+    --#{$prefix}color-light-background: #FFFFFF;
+    --#{$prefix}color-light-background__shade: #F5F5F5;
+    --#{$prefix}color-light-hint: #6f777b;
+    --#{$prefix}color-light-system-underline: #FFFFFF;
+    --#{$prefix}color-light-underline: #3F7AB4;
+    --#{$prefix}color-light-hover-underline: #09549F;
+    --#{$prefix}color-light-visited-underline: #8B63B0;
+    --#{$prefix}color-light-hover-visited-underline: #551A8B;
+    --#{$prefix}color-light-alt-button: #008733;
+    --#{$prefix}color-light-alt-button__hover: #00702B;
+    --#{$prefix}color-light-alt-border: #818181;
+    --#{$prefix}color-light-alt-background: #EBEBEB;
+    --#{$prefix}color-light-alt-background__shade: #E0E0E0;
+    --#{$prefix}color-light-alt-hint: #61696B;
+    --#{$prefix}color-dark-siteTitle: #FFFFFF;
+    --#{$prefix}color-dark-designAccent: #6BBE27;
+    --#{$prefix}color-dark-heading: #FFFFFF;
+    --#{$prefix}color-dark-text: #FFFFFF;
+    --#{$prefix}color-dark-text__muted: #DEEBF9;
+    --#{$prefix}color-dark-link: #FFFFFF;
+    --#{$prefix}color-dark-link__visited: #A668F4;
+    --#{$prefix}color-dark-button__text: #121940;
+    --#{$prefix}color-dark-button: #9AC02C;
+    --#{$prefix}color-dark-button__hover: #ADD33F;
+    --#{$prefix}color-dark-focus: #01B0E5;
+    --#{$prefix}color-dark-border: #1D9AC6;
+    --#{$prefix}color-dark-background: #09549F;
+    --#{$prefix}color-dark-background__shade: #04498F;
+    --#{$prefix}color-dark-system-underline: #03213F;
+    --#{$prefix}color-dark-underline: #B5CCE2;
+    --#{$prefix}color-dark-hover-underline: #FFFFFF;
+    --#{$prefix}color-dark-visited-underline: #B5CCE2;
+    --#{$prefix}color-dark-hover-visited-underline: #E1C2FF;
+    --#{$prefix}color-dark-alt-button: #EFD700;
+    --#{$prefix}color-dark-alt-button__hover: #FFE817;
+    --#{$prefix}color-dark-alt-border: #11B2D4;
+    --#{$prefix}color-dark-alt-background: #05325F;
+    --#{$prefix}color-dark-alt-background__shade: #052C53;
+    --#{$prefix}underline__thickness-thin: 0.5px;
+    --#{$prefix}underline__thickness-thick: 2px;
+    --#{$prefix}underline__offset: 0.3em;
 
-	// Shared
-	--#{$prefix}underline__thickness-thin:;
-	--#{$prefix}underline__offset:;
-	--#{$prefix}underline__thickness-thick:;
+	//Reminders
+		//DOWN = MAX WIDTH
+		//UP = MIN WIDTH
 
+	// QH vars / w, QOL BS DS dark and default logic
+	.dark & {
+        --#{$prefix}color-light-background: var(--#{$prefix}color-dark-alt-background);
+		--#{$prefix}color-light-text__muted: var(--#{$prefix}white);
+		--#{$prefix}color-light-siteTitle: var(--#{$prefix}white);
+    }
 }
 
 .qld__header {
@@ -47,7 +77,7 @@
 	color: var(--#{$prefix}color-light-text);
 	background: var(--#{$prefix}color-light-background);
 
-	@media (min-width: 400px) {
+	@include media-breakpoint-up(sm) {
 		.qld__header {
 			font-size: 1.25rem;
 			line-height: 1.6;
@@ -56,6 +86,7 @@
 
 	.qld__skip-link {
 		line-height: 1;
+
 		&__link {
 			position: absolute;
 			width: 1px;
@@ -88,7 +119,7 @@
 	/**
     * Header pre-header styles
     */
-	@media (min-width: 992px) {
+	@include media-breakpoint-up(lg) {
 		.qld__header__pre-header-url {
 			font-size: .875rem;
 			line-height: 1;
@@ -104,14 +135,14 @@
 		padding-bottom: .75rem;
 		padding-top: .75rem;
 
-		@media (min-width: 699px) {
+		@include media-breakpoint-up(md) {
 			.qld__header .qld__header__pre-header {
 				padding-bottom: 1rem;
 				padding-top: 1rem;
 			}
 		}
 
-		@media (min-width: 992px) {
+		@include media-breakpoint-up(lg) {
 			padding-bottom: .5rem;
 			padding-top: .5rem;
 
@@ -151,11 +182,11 @@
 			height: 1.75rem;
 			width: auto;
 
-			@media (min-width: 699px) {
+			@include media-breakpoint-up(md) {
 				height: 2.5rem;
 			}
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				display: none;
 			}
 		}
@@ -164,7 +195,7 @@
 			display: none;
 			color: var(--#{$prefix}color-light-link);
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				display: inline-block;
 				font-size: 1rem;
 				line-height: 1.5;
@@ -175,7 +206,7 @@
 			display: none;
 			margin-left: auto;
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				display: flex;
 			}
 
@@ -196,11 +227,9 @@
 			.qld__header__cta-link-icon {
 				color: var(--#{$prefix}color-light-alt-button);
 				display: inline-block;
-				height: 20px;
 				height: 1.25rem;
 				margin-right: .5rem;
 				text-align: center;
-				width: 20px;
 				width: 1.25rem;
 
 				svg,
@@ -217,7 +246,7 @@
 
 			&:focus {
 				outline: 3px solid var(-#{$prefix}color-light-focus);
-				outline-offset: 2px
+				outline-offset: 2px;
 			}
 
 			&::-moz-focus-inner {
@@ -234,7 +263,7 @@
 			right: 0;
 			top: 0;
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				display: none;
 			}
 
@@ -264,19 +293,17 @@
 				}
 			}
 
-			@media (min-width: 699px) {
-				padding: .75rem 1rem .625rem
+			@include media-breakpoint-up(md) {
+				padding: .75rem 1rem .625rem;
 			}
 
 			.qld__main-nav__toggle-text {
-				font-size: 10px;
 				font-size: .625rem;
 				margin-top: .125rem;
 			}
 
 			&:before {
 				display: block;
-				font-size: 16px;
 				font-size: 1rem;
 				line-height: 1;
 				margin-bottom: .25rem;
@@ -285,17 +312,13 @@
 
 			svg {
 				color: var(--#{$prefix}color-light-alt-button);
-				height: 20px;
 				height: 1.25rem;
 				margin: 1px auto;
-				width: 20px;
 				width: 1.25rem;
 
-				@media (min-width: 699px) {
-					height: 32px;
+				@include media-breakpoint-up(md) {
 					height: 2rem;
 					margin: 0 auto;
-					width: 32px;
 					width: 2rem;
 				}
 			}
@@ -445,7 +468,7 @@
 			display: flex;
 			width: 100%;
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				height: auto;
 				justify-content: space-between;
 			}
@@ -457,11 +480,11 @@
 			padding: 1rem 0;
 			font-variant-numeric: lining-nums;
 
-			@media (min-width: 699px) {
+			@include media-breakpoint-up(md) {
 				padding: 1.25rem 0;
 			}
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				flex-grow: 1;
 				padding: 32px 0;
 			}
@@ -493,12 +516,12 @@
 		.qld__header__brand-image {
 			display: none;
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				border-right: 2px solid var(--#{$prefix}color-light-designAccent);
 				color: var(--#{$prefix}color-light-siteTitle);
 				display: block;
 				margin-right: 1.5rem;
-				padding-right: 1.5rem
+				padding-right: 1.5rem;
 			}
 
 			img {
@@ -517,29 +540,25 @@
 			justify-content: center;
 
 			.qld__header__secondary-image {
-				height: 40px;
 				height: 2.5rem;
 
-				@media (min-width: 699px) {
-					height: 56px;
-					height: 3.5rem
+				@include media-breakpoint-up(md) {
+					height: 3.5rem;
 				}
 			}
 
 			.qld__header__heading {
 				color: var(--#{$prefix}color-light-siteTitle);
 				font-family: ff-meta-web-pro, Noto Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-				font-size: 16px;
 				font-size: 1rem;
 				font-weight: 700;
 				line-height: 1.25;
 				margin: 0;
 				padding: 0;
 
-				@media (min-width: 699px) {
-					font-size: 20px;
+				@include media-breakpoint-up(md) {
 					font-size: 1.25rem;
-					line-height: 1.2
+					line-height: 1.2;
 				}
 			}
 
@@ -549,8 +568,7 @@
 				line-height: 1.1428571429;
 				max-width: 80ch;
 
-				@media (min-width: 699px) {
-					font-size: 16px;
+				@include media-breakpoint-up(md) {
 					font-size: 1rem;
 					line-height: 1.25;
 				}
@@ -572,7 +590,7 @@
 			}
 
 			.qld__header__brand-image {
-				@media (min-width: 992px) {
+				@include media-breakpoint-up(lg) {
 					border-color: var(--#{$prefix}color-dark-designAccent);
 					color: var(--#{$prefix}color-dark-text);
 				}
@@ -594,7 +612,7 @@
 			}
 
 			.qld__header__search {
-				@media (min-width: 699px) {
+				@include media-breakpoint-up(md) {
 					background-color: var(--#{$prefix}color-dark-background);
 
 					.qld__display-lg {
@@ -619,7 +637,7 @@
 			}
 
 			.qld__header__brand-image {
-				@media (min-width: 992px) {
+				@include media-breakpoint-up(lg) {
 					border-color: var(--#{$prefix}color-dark-designAccent);
 					color: var(--#{$prefix}color-dark-text);
 				}
@@ -641,7 +659,7 @@
 			}
 
 			.qld__header__search {
-				@media (min-width: 699px) {
+				@include media-breakpoint-up(md) {
 					background-color: var(--#{$prefix}color-dark-alt-background);
 
 					.qld__display-lg {
@@ -650,7 +668,6 @@
 				}
 			}
 		}
-
 	}
 
 	.qld__header__search {
@@ -664,12 +681,12 @@
 		top: 0;
 		z-index: 1;
 
-		@media (min-width: 699px) {
+		@include media-breakpoint-up(md) {
 			box-shadow: none;
 			padding: 2rem 2rem 4rem 2rem;
 		}
 
-		@media (min-width: 992px) {
+		@include media-breakpoint-up(lg) {
 			background-color: transparent;
 			display: inline-block;
 			padding: 32px 0;
@@ -678,7 +695,7 @@
 		}
 
 		.qld__search-form {
-			@media (max-width: 698px) {
+			@include media-breakpoint-down(md) {
 				&:focus {
 					outline: 3px solid var(--#{$prefix}color-light-focus);
 					outline-offset: 2px;
@@ -724,14 +741,14 @@
 			}
 
 			.qld__search-form__label {
-				@media (min-width: 699px) {
+				@include media-breakpoint-up(md) {
 					position: inherit;
 					width: auto;
 					height: auto;
 					margin: 0 0 1rem;
 				}
 
-				@media (min-width: 992px) {
+				@include media-breakpoint-up(lg) {
 					position: absolute;
 					width: 1px;
 					height: 1px;
@@ -742,11 +759,10 @@
 		.qld__header__search-link {
 			color: var(--#{$prefix}color-light-link);
 			float: right;
-			font-size: 16px;
 			font-size: 1rem;
 			line-height: 1.5;
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				padding-bottom: .5rem;
 			}
 
@@ -767,7 +783,7 @@
 .vertical-nav {
 	.qld__header {
 
-		@media (min-width: 992px) {
+		@include media-breakpoint-up(lg) {
 			box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
 			position: relative;
 			z-index: 1;
@@ -776,11 +792,11 @@
 		.container-fluid {
 			max-width: initial;
 
-			@media (min-width: 699px) {
+			@include media-breakpoint-up(md) {
 				padding: 0 2rem;
 			}
 
-			@media (min-width: 992px) {
+			@include media-breakpoint-up(lg) {
 				padding: 0 3rem;
 			}
 		}
@@ -791,7 +807,6 @@
 @media print {
 	.qld__header {
 		background: #fff !important;
-
 		a img {
 			border: 0 !important;
 		}
