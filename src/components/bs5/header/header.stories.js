@@ -1,6 +1,6 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
-import { master_brand } from './header.data.json';
+import { default_config } from './header.data.json';
 
 export default {
     tags: ['autodocs'],
@@ -11,9 +11,9 @@ export default {
 };
 
 // Navbar story with 'Light' color theme
-export const LightMode = {
+export const Default = {
     args: {
-        ...master_brand,
+        ...default_config,
     },
     parameters: {
         backgrounds: {
@@ -24,7 +24,7 @@ export const LightMode = {
     decorators: [
         (Story) => {
             return `
-      <div class="light">
+      <div class="default">
           ${Story()}
       </div>
       `;
@@ -37,7 +37,7 @@ export const LightMode = {
 // Navbar story with 'Dark' color theme
 export const Dark = {
     args: {
-        ...master_brand,
+        ...default_config,
     },
     parameters: {
         backgrounds: {

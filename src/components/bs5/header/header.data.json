@@ -1,27 +1,68 @@
 {
-    "master_brand": {
-        "metadata": {
-            "brand_type": { 
-                "masterbrand_enabled": true
+    "default_config": {
+        "sitePreHeader": {
+            "theme": {
+                "value": "qld__header__pre-header--dark-alt"
             },
-            "options": {
-                "site_title": "Masterbrand title should not display",
-                "default_target": "index.html",
-                "search_enabled": true,
-                "attribution_bar": true,
-                "items": [
-                    {
-                        "first": true,
-                        "value": "Queensland Government websites",
-                        "icon": "apps"
-                    },
-                    {
-                        "last": true,
-                        "value": "Contact information",
-                        "icon": "phone"
-                    }
-                ]
-            }    
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "text": {
+                "value": "qld.gov.au"
+            },
+            "logo": {
+                "value": "./img/header-logo-qgov--light.svg"
+            },
+            "mainNavCtaOne": {
+                "value": "#",
+                "icon": {
+                    "value": "#"
+                },
+                "text": {
+                    "value": "test"
+                }
+            },
+            "mainNavCtaTwo": {
+                "value": "#",
+                "icon": {
+                    "value": "#"
+                },
+                "text": {
+                    "value": "test"
+                }
+            }
+        },
+        "siteHeader": {
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "theme": {
+                "value": ""
+            },
+            "logo": {
+                "value": ""
+            },
+            "secondaryType": {
+                "logo": {
+                    "value": ""
+                },
+                "siteTitle": {
+                    "value": "Second title"
+                },
+                "subline": {
+                    "value": "Second title"
+                }
+            }
+        },
+        "siteSearchAsset": {
+            "value": "#",
+            "icons": {
+                "search-icon": "",
+                "search-close-icon": ""
+            },
+            "siteSearchUrl": {
+                "value": ""
+            }
         }
     }
 }
