@@ -1,5 +1,6 @@
 {
 	"isDisabled": false,
+	"isRequired": true,
 	"customClass": "",
 	"rows": 3
 }

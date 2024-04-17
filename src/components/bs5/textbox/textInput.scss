@@ -3,8 +3,6 @@
     border-radius: 4px;
     border: 2px solid $qld-soft-grey;
 
-    //--table-row-border-color: var(--qld-extra-light-grey);
-
     @media (prefers-color-scheme: dark) {
         --table-row-border-color: var(--qld-white);
     }
@@ -16,45 +14,72 @@
         background-color: $qld-extra-light-grey;
         border-color: $qld-textbox-border-color;
     }
+
     &:focus {
         outline: 3px solid $qld-light-blue;
         outline-offset: 2px;
         background-color: $qld-white !important;
         border: 2px solid $qld-light-grey !important;
     }
+
     &.form-style-filled {
         background-color: $qld-light-grey-alt;
         border-width: 0 0 2px 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+
         &:focus {
             border-radius: 4px;
         }
     }
+
     &:disabled {
         cursor: not-allowed;
         opacity: .5;
     }
 }
+
 .qld-text-input-label {
     color: $qld-text-grey;
     display: block;
     font-weight: 600;
-    line-height: 1.5rem;
+    line-height: 24px;
+
+    .label-text-optional {
+        color: $qld-dark-grey-muted;
+        font-weight: 400;
+    }
+
+    &.field-required {
+        &:after {
+            content: ' *';
+        }
+    }
 }
 
-*+.qld-hint-text, *+.qld-input-error, *+.qld-input-success {
+.qld-text-input-label.field-required:not(.field-disabled) {
+    &:after {
+        color: $qld-notify-warning;
+    }
+}
+
+*+.qld-hint-text,
+*+.qld-input-error,
+*+.qld-input-success {
     margin-top: 8px;
 }
+
 .qld-hint-text {
-   color: $qld-hint-text-color;
-   display: block;
-   font-size: 1rem;
-   line-height: 1.5;
+    color: $qld-hint-text-color;
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-*+p.qld-input-error, *+span.qld-input-error,
-*+p.qld-input-success, *+span.qld-input-success {
+*+p.qld-input-error,
+*+span.qld-input-error,
+*+p.qld-input-success,
+*+span.qld-input-success {
     font-size: 1rem;
     line-height: 1.5;
     display: flex;
@@ -72,8 +97,10 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' enable-background='new 0 0 64 64'%3E%3Cpath d='M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z' fill='%2343a047'/%3E%3C/svg%3E");
     }
 }
+
 .qld-input-error {
     color: $qld-notify-warning;
+
     &:before {
         content: "";
         height: 2rem;
@@ -85,20 +112,31 @@
         margin-right: -5px;
         margin-left: -5px;
     }
+
     .dark & {
         color: $qld-color-error-light;
     }
 }
 
-.qld-hint-text + select, .qld-hint-text + input, .qld-hint-text + textarea, .sq-form-question-note + select, .sq-form-question-note + input, .sq-form-question-note + textarea {
+.qld-hint-text+select,
+.qld-hint-text+input,
+.qld-hint-text+textarea,
+.sq-form-question-note+select,
+.sq-form-question-note+input,
+.sq-form-question-note+textarea {
     margin-top: 0.5rem;
 }
 
-.qld-input-success+input[type=text], .qld-input-error+input[type=text],
-.qld-input-success+input[type=email], .qld-input-error+input[type=email],
-.qld-input-success+input[type=date], .qld-input-error+input[type=date],
-.qld-input-success+.qld-text-input, .qld-input-error+.qld-text-input,
-.qld-input-success+textarea, .qld-input-error+textarea {
+.qld-input-success+input[type=text],
+.qld-input-error+input[type=text],
+.qld-input-success+input[type=email],
+.qld-input-error+input[type=email],
+.qld-input-success+input[type=date],
+.qld-input-error+input[type=date],
+.qld-input-success+.qld-text-input,
+.qld-input-error+.qld-text-input,
+.qld-input-success+textarea,
+.qld-input-error+textarea {
     margin-top: 8px;
     margin-top: 0.5rem;
 }
@@ -106,11 +144,7 @@
 input.qld-text-input.qld-input-error:not(:focus),
 input.qld-text-input.qld-input-error.form-style-filled:not(:focus),
 textarea.qld-text-input.qld-input-error:not(:focus),
-select.qld-select.qld-input-error:not(:focus),
-.dark input.qld-text-input.qld-input-error:not(:focus),
-.dark input.qld-text-input.qld-input-error.form-style-filled:not(:focus),
-.dark textarea.qld-text-input.qld-input-error:not(:focus),
-.dark select.qld-select.qld-input-error:not(:focus) {
+select.qld-select.qld-input-error:not(:focus) {
     border-color: $qld-notify-warning;
     background-color: $qld-color-error-light;
     color: $qld-text-grey;
@@ -119,17 +153,13 @@ select.qld-select.qld-input-error:not(:focus),
 input.qld-text-input.qld-input-success:not(:focus),
 input.qld-text-input.qld-input-success.form-style-filled:not(:focus),
 textarea.qld-text-input.qld-input-success:not(:focus),
- select.qld-select.qld-input-success:not(:focus),
- .dark input.qld-text-input.qld-input-success:not(:focus),
- .dark input.qld-text-input.form-style-filled.qld-input-success:not(:focus),
- .dark textarea.qld-text-input.qld-input-success:not(:focus),
- .dark select.qld-select.qld-input-success:not(:focus) {
+select.qld-select.qld-input-success:not(:focus) {
     border-color: $qld-notify-success;
     background-color: $qld-color-success-light;
     color: $qld-text-grey;
- }
+}
 
- .qld-select {
+.qld-select {
     padding: 14px 18px 12px 18px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='currentColor' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -137,9 +167,18 @@ textarea.qld-text-input.qld-input-success:not(:focus),
     background-position: right 11px center;
     background-size: 1rem auto;
     width: 100%;
- }
 
- @include media-breakpoint-up(md) {
+    &.qld-input-error {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23E22339' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    }
+
+    &.qld-input-success {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23339d37' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    }
+}
+
+@include media-breakpoint-up(md) {
+
     input.qld-field-width-1-quarter,
     select.qld-field-width-1-quarter {
         max-width: $qld-fluid-width-1-quarter;
@@ -154,30 +193,73 @@ textarea.qld-text-input.qld-input-success:not(:focus),
     select.qld-field-width-3-quarters {
         max-width: $qld-fluid-width-3-quarters;
     }
- }
+}
 
+.dark {
+    input.form-control.qld-text-input:not(:hover)::-webkit-input-placeholder {
+        color: $qld-hint-text-color-muted;
+    }
+
+    input.form-control.qld-text-input:not(:hover)::-moz-placeholder {
+        color:$qld-hint-text-color-muted;
+    }
+
+    input.form-control.qld-text-input:not(:hover)::-ms-placeholder {
+        color:$qld-hint-text-color-muted;
+    }
+
+    input.form-control.qld-text-input:not(:hover)::placeholder {
+        color:$qld-hint-text-color-muted;
+    }
+    input.form-control.qld-text-input:hover::-webkit-input-placeholder {
+        color: $qld-white;
+    }
+
+    input.form-control.qld-text-input:hover::-moz-placeholder {
+        color:$qld-white;
+    }
+
+    input.form-control.qld-text-input:hover::-ms-placeholder {
+        color:$qld-white;
+    }
+
+    input.form-control.qld-text-input:hover::placeholder {
+        color:$qld-white;
+    }
+}
 .dark {
     background-color: $qld-sapphire-blue;
     .qld-text-input {
         border-color: $qld-dark-alt-border;
         background-color: $qld-sapphire-blue;
         color: $qld-hint-text-color-muted;
+
         &:hover {
             color: $qld-white;
             background-color: $qld-dark-background;
             border-color: $qld-color-dark-button-hover;
         }
+
         &:focus {
             outline: 3px solid $qld-dark-focus;
             color: $qld-text-grey;
         }
     }
+    .qld-select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23FFEF60' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    }
     .qld-text-input-label {
         color: $qld-white;
+
+        .label-text-optional {
+            color: $qld-hint-text-color-muted;
+        }
     }
+
     .qld-hint-text {
         color: $qld-hint-text-color-muted;
     }
+
     .form-style-filled {
         background-color: $qld-dark-background;
     }

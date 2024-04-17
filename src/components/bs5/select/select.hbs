@@ -1,25 +1,28 @@
 <!-- QGDS Component: Select -->
 
 <!-- Label for the first input field -->
-<label class="qld-textbox-label" for="example-1">Label</label>
+<label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="example-1">
+    Label
+    <span class="label-text-optional">(optional)</span></label>
 
 <!-- Hint text for the first input field -->
 <span class="qld-hint-text" id="example-1-hint">Hint text</span>
 
 {{#contains "qld-input-success" states}}
 <span id="text-field-success" class="qld-input-success">
-Success message
+    Success message
 </span>
 {{/contains}}
 
 {{#contains "qld-input-error" states}}
 <span id="text-field-error" class="qld-input-error">
-Error message
+    Error message
 </span>
 {{/contains}}
 
 <!-- First text input field, described by the hint text above -->
-<select class="qld-text-input form-select qld-select qld-field-width-1-quarter {{customClass}} {{states}}" aria-label="Default select example" {{#if isDisabled}}disabled{{/if}}>
+<select class="qld-text-input form-select qld-select qld-field-width-1-quarter {{customClass}} {{states}}"
+    aria-label="Default select example" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"{{/if}}>
     <option selected>Please select</option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
