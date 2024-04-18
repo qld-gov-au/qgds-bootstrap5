@@ -1,10 +1,10 @@
 <!-- QGDS Component: Loading Spinner -->
 
-{{#if minimal}}<a class="btn btn-secondary">{{/if}}
-    <div class="qld-spinner {{#if stacked}}align-center{{/if}}" role="status">
-        <div class="spinner-border"></div>
-        <span class="qld-spinner-label">
-            Loading...
-        </span>
-    </div>
-{{#if minimal}}</a>{{/if}}
+<div class="qld-spinner {{#if stacked}}align-center{{/if}}" role="status">
+    <div class="spinner-border"></div>
+    {{#unless minimal}}
+    <span class="qld-spinner-label">
+        Loading...
+    </span>
+    {{/unless}}
+</div>
