@@ -1,6 +1,6 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
-import { default_config } from './header.data.json';
+import { default_variant, dark_variant } from './header.data.json';
 
 export default {
     tags: ['autodocs'],
@@ -13,7 +13,7 @@ export default {
 // Navbar story with 'Light' color theme
 export const Default = {
     args: {
-        ...default_config,
+        ...default_variant,
     },
     parameters: {
         backgrounds: {
@@ -37,7 +37,7 @@ export const Default = {
 // Navbar story with 'Dark' color theme
 export const Dark = {
     args: {
-        ...default_config,
+        ...dark_variant,
     },
     parameters: {
         backgrounds: {

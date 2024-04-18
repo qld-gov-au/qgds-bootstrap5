@@ -59,11 +59,6 @@
     --#{$prefix}underline__thickness-thick: 2px;
     --#{$prefix}underline__offset: 0.3em;
 
-	.dark & {
-        --#{$prefix}color-light-background: var(--#{$prefix}color-dark-alt-background);
-		--#{$prefix}color-light-text__muted: var(--#{$prefix}white);
-		--#{$prefix}color-light-siteTitle: var(--#{$prefix}white);
-    }
 }
 
 .qld__header {

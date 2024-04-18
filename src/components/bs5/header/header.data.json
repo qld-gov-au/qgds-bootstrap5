@@ -1,8 +1,8 @@
 {
-    "default_config": {
+    "default_variant": {
         "sitePreHeader": {
             "theme": {
-                "value": "qld__header__pre-header--dark"
+                "value": "dark"
             },
             "url": {
                 "value": "https://qld.gov.au"
@@ -37,7 +37,73 @@
                 "value": "https://qld.gov.au"
             },
             "theme": {
+                "value": "light"
+            },
+            "logo": {
+                "value": "./dist/assets/img/header-logo-qgov-dark.svg"
+            },
+            "secondaryType": {
+                "logo": {
+                    "value": ""
+                },
+                "siteTitle": {
+                    "value": "Queensland Government Design System"
+                },
+                "subline": {
+                    "value": "QGDS"
+                }
+            }
+        },
+        "siteSearchAsset": {
+            "value": "#",
+            "icons": {
+                "search-icon": "",
+                "search-close-icon": ""
+            },
+            "siteSearchUrl": {
                 "value": ""
+            }
+        }
+    },
+    "dark_variant": {
+        "sitePreHeader": {
+            "theme": {
+                "value": "dark-alt"
+            },
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "text": {
+                "value": "qld.gov.au"
+            },
+            "logo": {
+                "value": "./dist/assets/img/header-logo-qgov--light.svg"
+            },
+            "mainNavCtaOne": {
+                "value": "#",
+                "icon": {
+                    "value": "#"
+                },
+                "text": {
+                    "value": "test"
+                }
+            },
+            "mainNavCtaTwo": {
+                "value": "#",
+                "icon": {
+                    "value": "#"
+                },
+                "text": {
+                    "value": "test"
+                }
+            }
+        },
+        "siteHeader": {
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "theme": {
+                "value": "dark"
             },
             "logo": {
                 "value": "./dist/assets/img/header-logo-qgov-dark.svg"
