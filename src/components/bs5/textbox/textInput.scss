@@ -196,34 +196,34 @@ select.qld-select.qld-input-success:not(:focus) {
 }
 
 .dark {
-    .form-control.qld-text-input:not(:hover)::-webkit-input-placeholder {
+    .form-control.qld-text-input:not(:hover):not(.qld-input-error):not(.qld-input-success)::-webkit-input-placeholder {
         color: $qld-hint-text-color-muted;
     }
 
-    .form-control.qld-text-input:not(:hover)::-moz-placeholder {
+    .form-control.qld-text-input:not(:hover):not(.qld-input-error):not(.qld-input-success)::-moz-placeholder {
         color:$qld-hint-text-color-muted;
     }
 
-    .form-control.qld-text-input:not(:hover)::-ms-placeholder {
+    .form-control.qld-text-input:not(:hover):not(.qld-input-error):not(.qld-input-success)::-ms-placeholder {
         color:$qld-hint-text-color-muted;
     }
 
-    .form-control.qld-text-input:not(:hover)::placeholder {
+    .form-control.qld-text-input:not(:hover):not(.qld-input-error):not(.qld-input-success)::placeholder {
         color:$qld-hint-text-color-muted;
     }
-    .form-control.qld-text-input:hover::-webkit-input-placeholder {
+    .form-control.qld-text-input:hover:not(.qld-input-error):not(.qld-input-success)::-webkit-input-placeholder {
         color: $qld-white;
     }
 
-    .form-control.qld-text-input:hover::-moz-placeholder {
+    .form-control.qld-text-input:hover:not(.qld-input-error):not(.qld-input-success)::-moz-placeholder {
         color:$qld-white;
     }
 
-    .form-control.qld-text-input:hover::-ms-placeholder {
+    .form-control.qld-text-input:hover:not(.qld-input-error):not(.qld-input-success)::-ms-placeholder {
         color:$qld-white;
     }
 
-    .form-control.qld-text-input:hover::placeholder {
+    .form-control.qld-text-input:hover:not(.qld-input-error):not(.qld-input-success)::placeholder {
         color:$qld-white;
     }
 }
