@@ -34,7 +34,6 @@ export const Default = {
 export const Dark = {
   args: { 
 	  ...defaultdata,
-	  ...{isDisabled: false},
   },
   parameters: {
     backgrounds: {
@@ -53,6 +52,16 @@ export const Dark = {
       `;
     },
   ],
+};
+
+/**
+ * Minimal Loading Spinner
+ */
+export const Minimal = {
+  args: {
+	  ...defaultdata,
+	  ...{minimal: true},
+  },
 };
 
 /**

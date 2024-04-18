@@ -1,9 +1,10 @@
 <!-- QGDS Component: Loading Spinner -->
 
-<!-- Label for the first input field -->
-<div class="qld-spinner {{#if stacked}}align-center{{/if}}" role="status">
-    <div class="spinner-border"></div>
-    <span class="qld-spinner-label">
-        Loading...
-    </span>
-</div>
+{{#if minimal}}<a class="btn btn-secondary">{{/if}}
+    <div class="qld-spinner {{#if stacked}}align-center{{/if}}" role="status">
+        <div class="spinner-border"></div>
+        <span class="qld-spinner-label">
+            Loading...
+        </span>
+    </div>
+{{#if minimal}}</a>{{/if}}
