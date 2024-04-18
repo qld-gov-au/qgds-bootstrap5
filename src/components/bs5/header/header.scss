@@ -59,11 +59,6 @@
     --#{$prefix}underline__thickness-thick: 2px;
     --#{$prefix}underline__offset: 0.3em;
 
-	//Reminders
-		//DOWN = MAX WIDTH
-		//UP = MIN WIDTH
-
-	// QH vars / w, QOL BS DS dark and default logic
 	.dark & {
         --#{$prefix}color-light-background: var(--#{$prefix}color-dark-alt-background);
 		--#{$prefix}color-light-text__muted: var(--#{$prefix}white);
@@ -72,6 +67,7 @@
 }
 
 .qld__header {
+	
 	font-size: 1rem;
 	line-height: 1.5;
 	color: var(--#{$prefix}color-light-text);

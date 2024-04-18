@@ -2,7 +2,7 @@
     "default_config": {
         "sitePreHeader": {
             "theme": {
-                "value": "qld__header__pre-header--dark-alt"
+                "value": "qld__header__pre-header--dark"
             },
             "url": {
                 "value": "https://qld.gov.au"
@@ -47,10 +47,10 @@
                     "value": ""
                 },
                 "siteTitle": {
-                    "value": "Second title"
+                    "value": "Queensland Government Design System"
                 },
                 "subline": {
-                    "value": "Second title"
+                    "value": "QGDS"
                 }
             }
         },
