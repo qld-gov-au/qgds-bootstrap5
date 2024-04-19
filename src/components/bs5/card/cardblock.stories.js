@@ -1,14 +1,14 @@
 // Blockquote.stories.js
 import { Cardblock } from './Cardblock.js';
-import { Card } from './Card.js';
+// import { Card } from './Card.js';
 import defaultdata from './cardblock.data.json';
 
 export default {
-    
+
   tags: ['autodocs'],
   title: 'Components/Cardblock',
   render: (args) => new Cardblock(args).html,
-  
+
   argTypes: {
     title: { // this object is configuring the field objects
       name: 'Title', // name of the field

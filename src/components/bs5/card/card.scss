@@ -1,22 +1,20 @@
 // Queensland Government Desing System: Cards
 // Source: https://getbootstrap.com/docs/5.2/components/card/#variables
 
-// Source CSS variables: var(--variable-name)  /node_modules/bootstrap/scss/components/_card.scss   
-
-// Override as required to suit Design System
-
+// Source CSS variables: var(--variable-name)  /node_modules/bootstrap/scss/components/_card.scss
 
 .card {
-    
-    --#{$prefix}card-bg: var(--qld-white);
-    --#{$prefix}card-color: var(--qld-text-grey);
-    
+
+    --#{$prefix}card-bg: var(--#{$prefix}default-background);
+    --#{$prefix}card-color: var(--#{$prefix}text-grey);
+    --#{$prefix}card-title-color: var(--#{$prefix}light-text-heading);
+
     --#{$prefix}card-spacer-x: #{$card-spacer-x};
     --#{$prefix}card-spacer-y: #{$card-spacer-y};
     --#{$prefix}card-title-spacer-y: #{$card-title-spacer-y};
     --#{$prefix}card-border-width: #{$card-border-width};
-    --#{$prefix}card-border-color: #{$card-border-color};
-    --#{$prefix}card-border-radius: #{$card-border-radius};
+    --#{$prefix}card-border-color: var(--#{$prefix}soft-grey);
+    --#{$prefix}card-border-radius: 0.75rem;
     --#{$prefix}card-box-shadow: #{$card-box-shadow};
     --#{$prefix}card-inner-border-radius: #{$card-inner-border-radius};
     --#{$prefix}card-cap-padding-y: #{$card-cap-padding-y};
@@ -24,105 +22,101 @@
     --#{$prefix}card-cap-bg: #{$card-cap-bg};
     --#{$prefix}card-cap-color: #{$card-cap-color};
     --#{$prefix}card-height: #{$card-height};
-    --#{$prefix}card-color: #{$card-color};
     --#{$prefix}card-img-overlay-padding: #{$card-img-overlay-padding};
     --#{$prefix}card-group-margin: #{$card-group-margin};
 
-    --#{$prefix}card-border-color: #{$qld-light-grey};
     --#{$prefix}card-link-color: #{$link-color};
-    --#{$prefix}card-footer-border: #{$qld-light-grey};
-    --#{$prefix}card-border-radius: 0.75rem;
+    --#{$prefix}card-footer-border: var(--#{$prefix}light-grey);
 
-        //Variants
-    &.card-alternative {
-        --#{$prefix}card-title-color: #{$headings-color};
-        --#{$prefix}card-bg: #{$qld-light-grey};
-        --#{$prefix}card-color: #{$body-color};
-        --#{$prefix}card-border-color: #7a7a7a;
-        --#{$prefix}card-footer-border: #7a7a7a;
+    --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
+
+    // Icon variables
+    --#{$prefix}card-icon-color: var(--#{$prefix}light-text-heading);
+    --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
+
+    // Left positioned icon as default
+    --#{$prefix}card-icon-height: 4rem;
+    --#{$prefix}card-icon-width: 4rem;
+    --#{$prefix}card-icon-font-size: 2.25rem;
+    --#{$prefix}card-icon-line-height: 4rem;
+
+    .icon-top {
+        --#{$prefix}card-icon-height: 8rem;
+        --#{$prefix}card-icon-width: 8rem;
+        --#{$prefix}card-icon-font-size: 3.75rem;
+        --#{$prefix}card-icon-line-height: 8rem;
     }
 
-    &.card-primary {
-        --#{$prefix}card-title-color: #fff;
-        --#{$prefix}card-bg: #{$primary};
-        --#{$prefix}card-color: #fff;
-        --#{$prefix}card-link-color: #fff;
-        --#{$prefix}card-border-color: #2573c1;
-        --#{$prefix}card-footer-border: #ffffff30; //white at 30%
-    }
-    &.card-primary--dark {
-        --#{$prefix}card-title-color: #fff;
-        --#{$prefix}card-bg: #{$primary-dark};
-        --#{$prefix}card-color: #{$qld-white};
-        --#{$prefix}card-link-color: #{$qld-white};
-        --#{$prefix}card-footer-border: #ffffff30; //white at 30%
+
+    // Colour variants
+    &-light {
+        --#{$prefix}card-bg: var(--#{$prefix}light-background);
+        --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
+        --#{$prefix}card-icon-background-color: var(--#{$prefix}light-background-shade);
     }
 
-}
+    &-alt {
+        --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
+        --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
+        --#{$prefix}card-icon-background-color: var(--#{$prefix}light-alt-background-shade);
+    }
 
-.card {
-    a {
-        &:hover {
-            box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
+    &-dark,
+    &-dark-alt {
+        --#{$prefix}selection-color: var(--#{$prefix}brand-primary);
+        --#{$prefix}selection-bg: var(--#{$prefix}white);
+
+        --#{$prefix}card-color: var(--#{$prefix}dark-text);
+        --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
+        --#{$prefix}card-link-color: var(--#{$prefix}dark-action-text);
+        --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
+
+        --#{$prefix}card-icon-color: var(--#{$prefix}white);
+    }
+
+    &-dark {
+        --#{$prefix}card-bg: var(--#{$prefix}dark-background);
+        --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-background-shade);
+    }
+
+    &-dark-alt {
+        --#{$prefix}card-bg: var(--#{$prefix}dark-blue);
+        --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-alt-background-shade);
+    }
+
+    // Common overrides for dark themes
+    .dark &,
+    .dark-alt & {
+        --#{$prefix}card-border-color: var(--#{$prefix}dark-border);
+
+        &.dark-alt {
+            --#{$prefix}card-border-color: var(--#{$prefix}dark-alt-border);
         }
-        &:focus {
-            outline: 3px solid;
-            outline-color: #{$qld-light-blue};
-            outline-offset: 2px;
-        }
+
     }
+
 }
 
-
-@include color-mode(alternative) {
+@include media-breakpoint-up(md) {
     .card {
-        --#{$prefix}card-title-color: #{$headings-color};
-        --#{$prefix}card-bg: #{$qld-light-grey};
-        --#{$prefix}card-color: #{$body-color};
-        --#{$prefix}card-border-color: #7a7a7a;
-        --#{$prefix}card-footer-border: #7a7a7a;
+        --#{$prefix}card-spacer-x: 1.25rem;
+        --#{$prefix}card-spacer-y: 1.25rem;
     }
 }
 
-@include color-mode(dark) {
-
+@include media-breakpoint-up(lg) {
     .card {
-
-        --#{$prefix}card-title-color: #fff;
-        --#{$prefix}card-bg: #{$primary};
-        --#{$prefix}card-color: #fff;
-        --#{$prefix}card-link-color: #fff;
-        --#{$prefix}card-border-color: #2573c1;
-        --#{$prefix}card-footer-border: #ffffff30; //white at 30%
-    }
-
-    // &.card-alternative {
-    //     --#{$prefix}card-title-color: #fff;
-    //     --#{$prefix}card-bg: #{$primary-dark};
-    //     --#{$prefix}card-color: #{$qld-white};
-    //     --#{$prefix}card-link-color: #{$qld-white};
-    //     --#{$prefix}card-footer-border: #ffffff30; //white at 30%
-    // }
-
-}
-
-@include color-mode(dark-alternative) {
-    .card {
-
-        --#{$prefix}card-title-color: #fff;
-        --#{$prefix}card-bg: #{$qld-dark-blue};
-        --#{$prefix}card-color: #fff;
-        --#{$prefix}card-link-color: #fff;
-        --#{$prefix}card-border-color: #09ACFE;
-        --#{$prefix}card-footer-border: #ffffff30; //white at 30%
+        --#{$prefix}card-spacer-x: 1.5rem;
+        --#{$prefix}card-spacer-y: 1.5rem;
     }
 }
 
+// Component styles
 .card {
+    overflow: hidden;
 
     .card-title {
-        line-height: 2rem;
-        font-size: 1.5rem;
+        color: var(--#{$prefix}card-title-color);
         margin-top: 0;
         margin-bottom: 0.75rem;
 
@@ -135,40 +129,79 @@
                 text-underline-offset: 3px;
             }
         }
-        &.card-medium {
-            font-size: 200px;
-        }
     }
-    &.card-large {
-        .card-title {
-        // font-size: 400px;
-        }
-    }
-    .card-img-top {
-        border-top-left-radius: var(--qld-card-border-radius);
-        border-top-right-radius: var(--qld-card-border-radius);
-        border-bottom-right-radius: 1.875rem;
-        // border-bottom-left-radius: 1.875rem;
-        
-    } 
 
-    .card-footer {
-        color: var(--#{$prefix}card-color);
-        font-weight: 600;
-        font-size: 1.25rem;
-        line-height: 1.5;
-        background: none;
-        border-top: 0;
-        position: relative;
-        padding: var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
-        padding-top: 2.5rem;
+    .card-img-top {
+        background-image: var(--card-image);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        display: block;
+        border-radius: var(--#{$prefix}card-img-border-radius);
 
         &:before {
             content: "";
             position: absolute;
-            left: var(--#{$prefix}card-spacer-x);
-            right: var(--#{$prefix}card-spacer-x);
-            top: calc(1.25rem - 1px);
+            inset: -1px;
+            border: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+            border-radius: var(--#{$prefix}card-img-border-radius);
+
+        }
+    }
+
+    &.icon-left {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .card-body {
+            max-width: calc(100% - var(--#{$prefix}card-icon-width) - var(--#{$prefix}card-spacer-x));
+        }
+    }
+    &.icon-top {
+        align-items: center;
+    }
+    &-icon {
+        display: flex;
+        flex-shrink: 0;
+        justify-content: center;
+        color: var(--#{$prefix}card-icon-color);
+        background-color: var(--#{$prefix}card-icon-background-color);
+        border-radius: 50%;
+        height: var(--#{$prefix}card-icon-height);
+        width: var(--#{$prefix}card-icon-width);
+        margin: 1.5rem 1.5rem 0 1.5rem;
+
+        i {
+            font-size: var(--#{$prefix}card-icon-font-size);
+            line-height: var(--#{$prefix}card-icon-line-height);
+            text-align: center;
+            vertical-align: middle;
+        }
+        &.icon-left {
+            margin: 1.25rem 0 1.25rem 1.25rem;
+        }
+    }
+
+    .card-body:not(:last-child) {
+        padding-bottom: 0;
+    }
+
+    .card-footer {
+        color: var(--#{$prefix}card-color);
+        line-height: 1.5;
+        background: none;
+        border-top: 0;
+        position: relative;
+        padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
+        width: 100%;
+        flex: 0 1 100%;
+
+        &:before {
+            content: "";
+            display: block;
+            position: relative;
+            margin: 1.25rem 0;
             height: 1px;
             background: var(--#{$prefix}card-footer-border);
         }
@@ -191,16 +224,4 @@
             font-size: 1.25rem;
         }
     }
-}
-
-@include media-breakpoint-down(sm) {
-    .card {
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-        &:hover {
-            box-shadow: none;
-        }
-        .card-title {
-            font-size: 1.25rem;
-        }
-    }   
 }
