@@ -27,6 +27,10 @@ $enable-dark-mode: true;
 
 // 2. QLD Design System variables (Bootstrap overrides)
 @import "./scss/qld-variables";
+
+// All new figma tokens!
+@import "qgds-tokens/dist/scss/_variables";
+
 // @import "./scss/qld-variables-dark";
 @import "./scss/qld-type";
 
@@ -152,7 +156,7 @@ $enable-dark-mode: true;
 //@import "./components/bs5/carousel/carousel.scss";
 @import "./components/bs5/forms/forms.scss";
 @import "./components/bs5/header/header.scss";
-// @import "./components/bs5/header-search/header-search.scss";
+//@import "./components/bs5/header-search/header-search.scss";
 @import "./components/bs5/icons/icons.scss";
 @import "./components/bs5/inpagenav/inpagenav.scss";
 @import "./components/bs5/sidenav/sidenav.scss"; //includes side-nav.scss

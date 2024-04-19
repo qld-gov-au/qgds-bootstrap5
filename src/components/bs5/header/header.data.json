@@ -33,6 +33,10 @@
             }
         },
         "siteHeader": {
+            "config": {
+                "masterbrand_enabled": true,
+                "otherbrand_enabled": false
+            },
             "url": {
                 "value": "https://qld.gov.au"
             },
@@ -40,7 +44,7 @@
                 "value": "light"
             },
             "logo": {
-                "value": "./dist/assets/img/header-logo-qgov-dark.svg"
+                "value": "./dist/assets/img/header-logo-qgov-masterbrand--default.svg"
             },
             "secondaryType": {
                 "logo": {
@@ -99,6 +103,10 @@
             }
         },
         "siteHeader": {
+            "config": {
+                "masterbrand_enabled": false,
+                "otherbrand_enabled": true
+            },
             "url": {
                 "value": "https://qld.gov.au"
             },
@@ -106,7 +114,7 @@
                 "value": "dark"
             },
             "logo": {
-                "value": "./dist/assets/img/header-logo-qgov-dark.svg"
+                "value": "./dist/assets/img/header-logo-qgov--dark.svg"
             },
             "secondaryType": {
                 "logo": {

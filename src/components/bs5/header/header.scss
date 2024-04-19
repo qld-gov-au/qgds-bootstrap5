@@ -6,63 +6,69 @@
 
 	//QH - extract from health.qld.gov.au
 	--#{$prefix}color-light-siteTitle: #022A50;
-    --#{$prefix}color-light-designAccent: #6BBE27;
-    --#{$prefix}color-light-heading: #03213F;
-    --#{$prefix}color-light-text: #414141;
-    --#{$prefix}color-light-text__muted: #636363;
-    --#{$prefix}color-light-link: #09549F;
-    --#{$prefix}color-light-link__visited: #551A8B;
-    --#{$prefix}color-light-button__text: #FFFFFF;
-    --#{$prefix}color-light-button: #09549F;
-    --#{$prefix}color-light-button__hover: #003E7D;
-    --#{$prefix}color-light-focus: #0085B3;
-    --#{$prefix}color-light-border: #EBEBEB;
-    --#{$prefix}color-light-background: #FFFFFF;
-    --#{$prefix}color-light-background__shade: #F5F5F5;
-    --#{$prefix}color-light-hint: #6f777b;
-    --#{$prefix}color-light-system-underline: #FFFFFF;
-    --#{$prefix}color-light-underline: #3F7AB4;
-    --#{$prefix}color-light-hover-underline: #09549F;
-    --#{$prefix}color-light-visited-underline: #8B63B0;
-    --#{$prefix}color-light-hover-visited-underline: #551A8B;
-    --#{$prefix}color-light-alt-button: #008733;
-    --#{$prefix}color-light-alt-button__hover: #00702B;
-    --#{$prefix}color-light-alt-border: #818181;
-    --#{$prefix}color-light-alt-background: #EBEBEB;
-    --#{$prefix}color-light-alt-background__shade: #E0E0E0;
-    --#{$prefix}color-light-alt-hint: #61696B;
-    --#{$prefix}color-dark-siteTitle: #FFFFFF;
-    --#{$prefix}color-dark-designAccent: #6BBE27;
-    --#{$prefix}color-dark-heading: #FFFFFF;
-    --#{$prefix}color-dark-text: #FFFFFF;
-    --#{$prefix}color-dark-text__muted: #DEEBF9;
-    --#{$prefix}color-dark-link: #FFFFFF;
-    --#{$prefix}color-dark-link__visited: #A668F4;
-    --#{$prefix}color-dark-button__text: #121940;
-    --#{$prefix}color-dark-button: #9AC02C;
-    --#{$prefix}color-dark-button__hover: #ADD33F;
-    --#{$prefix}color-dark-focus: #01B0E5;
-    --#{$prefix}color-dark-border: #1D9AC6;
-    --#{$prefix}color-dark-background: #09549F;
-    --#{$prefix}color-dark-background__shade: #04498F;
-    --#{$prefix}color-dark-system-underline: #03213F;
-    --#{$prefix}color-dark-underline: #B5CCE2;
-    --#{$prefix}color-dark-hover-underline: #FFFFFF;
-    --#{$prefix}color-dark-visited-underline: #B5CCE2;
-    --#{$prefix}color-dark-hover-visited-underline: #E1C2FF;
-    --#{$prefix}color-dark-alt-button: #EFD700;
-    --#{$prefix}color-dark-alt-button__hover: #FFE817;
-    --#{$prefix}color-dark-alt-border: #11B2D4;
-    --#{$prefix}color-dark-alt-background: #05325F;
-    --#{$prefix}color-dark-alt-background__shade: #052C53;
-    --#{$prefix}underline__thickness-thin: 0.5px;
-    --#{$prefix}underline__thickness-thick: 2px;
-    --#{$prefix}underline__offset: 0.3em;
+	--#{$prefix}color-light-designAccent: #6BBE27;
+	--#{$prefix}color-light-heading: #03213F;
+	--#{$prefix}color-light-text: #414141;
+	--#{$prefix}color-light-text__muted: #636363;
+	--#{$prefix}color-light-link: #09549F;
+	--#{$prefix}color-light-link__visited: #551A8B;
+	--#{$prefix}color-light-button__text: #FFFFFF;
+	--#{$prefix}color-light-button: #09549F;
+	--#{$prefix}color-light-button__hover: #003E7D;
+	--#{$prefix}color-light-focus: #0085B3;
+	--#{$prefix}color-light-border: #EBEBEB;
+	--#{$prefix}color-light-background: #FFFFFF;
+	--#{$prefix}color-light-background__shade: #F5F5F5;
+	--#{$prefix}color-light-hint: #6f777b;
+	--#{$prefix}color-light-system-underline: #FFFFFF;
+	--#{$prefix}color-light-underline: #3F7AB4;
+	--#{$prefix}color-light-hover-underline: #09549F;
+	--#{$prefix}color-light-visited-underline: #8B63B0;
+	--#{$prefix}color-light-hover-visited-underline: #551A8B;
+	--#{$prefix}color-light-alt-button: #008733;
+	--#{$prefix}color-light-alt-button__hover: #00702B;
+	--#{$prefix}color-light-alt-border: #818181;
+	--#{$prefix}color-light-alt-background: #EBEBEB;
+	--#{$prefix}color-light-alt-background__shade: #E0E0E0;
+	--#{$prefix}color-light-alt-hint: #61696B;
+	--#{$prefix}color-dark-siteTitle: #FFFFFF;
+	--#{$prefix}color-dark-designAccent: #6BBE27;
+	--#{$prefix}color-dark-heading: #FFFFFF;
+	--#{$prefix}color-dark-text: #FFFFFF;
+	--#{$prefix}color-dark-text__muted: #DEEBF9;
+	--#{$prefix}color-dark-link: #FFFFFF;
+	--#{$prefix}color-dark-link__visited: #A668F4;
+	--#{$prefix}color-dark-button__text: #121940;
+	--#{$prefix}color-dark-button: #9AC02C;
+	--#{$prefix}color-dark-button__hover: #ADD33F;
+	--#{$prefix}color-dark-focus: #01B0E5;
+	--#{$prefix}color-dark-border: #1D9AC6;
+	--#{$prefix}color-dark-background: #09549F;
+	--#{$prefix}color-dark-background__shade: #04498F;
+	--#{$prefix}color-dark-system-underline: #03213F;
+	--#{$prefix}color-dark-underline: #B5CCE2;
+	--#{$prefix}color-dark-hover-underline: #FFFFFF;
+	--#{$prefix}color-dark-visited-underline: #B5CCE2;
+	--#{$prefix}color-dark-hover-visited-underline: #E1C2FF;
+	--#{$prefix}color-dark-alt-button: #EFD700;
+	--#{$prefix}color-dark-alt-button__hover: #FFE817;
+	--#{$prefix}color-dark-alt-border: #11B2D4;
+	--#{$prefix}color-dark-alt-background: #05325F;
+	--#{$prefix}color-dark-alt-background__shade: #052C53;
+	--#{$prefix}underline__thickness-thin: 0.5px;
+	--#{$prefix}underline__thickness-thick: 2px;
+	--#{$prefix}underline__offset: 0.3em;
+
+	&.dark {
+		.currentColor {
+			color: var(--#{$prefix}color-light-text);
+		}
+	}
 
 }
 
 .qld__header {
-	
+
 	font-size: 1rem;
 	line-height: 1.5;
 	color: var(--#{$prefix}color-light-text);
@@ -127,10 +133,8 @@
 		padding-top: .75rem;
 
 		@include media-breakpoint-up(md) {
-			.qld__header .qld__header__pre-header {
-				padding-bottom: 1rem;
-				padding-top: 1rem;
-			}
+			padding-bottom: 1rem;
+			padding-top: 1rem;
 		}
 
 		@include media-breakpoint-up(lg) {
@@ -508,11 +512,14 @@
 			display: none;
 
 			@include media-breakpoint-up(lg) {
-				border-right: 2px solid var(--#{$prefix}color-light-designAccent);
-				color: var(--#{$prefix}color-light-siteTitle);
 				display: block;
 				margin-right: 1.5rem;
 				padding-right: 1.5rem;
+			}
+
+			&_subType {
+				border-right: 2px solid var(--#{$prefix}color-light-designAccent);
+				color: var(--#{$prefix}color-light-siteTitle);
 			}
 
 			img {
@@ -661,6 +668,13 @@
 		}
 	}
 
+	//Reduce size of whitebar on masterbrand
+	.qld__header__main--masterbrandEnabled--true {
+		@include media-breakpoint-down(lg) {
+			height: 0;
+		}
+	}
+
 	.qld__header__search {
 		background-color: var(--#{$prefix}color-light-background);
 		box-shadow: 0 0 25px hsla(0, 0%, 78%, .25);
@@ -798,6 +812,7 @@
 @media print {
 	.qld__header {
 		background: #fff !important;
+
 		a img {
 			border: 0 !important;
 		}
