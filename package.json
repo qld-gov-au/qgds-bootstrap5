@@ -11,7 +11,7 @@
     "watch": "node esbuild.js --watch",
     "serve": "live-server dist",
     "dev-storybook": "npm-run-all --parallel watch storybook",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "(echo \"about to start storybook dev mode\" && sleep 2 && echo \"starting storybook dev mode\" && storybook dev -p 6006)",
     "build-storybook": "storybook build --webpack-stats-json "
   },
   "keywords": [],

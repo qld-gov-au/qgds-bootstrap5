@@ -11,7 +11,7 @@
                 "value": "qld.gov.au"
             },
             "logo": {
-                "value": "assets/img/header-logo-qgov--light.svg"
+                "value": "./assets/img/header-logo-qgov--light.svg"
             },
             "mainNavCtaOne": {
                 "value": "#",
@@ -44,7 +44,7 @@
                 "value": "light"
             },
             "logo": {
-                "value": "assets/img/header-logo-qgov-masterbrand--default.svg"
+                "value": "./assets/img/header-logo-qgov-masterbrand--default.svg"
             },
             "secondaryType": {
                 "logo": {
@@ -81,7 +81,7 @@
                 "value": "qld.gov.au"
             },
             "logo": {
-                "value": "assets/img/header-logo-qgov--light.svg"
+                "value": "./assets/img/header-logo-qgov--light.svg"
             },
             "mainNavCtaOne": {
                 "value": "#",
@@ -114,7 +114,7 @@
                 "value": "dark"
             },
             "logo": {
-                "value": "assets/img/header-logo-qgov--dark.svg"
+                "value": "./assets/img/header-logo-qgov--dark.svg"
             },
             "secondaryType": {
                 "logo": {

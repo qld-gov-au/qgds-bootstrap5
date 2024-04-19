@@ -7,7 +7,10 @@ const config = {
         "../src/**/!(*_)*.mdx",
         "../src/**/!(*_)*.stories.js",
     ],
-    staticDirs: [{ from: '../dist', to: '/assets' }], //Bring dist in statically instead of having it minified
+    staticDirs: [
+        { from: '../dist', to: '/assets' }, //USe for css referencing
+        { from: '../src/assets', to: '/assets' }, //Needed for direct image referencing
+    ], //Bring dist in statically instead of having it minified
     addons: [//Storybook addons
     //https://storybook.js.org/addons/
     "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@chromatic-com/storybook"],
