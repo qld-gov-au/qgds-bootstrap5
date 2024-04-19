@@ -1,136 +1,99 @@
-// Blockquote.stories.js
+// card.stories.js
 import { Card } from './Card.js';
-import defaultdata from './cardblock.data.json';
+import defaultdata from './card.data.json';
 
 export default {
-    
-  tags: ['autodocs'],
-  title: 'Components/Card',
-  render: (args) => new Card(args).html,
-  
-  argTypes: {
-    title: { // this object is configuring the field objects
-      name: 'Title', // name of the field
-    },
-    description: {
-      name: "Blank",
-      description: "Bblank",
-      control: {
-        type: "select",
-      },
-      table: { // refers to the whole table in the storybook properties section
-        disable: true, // completely removes this field
-      },
-    },
-    // image: "assets/img/ds-example-image-1.jpg",
-    // alt: "A photo of cliffs by the ocean with trees in the foreground",
-    // link: "https://web.dev",
-    // footer: false,
-    classes: {
-      name: "Classes",
-      description: `Settable classes for the component`,
-      control: {
-        type: "radio",
-        //tell it what options to show
-        labels: {
-          "": "Default",
-          "card-alternative": "Alternative",
-          "card-primary": "Dark",
-          "card-primary--dark": "Dark alternative",
-        },
-      },
-      options: [
-        "", //default, we don't need additional classes
-        "card-alternative",
-        "card-primary",
-        "card-primary--dark",
-      ]
-    },
-    sizes: {
-      name: "Sizes",
-      description: `Settable sizes`,
-      control: {
-        type: "radio",
-        labels: {
-          "card-large": "Large",
-          "card-medium": "Medium",
-          "card-small": "Small",
-        },
-      },
-      options: [
-        "card-large",
-        "card-medium",
-        "card-small",
-      ]
-    }
+  tags: ["autodocs"],
+  title: "Components/Card",
+  render: (args) => {
+    return `
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      ${new Card(args).html}
+      ${new Card({ ...args, variantClass: "card-light" }).html}
+      ${new Card({ ...args, variantClass: "card-alt" }).html}
+      ${new Card({ ...args, variantClass: "card-dark" }).html}
+      ${new Card({ ...args, variantClass: "card-dark-alt" }).html}
+    </div>
+    `;
   },
-    
-    // breadcrumbs: {
-    //   name: 'Breadcrumbs',
-    //   control: 'object',
-    //   description: `Pass a JSON object containing an array of links to the component.`,
-    // },
-  };
-
-export const Default = {
-  args: defaultdata.cards[0],
-  parameters: {
-    backgrounds: { // from .storybook > preview.js
-      default: "light",
-    },
-  },
+  args: defaultdata,
+  argTypes: { },
 };
 
-export const DefaultAlt = {
-  args: defaultdata.cards[0],
-  parameters: {
-    backgrounds: { // from .storybook > preview.js
-      default: "light",
-    },
-  },
-  decorators: [
-    (Story) => {
-      return `
-        <div data-bs-theme="alternative">
-        ${Story()}
-        </div>
-      `;
-    }
-  ]
-};
+export const Default = { };
 
 export const Dark = {
-  args: defaultdata.cards[0],
+  name: "Dark theme context",
   parameters: {
-    backgrounds: { // from .storybook > preview.js
-      default: "dark",
+    backgrounds: {
+      default: "Dark",
     },
   },
   decorators: [
     (Story) => {
       return `
-        <div data-bs-theme="dark">
-        ${Story()}
-        </div>
+      <div class="dark">
+          ${Story()}
+      </div>
       `;
-    }
-  ]
-}
+    },
+  ],
+};
 
-export const DarkAlt = {
-  args: defaultdata.cards[0],
-  parameters: {
-    backgrounds: { // from .storybook > preview.js
-      default: "dark",
-    },
+export const Image = {
+  args: {
+    ...defaultdata,
+    image: "./assets/img/image-placeholder.png",
+    imageAlt: "A grey placeholder image with an icon in the centre.",
   },
-  decorators: [
-    (Story) => {
-      return `
-        <div data-bs-theme="dark-alternative">
-        ${Story()}
-        </div>
-      `;
-    }
-  ]
-}
+};
+
+export const ImageFooter = {
+  args: {
+    ...defaultdata,
+    image: "./assets/img/image-placeholder.png",
+    imageAlt: "A grey placeholder image with an icon in the centre.",
+    footer: "Footer content",
+  },
+};
+
+export const Footer = {
+  args: {
+    ...defaultdata,
+    footer: "Footer content",
+  },
+};
+
+export const LeadingIcon = {
+  args: {
+    ...defaultdata,
+    iconClasses: "fa-solid fa-pen-ruler",
+    iconPosition: "icon-left",
+  },
+};
+
+export const LeadingIconFooter = {
+  args: {
+    ...defaultdata,
+    iconClasses: "fa-solid fa-pen-ruler",
+    iconPosition: "icon-left",
+    footer: "Footer content",
+  },
+};
+
+export const StackedIcon = {
+  args: {
+    ...defaultdata,
+    iconClasses: "fa-solid fa-pen-ruler",
+    iconPosition: "icon-top",
+  },
+};
+
+export const StackedIconFooter = {
+  args: {
+    ...defaultdata,
+    iconClasses: "fa-solid fa-pen-ruler",
+    iconPosition: "icon-top",
+    footer: "Footer content",
+  },
+};

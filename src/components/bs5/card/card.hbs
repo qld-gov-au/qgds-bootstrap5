@@ -1,70 +1,41 @@
 <!-- QGDS Partial: card -->
 
-<div class="card h-100 {{#if feature}} card-feature {{/if}} {{classes}} {{sizes}}">
-    
-    {{! Feature }}    
+<div class="col">
 
-    {{#unless feature}}
-    {{! shouldn't render image if no image }}
-    {{#if image}}<img src="{{image}}" class="card-img-top" alt="{{alt}}" />{{/if}}
-    
-    <div class="card-body">
+    <div class="card h-100 {{variantClass}} {{iconPosition}}">
 
-        {{#if withdate}}
-        <p class="small">{{date}}</p>
+        {{#if image}}
+        <div class="card-img ratio ratio-16x9">
+            <div class="card-img-top" style="--card-image:url({{image}})" alt="{{imageAlt}}"></div>
+        </div>
         {{/if}}
-        <h3 class="card-title"> 
 
-            {{#if link}}<a href="{{link}}" class="stretched-link">{{title}}</a>{{/if}}
-            {{#unless link}}{{title}}{{/unless}}
-        </h3>
+        {{#if iconClasses}}
+        <div class="card-icon {{iconPosition}}">
+            <i class="{{iconClasses}}"></i>
+        </div>
+        {{/if}}
 
-        <p class="card-text">
-            {{description}}
-        </p>
-    </div>
+        <div class="card-body">
+            <h3 class="card-title">
+                {{#if link}}
+                <a href="{{link}}">{{title}}</a>
+                {{else}}
+                {{ title }}
+                {{/if }}
+            </h3>
 
-    {{#if footer}}
-    <div class="card-footer">{{footer}}</div>
-    {{/if}}
-
-    {{/unless}}
-
-    {{! _________________________________________ }}
-
-    {{#if feature}}
-        {{! shouldn't render image if no image }}
-    <div class="row g-0">
-        <div class="col-md-4">
-            {{#if image}}<img src="{{image}}" class="card-img-top" alt="{{alt}}" />{{/if}}
+            <p class="card-text">
+                {{description}}
+            </p>
         </div>
 
-        <div class="col-md-8">
-            <div class="card-body">
-        {{#if withdate}}
-        <p class="small">{{date}}</p>
-        {{/if}}
-                <h3 class="card-title">
-                    {{#if link}}<a href="{{link}}" class="stretched-link">{{title}}</a>{{/if}}
-                    {{#unless link}}{{title}}{{/unless}}
-                </h3>
-
-                <p class="card-text">
-                    {{description}}
-                </p>
-            </div>
-
-            {{#if footer}}
-            <div class="card-footer">{{footer}}</div>
-            {{/if}}
-            {{#if label}}
-            {{!-- add a loop here, for every label do this?? --}}
-            
-            {{/if}}
+        {{#if footer}}
+        <div class="card-footer">
+            {{{footer}}}
         </div>
+        {{/if }}
+
     </div>
-
-    {{/if}}
-
 
 </div>

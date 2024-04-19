@@ -240,7 +240,7 @@ select.qld-select.qld-input-success:not(:focus) {
 
         &:hover {
             color: $qld-white;
-            background-color: $qld-dark-background;
+            background-color: $qld-color-dark-background--shade;
             border-color: $qld-color-dark-button-hover;
         }
 
@@ -267,6 +267,6 @@ select.qld-select.qld-input-success:not(:focus) {
     }
 
     .form-style-filled {
-        background-color: $qld-dark-background;
+        background-color: $qld-color-dark-background--shade;
     }
 }
