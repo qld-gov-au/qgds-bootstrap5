@@ -38,7 +38,7 @@
     "@storybook/theming": "^8.0.8",
     "@stylistic/eslint-plugin-js": "1.5.3",
     "@vitejs/plugin-vue": "5.0.3",
-    "@whitespace/storybook-addon-html": "^6.0.4",
+    "@whitespace/storybook-addon-html": "^6.0.5",
     "autoprefixer": "^10.4.15",
     "chalk": "^4.1.2",
     "chromatic": "^11.3.0",
