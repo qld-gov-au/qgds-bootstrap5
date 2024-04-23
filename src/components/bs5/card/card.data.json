@@ -2,12 +2,12 @@
   "noAction": {
     "title": "Card title",
     "description": "Card body text",
-    "variantClass": "",
+    "variantClass": "default",
     "image": "",
     "imageAlt": "",
     "iconClasses": "",
     "iconPosition": "",
-    "action": "none",
+    "action": "no",
     "link": "",
     "arrow": false,
     "footer": "",
@@ -16,15 +16,29 @@
   "singleAction": {
     "title": "Card title",
     "description": "Card body text",
-    "variantClass": "",
+    "variantClass": "default",
     "image": "",
     "imageAlt": "",
     "iconClasses": "",
     "iconPosition": "",
     "action": "single",
-    "link": "javascript.void(0)",
+    "link": "javascript:void(0)",
     "arrow": false,
     "footer": "",
+    "equalHeight": false
+  },
+  "multiAction": {
+    "title": "Card title",
+    "description": "Card body text <a href='javascript:void(0)'>lorem ipsum</a> dolor sit amet.",
+    "variantClass": "default",
+    "image": "",
+    "imageAlt": "",
+    "iconClasses": "",
+    "iconPosition": "",
+    "action": "multi",
+    "link": "javascript:void(0)",
+    "arrow": false,
+    "footer": "<ul><li><a href='javascript:void(0)'>Link text</a></li><li><a href='javascript:void(0)'>Link text</a></li><li><a href='javascript:void(0)'>Link text</a></li></ul>",
     "equalHeight": false
   }
 }

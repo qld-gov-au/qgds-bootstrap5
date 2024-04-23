@@ -18,6 +18,10 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
     --#{$prefix}card-spacer-x: #{$card-spacer-x};
     --#{$prefix}card-spacer-y: #{$card-spacer-y};
     --#{$prefix}card-title-spacer-y: #{$card-title-spacer-y};
+    --#{$prefix}card-title-font-size: 1.25rem;
+    --#{$prefix}card-title-line-height: 1.5rem;
+    --#{$prefix}card-font-size: 0.875rem;
+    --#{$prefix}card-line-height: 1.25rem;
     --#{$prefix}card-border-width: #{$card-border-width};
     --#{$prefix}card-border-color: var(--#{$prefix}soft-grey);
     --#{$prefix}card-border-radius: 0.75rem;
@@ -36,9 +40,10 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
     --#{$prefix}card-footer-border: var(--#{$prefix}light-grey);
 
     --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
+    --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
 
     // Icon variables
-    --#{$prefix}card-icon-color: var(--#{$prefix}card-title-color);
+    --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
 
     // Side positioned icon as default
@@ -54,8 +59,8 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
         --#{$prefix}card-icon-line-height: 8rem;
     }
 
-    &.card-single-action {
-        --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
+    &.card-no-action {
+        --#{$prefix}card-icon-color: var(--#{$prefix}card-title-color);
     }
 
     &.card-arrow {
@@ -78,15 +83,12 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
 
     &-dark,
     &-dark-alt {
-        --#{$prefix}selection-color: var(--#{$prefix}brand-primary);
-        --#{$prefix}selection-bg: var(--#{$prefix}default-background);
-
         --#{$prefix}card-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-link-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
 
-        &.card-single-action {
+        &:not(.card-no-action) {
             --#{$prefix}card-icon-color: var(--#{$prefix}dark-action-secondary);
         }
 
@@ -122,6 +124,8 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
     .card {
         --#{$prefix}card-spacer-x: 1.25rem;
         --#{$prefix}card-spacer-y: 1.25rem;
+        --#{$prefix}card-font-size: 1rem;
+        --#{$prefix}card-line-height: 1.5rem;
     }
 }
 
@@ -129,15 +133,26 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
     .card {
         --#{$prefix}card-spacer-x: 1.5rem;
         --#{$prefix}card-spacer-y: 1.5rem;
+        --#{$prefix}card-title-font-size: 1.5rem;
+        --#{$prefix}card-title-line-height: 2rem;
         --#{$prefix}card-box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1); // Level 4 shadow
+
+        &-feature {
+            --#{$prefix}card-title-font-size: 2rem;
+            --#{$prefix}card-title-line-height: 2.5rem;
+        }
     }
 }
 
 // Component styles
 .card {
+    font-size: var(--#{$prefix}card-font-size);
+    line-height: var(--#{$prefix}card-line-height);
     overflow: hidden;
 
     .card-title {
+        font-size: var(--#{$prefix}card-title-font-size);
+        line-height: var(--#{$prefix}card-title-line-height);
         color: var(--#{$prefix}card-title-color);
         margin-top: 0;
         margin-bottom: 0.75rem;
@@ -150,46 +165,69 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
             color: var(--#{$prefix}card-link-color);
             text-decoration: none;
 
-            &:hover {
+            &:hover, &:focus {
                 text-decoration: underline;
                 text-underline-offset: 3px;
             }
+        }
+    }
 
+    &-single-action,
+    &-multi-action {
+        box-shadow: var(--#{$prefix}card-box-shadow);
+    }
+
+    &-single-action {
+        &:hover, &:focus {
+            box-shadow: none;
+        }
+
+        &:hover, &:focus-within {
+            .card-img:after {
+                opacity: 0.1;
+            }
+            .icon-arrow {
+                margin-left: 0.25rem;
+                margin-right: 1rem;
+            }
+        }
+
+        &:focus-within {
+            outline: var(--#{$prefix}focus-color) solid 3px;
+            outline-offset: 2px;
+        }
+
+        a {
             &:focus {
                 outline-style: none;
             }
         }
     }
 
-    &:focus-within {
-        outline: var(--#{$prefix}focus-color) solid 3px;
-        outline-offset: 2px;
-    }
-
-    &-single-action {
-        box-shadow: var(--#{$prefix}card-box-shadow);
-
-        &:hover, &:focus {
-            box-shadow: none;
-        }
-    }
-
-    &-img-top {
-        background-image: var(--card-image);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-        display: block;
-        border-radius: var(--#{$prefix}card-img-border-radius);
-
-        &:before {
+    &-img {
+        &:after {
             content: "";
             position: absolute;
-            inset: -1px;
-            border: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+            inset: 0;
+            background-color: var(--#{$prefix}card-img-overlay-color);
+            opacity: 0;
+        }
+        [class^=card-img] {
+            background-image: var(--card-image);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            display: block;
             border-radius: var(--#{$prefix}card-img-border-radius);
 
+            &:before {
+                content: "";
+                position: absolute;
+                inset: -1px;
+                border: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+                border-radius: var(--#{$prefix}card-img-border-radius);
+            }
         }
     }
 
@@ -200,7 +238,7 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
         align-items: center;
 
         .card-body {
-            width: calc(100% - var(--#{$prefix}card-icon-width) - var(--#{$prefix}card-spacer-x));
+            width: calc(100% - var(--#{$prefix}card-icon-width) - (2 * var(--#{$prefix}card-spacer-x)));
 
             &:not(:last-child) {
                 padding-bottom: var(--#{$prefix}card-spacer-y);
@@ -209,6 +247,10 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
     }
     &.icon-top {
         align-items: center;
+
+        .card-body {
+            text-align: center;
+        }
     }
     &-icon {
         display: flex;
@@ -236,14 +278,15 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
             height: var(--#{$prefix}card-icon-font-size);
             width: var(--#{$prefix}card-icon-font-size);
             margin: 1.25rem 1.25rem 1.25rem 0;
+            transition: margin .2s ease;
         }
     }
 
-    .card-body:not(:last-child) {
+    &-body:not(:last-child) {
         padding-bottom: 0;
     }
 
-    .card-footer {
+    &-footer {
         color: var(--#{$prefix}card-color);
         line-height: 1.5;
         background: none;
@@ -261,6 +304,17 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
             height: 1px;
             background: var(--#{$prefix}card-footer-border);
         }
+
+        // Override default spacing on tag component
+        .tag-list {
+            margin: 0;
+            padding: 0;
+            gap: 1rem;
+
+            .tag-item {
+                margin: 0;
+            }
+        }
     }
 
     small {
@@ -271,16 +325,47 @@ $card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
 }
 
 @include media-breakpoint-up(md) {
-    // .card { }
+    .card {
+        &-feature {
+            flex-direction: row;
+            flex: 0 1 100%;
+            min-height: 300px;
+
+            .card-img,
+            .card-inner {
+                flex: 1;
+            }
+
+            &.card-feature-right {
+                flex-direction: row-reverse;
+
+                .card-img-right,
+                .card-img-right:before {
+                    border-radius: 0;
+                }
+            }
+        }
+     }
 }
 
 @include media-breakpoint-up(lg) {
     .card {
-        &-single-action {
-            box-shadow: none;
+        box-shadow: none;
 
+        &-single-action {
             &:hover, &:focus {
                 box-shadow: var(--#{$prefix}card-box-shadow);
+            }
+        }
+
+        &-feature {
+            min-height: 440px;
+
+            .card-img {
+                flex: 2;
+            }
+            .card-inner {
+                flex: 1;
             }
         }
     }
