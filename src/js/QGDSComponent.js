@@ -26,5 +26,4 @@ export default class Component {
     };
   }
 }
-
 handlebarsHelpers(Handlebars);
