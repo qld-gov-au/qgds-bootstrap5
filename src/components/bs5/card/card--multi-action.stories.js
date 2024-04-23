@@ -1,23 +1,31 @@
-// card--single-action.stories.js
+// card--multi-action.stories.js
 import { Card } from './Card.js';
 import defaultdata from './card.data.json';
 
+// include tags for footer option
+import { Tag } from "../tag/Tag.js";
+import tagdata from "../tag/tag.data.json";
+
 export default {
   tags: ["autodocs"],
-  title: "Components/Card/Single action",
+  title: "Components/Card/Multi action",
   render: (args) => {
+    const tags = new Tag(tagdata.action).html;
+
     return `
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       ${new Card(args).html}
       ${new Card({ ...args, iconClasses: "fa-solid fa-pen-ruler", iconPosition: "icon-left" }).html}
-      ${new Card({ ...args, arrow: true, description: "" }).html}
-      ${new Card({ ...args, footer: "Footer content" }).html}
+      ${new Card({ ...args, description: "" }).html}
+      ${new Card({ ...args, footer: tags }).html}
       ${new Card({ ...args, iconClasses: "fa-solid fa-pen-ruler", iconPosition: "icon-top" }).html}
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
+      ${new Card({ ...args, feature: true, featureImagePosition: "left", image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
+      ${new Card({ ...args, feature: true, featureImagePosition: "right", image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
     </div>
     `;
   },
-  args: defaultdata.singleAction,
+  args: defaultdata.multiAction,
   argTypes: {
     variantClass: {
       control: "select",

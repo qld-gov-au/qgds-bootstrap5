@@ -1,12 +1,13 @@
 <!-- QGDS Partial: card -->
 
-<div class="col">
+<div class="col{{#if feature}}-md-12 col-lg-12{{/if}}">
 
-    <div class="card {{variantClass}} {{iconPosition}}{{#ifCond action '===' 'single'}} card-single-action{{#if arrow}} card-arrow{{/if}}{{/ifCond}}{{#if equalHeight}} h-100{{/if}}">
+    <div class="card card-{{variantClass}} {{variantClass}} {{iconPosition}} card-{{action}}-action{{#if arrow}} card-arrow{{/if}}{{#if equalHeight}} h-100{{/if}}{{#if feature}} card-feature card-feature-{{featureImagePosition}}{{/if}}">
 
         {{#if image}}
         <div class="card-img ratio ratio-16x9">
-            <div class="card-img-top" style="--card-image:url({{image}})" alt="{{imageAlt}}"></div>
+            <div class="{{#if feature}}card-img-{{featureImagePosition}}{{else}}card-img-top{{/if}}"
+            style="--card-image:url({{image}})" alt="{{imageAlt}}"></div>
         </div>
         {{/if}}
 
@@ -14,31 +15,35 @@
         <div class="card-icon {{iconPosition}} {{iconClasses}}"></div>
         {{/if}}
 
-        <div class="card-body">
-            <h3 class="card-title">
-                {{#if link}}
-                <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
-                {{else}}
-                {{ title }}
-                {{/if }}
-            </h3>
+        {{#if feature}}<div class="card-inner">{{/if}}
 
-            {{#if description}}
-            <p class="card-text">
-                {{{description}}}
-            </p>
+            <div class="card-body">
+                <h3 class="card-title">
+                    {{#if link}}
+                    <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
+                    {{else}}
+                    {{ title }}
+                    {{/if }}
+                </h3>
+
+                {{#if description}}
+                <p class="card-text">
+                    {{{description}}}
+                </p>
+                {{/if}}
+            </div>
+
+            {{#if arrow}}
+            <div class="card-icon icon-arrow"></div>
             {{/if}}
-        </div>
 
-        {{#if arrow}}
-        <div class="card-icon icon-arrow"></div>
-        {{/if}}
+            {{#if footer}}
+            <div class="card-footer">
+                {{{footer}}}
+            </div>
+            {{/if }}
 
-        {{#if footer}}
-        <div class="card-footer">
-            {{{footer}}}
-        </div>
-        {{/if }}
+        {{#if feature}}</div>{{/if}}
 
     </div>
 

@@ -1,4 +1,4 @@
-// card.stories.js
+// card--no-action.stories.js
 import { Card } from './Card.js';
 import defaultdata from './card.data.json';
 
@@ -22,11 +22,19 @@ export default {
     variantClass: {
       control: "select",
       options: {
-        Default: "",
-        Light: "card-light",
-        Alternative: "card-alt",
-        Dark: "card-dark",
-        "Dark alternative": "card-dark-alt",
+        Default: "default",
+        Light: "light",
+        Alternative: "alt",
+        Dark: "dark",
+        "Dark alternative": "dark-alt",
+      },
+    },
+    action: {
+      control: "select",
+      options: {
+        None: "no",
+        Single: "single",
+        Multi: "multi",
       },
     },
   },
