@@ -1,22 +1,40 @@
 // QLD Desing System Bootstrap 5 library
 // Extends: https://getbootstrap.com/docs/5.3/components/alerts/#variables
 
-// Principles
-// 1. Do not use SASS. Extend custom variables from Bootstrap where possible
-// 2. Only update variables that need changing. All others will already exists in Bootstrap.
+//All alerts have the same text and background color, even on darker themes
+//To account for this, we redefine the global vars at the .alert scope 
+
+.alert,
+.light .alert,
+.light-alt .alert,
+.dark .alert,
+.dark-alt .alert {
+
+    --qld-headings-color: var(--#{$prefix}light-text-text);
+    --qld-body-color: var(--#{$prefix}light-text-text);
+    --qld-alert-bg: #FFF;
+    --qld-link-color: #{$link-color};
+    --qld-link-hover-color: #{$link-hover-color};
+    --qld-link-visited: #{$link-visited-color};
+    --qld-selection-color: var(--qld-white);
+    --qld-selection-bg: var(--qld-brand-primary);
+    --qld-focus-color: var(--qld-light-focus);
+}
+
 
 
 .alert {
 
-    --#{$prefix}alert-color: var(--body-color);
-    --#{$prefix}alert-bg: var(--body-bg);
     padding-left: 4rem;
+    // color: var(--text-color);
+    // background: var(--alert-bg);
 
     .alert-heading {
         line-height: 1.5;
         font-size: 1.5rem;
         margin: 0 0 1rem 0;
         padding: 0;
+        color: var(--qld-headings-color);
     }
 
     p,
@@ -28,6 +46,15 @@
             margin-bottom: 0;
         }
     }
+
+    a {
+        color: var(--qld-link-color);
+
+        &:visited {
+            color: var(--qld-link-visited);
+        }
+    }
+
 
 
     // Close button for dismissible alerts
@@ -72,6 +99,10 @@
         "danger": (color: var(--#{$prefix}danger),
             icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_34619_4370' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='4' y='4' width='12' height='12'%3E%3Cpath d='M14.8438 14.875C14.6562 15.0625 14.3125 15.0625 14.125 14.875L10 10.7188L5.84375 14.875C5.65625 15.0625 5.3125 15.0625 5.125 14.875C4.9375 14.6875 4.9375 14.3438 5.125 14.1562L9.28125 10L5.125 5.875C4.9375 5.6875 4.9375 5.34375 5.125 5.15625C5.3125 4.96875 5.65625 4.96875 5.84375 5.15625L10 9.3125L14.125 5.15625C14.3125 4.96875 14.6562 4.96875 14.8438 5.15625C15.0312 5.34375 15.0312 5.6875 14.8438 5.875L10.6875 10L14.8438 14.1562C15.0312 14.3438 15.0312 14.6875 14.8438 14.875Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_34619_4370)'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/g%3E%3Ccircle cx='10' cy='10' r='9.5' stroke='white'/%3E%3C/svg%3E%0A"
         ),
+        //.alert-error can be a clone of .alert-danger
+        "error": (color: var(--#{$prefix}danger),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_34619_4370' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='4' y='4' width='12' height='12'%3E%3Cpath d='M14.8438 14.875C14.6562 15.0625 14.3125 15.0625 14.125 14.875L10 10.7188L5.84375 14.875C5.65625 15.0625 5.3125 15.0625 5.125 14.875C4.9375 14.6875 4.9375 14.3438 5.125 14.1562L9.28125 10L5.125 5.875C4.9375 5.6875 4.9375 5.34375 5.125 5.15625C5.3125 4.96875 5.65625 4.96875 5.84375 5.15625L10 9.3125L14.125 5.15625C14.3125 4.96875 14.6562 4.96875 14.8438 5.15625C15.0312 5.34375 15.0312 5.6875 14.8438 5.875L10.6875 10L14.8438 14.1562C15.0312 14.3438 15.0312 14.6875 14.8438 14.875Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_34619_4370)'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/g%3E%3Ccircle cx='10' cy='10' r='9.5' stroke='white'/%3E%3C/svg%3E%0A"
+        ),
         "light": (color: var(--#{$prefix}light-grey),
             icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_5702_82508' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='1' y='1' width='18' height='18'%3E%3Cpath d='M10 7.20312C9.48047 7.20312 9.10938 6.83203 9.10938 6.3125C9.10938 5.83008 9.48047 5.42188 10 5.42188C10.4824 5.42188 10.8906 5.83008 10.8906 6.3125C10.8906 6.83203 10.4824 7.20312 10 7.20312ZM15.9375 1.5625C17.2363 1.5625 18.3125 2.63867 18.3125 3.9375V15.8125C18.3125 17.1484 17.2363 18.1875 15.9375 18.1875H4.0625C2.72656 18.1875 1.6875 17.1484 1.6875 15.8125V3.9375C1.6875 2.63867 2.72656 1.5625 4.0625 1.5625H15.9375ZM17.125 15.8125V3.9375C17.125 3.30664 16.5684 2.75 15.9375 2.75H4.0625C3.39453 2.75 2.875 3.30664 2.875 3.9375V15.8125C2.875 16.4805 3.39453 17 4.0625 17H15.9375C16.5684 17 17.125 16.4805 17.125 15.8125ZM11.7812 13.4375C12.0781 13.4375 12.375 13.7344 12.375 14.0312C12.375 14.3652 12.0781 14.625 11.7812 14.625H8.21875C7.88477 14.625 7.625 14.3652 7.625 14.0312C7.625 13.7344 7.88477 13.4375 8.21875 13.4375H9.40625V9.875H8.8125C8.47852 9.875 8.21875 9.61523 8.21875 9.28125C8.21875 8.98438 8.47852 8.6875 8.8125 8.6875H10C10.2969 8.6875 10.5938 8.98438 10.5938 9.28125V13.4375H11.7812Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_5702_82508)'%3E%3Crect width='20' height='20' fill='%23595959'/%3E%3C/g%3E%3C/svg%3E%0A"
         ),
@@ -80,7 +111,7 @@
         )
     );
 
-
+//Sets colors (border and icon-background) and icons for each alert type
 @each $key, $properties in $alert-colors-map {
 
     $color: map-get($properties, color);
@@ -99,4 +130,5 @@
 
     }
 }
+
 }
