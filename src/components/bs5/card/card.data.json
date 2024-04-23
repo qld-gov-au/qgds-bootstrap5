@@ -1,10 +1,30 @@
 {
-  "title": "Card title",
-  "description": "Card body text",
-  "image": "",
-  "imageAlt": "",
-  "iconClasses": "",
-  "iconPosition": "",
-  "link": "",
-  "footer": ""
+  "noAction": {
+    "title": "Card title",
+    "description": "Card body text",
+    "variantClass": "",
+    "image": "",
+    "imageAlt": "",
+    "iconClasses": "",
+    "iconPosition": "",
+    "action": "none",
+    "link": "",
+    "arrow": false,
+    "footer": "",
+    "equalHeight": false
+  },
+  "singleAction": {
+    "title": "Card title",
+    "description": "Card body text",
+    "variantClass": "",
+    "image": "",
+    "imageAlt": "",
+    "iconClasses": "",
+    "iconPosition": "",
+    "action": "single",
+    "link": "javascript.void(0)",
+    "arrow": false,
+    "footer": "",
+    "equalHeight": false
+  }
 }

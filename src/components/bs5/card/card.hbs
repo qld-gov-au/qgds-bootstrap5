@@ -2,7 +2,7 @@
 
 <div class="col">
 
-    <div class="card h-100 {{variantClass}} {{iconPosition}}">
+    <div class="card {{variantClass}} {{iconPosition}}{{#ifCond action '===' 'single'}} card-single-action{{#if arrow}} card-arrow{{/if}}{{/ifCond}}{{#if equalHeight}} h-100{{/if}}">
 
         {{#if image}}
         <div class="card-img ratio ratio-16x9">
@@ -11,24 +11,28 @@
         {{/if}}
 
         {{#if iconClasses}}
-        <div class="card-icon {{iconPosition}}">
-            <i class="{{iconClasses}}"></i>
-        </div>
+        <div class="card-icon {{iconPosition}} {{iconClasses}}"></div>
         {{/if}}
 
         <div class="card-body">
             <h3 class="card-title">
                 {{#if link}}
-                <a href="{{link}}">{{title}}</a>
+                <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
                 {{else}}
                 {{ title }}
                 {{/if }}
             </h3>
 
+            {{#if description}}
             <p class="card-text">
-                {{description}}
+                {{{description}}}
             </p>
+            {{/if}}
         </div>
+
+        {{#if arrow}}
+        <div class="card-icon icon-arrow"></div>
+        {{/if}}
 
         {{#if footer}}
         <div class="card-footer">
