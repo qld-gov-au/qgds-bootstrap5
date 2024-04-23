@@ -105,6 +105,6 @@ jobs:
         with:
           commit-message: "update storybook js libraries \r\n ${{ steps.what-changed-data.outputs.OUTDATED_LIST }}"
           title: "update storybook ${{ steps.what-changed-data.outputs.OUTDATED_VERSION }}"
-          body: "update storybook \r\n ${{ steps.what-changed-data.outputs.OUTDATED_LIST }}"
+          body: "update storybook \r\n ### Please Manually close pull requests and immediately reopen them. This will enable on: pull_request workflows to run and be added as checks. \r\n ${{ steps.what-changed-data.outputs.OUTDATED_LIST }}"
           branch: "update-storybook-libraries-${{ steps.what-changed-data.outputs.OUTDATED_VERSION }}"
           base: develop
