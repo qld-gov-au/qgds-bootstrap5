@@ -6,6 +6,14 @@ export default {
   tags: ["autodocs"],
   title: "Components/In-page Nav",
   render: (args) => new Inpagenav(args).html,
+
+  parameters: {
+    docs: {
+      controls: {
+        exclude: ["variantClass", "navitems"],
+      },
+    },
+  },
 };
 
 /**
