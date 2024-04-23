@@ -2,6 +2,12 @@
 // Source: https://getbootstrap.com/docs/5.2/components/card/#variables
 
 // Source CSS variables: var(--variable-name)  /node_modules/bootstrap/scss/components/_card.scss
+$card-arrow-icon-color: $qld-light-action-secondary;
+$card-arrow-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='#{$card-arrow-icon-color}' d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
+
+$card-arrow-icon-dark-color: $qld-dark-action-secondary;
+$card-arrow-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='#{$card-arrow-icon-dark-color}' d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
+
 
 .card {
 
@@ -15,7 +21,8 @@
     --#{$prefix}card-border-width: #{$card-border-width};
     --#{$prefix}card-border-color: var(--#{$prefix}soft-grey);
     --#{$prefix}card-border-radius: 0.75rem;
-    --#{$prefix}card-box-shadow: #{$card-box-shadow};
+    --#{$prefix}card-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+    0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
     --#{$prefix}card-inner-border-radius: #{$card-inner-border-radius};
     --#{$prefix}card-cap-padding-y: #{$card-cap-padding-y};
     --#{$prefix}card-cap-padding-x: #{$card-cap-padding-x};
@@ -31,10 +38,10 @@
     --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
 
     // Icon variables
-    --#{$prefix}card-icon-color: var(--#{$prefix}light-text-heading);
+    --#{$prefix}card-icon-color: var(--#{$prefix}card-title-color);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
 
-    // Left positioned icon as default
+    // Side positioned icon as default
     --#{$prefix}card-icon-height: 4rem;
     --#{$prefix}card-icon-width: 4rem;
     --#{$prefix}card-icon-font-size: 2.25rem;
@@ -47,6 +54,14 @@
         --#{$prefix}card-icon-line-height: 8rem;
     }
 
+    &.card-single-action {
+        --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
+    }
+
+    &.card-arrow {
+        --#{$prefix}card-arrow-icon: #{escape-svg($card-arrow-icon)};
+        --#{$prefix}card-icon-font-size: 1.5rem;
+    }
 
     // Colour variants
     &-light {
@@ -64,14 +79,20 @@
     &-dark,
     &-dark-alt {
         --#{$prefix}selection-color: var(--#{$prefix}brand-primary);
-        --#{$prefix}selection-bg: var(--#{$prefix}white);
+        --#{$prefix}selection-bg: var(--#{$prefix}default-background);
 
         --#{$prefix}card-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
-        --#{$prefix}card-link-color: var(--#{$prefix}dark-action-text);
+        --#{$prefix}card-link-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
 
-        --#{$prefix}card-icon-color: var(--#{$prefix}white);
+        &.card-single-action {
+            --#{$prefix}card-icon-color: var(--#{$prefix}dark-action-secondary);
+        }
+
+        &.card-arrow {
+            --#{$prefix}card-arrow-icon: #{escape-svg($card-arrow-icon-dark)};
+        }
     }
 
     &-dark {
@@ -108,6 +129,7 @@
     .card {
         --#{$prefix}card-spacer-x: 1.5rem;
         --#{$prefix}card-spacer-y: 1.5rem;
+        --#{$prefix}card-box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1); // Level 4 shadow
     }
 }
 
@@ -120,6 +142,10 @@
         margin-top: 0;
         margin-bottom: 0.75rem;
 
+        &:last-child {
+            margin-bottom: 0;
+        }
+
         a {
             color: var(--#{$prefix}card-link-color);
             text-decoration: none;
@@ -128,10 +154,27 @@
                 text-decoration: underline;
                 text-underline-offset: 3px;
             }
+
+            &:focus {
+                outline-style: none;
+            }
         }
     }
 
-    .card-img-top {
+    &:focus-within {
+        outline: var(--#{$prefix}focus-color) solid 3px;
+        outline-offset: 2px;
+    }
+
+    &-single-action {
+        box-shadow: var(--#{$prefix}card-box-shadow);
+
+        &:hover, &:focus {
+            box-shadow: none;
+        }
+    }
+
+    &-img-top {
         background-image: var(--card-image);
         background-position: center center;
         background-repeat: no-repeat;
@@ -150,12 +193,18 @@
         }
     }
 
-    &.icon-left {
+    &.icon-left,
+    &.card-arrow {
         flex-direction: row;
         flex-wrap: wrap;
+        align-items: center;
 
         .card-body {
-            max-width: calc(100% - var(--#{$prefix}card-icon-width) - var(--#{$prefix}card-spacer-x));
+            width: calc(100% - var(--#{$prefix}card-icon-width) - var(--#{$prefix}card-spacer-x));
+
+            &:not(:last-child) {
+                padding-bottom: var(--#{$prefix}card-spacer-y);
+            }
         }
     }
     &.icon-top {
@@ -170,16 +219,23 @@
         border-radius: 50%;
         height: var(--#{$prefix}card-icon-height);
         width: var(--#{$prefix}card-icon-width);
-        margin: 1.5rem 1.5rem 0 1.5rem;
+        margin: 1.5rem 1.5rem 0;
+        font-size: var(--#{$prefix}card-icon-font-size);
+        line-height: var(--#{$prefix}card-icon-line-height);
+        text-align: center;
+        vertical-align: middle;
 
-        i {
-            font-size: var(--#{$prefix}card-icon-font-size);
-            line-height: var(--#{$prefix}card-icon-line-height);
-            text-align: center;
-            vertical-align: middle;
-        }
         &.icon-left {
             margin: 1.25rem 0 1.25rem 1.25rem;
+        }
+
+        &.icon-arrow {
+            background-color: unset;
+            background-image: var(--#{$prefix}card-arrow-icon);
+            background-repeat: no-repeat;
+            height: var(--#{$prefix}card-icon-font-size);
+            width: var(--#{$prefix}card-icon-font-size);
+            margin: 1.25rem 1.25rem 1.25rem 0;
         }
     }
 
@@ -209,19 +265,23 @@
 
     small {
         font-size: 0.875rem;
-        color: #{$qld-dark-grey-muted};
+        color: var(--#{$prefix}dark-grey-muted);
     }
 
 }
 
-@include media-breakpoint-down(md) { //bootstrap mixin that writes rules into media breakpoint. in this case writes rules into 'md' i.e 992px breakpoint etc
+@include media-breakpoint-up(md) {
+    // .card { }
+}
+
+@include media-breakpoint-up(lg) {
     .card {
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-        &:hover {
+        &-single-action {
             box-shadow: none;
-        }
-        .card-title {
-            font-size: 1.25rem;
+
+            &:hover, &:focus {
+                box-shadow: var(--#{$prefix}card-box-shadow);
+            }
         }
     }
 }
