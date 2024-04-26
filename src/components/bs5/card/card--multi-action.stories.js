@@ -20,8 +20,11 @@ export default {
       ${new Card({ ...args, footer: tags }).html}
       ${new Card({ ...args, iconClasses: "fa-solid fa-pen-ruler", iconPosition: "icon-top" }).html}
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
-      ${new Card({ ...args, feature: true, featureImagePosition: "left", image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
+      ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", video: true, videoDuration: "2:34" }).html}
+      ${new Card({ ...args, feature: true, featureImagePosition: "left", image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", footer: tags }).html}
       ${new Card({ ...args, feature: true, featureImagePosition: "right", image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
+      ${new Card({ ...args, feature: true, featureImagePosition: "left", image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", video: true, videoDuration: "2:45" }).html}
+      ${new Card({ ...args, feature: true, featureImagePosition: "right", image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", video: true, videoDuration: "2:23", footer: tags }).html}
     </div>
     `;
   },
