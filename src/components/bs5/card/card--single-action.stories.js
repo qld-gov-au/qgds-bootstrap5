@@ -15,11 +15,15 @@ export default {
       ${new Card({ ...args, iconClasses: "fa-solid fa-pen-ruler", iconPosition: "icon-top" }).html}
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", video: true, videoDuration: "3:00" }).html}
+      ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", date: "26 April 2024" }).html}
     </div>
     `;
   },
   args: defaultdata.singleAction,
   argTypes: {
+    date: {
+      control: "text",
+    },
     variantClass: {
       control: "select",
       options: {
