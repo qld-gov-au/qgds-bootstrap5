@@ -35,19 +35,20 @@
     $form-check-input-active-filter: brightness(100%);
 
     $form-check-input-bg: $input-bg;
-    $form-check-input-border: 2px solid #7a7a7a;
+    $form-check-input-border: 2px solid var(--#{$prefix}soft-grey);
     $form-check-input-border-radius: 0.25em;
     $form-check-radio-border-radius: 50%;
 
     $form-check-input-checked-color: #414141;
     $form-check-input-checked-bg-color: transparent;
-    $form-check-input-checked-border-color: #7a7a7a;
+    $form-check-input-checked-border-color: var(--#{$prefix}soft-grey);
     
     $form-check-hover: var(--#{$prefix}dark-hover);
 
     $form-check-valid-color: var(--#{$prefix}notify-success);
     $form-check-invalid-color: var(--#{$prefix}notify-warning);
 
+    // OUTLINES
     $form-check-input-outline: 3px solid var(--#{$prefix}light-blue);
     $form-check-input-outline-dark: 3px solid var(--#{$prefix}dark-focus);
 
@@ -55,7 +56,10 @@
     $form-check-input-border-width-small: 2px;
 
     // DARK ICON
-    $form-check-input-checked-color-dark: #FFFFFF; // can't use hex code...
+    $form-check-input-checked-color-dark: #FFF;
+
+    // DARK BORDER
+    $form-check-input-border-dark: 0.15em solid var(--#{$prefix}dark-alt-border);
 
     // RADIO CHECKED LIGHT
     $form-radio-bg-image: url("data:image/svg+xml,<svg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'><circle r='1.8' fill='#{$form-check-input-checked-color}'/></svg>");
@@ -145,7 +149,8 @@
     .form-check-input {
         width: $form-check-input-width;
         height: $form-check-input-width;
-        
+        margin-top: 0;
+
         &:hover, &:focus {
             cursor: pointer;
             background-color: var(--#{$prefix}extra-light-grey);
@@ -159,7 +164,7 @@
         }
     }
 
-    // ================= DEFAULT RADIO ===============
+    // DEFAULT RADIO 
     .form-check-input[type="radio"] {
         background-image: none;
         background-size: calc(2rem - 8px);
@@ -171,26 +176,23 @@
             background-size: calc(2rem - 8px);
         }
     }
-    // ============= END DEFAULT RADIO ===============
 
-    // ================ DEFAULT CHECKBOX =========================
+    // DEFAULT CHECKBOX
     .form-check-input[type="checkbox"] {
-        // background-image: var(--#{$prefix}form-check-bg-image);
         background-size: calc(2rem - 8px);
         border: $form-check-input-border;
         border-radius: 0;
 
         &:checked {
-            background-image: #{$form-checkbox-button}; //fill='#{$form-check-input-checked-color}
+            background-image: #{$form-checkbox-button};
             background-color: #{$form-check-input-checked-bg-color};
             background-size: 1.125rem;
             background-position: center;
             border-color: #{$form-check-input-checked-border-color};
         }
     }
-    // ============== END DEFAULT CHECKBOX =============================
 
-    // ==================== VALID ======================================
+    // DEFAULT VALID
     .valid & {
         .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
             outline: #{$form-check-valid-color} solid 2px;
@@ -205,10 +207,7 @@
             }
         }
     }
-
-    // ============= END VALID =================
-
-    // ============== INVALID ====================
+    // DEFAULT INVALID
     .invalid & {
         .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
             outline: #{$form-check-invalid-color} solid 2px;
@@ -223,9 +222,7 @@
             }
         }
     }
-    // ============ END INVALID ===============
-
-    // ==================== DARK ===================================
+    // DARK
     .dark &, .dark-alt & {
         .form-check-input {
             &:hover, &:focus {
@@ -238,74 +235,49 @@
         .form-check-input[type="radio"]:checked {
             background-image: #{$form-radio-button-dark};
         }
-
         .form-check-input, .form-check-input:checked {
-            border: 0.15em solid #09ACFE;
+            border: #{$form-check-input-border-dark};
         }
-        // &:hover, &:active, &:focus {
-        //     background-color: #F5F5F5;
-        //     }
-        &:active {
-            // filter: brightness(100%);
-        }
-
         .form-check-input:focus {
-            outline: #01B0E5 solid 3px;
-            //check component library
-            
+            outline: #{$form-check-input-outline-dark};            
         }
         .small & {
             .form-check-input[type="checkbox"], .form-check-input[type="radio"] {
                 &:checked {
-                    // background-image: #{$form-checkbox-button-dark};
                     background-color: transparent;
                     background-size: 14px 14px;
                 }
             }
         }
-        /////////////////////// DARK VALID ///////////////////////////////
+        // DARK VALID
         .valid & {
             .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
                 outline: #{$form-check-valid-color} solid 2px;
-                // border: 0.15em solid #09ACFE;
-    
                 &:focus {
-                    // border-color: var(--#{$prefix}input-border-color-hover);
                     outline: #{$form-check-input-outline-dark};
                     outline-offset: 2px;
                     box-shadow: none;
                 }
                 &:checked:focus {
                     outline: #{$form-check-input-outline-dark};
-
-                    }
+                }
             }
         }
-        //////////////////// END DARK VALID ///////////////////////////
-        ///////////////////// DARK INVALID /////////////////////////////
+        // DARK INVALID
         .invalid & {
             .form-check-input[type="radio"], .form-check-input[type="checkbox"] {
                 outline: #{$form-check-invalid-color} solid 2px;
-                // border: 0.15em solid #09ACFE;
-    
                 &:focus {
-                    // border-color: var(--#{$prefix}input-border-color-hover);
                     outline: #{$form-check-input-outline-dark};
                     outline-offset: 2px;
                     box-shadow: none;
                 }
                 &:checked:focus {
                     outline: #{$form-check-input-outline-dark};
-
                     }
             }
         }
-        ////////////////// END DARK INVALID ////////////////////////////////
     }
-
-    // ==================== END DARK ===================================
-
-
     &-label {
         margin-left: 1rem;
     }
