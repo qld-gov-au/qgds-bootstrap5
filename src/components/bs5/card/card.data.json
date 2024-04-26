@@ -10,6 +10,8 @@
     "action": "no",
     "link": "",
     "arrow": false,
+    "video": "",
+    "videoDuration": false,
     "footer": "",
     "equalHeight": false
   },
@@ -24,6 +26,8 @@
     "action": "single",
     "link": "javascript:void(0)",
     "arrow": false,
+    "video": false,
+    "videoDuration": "",
     "footer": "",
     "equalHeight": false
   },
@@ -38,6 +42,8 @@
     "action": "multi",
     "link": "javascript:void(0)",
     "arrow": false,
+    "video": false,
+    "videoDuration": "",
     "footer": "<ul><li><a href='javascript:void(0)'>Link text</a></li><li><a href='javascript:void(0)'>Link text</a></li><li><a href='javascript:void(0)'>Link text</a></li></ul>",
     "equalHeight": false
   }
