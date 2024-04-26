@@ -2,6 +2,7 @@
   "noAction": {
     "title": "Card title",
     "description": "Card body text",
+    "date": "",
     "variantClass": "default",
     "image": "",
     "imageAlt": "",
@@ -18,6 +19,7 @@
   "singleAction": {
     "title": "Card title",
     "description": "Card body text",
+    "date": "",
     "variantClass": "default",
     "image": "",
     "imageAlt": "",
@@ -34,6 +36,7 @@
   "multiAction": {
     "title": "Card title",
     "description": "Card body text <a href='javascript:void(0)'>lorem ipsum</a> dolor sit amet.",
+    "date": "",
     "variantClass": "default",
     "image": "",
     "imageAlt": "",

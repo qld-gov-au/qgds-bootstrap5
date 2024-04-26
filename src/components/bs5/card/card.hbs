@@ -30,6 +30,9 @@
         {{#if feature}}<div class="card-inner">{{/if}}
 
             <div class="card-body">
+                {{#if date}}
+                <div class="card-date">{{date}}</div>
+                {{/if}}
                 <h3 class="card-title">
                     {{#if link}}
                     <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>

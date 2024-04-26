@@ -30,6 +30,9 @@ export default {
   },
   args: defaultdata.multiAction,
   argTypes: {
+    date: {
+      control: "text",
+    },
     variantClass: {
       control: "select",
       options: {

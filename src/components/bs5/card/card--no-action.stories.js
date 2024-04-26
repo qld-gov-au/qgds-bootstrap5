@@ -19,6 +19,9 @@ export default {
   },
   args: defaultdata.noAction,
   argTypes: {
+    date: {
+      control: "text",
+    },
     variantClass: {
       control: "select",
       options: {

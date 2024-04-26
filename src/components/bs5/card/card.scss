@@ -50,6 +50,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}card-group-margin: #{$card-group-margin};
 
     --#{$prefix}card-link-color: #{$link-color};
+    --#{$prefix}card-date-color: var(--#{$prefix}dark-grey-muted);
     --#{$prefix}card-footer-border: var(--#{$prefix}light-grey);
 
     --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
@@ -115,6 +116,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         --#{$prefix}card-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-link-color: var(--#{$prefix}dark-text);
+        --#{$prefix}card-date-color: var(--#{$prefix}dark-text);
         --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
 
         &:not(.card-no-action) {
@@ -188,6 +190,14 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     font-size: var(--#{$prefix}card-font-size);
     line-height: var(--#{$prefix}card-line-height);
     overflow: hidden;
+
+
+    &-date {
+        color: var(--#{$prefix}card-date-color);
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        margin-bottom: 1rem;
+    }
 
     .card-title {
         font-size: var(--#{$prefix}card-title-font-size);
@@ -384,12 +394,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
             }
         }
     }
-
-    small {
-        font-size: 0.875rem;
-        color: var(--#{$prefix}dark-grey-muted);
-    }
-
 }
 
 @include media-breakpoint-up(md) {
