@@ -1,19 +1,30 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
+import { Navbar } from '../navbar/Navbar.js';
 import { default_variant, dark_variant } from './header.data.json';
+import { menu_state, test_states} from '../navbar/navbar.data.json';
 
 export default {
     tags: ['autodocs'],
     title: 'Components/Header',
-    render: (args) => new Header(args).html,
+    render: (args) => {
+        return `
+        ${new Header(args).html}
+        ${new Navbar(args).html}
+        `//expand arguments, specifically turn isdisabled into true
+      },
     argTypes: {
     },
+    parameters: {
+        layout: 'fullscreen'  
+    }
 };
 
 // Navbar story with 'Light' color theme
 export const Default = {
     args: {
         ...default_variant,
+        ...menu_state
     },
     parameters: {
         backgrounds: {
@@ -24,20 +35,20 @@ export const Default = {
     decorators: [
         (Story) => {
             return `
-      <div class="default">
-          ${Story()}
-      </div>
+        <div class="default">
+            ${Story()}
+        </div>
       `;
         },
     ],
 };
 
 
-
 // Navbar story with 'Dark' color theme
 export const Dark = {
     args: {
         ...dark_variant,
+        ...test_states
     },
     parameters: {
         backgrounds: {

@@ -1,81 +1,80 @@
-<!-- MAIN NAVIGATION -->
-<nav class="qld__main-nav qld__main-nav--{{metadata.theme.class}}" id="#mainmenu" aria-label="main">
-    <div class="container-fluid">
-        <div class="qld__main-nav__content {{#if metadata.options.hideMenuDesktop.value}}qld__main-nav__no-desktop{{/if}} qld__main-nav__content--open" id="main-nav">
-            <div class="qld__main-nav__menu
-            {{#if metadata.theme.value}}
-                qld__main-nav__menu--{{metadata.theme.class}}
-            {{/if}}
-            ">
-                <div class="qld__main-nav__menu-inner">
-                    <div class="qld__main-nav__focus-trap-top"></div>
-                    <div class="qld__main-nav__header">
-                        <h6 class="qld__main-nav__menu-heading">Menu</h6>
-                        <button aria-controls="main-nav" class="qld__main-nav__toggle qld__main-nav__toggle--close">
-                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{metadata.options.siteDefaultIcons.value}}#qld__icon__close"></use></svg>
-                            <span class="qld__main-nav__toggle-text">Close</span>
-                        </button>
-                    </div>
-                    <ul class="qld__link-list qld__link-list--flex">
-                        <li class="{{#if metadata.options.current.home}}active{{/if}} qld__main-nav__item">
-                            <div class="qld__main-nav__item-title">
-                                <a class="qld__main-nav__item-link" {{#if metadata.options.current.home}}aria-current="page"{{/if}} href="./?a={{metadata.options.assetid.value}}">
-                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md "><use href="{{metadata.options.siteDefaultIcons.value}}#qld__icon__home"></use></svg>
-                                    <span class="qld__main-nav__item-text" data-name="">Home</span>
-                                </a>
-                            </div>
-                        </li>
-                        {{#each navigation}}
-                        <li class="qld__main-nav__item active">
-                            <div class="qld__main-nav__item-title">
-                                <a class="qld__main-nav__item-link" aria-current="page" href="./?a={{metadata.options.assetid.value}}" >
-                                    <span class="qld__main-nav__item-text" data-name="">{{{title}}}</span>
-                                </a>
-                            </div>
-                        </li>
-                        {{/each}}
-                    </ul>
+<!-- QGDS Partial: Primary navigation -->
 
-                    {{#if metadata.options.mainNavCtaOne.value}}
-                    <div class="qld__main-nav__cta-wrapper">
-                        <ul class="qld__link-list qld__link-list--flex">
-                        {{#if metadata.options.mainNavCtaOne.value}}
-                            <li class="qld__main-nav__item qld__main-nav__item--cta active">
-                                <div class="qld__main-nav__item-title">
-                                    <a class="qld__main-nav__item-link" aria-current="page" href="./?a={{site.metadata.mainNavCtaOne.url}}" >
-                                        {{#if metadata.options.mainNavCtaOne.mainNavCtaOneIcon.value}}
-                                            <i class="qld__icon qld__icon--sm {{metadata.options.mainNavCtaOne.mainNavCtaOneIcon.value}}"></i>
-                                        {{/if}}
-                                        <span class="qld__main-nav__item-text" data-name="{{{metadata.options.mainNavCtaOne.mainNavCtaOneText.value}}}">{{{metadata.options.mainNavCtaOne.mainNavCtaOneText.value}}}</span>
-                                    </a>
-                                </div>
-                            </li>
-                            {{/if}}
-                            {{#if metadata.options.mainNavCtaTwo.value}}
-                            <li class="qld__main-nav__item qld__main-nav__item--cta active">
-                                <div class="qld__main-nav__item-title">
-                                    <a class="qld__main-nav__item-link" aria-current="page" href="./?a={{metadata.options.mainNavCtaTwo.url}}" >
-                                        {{#if metadata.options.mainNavCtaTwo.mainNavCtaTwoIcon.value}}
-                                            <i class="qld__icon qld__icon--sm {{metadata.options.mainNavCtaTwo.mainNavCtaTwoIcon.value}}"></i>
-                                        {{/if}}
-                                        <span class="qld__main-nav__item-text" data-name="{{{metadata.options.mainNavCtaTwo.mainNavCtaTwoText.value}}}">{{{metadata.options.mainNavCtaTwo.mainNavCtaTwoText.value}}}</span>
-                                    </a>
-                                </div>
-                            </li>
-                        {{/if}}
-                        </ul>
-                    </div>
-                    {{/if}}
-                    
-                    <div class="qld__main-nav__focus-trap-bottom"></div>
-                </div>
+<!-- Primary Navigation / Desktop -->
+<nav class="navbar navbar-expand-lg" aria-label="Website navigation" role="navigation">
+    <div class="container-xl navbar-contain">
+        <div class="collapse navbar-collapse show">
+
+            <div class="navbar__header">
+                <h6 class="navbar__heading">Menu</h6>
+                <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close">
+
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                        class="qld__icon">
+                        <use href="{{metadata.options.siteDefaultIcons.value}}#qld__icon__close"></use>
+                    </svg>
+                    <span class="navbar__toggle-text">Close</span>
+                </button>
             </div>
-            <div
-                class="qld__main-nav__overlay"
-                aria-controls="main-nav"
-            ></div>
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item nav-item-home">
+                    <a class="nav-link" href="{{metadata.target_url}}">
+                        <span class="qld-icon icon-home"></span>
+                        {{#if metadata.options.showHomeMobile}}
+                            <span class="home-label">Home</span>
+                        {{else}}
+                            <span class="visually-hidden">Home</span>
+                        {{/if}}
+                    </a>
+                </li>
+                {{#each navigation}}
+                {{#if dropdown_enabled}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{target_url}}" id="menuDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">{{title}}</a>
+                    {{#if navigation_items}}
+                    <ul class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
+                        <div class="row dropdown-menu__inner">
+                            {{#if dropdown_options}}
+                            <div class="col-12">
+                                <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                                    <span class="">{{dropdown_options.feature_link_value}}</span>
+                                </a>
+                            </div>
+                            {{#if dropdown_options.feature_link_description}}
+                            <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
+                            {{/if}}
+                            <hr>
+                            {{/if}}
+                            {{#each navigation_items}}
+                            <li class="col-lg-4 col-sm-12">
+                                <a href="{{target_url}}" class="dropdown-item">
+                                    {{title}}
+                                </a>
+                                {{#if description}}
+                                <p class="dropdown-item__description">{{description}}</p>
+                                {{/if}}
+                            </li>
+                            {{/each }}
+                            <hr>
+                            <li class="col-12 text-end">
+                                <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
+                                    <span class="">{{dropdown_options.view_value}}</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                    {{/if}}
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{target_url}}">{{title}}</a>
+                </li>
+                {{/if}}
+                {{/each }}
+            </ul>
         </div>
     </div>
 </nav>
-
 <!-- MAIN NAVIGATION END -->
