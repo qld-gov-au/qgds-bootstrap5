@@ -3,7 +3,7 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeMobile": true
+                "showHomeMobile": false
             }
         },
         "navigation": [
@@ -23,7 +23,7 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeMobile": true
+                "showHomeMobile": false
             }
         },
         "navigation": [

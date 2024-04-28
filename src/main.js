@@ -51,8 +51,8 @@ window.addEventListener("DOMContentLoaded", () => {
     })
 
     // Navbar
-    if (window.innerWidth > 992) {
-      initializeNavbar();
-    } 
+    //Init popper position adjustment if large device size
+    initializeNavbar();
+
   })();
 });
