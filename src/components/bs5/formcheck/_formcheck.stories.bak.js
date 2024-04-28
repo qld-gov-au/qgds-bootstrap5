@@ -6,7 +6,7 @@ import checkboxdata from './formcheck.checkbox.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/Formcheck',
+  title: 'Components/Formcheck/Radio',
   render: (args) => {
     return `${new Formcheck(args).html}`
   },
@@ -47,6 +47,7 @@ export const RadioDark = {
 };
 
 export const Checkbox = {
+  title: 'Components/Formcheck/Checkbox',
   args: {...checkboxdata},
 };
 
