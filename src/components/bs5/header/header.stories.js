@@ -1,8 +1,11 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
 import { Navbar } from '../navbar/Navbar.js';
+import { Breadcrumbs } from '../breadcrumbs/Breadcrumbs.js';
+
 import { default_variant, dark_variant } from './header.data.json';
 import { menu_state, test_states} from '../navbar/navbar.data.json';
+import defaultdata from '../breadcrumbs/breadcrumbs.data.json';
 
 export default {
     tags: ['autodocs'],
@@ -11,6 +14,7 @@ export default {
         return `
         ${new Header(args).html}
         ${new Navbar(args).html}
+        ${new Breadcrumbs(args).html}
         `//expand arguments, specifically turn isdisabled into true
       },
     argTypes: {
@@ -24,7 +28,8 @@ export default {
 export const Default = {
     args: {
         ...default_variant,
-        ...menu_state
+        ...menu_state,
+        ...defaultdata.forGov
     },
     parameters: {
         backgrounds: {
@@ -48,7 +53,7 @@ export const Default = {
 export const Dark = {
     args: {
         ...dark_variant,
-        ...test_states
+        ...menu_state
     },
     parameters: {
         backgrounds: {

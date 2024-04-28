@@ -328,6 +328,7 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
         }
 
         .dropdown-menu__inner {
+
             .dropdown-menu__featured {
                 color: var(--#{$prefix}navbar-text-color);
                 font-size: 1.5rem;

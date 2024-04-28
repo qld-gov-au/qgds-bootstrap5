@@ -9,6 +9,8 @@ import {
   videoTranscriptTitle,
 } from "./components/bs5/video/video.functions";
 
+import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
+
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
     // Accordion
@@ -48,5 +50,9 @@ window.addEventListener("DOMContentLoaded", () => {
       transcript.addEventListener("click", videoTranscriptTitle)
     })
 
+    // Navbar
+    if (window.innerWidth > 992) {
+      initializeNavbar();
+    } 
   })();
 });
