@@ -48,7 +48,9 @@
                     <span class="qld__main-nav__toggle-text">Search</span>
                 </button>
                 {{/if}}
-                <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open">
+                <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                         class="qld__icon qld__icon--lg">
                         <use href="{{siteSearchAsset.icons.search-icon}}#qld__icon__mobile-menu"></use>
@@ -58,7 +60,8 @@
             </div>
         </div>
     </div>
-    <div class="qld__header__main qld__header__main--{{siteHeader.theme.value}} qld__header__main--masterbrandEnabled--{{siteHeader.config.masterbrand_enabled}}">
+    <div
+        class="qld__header__main qld__header__main--{{siteHeader.theme.value}} qld__header__main--masterbrandEnabled--{{siteHeader.config.masterbrand_enabled}}">
         <div class="container-fluid">
 
             {{#if siteHeader.config.masterbrand_enabled}}
@@ -71,7 +74,7 @@
                         </img>
                         {{else}}
                         <img src="assets/dist/img/header-logo-qgov-masterbrand--default.svg" width="329.57" height="56">
-                            <title>Queensland Government</title>
+                        <title>Queensland Government</title>
                         </img>
                         {{/if}}
                     </div>
@@ -85,11 +88,11 @@
                     <div class="qld__header__brand-image qld__header__brand-image_subType">
                         {{#if siteHeader.logo.value}}
                         <img src="{{siteHeader.logo.value}}" width="170" height="56" class="currentColor">
-                            <title>Queensland Government</title>
+                        <title>Queensland Government</title>
                         </img>
                         {{else}}
                         <img src="assets/img/header-logo-qgov--default.svg" width="170" height="56">
-                            <title>Queensland Government</title>
+                        <title>Queensland Government</title>
                         </img>
                         {{/if}}
                     </div>

@@ -3,14 +3,14 @@
 <!-- Primary Navigation / Desktop -->
 <nav class="navbar navbar-expand-lg" aria-label="Website navigation" role="navigation">
     <div class="container-xl navbar-contain">
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <div class="navbar__header">
                 <h6 class="navbar__heading">Menu</h6>
-                <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close">
-
-                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
-                        class="qld__icon">
+                <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+                    aria-label="Close navigation">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
                         <use href="{{metadata.options.siteDefaultIcons.value}}#qld__icon__close"></use>
                     </svg>
                     <span class="navbar__toggle-text">Close</span>
@@ -22,9 +22,9 @@
                     <a class="nav-link" href="{{metadata.target_url}}">
                         <span class="qld-icon icon-home"></span>
                         {{#if metadata.options.showHomeMobile}}
-                            <span class="home-label">Home</span>
+                        <span class="home-label">Home</span>
                         {{else}}
-                            <span class="visually-hidden">Home</span>
+                        <span class="visually-hidden">Home</span>
                         {{/if}}
                     </a>
                 </li>
