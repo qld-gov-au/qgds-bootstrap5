@@ -1,6 +1,22 @@
+  
+  {{#if questionLabel}}
+  <div class="qld-text-input-label {{listClasses}}">
+    {{questionLabel}}
+    {{#if optionalLabel}}
+    <span class="label-text-optional">{{optionalLabel}}</span>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{#if hintLabel}}
+  <span class="qld-hint-text">{{hintLabel}}</span>
+  {{/if}}
+  
+  {{#each listitems}}
   <div class="form-check">
     <input class="form-check-input" type="{{type}}" name="{{name}}" id="{{id}}" value="{{value}}" {{state}}>
     <label class="form-check-label" for="{{id}}">
       {{label}}
     </label>
   </div>
+  {{/each}}

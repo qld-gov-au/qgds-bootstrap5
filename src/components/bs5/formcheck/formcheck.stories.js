@@ -1,35 +1,32 @@
-// Blockquote.stories.js
+// Formcheck.stories.js
 import { Formcheck } from './Formcheck.js';
-import defaultdata from './formcheck.data.json';
+
+import radiodata from './formcheck.radio.data.json';
+import checkboxdata from './formcheck.checkbox.data.json';
 
 export default {
   tags: ['autodocs'],
   title: 'Components/Formcheck',
   render: (args) => {
-    return `
-    ${new Formcheck(args).html}
-    ${new Formcheck({...args, state: "disabled", label: "Disabled"}).html}
-    `
+    return `${new Formcheck(args).html}`
   },
   //https://storybook.js.org/docs/api/arg-types 
   argTypes: {
-    isdisabled: {
-      table: {
-        disable: true,
-      },
-    },
   },
 
+  
 };
 
-// Default blockquote story
+// Default story for Formcheck component
 export const Default = {
-  args: defaultdata,
+  args: {...radiodata},
+  parameters: {
+    controls: { include: `listitems` },
+  },
 };
 
 export const RadioDark = {
-  
-  args: {...defaultdata, id: "radioDark"},
+  args: {...radiodata},
   parameters: {
     backgrounds: {
       default: 'Dark',
@@ -50,12 +47,12 @@ export const RadioDark = {
 };
 
 export const Checkbox = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxDefault"},
+  args: {...checkboxdata},
 };
 
 export const CheckboxDark = {
   
-  args: {...defaultdata, type: "checkbox", id: "checkboxDark"},
+  args: {...checkboxdata},
   parameters: {
     backgrounds: {
       default: 'Dark',
@@ -77,7 +74,7 @@ export const CheckboxDark = {
 
 export const RadioSmall = {
   
-  args: {...defaultdata, id: "radioSmall"},
+  args: {...radiodata, id: "radioSmall"},
   decorators: [
     (Story) => {
       return `
@@ -91,7 +88,7 @@ export const RadioSmall = {
 
 export const RadioSmallDark = {
   
-  args: {...defaultdata, id: "radioSmallDark"},
+  args: {...radiodata, id: "radioSmallDark"},
   parameters: {
     backgrounds: {
       default: 'Dark',
@@ -112,7 +109,7 @@ export const RadioSmallDark = {
 };
 
 export const CheckboxSmall = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxSmall"},
+  args: {...checkboxdata, id: "checkboxSmall"},
   decorators: [
     (Story) => {
       return `
@@ -125,7 +122,7 @@ export const CheckboxSmall = {
 };
 
 export const CheckboxSmallDark = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxSmallDark"},
+  args: {...checkboxdata, id: "checkboxSmallDark"},
   parameters: {
     backgrounds: {
       default: 'Dark',
@@ -148,25 +145,25 @@ export const CheckboxSmallDark = {
 };
 
 export const RadioValid = {
-  args: {...defaultdata, id: "radioValid"},
+  args: {...radiodata, id: "radioValid"},
   render: (args) => {
     return `
     <div class="valid">${new Formcheck(args).html}</div>
     `
-  }
+  },
 }
 
 export const RadioValidSmall = {
-  args: {...defaultdata, id: "radioValidSmall"},
+  args: {...radiodata, id: "radioValidSmall"},
   render: (args) => {
     return `
     <div class="small"><div class="valid">${new Formcheck(args).html}</div></div>
     `
-  }
+  },
 }
 
 export const RadioValidDark = {
-  args: {...defaultdata, id: "radioValidDark"},
+  args: {...radiodata, id: "radioValidDark"},
   render: (args) => {
     return `
     <div class="dark">
@@ -193,7 +190,7 @@ export const RadioValidDark = {
 }
 
 export const RadioValidSmallDark = {
-  args: {...defaultdata, id: "radioValidSmallDark"},
+  args: {...radiodata, id: "radioValidSmallDark"},
   render: (args) => {
     return `
     <div class="dark">
@@ -220,25 +217,25 @@ export const RadioValidSmallDark = {
 }
 
 export const CheckboxValid = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxValid"},
+  args: {...checkboxdata, id: "checkboxValid"},
   render: (args) => {
     return `
     <div class="valid">${new Formcheck(args).html}</div>
     `
-  }
+  },
 }
 
 export const CheckboxValidSmall = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxValidSmall"},
+  args: {...checkboxdata, id: "checkboxValidSmall"},
   render: (args) => {
     return `
     <div class="small"><div class="valid">${new Formcheck(args).html}</div></div>
     `
-  }
+  },
 }
 
 export const CheckboxValidDark = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxValidDark"},
+  args: {...checkboxdata, id: "checkboxValidDark"},
   render: (args) => {
     return `
     <div class="dark">
@@ -265,7 +262,7 @@ export const CheckboxValidDark = {
 }
 
 export const CheckboxValidSmallDark = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxValidSmallDark"},
+  args: {...checkboxdata, id: "checkboxValidSmallDark"},
   render: (args) => {
     return `
     <div class="dark">
@@ -292,24 +289,24 @@ export const CheckboxValidSmallDark = {
 }
 
 export const RadioInvalid = {
-  args: {...defaultdata, id: "radioInvalid"},
+  args: {...radiodata, id: "radioInvalid"},
   render: (args) => {
     return `
     <div class="invalid">${new Formcheck(args).html}</div>
     `
-  }
+  },
 }
 
 export const RadioInvalidSmall = {
-  args: {...defaultdata, id: "radioInvalidSmall"},
+  args: {...radiodata, id: "radioInvalidSmall"},
   render: (args) => {
     return `
     <div class="small"><div class="invalid">${new Formcheck(args).html}</div></div>
     `
-  }
+  },
 }
 export const RadioInvalidDark = {
-  args: {...defaultdata, id: "radioInvalidDark"},
+  args: {...radiodata, id: "radioInvalidDark"},
   render: (args) => {
     return `
     <div class="invalid"><div class="dark">${new Formcheck(args).html}</div></div>
@@ -335,7 +332,7 @@ export const RadioInvalidDark = {
 }
 
 export const RadioInvalidSmallDark = {
-  args: {...defaultdata, id: "radioInvalidSmallDark"},
+  args: {...radiodata, id: "radioInvalidSmallDark"},
   render: (args) => {
     return `
     <div class="dark">
@@ -362,25 +359,25 @@ export const RadioInvalidSmallDark = {
 }
 
 export const CheckboxInvalid = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxInvalid"},
+  args: {...checkboxdata, id: "checkboxInvalid"},
   render: (args) => {
     return `
     <div class="invalid">${new Formcheck(args).html}</div>
     `
-  }
+  },
 }
 
 export const CheckboxInvalidSmall = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxInvalidSmall"},
+  args: {...checkboxdata, id: "checkboxInvalidSmall"},
   render: (args) => {
     return `
     <div class="small"><div class="invalid">${new Formcheck(args).html}</div></div>
     `
-  }
+  },
 }
 
 export const CheckboxInvalidDark = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxInvalidDark"},
+  args: {...checkboxdata, id: "checkboxInvalidDark"},
   render: (args) => {
     return `
     <div class="dark">
@@ -407,7 +404,7 @@ export const CheckboxInvalidDark = {
 }
 
 export const CheckboxInvalidSmallDark = {
-  args: {...defaultdata, type: "checkbox", id: "checkboxInvalidSmallDark"},
+  args: {...checkboxdata, id: "checkboxInvalidSmallDark"},
   render: (args) => {
     return `
     <div class="dark">

@@ -1,8 +1,1 @@
-{
-    "type": "radio",
-    "id": "radioDefault",
-    "name": "radioOption",
-    "label": "Option 1",
-    "value": "1",
-    "state": ""
-}
+{}

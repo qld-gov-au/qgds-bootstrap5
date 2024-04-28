@@ -159,7 +159,7 @@
         &:focus {
             border-color: var(--#{$prefix}input-border-color-hover);
             outline: #{$form-check-input-outline};
-            outline-offset: 2px;
+            outline-offset: 3px;
             box-shadow: none;
         }
     }
