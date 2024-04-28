@@ -1,0 +1,48 @@
+{
+    "questionLabel": "Which service do you need?",
+    "optionalLabel": "(Optional)",
+    "hintLabel": "Hint label",
+    "listClasses": "field-required",
+    "listitems": [
+        {
+            "type": "radio",
+            "id": "radioItem1",
+            "name": "radioOption",
+            "label": "Option 1",
+            "value": "1",
+            "state": ""
+        },
+        {
+            "type": "radio",
+            "id": "radioItem2",
+            "name": "radioOption",
+            "label": "Option 2",
+            "value": "2",
+            "state": ""
+        },
+        {
+            "type": "radio",
+            "id": "radioItem3",
+            "name": "radioOption",
+            "label": "Option 3",
+            "value": "3",
+            "state": ""
+        },
+        {
+            "type": "radio",
+            "id": "radioItem4",
+            "name": "radioOption",
+            "label": "Option 4",
+            "value": "4",
+            "state": ""
+        },
+        {
+            "type": "radio",
+            "id": "radioItem5",
+            "name": "radioOption",
+            "label": "Disabled",
+            "value": "",
+            "state": "disabled"
+        }
+    ]
+}
