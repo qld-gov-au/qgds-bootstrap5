@@ -14,7 +14,9 @@ export default {
         return `
         ${new Header(args).html}
         ${new Navbar(args).html}
-        ${new Breadcrumbs(args).html}
+        <div class="container-xl">
+            ${new Breadcrumbs(args).html}
+        </div>
         `//expand arguments, specifically turn isdisabled into true
       },
     argTypes: {
