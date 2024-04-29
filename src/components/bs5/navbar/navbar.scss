@@ -397,6 +397,8 @@
 
                     @include media-breakpoint-down(lg) {
                         padding: 1rem;
+                        white-space: normal;
+                        overflow-wrap: break-word;
                     }
                 }
             }
