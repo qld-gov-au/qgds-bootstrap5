@@ -1,0 +1,197 @@
+.qld-footer {
+
+	//Refine --custom-variables at this .qld-footer scope
+	--#{$prefix}body-font-size: 0.875rem;
+
+	//White text on dark background (Default footer)
+	--#{$prefix}footer-border-width: 4px;
+	--#{$prefix}footer-padding-y: 4rem;
+	
+	//Default palette values (white background)
+	--#{$prefix}footer-bg: var(--#{$prefix}white);
+	--#{$prefix}footer-color: var(--body-color);
+	--#{$prefix}link-visited: var(--#{$prefix}link-color);
+
+	--#{$prefix}footer-border-color: var(--#{$prefix}brand-secondary);
+	--#{$prefix}footer-column-border-color: rgba(255, 255, 255, 0.2);
+	
+	--#{$prefix}brand-accent: var(--#{$prefix}brand-secondary-dark);
+	
+	--component-icon-color: #131212;
+
+	//Default palette (white text on blue)
+	&.dark,
+	&.dark-alt {
+		--body-color: var(--#{$prefix}white);
+		--#{$prefix}footer-bg: var(--#{$prefix}brand-primary);
+		--#{$prefix}footer-color: var(--#{$prefix}white);
+		--#{$prefix}footer-border-color: var(--#{$prefix}brand-secondary);
+		--#{$prefix}footer-column-border-color: rgba(255, 255, 255, 0.2);
+		--#{$prefix}link-color: #FFF;
+		--#{$prefix}link-color-rgb: 255, 255, 255;
+		--#{$prefix}link-hover-color: 255, 255, 255;
+		--#{$prefix}link-hover-color-rgb: 255, 255, 255;
+		--#{$prefix}link-visited: #FFF;
+
+		--#{$prefix}brand-accent: var(--#{$prefix}golden-yellow);
+		--component-icon-color: #FFF;
+	}
+
+	//Dark alternative palette (white text on dark blue)
+	&.dark-alt {
+		--#{$prefix}footer-bg: var(--#{$prefix}brand-primary-dark);
+	}
+		
+}
+
+@include color-mode(dark) {
+	.qld-footer {
+		--#{$prefix}footer-bg: var(--#{$prefix}brand-primary-dark);
+	}
+}
+
+.qld-footer {
+	//Padding
+	padding-top: var(--#{$prefix}footer-padding-y);
+	padding-bottom: var(--#{$prefix}footer-padding-y);
+
+	//Border
+	border-top: solid;
+	border-top-width: var(--#{$prefix}footer-border-width);
+	border-top-color: var(--#{$prefix}footer-border-color);
+
+	//Colors
+	background: var(--#{$prefix}footer-bg);
+	color: var(--#{$prefix}footer-color);
+
+	//Adjust font size
+	font-size: var( --#{$prefix}body-font-size );
+
+	.footer-site-name {
+		font-size: 1.25rem;
+		line-height: 1.5;
+		font-weight: 600;
+		margin-bottom: 2rem;
+		display: block;
+		color: var(--#{$prefix}footer-color);
+	}
+
+	.footer-column {
+		position: relative;
+		margin-right: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	@include media-breakpoint-down(lg) {
+		.footer-column {
+			margin-top: 2rem;
+		}
+	}
+
+	//Bordered columns in the footer should only show above medium breakpoint
+	.border-column {
+		position: relative;
+			
+		&:before {
+			position: absolute;
+			content: "";
+			width: 2px;
+			background: var(--#{$prefix}footer-column-border-color);
+			top: 0;
+			bottom: 0;
+			left: -1rem;
+		}
+	}
+
+	.footer-heading {
+		color: var(--#{$prefix}footer-color);
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		line-height: 1.5;
+		font-weight: 600;
+	}
+
+	.footer-contact-item {
+		display: flex;
+		align-items: center;
+		margin-bottom: 1.25rem;
+
+		.qld-icon {
+			--#{$prefix}icon-color: var(--#{$prefix}brand-accent);
+			display: block;
+			width: 1.5rem;
+			margin-right: 0.5rem;
+			background-color: var(--#{$prefix}icon-color);
+		}
+	}
+
+	.footer-crest {
+		display: block;
+		width: 252px;
+		margin-bottom: 1.5rem;
+	}
+
+	//Footer Nav classes
+	.nav {
+		--#{$prefix}nav-link-color: var(--#{$prefix}link-color);
+		--#{$prefix}nav-link-hover-color: var(--#{$prefix}hover-color);
+
+		&.footer-link-list {
+			.nav-link {
+				font-weight: 400;
+				margin-bottom: 0.75rem;
+				padding: 0;
+
+				&:first-child {
+					margin-top: 0.5rem;
+				}
+
+				&:focus-visible {
+					box-shadow: 0 0 0 3px var(--#{$prefix}white);
+				}
+			}
+
+			&--social .nav-link {
+
+				&:first-child {
+					margin-top: -2px;
+				}
+
+				display: flex;
+				margin-bottom: 1.25rem;
+
+				svg {
+					width: 1.25rem;
+					margin-right: 0.75rem;
+				}
+
+				&:hover {
+					--component-icon-color: var(--#{$prefix}brand-accent);
+				}
+			}
+		}
+	}
+
+	svg path {
+		fill: var(--component-icon-color);
+	}
+
+	.btn {
+        --#{$prefix}btn-color: var(--#{$prefix}link-color);
+        --#{$prefix}btn-border-color: var(--#{$prefix}brand-accent);
+        --#{$prefix}btn-hover-border-color: var(--#{$prefix}brand-accent);
+        --#{$prefix}btn-hover-color: var(--#{$prefix}white);
+        --#{$prefix}btn-hover-bg: transparent;
+        --#{$prefix}btn-active-color: #03213f;
+        --#{$prefix}btn-active-bg: var(--#{$prefix}light-grey);
+        --#{$prefix}btn-active-border-color: var(--#{$prefix}light-grey);
+		font-size: var( --#{$prefix}body-font-size );
+    }
+
+	.footer-contact {
+		.btn {
+            min-width: 200px;
+			margin-top: 0.5rem;
+		}
+	}
+}
