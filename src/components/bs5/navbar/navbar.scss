@@ -1,11 +1,10 @@
-//WIP: Icons
-$navbar-icon-color: $qld-brand-accent;
-$navbar-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$navbar-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-$navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$navbar-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// // Primary navigation (horizontal)
+// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .navbar {
-
-    //QH - extract from health.qld.gov.au
+    // extract from health.qld.gov.au, to be removed, temporary workaround:
+    // future state: color: var($--qld-color-light-siteTitle);
     --#{$prefix}color-light-siteTitle: #022A50;
     --#{$prefix}color-light-designAccent: #6BBE27;
     --#{$prefix}color-light-heading: #03213F;
@@ -60,34 +59,36 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
     --#{$prefix}underline__thickness-thick: 2px;
     --#{$prefix}underline__offset: 0.3em;
 
+    // Component overrides   color-light-heading
     --#{$prefix}navbar-border-width: 0.5rem;
-    --#{$prefix}navbar-link-color: #{$qld-sapphire-blue};
-    --#{$prefix}navbar-text-color: #{$qld-brand-primary};
-    --#{$prefix}navbar-navlink-text-color: #{$qld-text-grey};
-    --#{$prefix}navbar-bg-color: #{$qld-white};
-    --#{$prefix}navbar-border-color: #{$qld-light-grey};
-    --#{$prefix}navbar-border-accent: #{$qld-brand-secondary};
-    --#{$prefix}navbar-home-icon-color: #{$qld-brand-secondary-dark};
-    --#{$prefix}navbar-icon: #{escape-svg($navbar-icon)};
-    --#{$prefix}navbar-active-icon: #{escape-svg($navbar-active-icon)};
+    --#{$prefix}navbar-link-color: var(--#{$prefix}color-light-link);
+    --#{$prefix}navbar-text-color: var(--#{$prefix}color-light-link);
+    --#{$prefix}navbar-navlink-text-color: var(--#{$prefix}color-light-text);
+    --#{$prefix}navbar-bg-color: var(--#{$prefix}color-light-background__shade);
+    --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}color-light-background);
+    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}color-light-alt-background);
+    --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}color-light-button__hover);
+    --#{$prefix}navbar-border-color: var(--#{$prefix}color-light-border);
+    --#{$prefix}navbar-border-accent:  var(--#{$prefix}color-light-designAccent);
+    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}color-light-heading);
 
     .alt &,
     .light & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}white);
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}text-grey);
         --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
         --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
     }
-
     .dark & {
         --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-background);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}dark-background);
+        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}dark-blue-shade);
     }
-
     .dark-alt & {
         --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-blue-shade);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}dark-blue-shade);
+        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}dark-background);
     }
-
     .dark &,
     .dark-alt & {
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
@@ -96,27 +97,17 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
         --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
         --#{$prefix}navbar-link-color: var(--#{$prefix}white);
         --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
+        --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}color-dark-alt-button__hover);
     }
 }
 
-//Component
+// Component
 .navbar {
     margin: 0;
     padding: 0;
     background-color: var(--#{$prefix}navbar-bg-color);
     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-accent);
     align-items: center;
-
-    @include media-breakpoint-down(lg) {
-
-        .dropdown-menu__featured,
-        .dropdown-menu__description,
-        .dropdown-menu__inner hr,
-        .dropdown-menu__view_all,
-        .dropdown-item__description {
-            display: none;
-        }
-    }
 
     .navbar-collapse {
         @include media-breakpoint-down(lg) {
@@ -127,10 +118,10 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
             bottom: 0;
             width: 26.25rem;
             overflow: auto;
-            background-color: var(--#{$prefix}color-light-background);
+            background-color: var(--#{$prefix}navbar-bg-color);
+            /* Initially positioned off-screen to the right */
             transition: transform .25s ease-in;
             transform: translateX(100%);
-            /* Initially positioned off-screen to the right */
         }
     }
 
@@ -146,7 +137,7 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
 
     &__header {
         display: flex;
-        background-color: var(--#{$prefix}color-light-background);
+        background-color: var(--#{$prefix}navbar-bg-color);
         color: var(--#{$prefix}color-light-text);
         align-items: center;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
@@ -161,18 +152,14 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
         }
 
         .navbar__heading {
-            //font-size: 14px;
             font-size: .875rem;
-            line-height: 1.4285714286;
+            line-height: 1.42;
             margin: 0 1rem;
             font-weight: normal;
-            color: var(--#{$prefix}color-light-heading);
 
             @include media-breakpoint-up(md) {
-                //font-size: 16px;
                 font-size: 1rem;
                 line-height: 1.5;
-                //line-height: 72px;
                 line-height: 4.5rem;
             }
 
@@ -188,23 +175,21 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
             padding: 0.5rem 1rem 0.25rem 1rem;
             margin-left: auto;
             font-size: .875rem;
-            line-height: 1.1428571429;
+            line-height: 1.14;
             border: 0;
             appearance: none;
             background-color: transparent;
             cursor: pointer;
             align-items: center;
-            color: var(--#{$prefix}color-light-link);
-            border-left: solid 1px var(--#{$prefix}color-light-border);
-
+            color: var(--#{$prefix}navbar-text-color);
+            border-left: solid 1px var(--#{$prefix}navbar-border-color);
             &:focus {
                 outline: 2px solid var(--#{$prefix}color-light-focus);
                 outline-offset: 2px;
             }
-
+            
             &:hover {
-                background-color: var(--#{$prefix}color-light-background__shade);
-
+                background-color: var(--#{$prefix}navbar-menuitem-hover);
                 svg {
                     color: var(--#{$prefix}color-light-alt-button__hover);
                 }
@@ -215,84 +200,58 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
             }
 
             .navbar__toggle-text {
-                //font-size: 10px;
                 font-size: 0.625rem;
-                //margin-top: 4px;
                 margin-top: 0.25rem;
                 line-height: 1rem;
-
                 @include media-breakpoint-up(md) {
-                    //margin-top: 10px;
                     margin-top: 0.625rem;
-                    //font-size: 14px;
                     font-size: .875rem;
-                    line-height: 1.1428571429;
+                    line-height: 1.14;
                 }
-
             }
-
             &:before {
-                font-size: 16px;
                 font-size: 1rem;
                 line-height: 1;
-                margin-bottom: 4px;
                 margin-bottom: 0.25rem;
                 display: block;
                 text-align: center
             }
-
             svg {
-                height: 16px;
                 height: 1rem;
-                width: 16px;
                 width: 1rem;
                 margin: 1px auto;
                 color: var(---#{$prefix}color-light-alt-button);
-
                 @include media-breakpoint-up(md) {
-                    height: 20px;
                     height: 1.25rem;
-                    width: 20px;
                     width: 1.25rem;
                     margin: 0 auto;
                 }
             }
-
             &--open {
                 color: var(--#{$prefix}color-dark-text);
                 background-color: transparent;
-
                 &:active {
                     background-color: var(--#{$prefix}color-dark-alt-background);
                 }
             }
-
-            // Close icon
             &--close {
                 background-color: transparent;
-
                 @include media-breakpoint-up(md) {
                     border-width: 2px
                 }
-
                 &:active {
                     background-color: var(--#{$prefix}color-dark-alt-background);
                 }
             }
         }
-
         &__toggle-search {
-
             &--open {
-
                 .qld__main-nav__toggle-search-close-icon,
                 .fa-times {
                     display: none;
                 }
             }
-
             &--close {
-
                 .qld__main-nav__toggle-search-icon,
                 .fa-search {
                     display: none;
@@ -301,7 +260,6 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
 
         }
     }
-
     &__overlay {
         -webkit-transition: opacity .25s ease-in-out;
         transition: opacity .25s ease-in-out;
@@ -316,7 +274,6 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
         display: none;
         z-index: 2;
     }
-
     &__overlay.show {
         opacity: .95;
         right: 0;
@@ -347,8 +304,7 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
     }
 
     .dropdown-menu {
-
-        background-color: var(--#{$prefix}navbar-bg-color);
+        background-color: var(--#{$prefix}navbar-dropdown-bg-color);
 
         @include media-breakpoint-up(lg) {
             left: 0;
@@ -361,16 +317,16 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
             -webkit-box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, .3), 0rem 0.125rem 0.375rem 0.125rem rgba(0, 0, 0, .15);
             box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, .3), 0rem 0.125rem 0.375rem 0.125rem rgba(0, 0, 0, .15);
         }
-        
+
         @include media-breakpoint-down(lg) {
             border: none;
             border-radius: 0;
             box-shadow: none;
             -webkit-box-shadow: none;
+            padding: 0;
         }
 
         .dropdown-menu__inner {
-
             .dropdown-menu__featured {
                 color: var(--#{$prefix}navbar-text-color);
                 font-size: 1.5rem;
@@ -446,9 +402,8 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
 
         .dropdown-item__description {
             color: var(--#{$prefix}navbar-navlink-text-color);
-            font-size: 2rem;
             font-size: .875rem;
-            line-height: 1.4285714286;
+            line-height: 1.42;
             font-weight: normal;
             padding: 1rem 0rem;
         }
@@ -473,19 +428,17 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
 
             &.show,
             &:hover {
-                background-color: var(--#{$prefix}navbar-bg-color);
+                background-color: var(--#{$prefix}navbar-menuitem-hover);
                 text-decoration: underline;
-                text-underline-offset: 2px;
 
                 @include media-breakpoint-up(lg) {
-                    border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-bg-color);
+                    border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-hover-border);
                     margin-bottom: -0.5rem;
                 }
             }
         }
 
         .dropdown-toggle {
-
             &::before,
             &::after {
                 content: none;
@@ -503,12 +456,22 @@ $navbar-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/
 
     .nav-item-home {
         display: flex;
-
         .qld-icon {
             display: block;
             height: 2rem;
             width: 1.5rem;
             background-color: var(--#{$prefix}navbar-home-icon-color);
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        //Bootstrap shared navigation elements, hidden for mobile/tablet
+        .dropdown-menu__featured,
+        .dropdown-menu__description,
+        .dropdown-menu__inner hr,
+        .dropdown-menu__view_all,
+        .dropdown-item__description {
+            display: none;
         }
     }
 }

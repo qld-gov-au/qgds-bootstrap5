@@ -14,7 +14,7 @@ export default {
         return `
         ${new Header(args).html}
         ${new Navbar(args).html}
-        <div class="container-xl">
+        <div class="container">
             ${new Breadcrumbs(args).html}
         </div>
         `//expand arguments, specifically turn isdisabled into true
@@ -31,7 +31,7 @@ export const Default = {
     args: {
         ...default_variant,
         ...menu_state,
-        ...defaultdata.forGov
+        ...defaultdata.default
     },
     parameters: {
         backgrounds: {
@@ -55,7 +55,8 @@ export const Default = {
 export const Dark = {
     args: {
         ...dark_variant,
-        ...menu_state
+        ...menu_state,
+        ...defaultdata.default
     },
     parameters: {
         backgrounds: {
