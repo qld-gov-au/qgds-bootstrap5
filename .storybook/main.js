@@ -10,7 +10,7 @@ const config = {
     staticDirs: [{ from: '../dist', to: '/assets' }], //Bring dist in statically instead of having it minified
     addons: [//Storybook addons
     //https://storybook.js.org/addons/
-    "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@chromatic-com/storybook"],
+    "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@chromatic-com/storybook", "@storybook/addon-mdx-gfm"],
 
     framework: {
         //Build the storybook with html-vite rendered - faster than webpack

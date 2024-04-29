@@ -106,7 +106,7 @@ export const Filled = {
 export const Disabled = {
   args: { 
 	  ...defaultdata,
-	  ...{isDisabled: true},
+	  ...{isDisabled: true, isRequired: false},
   },
 };
 

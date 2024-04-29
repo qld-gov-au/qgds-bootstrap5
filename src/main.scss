@@ -149,7 +149,7 @@ $enable-dark-mode: true;
 @import "./components/bs5/inpageAlert/inpageAlert.scss";
 @import "./components/bs5/correctincorrect/correctincorrect.scss";
 //@import "./components/bs5/carousel/carousel.scss";
-@import "./components/bs5/forms/forms.scss";
+@import "./components/bs5/formcheck/formcheck.scss";
 // @import "./components/bs5/header/header.scss";
 // @import "./components/bs5/header-search/header-search.scss";
 @import "./components/bs5/icons/icons.scss";
@@ -164,6 +164,8 @@ $enable-dark-mode: true;
 @import "./components/bs5/textbox/textInput.scss";
 @import "./components/bs5/dateinput/dateinput.scss";
 @import "./components/bs5/spinner/spinner.scss";
+@import "./components/bs5/formcheck/formcheck.scss";
+
 
 // Example (for demo)
 // @import "./components/bs5/_example/example.scss";

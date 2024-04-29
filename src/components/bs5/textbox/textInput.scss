@@ -43,7 +43,8 @@
     color: $qld-text-grey;
     display: block;
     font-weight: 600;
-    line-height: 24px;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
 
     .label-text-optional {
         color: $qld-dark-grey-muted;
@@ -51,14 +52,14 @@
     }
 
     &.field-required {
-        &:after {
+        &:before {
             content: ' *';
         }
     }
 }
 
 .qld-text-input-label.field-required:not(.field-disabled) {
-    &:after {
+    &:before {
         color: $qld-notify-warning;
     }
 }
@@ -73,8 +74,9 @@
 .qld-hint-text {
     color: $qld-hint-text-color;
     display: block;
-    font-size: 1rem;
+    font-size: 1em;
     line-height: 1.5;
+    margin-bottom: 0.5rem;
 }
 
 *+p.qld-input-error,
