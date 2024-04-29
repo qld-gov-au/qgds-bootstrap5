@@ -1,0 +1,48 @@
+{
+    "questionLabel": "Which service do you need?",
+    "optionalLabel": "(Optional)",
+    "hintLabel": "Hint label",
+    "listClasses": "field-required",
+    "listitems": [
+        {
+            "type": "checkbox",
+            "id": "checkboxItem1",
+            "name": "checkboxOption",
+            "label": "Option 1",
+            "value": "1",
+            "state": ""
+        },
+        {
+            "type": "checkbox",
+            "id": "checkboxItem2",
+            "name": "checkboxOption",
+            "label": "Option 2",
+            "value": "2",
+            "state": ""
+        },
+        {
+            "type": "checkbox",
+            "id": "checkboxItem3",
+            "name": "checkboxOption",
+            "label": "Option 3",
+            "value": "3",
+            "state": ""
+        },
+        {
+            "type": "checkbox",
+            "id": "checkboxItem4",
+            "name": "checkboxOption",
+            "label": "Option 4",
+            "value": "4",
+            "state": ""
+        },
+        {
+            "type": "checkbox",
+            "id": "checkboxItem5",
+            "name": "checkboxOption",
+            "label": "Disabled",
+            "value": "",
+            "state": "disabled"
+        }
+    ]
+}
