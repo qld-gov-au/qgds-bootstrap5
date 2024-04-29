@@ -1,0 +1,268 @@
+.qld-text-input {
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 2px solid $qld-soft-grey;
+
+    @media (prefers-color-scheme: dark) {
+        --table-row-border-color: var(--qld-white);
+    }
+
+    //Table dark
+    @include table-variant("dark", $qld-brand-primary);
+
+    &:hover {
+        background-color: $qld-extra-light-grey;
+        border-color: $qld-textbox-border-color;
+    }
+
+    &:focus {
+        outline: 3px solid $qld-light-blue;
+        outline-offset: 2px;
+        background-color: $qld-white !important;
+        border: 2px solid $qld-light-grey !important;
+    }
+
+    &.form-style-filled {
+        background-color: $qld-light-grey-alt;
+        border-width: 0 0 2px 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &:focus {
+            border-radius: 4px;
+        }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: .5;
+    }
+}
+
+.qld-text-input-label {
+    color: $qld-text-grey;
+    display: block;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+
+    .label-text-optional {
+        color: $qld-dark-grey-muted;
+        font-weight: 400;
+    }
+
+    &.field-required {
+        &:before {
+            content: ' *';
+        }
+    }
+}
+
+.qld-text-input-label.field-required:not(.field-disabled) {
+    &:before {
+        color: $qld-notify-warning;
+    }
+}
+
+
+.qld-hint-text {
+    color: $qld-hint-text-color;
+    display: block;
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+*+p.qld-input-error,
+*+span.qld-input-error,
+*+p.qld-input-success,
+*+span.qld-input-success {
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.qld-input-success {
+    &:before {
+        content: "";
+        height: 2rem;
+        width: 2rem;
+        transform: scale(0.6);
+        margin-left: -5px;
+        margin-top: -2px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' enable-background='new 0 0 64 64'%3E%3Cpath d='M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z' fill='%2343a047'/%3E%3C/svg%3E");
+    }
+}
+
+.qld-input-error {
+    color: $qld-notify-warning;
+
+    &:before {
+        content: "";
+        height: 2rem;
+        width: 2rem;
+        //background-image: url('../../../assets/img/icon-exclamation.svg');
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12Z' fill='%23E22339'/%3E%3Cpath d='M11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18Z' fill='white'/%3E%3Cpath d='M11 5C11 4.44771 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V14C13 14.5523 12.5523 15 12 15C11.4477 15 11 14.5523 11 14V5Z' fill='white'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        transform: scale(0.7);
+        margin-right: -5px;
+        margin-left: -5px;
+    }
+
+    .dark & {
+        color: $qld-color-error-light;
+    }
+}
+
+.qld-hint-text+select,
+.qld-hint-text+input,
+.qld-hint-text+textarea,
+.sq-form-question-note+select,
+.sq-form-question-note+input,
+.sq-form-question-note+textarea {
+    margin-top: 0.5rem;
+}
+
+.qld-input-success+input[type=text],
+.qld-input-error+input[type=text],
+.qld-input-success+input[type=email],
+.qld-input-error+input[type=email],
+.qld-input-success+input[type=date],
+.qld-input-error+input[type=date],
+.qld-input-success+.qld-text-input,
+.qld-input-error+.qld-text-input,
+.qld-input-success+textarea,
+.qld-input-error+textarea {
+    margin-top: 8px;
+    margin-top: 0.5rem;
+}
+
+input.qld-text-input.qld-input-error:not(:focus),
+input.qld-text-input.qld-input-error.form-style-filled:not(:focus),
+textarea.qld-text-input.qld-input-error:not(:focus),
+select.qld-select.qld-input-error:not(:focus) {
+    border-color: $qld-notify-warning;
+    background-color: $qld-color-error-light;
+    color: $qld-text-grey;
+}
+
+input.qld-text-input.qld-input-success:not(:focus),
+input.qld-text-input.qld-input-success.form-style-filled:not(:focus),
+textarea.qld-text-input.qld-input-success:not(:focus),
+select.qld-select.qld-input-success:not(:focus) {
+    border-color: $qld-notify-success;
+    background-color: $qld-color-success-light;
+    color: $qld-text-grey;
+}
+
+.qld-select {
+    padding: 14px 18px 12px 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='currentColor' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    appearance: none;
+    background-position: right 11px center;
+    background-size: 1rem auto;
+    width: 100%;
+
+    &.qld-input-error {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23E22339' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    }
+
+    &.qld-input-success {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23339d37' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    }
+}
+
+@include media-breakpoint-up(md) {
+
+    input.qld-field-width-1-quarter,
+    select.qld-field-width-1-quarter {
+        max-width: $qld-fluid-width-1-quarter;
+    }
+
+    input.qld-field-width-half,
+    select.qld-field-width-half {
+        max-width: $qld-fluid-width-half;
+    }
+
+    input.qld-field-width-3-quarters,
+    select.qld-field-width-3-quarters {
+        max-width: $qld-fluid-width-3-quarters;
+    }
+}
+
+.dark {
+    .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::-webkit-input-placeholder {
+        color: $qld-hint-text-color-muted;
+    }
+
+    .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::-moz-placeholder {
+        color: $qld-hint-text-color-muted;
+    }
+
+    .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::-ms-placeholder {
+        color: $qld-hint-text-color-muted;
+    }
+
+    .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::placeholder {
+        color: $qld-hint-text-color-muted;
+    }
+
+    .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::-webkit-input-placeholder {
+        color: $qld-white;
+    }
+
+    .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::-moz-placeholder {
+        color: $qld-white;
+    }
+
+    .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::-ms-placeholder {
+        color: $qld-white;
+    }
+
+    .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::placeholder {
+        color: $qld-white;
+    }
+}
+
+.dark {
+    background-color: $qld-sapphire-blue;
+
+    .qld-text-input {
+        border-color: $qld-dark-alt-border;
+        background-color: $qld-sapphire-blue;
+        color: $qld-hint-text-color-muted;
+
+        &:hover {
+            color: $qld-white;
+            background-color: $qld-dark-background;
+            border-color: $qld-color-dark-button-hover;
+        }
+
+        &:focus {
+            outline: 3px solid $qld-dark-focus;
+            color: $qld-text-grey;
+        }
+    }
+
+    .qld-select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23FFEF60' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+    }
+
+    .qld-text-input-label {
+        color: $qld-white;
+
+        .label-text-optional {
+            color: $qld-hint-text-color-muted;
+        }
+    }
+
+    .qld-hint-text {
+        color: $qld-hint-text-color-muted;
+    }
+
+    .form-style-filled {
+        background-color: $qld-dark-background;
+    }
+}

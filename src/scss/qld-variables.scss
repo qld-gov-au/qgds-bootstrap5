@@ -1,4 +1,4 @@
-// GLOBALlLY SCOPED VARIABLES
+// GLOBALLY SCOPED VARIABLES
 // These variables are avaiable to the full project and all components. (This file is included at the top of main.scss to ensure this)
 
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss,
@@ -34,6 +34,7 @@ $qld-dark-green-dark : #78BA00;
 $qld-light-yellow : #FFEF60;
 $qld-button-dark-blue : #003E7D;
 $qld-text-darkest : #121940;
+$qld-dark-hover : #044a8f;
 
 //Hypothetical
 $cobrand-blue : #132D4E;
@@ -65,6 +66,9 @@ $qld-brand-accent : $qld-golden-yellow;
 //Grays
 $qld-system-darkest : #1D1D1D;
 $qld-text-grey : #414141;
+$qld-hint-text-color: #6F777b;
+$qld-hint-text-color-muted: #DEEBF9;
+$qld-color-dark-button-hover: #ADD33F;
 $qld-text-headings : #04284C;
 $qld-dark-grey : #595959;
 $qld-dark-grey-muted : #636363;
@@ -88,6 +92,9 @@ $qld-syntax-values : #6BBE27;
 $qld-syntax-elements : #A7E5FF;
 $qld-syntax-properties : #C88DF7;
 $qld-syntax-comments : #C0D7EC;
+$qld-textbox-border-color: #003E7D;
+$qld-color-error-light: #FFF6F6;
+$qld-color-success-light: #F7FBF8;
 
 // Define new figma variables as SASS variables
 $qld-color-background: #FFFFFF;
@@ -113,6 +120,11 @@ $warning : $qld-notify-alert;
 $danger : $qld-notify-warning;
 $light : $qld-extra-light-grey;
 $dark : $qld-dark-grey;
+
+$qld-fluid-width-full: 100%;
+$qld-fluid-width-3-quarters: 75%;
+$qld-fluid-width-half: 48.5%;
+$qld-fluid-width-1-quarter: 25%;
 
 // The Bootstrap map-merge will create custom CSS variables against the ::root node.
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
@@ -179,9 +191,10 @@ $project-colors: (
   "light-yellow": $qld-light-yellow,
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
+  "dark-hover" : $qld-dark-hover,
 
-  "light-action-primary":  $qld-light-action-primary,
-  "light-action-primary-hover":  $qld-light-action-primary-hover,
+  "light-action-primary": $qld-light-action-primary,
+  "light-action-primary-hover": $qld-light-action-primary-hover,
 
   "dark-action-primary": $qld-dark-action-primary,
   "dark-action-primary-hover": $qld-dark-action-primary-hover,
