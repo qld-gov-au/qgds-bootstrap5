@@ -56,14 +56,14 @@ export default {
 };
 
 /**
- * Default textbox
+ * Default Date inputs
  */
 export const Default = {
   args: defaultdata
 };
 
 /**
- * Dark themed textbox
+ * Dark themed Date inputs
  */
 export const Dark = {
   args: { 
@@ -90,7 +90,7 @@ export const Dark = {
 };
 
 /**
- * Filled style textbox
+ * Filled style Date inputs
  */
 export const Filled = {
   args: { 
@@ -101,7 +101,7 @@ export const Filled = {
 
 
 /**
- * Disabled textbox
+ * Disabled Date inputs
  */
 export const Disabled = {
   args: { 
@@ -111,7 +111,7 @@ export const Disabled = {
 };
 
 /**
- * Valid textbox
+ * Valid Date inputs
  */
 export const Valid = {
   args: {
@@ -121,7 +121,7 @@ export const Valid = {
 };
 
 /**
- * Invalid textbox
+ * Invalid Date inputs
  */
 export const Invalid = {
   args: {
