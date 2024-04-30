@@ -26,6 +26,15 @@ export function initializeNavbar() {
     const navbarCollapse = document.getElementById('navbarSupportedContent');
     const overlay = document.getElementById('overlay');
 
+    overlay.addEventListener('click', function() {
+        // Check if the navbar is open
+        if (navbarCollapse.classList.contains('show')) {
+            // If open, close it
+            navbarCollapse.classList.remove('show');
+            overlay.classList.remove('show');
+        }
+    });
+
     // Overlay show/hide events
     navbarCollapse.addEventListener('show.bs.collapse', function () {
         overlay.classList.add('show'); // Show the overlay

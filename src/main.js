@@ -51,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
     })
 
     // Navbar
+
     //Init popper position adjustment if large device size
     initializeNavbar();
 
