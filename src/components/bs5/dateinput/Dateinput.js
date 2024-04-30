@@ -18,6 +18,7 @@ export class Dateinput {
     Array.from(elements).forEach(function (element) {
       element.addEventListener('keyup', function () {
         const input = event.currentTarget;
+        let max = 0;
         if (input.value) {
           if (input.classList.contains('dayinput')) {
             max = 31;
