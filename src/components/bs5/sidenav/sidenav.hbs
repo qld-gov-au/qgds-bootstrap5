@@ -1,0 +1,50 @@
+<div class="qld-side-navigation">
+
+    <h2 class="nav-title">
+        {{#if navtitlelink }}
+        <a href="{{navtitlelink}}">{{navtitle}}</a>
+        {{else}}
+        {{navtitle}}
+        {{/if}}
+    </h2>
+
+    <!-- Level One -->
+    <ul class="nav" aria-label="section navigation">
+
+        {{#each navlist}}
+        <li class="nav-item {{class}}">
+            <a class="nav-link" href="{{link}}" target="{{target}}">
+                {{label}}
+            </a>
+
+            {{#if children}}
+            <!-- Level Two -->
+            <ul>
+            {{#each children}}
+                <li class="nav-item" {{class}} >
+                    <a class="nav-link" href="{{link}}" target="{{target}}">
+                    {{label}}
+                    </a>
+
+                    {{#if children}}
+                    <!-- Level Three -->
+                    <ul class="with-stalks">
+                    {{#each children}}
+                        <li class="nav-item" {{class}} >
+                            <a class="nav-link" href="{{link}}" target="{{target}}">
+                            {{label}}
+                            </a>
+                        </li>
+                    {{/each}}
+                    </ul>
+                    {{/if}}
+
+                </li>
+            {{/each}}
+            </ul>
+            {{/if}}
+
+        </li>
+        {{/each}}
+    </ul>
+</div>

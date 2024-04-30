@@ -27,10 +27,11 @@
 
 }
 
-@include color-mode(dark) {
+.dark,
+.dark-alt {
     .qld-side-navigation {
-        --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFFFFF' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
-
+        --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2309ACFE' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");        
+        
         --sidenav-hover-bg: var(--qld-brand-primary-dark);
         --sidenav-hover-color: var(--qld-white);
         --sidenav-heading-border-color: var(--qld-brand-secondary);
@@ -38,6 +39,12 @@
         --sidenav-subitem-border-color: var(--qld-brand-primary-light);
     }
 }
+
+@include color-mode(dark) {
+    
+}
+
+
 
 .qld-side-navigation {
 
@@ -48,6 +55,12 @@
         padding: 1rem;
         margin: 0;
         border-bottom: 2px solid var(--sidenav-heading-border-color);
+
+        a {
+            color: var(--#{$prefix}-headings-color);
+            text-decoration: none;
+            font-weight: inherit;
+        }
     }
 
     //Side navigation (ul.nav) 
