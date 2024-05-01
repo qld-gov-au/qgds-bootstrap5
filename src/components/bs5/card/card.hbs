@@ -1,27 +1,65 @@
 <!-- QGDS Partial: card -->
 
-<div class="card h-100">
+<div class="col{{#if feature}}-md-12 col-lg-12{{/if}}">
 
-    <img src="{{image}}" class="card-img-top" alt="{{alt}}" />
+    <div class="card card-{{variantClass}} {{variantClass}} {{iconPosition}} card-{{action}}-action{{#if arrow}} card-arrow{{/if}}{{#if equalHeight}} h-100{{/if}}{{#if feature}} card-feature card-feature-{{featureImagePosition}}{{/if}}{{#if video}} card-video{{/if}}">
 
-    <div class="card-body">
-        <h3 class="card-title">
-            {{#if link }}
-            <a href="{{link}}">{{title}}</a>
-            {{/else }}
-            {{ title }}
+        {{#if image}}
+        <div class="card-img ratio ratio-16x9">
+            <div class="{{#if feature}}card-img-{{featureImagePosition}}{{else}}card-img-top{{/if}}"
+            style="--card-image:url({{image}})" alt="{{imageAlt}}"></div>
+
+            {{#if video}}
+            <div class="video-overlay">
+                <div class="video-nav">
+                    <div class="video-watch"><span class="icon"></span><span>Watch</span></div>
+
+                    {{#if videoDuration}}
+                        <div title="Video duration" class="video-duration"><span class="icon"></span><span>{{videoDuration}}</span></div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if iconClasses}}
+        <div class="card-icon {{iconPosition}} {{iconClasses}}"></div>
+        {{/if}}
+
+        {{#if feature}}<div class="card-inner">{{/if}}
+
+            <div class="card-body">
+                {{#if date}}
+                <div class="card-date">{{date}}</div>
+                {{/if}}
+                <h3 class="card-title">
+                    {{#if link}}
+                    <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
+                    {{else}}
+                    {{ title }}
+                    {{/if }}
+                </h3>
+
+                {{#if description}}
+                <p class="card-text">
+                    {{{description}}}
+                </p>
+                {{/if}}
+            </div>
+
+            {{#if arrow}}
+            <div class="card-icon icon-arrow"></div>
+            {{/if}}
+
+            {{#if footer}}
+            <div class="card-footer">
+                {{{footer}}}
+            </div>
             {{/if }}
-        </h3>
 
-        <p class="card-text">
-            {{description}}
-        </p>
-    </div>
+        {{#if feature}}</div>{{/if}}
 
-    {{#if footer}}
-    <div class="card-footer">
-        {{footer}}
     </div>
-    {{/if }}
 
 </div>
