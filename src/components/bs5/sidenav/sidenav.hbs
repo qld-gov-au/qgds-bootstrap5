@@ -13,27 +13,43 @@
 
         {{#each navlist}}
         <li class="nav-item {{class}}">
+            
+            {{#contains "active" class }}
+            <span class="nav-link">{{label}}</span>
+            {{else}}
             <a class="nav-link" href="{{link}}" target="{{target}}">
-                {{label}}
+                {{label}} {{class}}
             </a>
+            {{/contains}}
 
             {{#if children}}
             <!-- Level Two -->
             <ul>
             {{#each children}}
-                <li class="nav-item" {{class}} >
-                    <a class="nav-link" href="{{link}}" target="{{target}}">
-                    {{label}}
-                    </a>
+                <li class="nav-item {{class}}">
+                    
+                {{#contains "active" class }}
+                <span class="nav-link">{{label}}</span>
+                {{else}}
+                <a class="nav-link" href="{{link}}" target="{{target}}">
+                    {{label}} {{class}}
+                </a>
+                {{/contains}}
 
                     {{#if children}}
                     <!-- Level Three -->
                     <ul class="with-stalks">
                     {{#each children}}
-                        <li class="nav-item" {{class}} >
-                            <a class="nav-link" href="{{link}}" target="{{target}}">
-                            {{label}}
-                            </a>
+                        <li class="nav-item {{class}}">
+                           
+                        {{#contains "active" class }}
+                        <span class="nav-link">{{label}}</span>
+                        {{else}}
+                        <a class="nav-link" href="{{link}}" target="{{target}}">
+                            {{label}} {{class}}
+                        </a>
+                        {{/contains}}
+
                         </li>
                     {{/each}}
                     </ul>
