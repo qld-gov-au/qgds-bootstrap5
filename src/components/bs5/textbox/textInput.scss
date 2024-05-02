@@ -64,6 +64,12 @@
     }
 }
 
+*+.qld-hint-text,
+*+.qld-input-error,
+*+.qld-input-success,
+*+.date-container {
+    margin-top: 8px;
+}
 
 .qld-hint-text {
     color: $qld-hint-text-color;
@@ -81,6 +87,8 @@
     line-height: 1.5;
     display: flex;
     flex-wrap: wrap;
+    margin-left: -6px;
+    align-items: center;
 }
 
 .qld-input-success {
@@ -89,8 +97,6 @@
         height: 2rem;
         width: 2rem;
         transform: scale(0.6);
-        margin-left: -5px;
-        margin-top: -2px;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' enable-background='new 0 0 64 64'%3E%3Cpath d='M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z' fill='%2343a047'/%3E%3C/svg%3E");
     }
 }
@@ -103,11 +109,9 @@
         height: 2rem;
         width: 2rem;
         //background-image: url('../../../assets/img/icon-exclamation.svg');
-        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12Z' fill='%23E22339'/%3E%3Cpath d='M11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18Z' fill='white'/%3E%3Cpath d='M11 5C11 4.44771 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V14C13 14.5523 12.5523 15 12 15C11.4477 15 11 14.5523 11 14V5Z' fill='white'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12Z' fill='%23E22339'/%3E%3Cpath d='M11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18Z' fill='white'/%3E%3Cpath d='M11 5C11 4.44771 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V14C13 14.5523 12.5523 15 12 15C11.4477 15 11 14.5523 11 14V5Z' fill='white'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
-        transform: scale(0.7);
-        margin-right: -5px;
-        margin-left: -5px;
+        transform: scale(0.6);
     }
 
     .dark & {
@@ -236,7 +240,7 @@ select.qld-select.qld-input-success:not(:focus) {
 
         &:hover {
             color: $qld-white;
-            background-color: $qld-dark-background;
+            background-color: $qld-color-dark-background--shade;
             border-color: $qld-color-dark-button-hover;
         }
 
@@ -263,6 +267,6 @@ select.qld-select.qld-input-success:not(:focus) {
     }
 
     .form-style-filled {
-        background-color: $qld-dark-background;
+        background-color: $qld-color-dark-background--shade;
     }
 }
