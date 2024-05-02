@@ -1,0 +1,101 @@
+{
+    "sitename": "Site name, Namestyle or Name Identifier",
+    "contact": {
+        "title": "Contact us",
+        "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
+        "list": [
+            {
+                "icon": "icon-phone",
+                "label": "Phone: 13 QGOV (13 74 68)"
+            },
+            {
+                "icon": "icon-email",
+                "label": "Email: <span class='user-select-all'>email@qld.gov.au</span>"
+            }
+        ],
+        "buttonLabel": "Contact us",
+        "buttonLink": ""
+    },
+
+    "feedback": {
+        "title": "Website feedback",
+        "content": "<p>Help us improve the content on our website or tell us what is working really well.</p>",
+        "buttonLabel": "Leave your feedback",
+        "buttonLink": ""
+    },
+
+    "acknowledgement": {
+        "content": "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
+    },
+
+    "copyright": {
+        "content": "<p>&copy; The State of Queensland 2024</p>"
+    },
+
+    "footerlinks": {
+        "title": "",
+        "list": [
+            {
+                "title": "About us",
+                "link": "#"
+            },
+            {
+                "title": "Using our website",
+                "link": "#"
+            },
+            {
+                "title": "Copyright",
+                "link": "#"
+            },
+            {
+                "title": "Privacy",
+                "link": "#"
+            },
+            {
+                "title": "Right to information",
+                "link": "#"
+            },
+            {
+                "title": "Accessibility",
+                "link": "#"
+            },
+            {
+                "title": "Jobs",
+                "link": "https://smartjobs.qld.gov.au",
+                "target": "_blank"
+            },
+            {
+                "title": "Other languages",
+                "link": "#"
+            }
+        ]
+    },
+
+    "followlinks": {
+        "title": "Follow us",
+        "facebook": {
+            "label": "Facebook",
+            "link": "#",
+            "target": "_blank"
+        },
+        "linkedin": {
+            "label": "LinkedIn",
+            "link": "#"
+        },
+
+        "twitterx": {
+            "label": "X (Twitter)",
+            "link": "#"
+        },
+
+        "youtube": {
+            "label": "Youtube",
+            "link": "#"
+        },
+
+        "instagram": {
+            "label": "Instagram",
+            "link": "#"
+        }
+    }
+}
