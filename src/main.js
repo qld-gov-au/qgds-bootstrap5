@@ -9,6 +9,8 @@ import {
   videoTranscriptTitle,
 } from "./components/bs5/video/video.functions";
 
+import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
+
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
     // Accordion
@@ -47,6 +49,11 @@ window.addEventListener("DOMContentLoaded", () => {
     videoTranscripts.forEach(function (transcript) {
       transcript.addEventListener("click", videoTranscriptTitle)
     })
+
+    // Navbar
+
+    //Init popper position adjustment if large device size
+    initializeNavbar();
 
   })();
 });
