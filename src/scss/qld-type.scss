@@ -17,18 +17,26 @@ $headings-line-height:        2;
 $headings-color:              $qld-text-headings;
 
 $link-color:                  $qld-brand-primary;
+$link-hover-color:            $qld-brand-primary;
+$link-visited-color:          $qld-link-visited;
 
 
 //Links
+.default,
+.light,
+.alt,
 :root {
     --qld-link-underline-offset: 0.3rem;
     --qld-link-underline-thickness: 0.5px;
     --qld-link-underline-thickness-hover: 2px;
-    --qld-headings-color: $headings-color;
-    --qld-body-color: $body-color;
-    --qld-body-font-weight: $body-font-weight;
+    --qld-headings-color: #{$headings-color};
+    --qld-body-color: #{$body-color};
+    --qld-body-font-weight: #{$body-font-weight};
     --qld-link-font-weight: 400;
-    --qld-link-color: $link-color;
+    --qld-link-color: #{$link-color};
+    --qld-link-color-rgb: #{to-rgb($link-color)};
+    --qld-link-hover-color: var(--qld-link-color);
+    --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
     --qld-link-visited: var(--qld-link-visited-color);
     --qld-selection-color: var(--qld-white);
     --qld-selection-bg: var(--qld-brand-primary);

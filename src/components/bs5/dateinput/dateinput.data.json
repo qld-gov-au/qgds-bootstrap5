@@ -1,0 +1,13 @@
+{
+	"isDisabled": false,
+	"isRequired": true,
+	"customClass": "",
+	"label-text": "Date label",
+	"day-placeholder": "DD",
+	"month-placeholder": "MM",
+	"year-placeholder": "YYYY",
+	"optional-text": "optional",
+	"hint-text": "(dd/mm/yyyy)",
+	"successMessageText": "Success message",
+	"errorMessageText": "Error message"
+}
