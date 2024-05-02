@@ -40,6 +40,10 @@ const buildConfig = {
       in: "./src/main.scss",
       out: "./assets/css/qld.bootstrap",
     },
+    {
+      in: "./src/js/handlebars.helpers.js",
+      out: "./assets/js/handlebars.helpers.bundle.js",
+    }
   ],
 
   loader: {
