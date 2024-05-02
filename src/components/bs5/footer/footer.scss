@@ -67,6 +67,10 @@
 	//Adjust font size
 	font-size: var( --#{$prefix}body-font-size );
 
+	a:visited {
+		color: var(--#{$prefix}link-color);
+	}
+
 	.footer-site-name {
 		font-size: 1.25rem;
 		line-height: 1.5;
@@ -137,7 +141,7 @@
 		--#{$prefix}nav-link-hover-color: var(--#{$prefix}hover-color);
 
 		&.footer-link-list {
-			.nav-link {
+			a.nav-link {
 				font-weight: 400;
 				margin-bottom: 0.75rem;
 				padding: 0;
@@ -148,6 +152,10 @@
 
 				&:focus-visible {
 					box-shadow: 0 0 0 3px var(--#{$prefix}white);
+				}
+
+				&:visited {
+					color: var(--#{$prefix}link-color);
 				}
 			}
 
