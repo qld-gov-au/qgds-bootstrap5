@@ -23,7 +23,7 @@ $qld-yellow-border: #B38800;
 $qld-dark-blue-shade : #052C53;
 $qld-light-background: #EFF4F9;
 $qld-light-background-shade: #E5EEF5;
-$qld-light-border: #CCDDEE;
+$qld-light-border: #ECEDE9;
 $qld-dark-focus: #01B0E5;
 $qld-link-visited: #8B63B0;
 $qld-link-visited-dark: #E1C2FF;
@@ -70,7 +70,7 @@ $qld-hint-text-color-muted: #DEEBF9;
 $qld-color-dark-button-hover: #ADD33F;
 $qld-text-headings : #04284C;
 $qld-dark-grey : #595959;
-$qld-dark-grey-muted : #636363;
+$qld-dark-grey-muted : #636363; // --QLD-color-light-text__muted
 $qld-medium-grey : #78797E;
 $qld-soft-grey : #7A7A7A;
 $qld-alt-grey : #DADADA;
@@ -94,6 +94,8 @@ $qld-syntax-comments : #C0D7EC;
 $qld-textbox-border-color: #003E7D;
 $qld-color-error-light: #FFF6F6;
 $qld-color-success-light: #F7FBF8;
+
+$qld-light-link: #1E5866;
 
 // Define new figma variables as SASS variables
 $qld-color-background: #FFFFFF;
