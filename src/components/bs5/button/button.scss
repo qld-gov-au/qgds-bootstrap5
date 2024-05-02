@@ -7,7 +7,7 @@
     --#{$prefix}btn-border-radius: 0.25rem;
     --#{$prefix}btn-focus-box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.2);
     --#{$prefix}btn-disabled-opacity: 0.5;
-    
+
     &-primary {
     --#{$prefix}btn-bg: var(--#{$prefix}sapphire-blue);
     --#{$prefix}btn-hover-bg: var(--#{$prefix}button-dark-blue);
@@ -82,11 +82,11 @@
         --#{$prefix}btn-color: var(--#{$prefix}white);
         --#{$prefix}btn-bg: transparent;
         --#{$prefix}btn-hover-color: var(--#{$prefix}white);
-        --#{$prefix}btn-hover-bg: var(--#{$prefix}dark-background);
+        --#{$prefix}btn-hover-bg: var(--#{$prefix}dark-background-shade);
         --#{$prefix}btn-active-bg: transparent;
         --#{$prefix}btn-active-border-color: transparent;
         --#{$prefix}btn-active-color: var(--#{$prefix}white);
-        --#{$prefix}btn-focus-bg: var(--#{$prefix}dark-background);
+        --#{$prefix}btn-focus-bg: var(--#{$prefix}dark-background-shade);
         --#{$prefix}btn-disabled-bg: transparent;
         --#{$prefix}btn-disabled-color: var(--#{$prefix}text-light-blue-dark);
         --#{$prefix}btn-disabled-border-color: transparent;
@@ -126,7 +126,7 @@ a.btn, .btn {
 
         &:hover {
             box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
-            
+
         }
         &:active {
             box-shadow: 0px 1px 2px rgba(0,0,0,.2),0px 1px 3px 1px rgba(0,0,0,.1);
@@ -148,7 +148,7 @@ a.btn, .btn {
         &:hover .btn-icon {
             color: var(--#{$prefix}btn-hover-border-color);
         }
-    
+
         &:focus {
             text-decoration: underline;
             text-underline-offset: 0.3em;
@@ -201,10 +201,10 @@ a.btn, .btn {
             outline-offset: 2px;
             }
         &-secondary,
-        &-outline-secondary {    
+        &-outline-secondary {
             color: var(--#{$prefix}btn-disabled-color);
         }
-        
+
         &-tertiary {
             .btn-icon {
                 color: var(--#{$prefix}golden-yellow);
