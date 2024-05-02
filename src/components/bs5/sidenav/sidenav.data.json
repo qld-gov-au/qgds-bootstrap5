@@ -16,24 +16,25 @@
                 },
                 {
                     "link": "#",
-                    "class": "",
+                    "class": "active",
                     "label": "Level two item",
                     "children": []
                 },
                 {
                     "link": "#",
                     "class": "",
+
                     "label": "Level two item",
                     "children": [
                         {
                             "link": "#",
-                            "class": "active",
+                            "class": "",
                             "label": "Level three item",
                             "children": []
                         },
                         {
                             "link": "#",
-                            "class": "",
+                            "class": "active",
                             "label": "Level three item that wraps to another line",
                             "children": []
                         }
@@ -50,7 +51,7 @@
         {
             "link": "#",
             "label": "Register a motorised mobility device",
-            "class": "",
+            "class": "active",
             "children": []
         },
         {
