@@ -59,6 +59,11 @@ export function initializeNavbar() {
               let popperInstance = initializeDropdownPopper(firstLi, dropdownMenu);
               dropdownMenu.dataset.popperActive = 'true';
               activePoppers.push(popperInstance);
+            } else {
+              // If the Popper instance exists, update its position
+              activePoppers.forEach(popperInstance => {
+                popperInstance.update();
+              });
             }
           } else {
             if (dropdownMenu.dataset.popperActive) {
