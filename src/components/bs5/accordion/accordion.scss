@@ -63,7 +63,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     // Theme specific variables
     .dark & {
         --#{$prefix}accordion-bg: var(--#{$prefix}brand-primary);
-        --#{$prefix}accordion-btn-bg: var(--#{$prefix}dark-background);
+        --#{$prefix}accordion-btn-bg: var(--#{$prefix}dark-background-shade);
         --#{$prefix}accordion-border-color: var(--#{$prefix}dark-border);
     }
 
