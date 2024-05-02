@@ -4,7 +4,7 @@ import { Navbar } from '../navbar/Navbar.js';
 import { Breadcrumbs } from '../breadcrumbs/Breadcrumbs.js';
 
 import { default_variant, dark_variant } from './header.data.json';
-import { menu_state, test_states} from '../navbar/navbar.data.json';
+import { menu_state } from '../navbar/navbar.data.json';
 import defaultdata from '../breadcrumbs/breadcrumbs.data.json';
 
 export default {

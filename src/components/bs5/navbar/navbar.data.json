@@ -84,9 +84,7 @@
                 "dropdown_enabled": true,
                 "dropdown_options": {
                     "feature_link_value": "Patients and visitors",
-                    "feature_link_href": "index.html",
-                    "view_value": "View all",
-                    "view_href": "index.html"
+                    "feature_link_href": "index.html"
                 },
                 "navigation_items": [
                     {

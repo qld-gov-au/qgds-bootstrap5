@@ -11,21 +11,21 @@ export default {
 };
 
 // Default navigation story
-export const defaultState = {
+export const DefaultState = {
   args: { 
     ...default_state,
   }
 }
 
 // Default megaMenu story
-export const withFullMenuOptions = {
+export const WithFullMenuOptions = {
   args: { 
     ...menu_state,
   }
 }
 
 // Default megaMenu story
-export const withMenuNoDescriptions = {
+export const WithMenuNoDescriptions = {
   args: { 
     ...test_states,
   }

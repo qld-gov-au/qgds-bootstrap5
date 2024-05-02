@@ -60,7 +60,7 @@
     --#{$prefix}navbar-border-width: 0.5rem;
     --#{$prefix}navbar-link-color: var(--#{$prefix}navbar-color-light-link);
     --#{$prefix}navbar-text-color: var(--#{$prefix}navbar-color-light-link);
-    --#{$prefix}navbar-navlink-text-color: var(--#{$prefix}navbar-color-light-text);
+    --#{$prefix}navbar-nav-text-color: var(--#{$prefix}navbar-color-light-text);
     --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-light-background__shade);
     --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-light-background);
     --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-alt-background);
@@ -68,6 +68,7 @@
     --#{$prefix}navbar-border-color: var(--#{$prefix}navbar-color-light-border);
     --#{$prefix}navbar-border-accent:  var(--#{$prefix}navbar-color-light-designAccent);
     --#{$prefix}navbar-home-icon-color: var(--#{$prefix}navbar-color-light-heading);
+    --#{$prefix}navbar-hover-color: var(--#{$prefix}navbar-color-light-button__hover);
 
     .alt &,
     .light & {
@@ -90,7 +91,7 @@
     .dark-alt & {
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-navlink-text-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-nav-text-color: var(--#{$prefix}white);
         --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
         --#{$prefix}navbar-link-color: var(--#{$prefix}white);
         --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
@@ -341,6 +342,7 @@
 
         .dropdown-menu__inner {
             .dropdown-menu__featured {
+
                 color: var(--#{$prefix}navbar-text-color);
                 font-size: 1.5rem;
                 text-decoration: none;
@@ -416,7 +418,6 @@
         }
 
         .dropdown-item__description {
-            color: var(--#{$prefix}navbar-navlink-text-color);
             font-size: .875rem;
             line-height: 1.42;
             font-weight: normal;
@@ -430,16 +431,14 @@
     }
 
     .nav-item {
-        .nav-link {
-            color: var(--#{$prefix}navbar-navlink-text-color);
+        a.nav-link {
+            color: var(--#{$prefix}navbar-nav-text-color);
             line-height: 2rem;
             width: 100%;
-
             overflow-y: visible;
             position: relative;
             $navbar-nav-link-padding-x: 0.75rem;
             $navbar-nav-link-padding-y: 0.75rem;
-
 
             --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
@@ -455,13 +454,17 @@
                     margin-bottom: -0.5rem;
                 }
             }
+
+            &:visited {
+                color: var(--#{$prefix}navbar-nav-text-color);
+            }
         }
 
         .dropdown-toggle {
             &::before,
             &::after {
                 content: none;
-                /** awaiting icons -
+                /** awaiting icon set -
                     position: relative;
                     width: 1rem;
                     $navbar-toggle-height: 1rem;
