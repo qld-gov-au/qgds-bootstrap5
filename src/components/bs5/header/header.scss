@@ -1,72 +1,31 @@
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// //----------------------------------------------------------------------------------------------------------------------
 // // Header
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-.qld__header {
-	// extract from health.qld.gov.au, to be removed, temporary workaround:
-	--#{$prefix}header-color-light-siteTitle: #022A50;
-	--#{$prefix}header-color-light-designAccent: #6BBE27;
-	--#{$prefix}header-color-light-text: #414141;
-	--#{$prefix}header-color-light-text__muted: #636363;
-	--#{$prefix}header-color-light-link: #09549F;
-	--#{$prefix}header-color-light-focus: #0085B3;
-	--#{$prefix}header-color-light-border: #EBEBEB;
-	--#{$prefix}header-color-light-background: #FFFFFF;
-	--#{$prefix}header-color-light-background__shade: #F5F5F5;
-	--#{$prefix}header-color-light-underline: #3F7AB4;
-	--#{$prefix}header-color-light-hover-underline: #09549F;
-	--#{$prefix}header-color-light-alt-button: #008733;
-	--#{$prefix}header-color-light-alt-button__hover: #00702B;
-	--#{$prefix}header-color-dark-siteTitle: #FFFFFF;
-	--#{$prefix}header-color-dark-designAccent: #6BBE27;
-	--#{$prefix}header-color-dark-heading: #FFFFFF;
-	--#{$prefix}header-color-dark-text: #FFFFFF;
-	--#{$prefix}header-color-dark-text__muted: #DEEBF9;
-	--#{$prefix}header-color-dark-link: #FFFFFF;
-	--#{$prefix}header-color-dark-focus: #01B0E5;
-	--#{$prefix}header-color-dark-border: #1D9AC6;
-	--#{$prefix}header-color-dark-background: #09549F;
-	--#{$prefix}header-color-dark-background__shade: #04498F;
-	--#{$prefix}header-color-dark-underline: #B5CCE2;
-	--#{$prefix}header-color-dark-hover-underline: #FFFFFF;
-	--#{$prefix}header-color-dark-alt-button: #EFD700;
-	--#{$prefix}header-color-dark-alt-button__hover: #FFE817;
-	--#{$prefix}header-color-dark-alt-background: #05325F;
-	--#{$prefix}header-color-dark-alt-background__shade: #052C53;
-	--#{$prefix}header-underline__thickness-thin: 0.5px;
-	--#{$prefix}header-underline__thickness-thick: 2px;
-	--#{$prefix}header-underline__offset: 0.3em;
-
-	&.dark {
-		.currentColor {
-			color: var(--#{$prefix}header-color-light-text);
-		}
-	}
-}
+// // Palettes and second hand variables:
+@import './colours';
+@import './icons';
+// //----------------------------------------------------------------------------------------------------------------------
 
 .qld__header {
 	font-size: 1rem;
 	line-height: 1.5;
-	color: var(--#{$prefix}header-color-light-text);
-	background: var(--#{$prefix}header-color-light-background);
+	color: var(--#{$prefix}header_color);
+	background: var(--#{$prefix}header_bg);
 
-	//TO DO: Review this, as .qld__grid .container-fluid in QH sets auto margin on header alignment
+	@include media-breakpoint-up(sm) {
+		font-size: 1.25rem;
+		line-height: 1.6;
+	}
+
 	.container-fluid {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 86rem;
 	}
 
-	@include media-breakpoint-up(sm) {
-		.qld__header {
-			font-size: 1.25rem;
-			line-height: 1.6;
-		}
-	}
-
-	.qld__skip-link {
+	&__skip-link {
 		line-height: 1;
-		&__link {
+
+		&__linkstyle {
 			position: absolute;
 			width: 1px;
 			height: 1px;
@@ -75,10 +34,10 @@
 			overflow: hidden;
 			clip: rect(0, 0, 0, 0);
 			border: 0;
-			color: var(--#{$prefix}header-color-light-link);
+			color: var(--#{$prefix}header_skip-link_color);
 
 			&:focus {
-				outline: 3px solid var(--#{$prefix}header-color-dark-focus);
+				outline: 3px solid var(--#{$prefix}header_skip-link_focus_outline_color);
 				top: 1rem;
 				left: 1rem;
 				padding: 1.5rem;
@@ -88,20 +47,17 @@
 				overflow: visible;
 				position: absolute;
 				width: auto;
-				color: var(--#{$prefix}header-color-dark-link);
-				background-color: var(--#{$prefix}header-color-dark-background);
+				color: var(--#{$prefix}header_skip-link_focus_text_color);
+				background-color: var(--#{$prefix}header_skip-link_focus_bg_color);
 				z-index: 600;
 			}
 		}
 	}
 
-	/**
-    * Header pre-header styles
-    */
 	&__pre-header {
-		color: var(--#{$prefix}header-color-light-text);
-		background-color: var(--#{$prefix}header-color-light-background);
-		box-shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
+		color: var(--#{$prefix}header__pre-header_text_color);
+		background-color: var(--#{$prefix}header__pre-header_bg_color);
+		box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
 		position: relative;
 		z-index: 1;
 		padding-bottom: .75rem;
@@ -110,6 +66,7 @@
 		@include media-breakpoint-up(md) {
 			padding-top: 1rem;
 			padding-bottom: 1rem;
+
 			.container-fluid {
 				padding-left: 2rem;
 				padding-right: 2rem;
@@ -125,9 +82,9 @@
 				line-height: 1;
 				text-decoration: none;
 				-webkit-text-decoration: none;
-				text-decoration-color: var(--#{$prefix}header-color-light-underline);
-				text-decoration-thickness: var(--#{$prefix}header-underline__thickness-thin);
-				text-underline-offset: var(--#{$prefix}header-underline__offset);
+				text-decoration-color: var(--#{$prefix}header__pre-header__anchor_text_decoration_color);
+				text-decoration-thickness: var(--#{$prefix}header__pre-header__anchor_text_decoration_thickness);
+				text-underline-offset: var(--#{$prefix}header__pre-header__anchor_text_decoration_offset);
 				-webkit-text-decoration-skip: ink;
 				text-decoration-skip-ink: auto;
 			}
@@ -136,8 +93,8 @@
 			&:hover {
 				text-decoration: underline;
 				-webkit-text-decoration: underline;
-				text-decoration-color: var(--#{$prefix}header-color-light-hover-underline);
-				text-decoration-thickness: var(--#{$prefix}header-underline__thickness-thick)
+				text-decoration-color: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_color);
+				text-decoration-thickness: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness);
 			}
 
 			&:disabled,
@@ -167,7 +124,7 @@
 
 		&-url {
 			display: none;
-			color: var(--#{$prefix}header-color-light-link);
+			color: var(--#{$prefix}header__pre-header__url_text_color);
 
 			@include media-breakpoint-up(lg) {
 				display: inline-block;
@@ -186,20 +143,20 @@
 
 			.qld__header__cta-link {
 				align-items: center;
-				color: var(--#{$prefix}header-color-light-link);
+				color: var(--#{$prefix}header__cta-wrapper__cta-link_text_color);
 				font-size: .875rem;
 				line-height: 1.42;
 				padding-left: .75rem;
 
 				&:hover {
 					.qld__header__cta-link-icon {
-						color: var(--#{$prefix}header-color-light-alt-button__hover);
+						color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_hover_color);
 					}
 				}
 			}
 
 			.qld__header__cta-link-icon {
-				color: var(--#{$prefix}header-color-light-alt-button);
+				color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
 				display: inline-block;
 				height: 1.25rem;
 				margin-right: .5rem;
@@ -215,11 +172,11 @@
 		}
 
 		a {
-			color: var(--#{$prefix}header-color-dark-text);
+			color: var(--#{$prefix}header__pre-header__anchor_text_color);
 			display: flex;
 
 			&:focus {
-				outline: 3px solid var(-#{$prefix}color-light-focus);
+				outline: 3px solid var(--#{$prefix}header__pre-header__anchor__focus_text_color);
 				outline-offset: 2px;
 			}
 
@@ -240,7 +197,6 @@
 			@include media-breakpoint-up(lg) {
 				display: none;
 			}
-
 		}
 
 		.qld__header__toggle-main-nav {
@@ -250,8 +206,8 @@
 			appearance: none;
 			background-color: transparent;
 			border: 0;
-			border-left: 1px solid var(--#{$prefix}header-color-light-border);
-			color: var(--#{$prefix}header-color-light-link);
+			border-left: 1px solid var(--#{$prefix}header__toggle-main-nav_border_color);
+			color: var(--#{$prefix}header__toggle-main-nav_text_color);
 			cursor: pointer;
 			display: flex;
 			flex-direction: column;
@@ -259,18 +215,17 @@
 			line-height: 1.14;
 			padding: .5rem 1rem;
 
-			//HERE
 			&:hover {
-				background-color: var(--#{$prefix}header-color-light-background__shade);
+				background-color: var(--#{$prefix}header__toggle-main-nav__hover_bg);
 
 				svg {
-					color: var(--#{$prefix}header-color-light-alt-button__hover);
+					color: var(--#{$prefix}header__toggle-main-nav__hover_svg_color);
 				}
 			}
 
 			&:focus {
-				outline: 3px solid var(--#{$prefix}header-color-light-focus);
-    			outline-offset: 2px;
+				outline: 3px solid var(--#{$prefix}header__toggle-main-nav__focus_outline_color);
+				outline-offset: 2px;
 			}
 
 			@include media-breakpoint-up(md) {
@@ -283,12 +238,12 @@
 
 				@include media-breakpoint-up(md) {
 					font-size: .875rem;
-        			line-height: 1.14;
+					line-height: 1.14;
 				}
 
 				@include media-breakpoint-up(lg) {
 					font-size: 1rem;
-        			line-height: 1.5;
+					line-height: 1.5;
 				}
 			}
 
@@ -301,7 +256,7 @@
 			}
 
 			svg {
-				color: var(--#{$prefix}header-color-light-alt-button);
+				color: var(--#{$prefix}header__toggle-main-nav__svg_color);
 				height: 1.25rem;
 				margin: 1px auto;
 				width: 1.25rem;
@@ -310,149 +265,6 @@
 					height: 2rem;
 					margin: 0 auto;
 					width: 2rem;
-				}
-			}
-		}
-
-		//Dark theme
-		&.qld__header__pre-header--dark {
-			background-color: var(--#{$prefix}header-color-dark-background);
-			color: var(--#{$prefix}header-color-dark-text);
-
-			.qld__header__pre-header-url {
-				color: var(--#{$prefix}header-color-dark-link);
-			}
-
-			a {
-				text-decoration: none;
-				-webkit-text-decoration: none;
-				text-decoration-color: var(--#{$prefix}header-color-dark-underline);
-				text-decoration-line: solid;
-				text-decoration-thickness: var(--#{$prefix}header-underline__thickness-thin);
-				text-underline-offset: var(--#{$prefix}header-underline__offset);
-				-webkit-text-decoration-skip: ink;
-				text-decoration-skip-ink: auto;
-
-				&:focus,
-				&:hover {
-					text-decoration: underline;
-					-webkit-text-decoration: underline;
-					text-decoration-color: var(--#{$prefix}header-color-dark-hover-underline);
-					text-decoration-thickness: var(--#{$prefix}header-underline__thickness-thick);
-				}
-
-				&:disabled {
-					text-decoration: none;
-					-webkit-text-decoration: none;
-				}
-
-			}
-
-			.qld__header__cta-link {
-
-				color: var(--#{$prefix}header-color-dark-link);
-
-				&:hover {
-					.qld__header__cta-link-icon {
-						color: var(--#{$prefix}header-color-dark-alt-button__hover);
-					}
-				}
-			}
-
-			.qld__header__cta-link-icon {
-				color: var(--#{$prefix}header-color-dark-alt-button);
-			}
-
-			.qld__header__toggle-main-nav {
-				color: var(--#{$prefix}header-color-dark-link);
-				border-color: var(--#{$prefix}header-color-dark-border);
-
-				svg,
-				i {
-					color: var(--#{$prefix}header-color-dark-alt-button);
-				}
-
-				&:hover {
-					background-color: var(--#{$prefix}header-color-dark-background__shade);
-
-					svg {
-						color: var(--#{$prefix}header-color-dark-alt-button__hover);
-					}
-				}
-
-				&:focus {
-					outline: 3px solid var(--#{$prefix}header-color-light-focus);
-					outline-offset: 2px;
-				}
-			}
-		}
-
-		//Dark alt theme
-		&.qld__header__pre-header--dark-alt {
-			background-color: var(--#{$prefix}header-color-dark-alt-background);
-			color: var(--#{$prefix}header-color-dark-text);
-
-			.qld__header__pre-header-url {
-				color: var(--#{$prefix}header-color-dark-link);
-			}
-
-			a {
-				text-decoration: none;
-				-webkit-text-decoration: none;
-				text-decoration-color: var(--#{$prefix}header-color-dark-underline);
-				text-decoration-line: solid;
-				text-decoration-thickness: var(--#{$prefix}header-underline__thickness-thin);
-				text-underline-offset: var(--#{$prefix}header-underline__offset);
-				-webkit-text-decoration-skip: ink;
-				text-decoration-skip-ink: auto;
-
-				&:focus,
-				&:hover {
-					text-decoration: underline;
-					-webkit-text-decoration: underline;
-					text-decoration-color: var(--#{$prefix}header-color-dark-hover-underline);
-					text-decoration-thickness: var(--#{$prefix}header-underline__thickness-thick);
-				}
-
-				&:disabled {
-					text-decoration: none;
-					-webkit-text-decoration: none;
-				}
-			}
-
-			.qld__header__cta-link {
-				color: var(--#{$prefix}header-color-dark-link);
-
-				&:hover {
-					.qld__header__cta-link-icon {
-						color: var(--#{$prefix}header-color-dark-alt-button__hover);
-					}
-				}
-			}
-
-			.qld__header__cta-link-icon {
-				color: var(--#{$prefix}header-color-dark-alt-button);
-			}
-
-			.qld__header__toggle-main-nav {
-				color: var(--#{$prefix}header-color-dark-link);
-				border-color: var(--#{$prefix}header-color-dark-border);
-
-				svg,
-				i {
-					color: var(--#{$prefix}header-color-dark-alt-button);
-				}
-
-				&:hover {
-					background-color: var(--#{$prefix}header-color-dark-alt-background__shade);
-
-					svg {
-						color: var(--#{$prefix}header-color-dark-alt-button__hover);
-					}
-				}
-				&:focus {
-					outline: 3px solid var(--#{$prefix}header-color-light-focus);
-					outline-offset: 2px;
 				}
 			}
 		}
@@ -496,21 +308,19 @@
 				display: flex;
 
 				&:hover {
-					color: var(--#{$prefix}header-color-light-link);
+					color: var(--#{$prefix}header__brand__anchor__hover_text_color);
 					text-decoration: underline;
 
 					.qld__header__brand-image {
-						color: var(--#{$prefix}header-color-light-link);
+						color: var(--#{$prefix}header__brand__anchor__hover_brand-image__text_color);
+						filter: var(--#{$prefix}header__brand__anchor__hover_brand-image__filter);
 					}
 
 					.qld__header__heading,
 					.qld__header__subline {
-						color: var(--#{$prefix}header-color-light-link);
+						color: var(--#{$prefix}header__brand__anchor__hover_headingsubline__text_color);
 					}
 
-					.qld__header__brand-image {
-						filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)) drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
-					}
 				}
 			}
 		}
@@ -524,14 +334,15 @@
 				padding-right: 1.5rem;
 			}
 
-			&_subType {
-				border-right: 2px solid var(--#{$prefix}header-color-light-designAccent);
-				color: var(--#{$prefix}header-color-light-siteTitle);
+			&_subtype {
+				border-right: 2px solid var(--#{$prefix}header__brand-image__subtype__border_color);
+				color: var(--#{$prefix}header__brand-image__subtype__text_color);
 			}
 
 			img {
 				margin: auto 0;
 				display: block;
+				fill: var(--#{$prefix}header__brand-image__crest_fill);
 			}
 
 			svg {
@@ -553,7 +364,7 @@
 			}
 
 			.qld__header__heading {
-				color: var(--#{$prefix}header-color-light-siteTitle);
+				color: var(--#{$prefix}header__site-name__heading__text_color);
 				font-family: $font-family-sans-serif;
 				font-size: 1rem;
 				font-weight: 700;
@@ -568,7 +379,7 @@
 			}
 
 			.qld__header__subline {
-				color: var(--#{$prefix}header-color-light-text__muted);
+				color: var(--#{$prefix}header__site-name__subline__text_color);
 				font-size: .875rem;
 				line-height: 1.14;
 				max-width: 80ch;
@@ -579,208 +390,12 @@
 				}
 			}
 		}
-
-		//Main header dark theme
-		&.qld__header__main--dark {
-			background-color: var(--#{$prefix}header-color-dark-background);
-
-			.qld__header__site-name {
-				.qld__header__heading {
-					color: var(--#{$prefix}header-color-dark-siteTitle);
-				}
-
-				.qld__header__subline {
-					color: var(--#{$prefix}header-color-dark-text__muted);
-				}
-			}
-
-			.qld__header__brand-image {
-				@include media-breakpoint-up(lg) {
-					border-color: var(--#{$prefix}header-color-dark-designAccent);
-					color: var(--#{$prefix}header-color-dark-text);
-				}
-			}
-
-			a {
-				&:hover {
-					color: var(--#{$prefix}header-color-dark-link);
-
-					.qld__header__brand-image {
-						color: var(--#{$prefix}header-color-dark-link);
-					}
-
-					.qld__header__heading,
-					.qld__header__subline {
-						color: var(--#{$prefix}header-color-dark-link);
-					}
-				}
-			}
-
-			.qld__header__search {
-				@include media-breakpoint-up(md) {
-					background-color: var(--#{$prefix}header-color-dark-background);
-
-					.qld__display-lg {
-						color: var(--#{$prefix}header-color-dark-heading);
-					}
-				}
-			}
-		}
-
-		//Main header dark alt theme
-		&.qld__header__main--dark-alt {
-			background-color: var(--#{$prefix}header-color-dark-alt-background);
-
-			.qld__header__site-name {
-				.qld__header__heading {
-					color: var(--#{$prefix}header-color-dark-siteTitle);
-				}
-
-				.qld__header__subline {
-					color: var(--#{$prefix}header-color-dark-text__muted);
-				}
-			}
-
-			.qld__header__brand-image {
-				@include media-breakpoint-up(lg) {
-					border-color: var(--#{$prefix}header-color-dark-designAccent);
-					color: var(--#{$prefix}header-color-dark-text);
-				}
-			}
-
-			a {
-				&:hover {
-					color: var(--#{$prefix}header-color-dark-link);
-
-					.qld__header__brand-image {
-						color: var(--#{$prefix}header-color-dark-link);
-					}
-
-					.qld__header__heading,
-					.qld__header__subline {
-						color: var(--#{$prefix}header-color-dark-link);
-					}
-				}
-			}
-
-			.qld__header__search {
-				@include media-breakpoint-up(md) {
-					background-color: var(--#{$prefix}header-color-dark-alt-background);
-
-					.qld__display-lg {
-						color: var(--#{$prefix}header-color-dark-heading);
-					}
-				}
-			}
-		}
 	}
 
 	//Reduce size of whitebar on masterbrand
-	.qld__header__main--masterbrandEnabled--true {
+	.qld__header__main--masterbrand--true {
 		@include media-breakpoint-down(lg) {
 			display: none;
-		}
-	}
-
-	.qld__header__search {
-		background-color: var(--#{$prefix}header-color-light-background);
-		box-shadow: 0 0 25px hsla(0, 0%, 78%, .25);
-		display: none;
-		left: 0;
-		padding: 1rem;
-		position: absolute;
-		right: 0;
-		top: 0;
-		z-index: 1;
-
-		@include media-breakpoint-up(md) {
-			box-shadow: none;
-			padding: 2rem 2rem 4rem 2rem;
-		}
-
-		@include media-breakpoint-up(lg) {
-			background-color: transparent;
-			display: inline-block;
-			padding: 2rem 0;
-			position: relative;
-			width: 22.5rem;
-		}
-
-		.qld__search-form {
-			@include media-breakpoint-down(md) {
-				&:focus {
-					outline: 3px solid var(--#{$prefix}header-color-light-focus);
-					outline-offset: 2px;
-				}
-
-				&::-moz-focus-inner {
-					border: 0;
-				}
-
-				.qld__text-input {
-					background-color: transparent;
-					border-color: transparent;
-					color: var(--#{$prefix}header-color-light-text);
-
-					&:focus {
-						outline: 3px solid var(--#{$prefix}header-color-light-focus);
-						outline-offset: 2px;
-					}
-
-					&::-moz-focus-inner {
-						border: 0;
-					}
-				}
-
-				.qld__btn {
-					background-color: transparent;
-					border-color: transparent;
-					box-shadow: none;
-
-					&:focus {
-						outline: 3px solid var(--#{$prefix}header-color-light-focus);
-						outline-offset: 2px;
-					}
-
-					&::-moz-focus-inner {
-						border: 0;
-					}
-
-					.qld__btn__icon {
-						background-color: var(--#{$prefix}header-color-light-text);
-					}
-				}
-			}
-
-			.qld__search-form__label {
-				@include media-breakpoint-up(md) {
-					position: inherit;
-					width: auto;
-					height: auto;
-					margin: 0 0 1rem;
-				}
-
-				@include media-breakpoint-up(lg) {
-					position: absolute;
-					width: 1px;
-					height: 1px;
-				}
-			}
-		}
-
-		.qld__header__search-link {
-			color: var(--#{$prefix}header-color-light-link);
-			float: right;
-			font-size: 1rem;
-			line-height: 1.5;
-
-			@include media-breakpoint-up(lg) {
-				padding-bottom: .5rem;
-			}
-
-			&:hover {
-				color: var(--#{$prefix}header-color-light-text);
-			}
 		}
 	}
 
@@ -789,33 +404,55 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-}
 
-// Vertical Nav Option
-.vertical-nav {
-	.qld__header {
+	.header-site-search {
 
-		@include media-breakpoint-up(lg) {
-			box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+		//Auto margins for LTR and RTL
+		@extend .ms-auto;
+
+		form {
+			display: flex;
 			position: relative;
-			z-index: 1;
-		}
 
-		.container-fluid {
-			max-width: initial;
-
-			@include media-breakpoint-up(md) {
-				padding: 0 2rem;
+			.btn-primary {
+				box-shadow: none;
 			}
 
-			@include media-breakpoint-up(lg) {
-				padding: 0 3rem;
+			input[type="text"] {
+				border: none;
+				width: 320px;
+				border-bottom: 2px solid var(--site-search-border-color);
+				background: var(--site-search-bg);
+				border-radius: 0.25rem 0 0 0;
+				padding-left: 3rem;
+			}
+
+			input[type="submit"] {
+				border: none;
+				border-radius: 0 0.25rem 0.25rem 0;
+				background: var(--site-search-btn-bg);
+			}
+
+			//Icon
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 2px;
+				width: 3rem;
+				mask-position: center center;
+				mask-repeat: no-repeat;
+				mask-image: var(--icon-search);
+				background-color: var(--site-search-icon-color);
 			}
 		}
 	}
 }
 
-// Print styles
+// //----------------------------------------------------------------------------------------------------------------------
+// // Print styles
+// //----------------------------------------------------------------------------------------------------------------------
 @media print {
 	.qld__header {
 		background: #fff !important;

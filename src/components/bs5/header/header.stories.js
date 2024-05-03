@@ -14,9 +14,6 @@ export default {
     return `
         ${new Header(args).html}
         ${new Navbar(args).html}
-        <div class="container">
-            ${new Breadcrumbs(args).html}
-        </div>
         `//expand arguments, specifically turn isdisabled into true
   },
   argTypes: {
@@ -27,24 +24,16 @@ export default {
 };
 
 // Navbar story with 'Light' color theme
-export const Default = {
+export const MasterBrand = {
   args: {
     ...default_variant,
     ...menu_state,
     ...defaultdata.default,
   },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story) => {
       return `
-        <div class="default">
-            ${Story()}
-        </div>
+        ${Story()}
       `;
     },
   ],
@@ -52,24 +41,16 @@ export const Default = {
 
 
 // Navbar story with 'Dark' color theme
-export const Dark = {
+export const Subbrand = {
   args: {
     ...dark_variant,
     ...menu_state,
     ...defaultdata.default,
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
-  },
   decorators: [
     (Story) => {
       return `
-      <div class="dark">
-          ${Story()}
-      </div>
+        ${Story()}
       `;
     },
   ],
