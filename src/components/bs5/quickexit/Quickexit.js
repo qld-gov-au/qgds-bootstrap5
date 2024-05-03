@@ -19,7 +19,6 @@ export class Quickexit {
   initQuickexit() {
     if (this.quickExitElement.length > 0 && typeof (this.quickExitButton) !== 'undefined' && this.quickExitButton != null) {
       this.onbtnClick();
-      this.ieFix();
       this.onKeyDown();
     }
   }
@@ -53,17 +52,6 @@ export class Quickexit {
         return false;
       }
     });
-  }
-
-  /**
-  * ieFix -> stickyfill lib to provide support for position:sticky.
-  * @return {undefined}
-  **/
-  ieFix() {
-    // load a plugin only on IE browser to support position:sticky
-    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-      stickyfill.add($('.qg-quick-exit')[0]);
-    }
   }
 
   /**
