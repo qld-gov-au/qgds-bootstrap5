@@ -45,7 +45,7 @@ export default {
         "card-alternative",
         "card-primary",
         "card-primary--dark",
-      ]
+      ],
     },
   },
 };
@@ -55,6 +55,6 @@ export const Default = {
   parameters: {
     backgrounds: { // from .storybook > preview.js
       default: "dark",
-    }
-  }
+    },
+  },
 };

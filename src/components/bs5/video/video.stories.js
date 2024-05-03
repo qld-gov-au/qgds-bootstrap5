@@ -33,7 +33,7 @@ export default {
         Youtube: "youtube",
         Vimeo: "vimeo",
         Custom: "custom",
-        NotProvided: ""
+        NotProvided: "",
       },
     },
     videoSize: {
