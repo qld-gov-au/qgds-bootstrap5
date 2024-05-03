@@ -1,10 +1,10 @@
 .nav {
-    --qld-nav-link-color: var(--qld-brand-primary);
+    --#{$prefix}nav-link-color: var(--#{$prefix}brand-primary);
 }
 
 @include color-mode(dark) {
     .nav {
-        --qld-nav-link-color: #FFF;
+        --#{$prefix}nav-link-color: #FFF;
     }
 }
 
@@ -16,28 +16,38 @@
     --sidenav-level-three-padding: 3.5rem;
     --sidenav-navlink-padding: 1rem;
 
-    --sidenav-hover-bg: var(--qld-extra-light-grey);
-    --sidenav-hover-color: var(--qld-brand-primary);
+    --sidenav-hover-bg: var(--#{$prefix}extra-light-grey);
+    --sidenav-hover-color: var(--#{$prefix}brand-primary);
 
     --sidenav-heading-border-color: #{$qld-brand-secondary};
     --sidenav-item-border-color: #{$qld-soft-grey};
     --sidenav-subitem-border-color: #{$qld-light-grey};
 
-    --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='var(--QLD-color-light-border)' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
+    --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='var(--#{$prefix}color-light-border)' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
 
+    --sidenav-active-item-color: var(--light-text-heading);
+
+}
+
+.dark,
+.dark-alt {
+    .qld-side-navigation {
+        --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2309ACFE' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");        
+        
+        --sidenav-hover-bg: var(--#{$prefix}brand-primary-dark);
+        --sidenav-hover-color: var(--#{$prefix}white);
+        --sidenav-heading-border-color: var(--#{$prefix}brand-secondary);
+        --sidenav-item-border-color:    var(--#{$prefix}brand-primary-light);
+        --sidenav-subitem-border-color: var(--#{$prefix}brand-primary-light);
+        --sidenav-active-item-color: var(--#{$prefix}white);
+    }
 }
 
 @include color-mode(dark) {
-    .qld-side-navigation {
-        --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFFFFF' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
-
-        --sidenav-hover-bg: var(--qld-brand-primary-dark);
-        --sidenav-hover-color: var(--qld-white);
-        --sidenav-heading-border-color: var(--qld-brand-secondary);
-        --sidenav-item-border-color:    var(--qld-brand-primary-light);
-        --sidenav-subitem-border-color: var(--qld-brand-primary-light);
-    }
+    
 }
+
+
 
 .qld-side-navigation {
 
@@ -48,6 +58,12 @@
         padding: 1rem;
         margin: 0;
         border-bottom: 2px solid var(--sidenav-heading-border-color);
+
+        a {
+            color: var(--#{$prefix}headings-color);
+            text-decoration: none;
+            font-weight: inherit;
+        }
     }
 
     //Side navigation (ul.nav) 
@@ -80,32 +96,38 @@
 
             //Level two menu LI's
             > ul > li { border-top: 1px solid var(--sidenav-subitem-border-color) }
-            > ul > li  > a.nav-link { padding-left: var( --sidenav-level-two-padding); }
+            > ul > li  > .nav-link { padding-left: var( --sidenav-level-two-padding); }
             
             //Level three menu LI's
             > ul > li > ul > li { border-top: none }
-            > ul > li > ul > li > a.nav-link {  padding-left: var( --sidenav-level-three-padding); }
+            > ul > li > ul > li > .nav-link {  padding-left: var( --sidenav-level-three-padding); }
 
             //All nav item links, all levels
-            a.nav-link {
-
+            .nav-link {
                 padding: var(--sidenav-navlink-padding);
                 font-size: 0.875rem;
                 color: var(--body-color);
                 text-decoration: none;
+                transition-duration: 0s;
 
-                 //li a.nav-link.active
-                &.active {
-                    font-weight: 600;
-                }
-
-                //a.nav-link Hover state
+                //.nav-link Hover state
                 &:hover {
                     background-color: var(--sidenav-hover-bg);
                     color: var(--sidenav-hover-color);
                     text-decoration: underline;
+                    text-underline-offset: 0.25rem;
+                    text-decoration-thickness: 2px;
                 }
 
+            }
+
+             //li .nav-link.active
+             &.active {
+                .nav-link {
+                    font-weight: 600;
+                    color: var(--light-text-heading);
+                    text-decoration: none;
+                }
             }
 
         }

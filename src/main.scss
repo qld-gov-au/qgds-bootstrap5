@@ -149,9 +149,8 @@ $enable-dark-mode: true;
 @import "./components/bs5/inpageAlert/inpageAlert.scss";
 @import "./components/bs5/correctincorrect/correctincorrect.scss";
 //@import "./components/bs5/carousel/carousel.scss";
+@import "./components/bs5/header/header.scss";
 @import "./components/bs5/formcheck/formcheck.scss";
-// @import "./components/bs5/header/header.scss";
-// @import "./components/bs5/header-search/header-search.scss";
 @import "./components/bs5/icons/icons.scss";
 @import "./components/bs5/inpagenav/inpagenav.scss";
 @import "./components/bs5/sidenav/sidenav.scss"; //includes side-nav.scss
@@ -162,6 +161,7 @@ $enable-dark-mode: true;
 @import "./components/bs5/typography/typography.scss";
 @import "./components/bs5/video/video.scss";
 @import "./components/bs5/textbox/textInput.scss";
+@import "./components/bs5/dateinput/dateinput.scss";
 @import "./components/bs5/spinner/spinner.scss";
 @import "./components/bs5/quickexit/quickexit.scss";
 @import "./components/bs5/formcheck/formcheck.scss";
@@ -171,7 +171,7 @@ $enable-dark-mode: true;
 // @import "./components/bs5/_example/example.scss";
 
 // Common Layout Blocks
-@import "./components/common/footer/footer.scss";
+@import "./components/bs5/footer/footer.scss";
 @import "./components/common/header/header.scss";
 @import "./components/common/layout/content.scss";
 

@@ -1,0 +1,86 @@
+<!-- QGDS Partial: Primary navigation -->
+
+<!-- Primary Navigation / Desktop -->
+<nav class="navbar navbar-expand-lg" aria-label="Website navigation" role="navigation">
+    <div class="container navbar-contain">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <div class="navbar__header">
+                <h6 class="navbar__heading">Menu</h6>
+                <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Close navigation">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
+                        <use href="{{metadata.options.siteDefaultIcons.value}}#qld__icon__close"></use>
+                    </svg>
+                    <span class="navbar__toggle-text">Close</span>
+                </button>
+            </div>
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item nav-item-home">
+                    <a class="nav-link" href="{{metadata.target_url}}">
+                        <span class="qld-icon icon-home"></span>
+                        {{#if metadata.options.showHomeTitleSmallDevices}}
+                        <span class="home-label">Home</span>
+                        {{else}}
+                        <span class="visually-hidden">Home</span>
+                        {{/if}}
+                    </a>
+                </li>
+                {{#each navigation}}
+                {{#if dropdown_enabled}}
+                <li class="nav-item dropdown">
+
+
+                    <a class="nav-link dropdown-toggle" href="{{target_url}}" id="menuDropdown" role="button"
+                        aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
+                        aria-label="Toggle navigation">{{title}}</a>
+
+
+                    {{#if navigation_items}}
+                    <ul class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
+                        <div class="row dropdown-menu__inner">
+                            {{#if dropdown_options}}
+                            <div class="col-12">
+                                <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                                    <span class="">{{dropdown_options.feature_link_value}}</span>
+                                </a>
+                            </div>
+                            {{#if dropdown_options.feature_link_description}}
+                            <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
+                            {{/if}}
+                            <hr>
+                            {{/if}}
+                            {{#each navigation_items}}
+                            <li class="col-lg-4 col-sm-12">
+                                <a href="{{target_url}}" class="dropdown-item">
+                                    {{title}}
+                                </a>
+                                {{#if description}}
+                                <p class="dropdown-item__description">{{description}}</p>
+                                {{/if}}
+                            </li>
+                            {{/each }}
+                            <hr>
+                            <li class="col-12 text-end">
+                                <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
+                                    <span class="">{{dropdown_options.view_value}}</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                    {{/if}}
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{target_url}}">{{title}}</a>
+                </li>
+                {{/if}}
+                {{/each }}
+            </ul>
+        </div>
+        <div id="overlay" class="navbar__overlay" aria-controls="main-nav"></div>
+    </div>
+</nav>
+<!-- MAIN NAVIGATION END -->
