@@ -14,21 +14,21 @@ export default {
 export const DefaultState = {
   args: { 
     ...default_state,
-  }
+  },
 }
 
 // Default megaMenu story
 export const WithFullMenuOptions = {
   args: { 
     ...menu_state,
-  }
+  },
 }
 
 // Default megaMenu story
 export const WithMenuNoDescriptions = {
   args: { 
     ...test_states,
-  }
+  },
 }
 
 // Navbar story with 'Light' color theme
