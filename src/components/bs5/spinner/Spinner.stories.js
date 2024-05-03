@@ -25,7 +25,7 @@ export default {
  * Default Loading Spinner
  */
 export const Default = {
-  args: defaultdata
+  args: defaultdata,
 };
 
 /**

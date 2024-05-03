@@ -11,8 +11,8 @@ export function initializeDropdownPopper(referenceElement, popperElement) {
     }, {
       name: 'preventOverflow',
       options: {
-        boundariesElement: 'viewport'
-      }
+        boundariesElement: 'viewport',
+      },
     }],
   });
 
@@ -22,35 +22,35 @@ export function initializeDropdownPopper(referenceElement, popperElement) {
 let activePoppers = [];
 
 export function initializeNavbar() {
-    const dropdownToggles = document.querySelectorAll('.navbar .dropdown-toggle');
-    const navbarCollapse = document.getElementById('navbarSupportedContent');
-    const overlay = document.getElementById('overlay');
+  const dropdownToggles = document.querySelectorAll('.navbar .dropdown-toggle');
+  const navbarCollapse = document.getElementById('navbarSupportedContent');
+  const overlay = document.getElementById('overlay');
 
-    overlay.addEventListener('click', function() {
-        // Check if the navbar is open
-        if (navbarCollapse.classList.contains('show')) {
-            // If open, close it
-            navbarCollapse.classList.remove('show');
-            overlay.classList.remove('show');
-        }
-    });
+  overlay.addEventListener('click', function() {
+    // Check if the navbar is open
+    if (navbarCollapse.classList.contains('show')) {
+      // If open, close it
+      navbarCollapse.classList.remove('show');
+      overlay.classList.remove('show');
+    }
+  });
 
-    // Overlay show/hide events
-    navbarCollapse.addEventListener('show.bs.collapse', function () {
-        overlay.classList.add('show'); // Show the overlay
-    });
+  // Overlay show/hide events
+  navbarCollapse.addEventListener('show.bs.collapse', function () {
+    overlay.classList.add('show'); // Show the overlay
+  });
 
-    navbarCollapse.addEventListener('hide.bs.collapse', function () {
-        overlay.classList.remove('show'); // Hide the overlay
-    });
+  navbarCollapse.addEventListener('hide.bs.collapse', function () {
+    overlay.classList.remove('show'); // Hide the overlay
+  });
 
-    // Initialize Popper and toggle handling
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', (event) => {
-        event.preventDefault();
-        const parentUl = toggle.closest('ul.navbar-nav');
-        const firstLi = parentUl.querySelector('.nav-item-home');
-        const dropdownMenu = toggle.parentNode.querySelector('.dropdown-menu');
+  // Initialize Popper and toggle handling
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      const parentUl = toggle.closest('ul.navbar-nav');
+      const firstLi = parentUl.querySelector('.nav-item-home');
+      const dropdownMenu = toggle.parentNode.querySelector('.dropdown-menu');
 
         // Check if a Popper instance should be activated or not
         const resizeHandler = () => {
@@ -72,11 +72,13 @@ export function initializeNavbar() {
               delete dropdownMenu.dataset.popperActive;
             }
           }
-        };
+        }
         
-        // Attach resize listener to update Popper on resize
-        window.addEventListener('resize', resizeHandler);
-        resizeHandler(); // Call handler immediately to apply correct setting on init
-      });
+     };
+        
+      // Attach resize listener to update Popper on resize
+      window.addEventListener('resize', resizeHandler);
+      resizeHandler(); // Call handler immediately to apply correct setting on init
     });
+  });
 }

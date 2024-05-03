@@ -28,11 +28,11 @@ export default {
       control: {
         type: "check",
         labels: {
-          "form-style-filled": "Filled"
+          "form-style-filled": "Filled",
         },
       },
       options: [
-        "form-style-filled"
+        "form-style-filled",
       ],
     },
     states: {
@@ -43,13 +43,13 @@ export default {
         labels: {
           "default": "Default",
           "qld-input-success": "Success",
-          "qld-input-error": "Error"
+          "qld-input-error": "Error",
         },
       },
       options: [
         "default",
         "qld-input-success",
-        "qld-input-error"
+        "qld-input-error",
       ],
     },
   },
@@ -59,7 +59,7 @@ export default {
  * Default Date inputs
  */
 export const Default = {
-  args: defaultdata
+  args: defaultdata,
 };
 
 /**
@@ -116,7 +116,7 @@ export const Disabled = {
 export const Valid = {
   args: {
 	  ...defaultdata,
-    ...{states: "qld-input-success"}
+    ...{states: "qld-input-success"},
   },
 };
 
@@ -126,6 +126,6 @@ export const Valid = {
 export const Invalid = {
   args: {
 	  ...defaultdata,
-    ...{states: "qld-input-error"}
+    ...{states: "qld-input-error"},
   },
 };
