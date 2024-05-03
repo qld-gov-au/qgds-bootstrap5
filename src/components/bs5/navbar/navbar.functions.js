@@ -26,7 +26,7 @@ export function initializeNavbar() {
   const navbarCollapse = document.getElementById('navbarSupportedContent');
   const overlay = document.getElementById('overlay');
 
-  overlay.addEventListener('click', function() {
+  overlay.addEventListener('click', function () {
     // Check if the navbar is open
     if (navbarCollapse.classList.contains('show')) {
       // If open, close it
@@ -52,30 +52,28 @@ export function initializeNavbar() {
       const firstLi = parentUl.querySelector('.nav-item-home');
       const dropdownMenu = toggle.parentNode.querySelector('.dropdown-menu');
 
-        // Check if a Popper instance should be activated or not
-        const resizeHandler = () => {
-          if (window.innerWidth > 992) {
-            if (!dropdownMenu.dataset.popperActive) {
-              let popperInstance = initializeDropdownPopper(firstLi, dropdownMenu);
-              dropdownMenu.dataset.popperActive = 'true';
-              activePoppers.push(popperInstance);
-            } else {
-              // If the Popper instance exists, update its position
-              activePoppers.forEach(popperInstance => {
-                popperInstance.update();
-              });
-            }
+      // Check if a Popper instance should be activated or not
+      const resizeHandler = () => {
+        if (window.innerWidth > 992) {
+          if (!dropdownMenu.dataset.popperActive) {
+            let popperInstance = initializeDropdownPopper(firstLi, dropdownMenu);
+            dropdownMenu.dataset.popperActive = 'true';
+            activePoppers.push(popperInstance);
           } else {
-            if (dropdownMenu.dataset.popperActive) {
-              activePoppers.forEach(popperInstance => popperInstance.destroy());
-              activePoppers = []; // Clear out the array after destroying instances
-              delete dropdownMenu.dataset.popperActive;
-            }
+            // If the Popper instance exists, update its position
+            activePoppers.forEach(popperInstance => {
+              popperInstance.update();
+            });
+          }
+        } else {
+          if (dropdownMenu.dataset.popperActive) {
+            activePoppers.forEach(popperInstance => popperInstance.destroy());
+            activePoppers = []; // Clear out the array after destroying instances
+            delete dropdownMenu.dataset.popperActive;
           }
         }
-        
-     };
-        
+      }
+
       // Attach resize listener to update Popper on resize
       window.addEventListener('resize', resizeHandler);
       resizeHandler(); // Call handler immediately to apply correct setting on init
