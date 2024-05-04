@@ -8,8 +8,6 @@
 .qld__header {
 	font-size: 1rem;
 	line-height: 1.5;
-	color: var(--#{$prefix}header_color);
-	background: var(--#{$prefix}header_bg);
 
 	@include media-breakpoint-up(sm) {
 		font-size: 1.25rem;
@@ -327,22 +325,22 @@
 
 		.qld__header__brand-image {
 			display: none;
+			color: var(--#{$prefix}header__brand-image__crest_fill);
 
 			@include media-breakpoint-up(lg) {
 				display: block;
-				margin-right: 1.5rem;
-				padding-right: 1.5rem;
 			}
 
 			&_subtype {
 				border-right: 2px solid var(--#{$prefix}header__brand-image__subtype__border_color);
 				color: var(--#{$prefix}header__brand-image__subtype__text_color);
+				margin-right: 1.5rem;
+				padding-right: 1.5rem;
 			}
 
 			img {
 				margin: auto 0;
 				display: block;
-				fill: var(--#{$prefix}header__brand-image__crest_fill);
 			}
 
 			svg {
@@ -416,6 +414,10 @@
 
 			.btn-primary {
 				box-shadow: none;
+			}
+
+			::placeholder {
+				color: var(--site-search-input-color);
 			}
 
 			input[type="text"] {

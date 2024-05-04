@@ -52,10 +52,13 @@
     --#{$prefix}header-site-search-btn-bg: var(--#{$prefix}header-color-light-link);
     --#{$prefix}header-site-search-border-color: var(--#{$prefix}header-color-light-button__hover);
     --#{$prefix}header-site-search-icon-color:var(--#{$prefix}header-color-light-text__muted);
+    --#{$prefix}header-site-search-text-color:var(--#{$prefix}header-color-light-text__muted);
+
     --#{$prefix}header-dark-site-search-bg: var(--#{$prefix}header-color-dark-background__shade);
     --#{$prefix}header-dark-site-search-btn-bg: var(--#{$prefix}header-color-light-designAccent);
     --#{$prefix}header-dark-site-search-border-color: var(--#{$prefix}header-color-dark-border);
     --#{$prefix}header-dark-site-search-icon-color:var(--#{$prefix}header-color-dark-text__muted);
+    --#{$prefix}header-dark-site-search-text-color:var(--#{$prefix}header-color-dark-text__muted);
 
     // Header
     --#{$prefix}header_color: var(--#{$prefix}header-color-light-text);
@@ -111,9 +114,11 @@
     --site-search-btn-bg: var(--#{$prefix}header-site-search-btn-bg);
     --site-search-border-color: var(--#{$prefix}header-site-search-border-color);
     --site-search-icon-color: var(--#{$prefix}header-site-search-icon-color);
+    --site-search-input-color: var(--#{$prefix}header-site-search-text-color);
+
 
     // ------------------------------------------------------------------------------------------------------------------
-    //  2. Dark/dark-alt modes
+    //  3. Dark/dark-alt modes
     // ------------------------------------------------------------------------------------------------------------------
     .dark &,
     .dark-alt & {
@@ -163,9 +168,15 @@
         --site-search-btn-bg: var(--#{$prefix}header-dark-site-search-btn-bg);
         --site-search-border-color: var(--#{$prefix}header-dark-site-search-border-color);
         --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
-        --site-search-input-color: var(--#{$prefix}header-color-dark-text__muted);
+        --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
     }
-
+}
+// ------------------------------------------------------------------------------------------------------------------
+//  4. If colours need to be applied to generic elements
+// ------------------------------------------------------------------------------------------------------------------
+.qld__header {
+    color: var(--#{$prefix}header_color);
+	background: var(--#{$prefix}header_bg);
     .dark-alt & {
         --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-alt-background);
     }

@@ -7,9 +7,6 @@
             "text": {
                 "value": "Queensland Government websites"
             },
-            "logo": {
-                "value": "./assets/img/_coa_preheader-logo-qgov.svg"
-            },
             "mainNavCtaOne": {
                 "value": "#",
                 "icon": {
@@ -36,9 +33,6 @@
             },
             "url": {
                 "value": "https://qld.gov.au"
-            },
-            "logo": {
-                "value": "./assets/img/_coa_header-logo-qgov-masterbrand.svg"
             },
             "secondaryType": {
                 "logo": {
@@ -71,9 +65,6 @@
             "text": {
                 "value": "Queensland Government websites"
             },
-            "logo": {
-                "value": "./assets/img/_coa_preheader-logo-qgov.svg"
-            },
             "mainNavCtaOne": {
                 "value": "#",
                 "icon": {
@@ -102,7 +93,6 @@
                 "value": "https://qld.gov.au"
             },
             "logo": {
-                "value": "./assets/img/_coa_header-logo-qgov-stacked.svg"
             },
             "secondaryType": {
                 "logo": {
