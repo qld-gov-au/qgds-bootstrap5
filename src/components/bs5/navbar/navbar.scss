@@ -1,10 +1,11 @@
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// // Primary navigation (horizontal)
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// //----------------------------------------------------------------------------------------------------------------------
+// // Primary navigation
+// // Palettes and second hand variables:
+// //----------------------------------------------------------------------------------------------------------------------
+
+@import './icons';
 
 .navbar {
-
-    // Default light palette
     --#{$prefix}navbar-color-crest-fill: #1D1D1D;
     --#{$prefix}navbar-color-light-siteTitle: #022A50;
     --#{$prefix}navbar-color-light-designAccent: #6BBE27;
@@ -51,7 +52,7 @@
     --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-light-button__hover);
     --#{$prefix}navbar-border-color: var(--#{$prefix}navbar-color-light-border);
     --#{$prefix}navbar-border-accent: var(--#{$prefix}navbar-color-light-designAccent);
-    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}navbar-color-light-heading);
+    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
     --#{$prefix}navbar-hover-color: var(--#{$prefix}navbar-color-light-button__hover);
     --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-light-alt-button__hover);
 
