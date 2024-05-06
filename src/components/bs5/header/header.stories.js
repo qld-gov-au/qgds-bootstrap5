@@ -3,7 +3,7 @@ import { Header } from './Header.js';
 import { Navbar } from '../navbar/Navbar.js';
 import { Breadcrumbs } from '../breadcrumbs/Breadcrumbs.js';
 
-import { default_variant, dark_variant } from './header.data.json';
+import { masterbrand_variant, subbrand_variant } from './header.data.json';
 import { menu_state } from '../navbar/navbar.data.json';
 import defaultdata from '../breadcrumbs/breadcrumbs.data.json';
 
@@ -26,9 +26,17 @@ export default {
 // Navbar story with 'Light' color theme
 export const MasterBrand = {
   args: {
-    ...default_variant,
+    ...masterbrand_variant,
     ...menu_state,
     ...defaultdata.default,
+  },
+  parameters: {
+    backgrounds: {
+      default: "Light",
+      values: [
+        { name: 'Light', value: 'var(--qld-light-background)' },
+      ],
+    },
   },
   decorators: [
     (Story) => {
@@ -43,14 +51,16 @@ export const MasterBrand = {
 // Navbar story with 'Dark' color theme
 export const Subbrand = {
   args: {
-    ...dark_variant,
+    ...subbrand_variant,
     ...menu_state,
     ...defaultdata.default,
   },
   parameters: {
     backgrounds: {
-      default: "Dark alternative",
-      values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
+      default: "Light",
+      values: [
+        { name: 'Light', value: 'var(--qld-light-background)' },
+      ],
     },
   },
   decorators: [

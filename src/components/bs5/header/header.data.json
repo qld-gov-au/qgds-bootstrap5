@@ -1,5 +1,5 @@
 {
-    "default_variant": {
+    "masterbrand_variant": {
         "sitePreHeader": {
             "url": {
                 "value": "https://qld.gov.au"
@@ -59,7 +59,7 @@
             }
         }
     },
-    "dark_variant": {
+    "subbrand_variant": {
         "sitePreHeader": {
             "url": {
                 "value": "https://qld.gov.au"
