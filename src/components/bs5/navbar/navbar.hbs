@@ -10,7 +10,7 @@
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Close navigation">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
-                        <use href="{{metadata.options.siteDefaultIcons.value}}#qld__icon__close"></use>
+                        <use href="{{metadata.options.icon-root}}#{{metadata.options.icons.close-icon}}"></use>
                     </svg>
                     <span class="navbar__toggle-text">Close</span>
                 </button>
@@ -40,12 +40,14 @@
                                 <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
                                     <span class="">{{dropdown_options.feature_link_value}}</span>
                                 </a>
-                            </div>
-                            {{#if dropdown_options.feature_link_description}}
-                            <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
-                            {{/if}}
+                            
+                                {{#if dropdown_options.feature_link_description}}
+                                <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
+                                {{/if}}
                             <hr>
+                            </div>
                             {{/if}}
+
                             {{#each navigation_items}}
                             <li class="col-lg-4 col-sm-12">
                                 <a href="{{target_url}}" class="dropdown-item">
@@ -56,12 +58,34 @@
                                 {{/if}}
                             </li>
                             {{/each }}
-                            <hr>
+
+                            <!-- WIP: Rows where border is not needed one final elements 
+                            {{#each navigation_items}}
+                                {{#if (isMultipleOfThree @index)}}
+                                <div class="threes"> 
+                                <li class="col-lg-4 col-sm-12">
+                                    {{/if}}
+                                        <a href="{{target_url}}" class="dropdown-item">
+                                            {{title}}
+                                        </a>
+                                        {{#if description}}
+                                        <p class="dropdown-item__description">{{description}}</p>
+                                        {{/if}}
+                                    {{#if (isEndOfRow @index)}}
+                                </li>
+                                </div>
+                                {{/if}}
+                            {{/each}}
+                            -->
+
+                            {{#if dropdown_options.view_value}}
                             <li class="col-12 text-end">
+                                <hr>
                                 <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
                                     <span class="">{{dropdown_options.view_value}}</span>
                                 </a>
                             </li>
+                            {{/if}}
                         </div>
                     </ul>
                     {{/if}}

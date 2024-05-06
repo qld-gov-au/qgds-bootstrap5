@@ -48,9 +48,11 @@
         },
         "siteSearchAsset": {
             "value": "#",
+            "icon-root": "assets/img/svg-icons.svg",
             "icons": {
-                "search-icon": "",
-                "search-close-icon": ""
+                "menu-icon": "qld__icon__mobile-menu",
+                "search-icon": "qld__icon__search",
+                "search-close-icon": "qld__icon__close"
             },
             "siteSearchUrl": {
                 "value": ""
@@ -108,9 +110,11 @@
         },
         "siteSearchAsset": {
             "value": "#",
+            "icon-root": "assets/img/svg-icons.svg",
             "icons": {
-                "search-icon": "",
-                "search-close-icon": ""
+                "menu-icon": "qld__icon__mobile-menu",
+                "search-icon": "qld__icon__search",
+                "search-close-icon": "qld__icon__close"
             },
             "siteSearchUrl": {
                 "value": ""

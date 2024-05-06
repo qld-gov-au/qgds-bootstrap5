@@ -6,6 +6,8 @@
 // //----------------------------------------------------------------------------------------------------------------------
 
 .qld__header {
+	color: var(--#{$prefix}header_color);
+	background: var(--#{$prefix}header_bg);
 	font-size: 1rem;
 	line-height: 1.5;
 
@@ -85,20 +87,20 @@
 				text-underline-offset: var(--#{$prefix}header__pre-header__anchor_text_decoration_offset);
 				-webkit-text-decoration-skip: ink;
 				text-decoration-skip-ink: auto;
-			}
-
-			&:focus,
-			&:hover {
-				text-decoration: underline;
-				-webkit-text-decoration: underline;
-				text-decoration-color: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_color);
-				text-decoration-thickness: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness);
-			}
-
-			&:disabled,
-			a[disabled] {
-				text-decoration: none;
-				-webkit-text-decoration: none;
+				
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+					-webkit-text-decoration: underline;
+					text-decoration-color: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_color);
+					text-decoration-thickness: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness);
+				}
+	
+				&:disabled,
+				a[disabled] {
+					text-decoration: none;
+					-webkit-text-decoration: none;
+				}
 			}
 		}
 
@@ -227,7 +229,7 @@
 			}
 
 			@include media-breakpoint-up(md) {
-				padding: .75rem 1rem .625rem;
+				padding: .75rem 1rem .625rem 1rem;
 			}
 
 			.qld__main-nav__toggle-text {
@@ -404,7 +406,6 @@
 	}
 
 	.header-site-search {
-
 		//Auto margins for LTR and RTL
 		@extend .ms-auto;
 
@@ -423,6 +424,7 @@
 			input[type="text"] {
 				border: none;
 				width: 320px;
+				color: var(--site-search-input-color);
 				border-bottom: 2px solid var(--site-search-border-color);
 				background: var(--site-search-bg);
 				border-radius: 0.25rem 0 0 0;
@@ -447,6 +449,11 @@
 				mask-repeat: no-repeat;
 				mask-image: var(--icon-search);
 				background-color: var(--site-search-icon-color);
+			}
+
+			&:focus {
+				outline: 2px solid var( --site-search-input-focus-color);
+				outline-offset: 2px;
 			}
 		}
 	}

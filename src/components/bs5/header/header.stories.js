@@ -47,6 +47,12 @@ export const Subbrand = {
     ...menu_state,
     ...defaultdata.default,
   },
+  parameters: {
+    backgrounds: {
+      default: "Dark alternative",
+      values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
+    },
+  },
   decorators: [
     (Story) => {
       return `

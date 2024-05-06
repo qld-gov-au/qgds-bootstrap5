@@ -115,7 +115,7 @@
     --site-search-border-color: var(--#{$prefix}header-site-search-border-color);
     --site-search-icon-color: var(--#{$prefix}header-site-search-icon-color);
     --site-search-input-color: var(--#{$prefix}header-site-search-text-color);
-
+    --site-search-input-focus-color: var(--#{$prefix}header-color-light-focus);
 
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Dark/dark-alt modes
@@ -124,12 +124,13 @@
     .dark-alt & {
         // Root (dark/dark-alt)
         --#{$prefix}header_color: var(--#{$prefix}header-color-dark-text);
-        --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-background);
 
         // Pre-header bar (dark)
         --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-dark-text);
         --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-background);
         --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
+        --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}header-color-dark-link);
+
         --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}header-color-dark-text);
         --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}header-color-dark-hover-underline);
         --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}header-color-dark-underline);
@@ -137,7 +138,6 @@
         --#{$prefix}header__pre-header__anchor_text_decoration_offset: var(--#{$prefix}header-underline__offset);
         --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}header-color-dark-hover-underline);
         --#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thick);
-        --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}header-color-dark-link);
 
         // Pre-header CTA elements (dark/dark-alt)
         --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}header-color-dark-link);
@@ -170,14 +170,10 @@
         --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
         --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
     }
-}
-// ------------------------------------------------------------------------------------------------------------------
-//  4. If colours need to be applied to generic elements
-// ------------------------------------------------------------------------------------------------------------------
-.qld__header {
-    color: var(--#{$prefix}header_color);
-	background: var(--#{$prefix}header_bg);
     .dark-alt & {
         --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-alt-background);
+    }
+    .dark & {
+        --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-background);
     }
 }

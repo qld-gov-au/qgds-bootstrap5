@@ -1,8 +1,10 @@
 // ------------------------------------------------------------------------------------------------------------------
-//  1. Standard Icons + colour modes
-// // Test area for custom material icon set
+//  1. Palette colours
 // ------------------------------------------------------------------------------------------------------------------
-
 .qld__header {
-    
+    .qld__icon {
+        vertical-align: middle;
+        -ms-flex-item-align: center;
+        align-self: center;
+    }
 }

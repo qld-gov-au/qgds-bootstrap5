@@ -3,7 +3,11 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeTitleSmallDevices": true
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "icons": {
+                    "close-icon": "qld__icon__close"
+                }
             }
         },
         "navigation": [
@@ -23,7 +27,11 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeTitleSmallDevices": true
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "icons": {
+                    "close-icon": "qld__icon__close"
+                }
             }
         },
         "navigation": [
@@ -143,7 +151,11 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeMobile": true
+                "showHomeMobile": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "icons": {
+                    "close-icon": "qld__icon__close"
+                }
             }
         },
         "navigation": [
