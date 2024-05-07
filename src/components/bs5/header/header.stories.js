@@ -1,11 +1,8 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
 import { Navbar } from '../navbar/Navbar.js';
-import { Breadcrumbs } from '../breadcrumbs/Breadcrumbs.js';
-
 import { masterbrand_variant, subbrand_variant } from './header.data.json';
 import { menu_state } from '../navbar/navbar.data.json';
-import defaultdata from '../breadcrumbs/breadcrumbs.data.json';
 
 export default {
   tags: ['autodocs'],
