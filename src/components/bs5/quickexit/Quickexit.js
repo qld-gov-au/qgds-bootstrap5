@@ -28,7 +28,7 @@ export class Quickexit {
   **/
   onbtnClick() {
     const self = this;
-    this.quickExitButton.onclick = function (e) {
+    this.quickExitButton.onclick = function () {
       return self.quickExit(self.escapeSite);
     };
   }
@@ -68,6 +68,7 @@ export class Quickexit {
       try {
         window.history.replaceState({}, '', '/');
       } catch (e) {
+        e.printStackTrace();
       }
     }
     // disable default event handling

@@ -25,7 +25,7 @@ export default {
  * Default Loading Quickexit
  */
 export const Default = {
-  args: defaultdata
+  args: defaultdata,
 };
 
 /**
