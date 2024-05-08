@@ -10,6 +10,10 @@ import {
 } from "./components/bs5/video/video.functions";
 
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
+import { handleQuickExit } from './components/bs5/quickexit/quickexit.functions';
+
+window.addEventListener('scroll', handleQuickExit, true);
+window.addEventListener('resize', handleQuickExit, true);
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
