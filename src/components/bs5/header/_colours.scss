@@ -71,30 +71,30 @@
     --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}header-color-light-background);
 
     // Pre-header bar
-    --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-light-text);
-    --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-light-background);
+    --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-dark-text);
+    --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-background);
     --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
-    --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}header-color-light-text);
-    --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}header-color-light-hover-underline);
-    --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}header-color-light-underline);
+    --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}header-color-dark-text);
+    --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}header-color-dark-hover-underline);
+    --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}header-color-dark-underline);
     --#{$prefix}header__pre-header__anchor_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thin);
     --#{$prefix}header__pre-header__anchor_text_decoration_offset: var(--#{$prefix}header-underline__offset);
-    --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}header-color-light-hover-underline);
+    --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}header-color-dark-hover-underline);
     --#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thick);
-    --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}header-color-light-link);
+    --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}header-color-dark-link);
 
     // CTA Wrapper 
-    --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}header-color-light-alt-button);
-    --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}header-color-light-alt-button__hover);
+    --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}header-color-dark-alt-button);
+    --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}header-color-dark-alt-button__hover);
 
     // Toggle main navigation
-    --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}header-color-light-border);
-    --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}header-color-light-background__shade);
-    --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}header-color-light-alt-button__hover);
-    --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}header-color-light-focus);
-    --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}header-color-light-alt-button);
+    --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}header-color-dark-border);
+    --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}header-color-dark-background__shade);
+    --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}header-color-dark-alt-button__hover);
+    --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}header-color-dark-focus);
+    --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}header-color-dark-alt-button);
 
     // COA and title
     --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}header-color-crest-fill);
@@ -127,7 +127,6 @@
 
         // Pre-header bar (dark)
         --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-dark-text);
-        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-background);
         --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
         --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}header-color-dark-link);
 
@@ -172,8 +171,10 @@
     }
     .dark-alt & {
         --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-alt-background);
+        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-background);
     }
     .dark & {
         --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-background);
+        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-alt-background);
     }
 }

@@ -270,7 +270,7 @@
 		}
 	}
 
-	.qld__header__main {
+	&__main {
 		position: relative;
 
 		.container-fluid {
@@ -393,7 +393,7 @@
 	}
 
 	//Reduce size of whitebar on masterbrand
-	.qld__header__main--masterbrand--true {
+	&__main--masterbrand--true {
 		@include media-breakpoint-down(lg) {
 			display: none;
 		}
@@ -404,8 +404,8 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-
-	.header-site-search {
+	
+	&__site-search {
 		//Auto margins for LTR and RTL
 		@extend .ms-auto;
 

@@ -20,9 +20,9 @@
                     <a class="nav-link" href="{{metadata.target_url}}">
                         <span class="qld-icon icon-home"></span>
                         {{#if metadata.options.showHomeTitleSmallDevices}}
-                        <span class="home-label">Home</span>
+                            <span class="home-label">Home</span>
                         {{else}}
-                        <span class="visually-hidden">Home</span>
+                            <span class="visually-hidden">Home</span>
                         {{/if}}
                     </a>
                 </li>
@@ -46,7 +46,7 @@
                                 </a>
                             
                                 {{#if dropdown_options.feature_link_description}}
-                                <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
+                                    <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
                                 {{/if}}
                             <hr>
                             </div>
@@ -58,7 +58,7 @@
                                     {{title}}
                                 </a>
                                 {{#if description}}
-                                <p class="dropdown-item__description">{{description}}</p>
+                                    <p class="dropdown-item__description">{{description}}</p>
                                 {{/if}}
                             </li>
                             {{/each }}

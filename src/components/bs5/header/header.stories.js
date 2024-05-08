@@ -25,7 +25,6 @@ export const MasterBrand = {
   args: {
     ...masterbrand_variant,
     ...menu_state,
-    ...defaultdata.default,
   },
   parameters: {
     backgrounds: {
@@ -44,13 +43,11 @@ export const MasterBrand = {
   ],
 };
 
-
 // Navbar story with 'Dark' color theme
 export const Subbrand = {
   args: {
     ...subbrand_variant,
     ...menu_state,
-    ...defaultdata.default,
   },
   parameters: {
     backgrounds: {

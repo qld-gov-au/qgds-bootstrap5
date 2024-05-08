@@ -3,94 +3,8 @@
 // // Palettes and second hand variables:
 // //----------------------------------------------------------------------------------------------------------------------
 
+@import './colours';
 @import './icons';
-
-.navbar {
-    --#{$prefix}navbar-color-crest-fill: #1D1D1D;
-    --#{$prefix}navbar-color-light-siteTitle: #022A50;
-    --#{$prefix}navbar-color-light-designAccent: #6BBE27;
-    --#{$prefix}navbar-color-light-text: #414141;
-    --#{$prefix}navbar-color-light-text__muted: #636363;
-    --#{$prefix}navbar-color-light-link: #09549F;
-    --#{$prefix}navbar-color-light-focus: #0085B3;
-    --#{$prefix}navbar-color-light-border: #EBEBEB;
-    --#{$prefix}navbar-color-light-background: #FFFFFF;
-    --#{$prefix}navbar-color-light-background__shade: #F5F5F5;
-    --#{$prefix}navbar-color-light-underline: #3F7AB4;
-    --#{$prefix}navbar-color-light-hover-underline: #09549F;
-    --#{$prefix}navbar-color-light-alt-button: #008733;
-    --#{$prefix}navbar-color-light-alt-button__hover: #00702B;
-    --#{$prefix}navbar-color-light-button__hover: #003E7D;
-
-    // Dark palette
-    --#{$prefix}navbar-color-dark-crest-fill: #FFFFFF;
-    --#{$prefix}navbar-color-dark-siteTitle: #FFFFFF;
-    --#{$prefix}navbar-color-dark-designAccent: #6BBE27;
-    --#{$prefix}navbar-color-dark-heading: #FFFFFF;
-    --#{$prefix}navbar-color-dark-text: #FFFFFF;
-    --#{$prefix}navbar-color-dark-text__muted: #DEEBF9;
-    --#{$prefix}navbar-color-dark-link: #FFFFFF;
-    --#{$prefix}navbar-color-dark-focus: #01B0E5;
-    --#{$prefix}navbar-color-dark-border: #1D9AC6;
-    --#{$prefix}navbar-color-dark-background: #09549F;
-    --#{$prefix}navbar-color-dark-background__shade: #04498F;
-    --#{$prefix}navbar-color-dark-underline: #B5CCE2;
-    --#{$prefix}navbar-color-dark-hover-underline: #FFFFFF;
-    --#{$prefix}navbar-color-dark-alt-button: #EFD700;
-    --#{$prefix}navbar-color-dark-alt-button__hover: #FFE817;
-    --#{$prefix}navbar-color-dark-alt-background: #05325F;
-    --#{$prefix}navbar-color-dark-alt-background__shade: #052C53;
-
-    // Component overrides 
-    --#{$prefix}navbar-border-width: 0.5rem;
-    --#{$prefix}navbar-link-color: var(--#{$prefix}navbar-color-light-link);
-    --#{$prefix}navbar-text-color: var(--#{$prefix}text-grey);
-    --#{$prefix}navbar-text-focus-color: var(navbar-color-light-focus);
-    --#{$prefix}navbar-nav-text-color: var(--#{$prefix}navbar-color-light-text);
-    --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-light-background__shade);
-    --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-light-background);
-    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-alt-background);
-    --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-light-button__hover);
-    --#{$prefix}navbar-border-color: var(--#{$prefix}navbar-color-light-border);
-    --#{$prefix}navbar-border-accent: var(--#{$prefix}navbar-color-light-designAccent);
-    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
-    --#{$prefix}navbar-hover-color: var(--#{$prefix}navbar-color-light-button__hover);
-    --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-light-alt-button__hover);
-    --#{$prefix}navbar-svg-color: var(---#{$prefix}navbar-color-light-alt-button);
-
-    .alt &,
-    .light & {
-        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
-    }
-
-    .dark & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-background);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}dark-background);
-        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}dark-blue-shade);
-    }
-
-    .dark-alt & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-blue-shade);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}dark-blue-shade);
-        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}dark-background);
-    }
-
-    .dark &,
-    .dark-alt & {
-        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-text-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-nav-text-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-link-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
-        --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-dark-alt-button__hover);
-        --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-dark-alt-button);
-        --#{$prefix}navbar-text-focus-color: var(navbar-color-dark-focus);
-        --#{$prefix}navbar-svg-color: var(---#{$prefix}navbar-color-dark-alt-button);
-    }
-}
 
 // Component
 .navbar {
@@ -100,7 +14,7 @@
     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-accent);
     align-items: center;
 
-    .navbar-collapse {
+    &-collapse {
         @include media-breakpoint-down(md) {
             width: 320px;
         }
@@ -121,17 +35,17 @@
             transition: transform .25s ease-in-out;
             transform: translateX(100%);
         }
+        &.collapsing {
+            transition: none;
+            /* Disable transitions when state is changing to avoid flickering */
+        }
+    
+        &.show {
+            transform: translateX(0);
+            /* Slide into view */
+        }
     }
 
-    .navbar-collapse.collapsing {
-        transition: none;
-        /* Disable transitions when state is changing to avoid flickering */
-    }
-
-    .navbar-collapse.show {
-        transform: translateX(0);
-        /* Slide into view */
-    }
 
     &__header {
         display: flex;
@@ -199,7 +113,7 @@
                 padding: 0.75rem 1rem;
             }
 
-            .navbar__toggle-text {
+            &-text {
                 font-size: 0.625rem;
                 margin-top: 0.25rem;
                 line-height: 1rem;
@@ -223,7 +137,6 @@
                 height: 1rem;
                 width: 1rem;
                 margin: 1px auto;
-                // here
                 color: var(---#{$prefix}navbar-svg-color);
 
                 @include media-breakpoint-up(md) {
@@ -234,7 +147,6 @@
             }
 
             &--open {
-                color: var(--#{$prefix}navbar-color-dark-text);
                 background-color: transparent;
 
                 &:active {
@@ -354,7 +266,7 @@
             padding: 0;
         }
 
-        .dropdown-menu__inner {
+        &__inner {
             .dropdown-menu__featured {
                 color: var(--#{$prefix}navbar-text-color);
                 font-size: 1.5rem;
@@ -486,29 +398,6 @@
                     height: $navbar-toggle-height;
                     width: $navbar-toggle-width;
                 **/
-            }
-
-            &-btn {
-                @include media-breakpoint-up(lg) {
-                    display: none;
-                }
-
-                position: relative;
-                height: 1.75rem;
-                width: 1.75rem;
-                background-color: var(--#{$prefix}navbar-color-light-background);
-                margin: 0 0.625rem;
-                -ms-flex-item-align: center;
-                align-self: center;
-                -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2),
-                0px 1px 3px 1px rgba(0, 0, 0, .1);
-                box-shadow: 0px 1px 2px rgba(0, 0, 0, .2),
-                0px 1px 3px 1px rgba(0, 0, 0, .1);
-                border: none;
-                cursor: pointer;
-                border-radius: 50%;
-                padding: 0;
-                color: var(--#{$prefix}navbar-color-light-text);
             }
         }
     }

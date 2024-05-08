@@ -179,7 +179,7 @@
                 <a class="qld__header__cta-link" href="{{sitePreHeader.mainNavCtaOne.value}}">
                     {{#if sitePreHeader.mainNavCtaOne.icon.value}}
                     <span class="qld__header__cta-link-icon">
-                        <i class="{{sitePreHeader.mainNavCtaOne.icon.value}}"></i>
+                        <i class="{{icon-root}}#{{sitePreHeader.mainNavCtaOne.icon.value}}"></i>
                     </span>
                     {{/if}}
                     <span class="qld__header__cta-link-text">{{sitePreHeader.mainNavCtaOne.text.value}}</span>
@@ -189,7 +189,7 @@
                 <a class="qld__header__cta-link" href="{{sitePreHeader.mainNavCtaTwo.value}}">
                     {{#if sitePreHeader.mainNavCtaTwo.icon.value}}
                     <span class="qld__header__cta-link-icon">
-                        <i class="{{sitePreHeader.mainNavCtaTwo.icon.value}}"></i>
+                        <i class="{{icon-root}}#{{sitePreHeader.mainNavCtaTwo.icon.value}}"></i>
                     </span>
                     {{/if}}
                     <span class="qld__header__cta-link-text">{{sitePreHeader.mainNavCtaTwo.text.value}}</span>
@@ -202,7 +202,7 @@
                     class="qld__header__toggle-main-nav qld__main-nav__toggle-search qld__main-nav__toggle-search--open"
                     aria-expanded="false">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
-                        <use href="{{siteSearchAsset.icon-root}}#{{siteSearchAsset.icons.search-icon}}"></use>
+                        <use href="{{icon-root}}#{{siteSearchAsset.icons.search-icon}}"></use>
                         </svg>
                     <span class="qld__main-nav__toggle-text">Search</span>
                 </button>
@@ -211,7 +211,7 @@
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
-                        <use href="{{siteSearchAsset.icon-root}}#{{siteSearchAsset.icons.menu-icon}}"></use>
+                        <use href="{{icon-root}}#{{siteSearchAsset.icons.menu-icon}}"></use>
                         </svg>
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
@@ -227,7 +227,7 @@
                     <div class="qld__header__brand-image">
                         {{#if siteHeader.logo.value}}
                         <img src="{{siteHeader.logo.value}}" width="329.57" height="56">
-                        <title>Queensland Government</title>
+                            <title>Queensland Government</title>
                         </img>
                         {{else}}
                         <svg width="330" height="56" viewBox="0 0 330 56" fill="none"
@@ -608,7 +608,7 @@
             {{/if}}
 
             {{#if siteSearchAsset.value}}
-            <div class="d-none d-lg-block header-site-search">
+            <div class="qld__header__site-search d-none d-lg-block">
                 <form id="site-search">
                     <input type="text" class="form-control" placeholder="Search this site">
                     <input type="submit" class="btn btn-primary" value="Search">
