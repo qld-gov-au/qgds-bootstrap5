@@ -1,0 +1,178 @@
+/*
+ * Mobile layout
+ */
+.qld-quick-exit {
+    background: $qld-dark-blue;
+    color: $qld-white;
+    height: 72px;
+    left: 0;
+    bottom: 0;
+    padding: 16px;
+    position: fixed;
+    width: 100%;
+    z-index: 200;
+
+    .qld-quick-exit-inner {
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        .qg-quick-exit__tips {
+            display: none;
+        }
+
+        .qld-quick-exit-input:checked+.qld-tooltip-parent .qld-tooltip-wrapper {
+            display: block
+        }
+
+        .qld-quick-exit-input:checked+.qld-quick-exit-label {
+            color: white;
+            font-weight: 500
+        }
+
+        .qld-tooltip {
+            width: 190px;
+        }
+
+        .qld-tooltip-parent {
+            position: relative
+        }
+
+        .qld-tooltip-wrapper {
+            background-color: $qld-white;
+            bottom: 50px;
+            box-shadow: 0 0 8px 0 #8a8f91;
+            color: #000;
+            display: none;
+            font-weight: 500;
+            padding: 25px;
+            position: absolute
+        }
+
+        .qld-tooltip-wrapper:after {
+            border-bottom: 14px solid $qld-white;
+            border-left: 14px solid $qld-white;
+            border-right: 14px solid transparent;
+            border-top: 14px solid transparent;
+            bottom: -14px;
+            content: " ";
+            position: absolute;
+            left: 25px;
+            transform: rotate(-45deg)
+        }
+
+        .qld-quick-exit-item.qld-tooltip-container {
+            text-decoration: underline;
+
+            &:focus,
+            &:active,
+            &:focus-within {
+                outline-offset: 2px;
+                box-shadow: none;
+                outline: 2px solid var(--qld-focus-color);
+                border-radius: 0px;
+            }
+        }
+
+        .qld-quick-exit-label,
+        .qld-tooltip-prompt {
+            font-weight: 500;
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-underline-offset: 5px;
+            text-decoration-thickness: 0.5px;
+
+            &:hover {
+                text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+            }
+        }
+
+
+        .qld-quick-exit-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            -ms-flex-align: center;
+            align-items: center;
+            display: -ms-flexbox;
+            display: flex;
+            height: 100%;
+            -ms-flex-pack: distribute;
+            justify-content: space-around
+        }
+
+        .qld-quick-exit-actions {
+            -ms-flex-positive: 1;
+            flex-grow: 1
+        }
+    }
+}
+
+
+/*
+ * Desktop layout
+ */
+@media screen and (min-width: 992px) {
+    .qld-quick-exit {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        position: relative;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+
+        .qld-quick-exit-inner {
+            justify-content: space-between;
+
+            .qg-quick-exit__tips {
+                display: block;
+                padding-left: 40px
+            }
+
+            .qld-quick-exit-tip-link {
+                -ms-flex-align: center;
+                align-items: center;
+                color: $qld-white;
+                display: -ms-flexbox;
+                display: flex;
+            }
+
+            .qld-quick-exit-actions {
+                padding-right: 9px;
+                -ms-flex-positive: 0;
+                flex-grow: 0
+            }
+
+            .qld-quick-exit-item {
+                margin-left: 25px;
+            }
+
+            .qld-tooltip-wrapper {
+                bottom: auto;
+                top: 40px;
+                padding: 16px
+            }
+
+            .qld-tooltip-wrapper:after {
+                border-bottom: 8px solid $qld-white;
+                border-left: 8px solid $qld-white;
+                border-right: 8px solid transparent;
+                border-top: 8px solid transparent;
+                bottom: auto;
+                left: 25px;
+                top: -7px;
+                transform: rotate(135deg)
+            }
+        }
+    }
+}
+
+.icon-info {
+    background-repeat: no-repeat;
+    margin-top: 4px;
+    margin-right: 5px;
+    background-image: url("data:image/svg+xml,<svg width='18' height='19' viewBox='0 0 18 19' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 0.25C4.00781 0.25 0 4.29297 0 9.25C0 14.2422 4.00781 18.25 9 18.25C13.957 18.25 18 14.2422 18 9.25C18 4.29297 13.957 0.25 9 0.25ZM9 17.125C4.64062 17.125 1.125 13.6094 1.125 9.25C1.125 4.92578 4.64062 1.375 9 1.375C13.3242 1.375 16.875 4.92578 16.875 9.25C16.875 13.6094 13.3242 17.125 9 17.125ZM9 6.71875C9.45703 6.71875 9.84375 6.36719 9.84375 5.875C9.84375 5.41797 9.45703 5.03125 9 5.03125C8.50781 5.03125 8.15625 5.41797 8.15625 5.875C8.15625 6.36719 8.50781 6.71875 9 6.71875ZM10.6875 12.625H9.5625V8.6875C9.5625 8.40625 9.28125 8.125 9 8.125H7.875C7.55859 8.125 7.3125 8.40625 7.3125 8.6875C7.3125 9.00391 7.55859 9.25 7.875 9.25H8.4375V12.625H7.3125C6.99609 12.625 6.75 12.9062 6.75 13.1875C6.75 13.5039 6.99609 13.75 7.3125 13.75H10.6875C10.9688 13.75 11.25 13.5039 11.25 13.1875C11.25 12.9062 10.9688 12.625 10.6875 12.625Z' fill='white'/></svg>");
+}
