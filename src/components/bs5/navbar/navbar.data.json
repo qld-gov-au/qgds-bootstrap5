@@ -6,7 +6,8 @@
                 "showHomeTitleSmallDevices": true,
                 "icon-root": "assets/img/svg-icons.svg",
                 "icons": {
-                    "close-icon": "qld__icon__close"
+                    "close-icon": "qld__icon__close",
+                    "toggle-icon": "qld__icon__chevron-down"
                 }
             }
         },
@@ -30,7 +31,8 @@
                 "showHomeTitleSmallDevices": true,
                 "icon-root": "assets/img/svg-icons.svg",
                 "icons": {
-                    "close-icon": "qld__icon__close"
+                    "close-icon": "qld__icon__close",
+                    "toggle-icon": "qld__icon__chevron-down"
                 }
             }
         },
@@ -154,7 +156,8 @@
                 "showHomeMobile": true,
                 "icon-root": "assets/img/svg-icons.svg",
                 "icons": {
-                    "close-icon": "qld__icon__close"
+                    "close-icon": "qld__icon__close",
+                    "toggle-icon": "qld__icon__chevron-down"
                 }
             }
         },
