@@ -1,6 +1,5 @@
 // FormcheckCheckbox.stories.js
 import { CorrectIncorrect } from './CorrectIncorrect.js';
-import defaultdata from './correctincorrect.data.json';
 
 import { Table } from '../table/Table.js';
 import tabledata from '../table/table.data.json';
@@ -8,7 +7,6 @@ import tabledata from '../table/table.data.json';
 export default {
   tags: ['autodocs'],
   title: 'Components/CorrectIncorrect',
-  args: defaultdata, //shows data in data.json. don't have to define args in every story if you include this
   render: (args) => {
     return `${new CorrectIncorrect(args).html}`
   },
@@ -35,7 +33,7 @@ export const LongForm = {
       <p><a href='#'>www.qld.gov.au/e10ok</a> contains only letters and numbers</p>
       <p><a href='#'>www.qld.gov.au/CrossRiverRail</a> uses camel case to improve readability (Note: The actual link is not case sensitive and there may be instances where the URL is displayed in lowercase.)</p> <p><a href='#'>www.qld.gov.au/starting-a-cafe</a> is clear as the letter 'a' in the middle may be overlooked or confused as a single word</p>
     </div>
-    <div class="qg-incorrect>
+    <div class="qg-incorrect">
       <p><a href='#'>www.qld.gov.au/$200rebate</a> contains a dollar sign</p>
       <p><a href='#'>www.qld.gov.au/local parks</a> contains a space<br/></p>
       <p><a href='#'>www.qld.gov.au/under_scores</a> contains an underscore</p>
@@ -45,7 +43,7 @@ export const LongForm = {
 }
 
 
-export const TableByColumns = {
+export const TableByColumnsForCorrectAndIncorrect = {
   args: {
     "customClass": "",
     "variantClass": "qg-correct-incorrect",
@@ -64,37 +62,56 @@ export const TableByColumns = {
     return `${new Table(args).html}`
   },
 }
+export const TableByColumnsForIncorrectAndCorrect = {
+  args: {
+    "customClass": "",
+    "variantClass": "qg-incorrect-correct",
+    "headers": ["Header", "Header"],
+    "rows": [
+      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Cell", "Cell"] }
+    ],
+  }
+  ,
+  render: (args) => {
+    return `${new Table(args).html}`
+  },
+}
 
 export const TableByCell = {
   render: () => {
-    return `<div class="table-responsive qld-table ">
-
-    <table class="table ">
-        <thead>
-            <tr>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="">
-                <td class="qg-correct">Lorem ipsum dolor sit amet </td>
-                <td class="qg-incorrect">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa dignissimos. </td>
-            </tr>
-            <tr class="">
-                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa dignissimos. </td>
-                <td>Lorem ipsum dolor sit amet </td>
-            </tr>
-            <tr class="">
-                <td>Cell</td>
-                <td class="qg-incorrect">Cell</td>
-            </tr>
-            <tr class="">
-              <td class="qg-correct">Cell</td>
-                <td>Cell</td>
-            </tr>
-        </tbody>
-    </table>
-</div>`
+    return `
+      <div class="table-responsive qld-table ">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Header</th>
+                    <th scope="col">Header</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td class="qg-correct">Lorem ipsum dolor sit amet </td>
+                    <td class="qg-incorrect">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa dignissimos. </td>
+                </tr>
+                <tr class="">
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa dignissimos. </td>
+                    <td>Lorem ipsum dolor sit amet </td>
+                </tr>
+                <tr class="">
+                    <td>Cell</td>
+                    <td class="qg-incorrect">Cell</td>
+                </tr>
+                <tr class="">
+                  <td class="qg-correct">Cell</td>
+                    <td>Cell</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>`
   },
 }
