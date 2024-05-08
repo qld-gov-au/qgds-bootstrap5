@@ -37,21 +37,22 @@
         }
     }
 
-        .dropdown-menu {
-            &__inner {
+    .dropdown-menu {
+        &__inner {
+            .chevron__icon {
+                height: 1.25rem;
+                width: 1.25rem;
+                color: var(--#{$prefix}navbar-svg-color);
+            }
+
+            a.dropdown-item {
                 .chevron__icon {
-                    height: 1.25rem;
-                    width: 1.25rem;
-                    color: var(--#{$prefix}navbar-svg-color);    
-                }
-                a.dropdown-item {
-                    .chevron__icon {
-                        float: right;
-                    }
+                    float: right;
                 }
             }
         }
-    
+    }
+
     @include media-breakpoint-down(lg) {
         .chevron__icon {
             display: none;
