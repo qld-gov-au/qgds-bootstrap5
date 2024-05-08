@@ -68,7 +68,7 @@
 
     .dark & {
         --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background);
         --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-dark-background);
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}white);
@@ -84,7 +84,7 @@
 
     .dark-alt & {
         --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background);
         --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-dark-background);
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}white);

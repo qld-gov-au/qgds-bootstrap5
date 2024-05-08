@@ -37,58 +37,47 @@
                             </svg>
                         </a>
                     {{#if navigation_items}}
-                    <ul class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
+                    <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
                         <div class="row dropdown-menu__inner">
                             {{#if dropdown_options}}
-                            <div class="col-12">
-                                <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                    <span class="">{{dropdown_options.feature_link_value}}</span>
-                                </a>
-                            
-                                {{#if dropdown_options.feature_link_description}}
-                                    <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
-                                {{/if}}
-                            <hr>
-                            </div>
-                            {{/if}}
-
-                            {{#each navigation_items}}
-                            <li class="col-lg-4 col-sm-12">
-                                <a href="{{target_url}}" class="dropdown-item">
-                                    {{title}}
-                                </a>
-                                {{#if description}}
-                                    <p class="dropdown-item__description">{{description}}</p>
-                                {{/if}}
-                            </li>
-                            {{/each }}
-
-                            <!-- WIP: Rows where border is not needed one final elements 
-                            {{#each navigation_items}}
-                                {{#if (isMultipleOfThree @index)}}
-                                <div class="threes"> 
-                                <li class="col-lg-4 col-sm-12">
+                                <div class="col-12">
+                                    <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                                        <span class="">{{dropdown_options.feature_link_value}}</span>
+                                        <svg class="chevron__icon">
+                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
+                                        </svg>
+                                    </a>
+                                    {{#if dropdown_options.feature_link_description}}
+                                        <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
                                     {{/if}}
-                                        <a href="{{target_url}}" class="dropdown-item">
-                                            {{title}}
-                                        </a>
-                                        {{#if description}}
-                                        <p class="dropdown-item__description">{{description}}</p>
-                                        {{/if}}
-                                    {{#if (isEndOfRow @index)}}
-                                </li>
+                                    <hr>
                                 </div>
-                                {{/if}}
-                            {{/each}}
-                            -->
-
+                            {{/if}}
+                            {{#each navigation_items}}
+                                <li class="col-lg-4 col-sm-12">
+                                    <a href="{{target_url}}" class="dropdown-item">
+                                        {{title}}
+                                        <svg class="chevron__icon">
+                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
+                                        </svg>
+                                    </a>
+                                    {{#if description}}
+                                        <p class="dropdown-item__description">{{description}}</p>
+                                    {{/if}}
+                                </li>
+                            {{/each }} 
                             {{#if dropdown_options.view_value}}
-                            <li class="col-12 text-end">
-                                <hr>
-                                <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
-                                    <span class="">{{dropdown_options.view_value}}</span>
-                                </a>
-                            </li>
+                                <li class="col-12 text-end">
+                                    <hr>
+                                    <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
+                                        <span>
+                                            {{dropdown_options.view_value}}
+                                            <svg class="chevron__icon">
+                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
+                                        </svg>
+                                        </span>
+                                    </a>
+                                </li>
                             {{/if}}
                         </div>
                     </ul>
