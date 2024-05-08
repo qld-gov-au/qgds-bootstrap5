@@ -1,68 +1,10 @@
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// // Primary navigation (horizontal)
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// //----------------------------------------------------------------------------------------------------------------------
+// // Primary navigation
+// // Palettes and second hand variables:
+// //----------------------------------------------------------------------------------------------------------------------
 
-.navbar {
-    // extract from health.qld.gov.au, to be removed, temporary workaround:
-    --#{$prefix}navbar-color-light-designAccent: #6BBE27;
-    --#{$prefix}navbar-color-light-heading: #03213F;
-    --#{$prefix}navbar-color-light-link: #09549F;
-    --#{$prefix}navbar-color-light-button: #09549F;
-    --#{$prefix}navbar-color-light-button__hover: #003E7D;
-    --#{$prefix}navbar-color-light-focus: #0085B3;
-    --#{$prefix}navbar-color-light-border: #EBEBEB;
-    --#{$prefix}navbar-color-light-background: #FFFFFF;
-    --#{$prefix}navbar-color-light-background__shade: #F5F5F5;
-    --#{$prefix}navbar-color-light-alt-button: #008733;
-    --#{$prefix}navbar-color-light-alt-button__hover: #00702B;
-    --#{$prefix}navbar-color-light-alt-background: #EBEBEB;
-    --#{$prefix}navbar-color-dark-text: #FFFFFF;
-    --#{$prefix}navbar-color-dark-alt-button__hover: #FFE817;
-    --#{$prefix}navbar-color-dark-alt-background: #05325F;
-    --#{$prefix}navbar-color-dark-alt-background__shade: #052C53;
-
-    // Component overrides 
-    --#{$prefix}navbar-border-width: 0.5rem;
-    --#{$prefix}navbar-link-color: var(--#{$prefix}navbar-color-light-link);
-    --#{$prefix}navbar-text-color: var(--#{$prefix}navbar-color-light-link);
-    --#{$prefix}navbar-nav-text-color: var(--#{$prefix}navbar-color-light-text);
-    --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-light-background__shade);
-    --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-light-background);
-    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-alt-background);
-    --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-light-button__hover);
-    --#{$prefix}navbar-border-color: var(--#{$prefix}navbar-color-light-border);
-    --#{$prefix}navbar-border-accent:  var(--#{$prefix}navbar-color-light-designAccent);
-    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}navbar-color-light-heading);
-    --#{$prefix}navbar-hover-color: var(--#{$prefix}navbar-color-light-button__hover);
-
-    .alt &,
-    .light & {
-        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-text-color: var(--#{$prefix}text-grey);
-        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
-    }
-    .dark & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-background);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}dark-background);
-        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}dark-blue-shade);
-    }
-    .dark-alt & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}dark-blue-shade);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}dark-blue-shade);
-        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}dark-background);
-    }
-    .dark &,
-    .dark-alt & {
-        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-text-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-nav-text-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-link-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
-        --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-dark-alt-button__hover);
-    }
-}
+@import './colours';
+@import './icons';
 
 // Component
 .navbar {
@@ -72,13 +14,15 @@
     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-accent);
     align-items: center;
 
-    .navbar-collapse {
+    &-collapse {
         @include media-breakpoint-down(md) {
             width: 320px;
         }
+
         @include media-breakpoint-up(md) {
             width: 26.25rem;
         }
+
         @include media-breakpoint-down(lg) {
             z-index: 99;
             position: fixed;
@@ -91,22 +35,22 @@
             transition: transform .25s ease-in-out;
             transform: translateX(100%);
         }
+        &.collapsing {
+            transition: none;
+            /* Disable transitions when state is changing to avoid flickering */
+        }
+    
+        &.show {
+            transform: translateX(0);
+            /* Slide into view */
+        }
     }
 
-    .navbar-collapse.collapsing {
-        transition: none;
-        /* Disable transitions when state is changing to avoid flickering */
-    }
-
-    .navbar-collapse.show {
-        transform: translateX(0);
-        /* Slide into view */
-    }
 
     &__header {
         display: flex;
         background-color: var(--#{$prefix}navbar-bg-color);
-        color: var(--#{$prefix}navbar-color-light-text);
+        color: var(--#{$prefix}navbar-text-color);
         align-items: center;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
         position: relative;
@@ -151,15 +95,17 @@
             align-items: center;
             color: var(--#{$prefix}navbar-text-color);
             border-left: solid 1px var(--#{$prefix}navbar-border-color);
+
             &:focus {
-                outline: 2px solid var(--#{$prefix}navbar-color-light-focus);
+                outline: 2px solid var(--#{$prefix}navbar-text-focus-color);
                 outline-offset: 2px;
             }
-            
+
             &:hover {
                 background-color: var(--#{$prefix}navbar-menuitem-hover);
+
                 svg {
-                    color: var(--#{$prefix}navbar-color-light-alt-button__hover);
+                    color: var(--#{$prefix}navbar-icon-hover);
                 }
             }
 
@@ -167,16 +113,18 @@
                 padding: 0.75rem 1rem;
             }
 
-            .navbar__toggle-text {
+            &-text {
                 font-size: 0.625rem;
                 margin-top: 0.25rem;
                 line-height: 1rem;
+
                 @include media-breakpoint-up(md) {
                     margin-top: 0.625rem;
                     font-size: .875rem;
                     line-height: 1.14;
                 }
             }
+
             &:before {
                 font-size: 1rem;
                 line-height: 1;
@@ -184,42 +132,52 @@
                 display: block;
                 text-align: center
             }
+
             svg {
                 height: 1rem;
                 width: 1rem;
                 margin: 1px auto;
-                color: var(---#{$prefix}navbar-color-light-alt-button);
+                color: var(---#{$prefix}navbar-svg-color);
+
                 @include media-breakpoint-up(md) {
                     height: 1.25rem;
                     width: 1.25rem;
                     margin: 0 auto;
                 }
             }
+
             &--open {
-                color: var(--#{$prefix}navbar-color-dark-text);
                 background-color: transparent;
+
                 &:active {
-                    background-color: var(--#{$prefix}navbar-color-dark-alt-background);
+                    background-color: var(--#{$prefix}navbar-menuitem-hover);
                 }
             }
+
             &--close {
                 background-color: transparent;
+
                 @include media-breakpoint-up(md) {
                     border-width: 2px
                 }
+
                 &:active {
-                    background-color: var(--#{$prefix}navbar-color-dark-alt-background);
+                    background-color: var(--#{$prefix}navbar-menuitem-hover);
                 }
             }
         }
+
         &__toggle-search {
             &--open {
+
                 .qld__main-nav__toggle-search-close-icon,
                 .fa-times {
                     display: none;
                 }
             }
+
             &--close {
+
                 .qld__main-nav__toggle-search-icon,
                 .fa-search {
                     display: none;
@@ -266,11 +224,14 @@
 
         li.nav-item-home a.nav-link {
             display: inline-flex;
+
             @include media-breakpoint-down(lg) {
                 width: 100%;
             }
+
             span.home-label {
                 margin-left: 10px;
+
                 @include media-breakpoint-up(lg) {
                     display: none;
                 }
@@ -305,9 +266,8 @@
             padding: 0;
         }
 
-        .dropdown-menu__inner {
+        &__inner {
             .dropdown-menu__featured {
-
                 color: var(--#{$prefix}navbar-text-color);
                 font-size: 1.5rem;
                 text-decoration: none;
@@ -328,6 +288,7 @@
 
             p.dropdown-menu__description {
                 margin: 1rem 0 0 0;
+                color: var(--#{$prefix}navbar-text-color);
             }
 
             .dropdown-menu__view_all {
@@ -349,17 +310,13 @@
                 }
             }
 
-            hr {
-                margin: 2rem 0 2rem 0;
-                height: 1px;
-            }
-
             li {
-                .dropdown-item {
+
+                a.dropdown-item {
                     font-weight: 600;
                     padding: 1rem 0;
-                    border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
                     color: var(--#{$prefix}navbar-link-color);
+                    border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
 
                     &:hover {
                         text-decoration: underline;
@@ -383,6 +340,7 @@
         }
 
         .dropdown-item__description {
+            color: var(--#{$prefix}navbar-text-color);
             font-size: .875rem;
             line-height: 1.42;
             font-weight: normal;
@@ -390,8 +348,10 @@
         }
 
         hr {
-            height: 2px;
-            margin: 0 0;
+            margin: 2rem 0 2rem 0;
+            border-bottom: solid 2px var(--#{$prefix}navbar-border-color);
+            padding-right: calc(var(--qld-gutter-x)* .5);
+            padding-left: calc(var(--qld-gutter-x)* .5);
         }
     }
 
@@ -426,6 +386,7 @@
         }
 
         .dropdown-toggle {
+
             &::before,
             &::after {
                 content: none;
@@ -438,30 +399,12 @@
                     width: $navbar-toggle-width;
                 **/
             }
-            &-btn {
-                @include media-breakpoint-up(lg) {
-                    display: none;
-                }
-                position: relative;
-                height: 1.75rem;
-                width: 1.75rem;
-                background-color: var(--#{$prefix}navbar-color-light-background);
-                margin: 0 0.625rem;
-                -ms-flex-item-align: center;
-                align-self: center;
-                -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
-                box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
-                border: none;
-                cursor: pointer;
-                border-radius: 50%;
-                padding: 0;
-                color: var(--#{$prefix}navbar-color-light-text);
-            }
         }
     }
 
     .nav-item-home {
         display: flex;
+
         .qld-icon {
             display: block;
             height: 2rem;
@@ -471,6 +414,7 @@
     }
 
     @include media-breakpoint-down(lg) {
+
         //Bootstrap shared navigation elements, hidden for mobile/tablet
         .dropdown-menu__featured,
         .dropdown-menu__description,

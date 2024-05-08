@@ -1,5 +1,5 @@
 /**
- * Registers Handlebars Helper for 'contains' and 'ifCond' for if conditionals
+ * Registers Handlebars Helper for 'contains', 'ifCond', 'isMultipleOfThree' and 'isEndOfRow'
  * @param {module} Handlebars Templating engine
  * @returns {void} Result of the helper operation
  */
@@ -43,5 +43,11 @@ export default function handlebarsHelpers(Handlebars) {
     default:
       return options.inverse(this);
     }
+  });
+  Handlebars.registerHelper('isMultipleOfThree', function(index) {
+    return (index % 3 === 0); // This will check if the index of the current item in the iteration is a multiple of three (nav dropdown)
+  });
+  Handlebars.registerHelper('isEndOfRow', function(index) {
+    return ((index + 1) % 3 === 0); // Since index is zero-based, add 1 to check if it's the end of a row.
   });
 }

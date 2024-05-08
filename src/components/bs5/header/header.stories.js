@@ -1,11 +1,8 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
 import { Navbar } from '../navbar/Navbar.js';
-import { Breadcrumbs } from '../breadcrumbs/Breadcrumbs.js';
-
-import { default_variant, dark_variant } from './header.data.json';
+import { masterbrand_variant, subbrand_variant } from './header.data.json';
 import { menu_state } from '../navbar/navbar.data.json';
-import defaultdata from '../breadcrumbs/breadcrumbs.data.json';
 
 export default {
   tags: ['autodocs'],
@@ -14,9 +11,6 @@ export default {
     return `
         ${new Header(args).html}
         ${new Navbar(args).html}
-        <div class="container">
-            ${new Breadcrumbs(args).html}
-        </div>
         `//expand arguments, specifically turn isdisabled into true
   },
   argTypes: {
@@ -27,49 +21,46 @@ export default {
 };
 
 // Navbar story with 'Light' color theme
-export const Default = {
+export const MasterBrand = {
   args: {
-    ...default_variant,
+    ...masterbrand_variant,
     ...menu_state,
-    ...defaultdata.default,
   },
   parameters: {
     backgrounds: {
       default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
+      values: [
+        { name: 'Light', value: 'var(--qld-light-background)' },
+      ],
     },
   },
   decorators: [
     (Story) => {
       return `
-        <div class="default">
-            ${Story()}
-        </div>
+        ${Story()}
       `;
     },
   ],
 };
 
-
 // Navbar story with 'Dark' color theme
-export const Dark = {
+export const Subbrand = {
   args: {
-    ...dark_variant,
+    ...subbrand_variant,
     ...menu_state,
-    ...defaultdata.default,
   },
   parameters: {
     backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
+      default: "Light",
+      values: [
+        { name: 'Light', value: 'var(--qld-light-background)' },
+      ],
     },
   },
   decorators: [
     (Story) => {
       return `
-      <div class="dark">
-          ${Story()}
-      </div>
+        ${Story()}
       `;
     },
   ],

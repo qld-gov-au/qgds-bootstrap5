@@ -3,7 +3,11 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeTitleSmallDevices": true
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "icons": {
+                    "close-icon": "qld__icon__close"
+                }
             }
         },
         "navigation": [
@@ -23,12 +27,16 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeTitleSmallDevices": true
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "icons": {
+                    "close-icon": "qld__icon__close"
+                }
             }
         },
         "navigation": [
             {
-                "title": "Getting ready",
+                "title": "Mega menu",
                 "icon": "",
                 "target_url": "index.html",
                 "dropdown_enabled": true,
@@ -78,13 +86,16 @@
                 ]
             },
             {
-                "title": "Patients and visitors",
+                "title": "Simple list",
                 "icon": "",
                 "target_url": "index.html",
                 "dropdown_enabled": true,
                 "dropdown_options": {
                     "feature_link_value": "Patients and visitors",
-                    "feature_link_href": "index.html"
+                    "feature_link_href": "index.html",
+                    "feature_link_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+                    "view_value": "View all",
+                    "view_href": "index.html"
                 },
                 "navigation_items": [
                     {
@@ -140,12 +151,16 @@
         "metadata": {
             "target_url": "metadata-index.html",
             "options": {
-                "showHomeMobile": true
+                "showHomeMobile": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "icons": {
+                    "close-icon": "qld__icon__close"
+                }
             }
         },
         "navigation": [
             {
-                "title": "Patients and visitors",
+                "title": "Simple list",
                 "icon": "",
                 "target_url": "index.html",
                 "dropdown_enabled": true,

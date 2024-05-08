@@ -1,22 +1,17 @@
 {
-    "default_variant": {
+    "masterbrand_variant": {
+        "icon-root": "assets/img/svg-icons.svg",
         "sitePreHeader": {
-            "theme": {
-                "value": "dark"
-            },
             "url": {
                 "value": "https://qld.gov.au"
             },
             "text": {
                 "value": "Queensland Government websites"
             },
-            "logo": {
-                "value": "./assets/img/header-logo-qgov--light.svg"
-            },
             "mainNavCtaOne": {
                 "value": "#",
                 "icon": {
-                    "value": "#"
+                    "value": "ctaIcon"
                 },
                 "text": {
                     "value": "test"
@@ -25,7 +20,7 @@
             "mainNavCtaTwo": {
                 "value": "#",
                 "icon": {
-                    "value": "#"
+                    "value": "ctaIcon"
                 },
                 "text": {
                     "value": "test"
@@ -39,12 +34,6 @@
             },
             "url": {
                 "value": "https://qld.gov.au"
-            },
-            "theme": {
-                "value": "light"
-            },
-            "logo": {
-                "value": "./assets/img/header-logo-qgov-masterbrand--default.svg"
             },
             "secondaryType": {
                 "logo": {
@@ -61,27 +50,23 @@
         "siteSearchAsset": {
             "value": "#",
             "icons": {
-                "search-icon": "",
-                "search-close-icon": ""
+                "menu-icon": "qld__icon__mobile-menu",
+                "search-icon": "qld__icon__search",
+                "search-close-icon": "qld__icon__close"
             },
             "siteSearchUrl": {
                 "value": ""
             }
         }
     },
-    "dark_variant": {
+    "subbrand_variant": {
+        "icon-root": "assets/img/svg-icons.svg",
         "sitePreHeader": {
-            "theme": {
-                "value": "dark-alt"
-            },
             "url": {
                 "value": "https://qld.gov.au"
             },
             "text": {
                 "value": "Queensland Government websites"
-            },
-            "logo": {
-                "value": "./assets/img/header-logo-qgov--light.svg"
             },
             "mainNavCtaOne": {
                 "value": "#",
@@ -110,11 +95,7 @@
             "url": {
                 "value": "https://qld.gov.au"
             },
-            "theme": {
-                "value": "dark"
-            },
             "logo": {
-                "value": "./assets/img/header-logo-qgov--dark.svg"
             },
             "secondaryType": {
                 "logo": {
@@ -131,8 +112,9 @@
         "siteSearchAsset": {
             "value": "#",
             "icons": {
-                "search-icon": "",
-                "search-close-icon": ""
+                "menu-icon": "qld__icon__mobile-menu",
+                "search-icon": "qld__icon__search",
+                "search-close-icon": "qld__icon__close"
             },
             "siteSearchUrl": {
                 "value": ""
