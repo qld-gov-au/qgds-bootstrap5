@@ -1,8 +1,29 @@
 {
-    "classes" : "",
-    "title": "Register your vehicle or motorcycle",
-    "content": "Motor vehicles and motorcycles (including mopeds and tricycles) used on Queensland roads must be registered.",
-    "link" : "https://www.service.transport.qld.gov.au/checkrego/application/TermAndConditions.xhtml",
-    "linktext" : "Register online",
-    "target": "_blank"
+    "correct-incorrect": [
+        {
+            "classes": "qg-correct",
+            "content": "<h5>Header</h5> <p>Does not currently exist <a href='#'>www.qld.gov.au/CycloneXena</a></p>"
+        },
+        {
+            "classes": "qg-correct",
+            "content": "<p><a href='#'>www.qld.gov.au/e10ok</a> contains only letters and numbers</p> <p><a href='#'>www.qld.gov.au/CrossRiverRail</a> uses camel case to improve readability (Note: The actual link is not case sensitive and there may be instances where the URL is displayed in lowercase.)</p> <p><a href='#'>www.qld.gov.au/starting-a-cafe</a> is clear as the letter 'a' in the middle may be overlooked or confused as a single word</p>"
+        },
+        {
+            "classes": "qg-incorrect",
+            "content": "<p>Is an already existing page <a href='#'>www.qld.gov.au/recreation</a></p>"
+        },
+        {
+            "classes": "qg-incorrect",
+            "content": "<p><a href='#'>www.qld.gov.au/$200rebate</a> contains a dollar sign</p> <p><a href='#'>www.qld.gov.au/local parks</a> contains a space<br/></p> <p><a href='#'>www.qld.gov.au/under_scores</a> contains an underscore</p> <p><a href='#'>www.qld.gov.au/water-ways-and-the-environment</a> excessively uses hyphens, which may make the URL less memorable</p>"
+        },
+        {
+            "classes": "qg-correct",
+            "content": "<ul>Test list <li>Bullet point 1</li> <li>Bullet point 2</li></ul>"
+        },
+        {
+            "classes": "qg-incorrect",
+            "content": "<ul>Test list <li>Bullet point 1</li> <li>Bullet point 2</li></ul>"
+        }
+    
+    ]
 }
