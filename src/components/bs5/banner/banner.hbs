@@ -1,6 +1,6 @@
 <!-- QGDS Partial: banner -->
 
-<div class="container-fluid qld-banner {{classes}}">
+<div class="container-fluid qld-banner {{variantClass}}">
 
     <div class="container">
         <div class="row">
@@ -12,13 +12,18 @@
                 <h1 class="banner-title">{{{title}}}</h1>
                 <p class="banner-lead">{{{content}}}</p>
 
-            </div>
+                {{#if ctabuttons}}
+                <div class="banner-cta">
+                    {{#each ctabuttons}}
+                    <a href="{{link}}" class="btn {{class}}" target="{{target}}">{{label}}</a>
+                    {{/each}}
+                </div>
+                {{/if}}
 
-            <div class="col-12 col-md-5 position-relative">
-                <div class="banner-image {{image.classes}}" style="--background-img:url({{image.url}})"></div>
             </div>
-
         </div>
     </div>
+
+    <div class="banner-image {{image.classes}}" style="--background-img:url({{image.url}})"></div>
 
 </div>
