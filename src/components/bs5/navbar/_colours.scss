@@ -42,16 +42,16 @@
     // ------------------------------------------------------------------------------------------------------------------
     --#{$prefix}navbar-border-width: 0.5rem;
     --#{$prefix}navbar-link-color: var(--#{$prefix}navbar-color-light-link);
-    --#{$prefix}navbar-text-color: var(--#{$prefix}text-grey);
-    --#{$prefix}navbar-text-focus-color: var(navbar-color-light-focus);
+    --#{$prefix}navbar-text-color: var(--#{$prefix}navbar-color-light-text);
+    --#{$prefix}navbar-text-focus-color: var(--#{$prefix}navbar-color-light-focus);
     --#{$prefix}navbar-nav-text-color: var(--#{$prefix}navbar-color-light-text);
-    --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-light-background);
+    --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-light-background__shade);
     --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-light-background);
-    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-background__shade);
+    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-background);
     --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-light-button__hover);
     --#{$prefix}navbar-border-color: var(--#{$prefix}navbar-color-light-border);
     --#{$prefix}navbar-border-accent: var(--#{$prefix}navbar-color-light-designAccent);
-    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
+    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}navbar-color-light-text);
     --#{$prefix}navbar-hover-color: var(--#{$prefix}navbar-color-light-button__hover);
     --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-light-alt-button__hover);
     --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-light-alt-button);
@@ -62,7 +62,7 @@
     .alt &,
     .light & {
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}text-grey);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}navbar-color-light-text);
         --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
     }
 

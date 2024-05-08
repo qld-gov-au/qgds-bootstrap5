@@ -21,6 +21,7 @@
             @include media-breakpoint-down(lg) {
                 height: 1.25rem;
                 width: 1.25rem;
+                // TO DO: This should be cleaner organised
                 float: right;
                 margin: .5rem;
             }

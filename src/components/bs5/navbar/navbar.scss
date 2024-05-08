@@ -166,25 +166,6 @@
                 }
             }
         }
-
-        &__toggle-search {
-            &--open {
-
-                .qld__main-nav__toggle-search-close-icon,
-                .fa-times {
-                    display: none;
-                }
-            }
-
-            &--close {
-
-                .qld__main-nav__toggle-search-icon,
-                .fa-search {
-                    display: none;
-                }
-            }
-
-        }
     }
 
     &__overlay {
@@ -206,7 +187,6 @@
         opacity: .95;
         right: 0;
         display: block;
-
         @include media-breakpoint-up(lg) {
             display: none;
         }
@@ -358,6 +338,7 @@
     .nav-item {
         a.nav-link {
             color: var(--#{$prefix}navbar-nav-text-color);
+            text-decoration: none;
             line-height: 2rem;
             width: 100%;
             overflow-y: visible;
@@ -386,7 +367,6 @@
         }
 
         .dropdown-toggle {
-
             &::before,
             &::after {
                 content: none;
@@ -414,7 +394,6 @@
     }
 
     @include media-breakpoint-down(lg) {
-
         //Bootstrap shared navigation elements, hidden for mobile/tablet
         .dropdown-menu__featured,
         .dropdown-menu__description,

@@ -404,6 +404,7 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
+
 	
 	&__site-search {
 		//Auto margins for LTR and RTL
@@ -412,10 +413,6 @@
 		form {
 			display: flex;
 			position: relative;
-
-			.btn-primary {
-				box-shadow: none;
-			}
 
 			::placeholder {
 				color: var(--site-search-input-color);
@@ -429,12 +426,19 @@
 				background: var(--site-search-bg);
 				border-radius: 0.25rem 0 0 0;
 				padding-left: 3rem;
+				box-shadow: none;
+				&:focus {
+					outline: 2px solid var( --site-search-input-focus-color);
+					outline-offset: 2px;
+				}
 			}
 
 			input[type="submit"] {
 				border: none;
+				box-shadow: none;
 				border-radius: 0 0.25rem 0.25rem 0;
 				background: var(--site-search-btn-bg);
+				color: var(--site-search-btn-color);
 			}
 
 			//Icon
@@ -449,11 +453,6 @@
 				mask-repeat: no-repeat;
 				mask-image: var(--icon-search);
 				background-color: var(--site-search-icon-color);
-			}
-
-			&:focus {
-				outline: 2px solid var( --site-search-input-focus-color);
-				outline-offset: 2px;
 			}
 		}
 	}
