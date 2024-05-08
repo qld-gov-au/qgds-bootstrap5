@@ -24,7 +24,6 @@ export default {
           "dark-alt": "Dark Alternative",
           "alt with-pattern": "Light Alternative (with pattern)",
           "dark with-pattern": "Dark (with pattern)",
-          "dark-alt": "Dark Alternative",
         },
       },
       options: [
