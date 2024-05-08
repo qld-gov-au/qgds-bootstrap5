@@ -93,13 +93,17 @@
         > :not(first-child) {
             flex: none;
         }
+        > * {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
 
     border-width: 1px;
     border-left-width: 7px;
   
     vertical-align: top;
         
-    table & {
+    // table & {
         &:before {
         position: absolute;
         top: 0.7em;
@@ -109,7 +113,7 @@
         height: 20px;
         text-align: center;
         }
-      }
+      // }
 
    
 
