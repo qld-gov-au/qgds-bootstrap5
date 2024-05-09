@@ -37,7 +37,6 @@ $link-visited-color:          $qld-link-visited;
     --qld-link-color-rgb: #{to-rgb($link-color)};
     --qld-link-hover-color: var(--qld-link-color);
     --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
-    --qld-link-visited: var(--qld-link-visited-color);
     --qld-selection-color: var(--qld-white);
     --qld-selection-bg: var(--qld-brand-primary);
     --qld-focus-color: var(--qld-light-blue);
