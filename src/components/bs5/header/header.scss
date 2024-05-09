@@ -365,7 +365,7 @@
 
 			.qld__header__heading {
 				color: var(--#{$prefix}header__site-name__heading__text_color);
-				font-family: $font-family-sans-serif;
+				font-family: $font-family-sitename;
 				font-size: 1rem;
 				font-weight: 700;
 				line-height: 1.25;
@@ -409,7 +409,6 @@
 	&__site-search {
 		//Auto margins for LTR and RTL
 		@extend .ms-auto;
-
 		form {
 			display: flex;
 			position: relative;
@@ -453,6 +452,24 @@
 				mask-repeat: no-repeat;
 				mask-image: var(--icon-search);
 				background-color: var(--site-search-icon-color);
+			}
+		}
+
+		@include media-breakpoint-down(lg) {
+			&--closed {
+				display:none;
+			}
+			// Mobile search open class
+			&--open {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				background-color: var(--#{$prefix}header_bg);
+				-webkit-box-shadow: 0px 0px 25px rgba(200, 200, 200, .25);
+				box-shadow: 0px 0px 25px rgba(200, 200, 200, .25);
+				padding: 1rem;
+				z-index: 1;
 			}
 		}
 	}

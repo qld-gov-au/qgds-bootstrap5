@@ -199,7 +199,7 @@
             <div class="qld__header__main-nav-controls">
                 {{#if siteSearchAsset.value}}
                 <button aria-controls="qld-header-search"
-                    class="qld__header__toggle-main-nav qld__main-nav__toggle-search qld__main-nav__toggle-search--open"
+                    class="qld__header__toggle-main-nav qld__main-nav__toggle-search"
                     aria-expanded="false">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
                         <use href="{{icon-root}}#{{siteSearchAsset.icons.search-icon}}"></use>
@@ -608,7 +608,7 @@
             {{/if}}
 
             {{#if siteSearchAsset.value}}
-            <div class="qld__header__site-search d-none d-lg-block">
+            <div id="qld-header-search" class="qld__header__site-search qld__header__site-search--closed">
                 <form id="site-search">
                     <input type="text" class="form-control" placeholder="Search this site">
                     <input type="submit" class="btn btn-primary" value="Search">

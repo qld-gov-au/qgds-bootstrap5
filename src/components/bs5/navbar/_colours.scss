@@ -78,7 +78,7 @@
         --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
         --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-dark-alt-button__hover);
         --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-dark-alt-button);
-        --#{$prefix}navbar-text-focus-color: var(navbar-color-dark-focus);
+        --#{$prefix}navbar-text-focus-color: var(--#{$prefix}navbar-color-dark-focus);
         --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
     }
 
@@ -94,7 +94,7 @@
         --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
         --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-dark-alt-button__hover);
         --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-dark-alt-button);
-        --#{$prefix}navbar-text-focus-color: var(navbar-color-dark-focus);
+        --#{$prefix}navbar-text-focus-color: var(--#{$prefix}navbar-color-dark-focus);
         --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
     }
 }

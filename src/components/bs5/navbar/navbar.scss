@@ -2,7 +2,6 @@
 // // Primary navigation
 // // Palettes and second hand variables:
 // //----------------------------------------------------------------------------------------------------------------------
-
 @import './colours';
 @import './icons';
 
@@ -97,9 +96,11 @@
             color: var(--#{$prefix}navbar-text-color);
             border-left: solid 1px var(--#{$prefix}navbar-border-color);
 
-            &:focus {
-                outline: 2px solid var(--#{$prefix}navbar-text-focus-color);
-                outline-offset: 2px;
+            @include media-breakpoint-up(lg) {
+                &:focus {
+                    outline: 2px solid var(--#{$prefix}navbar-text-focus-color);
+                    outline-offset: 2px;
+                }
             }
 
             &:hover {
@@ -203,22 +204,6 @@
             border-left: 4px solid var(--#{$prefix}navbar-border-accent);
         }
 
-        li.nav-item-home a.nav-link {
-            display: inline-flex;
-
-            @include media-breakpoint-down(lg) {
-                width: 100%;
-            }
-
-            span.home-label {
-                margin-left: 10px;
-
-                @include media-breakpoint-up(lg) {
-                    display: none;
-                }
-            }
-        }
-
         .dropdown-container {
             display: flex;
         }
@@ -246,6 +231,10 @@
                 box-shadow: none;
                 -webkit-box-shadow: none;
                 padding: 0;
+                &.show {
+                    border-left: solid 0.25rem var(--#{$prefix}navbar-border-color);
+                    margin-left: -0.25rem;
+                }
             }
 
             &__inner {
@@ -354,9 +343,29 @@
         }
     }
     .nav-item {
+        &.nav-item-home {
+            display: flex;
+            a.nav-link {
+                display: inline-flex;
+                @include media-breakpoint-down(lg) {
+                    width: 100%;
+                }
+                span.home-label {
+                    margin-left: 10px;
+                    @include media-breakpoint-up(lg) {
+                        display: none;
+                    }
+                }
+            }
+            .qld__icon {
+                display: block;
+                height: 2rem;
+                width: 1.5rem;
+                color: var(--#{$prefix}navbar-home-icon-color);
+            }
+        }
         a.nav-link {
             color: var(--#{$prefix}navbar-nav-text-color);
-            border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
             text-decoration: none;
             line-height: 2rem;
             width: 100%;
@@ -368,6 +377,10 @@
             --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
+
+            @include media-breakpoint-down(lg) {
+                border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
+            }
 
             &.show,
             &:hover {
@@ -383,17 +396,18 @@
             &:visited {
                 color: var(--#{$prefix}navbar-nav-text-color);
             }
+
+            &-home-active {
+                @include media-breakpoint-up(lg) {
+                    background-color: var(--#{$prefix}navbar-bg-color);
+                    border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-bg-color);
+                    margin-bottom: -0.5rem;
+                }
+            }
         }
 
         a.dropdown-toggle {
-            // Here
-            @include media-breakpoint-down(lg) {
-                &:hover, 
-                &:active, 
-                &:focus {
-                    // border-top-right-radius: 1rem;
-                }
-            }
+            // Default toggle icon
             &::before,
             &::after {
                 content: none;
@@ -401,19 +415,8 @@
         }
     }
 
-    .nav-item-home {
-        display: flex;
-
-        .qld-icon {
-            display: block;
-            height: 2rem;
-            width: 1.5rem;
-            background-color: var(--#{$prefix}navbar-home-icon-color);
-        }
-    }
-
+    // Navbar
     @include media-breakpoint-down(lg) {
-
         //Bootstrap shared navigation elements, hidden for mobile/tablet
         .dropdown-menu__featured,
         .dropdown-menu__description,

@@ -14,7 +14,7 @@
                     "value": "ctaIcon"
                 },
                 "text": {
-                    "value": "test"
+                    "value": "Link 1"
                 }
             },
             "mainNavCtaTwo": {
@@ -23,7 +23,7 @@
                     "value": "ctaIcon"
                 },
                 "text": {
-                    "value": "test"
+                    "value": "Link 2"
                 }
             }
         },
@@ -74,7 +74,7 @@
                     "value": "#"
                 },
                 "text": {
-                    "value": "test"
+                    "value": "Link 1"
                 }
             },
             "mainNavCtaTwo": {
@@ -83,7 +83,7 @@
                     "value": "#"
                 },
                 "text": {
-                    "value": "test"
+                    "value": "Link 2"
                 }
             }
         },
@@ -102,7 +102,7 @@
                     "value": ""
                 },
                 "siteTitle": {
-                    "value": "Queensland Government Design System"
+                    "value": "Queensland Design System Starter"
                 },
                 "subline": {
                     "value": "QGDS"
