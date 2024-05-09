@@ -4,10 +4,7 @@
             "target_url": "metadata-index.html",
             "options": {
                 "showHomeTitleSmallDevices": true,
-                "icon-root": "assets/img/svg-icons.svg",
-                "icons": {
-                    "close-icon": "qld__icon__close"
-                }
+                "icon-root": "assets/img/svg-icons.svg"
             }
         },
         "navigation": [
@@ -28,10 +25,7 @@
             "target_url": "metadata-index.html",
             "options": {
                 "showHomeTitleSmallDevices": true,
-                "icon-root": "assets/img/svg-icons.svg",
-                "icons": {
-                    "close-icon": "qld__icon__close"                
-                }
+                "icon-root": "assets/img/svg-icons.svg"
             }
         },
         "navigation": [
@@ -152,10 +146,7 @@
             "target_url": "metadata-index.html",
             "options": {
                 "showHomeMobile": true,
-                "icon-root": "assets/img/svg-icons.svg",
-                "icons": {
-                    "close-icon": "qld__icon__close"
-                }
+                "icon-root": "assets/img/svg-icons.svg"
             }
         },
         "navigation": [

@@ -10,7 +10,7 @@
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Close navigation">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
-                        <use href="{{metadata.options.icon-root}}#{{metadata.options.icons.close-icon}}"></use>
+                        <use href="{{metadata.options.icon-root}}#qld__icon__close"></use>
                     </svg>
                     <span class="navbar__toggle-text">Close</span>
                 </button>
@@ -34,7 +34,7 @@
                         aria-label="Toggle navigation">
                             {{title}}
                             <svg class="toggle_icon">
-                                <use href="assets/img/svg-icons.svg#qld__icon__chevron-down"></use>
+                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
                             </svg>
                         </a>
                     {{#if navigation_items}}
