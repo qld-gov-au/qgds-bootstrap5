@@ -356,6 +356,7 @@
     .nav-item {
         a.nav-link {
             color: var(--#{$prefix}navbar-nav-text-color);
+            border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
             text-decoration: none;
             line-height: 2rem;
             width: 100%;
