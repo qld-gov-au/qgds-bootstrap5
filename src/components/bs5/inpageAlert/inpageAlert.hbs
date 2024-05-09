@@ -1,4 +1,6 @@
 <div class="alert {{variantClass}} {{customClass}}" role="alert">
-    <h4 class="alert-heading">{{{ heading }}}</h4>
+    {{#if heading}}
+    <div class="alert-heading" role="heading">{{{ heading }}}</div>
+    {{/if}}
     {{{ content }}}
 </div>
