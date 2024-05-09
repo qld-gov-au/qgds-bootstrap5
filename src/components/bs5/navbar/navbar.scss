@@ -211,8 +211,14 @@
 
     .dropdown { 
         &-menu {
-            background-color: var(--#{$prefix}navbar-dropdown-bg-color);
 
+            // Override the default bs-popper margin
+            &[data-bs-popper] {
+                margin-top: 0;
+            }
+
+            background-color: var(--#{$prefix}navbar-dropdown-bg-color);
+            
             @include media-breakpoint-up(lg) {
                 left: 0;
                 right: 0;
@@ -232,7 +238,8 @@
                 -webkit-box-shadow: none;
                 padding: 0;
                 &.show {
-                    border-left: solid 0.25rem var(--#{$prefix}navbar-border-color);
+                    border-right: solid 2px var(--#{$prefix}navbar-border-color);
+                    border-left: solid 0.25rem var(--#{$prefix}navbar-dropdown-bg-color);
                     margin-left: -0.25rem;
                 }
             }
@@ -292,6 +299,11 @@
                             text-decoration: underline;
                             text-underline-offset: 5px;
                             background-color: inherit;
+
+                            @include media-breakpoint-down(lg) {
+                                border-left: solid 0.25rem var(--#{$prefix}navbar-menuitem-hover-border);
+                                margin-left: -0.25rem;  
+                            }
                         }
 
                         &:focus {
