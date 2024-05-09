@@ -2,7 +2,6 @@
 import { CorrectIncorrect } from './CorrectIncorrect.js';
 
 import { Table } from '../table/Table.js';
-import tabledata from '../table/table.data.json';
 
 export default {
   tags: ['autodocs'],
@@ -34,10 +33,10 @@ export const LongForm = {
       <p><a href='#'>www.qld.gov.au/CrossRiverRail</a> uses camel case to improve readability (Note: The actual link is not case sensitive and there may be instances where the URL is displayed in lowercase.)</p> <p><a href='#'>www.qld.gov.au/starting-a-cafe</a> is clear as the letter 'a' in the middle may be overlooked or confused as a single word</p>
     </div>
     <div class="qg-incorrect">
-      <p><a href='#'>www.qld.gov.au/$200rebate</a> contains a dollar sign</p>
-      <p><a href='#'>www.qld.gov.au/local parks</a> contains a space<br/></p>
-      <p><a href='#'>www.qld.gov.au/under_scores</a> contains an underscore</p>
-      <p><a href='#'>www.qld.gov.au/water-ways-and-the-environment</a> excessively uses hyphens, which may make the URL less memorable</p>
+      <p><a href='#'>www.qld.gov.au/$200rebate</a> contains a dollar sign</p>
+      <p><a href='#'>www.qld.gov.au/local parks</a> contains a space</p>
+      <p><a href='#'>www.qld.gov.au/under_scores</a> contains an underscore</p>
+      <p><a href='#'>www.qld.gov.au/water-ways-and-the-environment</a> excessively uses hyphens, which may make the URL less memorable</p>
     </div>`
   },
 }
