@@ -15,7 +15,6 @@ export const Default = {
   render: () => { return `
   comingsoon
    ` }, //DefaultTemplate,
-  name: 'Default',
 };
 
 // export const NoAside = {
@@ -32,7 +31,6 @@ export const Mobile = {
   render: () => { return `
   comingsoon
    ` }, //DefaultTemplate,
-  name: 'Mobile',
   parameters: getStoryMobileParameters(),
   height: getStoryMobileHeight(),
 };

@@ -404,18 +404,14 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
+
 	
 	&__site-search {
 		//Auto margins for LTR and RTL
 		@extend .ms-auto;
-
 		form {
 			display: flex;
 			position: relative;
-
-			.btn-primary {
-				box-shadow: none;
-			}
 
 			::placeholder {
 				color: var(--site-search-input-color);
@@ -429,12 +425,19 @@
 				background: var(--site-search-bg);
 				border-radius: 0.25rem 0 0 0;
 				padding-left: 3rem;
+				box-shadow: none;
+				&:focus {
+					outline: 2px solid var( --site-search-input-focus-color);
+					outline-offset: 2px;
+				}
 			}
 
 			input[type="submit"] {
 				border: none;
+				box-shadow: none;
 				border-radius: 0 0.25rem 0.25rem 0;
 				background: var(--site-search-btn-bg);
+				color: var(--site-search-btn-color);
 			}
 
 			//Icon
@@ -450,10 +453,23 @@
 				mask-image: var(--icon-search);
 				background-color: var(--site-search-icon-color);
 			}
+		}
 
-			&:focus {
-				outline: 2px solid var( --site-search-input-focus-color);
-				outline-offset: 2px;
+		@include media-breakpoint-down(lg) {
+			&--closed {
+				display:none;
+			}
+			// Mobile search open class
+			&--open {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				background-color: var(--#{$prefix}header_bg);
+				-webkit-box-shadow: 0px 0px 25px rgba(200, 200, 200, .25);
+				box-shadow: 0px 0px 25px rgba(200, 200, 200, .25);
+				padding: 1rem;
+				z-index: 1;
 			}
 		}
 	}

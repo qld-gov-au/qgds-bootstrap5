@@ -11,12 +11,20 @@ import {
 
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
 import { handleQuickExit } from './components/bs5/quickexit/quickexit.functions';
+import { toggleSearch } from './components/bs5/header/header.functions'; 
 
 window.addEventListener('scroll', handleQuickExit, true);
 window.addEventListener('resize', handleQuickExit, true);
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
+
+    //Header 
+    document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
+    
+    // Navbar
+    initializeNavbar();
+
     // Accordion
     let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
 
@@ -53,11 +61,6 @@ window.addEventListener("DOMContentLoaded", () => {
     videoTranscripts.forEach(function (transcript) {
       transcript.addEventListener("click", videoTranscriptTitle)
     })
-
-    // Navbar
-
-    //Init popper position adjustment if large device size
-    initializeNavbar();
 
   })();
 });
