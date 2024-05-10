@@ -19,12 +19,18 @@ export function toggleSearch(event) {
   // Get the search div
   const searchDiv = document.getElementById('qld-header-search');
 
-  // Toggle the class for the open state
+  // Check current class and swap
   if (searchDiv) {
-    searchDiv.classList.toggle('qld__header__site-search--open');
+    if (searchDiv.classList.contains('qld__header__site-search--open')) {
+      searchDiv.classList.remove('qld__header__site-search--open');
+      searchDiv.classList.add('qld__header__site-search--closed');
+    } else {
+      searchDiv.classList.remove('qld__header__site-search--closed');
+      searchDiv.classList.add('qld__header__site-search--open');
+    }
 
     // Optional: Update the aria-expanded attribute for accessibility
-    const isExpanded = event.currentTarget.getAttribute('aria-expanded') === 'true';
-    event.currentTarget.setAttribute('aria-expanded', !isExpanded);
+    const isExpanded = searchDiv.classList.contains('qld__header__site-search--open');
+    event.currentTarget.setAttribute('aria-expanded', isExpanded);
   }
 }
