@@ -169,6 +169,14 @@
 
         // COA
         --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}header-color-dark-crest-fill);
+        // Search (dark/dark/alt)
+        --site-search-bg: var(--#{$prefix}header-dark-site-search-bg);
+        --site-search-btn-color: var(--#{$prefix}header-dark-site-search-btn-color);
+        --site-search-btn-bg: var(--#{$prefix}header-dark-site-search-btn-bg);
+        --site-search-border-color: var(--#{$prefix}header-dark-site-search-border-color);
+        --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
+        --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
+        --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
     }
 
     .dark-alt & {
@@ -179,14 +187,5 @@
     .dark & {
         --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-background);
         --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-alt-background);
-
-        // Search (dark/dark/alt)
-        --site-search-bg: var(--#{$prefix}header-dark-site-search-bg);
-        --site-search-btn-color: var(--#{$prefix}header-dark-site-search-btn-color);
-        --site-search-btn-bg: var(--#{$prefix}header-dark-site-search-btn-bg);
-        --site-search-border-color: var(--#{$prefix}header-dark-site-search-border-color);
-        --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
-        --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
-        --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
     }
 }
