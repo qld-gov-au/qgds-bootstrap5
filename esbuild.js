@@ -43,7 +43,7 @@ const buildConfig = {
     {
       in: "./src/js/handlebars.helpers.js",
       out: "./assets/js/handlebars.helpers.bundle",
-    }
+    },
   ],
 
   loader: {
