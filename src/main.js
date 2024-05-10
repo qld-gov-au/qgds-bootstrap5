@@ -31,11 +31,6 @@ window.addEventListener("DOMContentLoaded", () => {
     initQuickexit();
     positionQuickExit();
 
-    if (quickExitElement.length > 0 && typeof (quickExitButton) !== 'undefined' && quickExitButton != null) {
-      quickExitButton.addEventListener("click", onbtnClick);
-      this.onKeyDown();
-    }
-
     // Accordion
     let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
 
