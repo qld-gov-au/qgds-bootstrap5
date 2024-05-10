@@ -53,5 +53,3 @@ export const Dark = {
     },
   ],
 };
-
-

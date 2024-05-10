@@ -10,11 +10,13 @@ import {
 } from "./components/bs5/video/video.functions";
 
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
-import { handleQuickExit } from './components/bs5/quickexit/quickexit.functions';
+import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
 import { toggleSearch } from './components/bs5/header/header.functions'; 
 
-window.addEventListener('scroll', handleQuickExit, true);
-window.addEventListener('resize', handleQuickExit, true);
+window.addEventListener('scroll', positionQuickExit, true);
+window.addEventListener('resize', positionQuickExit, true);
+window.addEventListener('click', initQuickexit, true);
+window.addEventListener('keydown', initQuickexit, true);
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
@@ -24,6 +26,15 @@ window.addEventListener("DOMContentLoaded", () => {
     
     // Navbar
     initializeNavbar();
+
+    // Quick exit
+    initQuickexit();
+    positionQuickExit();
+
+    if (quickExitElement.length > 0 && typeof (quickExitButton) !== 'undefined' && quickExitButton != null) {
+      quickExitButton.addEventListener("click", onbtnClick);
+      this.onKeyDown();
+    }
 
     // Accordion
     let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
