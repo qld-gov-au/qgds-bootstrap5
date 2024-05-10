@@ -53,7 +53,7 @@ export const TableByColumnsForCorrectAndIncorrect = {
       { "cells": ["Cell", "Cell"] },
       { "cells": ["Cell", "Cell"] },
       { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] }
+      { "cells": ["Cell", "Cell"] },
     ],
   }
   ,
@@ -72,7 +72,7 @@ export const TableByColumnsForIncorrectAndCorrect = {
       { "cells": ["Cell", "Cell"] },
       { "cells": ["Cell", "Cell"] },
       { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] }
+      { "cells": ["Cell", "Cell"] },
     ],
   }
   ,
