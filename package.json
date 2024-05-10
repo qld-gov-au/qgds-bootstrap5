@@ -59,7 +59,7 @@
     "postcss": "^8.4.29",
     "prettier": "3.2.5",
     "raw-loader": "^4.0.2",
-    "rimraf": "^5.0.5",
+    "rimraf": "^5.0.6",
     "sass": "^1.76.0",
     "storybook": "^8.0.10",
     "vite": "^5.2.11",
