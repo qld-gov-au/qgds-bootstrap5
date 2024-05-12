@@ -158,17 +158,20 @@
         --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}header-color-dark-alt-button__hover);
         --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}header-color-dark-focus);
         --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}header-color-dark-alt-button);
+        
         --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}header-color-dark-link);
         --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}header-color-dark-link);
         --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}header-color-dark-link);
         --#{$prefix}header__brand__anchor__hover_brand-image__filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)), drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
         --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}header-color-dark-designAccent);
         --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}header-color-dark-siteTitle);
+        
         --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}header-color-dark-siteTitle);
         --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}header-color-dark-text__muted);
 
         // COA
         --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}header-color-dark-crest-fill);
+        
         // Search (dark/dark/alt)
         --site-search-bg: var(--#{$prefix}header-dark-site-search-bg);
         --site-search-btn-color: var(--#{$prefix}header-dark-site-search-btn-color);

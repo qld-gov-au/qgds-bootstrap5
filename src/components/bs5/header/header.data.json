@@ -49,10 +49,14 @@
         },
         "siteSearchAsset": {
             "value": "#",
+            "placeholder": "",
             "icons": {
                 "menu-icon": "qld__icon__mobile-menu",
                 "search-icon": "qld__icon__search",
                 "search-close-icon": "qld__icon__close"
+            },
+            "borderStyle": {
+                "full": true
             },
             "siteSearchUrl": {
                 "value": ""
@@ -111,10 +115,14 @@
         },
         "siteSearchAsset": {
             "value": "#",
+            "placeholder": "",
             "icons": {
                 "menu-icon": "qld__icon__mobile-menu",
                 "search-icon": "qld__icon__search",
                 "search-close-icon": "qld__icon__close"
+            },
+            "borderStyle": {
+                "full": false
             },
             "siteSearchUrl": {
                 "value": ""

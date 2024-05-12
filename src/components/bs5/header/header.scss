@@ -59,7 +59,7 @@
 		background-color: var(--#{$prefix}header__pre-header_bg_color);
 		box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
 		position: relative;
-		z-index: 1;
+		z-index: 2;
 		padding-bottom: .75rem;
 		padding-top: .75rem;
 
@@ -395,7 +395,7 @@
 	//Reduce size of whitebar on masterbrand
 	&__main--masterbrand--true {
 		@include media-breakpoint-down(lg) {
-			display: none;
+			height: 1px;
 		}
 	}
 	
@@ -412,18 +412,30 @@
 
 			input[type="text"] {
 				border: none;
-				width: 320px;
-				color: var(--site-search-input-color);
 				border-bottom: 2px solid var(--site-search-border-color);
+				width: 20.62rem;
+				color: var(--site-search-input-color);
 				background: var(--site-search-bg);
 				border-radius: 0.25rem 0 0 0;
 				padding-left: 3rem;
 				box-shadow: none;
+
+				@include media-breakpoint-down(lg) {
+					border: 2px solid var(--site-search-border-color);
+					width: 100%;
+				}
+
 				&:focus {
 					outline: 2px solid var( --site-search-input-focus-color);
 					outline-offset: 2px;
 				}
+
+				&.border-full {
+					border: 2px solid var(--site-search-border-color);
+					border-radius: 0.25rem 0 0 0.25rem;
+				}
 			}
+			
 
 			input[type="submit"] {
 				border: none;
@@ -451,13 +463,13 @@
 		@include media-breakpoint-down(lg) {
 			// Mobile search open class
 			&--open {
+				z-index: 1;
 				display: block;
 				position: absolute;
 				left: 0;
 				right: 0;
-				top: 0;
-				z-index: 1;
 				padding: 1rem;
+				margin-top: 2.5rem;
 				background-color: var(--#{$prefix}header_bg);
 			}
 			&--closed {
