@@ -67,10 +67,10 @@
     --#{$prefix}header_bg: var(--#{$prefix}header-color-light-background);
 
     // Skip links
-    --#{$prefix}header_skip-link_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}header-color-light-focus);
-    --#{$prefix}header_skip-link_focus_text_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}header-color-light-background);
+    --#{$prefix}header_skip-link_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}header-color-dark-focus);
+    --#{$prefix}header_skip-link_focus_text_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}header-color-dark-background__shade);
 
     // Pre-header bar
     --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-dark-text);
@@ -126,7 +126,6 @@
     // ------------------------------------------------------------------------------------------------------------------
     .dark &,
     .dark-alt & {
-
         // Root (dark/dark-alt)
         --#{$prefix}header_color: var(--#{$prefix}header-color-dark-text);
 
