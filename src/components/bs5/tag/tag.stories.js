@@ -7,7 +7,7 @@ export default {
   title: 'Components/Tag',
   render: (args) => new Tag(args).html,
   argTypes: {
-    varient: {
+    variant: {
       description: `Tags theme`,
       control: {
         type: "radio",

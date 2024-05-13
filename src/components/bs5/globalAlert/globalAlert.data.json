@@ -2,7 +2,7 @@
 	"critical": {
 		"alertItems": [
 			{
-				"varient": "global-alert-critical",
+				"variant": "global-alert-critical",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
 			}
@@ -11,7 +11,7 @@
 	"warning": {
 		"alertItems": [
 			{
-				"varient": "global-alert-warning",
+				"variant": "global-alert-warning",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
 			}
@@ -20,42 +20,42 @@
 	"info": {
 		"alertItems": [
 			{
-				"varient": "global-alert-info",
+				"variant": "global-alert-info",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
 			}
 		]
 	},
 	"multiple": {
-		"varient": "global-alert-multiple",
+		"variant": "global-alert-multiple",
 		"alertItems": [
 			{
-				"varient": "global-alert-warning",
+				"variant": "global-alert-warning",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
 			},
 			{
-				"varient": "global-alert-warning",
+				"variant": "global-alert-warning",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
 			},
 			{
-				"varient": "global-alert-critical",
+				"variant": "global-alert-critical",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
 			},
 			{
-				"varient": "global-alert-critical",
+				"variant": "global-alert-critical",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
 			},
 			{
-				"varient": "global-alert-info",
+				"variant": "global-alert-info",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
 			},
 			{
-				"varient": "global-alert-info",
+				"variant": "global-alert-info",
 				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
 			}

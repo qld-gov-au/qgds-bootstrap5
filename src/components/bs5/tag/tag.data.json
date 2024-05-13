@@ -1,6 +1,6 @@
 {
 	"default": {
-		"varient": "tag-default",
+		"variant": "tag-default",
 		"tagItems": [
 			{
 				"id": "One",
@@ -17,7 +17,7 @@
 		]
 	},
 	"large": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
@@ -37,7 +37,7 @@
 		]
 	},
 	"action": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
@@ -58,7 +58,7 @@
 	},
 	"dark": {
 		"classes": "",
-		"varient": "tag-dark",
+		"variant": "tag-dark",
 		"tagItems": [
 			{
 				"id": "One",
@@ -75,7 +75,7 @@
 		]
 	},
 	"info": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
@@ -95,7 +95,7 @@
 		]
 	},
 	"filter": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
