@@ -32,10 +32,6 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
 
 .breadcrumb {
     font-size: 0.875rem;
-
-    .dark & a {
-        color: var(--#{$prefix}white);
-    }
 }
 
 .breadcrumb-item {
@@ -44,6 +40,13 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
 
     &:nth-last-child(2) {
         display: list-item;
+
+        &:before {
+            content: var(--#{$prefix}breadcrumb-divider);
+            float: left;
+            padding-right: var(--qld-breadcrumb-item-padding-x);
+            width: 1rem;
+        }
     }
 
     + .breadcrumb-item {
@@ -85,7 +88,7 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
         // Show all breadcrumbs on large screens
         display: list-item;
 
-        &:nth-last-child(2):before {
+        &:nth-last-child(2):not(:first-child):before {
             // Show divider before parent page
             content: var(--#{$prefix}breadcrumb-divider-flipped);
         }
