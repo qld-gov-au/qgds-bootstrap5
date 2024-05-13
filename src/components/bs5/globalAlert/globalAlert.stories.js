@@ -7,7 +7,7 @@ export default {
   title: 'Components/GlobalAlert',
   render: (args) => new GlobalAlert(args).html,
   argTypes: {
-    varient: {
+    variant: {
       description: `Global alert theme`,
       control: {
         type: "radio",
