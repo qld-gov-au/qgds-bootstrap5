@@ -229,13 +229,12 @@
 
     .dropdown { 
         &-menu {
-
+            background-color: var(--#{$prefix}navbar-dropdown-bg-color);
+            
             // Override the default bs-popper margin
             &[data-bs-popper] {
                 margin-top: 0;
             }
-
-            background-color: var(--#{$prefix}navbar-dropdown-bg-color);
             
             @include media-breakpoint-up(lg) {
                 left: 0;

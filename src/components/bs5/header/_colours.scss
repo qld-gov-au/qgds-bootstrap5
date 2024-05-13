@@ -89,6 +89,7 @@
     --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}header-color-dark-link);
     --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}header-color-dark-alt-button);
     --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}header-color-dark-alt-button__hover);
+    --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}header-color-dark-background);
 
     // Toggle main navigation
     --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}header-color-dark-link);
@@ -189,5 +190,6 @@
     .dark & {
         --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-background);
         --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-alt-background);
+        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}header-color-dark-alt-background);
     }
 }

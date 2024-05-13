@@ -37,8 +37,18 @@ let activePoppers = [];
 export function initializeNavbar() {
   const dropdownToggles = document.querySelectorAll('.navbar .dropdown-toggle');
   const navbarCollapse = document.getElementById('navbarSupportedContent');
+  const dropdownItems = document.querySelectorAll('ul.dropdown-menu');
   const overlay = document.getElementById('overlay');
 
+  // Add event listeners to each dropdown item
+  dropdownItems.forEach(item => {
+      item.addEventListener('click', function(event) {
+          // Stop the event from propagating - Bootstrap default click closes
+          event.stopPropagation();  
+      });
+  });
+
+  // Overlay on mobile open
   overlay.addEventListener('click', function () {
     // Check if the navbar is open
     if (navbarCollapse.classList.contains('show')) {
