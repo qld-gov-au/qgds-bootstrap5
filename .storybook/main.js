@@ -25,8 +25,7 @@ const config = {
     //Autodocs for each component
     //https://storybook.js.org/docs/writing-docs/autodocs
     docs: {
-        autodocs: "tag",
-        defaultName: 'Overview',
+        defaultName: 'Overview'
     },
 
 
