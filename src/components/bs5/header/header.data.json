@@ -140,9 +140,10 @@
                 "dropdown_options": {
                     "dropdown_type": "form",
                     "dropdown_config": {
+                        "primary_heading": "Title of Form",
                         "button_action": "#",
                         "button_targetAttr": "_blank",
-                        "button_label": "Login"
+                        "button_label": "Label"
                     }
                 }
             }

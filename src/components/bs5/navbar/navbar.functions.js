@@ -1,4 +1,5 @@
 import { createPopper } from '@popperjs/core';
+
 /**
  * Initializes a Popper.js instance for dropdown elements.
  *
@@ -18,7 +19,7 @@ export function initializeDropdownPopper(referenceElement, popperElement) {
     }, {
       name: 'preventOverflow',
       options: {
-        boundariesElement: 'viewport',
+        boundary: 'viewport',
       },
     }],
   });
@@ -74,12 +75,13 @@ export function initializeNavbar() {
       const parentUl = toggle.closest('ul.navbar-nav');
       const firstLi = parentUl.querySelector('.nav-item-home');
       const dropdownMenu = toggle.parentNode.querySelector('.dropdown-menu');
-
+     
       // Check if a Popper instance should be activated or not
       const resizeHandler = () => {
         if (window.innerWidth > 992) {
           if (!dropdownMenu.dataset.popperActive) {
             let popperInstance = initializeDropdownPopper(firstLi, dropdownMenu);
+            console.log(popperInstance);
             dropdownMenu.dataset.popperActive = 'true';
             activePoppers.push(popperInstance);
           } else {
@@ -89,6 +91,7 @@ export function initializeNavbar() {
             });
           }
         } else {
+          const dropdownMenu = toggle.closest('.nav-item').querySelector('.dropdown-menu');
           if (dropdownMenu.dataset.popperActive) {
             activePoppers.forEach(popperInstance => popperInstance.destroy());
             activePoppers = []; // Clear out the array after destroying instances
@@ -103,3 +106,6 @@ export function initializeNavbar() {
     });
   });
 }
+
+// Initialize the navbar
+// document.addEventListener('DOMContentLoaded', initializeNavbar);
