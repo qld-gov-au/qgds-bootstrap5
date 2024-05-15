@@ -21,6 +21,12 @@ $video-play-icon-dark: url("data:image/svg+xml,<svg width='32' height='21' viewB
 $video-play-icon-hover-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path fill='#{$video-icon-color-dark}' d='M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z'/></svg>");
 $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color-dark}'><path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z' /></svg>"); // Material Symbols 'Schedule'
 
+$view-all-icon-color: $qld-light-action-secondary;
+$view-all-icon: url("data:image/svg+xml,<svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.3867 6.32031C11.1523 6.08594 10.7227 6.08594 10.4883 6.32031C10.2539 6.55469 10.2539 6.98437 10.4883 7.21875L13.1836 9.875L5.95703 9.875C5.60547 9.875 5.33203 10.1875 5.33203 10.5C5.33203 10.8516 5.60547 11.125 5.95703 11.125L13.1836 11.125L10.4883 13.8203C10.2539 14.0547 10.2539 14.4844 10.4883 14.7187C10.7227 14.9531 11.1523 14.9531 11.3867 14.7187L15.1367 10.9687C15.2539 10.8516 15.332 10.6953 15.332 10.5C15.332 10.3437 15.2539 10.1875 15.1367 10.0703L11.3867 6.32031ZM10.332 0.5C4.78516 0.5 0.332031 4.99219 0.332031 10.5C0.332031 16.0469 4.78516 20.5 10.332 20.5C15.8398 20.5 20.332 16.0469 20.332 10.5C20.332 4.99219 15.8398 0.5 10.332 0.5ZM10.332 19.25C5.48828 19.25 1.58203 15.3438 1.58203 10.5C1.58203 5.69531 5.48828 1.75 10.332 1.75C15.1367 1.75 19.082 5.69531 19.082 10.5C19.082 15.3437 15.1367 19.25 10.332 19.25Z' fill='#{$view-all-icon-color}' /></svg>");
+
+$view-all-icon-dark-color: $qld-dark-action-secondary;
+$view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.3867 6.32031C11.1523 6.08594 10.7227 6.08594 10.4883 6.32031C10.2539 6.55469 10.2539 6.98437 10.4883 7.21875L13.1836 9.875L5.95703 9.875C5.60547 9.875 5.33203 10.1875 5.33203 10.5C5.33203 10.8516 5.60547 11.125 5.95703 11.125L13.1836 11.125L10.4883 13.8203C10.2539 14.0547 10.2539 14.4844 10.4883 14.7187C10.7227 14.9531 11.1523 14.9531 11.3867 14.7187L15.1367 10.9687C15.2539 10.8516 15.332 10.6953 15.332 10.5C15.332 10.3437 15.2539 10.1875 15.1367 10.0703L11.3867 6.32031ZM10.332 0.5C4.78516 0.5 0.332031 4.99219 0.332031 10.5C0.332031 16.0469 4.78516 20.5 10.332 20.5C15.8398 20.5 20.332 16.0469 20.332 10.5C20.332 4.99219 15.8398 0.5 10.332 0.5ZM10.332 19.25C5.48828 19.25 1.58203 15.3438 1.58203 10.5C1.58203 5.69531 5.48828 1.75 10.332 1.75C15.1367 1.75 19.082 5.69531 19.082 10.5C19.082 15.3437 15.1367 19.25 10.332 19.25Z' fill='#{$view-all-icon-dark-color}' /></svg>");
+
 
 .card {
 
@@ -98,6 +104,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         --#{$prefix}card-icon-font-size: 1.5rem;
     }
 
+    .view-all {
+        --#{$prefix}card-view-all-icon: #{escape-svg($view-all-icon)};
+    }
+
     // Colour variants
     &-light {
         --#{$prefix}card-bg: var(--#{$prefix}light-background);
@@ -125,6 +135,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 
         &.card-arrow {
             --#{$prefix}card-arrow-icon: #{escape-svg($card-arrow-icon-dark)};
+        }
+
+        .view-all {
+            --#{$prefix}card-view-all-icon: #{escape-svg($view-all-icon-dark)};
         }
 
         .video-overlay {
@@ -391,6 +405,25 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 
             .tag-item {
                 margin: 0;
+            }
+        }
+
+        .view-all {
+            text-align-last: end;
+
+            a {
+                padding: 0.25rem 0.25rem 0.5rem;
+
+                &:after {
+                    content: '';
+                    background-image: var(--#{$prefix}card-view-all-icon);
+                    background-size: cover;
+                    display: inline-block;
+                    height: 2rem;
+                    width: 2rem;
+                    vertical-align: middle;
+                    margin-left: 0.5rem;
+                }
             }
         }
     }
