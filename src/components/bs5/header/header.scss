@@ -137,21 +137,40 @@
 			display: none;
 			margin-left: auto;
 
-			// Preheader CTA dropdowns
+			// Preheader CTA dropdown - custom functionality:
 			.dropdown {
 				.dropdown-menu.show {
 					width: 20.25rem;
 					min-height: 1rem;
-					padding: 1rem;
+					padding: 2rem;
 					background-color: var(--#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color);
 					box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
-					h4 {
-						margin-top: 2.5rem;
-					}
+
 					a.btn-primary {
 						margin: 1.25rem 0 0.5rem 0;
 						text-decoration-color: inherit;
     					text-decoration-thickness: inherit;
+					}
+
+					.group {
+						a {
+							font-weight: 600;
+							color: var(--#{$prefix}header__CTA_text_color);
+							&:visited {
+								color: var(--#{$prefix}header__CTA_text_color);
+							}
+						}
+					}
+
+					li.qld__header__cta-list {
+						a {
+							padding: 1rem 0;
+							border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+							svg {
+								float: right;
+								vertical-align: middle;
+							}
+						}
 					}
 				}
 			}

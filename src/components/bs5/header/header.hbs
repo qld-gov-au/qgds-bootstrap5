@@ -176,96 +176,95 @@
             </a>
 
             <div class="qld__header__cta-wrapper">
-                {{#if sitePreHeader.mainNavCtaOne.value}}
-                <div class="dropdown">
-                    <a id="dropdownCTAOne" class="qld__header__cta-link" href="{{sitePreHeader.mainNavCtaOne.value}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{#if sitePreHeader.mainNavCtaOne.icon.value}}
-                            <span class="qld__header__cta-link-icon">
-                                <i class="{{icon-root}}#{{sitePreHeader.mainNavCtaOne.icon.value}}"></i>
-                            </span>
-                        {{/if}}
-                        <span class="qld__header__cta-link-text">{{sitePreHeader.mainNavCtaOne.text.value}}</span>
-                    </a>
-                    {{#if sitePreHeader.mainNavCtaOne.dropdown_enabled}}
-                    <ul class="dropdown-menu dark" aria-labelledby="dropdownCTAOne">
-                        {{#isType sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_type "list"}}
-                            <li><a class="dropdown-item" href="{{sitePreHeader.mainNavCtaOne.value}}"></a></li>
-                        {{/isType}}
-                        {{#isType sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_type "form"}}
-                            {{#if sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_config.primary_heading}}{{sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_config.primary_heading}}{{/if}}
-                            {{#if sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_config}}
-                                    <a class="btn btn-primary" href="{{sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_config.button_action}}" {{#isType sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_config.button_targetAttr "_blank"}}target="_blank"{{/isType}}>
-                                        <span class="btn-icon fa-solid fa-arrow-up-right-from-square"></span>{{sitePreHeader.mainNavCtaOne.dropdown_options.dropdown_config.button_label}}
-                                    </a>
-                            {{/if}}
-                        {{/isType}}
-                    </ul>
-                    {{/if}}
-                </div>
-                {{/if}}
-                {{#if sitePreHeader.mainNavCtaTwo.value}}
-                <div class="dropdown"> 
-                    <a id="dropdownCTATwo" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="qld__header__cta-link" href="{{sitePreHeader.mainNavCtaTwo.value}}">
-                        {{#if sitePreHeader.mainNavCtaTwo.icon.value}}
-                        <span class="qld__header__cta-link-icon">
-                            <i class="{{icon-root}}#{{sitePreHeader.mainNavCtaTwo.icon.value}}"></i>
-                        </span>
-                        {{/if}}
-                        <span class="qld__header__cta-link-text">{{sitePreHeader.mainNavCtaTwo.text.value}}</span>
-                    </a>
-                    {{#if sitePreHeader.mainNavCtaTwo.dropdown_enabled}}
-                    <ul class="dropdown-menu dark" aria-labelledby="dropdownCTATwo">
-                        {{#isType sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_type "list"}}
-                            <li><a class="dropdown-item" href="{{sitePreHeader.mainNavCtaTwo.value}}"></a></li>
-                        {{/isType}}
-                        {{#isType sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_type "form"}}
-                        {{#if sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_config}}
-                               {{#if sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_config.primary_heading}}{{sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_config.primary_heading}}{{/if}}
-                                <a class="btn btn-primary" href="{{sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_config.button_action}}" {{#isType sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_config.button_targetAttr "_blank"}}target="_blank"{{/isType}}>
-                                    <span class="btn-icon fa-solid fa-arrow-up-right-from-square"></span>{{sitePreHeader.mainNavCtaTwo.dropdown_options.dropdown_config.button_label}}
+                {{#if sitePreHeader.CTA}}
+                    {{#each sitePreHeader.CTA}}
+                            <div {{#if dropdown_enabled}}class="dropdown dropdownCTA"{{/if}}>
+                                <a {{#if dropdown_enabled}}id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="qld__header__cta-link" {{else}} href="{{url.value}}" class="qld__header__cta-link" {{/if}}>
+                                    {{#if icon.value}}
+                                        <span class="qld__header__cta-link-icon">
+                                            <i class="{{icon-root}}#{{icon.value}}"></i>
+                                        </span>
+                                    {{/if}}
+                                    <span class="qld__header__cta-link-text">{{text.value}}</span>
                                 </a>
-                        {{/if}}
-                        {{/isType}}
-                    </ul>
-                    {{/if}}
-                </div>
-                {{/if}}
-                {{#if sitePreHeader.mainNavCtaThree.value}}
-                <div class="dropdown"> 
-                    <a id="dropdownCTAThree" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="qld__header__cta-link" href="{{sitePreHeader.mainNavCtaTwo.value}}">
-                        {{#if sitePreHeader.mainNavCtaThree.icon.value}}
-                        <span class="qld__header__cta-link-icon">
-                            <i class="{{icon-root}}#{{sitePreHeader.mainNavCtaThree.icon.value}}"></i>
-                        </span>
-                        {{/if}}
-                        <span class="qld__header__cta-link-text">{{sitePreHeader.mainNavCtaThree.text.value}}</span>
-                    </a>
 
-                    {{#if sitePreHeader.mainNavCtaThree.dropdown_enabled}}
-                    <ul class="dropdown-menu dark" aria-labelledby="dropdownCTAThree">
-                        {{#isType sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_type "list"}}
-                            <li><a class="dropdown-item" href="{{sitePreHeader.mainNavCtaThree.value}}"></a></li>
-                        {{/isType}}
-                        {{#isType sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_type "form"}}
-                           {{#if sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_config}}
-                                {{#if sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_config.primary_heading}}{{sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_config.primary_heading}}{{/if}}
-                                <a class="btn btn-primary" href="{{sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_config.button_action}}" {{#isType sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_config.button_targetAttr "_blank"}}target="_blank"{{/isType}}>
-                                    <span class="btn-icon fa-solid fa-arrow-up-right-from-square"></span>{{sitePreHeader.mainNavCtaThree.dropdown_options.dropdown_config.button_label}}
-                                </a>
-                           {{/if}}
-                        {{/isType}}
-                    </ul>
-                    {{/if}}
-                </div>
+                                {{#if dropdown_enabled}}
+                                    <ul class="dropdown-menu dark" aria-labelledby="dropdown{{id}}">
+
+                                        {{#isType dropdown_options.dropdown_type "list"}}
+                                            {{#if dropdown_options.dropdown_config}}
+                                                {{#each dropdown_options.dropdown_config.groups}}
+                                                    <li class="qld__header__cta-list">
+                                                        <a class="" href="{{href}}">
+                                                            {{label}}
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z" fill="#FFE500"/>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                {{/each}}
+                                            {{/if}}
+                                        {{/isType}}
+
+                                        {{#isType dropdown_options.dropdown_type "form"}}
+                                            {{#if dropdown_options.dropdown_config.groups}}
+                                                {{#each dropdown_options.dropdown_config.groups}}
+
+                                                    {{#if heading}}<h4 class="mt-2">{{heading}}</h4>{{/if}}
+                                                    {{#if content}}<p>{{content}}</p>{{/if}}
+
+                                                    {{#isType actionType "button"}}
+                                                        <a class="btn btn-primary" href="{{action.button_action}}" {{#isType
+                                                            action.button_targetAttr "_blank" }} target="_blank" {{/isType}}>
+                                                            <span class="btn-icon fa-solid fa-arrow-up-right-from-square"></span>
+                                                                {{action.button_label}}
+                                                        </a>
+                                                    {{/isType}}
+
+                                                    {{#each links}}
+                                                    <div class="group"> 
+                                                        <a class="mt-4 qld__header__cta-group-list" href="{{url}}">{{label}}</a>
+                                                    </div>
+                                                    <hr>
+                                                    {{/each}}
+
+                                                    {{#isType actionType "list"}}
+                                                        {{#each list_items}}
+                                                                <ul>
+                                                                    <li class="qld__header__cta-group-list group">
+                                                                        <a href="{{url}}">{{label}}</a>
+                                                                    </li>
+                                                                </ul>
+                                                                <hr>
+                                                        {{/each}}
+                                                    {{/isType}}
+
+                                                    {{#isType actionType "select"}}
+                                                        <select class="qld-text-input form-select qld-select" aria-label="" required=""
+                                                            aria-required="">
+                                                                <option selected="">Please select</option>
+                                                                {{#each options}}
+                                                                    <option value="{{value}}">{{value}}</option>
+                                                                {{/each}}
+                                                        </select>
+                                                    {{/isType}}
+
+                                                {{/each}}
+                                            {{/if}}
+                                        {{/isType}}
+                                    </ul>
+                                {{/if}}
+                            </div>
+                     {{/each}}
                 {{/if}}
             </div>
 
             <div class="qld__header__main-nav-controls">
                 {{#if siteSearchAsset.value}}
                 <button aria-controls="qld-header-search"
-                    class="qld__header__toggle-main-nav qld__main-nav__toggle-search"
-                    aria-expanded="false">
-                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
+                    class="qld__header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                        class="qld__icon qld__icon--lg">
                         <use href="{{icon-root}}#{{siteSearchAsset.options.icons.search-icon}}"></use>
                     </svg>
                     <span class="qld__main-nav__toggle-text">Search</span>
@@ -274,9 +273,10 @@
                 <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                        class="qld__icon qld__icon--lg">
                         <use href="{{icon-root}}#{{siteSearchAsset.options.icons.menu-icon}}"></use>
-                        </svg>
+                    </svg>
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
             </div>
@@ -291,7 +291,7 @@
                     <div class="qld__header__brand-image">
                         {{#if siteHeader.logo.value}}
                         <img src="{{siteHeader.logo.value}}" width="329.57" height="56">
-                            <title>Queensland Government</title>
+                        <title>Queensland Government</title>
                         </img>
                         {{else}}
                         <svg width="330" height="56" viewBox="0 0 330 56" fill="none"
@@ -673,9 +673,13 @@
 
             {{#if siteSearchAsset.value}}
             <div id="qld-header-search" class="qld__header__site-search qld__header__site-search--closed">
-                <form id="site-search" {{#if siteSearchAsset.formAction.url}}action="{{siteSearchAsset.formAction.url}}"{{/if}}>
-                    <input type="text" class="form-control{{#if siteSearchAsset.options.borderStyle.full}} border-full{{/if}}" placeholder="{{#if siteSearchAsset.placeholder}}{{siteSearchAsset.placeholder}}{{else}}Search this site{{/if}}">
-                    <input type="submit" class="btn btn-primary" value="{{#if siteSearchAsset.label}}{{siteSearchAsset.label}}{{else}}Search{{/if}}">
+                <form id="site-search" {{#if siteSearchAsset.formAction.url}}action="{{siteSearchAsset.formAction.url}}"
+                    {{/if}}>
+                    <input type="text"
+                        class="form-control{{#if siteSearchAsset.options.borderStyle.full}} border-full{{/if}}"
+                        placeholder="{{#if siteSearchAsset.placeholder}}{{siteSearchAsset.placeholder}}{{else}}Search this site{{/if}}">
+                    <input type="submit" class="btn btn-primary"
+                        value="{{#if siteSearchAsset.label}}{{siteSearchAsset.label}}{{else}}Search{{/if}}">
                 </form>
             </div>
             {{/if}}

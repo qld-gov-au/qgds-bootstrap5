@@ -46,7 +46,6 @@
     // ------------------------------------------------------------------------------------------------------------------
     //  2. Second hand variables (each variant, default, light, dark, dark-alt)
     // ------------------------------------------------------------------------------------------------------------------
-
     //  Search
     --#{$prefix}header-site-search-bg: var(--#{$prefix}header-color-light-background__shade);
     --#{$prefix}header-site-search-btn-color: var(--#{$prefix}header-color-dark-text);
@@ -90,6 +89,9 @@
     --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}header-color-dark-alt-button);
     --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}header-color-dark-alt-button__hover);
     --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}header-color-dark-background);
+
+    --#{$prefix}header__CTA_text_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header__CTA_border_color: var(--#{$prefix}header-color-dark-border);
 
     // Toggle main navigation
     --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}header-color-dark-link);
