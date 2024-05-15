@@ -372,7 +372,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         position: relative;
         padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
         width: 100%;
-        flex: 0 1 100%;
+        flex: 0 1 auto;
 
         &:before {
             content: "";
