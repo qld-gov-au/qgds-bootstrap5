@@ -172,5 +172,5 @@ jobs:
         if: ${{ env.DO_DEPLOYMENT != 'true' }}
         run: |
           echo "### Publish skipped" >> $GITHUB_STEP_SUMMARY
-          echo "DO_DEPLOYMENT: github.event_name: ${{ github.event_name != 'workflow_dispatch'}} || github.event.inputs.force: ${{ github.event.inputs.force == 'Yes' }}"  >> $GITHUB_STEP_SUMMARY
+          echo "DO_DEPLOYMENT( ${{ env.DO_DEPLOYMENT }} ): github.event_name: ${{ github.event_name != 'workflow_dispatch'}} || github.event.inputs.force: ${{ github.event.inputs.force == 'Yes' }}"  >> $GITHUB_STEP_SUMMARY
           

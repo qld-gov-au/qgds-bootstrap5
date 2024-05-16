@@ -79,7 +79,8 @@ jobs:
     env:
       HAVE_DEPLOY_KEY: ${{ secrets.npm_token != '' }}
       #When run on push tags, force is '', default for workflow_dispatch is No so you can't trigger without a double action
-      DO_DEPLOYMENT: ${{ github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' }}
+      WORKFLOW_DEPLOYMENT: ${{ github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' }}
+      DO_DEPLOYMENT: ${{ secrets.npm_token != '' && ( github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' ) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -136,23 +137,23 @@ jobs:
 #          package-json: ./package.json
 #
       - name: Publish
-        run: npm publish
-        if: ${{ env.HAVE_DEPLOY_KEY == 'true' && env.DO_DEPLOYMENT == 'true' }}
+        if: ${{ env.DO_DEPLOYMENT == 'true' }}
+        run: | 
+            npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
       - name: NPM Publish - Is Skipped
         if: ${{ env.HAVE_DEPLOY_KEY != 'true' }}
         run: |
-          echo "### Deployment config not configured" >> $GITHUB_STEP_SUMMARY
-          echo "secrets.npm_token not existing, npm publish can't be pushed" >> $GITHUB_STEP_SUMMARY
-          echo "If this is a fork, please setup your own personal service account to publish to your own npmjs.org prefix" >> $GITHUB_STEP_SUMMARY
-          echo "## We recommend using a service account with the least permissions necessary."  >> $GITHUB_STEP_SUMMARY
-          echo "[npm Access Tokens](https://www.npmjs.com/settings/duttonw/tokens)"  >> $GITHUB_STEP_SUMMARY
+            echo "### Deployment config not configured" >> $GITHUB_STEP_SUMMARY
+            echo "secrets.npm_token not existing, npm publish can't be pushed" >> $GITHUB_STEP_SUMMARY
+            echo "If this is a fork, please setup your own personal service account to publish to your own npmjs.org prefix" >> $GITHUB_STEP_SUMMARY
+            echo "## We recommend using a service account with the least permissions necessary."  >> $GITHUB_STEP_SUMMARY
+            echo "[npm Access Tokens](https://www.npmjs.com/settings/duttonw/tokens)"  >> $GITHUB_STEP_SUMMARY
 
-        - name: Publish - Skipped
-          if: ${{ env.DO_DEPLOYMENT != 'true' }}
-          run: |
-            echo "### Publish skipped" >> $GITHUB_STEP_SUMMARY
-            echo "DO_DEPLOYMENT: github.event_name: ${{ github.event_name != 'workflow_dispatch'}} || github.event.inputs.force: ${{ github.event.inputs.force == 'Yes' }}"  >> $GITHUB_STEP_SUMMARY
+      - name: Publish - Skipped
+        if: ${{ env.DO_DEPLOYMENT != 'true' }}
+        run: |
+          echo "### Publish skipped" >> $GITHUB_STEP_SUMMARY
+          echo "DO_DEPLOYMENT: github.event_name: ${{ github.event_name != 'workflow_dispatch'}} || github.event.inputs.force: ${{ github.event.inputs.force == 'Yes' }}"  >> $GITHUB_STEP_SUMMARY
 
