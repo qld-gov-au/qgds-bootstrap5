@@ -107,5 +107,5 @@ export function initializeNavbar() {
   });
 }
 
-// Initialize the navbar
+// Initialize the navbar (see main.js)
 // document.addEventListener('DOMContentLoaded', initializeNavbar);

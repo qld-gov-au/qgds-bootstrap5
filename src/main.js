@@ -21,9 +21,12 @@ window.addEventListener('keydown', initQuickexit, true);
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
 
-    //Header 
-    document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
-    
+    //Header
+    let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search'); 
+    if(headerSearchButton) {
+      document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
+    }
+
     // Navbar
     initializeNavbar();
 
@@ -67,6 +70,10 @@ window.addEventListener("DOMContentLoaded", () => {
     videoTranscripts.forEach(function (transcript) {
       transcript.addEventListener("click", videoTranscriptTitle)
     })
+
+
+    //Modal
+
 
   })();
 });
