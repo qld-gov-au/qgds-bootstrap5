@@ -124,6 +124,9 @@
     --site-search-input-focus-color: var(--#{$prefix}header-color-light-focus);
     --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
 
+    // Search dropdown
+    --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-light-background__shade);
+
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Dark/dark-alt modes
     // ------------------------------------------------------------------------------------------------------------------
@@ -182,6 +185,9 @@
         --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
         --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
         --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
+
+        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-dark-background__shade);
+
     }
 
     .dark-alt & {

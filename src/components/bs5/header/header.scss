@@ -472,6 +472,38 @@
 				color: var(--site-search-input-color);
 			}
 
+			.suggestions {
+				z-index: 99;
+				width: 100%;
+
+				&-dropdown {
+					display: none;
+					list-style: none;
+					border-radius: .5rem;
+					width: 100%;
+					color: var(--site-search-input-color);
+					background: var(--#{$prefix}header_site-search-suggestions-bg);
+					box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
+	
+
+					&__group {
+						height: 3rem;
+						padding: 0.75rem 1rem 0.75rem 1rem;
+
+						strong, 
+						a {
+							color: var(--site-search-input-color);
+							font-weight: 400;
+							font-size: 1rem;
+							line-height: 1.5rem;
+						}
+						strong {
+							font-weight: 600;
+						}
+					}
+				}
+			}
+
 			input[type="text"] {
 				border: none;
 				border-bottom: 2px solid var(--site-search-border-color);

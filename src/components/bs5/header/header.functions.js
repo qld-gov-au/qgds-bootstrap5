@@ -1,3 +1,5 @@
+import { createPopper } from '@popperjs/core';
+
 /**
  * Toggles the class on a search div based on button click.
  *
@@ -21,7 +23,7 @@ export function toggleSearch(event) {
   const toggleButton = event.currentTarget;
   const toggleIcon = toggleButton.querySelector('svg use');
   const toggleText = toggleButton.querySelector('.qld__main-nav__toggle-text');
-  
+
   // Check current class and swap
   if (searchDiv) {
     if (searchDiv.classList.contains('qld__header__site-search--open')) {
@@ -46,3 +48,56 @@ export function toggleSearch(event) {
     event.currentTarget.setAttribute('aria-expanded', isExpanded);
   }
 }
+
+/**
+ * Shows suggestions based on the user's input.
+ *
+ * @param {string} value - The current input value.
+ * @returns {void}
+ */
+export function showSuggestions(value) {
+  const suggestions = document.getElementById('suggestions');
+  const searchInput = document.getElementById('search-input');
+
+  if (value.length === 0) {
+      suggestions.innerHTML = '';
+      suggestions.style.display = 'none';
+      return;
+  }
+
+  // Loaded suggestions in JSON - replace this with your own objects
+  const loadedSuggestions = ['Apple', 'Banana', 'Cherry', 'Date', 'Date', 'Date', 'Date', 'Date', 'Date', 'Elderberry', 'Fig', 'Grape', 'Honeydew'];
+  const filteredSuggestions = loadedSuggestions.filter(item => item.toLowerCase().includes(value.toLowerCase()));
+
+  if (filteredSuggestions.length === 0) {
+      suggestions.innerHTML = '';
+      suggestions.style.display = 'none';
+      return;
+  }
+
+  suggestions.innerHTML = filteredSuggestions.map(item => `<li onclick="selectSuggestion('${item}')"><a href="#">${item}</a></li>`).join('');
+  suggestions.style.display = 'block';
+
+  // Initialize Popper.js to manage the dropdown position
+  createPopper(searchInput, suggestions, {
+      placement: 'bottom-start',
+  });
+}
+
+/**
+* Sets the selected suggestion into the input field.
+*
+* @param {string} value - The selected suggestion.
+* @returns {void}
+*/
+export function selectSuggestion(value) {
+  document.getElementById('search-input').value = value;
+  document.getElementById('suggestions').style.display = 'none';
+}
+
+/** 
+// Event listener for the search input 
+document.getElementById('search-input').addEventListener('keyup', function() {
+  showSuggestions(this.value);
+});
+*/
