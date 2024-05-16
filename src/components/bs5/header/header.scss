@@ -140,11 +140,19 @@
 			// Preheader CTA dropdown - custom functionality:
 			.dropdown {
 				.dropdown-menu.show {
+
 					width: 20.25rem;
 					min-height: 1rem;
-					padding: 2rem;
+					padding: 1.5rem;
+					border-radius: 1rem;
 					background-color: var(--#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color);
 					box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
+
+					hr {
+						margin: 2rem 0;
+						color: var(--#{$prefix}header__CTA_border_color);
+						border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+					}
 
 					a.btn-primary {
 						margin: 1.25rem 0 0.5rem 0;
@@ -156,6 +164,7 @@
 						a {
 							font-weight: 600;
 							color: var(--#{$prefix}header__CTA_text_color);
+							text-decoration: underline var(--#{$prefix}header__CTA_text_color);
 							&:visited {
 								color: var(--#{$prefix}header__CTA_text_color);
 							}
@@ -164,11 +173,20 @@
 
 					li.qld__header__cta-list {
 						a {
-							padding: 1rem 0;
+							position: relative;
 							border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+							padding: 1rem 0;
+							&:visited {
+								color: var(--#{$prefix}header__CTA_text_color);
+							}
+							span,
 							svg {
-								float: right;
 								vertical-align: middle;
+							}
+							svg {
+								position: absolute;
+								top: .75rem;
+								right: 0;
 							}
 						}
 					}

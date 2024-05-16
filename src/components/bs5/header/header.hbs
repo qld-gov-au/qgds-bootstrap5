@@ -179,7 +179,17 @@
                 {{#if sitePreHeader.CTA}}
                     {{#each sitePreHeader.CTA}}
                             <div {{#if dropdown_enabled}}class="dropdown dropdownCTA"{{/if}}>
-                                <a {{#if dropdown_enabled}}id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="qld__header__cta-link" {{else}} href="{{url.value}}" class="qld__header__cta-link" {{/if}}>
+                                <a 
+                                    {{#if dropdown_enabled}}
+                                        id="dropdown{{id}}" 
+                                        role="button" 
+                                        data-bs-toggle="dropdown" 
+                                        aria-expanded="false" 
+                                        class="qld__header__cta-link" 
+                                    {{else}} 
+                                        href="{{url.value}}" 
+                                        class="qld__header__cta-link" 
+                                    {{/if}}>
                                     {{#if icon.value}}
                                         <span class="qld__header__cta-link-icon">
                                             <i class="{{icon-root}}#{{icon.value}}"></i>
@@ -195,7 +205,7 @@
                                             {{#if dropdown_options.dropdown_config}}
                                                 {{#each dropdown_options.dropdown_config.groups}}
                                                     <li class="qld__header__cta-list">
-                                                        <a class="" href="{{href}}">
+                                                        <a href="{{href}}">
                                                             {{label}}
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z" fill="#FFE500"/>
@@ -671,18 +681,20 @@
             </div>
             {{/if}}
 
-            {{#if siteSearchAsset.value}}
+           {{#if siteSearchAsset.value}}
             <div id="qld-header-search" class="qld__header__site-search qld__header__site-search--closed">
-                <form id="site-search" {{#if siteSearchAsset.formAction.url}}action="{{siteSearchAsset.formAction.url}}"
-                    {{/if}}>
+                <form id="site-search" {{#if siteSearchAsset.formAction.url}}action="{{siteSearchAsset.formAction.url}}"{{/if}}>
                     <input type="text"
                         class="form-control{{#if siteSearchAsset.options.borderStyle.full}} border-full{{/if}}"
-                        placeholder="{{#if siteSearchAsset.placeholder}}{{siteSearchAsset.placeholder}}{{else}}Search this site{{/if}}">
+                        placeholder="{{#if siteSearchAsset.placeholder}}{{siteSearchAsset.placeholder}}{{else}}Search this site{{/if}}"
+                        id="search-input">
+                    <div id="suggestions" class="suggestions-dropdown"></div>
                     <input type="submit" class="btn btn-primary"
                         value="{{#if siteSearchAsset.label}}{{siteSearchAsset.label}}{{else}}Search{{/if}}">
                 </form>
             </div>
             {{/if}}
+
         </div>
     </div>
 </header>
