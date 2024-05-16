@@ -4,14 +4,16 @@
     --bg-color: var(--qld-light-grey);
     --title-color: var(--headings-color);
     --lead-color: var(--body-color);
+    --max-width: 1600px;
 
     // Variants (text colour and backgrounds)
-    &.banner-alt {
+    &.alt {
         --bg-color: var(--qld-alt-grey);
+        --bg-texture: url(assets/img/banner-texture-tile-light.png);
     }
 
-    &.banner-dark,
-    &.banner-dark-alt {
+    &.dark,
+    &.dark-alt {
         --title-color: var(--qld-white);
         --lead-color: var(--qld-white);
 
@@ -25,30 +27,22 @@
         }
     }
 
-    &.banner-dark {
+    &.dark {
         --bg-color: var(--qld-primary);
+        --bg-texture: url(assets/img/banner-texture-tile-dark.png);
     }
 
-    &.banner-dark-alt {
-        --bg-color: #0C3B71; //Todo, add this colour to variables.scss (?) Was defined in Figma. 
+    &.dark-alt {
+        --bg-color:var(--qld-dark-alt-background); //Todo, add this colour to variables.scss (?) Was defined in Figma. 
     }
 
     //Padding
-    --padding-top: 1rem;
-    --padding-bottom: 2rem;
+    --padding-top: 3rem;
+    --padding-bottom: 3rem;
 
     @include media-breakpoint-up(md) {
-        --padding-top: 2.5rem;
+        --padding-top: 3rem;
         --padding-bottom: 3rem;
-    }
-}
-
-// DARK THEME
-@include color-mode(dark) {
-    .qld-banner {
-        // Inherits from :root dark mode variables, but can be overridden here.
-        --banner-title-color: var(--headings-color);
-        --banner-lead-color: var(--body-color);
     }
 }
 
@@ -59,12 +53,19 @@
     background-color: var(--bg-color);
     padding: var(--padding-top) 0 var(--padding-bottom) 0;
     position: relative;
+    max-width: var(--max-width);
+
+    &.with-pattern {
+        background-image: var(--bg-texture);
+        background-repeat: repeat;
+    }
 
     .banner-title {
         // Line height (52px) / Font-size (40px) = 1.3
         line-height: 1.3;
         color: var(--title-color);
-        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
         max-width: 90%;
     }
 
@@ -77,32 +78,56 @@
 
     .breadcrumb {
         color: var(--breadcrumb-color);
+        --qld-breadcrumb-padding-y: 0;
     }
+
+    .banner-cta {
+        margin-top: 1.5rem;
+
+        .btn {
+            margin-right: 0.75rem;
+        }
+    }
+
 
     //Image
     .banner-image {
-        --image-height: calc(100% + var(--padding-top) + var(--padding-bottom));
+        // --image-height: calc(100% + var(--padding-top) + var(--padding-bottom));
+        // width: calc(var(--image-height)/1.33);
+        // height: var(--image-height);
         position: absolute;
-        top: calc(var(--padding-top) * -1);
+        top: 0;
         right: 0;
-        height: var(--image-height);
-        width: calc(var(--image-height)/1.33);
-        background: url('../img/banner-example-3-to-2.jpg');
+        left: 60%;
+        height: 100%;
+        background: var(--background-img);
         background-size: cover;
         background-position: center center;
 
         //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle" 
         &--angle {
-            --banner-angle: 29%; //(angle in degrees)
+            --banner-angle: 20%; //(angle in degrees)
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--banner-angle) 100%);
         }
 
     }
 
     //Hide banner image below tablet
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         .banner-image {
             display: none;
+        }
+    }
+
+    //Stack buttons at very small viewports
+    @include media-breakpoint-down(sm) {
+        .banner-cta {
+            flex-direction: column;
+            .btn {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
     }
 

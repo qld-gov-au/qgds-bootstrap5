@@ -1,0 +1,11 @@
+{
+	"isDisabled": false,
+	"isRequired": true,
+	"customClass": "",
+	"label-text": "Label",
+	"placeholder": "Hello World",
+	"optional-text": "optional",
+	"hint-text": "Hint",
+	"successMessageText": "Success message",
+	"errorMessageText": "Error message"
+}

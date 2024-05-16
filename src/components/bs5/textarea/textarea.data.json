@@ -1,0 +1,12 @@
+{
+	"isDisabled": false,
+	"isRequired": true,
+	"customClass": "",
+	"rows": 3,
+	"label-text": "Label",
+	"placeholder": "Leave a comment here",
+	"optional-text": "optional",
+	"hint-text": "Hint",
+	"successMessageText": "Success message",
+	"errorMessageText": "Error message"
+}

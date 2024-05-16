@@ -1,0 +1,50 @@
+<!-- QGDS Component: Video -->
+
+{{#if analyticsTrackingCode}}
+<script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/{{analyticsTrackingCode}}.js">
+</script>
+{{/if}}
+
+
+<section class="video not-ready {{videoSize}}">
+    <div class="video-player ratio ratio-{{aspectRatio}}">
+        <a href="#" class="video-thumbnail" style="--thumbnail:url({{thumbnail}})">
+
+            <div class="video-nav">
+                <div class="video-watch"><span class="icon"></span><span>Watch</span></div>
+
+            {{#if duration}}
+                <div title="Video duration" class="video-duration"><span class="icon"></span><span>{{duration}}</span></div>
+            {{/if}}
+            </div>
+        </a>
+
+        <div class="video-embed ratio ratio-{{aspectRatio}}">
+            {{#ifCond source '===' 'vimeo'}}
+                <iframe title="Vimeo video" class="embed-responsive-item video-vimeo" allow="autoplay; fullscreen" allowfullscreen muted="muted" src="https://player.vimeo.com/video/{{videoId}}?rel=0"></iframe>
+
+            {{else ifCond source '===' 'youtube'}}
+                <iframe title="YouTube video" class="embed-responsive-item video-youtube" allow="autoplay; fullscreen" allowfullscreen src="https://www.youtube.com/embed/{{videoId}}?rel=0"></iframe>
+
+            {{else ifCond source '===' 'custom'}}
+            <iframe title="Custom video" class="embed-responsive-item video-custom" allow="autoplay; fullscreen" allowfullscreen
+                src="{{videoId}}"></iframe>
+
+            {{else}}
+
+            <p class="text-center position-absolute top-50">A video has not been provided.</p>
+
+            {{/ifCond}}
+        </div>
+
+    </div>
+
+
+
+    <div class="video-description">
+        {{{ description }}}
+    </div>
+
+    {{{transcript}}}
+
+</section>

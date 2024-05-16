@@ -1,0 +1,124 @@
+{
+    "masterbrand_variant": {
+        "icon-root": "assets/img/svg-icons.svg",
+        "sitePreHeader": {
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "text": {
+                "value": "Queensland Government websites"
+            },
+            "mainNavCtaOne": {
+                "value": "#",
+                "icon": {
+                    "value": "ctaIcon"
+                },
+                "text": {
+                    "value": "Link 1"
+                }
+            },
+            "mainNavCtaTwo": {
+                "value": "#",
+                "icon": {
+                    "value": "ctaIcon"
+                },
+                "text": {
+                    "value": "Link 2"
+                }
+            }
+        },
+        "siteHeader": {
+            "config": {
+                "masterbrand_enabled": true,
+                "otherbrand_enabled": false
+            },
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "secondaryType": {
+                "logo": {
+                    "value": ""
+                },
+                "siteTitle": {
+                    "value": "Queensland Government Design System"
+                },
+                "subline": {
+                    "value": "QGDS"
+                }
+            }
+        },
+        "siteSearchAsset": {
+            "value": "#",
+            "icons": {
+                "menu-icon": "qld__icon__mobile-menu",
+                "search-icon": "qld__icon__search",
+                "search-close-icon": "qld__icon__close"
+            },
+            "siteSearchUrl": {
+                "value": ""
+            }
+        }
+    },
+    "subbrand_variant": {
+        "icon-root": "assets/img/svg-icons.svg",
+        "sitePreHeader": {
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "text": {
+                "value": "Queensland Government websites"
+            },
+            "mainNavCtaOne": {
+                "value": "#",
+                "icon": {
+                    "value": "#"
+                },
+                "text": {
+                    "value": "Link 1"
+                }
+            },
+            "mainNavCtaTwo": {
+                "value": "#",
+                "icon": {
+                    "value": "#"
+                },
+                "text": {
+                    "value": "Link 2"
+                }
+            }
+        },
+        "siteHeader": {
+            "config": {
+                "masterbrand_enabled": false,
+                "otherbrand_enabled": true
+            },
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "logo": {
+            },
+            "secondaryType": {
+                "logo": {
+                    "value": ""
+                },
+                "siteTitle": {
+                    "value": "Queensland Design System Starter"
+                },
+                "subline": {
+                    "value": "QGDS"
+                }
+            }
+        },
+        "siteSearchAsset": {
+            "value": "#",
+            "icons": {
+                "menu-icon": "qld__icon__mobile-menu",
+                "search-icon": "qld__icon__search",
+                "search-close-icon": "qld__icon__close"
+            },
+            "siteSearchUrl": {
+                "value": ""
+            }
+        }
+    }
+}

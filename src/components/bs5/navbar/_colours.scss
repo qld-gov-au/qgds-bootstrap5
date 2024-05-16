@@ -1,0 +1,100 @@
+.navbar {
+    // ------------------------------------------------------------------------------------------------------------------
+    //  1. Palette colours
+    // ------------------------------------------------------------------------------------------------------------------
+    --#{$prefix}navbar-color-crest-fill: #1D1D1D;
+    --#{$prefix}navbar-color-light-siteTitle: #022A50;
+    --#{$prefix}navbar-color-light-designAccent: #6BBE27;
+    --#{$prefix}navbar-color-light-text: #414141;
+    --#{$prefix}navbar-color-light-text__muted: #636363;
+    --#{$prefix}navbar-color-light-link: #09549F;
+    --#{$prefix}navbar-color-light-focus: #0085B3;
+    --#{$prefix}navbar-color-light-border: #EBEBEB;
+    --#{$prefix}navbar-color-light-background: #FFFFFF;
+    --#{$prefix}navbar-color-light-background__shade: #F5F5F5;
+    --#{$prefix}navbar-color-light-underline: #3F7AB4;
+    --#{$prefix}navbar-color-light-hover-underline: #09549F;
+    --#{$prefix}navbar-color-light-alt-button: #008733;
+    --#{$prefix}navbar-color-light-alt-button__hover: #00702B;
+    --#{$prefix}navbar-color-light-button__hover: #003E7D;
+
+    // Dark palette
+    --#{$prefix}navbar-color-dark-crest-fill: #FFFFFF;
+    --#{$prefix}navbar-color-dark-siteTitle: #FFFFFF;
+    --#{$prefix}navbar-color-dark-designAccent: #6BBE27;
+    --#{$prefix}navbar-color-dark-heading: #FFFFFF;
+    --#{$prefix}navbar-color-dark-text: #FFFFFF;
+    --#{$prefix}navbar-color-dark-text__muted: #DEEBF9;
+    --#{$prefix}navbar-color-dark-link: #FFFFFF;
+    --#{$prefix}navbar-color-dark-focus: #01B0E5;
+    --#{$prefix}navbar-color-dark-border: #03151c;
+    --#{$prefix}navbar-color-dark-background: #09549F;
+    --#{$prefix}navbar-color-dark-background__shade: #04498F;
+    --#{$prefix}navbar-color-dark-underline: #B5CCE2;
+    --#{$prefix}navbar-color-dark-hover-underline: #FFFFFF;
+    --#{$prefix}navbar-color-dark-alt-button: #EFD700;
+    --#{$prefix}navbar-color-dark-alt-button__hover: #ADD33F;
+    --#{$prefix}navbar-color-dark-alt-background: #05325F;
+    --#{$prefix}navbar-color-dark-alt-background__shade: #052C53;
+
+    // ------------------------------------------------------------------------------------------------------------------
+    //  2. Overrides
+    // ------------------------------------------------------------------------------------------------------------------
+    --#{$prefix}navbar-border-width: 0.5rem;
+    --#{$prefix}navbar-link-color: var(--#{$prefix}navbar-color-light-link);
+    --#{$prefix}navbar-text-color: var(--#{$prefix}navbar-color-light-text);
+    --#{$prefix}navbar-text-focus-color: var(--#{$prefix}navbar-color-light-focus);
+    --#{$prefix}navbar-nav-text-color: var(--#{$prefix}navbar-color-light-text);
+    --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-light-background__shade);
+    --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-light-background);
+    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-background);
+    --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-light-button__hover);
+    --#{$prefix}navbar-border-color: var(--#{$prefix}navbar-color-light-border);
+    --#{$prefix}navbar-border-accent: var(--#{$prefix}navbar-color-light-designAccent);
+    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}navbar-color-light-text);
+    --#{$prefix}navbar-hover-color: var(--#{$prefix}navbar-color-light-button__hover);
+    --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-light-alt-button__hover);
+    --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-light-alt-button);
+
+    // ------------------------------------------------------------------------------------------------------------------
+    //  3. Modes
+    // ------------------------------------------------------------------------------------------------------------------
+    .alt &,
+    .light & {
+        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}navbar-color-light-text);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
+    }
+
+    .dark & {
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background);
+        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-dark-background);
+        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-text-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-nav-text-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-link-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
+        --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-dark-alt-button__hover);
+        --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-dark-alt-button);
+        --#{$prefix}navbar-text-focus-color: var(--#{$prefix}navbar-color-dark-focus);
+        --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
+    }
+
+    .dark-alt & {
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background);
+        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-dark-background);
+        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-text-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-nav-text-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-link-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
+        --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-dark-alt-button__hover);
+        --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-dark-alt-button);
+        --#{$prefix}navbar-text-focus-color: var(--#{$prefix}navbar-color-dark-focus);
+        --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
+    }
+}

@@ -1,0 +1,146 @@
+{
+    "default_state": {
+        "metadata": {
+            "target_url": "metadata-index.html",
+            "options": {
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "home-active": true
+            }
+        },
+        "navigation": [
+            {
+                "title": "Link 1",
+                "icon": "",
+                "target_url": "index.html"
+            },
+            {
+                "title": "Link 2",
+                "icon": "",
+                "target_url": "index.html"
+            }
+        ]
+    },
+    "menu_state": {
+        "metadata": {
+            "target_url": "metadata-index.html",
+            "options": {
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "home-active": true
+            }
+        },
+        "navigation": [
+            {
+                "title": "Mega menu",
+                "icon": "",
+                "target_url": "index.html",
+                "dropdown_enabled": true,
+                "dropdown_options": {
+                    "feature_link_value": "Getting ready",
+                    "feature_link_href": "index.html",
+                    "feature_link_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+                    "view_value": "View all",
+                    "view_href": "index.html"
+                },
+                "navigation_items": [
+                    {
+                        "title": "Find your reason",
+                        "description": "One of the best motivations for quitting is having a clear reason in mind so you know exactly why you’re doing it in the first place.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Quit stories",
+                        "description": "Be encouraged and motivated by listening to stories of others who've quit smoking for life.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Vaping (e-cigarettes)",
+                        "description": "Vaping products are also known as e-cigarettes, e-cigars, vape pens or personal vapourisers. Vapes are harmful. The safest option is to not vape at all.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Choose your method",
+                        "description": "There are plenty of ways to quit smoking cigarettes and vapes. Find one that suits you best and commit to it.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Pregnancy and smoking",
+                        "description": "Whether you’re thinking about getting pregnant, you're pregnant or have recently given birth, quitting smoking or vaping is the best thing you can do for the health of  you and your baby.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Sign up for our support program",
+                        "description": "Sign up for My Quit Journey to support you to stop smoking.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Plan your journey",
+                        "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+                        "target_url": "index.html"
+                    }
+                ]
+            },
+            {
+                "title": "Simple list",
+                "icon": "",
+                "target_url": "index.html",
+                "dropdown_enabled": true,
+                "dropdown_options": {
+                    "feature_link_value": "Patients and visitors",
+                    "feature_link_href": "index.html",
+                    "feature_link_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+                    "view_value": "View all",
+                    "view_href": "index.html"
+                },
+                "navigation_items": [
+                    {
+                        "title": "Visiting someone in hospital",
+                        "description1": "One of the best motivations for quitting is having a clear reason in mind so you know exactly why you’re doing it in the first place.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Aboriginal and Torres Strait Islander support",
+                        "description1": "Be encouraged and motivated by listening to stories of others who've quit smoking for life.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Your healthcare rights and responsibilities",
+                        "description1": "Vaping products are also known as e-cigarettes, e-cigars, vape pens or personal vapourisers. Vapes are harmful. The safest option is to not vape at all.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Going to hospital",
+                        "description1": "There are plenty of ways to quit smoking cigarettes and vapes. Find one that suits you best and commit to it.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Interpreter services",
+                        "description1": "Whether you’re thinking about getting pregnant, you're pregnant or have recently given birth, quitting smoking or vaping is the best thing you can do for the health of  you and your baby.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Health costs, insurance and financial support",
+                        "description1": "Sign up for My Quit Journey to support you to stop smoking.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Leaving hospital",
+                        "description1": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+                        "target_url": "index.html"
+                    },
+                    {
+                        "title": "Your health record",
+                        "description1": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+                        "target_url": "index.html"
+                    }
+                ]
+            },
+            {
+                "title": "Contact us",
+                "icon": "",
+                "target_url": "index.html"
+            }
+        ]
+    }
+}

@@ -64,9 +64,11 @@ export const Light = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="light">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],
@@ -85,9 +87,11 @@ export const Alternative = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="alt">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],
@@ -106,9 +110,11 @@ export const Dark = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="dark">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],
@@ -127,9 +133,11 @@ export const DarkAlternative = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="dark-alt">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],

@@ -7,10 +7,11 @@
 // External fonts
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600&display=swap');
 $font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sitename: "Fira Sans";
 
 //Icons
-// @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css");
-// @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css");
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 
 //Prefix to namespace design-system classes
@@ -27,35 +28,8 @@ $enable-dark-mode: true;
 
 // 2. QLD Design System variables (Bootstrap overrides)
 @import "./scss/qld-variables";
-// @import "./scss/qld-variables-dark";
+// @import "./scss/qld-variables-dark"; //future state
 @import "./scss/qld-type";
-
-//$theme-colors: map-merge($theme-colors, $project-colors);
-
-//@import "./variables/var_alerts";
-//@import "./variables/var_badges";
-//@import "./variables/var_breadcrumbs";
-//@import "./variables/var_buttons";
-//@import "./variables/var_cards";
-//@import "./variables/var_carousels";
-//@import "./variables/var_dropdowns";
-//@import "./variables/var_forms";
-//@import "./variables/var_images";
-//@import "./variables/var_list-groups";
-//@import "./variables/var_modals";
-//@import "./variables/var_navbars";
-//@import "./variables/var_navs";
-//@import "./variables/var_pagination";
-//@import "./variables/var_popovers";
-//@import "./variables/var_progress";
-//@import "./variables/var_tables";
-//@import "./variables/var_toasts";
-//@import "./variables/var_tooltips";
-//@import "./variables/var_transitions";
-//@import "./variables/var_type";
-
-
-//$theme-colors: map-merge($theme-colors, $project-colors);
 
 // 3. Include remainder of bootstrap
 // 3.1 Required
@@ -104,70 +78,38 @@ $enable-dark-mode: true;
 @import "~bootstrap/scss/utilities/api";
 
 
-
-
-// 8. QLD Design System components (bootsrap overrides and custom)
-// @import "./components/bs5/accordion";
-// @import "./components/bs5/alerts";
-// @import "./components/bs5/banner";
-// @import "./components/bs5/blockquote";
-// @import "./components/bs5/breadcrumbs";
-// @import "./components/bs5/buttons";
-// @import "./components/bs5/callout";
-// @import "./components/bs5/cards";
-// @import "./components/bs5/cards";
-// @import "./components/bs5/carousel";
-// @import "./components/bs5/forms";
-// @import "./components/bs5/header-search";
-// @import "./components/bs5/icons";
-// @import "./components/bs5/inpage-nav";
-// @import "./components/bs5/nav"; //includes side nav
-// @import "./components/bs5/navbar";
-// @import "./components/bs5/tables";
-// @import "./components/bs5/pagination";
-// @import "./components/bs5/typography";
-
-//@import "./themes/qld-theme";
-
-// 9. QLD Design System layout support
-// @import "./layout/footer";
-// @import "./layout/header";
-// @import "./layout/content";
-
-
-//... as needed.  Please maintain naming consistency
-
-
+// 8. QLD Design System components (bootsrap overrides and custom). Please maintain naming consistency
 @import "./components/bs5/accordion/accordion.scss";
-@import "./components/bs5/alert/alert.scss";
 @import "./components/bs5/banner/banner.scss";
 @import "./components/bs5/blockquote/blockquote.scss";
 @import "./components/bs5/breadcrumbs/breadcrumbs.scss";
 @import "./components/bs5/button/button.scss";
 @import "./components/bs5/callout/callout.scss";
 @import "./components/bs5/card/card.scss";
-@import "./components/bs5/tag/tag.scss";
-@import "./components/bs5/globalAlert/globalAlert.scss";
 @import "./components/bs5/correctincorrect/correctincorrect.scss";
-//@import "./components/bs5/carousel/carousel.scss";
-@import "./components/bs5/forms/forms.scss";
-// @import "./components/bs5/header/header.scss";
-// @import "./components/bs5/header-search/header-search.scss";
+@import "./components/bs5/dateinput/dateinput.scss";
+@import "./components/bs5/formcheck/formcheck.scss";
+@import "./components/bs5/footer/footer.scss";
+@import "./components/bs5/globalAlert/globalAlert.scss";
+@import "./components/bs5/header/header.scss";
 @import "./components/bs5/icons/icons.scss";
+@import "./components/bs5/inpageAlert/inpageAlert.scss";
 @import "./components/bs5/inpagenav/inpagenav.scss";
-@import "./components/bs5/sidenav/sidenav.scss"; //includes side-nav.scss
+@import "./components/bs5/modal/modal.scss";
 @import "./components/bs5/navbar/navbar.scss";
-@import "./components/bs5/table/table.scss";
 @import "./components/bs5/pagination/pagination.scss";
+@import "./components/bs5/quickexit/quickexit.scss";
+@import "./components/bs5/sidenav/sidenav.scss";
+@import "./components/bs5/spinner/spinner.scss";
+@import "./components/bs5/table/table.scss";
+@import "./components/bs5/tag/tag.scss";
+@import "./components/bs5/textbox/textInput.scss";
 @import "./components/bs5/typography/typography.scss";
+@import "./components/bs5/video/video.scss";
 
-// Example (for demo)
-// @import "./components/bs5/_example/example.scss";
 
-// Common Layout Blocks
-@import "./components/common/footer/footer.scss";
-@import "./components/common/header/header.scss";
+// Common Layout Blocks, under review
 @import "./components/common/layout/content.scss";
 
-// Themes
+// Themes, under review
 @import "./scss/qld-theme.scss";
