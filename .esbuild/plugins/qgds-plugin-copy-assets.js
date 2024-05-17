@@ -18,12 +18,14 @@ export default function copyPlugin() {
         to: ["./dist/sample-data/"],
       },
       {
-        from: ["./src/js/handlebars.helpers.js"],
+        from: ["./src/js/handlebars*"],
         to: ["./dist/assets/js"],
       },
+      {
+        from: ["./src/js/handlebars*"],
+        to: ["./dist/components/"],
+      },
       { from: ["./src/assets/img/*"], to: ["./dist/assets/img"] },
-      { from: ["./dist/**/*"], to: ["./docs/"] },
-      { from: ["./storybook-static/**/*"], to: ["./docs/storybook-static/"] },
     ],
   });
 

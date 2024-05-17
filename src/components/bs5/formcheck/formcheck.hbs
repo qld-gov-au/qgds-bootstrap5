@@ -14,7 +14,7 @@
   
   {{#each listitems}}
   <div class="form-check">
-    <input class="form-check-input" type="{{type}}" name="{{name}}" id="{{id}}" value="{{value}}" {{state}}>
+    <input class="form-check-input" type="{{type}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}}>
     <label class="form-check-label" for="{{id}}">
       {{label}}
     </label>
