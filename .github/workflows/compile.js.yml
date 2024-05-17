@@ -28,7 +28,7 @@ jobs:
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
@@ -74,21 +74,11 @@ jobs:
       - name: Build 🔧
         run: | # build the files
           npm run build
-#      - name: Build storybook 🔧
-#        run: | # build the Storybook files
-#          npm run build-storybook
-
-      - name: setup Package
-        run: |
-          ls -ltr
-          mkdir -p ./target/docs
-          cp -r ./docs ./target/docs
-          cp -r ./dist ./target/dist
 
       - uses: actions/upload-artifact@v4.3.1
         with:
           name: Package
-          path: ./target
+          path: ./dist
 
 
       - name: Extract branch name

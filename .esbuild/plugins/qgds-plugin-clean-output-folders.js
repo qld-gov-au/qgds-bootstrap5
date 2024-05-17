@@ -7,7 +7,7 @@ export default function cleanFoldersPlugin() {
     setup(build) {
       build.onStart(() => {
         //Console feedback
-        log("cyan", `\u{1F4C2} Cleaning /dist and /docs folders\n\n`);
+        log("cyan", `\u{1F4C2} Cleaning /dist folders\n\n`);
 
         // Clean the output folders
         const { outdir, outfile } = build.initialOptions;
@@ -20,11 +20,11 @@ export default function cleanFoldersPlugin() {
           fs.rmSync(outfile);
         }
 
-        // Clean the docs folder
-        const docsdir = "./docs/";
-        if (fs.existsSync(docsdir)) {
-          fs.rmSync(docsdir, { recursive: true });
-        }
+        // // Clean the docs folder
+        // const docsdir = "./docs/";
+        // if (fs.existsSync(docsdir)) {
+        //   fs.rmSync(docsdir, { recursive: true });
+        // }
       });
     },
   };
