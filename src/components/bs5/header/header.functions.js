@@ -68,15 +68,15 @@ export function showSuggestions(value = '', isDefault = false) {
 
   if (isDefault) {
     suggestions.innerHTML = `
-      <div class="suggestions-category">
-        <h4>Popular Services</h4>
+      <div class="suggestions-category my-4">
+        <strong>Popular Services</strong>
         <ul>${loadedSuggestions.popular_services.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <div class="suggestions-category">
-        <h4>Categories</h4>
+        <strong>Categories</strong>
         <ul>${loadedSuggestions.categories.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
-      ${loadedSuggestions.options.view_more ? `<div class="suggestions-category"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>` : ''}
+      ${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>` : ''}
     `;
     suggestions.classList.add('show');
     createPopper(searchInput, suggestions, {
