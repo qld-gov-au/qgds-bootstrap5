@@ -84,6 +84,7 @@ jobs:
           mkdir -p ./target/docs
           cp -r ./docs ./target/docs
           cp -r ./dist ./target/dist
+          cp -r ./storybook-static ./target/dist/docs
 
       - uses: actions/upload-artifact@v4.3.1
         with:

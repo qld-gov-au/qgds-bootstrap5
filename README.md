@@ -24,8 +24,8 @@ git clone https://github.com/qld-gov-au/qgds-qol-mvp
 
 ### Prerequisites
 
-- Node 18.17.1
-- NPM 10.2.5
+- Node 18.17.1+
+- NPM 10.2.5+
 
 ### Install dependencies
 
@@ -59,7 +59,10 @@ npm run serve
 
 ### Next steps
 
-- HTML templating using drop in components
+- HTML templating using drop in components 
+  
+  If you wish to use the includes handle bars, please ensure 
+"handlebars": "4.7.8" + is loaded prior to running handlebars.helpers.bundle.js
 - Dev build and testing branching
 
 ## Documentation

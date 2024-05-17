@@ -20,7 +20,7 @@ const argv = minimist(process.argv.slice(2));
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
   bundle: true,
-  minify: true,
+  minify: false,
   sourcemap: true,
   target: ["es6"],
   logLevel: "info",
@@ -41,8 +41,12 @@ const buildConfig = {
       out: "./assets/css/qld.bootstrap",
     },
     {
-      in: "./src/js/handlebars.helpers.js",
+      in: "./src/js/handlebars.init.js",
       out: "./assets/js/handlebars.helpers.bundle",
+    },
+    {
+      in: "./src/js/handlebars.init.js",
+      out: "./components/handlebars.helpers.bundle",
     },
   ],
 
