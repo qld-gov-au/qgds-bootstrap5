@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HAVE_CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN != '' }}
+      IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
     strategy:
       matrix:
         node: [ '20' ]
@@ -133,7 +134,7 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Chromatic
-        if: ${{ github.actor != 'dependabot[bot]' && env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' }}
+        if: ${{ github.actor != 'dependabot[bot]' && env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
         with:
