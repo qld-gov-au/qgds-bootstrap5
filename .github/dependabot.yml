@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  target-branch: "develop"
+  schedule:
+    interval: daily
+    time: "19:00"
+  groups:
+    storybook:
+      patterns:
+        - "@storybook/*"
+        - storybook
+  open-pull-requests-limit: 10
+  reviewers:
+  - qld-gov-au/qld-online-dev-team
