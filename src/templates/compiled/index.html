@@ -332,6 +332,105 @@
 
                     </div>
 
+<<<<<<< Updated upstream
+=======
+                    <!-- ------------------------------- -->
+                    <!-- Leave Your Feedback -- START -->                    
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <h2>Website feedback</h2> 
+                        <p>Help us improve the content on our website or tell us what is working really well.</p>
+                        <div id="qg-feedback-toggle" class="qg-footer-feedback-wrap">
+                            <a id="btn-footer-feedback" class="btn btn-global-secondary qg-feedback-toggle collapsed" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="false" aria-controls="qg-footer-feedback" data-analytics-link-group="qg-feedback">
+                                Leave your feedback
+                            </a>
+                            <div id="qg-footer-feedback" class="qg-footer-feedback__v2 collapse">
+                                <div class="qg-footer-feedback-content">
+                                    <!-- Working STRAT -->
+                                    <!-- <script>
+                                        function loadFormIOAssets() {
+                                            const hasFormIOScript = document.getElementById("formIOScript");
+                                            const hasBSCSS = document.getElementById("bs_css");
+                                            const hasFormIOCSS = document.getElementById("formIO_css");
+                                            
+                                            function include(src, callback) {
+                                                var ext = src.split(/[\#\?]/)[0].split(".").pop().toLowerCase();
+                                                var inc;
+                                                if (ext == "js") {
+                                                    inc = document.createElement("script");
+                                                    inc.src = src;
+                                                    inc.onload = inc.onreadystatechange = callback;
+                                                }
+                                                else {
+                                                    inc = document.createElement("link");
+                                                    inc.rel = "stylesheet";
+                                                    inc.type = "text/css";
+                                                    inc.media = "screen";
+                                                    inc.href = src;
+                                                    if (callback)
+                                                        callback ();
+                                                }
+                                                document.getElementsByTagName("head")[0].appendChild(inc);
+                                            };
+                                            if (!hasBSCSS){
+                                                include("https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css");
+                                            }
+                                            if (!hasFormIOCSS){
+                                                include("https://cdn.form.io/formiojs/formio.full.min.css");
+                                            }
+                                            if (!hasFormIOScript){
+                                                include("https://cdn.form.io/formiojs/formio.full.min.js");
+                                            }
+                                        }
+                                    </script>
+                                    <script type="text/javascript"> 
+                                        loadFormIOAssets();
+                                        feedbackFormPull = document.getElementById('btn-footer-feedback').addEventListener("click", displayFeedbackForm);
+
+                                        function displayFeedbackForm() {
+                                            const hasFeedbackFormIO = document.getElementById('feedbackFormIO');
+                                            if (!hasFeedbackFormIO.childNodes.length > 0) {
+                                                Formio.createForm(hasFeedbackFormIO, 'https://api.forms.platforms.qld.gov.au/dev-oldkihhcwbdtwye/footerfeedbackcontactus');
+                                            }
+                                        }
+                                    </script> -->
+                                    <!-- Working END -->
+
+                                    <script src="https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"></script>
+                                    <script type="text/javascript">  
+                                        function displayFeedbackForm() {
+                                            FormioScript.init().then(() => {
+                                                const myDiv = document.getElementById("feedbackFormIO");
+                                                FormioLoader.initFormioInstance(myDiv, {
+                                                    projectName: "dev-oldkihhcwbdtwye",
+                                                    formName: "footerfeedbackcontactus",
+                                                    envUrl: "api.forms.platforms.qld.gov.au"
+                                                });
+                                            });
+                                        }
+                                        document.getElementById("btn-footer-feedback").addEventListener("click", displayFeedbackForm);                                    
+                                    </script>
+                                    <!-- form-group formio-component formio-component-fieldset formio-component-fieldSet3 [Working]-->
+                                    <!-- form-group formio-component formio-component-fieldset formio-component-fieldSet4 panel tab-content -->
+                                </div>
+
+                                    <!-- formio stop-->
+                                    <div id="feedbackFormIO"></div>
+                                    <div class="qg-footer-feedback-footer">
+                                        <a class="qg-footer-feedback__close" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="true" aria-controls="qg-footer-feedback">Close</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Leave Your Feedback -- END -->
+                    
+                    <!-- Leave Your Feedback -- SCRIPT END -->
+                    <!-- --------------------------------- -->
+
+                </div>
+
+                <div class="row">
+>>>>>>> Stashed changes
                     <!-- Section 3: Section links (Custom secondary nav items) -->
                     <div class="col-xs-12 col-lg-2 footer-column border-right" aria-label="footer-navigation">
                         <nav class="nav footer-link-list flex-column">
