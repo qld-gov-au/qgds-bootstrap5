@@ -1,6 +1,6 @@
 {
-  "name": "qgds-qol-bootstrap-version",
-  "version": "1.0.0",
+  "name": "@qld-gov-au/qgds-bootstrap5",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,12 +19,26 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "files": [
+    ".esbuild",
+    ".storybook",
+    ".vscode",
+    "dist",
+    "src",
+    ".eslintrc.cjs",
+    "esbuild.js",
+    "jsconfig.json",
+    "pom.xml",
+    "README.md",
+    "vite.config.js"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "bootstrap": "^5.3.1",
     "material-symbols": "^0.17.4"
   },
   "devDependencies": {
+    "handlebars": "4.7.8",
     "@chromatic-com/storybook": "^1.3.5",
     "@storybook/addon-essentials": "^8.1.0",
     "@storybook/addon-interactions": "^8.1.0",
@@ -71,6 +85,8 @@
   "exports": {
     "qld.bootstrap.min.js": "./dist/assets/js/qld.bootstrap.min.js",
     "qld.bootstrap.css": "./dist/assets/css/qld.bootstrap.css",
+    "handlebars.helpers.bundle.js": "./dist/components/handlebars.helpers.bundle.js",
+    "handlebars.init.js": "./dist/components/handlebars.init.js",
     "bootstrap.min.js": "./dist/assets/js/boostrap.min.js"
   }
 }

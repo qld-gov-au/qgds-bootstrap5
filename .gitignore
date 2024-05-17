@@ -9,3 +9,5 @@ docs/
 dist/
 .idea
 *.iml
+docs/storybook-static
+

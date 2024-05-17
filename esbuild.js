@@ -41,8 +41,12 @@ const buildConfig = {
       out: "./assets/css/qld.bootstrap",
     },
     {
-      in: "./src/js/handlebars.helpers.js",
+      in: "./src/js/handlebars.init.js",
       out: "./assets/js/handlebars.helpers.bundle",
+    },
+    {
+      in: "./src/js/handlebars.init.js",
+      out: "./components/handlebars.helpers.bundle",
     },
   ],
 
