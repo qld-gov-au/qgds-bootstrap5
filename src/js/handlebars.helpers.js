@@ -53,6 +53,7 @@ export default function handlebarsHelpers(Handlebars) {
   });
 }
 
-if(typeof(Handlebars) !== 'undefined') {
-  handlebarsHelpers(Handlebars);
+let handlebarsJS = typeof(Handlebars) !== 'undefined' ? Handlebars : false; 
+if(handlebarsJS) {
+  handlebarsHelpers(handlebarsJS);
 }
