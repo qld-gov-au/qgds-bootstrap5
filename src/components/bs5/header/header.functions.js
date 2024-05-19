@@ -54,7 +54,7 @@ export function toggleSearch(event) {
  * @param {string} value - The current input value.
  * @param {boolean} isDefault - Whether to show default suggestions or not.
  * @returns {void}
- */
+**/
 export function showSuggestions(value = '', isDefault = false) {
   const suggestions = document.getElementById('suggestions');
   const searchInput = document.getElementById('search-input');
@@ -68,15 +68,15 @@ export function showSuggestions(value = '', isDefault = false) {
 
   if (isDefault) {
     suggestions.innerHTML = `
-      <div class="suggestions-category my-4">
+      <div class="suggestions-category mt-4 mb-2">
         <strong>Popular Services</strong>
-        <ul>${loadedSuggestions.popular_services.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${loadedSuggestions.popular_services.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
-      <div class="suggestions-category">
+      <div class="suggestions-category mt-4">
         <strong>Categories</strong>
-        <ul>${loadedSuggestions.categories.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${loadedSuggestions.categories.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
-      ${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>` : ''}
+      ${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>` : ''}
     `;
     suggestions.classList.add('show');
     createPopper(searchInput, suggestions, {
@@ -101,10 +101,15 @@ export function showSuggestions(value = '', isDefault = false) {
     return;
   }
 
+  const highlightText = (text, query) => {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<strong>$1</strong>');
+  };
+
   suggestions.innerHTML = `
-    <div class="suggestions-category">
-      <h4>Suggestions</h4>
-      <ul>${filteredSuggestions.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+    <div class="suggestions-category mt-4">
+      <strong>Suggestions</strong>
+      <ul class="mt-2">${filteredSuggestions.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${highlightText(item.title, value)}</a></li>`).join('')}</ul>
     </div>
   `;
   suggestions.classList.add('show');
@@ -135,6 +140,8 @@ export function selectSuggestion(value) {
 // Ensure the input exists before adding event listeners
 const searchInput = document.getElementById('search-input');
 if (searchInput) {
+
+  // Events
   searchInput.addEventListener('keyup', function() {
     showSuggestions(this.value);
   });
