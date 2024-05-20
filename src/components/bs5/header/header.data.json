@@ -28,26 +28,32 @@
                         "dropdown_config": {
                             "groups": [
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Transport and motoring"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Employment and jobs"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Education and training"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Queensland and its government"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Health and wellbeing"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Community support"
                                 }
@@ -74,26 +80,32 @@
                         "dropdown_config": {
                             "groups": [
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Starting a business"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Running a business"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Employing people"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Payroll tax"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Industries"
                                 },
                                 {
+                                    "action": "_blank",
                                     "url": "#",
                                     "label": "Investing in Queensland"
                                 }
@@ -129,6 +141,7 @@
                                     },
                                     "links": [
                                         {
+                                            "action": "_blank",
                                             "label": "If your agency doesn't use SSO.",
                                             "url": "https://www.forgov.qld.gov.au/user#log-in"
                                         }
@@ -151,6 +164,7 @@
                                     "actionType": "list",
                                     "list_items": [
                                         {
+                                            "action": "_self",
                                             "label": "Your profile",
                                             "href": "#"
                                         }

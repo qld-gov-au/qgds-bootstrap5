@@ -487,7 +487,6 @@
 				width: 100%;			
 				z-index: 99; // TO DO: Fix
 				border-radius: .5rem;
-				color: var(--site-search-input-color);
 				background: var(--#{$prefix}header_site-search-suggestions-bg);
 				box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
 				border-bottom: solid .25rem var(--#{$prefix}header_site-search-suggestions-hover__border_color);
@@ -505,6 +504,7 @@
 					padding: 0;
 
 					a, strong {
+						color: var(--site-search-input-color);
 						font-weight: 400;
 						font-size: 1rem;
 						text-decoration: none; 
