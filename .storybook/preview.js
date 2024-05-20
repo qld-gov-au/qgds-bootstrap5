@@ -7,7 +7,6 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
-
     parameters: {
         //actions: { argTypesRegex: "^on[A-Z].*" },
         chromatic: {
@@ -88,6 +87,8 @@ const preview = {
       		`;
         },
     ],
+
+    tags: ["autodocs"]
 };
 
 export default preview;
