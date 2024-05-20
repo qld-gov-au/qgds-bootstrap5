@@ -70,9 +70,43 @@
             }
         ]
     },
+    
+    "feedbackForm" : {
+        "title": "Website feedback",
+        "content": "Help us improve the content on our website or tell us what is working really well.",
+        "enabled": true,
+        "btnTitle": "Leave your feedback",
+        "formAttr": [
+            {
+                "key": "data-formio",
+                "value": ""
+            },
+            {
+                "key": "data-formio-project-name",
+                "value": "dev-oldkihhcwbdtwye"
+            },
+            {
+                "key": "data-formio-form-name",
+                "value": "footerfeedbackcontactus"
+            },
+            {
+                "key": "data-formio-env-url",
+                "value": "api.forms.platforms.qld.gov.au"
+            },
+            {
+                "key": "data-formio-createForm-options",
+                "value": "formioCreateFormOptions"
+            },
+            {
+                "key": "data-formio-createForm-controller",
+                "value": "formioCreateFormController"
+            }
+        ]
+    },
 
     "followlinks": {
         "title": "Follow us",
+        "enabled": true,
         "facebook": {
             "label": "Facebook",
             "link": "#",

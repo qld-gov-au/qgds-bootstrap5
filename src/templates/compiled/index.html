@@ -332,8 +332,6 @@
 
                     </div>
 
-<<<<<<< Updated upstream
-=======
                     <!-- ------------------------------- -->
                     <!-- Leave Your Feedback -- START -->                    
                     <div class="col-12 col-sm-6 col-md-4">
@@ -382,6 +380,8 @@
                                             }
                                         }
                                     </script>
+
+
                                     <script type="text/javascript"> 
                                         loadFormIOAssets();
                                         feedbackFormPull = document.getElementById('btn-footer-feedback').addEventListener("click", displayFeedbackForm);
@@ -395,7 +395,7 @@
                                     </script> -->
                                     <!-- Working END -->
 
-                                    <script src="https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"></script>
+                                    <!-- <script src="https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"></script>                
                                     <script type="text/javascript">  
                                         function displayFeedbackForm() {
                                             FormioScript.init().then(() => {
@@ -403,18 +403,80 @@
                                                 FormioLoader.initFormioInstance(myDiv, {
                                                     projectName: "dev-oldkihhcwbdtwye",
                                                     formName: "footerfeedbackcontactus",
-                                                    envUrl: "api.forms.platforms.qld.gov.au"
+                                                    envUrl: "api.forms.platforms.qld.gov.au",
+                                                    "data-formio-project-name": "test"
                                                 });
                                             });
                                         }
                                         document.getElementById("btn-footer-feedback").addEventListener("click", displayFeedbackForm);                                    
+                                    </script> -->
+                                    
+                                    <!-- START 24234 -->
+                                    
+                                    <!-- <script type="text/javascript" src="https://www.qld.gov.au/__data/assets/js_file/0028/147385/browser-support.js"></script> -->
+
+                                    <script>
+                                        ////// choose which version of scripts to use, default to v2.x.x-latest if blank
+                                        window.formioQldCdnVersion = "v2/v2.x.x-latest";
+                                        ///// // window.formIOGitBridgeID = "248740";
                                     </script>
+                                    <script src="https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"></script>
+                                    <script>
+                                         // document.querySelector("button");
+                                        function displayFeedbackForm() {
+                                            FormioScript.init().then(() => {
+                                                // alert("here");
+                                                // Formio global object initiated, you cound customise it here
+                                            });
+                                        };
+                                        document.getElementById("btn-footer-feedback").addEventListener("click", displayFeedbackForm); 
+                                    </script>
+                                    
+                                    
+                                    <!-- #252693 formio-script.js: edit this file if you want to add custom options or controller to the form -->
+                                    <!-- <script src="https://www.qld.gov.au/__data/assets/js_file/0027/252693/formio-script.js" type="text/javascript"></script>  -->
+                                    <!-- <script>
+                                    // Persistent fix for iPhone/Safari
+                                    window.onpageshow = function (event) {
+                                    if (event.persisted) {
+                                        window.location.reload();
+                                    }
+                                    };
+                                    </script> -->
+                                    <!-- END 24234 -->
+
                                     <!-- form-group formio-component formio-component-fieldset formio-component-fieldSet3 [Working]-->
                                     <!-- form-group formio-component formio-component-fieldset formio-component-fieldSet4 panel tab-content -->
                                 </div>
-
+                                    <!-- 
+                                        data-formio
+                                        data-formio-project-name="dev-oldkihhcwbdtwye"
+                                        data-formio-form-name="footerfeedbackcontactus"
+                                        data-formio-form-confirmation=""
+                                        data-formio-form-revision=""
+                                        data-formio-env-url="api.forms.platforms.qld.gov.au"
+                                        data-formio-pdf-download-message=""
+                                        data-formio-namespace=""
+                                        data-formio-createForm-options="formioCreateFormOptions"
+                                        data-formio-createForm-controller="formioCreateFormController"
+                                        
+                                     -->
                                     <!-- formio stop-->
-                                    <div id="feedbackFormIO"></div>
+                                    <div id="feedbackFormIO" data-formio
+                                    data-formio-project-name="dev-oldkihhcwbdtwye"
+                                    data-formio-form-name="footerfeedbackcontactus"
+                                    data-formio-env-url="api.forms.platforms.qld.gov.au"
+                                    data-formio-createForm-options="formioCreateFormOptions"
+                                    data-formio-createForm-controller="formioCreateFormController">
+                                
+                                        <div class="qg-spinner mt-5 mb-5" role="status">
+                                            <div class="spinner-border"></div>
+                                            <div class="qg-spinner-label">
+                                            Loading...
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
                                     <div class="qg-footer-feedback-footer">
                                         <a class="qg-footer-feedback__close" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="true" aria-controls="qg-footer-feedback">Close</a>
                                     </div>
@@ -430,7 +492,6 @@
                 </div>
 
                 <div class="row">
->>>>>>> Stashed changes
                     <!-- Section 3: Section links (Custom secondary nav items) -->
                     <div class="col-xs-12 col-lg-2 footer-column border-right" aria-label="footer-navigation">
                         <nav class="nav footer-link-list flex-column">
