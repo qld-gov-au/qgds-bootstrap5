@@ -22,7 +22,7 @@ export default {
 
   //https://storybook.js.org/docs/api/arg-types
   argTypes: {
-    customClass: {
+    /*customClass: {
       name: "Classes",
       description: 'Settable classes for the component',
       control: {
@@ -51,7 +51,7 @@ export default {
         "qld-input-success",
         "qld-input-error",
       ],
-    },
+    },*/
   },
 };
 
@@ -116,7 +116,7 @@ export const Disabled = {
 export const Valid = {
   args: {
 	  ...defaultdata,
-    ...{states: "qld-input-success"},
+    ...{customClass: "qld-input-success"},
   },
 };
 
@@ -126,6 +126,6 @@ export const Valid = {
 export const Invalid = {
   args: {
 	  ...defaultdata,
-    ...{states: "qld-input-error"},
+    ...{customClass: "qld-input-error"},
   },
 };

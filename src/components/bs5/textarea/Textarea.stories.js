@@ -22,36 +22,6 @@ export default {
 
   //https://storybook.js.org/docs/api/arg-types
   argTypes: {
-    customClass: {
-      name: "Classes",
-      description: 'Settable classes for the component',
-      control: {
-        type: "check",
-        labels: {
-          "form-style-filled": "Filled",
-        },
-      },
-      options: [
-        "form-style-filled",
-      ],
-    },
-    states: {
-      name: "States",
-      description: `Valid/Invalid states`,
-      control: {
-        type: "radio",
-        labels: {
-          "default": "Default",
-          "qld-input-success": "Success",
-          "qld-input-error": "Error",
-        },
-      },
-      options: [
-        "default",
-        "qld-input-success",
-        "qld-input-error",
-      ],
-    },
   },
 };
 
@@ -116,7 +86,7 @@ export const Disabled = {
 export const Valid = {
   args: {
 	  ...defaultdata,
-    ...{states: "qld-input-success"},
+    ...{customClass: "qld-input-success"},
   },
 };
 
@@ -126,6 +96,6 @@ export const Valid = {
 export const Invalid = {
   args: {
 	  ...defaultdata,
-    ...{states: "qld-input-error"},
+    ...{customClass: "qld-input-error"},
   },
 };
