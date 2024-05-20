@@ -1,3 +1,5 @@
+/* global Handlebars */
+
 /**
  * Registers Handlebars Helper for 'contains', 'ifCond', 'isMultipleOfThree' and 'isEndOfRow'
  * @param {module} Handlebars Templating engine
@@ -53,7 +55,6 @@ export default function handlebarsHelpers(Handlebars) {
   });
 }
 
-let handlebarsJS = typeof(Handlebars) !== 'undefined' ? Handlebars : false; 
-if(handlebarsJS) {
-  handlebarsHelpers(handlebarsJS);
+if(typeof(Handlebars) !== 'undefined') {
+  handlebarsHelpers(Handlebars);
 }
