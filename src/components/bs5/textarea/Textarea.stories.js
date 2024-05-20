@@ -22,23 +22,6 @@ export default {
 
   //https://storybook.js.org/docs/api/arg-types
   argTypes: {
-    states: {
-      name: "States",
-      description: `Valid/Invalid states`,
-      control: {
-        type: "radio",
-        labels: {
-          "default": "Default",
-          "qld-input-success": "Success",
-          "qld-input-error": "Error",
-        },
-      },
-      options: [
-        "default",
-        "qld-input-success",
-        "qld-input-error",
-      ],
-    },
   },
 };
 
