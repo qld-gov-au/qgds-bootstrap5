@@ -11,7 +11,7 @@ import {
 
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
 import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
-import { toggleSearch } from './components/bs5/header/header.functions'; 
+import { toggleSearch, showSuggestions, selectSuggestion } from './components/bs5/header/header.functions';
 
 window.addEventListener('scroll', positionQuickExit, true);
 window.addEventListener('resize', positionQuickExit, true);
@@ -21,10 +21,34 @@ window.addEventListener('keydown', initQuickexit, true);
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
 
-    //Header
+    //Header search
     let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search'); 
     if(headerSearchButton) {
       document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
+    }
+    
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      searchInput.addEventListener('keyup', function() {
+        showSuggestions(this.value);
+      });
+
+      searchInput.addEventListener('focus', function() {
+        showSuggestions('', true);
+      });
+
+      searchInput.addEventListener('click', function() {
+        if (this.value === '') {
+          showSuggestions('', true);
+        }
+      });
+
+      // Close suggestions when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
+          document.getElementById('suggestions').style.display = 'none';
+        }
+      });
     }
 
     // Navbar

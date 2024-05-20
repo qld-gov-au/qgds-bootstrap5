@@ -37,7 +37,6 @@
 			color: var(--#{$prefix}header_skip-link_color);
 
 			&:focus {
-				outline: 3px solid var(--#{$prefix}header_skip-link_focus_outline_color);
 				top: 1rem;
 				left: 1rem;
 				padding: 1.5rem;
@@ -49,6 +48,7 @@
 				width: auto;
 				color: var(--#{$prefix}header_skip-link_focus_text_color);
 				background-color: var(--#{$prefix}header_skip-link_focus_bg_color);
+				outline: 3px solid var(--#{$prefix}header_skip-link_focus_outline_color);
 				z-index: 600;
 			}
 		}
@@ -59,7 +59,7 @@
 		background-color: var(--#{$prefix}header__pre-header_bg_color);
 		box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
 		position: relative;
-		z-index: 1;
+		z-index: 2;
 		padding-bottom: .75rem;
 		padding-top: .75rem;
 
@@ -87,7 +87,7 @@
 				text-underline-offset: var(--#{$prefix}header__pre-header__anchor_text_decoration_offset);
 				-webkit-text-decoration-skip: ink;
 				text-decoration-skip-ink: auto;
-				
+
 				&:focus,
 				&:hover {
 					text-decoration: underline;
@@ -95,7 +95,7 @@
 					text-decoration-color: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_color);
 					text-decoration-thickness: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness);
 				}
-	
+
 				&:disabled,
 				a[disabled] {
 					text-decoration: none;
@@ -137,16 +137,81 @@
 			display: none;
 			margin-left: auto;
 
+			// Preheader CTA dropdown - custom functionality:
+			.dropdown {
+				.dropdown-menu.show {
+					width: 20.25rem;
+					min-height: 1rem;
+					padding: 1.5rem;
+					border-radius: 1rem;
+					background-color: var(--#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color);
+					box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
+
+					hr {
+						margin: 2rem 0;
+						color: var(--#{$prefix}header__CTA_border_color);
+						border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+					}
+
+					a.btn-primary {
+						margin: 1.25rem 0 0.5rem 0;
+						text-decoration-color: inherit;
+						text-decoration-thickness: inherit;
+					}
+
+					.group {
+						a {
+							font-weight: 600;
+							color: var(--#{$prefix}header__CTA_text_color);
+							text-decoration: underline var(--#{$prefix}header__CTA_text_color);
+
+							&:visited {
+								color: var(--#{$prefix}header__CTA_text_color);
+							}
+						}
+					}
+
+					li.qld__header__cta-list {
+						a {
+							font-weight: 600;
+							font-size: 1rem;
+							position: relative;
+							border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+							padding: 1rem 0;
+
+							&:visited {
+								color: var(--#{$prefix}header__CTA_text_color);
+							}
+
+							span,
+							svg {
+								vertical-align: middle;
+							}
+
+							svg.viewMoreCTA {
+								margin-left: 0.5rem;
+							}
+
+							svg.cta_arrow {
+								position: absolute;
+								top: .75rem;
+								right: 0;
+							}
+						}
+					}
+				}
+			}
+
 			@include media-breakpoint-up(lg) {
 				display: flex;
 			}
 
 			.qld__header__cta-link {
-				align-items: center;
-				color: var(--#{$prefix}header__cta-wrapper__cta-link_text_color);
 				font-size: .875rem;
 				line-height: 1.42;
 				padding-left: .75rem;
+				align-items: center;
+				color: var(--#{$prefix}header__cta-wrapper__cta-link_text_color);
 
 				&:hover {
 					.qld__header__cta-link-icon {
@@ -156,12 +221,12 @@
 			}
 
 			.qld__header__cta-link-icon {
-				color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
-				display: inline-block;
 				height: 1.25rem;
+				width: 1.25rem;
 				margin-right: .5rem;
 				text-align: center;
-				width: 1.25rem;
+				display: inline-block;
+				color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
 
 				svg,
 				i {
@@ -172,8 +237,11 @@
 		}
 
 		a {
-			color: var(--#{$prefix}header__pre-header__anchor_text_color);
 			display: flex;
+
+			svg {
+				color: var(--#{$prefix}header__pre-header__anchor_text_color);
+			}
 
 			&:focus {
 				outline: 3px solid var(--#{$prefix}header__pre-header__anchor__focus_text_color);
@@ -256,10 +324,10 @@
 			}
 
 			svg {
-				color: var(--#{$prefix}header__toggle-main-nav__svg_color);
 				height: 1.25rem;
 				margin: 1px auto;
 				width: 1.25rem;
+				color: var(--#{$prefix}header__toggle-main-nav__svg_color);
 
 				@include media-breakpoint-up(md) {
 					height: 2rem;
@@ -289,9 +357,9 @@
 		}
 
 		.qld__header__brand {
+			padding: 1rem 0;
 			display: flex;
 			align-items: center;
-			padding: 1rem 0;
 			font-variant-numeric: lining-nums;
 
 			@include media-breakpoint-up(md) {
@@ -364,13 +432,13 @@
 			}
 
 			.qld__header__heading {
-				color: var(--#{$prefix}header__site-name__heading__text_color);
-				font-family: $font-family-sitename;
 				font-size: 1rem;
 				font-weight: 700;
 				line-height: 1.25;
 				margin: 0;
 				padding: 0;
+				font-family: $font-family-sitename;
+				color: var(--#{$prefix}header__site-name__heading__text_color);
 
 				@include media-breakpoint-up(md) {
 					font-size: 1.25rem;
@@ -395,20 +463,18 @@
 	//Reduce size of whitebar on masterbrand
 	&__main--masterbrand--true {
 		@include media-breakpoint-down(lg) {
-			display: none;
+			height: 0;
+
+			.qld__header__site-search--open {
+				margin-top: 3rem;
+			}
 		}
 	}
 
-	.qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link,
-	.qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle-text {
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-
-	
 	&__site-search {
 		//Auto margins for LTR and RTL
 		@extend .ms-auto;
+
 		form {
 			display: flex;
 			position: relative;
@@ -417,19 +483,95 @@
 				color: var(--site-search-input-color);
 			}
 
+			.suggestions-dropdown {
+				position: absolute;
+				display: none;
+				left: 0;	
+				top: 100%;  
+				width: 100%;			
+				z-index: 99; // TO DO: Fix
+				border-radius: .5rem;
+				background: var(--#{$prefix}header_site-search-suggestions-bg);
+				box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
+				border-bottom: solid .25rem var(--#{$prefix}header_site-search-suggestions-hover__border_color);
+
+				.suggestions-category {
+					padding: 0 1rem;
+				}
+
+				// Show when active
+				&.show {
+					display: block; 
+				}
+
+				&__group {
+					padding: 0;
+
+					a, strong {
+						color: var(--site-search-input-color);
+						font-weight: 400;
+						font-size: 1rem;
+						text-decoration: none; 
+					}
+
+					strong {
+						font-weight: 600;
+					}
+
+					ul {
+						padding: 0;
+
+						li {
+							height: 3rem;
+							list-style: none;
+							cursor: pointer;
+
+							a {
+								vertical-align: middle;
+								vertical-align: -webkit-baseline-middle;
+								&:hover {
+									text-decoration: underline; 
+								}
+							}
+
+							&:hover {
+								background-color: var(--#{$prefix}header_site-search-suggestions-hover);
+								margin: 0 -1rem;
+								a {
+									padding: 0 1rem;
+								}
+							}
+						}
+					}
+				}
+			}
+
 			input[type="text"] {
+				box-shadow: none;
 				border: none;
-				width: 320px;
+				padding-left: 3rem;
+				width: 20.62rem;
 				color: var(--site-search-input-color);
-				border-bottom: 2px solid var(--site-search-border-color);
 				background: var(--site-search-bg);
 				border-radius: 0.25rem 0 0 0;
-				padding-left: 3rem;
-				box-shadow: none;
+				border-bottom: 2px solid var(--site-search-border-color);
+
+				@include media-breakpoint-down(lg) {
+					border: 2px solid var(--site-search-border-color);
+					width: 100%;
+				}
+
 				&:focus {
-					outline: 2px solid var( --site-search-input-focus-color);
+					outline: 2px solid var(--site-search-input-focus-color);
 					outline-offset: 2px;
 				}
+
+				&.border-full {
+					border: 2px solid var(--site-search-border-color);
+					border-right: 0;
+					border-radius: 0.25rem 0 0 0.25rem;
+				}
+
 			}
 
 			input[type="submit"] {
@@ -456,20 +598,21 @@
 		}
 
 		@include media-breakpoint-down(lg) {
-			&--closed {
-				display:none;
-			}
+
 			// Mobile search open class
 			&--open {
+				z-index: 1;
+				display: block;
 				position: absolute;
 				left: 0;
 				right: 0;
-				top: 0;
-				background-color: var(--#{$prefix}header_bg);
-				-webkit-box-shadow: 0px 0px 25px rgba(200, 200, 200, .25);
-				box-shadow: 0px 0px 25px rgba(200, 200, 200, .25);
 				padding: 1rem;
-				z-index: 1;
+				margin-top: 1rem;
+				background-color: var(--#{$prefix}header_bg);
+			}
+
+			&--closed {
+				display: none;
 			}
 		}
 	}
