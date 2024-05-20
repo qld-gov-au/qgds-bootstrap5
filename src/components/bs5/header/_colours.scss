@@ -46,7 +46,6 @@
     // ------------------------------------------------------------------------------------------------------------------
     //  2. Second hand variables (each variant, default, light, dark, dark-alt)
     // ------------------------------------------------------------------------------------------------------------------
-
     //  Search
     --#{$prefix}header-site-search-bg: var(--#{$prefix}header-color-light-background__shade);
     --#{$prefix}header-site-search-btn-color: var(--#{$prefix}header-color-dark-text);
@@ -55,6 +54,7 @@
     --#{$prefix}header-site-search-icon-color:var(--#{$prefix}header-color-light-text__muted);
     --#{$prefix}header-site-search-text-color:var(--#{$prefix}header-color-light-text);
 
+    // Search dark
     --#{$prefix}header-dark-site-search-bg: var(--#{$prefix}header-color-dark-background__shade);
     --#{$prefix}header-dark-site-search-btn-color: var(--#{$prefix}header-color-light-text);
     --#{$prefix}header-dark-site-search-btn-bg: var(--#{$prefix}header-color-light-designAccent);
@@ -67,10 +67,10 @@
     --#{$prefix}header_bg: var(--#{$prefix}header-color-light-background);
 
     // Skip links
-    --#{$prefix}header_skip-link_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}header-color-light-focus);
-    --#{$prefix}header_skip-link_focus_text_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}header-color-light-background);
+    --#{$prefix}header_skip-link_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}header-color-dark-focus);
+    --#{$prefix}header_skip-link_focus_text_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}header-color-dark-background__shade);
 
     // Pre-header bar
     --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-dark-text);
@@ -89,6 +89,10 @@
     --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}header-color-dark-link);
     --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}header-color-dark-alt-button);
     --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}header-color-dark-alt-button__hover);
+    --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}header-color-dark-background);
+
+    --#{$prefix}header__CTA_text_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header__CTA_border_color: var(--#{$prefix}header-color-dark-border);
 
     // Toggle main navigation
     --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}header-color-dark-link);
@@ -121,12 +125,16 @@
     --site-search-input-focus-color: var(--#{$prefix}header-color-light-focus);
     --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
 
+    // Suggestions colours
+    --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-light-background);
+    --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-light-background__shade);
+    --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}header-color-light-designAccent);
+
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Dark/dark-alt modes
     // ------------------------------------------------------------------------------------------------------------------
     .dark &,
     .dark-alt & {
-
         // Root (dark/dark-alt)
         --#{$prefix}header_color: var(--#{$prefix}header-color-dark-text);
 
@@ -158,17 +166,33 @@
         --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}header-color-dark-alt-button__hover);
         --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}header-color-dark-focus);
         --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}header-color-dark-alt-button);
+        
         --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}header-color-dark-link);
         --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}header-color-dark-link);
         --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}header-color-dark-link);
         --#{$prefix}header__brand__anchor__hover_brand-image__filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)), drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
         --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}header-color-dark-designAccent);
         --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}header-color-dark-siteTitle);
+        
         --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}header-color-dark-siteTitle);
         --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}header-color-dark-text__muted);
 
         // COA
         --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}header-color-dark-crest-fill);
+        
+        // Search (dark/dark/alt)
+        --site-search-bg: var(--#{$prefix}header-dark-site-search-bg);
+        --site-search-btn-color: var(--#{$prefix}header-dark-site-search-btn-color);
+        --site-search-btn-bg: var(--#{$prefix}header-dark-site-search-btn-bg);
+        --site-search-border-color: var(--#{$prefix}header-dark-site-search-border-color);
+        --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
+        --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
+        --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
+
+        // Suggestions colours
+        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-dark-alt-background);
+        --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-dark-background__shade);
+        --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}header-color-dark-designAccent);
     }
 
     .dark-alt & {
@@ -179,14 +203,6 @@
     .dark & {
         --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-background);
         --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-alt-background);
-
-        // Search (dark/dark/alt)
-        --site-search-bg: var(--#{$prefix}header-dark-site-search-bg);
-        --site-search-btn-color: var(--#{$prefix}header-dark-site-search-btn-color);
-        --site-search-btn-bg: var(--#{$prefix}header-dark-site-search-btn-bg);
-        --site-search-border-color: var(--#{$prefix}header-dark-site-search-border-color);
-        --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
-        --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
-        --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
+        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}header-color-dark-alt-background);
     }
 }

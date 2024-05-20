@@ -12,6 +12,7 @@
     --#{$prefix}navbar-color-light-border: #EBEBEB;
     --#{$prefix}navbar-color-light-background: #FFFFFF;
     --#{$prefix}navbar-color-light-background__shade: #F5F5F5;
+    --#{$prefix}navbar-color-light-alt-background__shade: #EBEBEB;
     --#{$prefix}navbar-color-light-underline: #3F7AB4;
     --#{$prefix}navbar-color-light-hover-underline: #09549F;
     --#{$prefix}navbar-color-light-alt-button: #008733;
@@ -47,7 +48,7 @@
     --#{$prefix}navbar-nav-text-color: var(--#{$prefix}navbar-color-light-text);
     --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-light-background__shade);
     --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-light-background);
-    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-background);
+    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-light-alt-background__shade);
     --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-light-button__hover);
     --#{$prefix}navbar-border-color: var(--#{$prefix}navbar-color-light-border);
     --#{$prefix}navbar-border-accent: var(--#{$prefix}navbar-color-light-designAccent);
@@ -55,6 +56,13 @@
     --#{$prefix}navbar-hover-color: var(--#{$prefix}navbar-color-light-button__hover);
     --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-light-alt-button__hover);
     --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-light-alt-button);
+
+    // Mobile default is dark
+    --#{$prefix}navbar-mobile-header-bg-color: var(--#{$prefix}navbar-color-dark-background);
+    --#{$prefix}navbar-mobile-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
+    --#{$prefix}navbar-mobile-text-color: var(--#{$prefix}white);
+    --#{$prefix}navbar-mobile-border-color: var(--#{$prefix}dark-border);
+    --#{$prefix}navbar-mobile-menuitem-hover: var(--#{$prefix}navbar-color-dark-background__shade);
 
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Modes
@@ -66,26 +74,18 @@
         --#{$prefix}navbar-border-color: var(--#{$prefix}light-grey);
     }
 
-    .dark & {
-        --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background);
-        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-dark-background);
-        --#{$prefix}navbar-title-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-text-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-nav-text-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-link-color: var(--#{$prefix}white);
-        --#{$prefix}navbar-border-color: var(--#{$prefix}dark-border);
-        --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}navbar-color-dark-alt-button__hover);
-        --#{$prefix}navbar-icon-hover: var(--#{$prefix}navbar-color-dark-alt-button);
-        --#{$prefix}navbar-text-focus-color: var(--#{$prefix}navbar-color-dark-focus);
-        --#{$prefix}navbar-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
-    }
-
+    .dark &,
     .dark-alt & {
+        // Mobile default is dark
+        --#{$prefix}navbar-mobile-header-bg-color: var(--#{$prefix}navbar-color-dark-alt-background);
+        --#{$prefix}navbar-mobile-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
+        --#{$prefix}navbar-mobile-text-color: var(--#{$prefix}white);
+        --#{$prefix}navbar-mobile-border-color: var(--#{$prefix}dark-border);
+        --#{$prefix}navbar-mobile-menuitem-hover: var(--#{$prefix}navbar-color-dark-alt-background__shade);
+
         --#{$prefix}navbar-bg-color: var(--#{$prefix}navbar-color-dark-background__shade);
-        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-background);
-        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-dark-background);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}navbar-color-dark-alt-background);
+        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}navbar-color-dark-alt-background);
         --#{$prefix}navbar-title-color: var(--#{$prefix}white);
         --#{$prefix}navbar-text-color: var(--#{$prefix}white);
         --#{$prefix}navbar-nav-text-color: var(--#{$prefix}white);

@@ -175,44 +175,141 @@
                 </svg>
             </a>
             <div class="qld__header__cta-wrapper">
-                {{#if sitePreHeader.mainNavCtaOne.value}}
-                <a class="qld__header__cta-link" href="{{sitePreHeader.mainNavCtaOne.value}}">
-                    {{#if sitePreHeader.mainNavCtaOne.icon.value}}
-                    <span class="qld__header__cta-link-icon">
-                        <i class="{{icon-root}}#{{sitePreHeader.mainNavCtaOne.icon.value}}"></i>
-                    </span>
-                    {{/if}}
-                    <span class="qld__header__cta-link-text">{{sitePreHeader.mainNavCtaOne.text.value}}</span>
-                </a>
-                {{/if}}
-                {{#if sitePreHeader.mainNavCtaTwo.value}}
-                <a class="qld__header__cta-link" href="{{sitePreHeader.mainNavCtaTwo.value}}">
-                    {{#if sitePreHeader.mainNavCtaTwo.icon.value}}
-                    <span class="qld__header__cta-link-icon">
-                        <i class="{{icon-root}}#{{sitePreHeader.mainNavCtaTwo.icon.value}}"></i>
-                    </span>
-                    {{/if}}
-                    <span class="qld__header__cta-link-text">{{sitePreHeader.mainNavCtaTwo.text.value}}</span>
-                </a>
+                {{#if sitePreHeader.CTA}}
+                    {{#each sitePreHeader.CTA}}
+                            <div {{#if dropdown_enabled}}class="dropdown dropdownCTA"{{/if}}>
+                                <a 
+                                    {{#if dropdown_enabled}}
+                                        id="dropdown{{id}}" 
+                                        role="button" 
+                                        data-bs-toggle="dropdown" 
+                                        aria-expanded="false" 
+                                        class="qld__header__cta-link" 
+                                    {{else}} 
+                                        href="{{url.value}}" 
+                                        class="qld__header__cta-link" 
+                                    {{/if}}>
+                                    {{#if icon.value}}
+                                        <span class="qld__header__cta-link-icon">
+                                            <i class="{{icon-root}}#{{icon.value}}"></i>
+                                        </span>
+                                    {{/if}}
+                                    <span class="qld__header__cta-link-text">{{text.value}}</span>
+                                </a>
+
+                                {{#if dropdown_enabled}}
+                                    <ul class="dropdown-menu dark" aria-labelledby="dropdown{{id}}">
+
+                                        {{#isType dropdown_options.dropdown_type "list"}}
+                                            {{#if dropdown_options.dropdown_config}}
+                                                {{#each dropdown_options.dropdown_config.groups}}
+                                                    <li class="qld__header__cta-list">
+                                                        <a href="{{url}}" 
+                                                            {{#if action}}
+                                                                target="{{action}}"
+                                                            {{/if}}>
+                                                            {{label}}
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
+                                                                <path d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z" fill="#FFE500"/>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                {{/each}}
+                                                {{#if dropdown_options.dropdown_config.view_more}}
+                                                    <li class="qld__header__cta-list">
+                                                        <a href="{{dropdown_options.dropdown_config.view_more_options.url}}" href="{{dropdown_options.dropdown_config.view_more_options.target}}" class="border-bottom-0">{{dropdown_options.dropdown_config.view_more_options.label}}
+                                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="viewMoreCTA">
+                                                                <path d="M8.84375 4.65625C8.65625 4.46875 8.3125 4.46875 8.125 4.65625C7.9375 4.84375 7.9375 5.1875 8.125 5.375L10.2813 7.5H4.5C4.21875 7.5 4 7.75 4 8C4 8.28125 4.21875 8.5 4.5 8.5L10.2813 8.5L8.125 10.6562C7.9375 10.8437 7.9375 11.1875 8.125 11.375C8.3125 11.5625 8.65625 11.5625 8.84375 11.375L11.8438 8.375C11.9375 8.28125 12 8.15625 12 8C12 7.875 11.9375 7.75 11.8438 7.65625L8.84375 4.65625ZM8 0C3.5625 0 0 3.59375 0 8C0 12.4375 3.5625 16 8 16C12.4063 16 16 12.4375 16 8C16 3.59375 12.4062 0 8 0ZM8 15C4.125 15 1 11.875 1 8C1 4.15625 4.125 1 8 1C11.8438 1 15 4.15625 15 8C15 11.875 11.8438 15 8 15Z" fill="#FFE500" />
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                {{/if}}
+                                            {{/if}}
+                                        {{/isType}}
+
+                                        {{#isType dropdown_options.dropdown_type "form"}}
+                                            {{#if dropdown_options.dropdown_config.groups}}
+                                                {{#each dropdown_options.dropdown_config.groups}}
+
+                                                    {{#if heading}}<h4 class="mt-2">{{heading}}</h4>{{/if}}
+                                                    {{#if content}}<p>{{content}}</p>{{/if}}
+
+                                                    {{#isType actionType "button"}}
+                                                        <a class="btn btn-primary" href="{{action.button_action}}" 
+                                                        {{#if action.button_targetAttr }}
+                                                            target="{{action.button_targetAttr}}"
+                                                        {{/if}}>
+                                                            <span class="btn-icon fa-solid fa-arrow-up-right-from-square"></span>
+                                                                {{action.button_label}}
+                                                        </a>
+                                                    {{/isType}}
+
+                                                    {{#each links}}
+                                                    <div class="group"> 
+                                                        <a class="mt-4 qld__header__cta-group-list" href="{{url}}"  
+                                                            {{#if action}}
+                                                                target="{{action}}"
+                                                            {{/if}}>
+                                                            {{label}}
+                                                        </a>
+                                                    </div>
+                                                    <hr>
+                                                    {{/each}}
+
+                                                    {{#isType actionType "list"}}
+                                                        {{#each list_items}}
+                                                                <ul>
+                                                                    <li class="qld__header__cta-group-list group">
+                                                                        <a href="{{url}}" 
+                                                                            {{#if action }}
+                                                                                target="{{action}}"
+                                                                            {{/if}}>
+                                                                            {{label}}
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                                <hr>
+                                                        {{/each}}
+                                                    {{/isType}}
+
+                                                    {{#isType actionType "select"}}
+                                                        <select class="qld-text-input form-select qld-select" aria-label="" required=""
+                                                            aria-required="">
+                                                                <option selected="">Please select</option>
+                                                                {{#each options}}
+                                                                    <option value="{{value}}">{{value}}</option>
+                                                                {{/each}}
+                                                        </select>
+                                                    {{/isType}}
+
+                                                {{/each}}
+                                            {{/if}}
+                                        {{/isType}}
+
+                                    </ul>
+                                {{/if}}
+                            </div>
+                     {{/each}}
                 {{/if}}
             </div>
             <div class="qld__header__main-nav-controls">
                 {{#if siteSearchAsset.value}}
                 <button aria-controls="qld-header-search"
-                    class="qld__header__toggle-main-nav qld__main-nav__toggle-search"
-                    aria-expanded="false">
-                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
-                        <use href="{{icon-root}}#{{siteSearchAsset.icons.search-icon}}"></use>
-                        </svg>
+                    class="qld__header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                        class="qld__icon qld__icon--lg">
+                        <use href="{{icon-root}}#{{siteSearchAsset.options.icons.search-icon}}"></use>
+                    </svg>
                     <span class="qld__main-nav__toggle-text">Search</span>
                 </button>
                 {{/if}}
                 <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
-                        <use href="{{icon-root}}#{{siteSearchAsset.icons.menu-icon}}"></use>
-                        </svg>
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                        class="qld__icon qld__icon--lg">
+                        <use href="{{icon-root}}#{{siteSearchAsset.options.icons.menu-icon}}"></use>
+                    </svg>
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
             </div>
@@ -227,7 +324,7 @@
                     <div class="qld__header__brand-image">
                         {{#if siteHeader.logo.value}}
                         <img src="{{siteHeader.logo.value}}" width="329.57" height="56">
-                            <title>Queensland Government</title>
+                        <title>Queensland Government</title>
                         </img>
                         {{else}}
                         <svg width="330" height="56" viewBox="0 0 330 56" fill="none"
@@ -401,7 +498,6 @@
                 </a>
             </div>
             {{/if}}
-
             {{#if siteHeader.config.otherbrand_enabled}}
             <div class="qld__header__brand">
                 <a href="{{siteHeader.url.value}}">
@@ -606,12 +702,14 @@
                 </a>
             </div>
             {{/if}}
-
             {{#if siteSearchAsset.value}}
             <div id="qld-header-search" class="qld__header__site-search qld__header__site-search--closed">
-                <form id="site-search">
-                    <input type="text" class="form-control" placeholder="Search this site">
-                    <input type="submit" class="btn btn-primary" value="Search">
+                <form id="site-search" {{#if siteSearchAsset.formAction.url}}action="{{siteSearchAsset.formAction.url}}"{{/if}}>
+                    <input type="text" class="form-control{{#if siteSearchAsset.options.borderStyle.full}} border-full{{/if}}"
+                        placeholder="{{#if siteSearchAsset.placeholder}}{{siteSearchAsset.placeholder}}{{else}}Search this site{{/if}}"
+                        id="search-input">
+                     <ul id="suggestions" class="suggestions-dropdown suggestions-dropdown__group"></ul>
+                    <input type="submit" class="btn btn-primary" value="{{#if siteSearchAsset.label}}{{siteSearchAsset.label}}{{else}}Search{{/if}}">
                 </form>
             </div>
             {{/if}}

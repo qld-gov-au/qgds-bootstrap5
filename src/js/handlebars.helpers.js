@@ -1,7 +1,7 @@
 /* global Handlebars */
 
 /**
- * Registers Handlebars Helper for 'contains', 'ifCond', 'isMultipleOfThree' and 'isEndOfRow'
+ * Registers Handlebars Helper for 'contains', 'ifCond', 'isType', 'isMultipleOfThree' and 'isEndOfRow'
  * @param {module} Handlebars Templating engine
  * @returns {void} Result of the helper operation
  */
@@ -52,6 +52,13 @@ export default function handlebarsHelpers(Handlebars) {
   });
   Handlebars.registerHelper('isEndOfRow', function(index) {
     return ((index + 1) % 3 === 0); // Since index is zero-based, add 1 to check if it's the end of a row.
+  });
+  Handlebars.registerHelper('isType', function (value, expected, options) {
+      if (value === expected) {
+          return options.fn(this); // Render the block if condition is true
+      } else {
+          return options.inverse(this); // Render the else block if present
+      }
   });
 }
 

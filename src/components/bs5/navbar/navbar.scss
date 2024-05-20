@@ -13,6 +13,41 @@
     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-accent);
     align-items: center;
 
+    // Helpers for responsive sizes
+    @include media-breakpoint-up(lg) {
+        .desktop-only {
+            display: block;
+        }
+        .nav-item-group {
+            display: block;
+            display: none;
+        }
+    }
+    @include media-breakpoint-down(lg) {
+        .desktop-only {
+            display: none;
+        }
+        .nav-item-group {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            a.first-element {
+                flex: 1 1;
+            }
+            a.second-element {
+                flex: 1 1 auto;
+            }
+            ul.dropdown-menu {
+                flex: 1 1 100%;
+            }
+            .dropdown-toggle {
+                max-width: 3.5rem;
+                border-left: solid 1px var(--#{$prefix}navbar-border-color);
+            }
+        }
+    }
+
+
     &-collapse {
         @include media-breakpoint-down(md) {
             width: 320px;
@@ -30,7 +65,7 @@
             bottom: 0;
             overflow: auto;
             background-color: var(--#{$prefix}navbar-bg-color);
-            overflow: hidden;
+            
             /* Initially positioned off-screen to the right */
             transition: transform .25s ease-in-out;
             transform: translateX(100%);
@@ -49,7 +84,7 @@
 
     &__header {
         display: flex;
-        background-color: var(--#{$prefix}navbar-bg-color);
+        background-color: var(--#{$prefix}navbar-mobile-header-bg-color);
         color: var(--#{$prefix}navbar-text-color);
         align-items: center;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
@@ -78,6 +113,10 @@
             @include media-breakpoint-up(lg) {
                 display: none;
             }
+
+            @include media-breakpoint-down(lg) {
+                color: var(--#{$prefix}navbar-mobile-text-color);
+            }
         }
 
         // Menu open and close toggles
@@ -93,20 +132,27 @@
             background-color: transparent;
             cursor: pointer;
             align-items: center;
-            color: var(--#{$prefix}navbar-text-color);
-            border-left: solid 1px var(--#{$prefix}navbar-border-color);
-
+            
             @include media-breakpoint-up(lg) {
+                color: var(--#{$prefix}navbar-text-color);
+                border-left: solid 1px var(--#{$prefix}navbar-border-color);
                 &:focus {
                     outline: 2px solid var(--#{$prefix}navbar-text-focus-color);
                     outline-offset: 2px;
                 }
             }
 
+            @include media-breakpoint-down(lg) {
+                color: var(--#{$prefix}navbar-mobile-text-color);
+                border-left: solid 1px var(--#{$prefix}navbar-mobile-border-color);
+            }
+
             &:hover {
-                background-color: var(--#{$prefix}navbar-menuitem-hover);
-                svg {
-                    color: var(--#{$prefix}navbar-icon-hover);
+                @include media-breakpoint-down(lg) {
+                    background-color: var(--#{$prefix}navbar-mobile-menuitem-hover);
+                }
+                @include media-breakpoint-up(lg) {
+                    background-color: var(--#{$prefix}navbar-menuitem-hover);
                 }
             }
 
@@ -138,7 +184,14 @@
                 height: 1rem;
                 width: 1rem;
                 margin: 1px auto;
-                color: var(--#{$prefix}navbar-svg-color);
+                
+                @include media-breakpoint-up(lg) {
+                    color: var(--#{$prefix}navbar-svg-color);
+                }
+                
+                @include media-breakpoint-down(lg) {
+                    color: var(--#{$prefix}navbar-mobile-svg-color);
+                }
 
                 @include media-breakpoint-up(md) {
                     height: 1.25rem;
@@ -194,7 +247,7 @@
         }
     }
 
-    .navbar-nav {
+    &-nav {
         $navbar-padding-x: 0;
         $navbar-padding-y: 0;
         --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
@@ -211,13 +264,12 @@
 
     .dropdown { 
         &-menu {
-
+            background-color: var(--#{$prefix}navbar-dropdown-bg-color);
+            
             // Override the default bs-popper margin
             &[data-bs-popper] {
                 margin-top: 0;
             }
-
-            background-color: var(--#{$prefix}navbar-dropdown-bg-color);
             
             @include media-breakpoint-up(lg) {
                 left: 0;
@@ -238,7 +290,6 @@
                 -webkit-box-shadow: none;
                 padding: 0;
                 &.show {
-                    border-right: solid 2px var(--#{$prefix}navbar-border-color);
                     border-left: solid 0.25rem var(--#{$prefix}navbar-dropdown-bg-color);
                     margin-left: -0.25rem;
                 }
@@ -251,12 +302,7 @@
                     text-decoration: none;
                     font-weight: 700;
 
-                    &:hover {
-                        text-decoration: underline;
-                        text-underline-offset: 5px;
-                        background-color: inherit;
-                    }
-
+                    &:hover,
                     &:focus {
                         text-decoration: underline;
                         text-underline-offset: 5px;
@@ -289,13 +335,19 @@
                 }
 
                 li {
+
+                    @include media-breakpoint-down(lg) {
+                        padding-right: 0;
+                    } 
+                    
                     a.dropdown-item {
                         font-weight: 600;
                         padding: 1rem 0;
                         color: var(--#{$prefix}navbar-link-color);
                         border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
 
-                        &:hover {
+                        &:hover,
+                        &:focus {
                             text-decoration: underline;
                             text-underline-offset: 5px;
                             background-color: inherit;
@@ -304,12 +356,6 @@
                                 border-left: solid 0.25rem var(--#{$prefix}navbar-menuitem-hover-border);
                                 margin-left: -0.25rem;  
                             }
-                        }
-
-                        &:focus {
-                            text-decoration: underline;
-                            text-underline-offset: 5px;
-                            background-color: inherit;
                         }
 
                         &::after {
