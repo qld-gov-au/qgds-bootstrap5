@@ -1,3 +1,5 @@
+/* global Handlebars */
+
 /**
  * Registers Handlebars Helper for 'contains', 'ifCond', 'isMultipleOfThree' and 'isEndOfRow'
  * @param {module} Handlebars Templating engine
@@ -5,6 +7,7 @@
  */
 
 export default function handlebarsHelpers(Handlebars) {
+  
   Handlebars.registerHelper("contains", function (needle, haystack, options) {
     needle = Handlebars.escapeExpression(needle);
     haystack = Handlebars.escapeExpression(haystack);
@@ -50,4 +53,8 @@ export default function handlebarsHelpers(Handlebars) {
   Handlebars.registerHelper('isEndOfRow', function(index) {
     return ((index + 1) % 3 === 0); // Since index is zero-based, add 1 to check if it's the end of a row.
   });
+}
+
+if(typeof(Handlebars) !== 'undefined') {
+  handlebarsHelpers(Handlebars);
 }
