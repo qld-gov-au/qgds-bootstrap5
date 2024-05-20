@@ -190,7 +190,7 @@
         --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
 
         // Suggestions colours
-        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-dark-background);
+        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-dark-alt-background);
         --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-dark-background__shade);
         --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}header-color-dark-designAccent);
     }
