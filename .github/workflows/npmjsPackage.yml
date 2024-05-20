@@ -82,6 +82,10 @@ jobs:
       WORKFLOW_DEPLOYMENT: ${{ github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' }}
       DO_DEPLOYMENT: ${{ secrets.NPM_TOKEN != '' && ( github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' ) }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
