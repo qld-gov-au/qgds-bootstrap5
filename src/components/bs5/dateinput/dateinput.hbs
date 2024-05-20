@@ -15,13 +15,13 @@
 <span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
 {{/if}}
 
-{{#contains "qld-input-success" states}}
+{{#contains "qld-input-success" customClass}}
 <span id="text-field-success" class="qld-input-success">
     {{successMessageText}}
 </span>
 {{/contains}}
 
-{{#contains "qld-input-error" states}}
+{{#contains "qld-input-error" customClass}}
 <span id="text-field-error" class="qld-input-error">
     {{errorMessageText}}
 </span>
@@ -34,9 +34,9 @@
         <div>
             <input aria-required="true" aria-labelledby="dategroup-label" placeholder="{{day-placeholder}}" type="text"
                 inputmode="numeric" maxlength="2"
-                class="qld-text-input form-control dayinput {{customClass}} {{states}}" id="dayinput"
-                ref="day" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required
-                aria-required="true" {{/if}}>
+                class="qld-text-input form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}" id="dayinput" ref="day"
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
+                {{/if}}>
         </div>
     </div>
     <!-- month group -->
@@ -45,9 +45,9 @@
         <div>
             <input aria-required="true" aria-labelledby="dategroup-label" placeholder="{{month-placeholder}}"
                 type="text" inputmode="numeric" maxlength="2"
-                class="qld-text-input form-control monthinput {{customClass}} {{states}}" id="monthinput"
-                ref="month" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required
-                aria-required="true" {{/if}}>
+                class="qld-text-input form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}" id="monthinput" ref="month"
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
+                {{/if}}>
         </div>
     </div>
     <!-- year group -->
@@ -56,9 +56,9 @@
         <div class="year-label">
             <input aria-required="true" aria-labelledby="dategroup-label qld-text-input-label"
                 placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4"
-                class="qld-text-input form-control yearinput {{customClass}} {{states}}" id="yearinput"
-                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required
-                aria-required="true" {{/if}}>
+                class="qld-text-input form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}"
+                id="yearinput" ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if
+                isRequired}}required aria-required="true" {{/if}}>
         </div>
     </div>
 </div>

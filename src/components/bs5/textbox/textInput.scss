@@ -91,7 +91,7 @@
     align-items: center;
 }
 
-.qld-input-success {
+span.qld-input-success {
     &:before {
         content: "";
         height: 2rem;
@@ -101,7 +101,7 @@
     }
 }
 
-.qld-input-error {
+span.qld-input-error {
     color: $qld-notify-warning;
 
     &:before {
