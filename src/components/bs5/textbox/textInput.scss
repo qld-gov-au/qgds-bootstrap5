@@ -178,6 +178,14 @@ select.qld-select.qld-input-success:not(:focus) {
     }
 }
 
+.qld-input-success {
+    @extend .is-valid;
+}
+
+.qld-input-error {
+    @extend .is-invalid;
+}
+
 @include media-breakpoint-up(md) {
 
     input.qld-field-width-1-quarter,
