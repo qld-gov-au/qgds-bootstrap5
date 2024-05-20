@@ -57,7 +57,13 @@
                                     "url": "#",
                                     "label": "Community support"
                                 }
-                            ]
+                            ],
+                            "view_more": true,
+                            "view_more_options": {
+                                "url": "#",
+                                "label": "View more",
+                                "target": "_blank"
+                            }
                         }
                     }
                 },
@@ -109,7 +115,13 @@
                                     "url": "#",
                                     "label": "Investing in Queensland"
                                 }
-                            ]
+                            ],
+                            "view_more": true,
+                            "view_more_options": {
+                                "url": "#",
+                                "label": "View more",
+                                "target": "_blank"
+                            }
                         }
                     }
                 },
