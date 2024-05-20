@@ -1,3 +1,5 @@
+/* global Handlebars */
+
 /**
  * Registers Handlebars Helper for 'contains', 'ifCond', 'isType', 'isMultipleOfThree' and 'isEndOfRow'
  * @param {module} Handlebars Templating engine
@@ -5,6 +7,7 @@
  */
 
 export default function handlebarsHelpers(Handlebars) {
+  
   Handlebars.registerHelper("contains", function (needle, haystack, options) {
     needle = Handlebars.escapeExpression(needle);
     haystack = Handlebars.escapeExpression(haystack);
@@ -57,4 +60,8 @@ export default function handlebarsHelpers(Handlebars) {
           return options.inverse(this); // Render the else block if present
       }
   });
+}
+
+if(typeof(Handlebars) !== 'undefined') {
+  handlebarsHelpers(Handlebars);
 }

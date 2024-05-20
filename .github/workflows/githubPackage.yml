@@ -85,6 +85,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -163,7 +164,7 @@ jobs:
 #          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Publish
-        run: npm publish --tag ${{ steps.latest_tag.outputs.latest-tag }}
+        run: npm publish --provenance --access=public --tag ${{ steps.latest_tag.outputs.latest-tag }}
         if: ${{ env.DO_DEPLOYMENT == 'true' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
