@@ -11,7 +11,7 @@ import {
 
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
 import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
-import { toggleSearch, showSuggestions, selectSuggestion } from './components/bs5/header/header.functions';
+import { toggleSearch, showSuggestions } from './components/bs5/header/header.functions';
 
 window.addEventListener('scroll', positionQuickExit, true);
 window.addEventListener('resize', positionQuickExit, true);
