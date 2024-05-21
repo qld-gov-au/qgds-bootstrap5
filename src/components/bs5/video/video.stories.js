@@ -5,6 +5,10 @@ import defaultdata from './video.data.json';
 // include accordion for transcript
 import { Accordion } from "../accordion/Accordion.js";
 
+/** 
+ * Set default arguments for the Video component,
+ * which is based on YouTube arguments.
+ */
 export default {
   tags: ["autodocs"],
   title: "Components/Video",
@@ -44,6 +48,20 @@ export default {
         "Full width": "col-12",
         "Two thirds": "col-8",
         "Half page": "col-6",
+      },
+    },
+    urlParams: {
+      control: {
+        type: "object",
+        autoplay: {
+          type: "boolean",
+        },
+        background: {
+          type: "boolean",
+        },
+        controls: {
+          type: "boolean",
+        },
       },
     },
   },
