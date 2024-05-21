@@ -54,11 +54,11 @@ export default function handlebarsHelpers(Handlebars) {
     return ((index + 1) % 3 === 0); // Since index is zero-based, add 1 to check if it's the end of a row.
   });
   Handlebars.registerHelper('isType', function (value, expected, options) {
-      if (value === expected) {
-          return options.fn(this); // Render the block if condition is true
-      } else {
-          return options.inverse(this); // Render the else block if present
-      }
+    if (value === expected) {
+      return options.fn(this); // Render the block if condition is true
+    } else {
+      return options.inverse(this); // Render the else block if present
+    }
   });
 }
 
