@@ -225,14 +225,10 @@
     font-weight: normal;
   }
   #btn-footer-feedback:not(.collapsed) {
-    //   background: var(--background-colour);
-    //   color: var(--qld-body-color) !important;
     border-radius: var(--border-radius);
     font-weight: var(--font-weight);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    //   border-color: var(--background-colour);
-    //   text-align: left;
     outline: none !important;
     &:hover,
     &:active {
@@ -242,7 +238,6 @@
       --qld-btn-hover-border-color: var(--background-colour);
       color: var(--qld-body-color);
     }
-    // width: auto;
     width: 100%;
     text-align: left;
     background-color: var(--temp-white);
@@ -289,6 +284,32 @@
       margin-block-end: calc(var(--spacing) * 0.5);
       font-weight: bold;
     }
+    .formio-component-submit {
+      margin-block-start: var(--spacing);
+    }
+    .form-check {
+      align-items: flex-start;
+    }
+    .formio-modified .form-check-input,
+    .formio-modified .form-control {
+      border-color: var(--qld-notify-success);
+      outline: 2px solid var(--qld-notify-success);
+    }
+    .formio-component-submit .btn {
+      --qld-btn-active-bg: var(--qld-sapphire-blue);
+      --qld-btn-color: var(--qld-white); // Sen Get the correct VAR()
+      --qld-btn-border-color: transparent;
+      &:hover {
+        // --qld-btn-color: #fff; // Sen Get the correct VAR()
+        // --qld-btn-border-color: transparent;
+        border-color: var(--qld-btn-active-bg);
+        text-decoration: underline;
+        text-decoration-line: underline;
+        text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+        text-underline-offset: 0.3em;
+        background-color: var(--qld-btn-active-bg);
+      }
+    }
     .form-radio {
       .form-check {
         display: flex !important;
@@ -324,8 +345,9 @@
     .form-control {
       border: var(--form-control-border-width) solid var(--qld-soft-grey);
     }
-    .is-invalid {
-      outline: var(--qld-notify-warning) solid var(--form-control-border-width);
+    .formio-modified .is-invalid {
+      outline: var(--qld-notify-warning) solid var(--form-control-border-width) !important;
+      border-color: var(--qld-notify-warning);
       outline-offset: 0;
     }
 
@@ -334,8 +356,8 @@
 
       &.alert {
         padding-block-start: 0;
-        padding-block-end: 1rem;
-        padding-inline: 1rem;
+        padding-block-end: var(--spacing);
+        padding-inline: var(--spacing);
         &:before,
         &:after {
           width: calc(var(--inner-border-radius) * 2);
@@ -344,7 +366,7 @@
           background-image: none;
         }
         h4 {
-          margin-block: 1rem;
+          margin-block: var(--spacing);
           line-height: normal;
           font-weight: bold;
         }
@@ -352,8 +374,7 @@
     }
 
     #feedback-serv-dep-staff {
-      // color: var(--qld-selection-color);
-      color: #000;
+      color: #000; // Use a VAR -> SEN
 
       h4 {
         text-indent: calc(var(--info-icon-width) + 10px);
