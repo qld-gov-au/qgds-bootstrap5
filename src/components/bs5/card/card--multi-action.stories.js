@@ -18,6 +18,7 @@ export default {
       ${new Card({ ...args, iconClasses: "fa-solid fa-pen-ruler", iconPosition: "icon-left" }).html}
       ${new Card({ ...args, description: "" }).html}
       ${new Card({ ...args, footer: tags }).html}
+      ${new Card({ ...args, description: "<ul><li><a href='javascript:void(0)'>Link text</a></li><li><a href='javascript:void(0)'>Link text</a></li><li><a href='javascript:void(0)'>Link text</a></li></ul>", footer: "<div class='view-all'><a href='javascript:void(0)'>View all</a></div>" }).html}
       ${new Card({ ...args, iconClasses: "fa-solid fa-pen-ruler", iconPosition: "icon-top" }).html}
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", video: true, videoDuration: "2:34" }).html}
