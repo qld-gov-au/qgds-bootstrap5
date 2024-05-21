@@ -43,10 +43,10 @@ export function initializeNavbar() {
 
   // Add event listeners to each dropdown item
   dropdownItems.forEach(item => {
-      item.addEventListener('click', function(event) {
-          // Stop the event from propagating - Bootstrap default click closes
-          event.stopPropagation();  
-      });
+    item.addEventListener('click', function(event) {
+      // Stop the event from propagating - Bootstrap default click closes
+      event.stopPropagation();  
+    });
   });
 
   // Overlay on mobile open
