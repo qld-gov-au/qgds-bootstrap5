@@ -1,6 +1,7 @@
 {
 	"isDisabled": false,
 	"isRequired": true,
+	"isFilled": false,
 	"customClass": "",
 	"label-text": "Label",
 	"placeholder": "Hello World",

@@ -1,7 +1,8 @@
 <!-- QGDS Component: Textbox -->
 
 <!-- Label for the first input field -->
-<label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="example-1">
+<label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
+    for="example-1">
     {{label-text}}
     {{#if optional-text}}
     <span class="label-text-optional">({{optional-text}})</span>
@@ -13,19 +14,19 @@
 <span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
 {{/if}}
 
-{{#contains "qld-input-success" states}}
+{{#contains "qld-input-success" customClass}}
 <span id="text-field-success" class="qld-input-success">
     {{successMessageText}}
 </span>
 {{/contains}}
 
-{{#contains "qld-input-error" states}}
+{{#contains "qld-input-error" customClass}}
 <span id="text-field-error" class="qld-input-error">
     {{errorMessageText}}
 </span>
 {{/contains}}
 
 <!-- First text input field, described by the hint text above -->
-<input id="example-1" class="qld-text-input form-control {{customClass}} {{states}}" type="text"
-    placeholder="{{placeholder}}" aria-label="Text input example" {{#if isDisabled}}disabled{{/if}} {{#if
-    isRequired}}required aria-required="true"{{/if}} />
+<input id="example-1" class="qld-text-input form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}}"
+    type="text" placeholder="{{placeholder}}" aria-label="Text input example" {{#if isDisabled}}disabled{{/if}} {{#if
+    isRequired}}required aria-required="true" {{/if}} />
