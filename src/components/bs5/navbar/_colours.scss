@@ -64,6 +64,10 @@
     --#{$prefix}navbar-mobile-border-color: var(--#{$prefix}dark-border);
     --#{$prefix}navbar-mobile-menuitem-hover: var(--#{$prefix}navbar-color-dark-background__shade);
 
+    // Toggle icons for mobile
+    --#{$prefix}navbar-mobile-menu-toggle-boxshadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
+    --#{$prefix}navbar-mobile-menu-toggle-bg: var(--#{$prefix}navbar-color-light-background);
+
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Modes
     // ------------------------------------------------------------------------------------------------------------------
@@ -77,6 +81,7 @@
     .dark &,
     .dark-alt & {
         // Mobile default is dark
+        --#{$prefix}navbar-mobile-menu-toggle-bg: var(--#{$prefix}navbar-color-dark-alt-background);
         --#{$prefix}navbar-mobile-header-bg-color: var(--#{$prefix}navbar-color-dark-alt-background);
         --#{$prefix}navbar-mobile-svg-color: var(--#{$prefix}navbar-color-dark-alt-button);
         --#{$prefix}navbar-mobile-text-color: var(--#{$prefix}white);

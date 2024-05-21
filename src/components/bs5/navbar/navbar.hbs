@@ -88,18 +88,21 @@
                     {{/if}}
                     <!-- Mobile only -->
                     <div class="nav-item-group mobile-only">
+
                         <!-- Primary dropdown style and behaviour -->
                         <a class="nav-link first-element" href="{{target_url}}">
                             {{title}}
                         </a>
-                        <a class="nav-link dropdown-toggle second-element" id="menuDropdown" role="button"
+
+                        <button class="nav-link dropdown-toggle second-element" id="menuDropdown" role="button"
                             aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
                             aria-label="Toggle navigation">
                             <svg class="toggle_icon">
                                     <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
                                 </svg>
                             <span class="visually-hidden">Expand</span>
-                        </a>
+                        </button>
+
                         {{#if navigation_items}}
                         <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
                             <div class="row dropdown-menu__inner">

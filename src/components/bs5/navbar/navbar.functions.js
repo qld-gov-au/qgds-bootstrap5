@@ -75,7 +75,15 @@ export function initializeNavbar() {
       const parentUl = toggle.closest('ul.navbar-nav');
       const firstLi = parentUl.querySelector('.nav-item-home');
       const dropdownMenu = toggle.parentNode.querySelector('.dropdown-menu');
-     
+      const siblingElement = toggle.closest('.nav-item').querySelector('.first-element');
+
+      // Toggle the 'show' class on the sibling element
+      if (dropdownMenu.classList.contains('show')) {
+        siblingElement.classList.add('show');
+      } else {
+        siblingElement.classList.remove('show');
+      }
+      
       // Check if a Popper instance should be activated or not
       const resizeHandler = () => {
         if (window.innerWidth > 992) {

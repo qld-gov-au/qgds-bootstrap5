@@ -31,17 +31,48 @@
             display: flex;
             flex-wrap: wrap;
             width: 100%;
+
             a.first-element {
                 flex: 1 1;
+                &.show {
+                    border-top-right-radius: 1rem;
+                    background-color: var(--#{$prefix}navbar-dropdown-bg-color);
+                }
             }
-            a.second-element {
+
+            button.second-element {
+                padding: 0;
+                border: none;
                 flex: 1 1 auto;
+                align-self: center;
+                position: relative;
+                cursor: pointer;
+                -ms-flex-item-align: center;
+
+                min-height: 32px;
+                min-height: 2rem;
+                min-width: 32px;
+                min-width: 2rem;
+
+                margin: 0 0.625rem;
+                border-radius: 50%;
+                
+                background-color: var(--#{$prefix}navbar-mobile-menu-toggle-bg);
+                -webkit-box-shadow: var(--#{$prefix}navbar-mobile-menu-toggle-boxshadow);
+                box-shadow: var(--#{$prefix}navbar-mobile-menu-toggle-boxshadow);
+
+                svg {
+                    height: 1rem;
+                    width: 1rem;
+                }
             }
+
             ul.dropdown-menu {
                 flex: 1 1 100%;
             }
+
             .dropdown-toggle {
-                max-width: 3.5rem;
+                max-width: 2rem;
                 border-left: solid 1px var(--#{$prefix}navbar-border-color);
             }
         }
@@ -401,6 +432,11 @@
         }
     }
     .nav-item {
+
+        @include media-breakpoint-down(lg) {
+            border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
+        }
+
         &.nav-item-home {
             display: flex;
             a.nav-link {
@@ -422,7 +458,7 @@
                 color: var(--#{$prefix}navbar-home-icon-color);
             }
         }
-        a.nav-link {
+        .nav-link {
             color: var(--#{$prefix}navbar-nav-text-color);
             text-decoration: none;
             line-height: 2rem;
@@ -435,10 +471,6 @@
             --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
-
-            @include media-breakpoint-down(lg) {
-                border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
-            }
 
             &.show,
             &:hover {
@@ -464,7 +496,7 @@
             }
         }
 
-        a.dropdown-toggle {
+        .dropdown-toggle {
             // Default toggle icon
             &::before,
             &::after {
