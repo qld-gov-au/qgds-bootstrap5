@@ -474,10 +474,15 @@
 
             &.show,
             &:hover {
-                background-color: var(--#{$prefix}navbar-menuitem-hover);
                 text-decoration: underline;
 
+                @include media-breakpoint-down(lg) {
+                        -webkit-box-shadow: var(--#{$prefix}navbar-mobile-menu-toggle-boxshadow__hover);
+                        box-shadow: var(--#{$prefix}navbar-mobile-menu-toggle-boxshadow__hover);
+                }
+
                 @include media-breakpoint-up(lg) {
+                    background-color: var(--#{$prefix}navbar-menuitem-hover);
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-hover-border);
                     margin-bottom: -0.5rem;
                 }
