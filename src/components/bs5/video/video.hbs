@@ -5,12 +5,14 @@
 </script>
 {{/if}}
 
-{{! Add 'not-ready' css when thumbnail exists to hide video-embed DIV. 
-    When thumbnail does not exist, the video embed will be displayed on page load.
-}}
-<section class="video {{#if thumbnail}}not-ready{{/if}} {{videoSize}}">
+{{! By default, 'not-ready' class is added and will be removed by javascript event handler.
+    When thumbnail attribute is empty / does not exist, 'empty-thumbnail' css class is added. }}
+<section class="video not-ready {{#ifCond thumbnail '==' ''}}empty-thumbnail{{/ifCond}} {{videoSize}}">
     <div class="video-player ratio ratio-{{aspectRatio}}">
-        <a href="#" class="video-thumbnail" style="--thumbnail:url({{thumbnail}})">
+
+        <a href="#" class="video-thumbnail video-controls">
+            <div class="video-thumbnail-image" style="--thumbnail:url({{thumbnail}})"></div>
+
             <div class="video-nav">
                 <div class="video-watch"><span class="icon"></span><span>Watch</span></div>
 
