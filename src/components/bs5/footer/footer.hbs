@@ -50,7 +50,7 @@
                             window.formioQldCdnVersion = "v2/v2.x.x-latest";
                         </script>
                         <script src="{{{feedbackForm.formioResource}}}"></script>
-                        
+
                         <div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if @first}}{{key}}{{/if}} {{#unless @first}}{{key}}="{{value}}"{{/unless}}{{/each}}>
                             <div class="qg-spinner" role="status">
                                 <div class="spinner-border"></div>
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <div class="qg-footer-feedback-footer">
-                            <a class="qg-footer-feedback__close btn btn-secondary" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="true" aria-controls="qg-footer-feedback">Close</a>
+                            <a class="qg-footer-feedback__close" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="true" aria-controls="qg-footer-feedback">Close</a>
                         </div>
                     </div>
                 </div>
