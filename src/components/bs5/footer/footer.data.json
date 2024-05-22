@@ -70,7 +70,7 @@
             }
         ]
     },
-    
+
     "feedbackForm" : {
         "title": "Website feedback",
         "content": "Help us improve the content on our website or tell us what is working really well.",
@@ -101,7 +101,8 @@
                 "key": "data-formio-createForm-controller",
                 "value": "formioCreateFormController"
             }
-        ]
+        ],
+        "formioResource": "https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"
     },
 
     "followlinks": {

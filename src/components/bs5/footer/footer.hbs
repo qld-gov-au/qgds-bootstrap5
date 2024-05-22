@@ -49,14 +49,8 @@
                         <script>
                             window.formioQldCdnVersion = "v2/v2.x.x-latest";
                         </script>
-                        <script src="https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"></script>
-                        <script>
-                            function displayFeedbackForm() {
-                                FormioScript.init().then(() => {
-                                });
-                            };
-                            document.getElementById("btn-footer-feedback").addEventListener("click", displayFeedbackForm); 
-                        </script>
+                        <script src="{{{feedbackForm.formioResource}}}"></script>
+                        
                         <div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if @first}}{{key}}{{/if}} {{#unless @first}}{{key}}="{{value}}"{{/unless}}{{/each}}>
                             <div class="qg-spinner" role="status">
                                 <div class="spinner-border"></div>

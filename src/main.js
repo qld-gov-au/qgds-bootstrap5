@@ -4,49 +4,52 @@ import {
   accordionHashLinks,
 } from "./components/bs5/accordion/accordion.functions";
 
-import {
-  videoEmbedPlay,
-  videoTranscriptTitle,
-} from "./components/bs5/video/video.functions";
+import { videoEmbedPlay, videoTranscriptTitle } from "./components/bs5/video/video.functions";
 
-import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
-import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
-import { toggleSearch, showSuggestions } from './components/bs5/header/header.functions';
+import { initializeNavbar } from "./components/bs5/navbar/navbar.functions";
+import { positionQuickExit, initQuickexit } from "./components/bs5/quickexit/quickexit.functions";
+import { toggleSearch, showSuggestions } from "./components/bs5/header/header.functions";
+import { displayFeedbackForm } from "./components/bs5/footer/footer.functions";
 
-window.addEventListener('scroll', positionQuickExit, true);
-window.addEventListener('resize', positionQuickExit, true);
-window.addEventListener('click', initQuickexit, true);
-window.addEventListener('keydown', initQuickexit, true);
+window.addEventListener("scroll", positionQuickExit, true);
+window.addEventListener("resize", positionQuickExit, true);
+window.addEventListener("click", initQuickexit, true);
+window.addEventListener("keydown", initQuickexit, true);
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
+    // Footer FormIO Action
+    const footerFormio = document.getElementById("qg-feedback-toggle");
+    if (footerFormio) {
+      document.getElementById("btn-footer-feedback").addEventListener("click", displayFeedbackForm);
+    }
 
     //Header search
-    let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search'); 
-    if(headerSearchButton) {
-      document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
+    let headerSearchButton = document.querySelector(".qld__main-nav__toggle-search");
+    if (headerSearchButton) {
+      document.querySelector(".qld__main-nav__toggle-search").addEventListener("click", toggleSearch);
     }
-    
-    const searchInput = document.getElementById('search-input');
+
+    const searchInput = document.getElementById("search-input");
     if (searchInput) {
-      searchInput.addEventListener('keyup', function() {
+      searchInput.addEventListener("keyup", function () {
         showSuggestions(this.value);
       });
 
-      searchInput.addEventListener('focus', function() {
-        showSuggestions('', true);
+      searchInput.addEventListener("focus", function () {
+        showSuggestions("", true);
       });
 
-      searchInput.addEventListener('click', function() {
-        if (this.value === '') {
-          showSuggestions('', true);
+      searchInput.addEventListener("click", function () {
+        if (this.value === "") {
+          showSuggestions("", true);
         }
       });
 
       // Close suggestions when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
-          document.getElementById('suggestions').style.display = 'none';
+      document.addEventListener("click", function (event) {
+        if (!searchInput.contains(event.target) && !document.getElementById("suggestions").contains(event.target)) {
+          document.getElementById("suggestions").style.display = "none";
         }
       });
     }
@@ -64,9 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
     accordionToggleButton.forEach(function (toggleButton) {
       toggleButton.addEventListener("click", accordionToggleAll);
 
-      let accordionButtons = toggleButton
-        .closest(".accordion-group")
-        .querySelectorAll(".accordion-button");
+      let accordionButtons = toggleButton.closest(".accordion-group").querySelectorAll(".accordion-button");
 
       accordionButtons.forEach(function (button) {
         button.addEventListener("click", accordionToggleAllButtonState);
@@ -81,23 +82,19 @@ window.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", accordionHashLinks);
     });
 
-
     // Video
-    let videoThumbnails = document.querySelectorAll('.video-thumbnail');
+    let videoThumbnails = document.querySelectorAll(".video-thumbnail");
 
     videoThumbnails.forEach(function (thumbnail) {
-      thumbnail.addEventListener("click", videoEmbedPlay)
-    })
+      thumbnail.addEventListener("click", videoEmbedPlay);
+    });
 
-    let videoTranscripts = document.querySelectorAll('.video .accordion .accordion-button');
+    let videoTranscripts = document.querySelectorAll(".video .accordion .accordion-button");
 
     videoTranscripts.forEach(function (transcript) {
-      transcript.addEventListener("click", videoTranscriptTitle)
-    })
-
+      transcript.addEventListener("click", videoTranscriptTitle);
+    });
 
     //Modal
-
-
   })();
 });

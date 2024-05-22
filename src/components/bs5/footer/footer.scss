@@ -42,12 +42,6 @@
   }
 }
 
-@include color-mode(dark) {
-  .qld-footer {
-    --#{$prefix}footer-bg: var(--#{$prefix}brand-primary-dark);
-  }
-}
-
 .qld-footer {
   //Padding
   padding-top: var(--#{$prefix}footer-padding-y);
