@@ -8,12 +8,25 @@ changelog:
         labels:
           - Semver-Major
           - breaking-change
+
     - title: 🏕 Features
       labels:
         - '*'
       exclude:
         labels:
           - dependencies
+          - bug
+          - Semver-Major
+          - breaking-change
+        authors:
+          - dependabot[bot]
+
+    - title: 🐛 Bug Fixes
+      labels:
+        - bug
+
     - title: 👒 Dependencies
       labels:
         - dependencies
+      authors:
+        - dependabot[bot]
