@@ -7,7 +7,7 @@
     "duration": "3:12",
     "thumbnail": "https://img.youtube.com/vi/LDU_Txk06tM/sddefault.jpg",
     "urlParams": {
-      "autoplay": 1,
+      "autoplay": 0,
       "controls": 0
     },
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.",
@@ -23,7 +23,7 @@
     "thumbnail": "./assets/img/banner-example-3-to-2.jpg",
     "urlParams": {
       "autoplay": 0,
-      "background": 1,
+      "background": 0,
       "controls": 0
     },
     "analyticsTrackingCode": "",
