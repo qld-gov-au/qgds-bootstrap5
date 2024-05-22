@@ -53,15 +53,6 @@ export default {
     urlParams: {
       control: {
         type: "object",
-        autoplay: {
-          type: "boolean",
-        },
-        background: {
-          type: "boolean",
-        },
-        controls: {
-          type: "boolean",
-        },
       },
     },
   },
