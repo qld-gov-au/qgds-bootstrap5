@@ -84,6 +84,20 @@ export function initializeNavbar() {
         const dropdownMenu = toggle.parentNode.querySelector('.dropdown-menu');
         const siblingElement = toggle.closest('.nav-item').querySelector('.first-element');
 
+        // Remove 'show' class from all dropdowns
+        document.querySelectorAll('.navbar .dropdown-menu').forEach(menu => {
+          if (menu !== dropdownMenu) {
+            menu.classList.remove('show');
+          }
+        });
+
+        // Remove 'show' class from all sibling elements
+        document.querySelectorAll('.navbar .first-element').forEach(elem => {
+          if (elem !== siblingElement) {
+            elem.classList.remove('show');
+          }
+        });
+
         // Toggle the 'show' class on the sibling element
         if (dropdownMenu.classList.contains('show')) {
           siblingElement.classList.add('show');

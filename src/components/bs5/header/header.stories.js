@@ -1,9 +1,13 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
 import { Navbar } from '../navbar/Navbar.js';
-import { masterbrand_variant, subbrand_variant, endorsed_variant, standalone_variant } from './header.data.json';
 import { menu_state } from '../navbar/navbar.data.json';
-
+import { 
+  masterbrand_variant, 
+  subbrand_variant, 
+  endorsed_variant, 
+  standalone_variant } from './header.data.json';
+  
 export default {
   tags: ['autodocs'],
   title: 'Components/Header',
