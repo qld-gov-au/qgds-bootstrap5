@@ -7,7 +7,7 @@
 
 {{! By default, 'not-ready' class is added and will be removed by javascript event handler.
     When thumbnail attribute is empty / does not exist, 'empty-thumbnail' css class is added. }}
-<section class="video not-ready {{#ifCond thumbnail '==' ''}}empty-thumbnail{{/ifCond}} {{videoSize}}">
+<section class="video not-ready {{#unless thumbnail}}empty-thumbnail{{/unless}} {{videoSize}}">
     <div class="video-player ratio ratio-{{aspectRatio}}">
 
         <a href="#" class="video-thumbnail video-controls">
