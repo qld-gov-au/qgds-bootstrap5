@@ -13,7 +13,6 @@
     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-border-accent);
     align-items: center;
 
-    // Helpers for responsive sizes
     @include media-breakpoint-up(lg) {
         .desktop-only {
             display: block;
@@ -23,6 +22,8 @@
             display: none;
         }
     }
+
+    // Mobile
     @include media-breakpoint-down(lg) {
         .desktop-only {
             display: none;
@@ -38,6 +39,9 @@
                     border-top-right-radius: 1rem;
                     background-color: var(--#{$prefix}navbar-dropdown-bg-color);
                 }
+                &:hover {
+                    background-color: var(--#{$prefix}navbar-menuitem-hover);
+                }
             }
 
             button.second-element {
@@ -49,9 +53,7 @@
                 cursor: pointer;
                 -ms-flex-item-align: center;
 
-                min-height: 32px;
                 min-height: 2rem;
-                min-width: 32px;
                 min-width: 2rem;
 
                 margin: 0 0.625rem;
@@ -152,13 +154,13 @@
 
         // Menu open and close toggles
         .navbar__toggle {
+            border: 0;
             display: flex;
             flex-direction: column;
             padding: 0.5rem 1rem 0.25rem 1rem;
             margin-left: auto;
             font-size: .875rem;
             line-height: 1.14;
-            border: 0;
             appearance: none;
             background-color: transparent;
             cursor: pointer;
@@ -246,9 +248,6 @@
                     border-width: 2px
                 }
 
-                &:active {
-                    background-color: var(--#{$prefix}navbar-menuitem-hover);
-                }
             }
         }
     }
