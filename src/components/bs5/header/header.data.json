@@ -163,9 +163,21 @@
                                     "heading": "Select your agency",
                                     "content": "See information relevant to your agency.",
                                     "actionType": "select",
+                                    "actionAtts": {
+                                        "required": false,
+                                        "id": "agencySelect",
+                                        "name": "ssq_agencies",
+                                        "classes": "",
+                                        "ariaLabel": "Select your agency"
+                                    },
                                     "options": [
                                         {
+                                            "key": "aggency_003",
                                             "value": "agency 1"
+                                        },
+                                        {
+                                            "key": "aggency_004",
+                                            "value": "agency 2"
                                         }
                                     ]
                                 }
@@ -503,9 +515,21 @@
                                     "heading": "Select your agency",
                                     "content": "See information relevant to your agency.",
                                     "actionType": "select",
+                                    "actionAtts": {
+                                        "required": false,
+                                        "id": "agencySelect",
+                                        "name": "ssq_agencies",
+                                        "classes": "",
+                                        "ariaLabel": "Select your agency"
+                                    },
                                     "options": [
                                         {
+                                            "key": "aggency_003",
                                             "value": "agency 1"
+                                        },
+                                        {
+                                            "key": "aggency_004",
+                                            "value": "agency 2"
                                         }
                                     ]
                                 }

@@ -273,12 +273,11 @@
                                                     {{/isType}}
 
                                                     {{#isType actionType "select"}}
-                                                        <select class="qld-text-input form-select qld-select" aria-label="" required=""
-                                                            aria-required="">
-                                                                <option selected="">Please select</option>
-                                                                {{#each options}}
-                                                                    <option {{selected}} {{disabled}} value="{{key}}">{{value}}</option>
-                                                                {{/each}}
+                                                        <select class="qld-text-input form-select qld-select {{actionAtts.classes}}" id="{{actionAtts.id}}" name="{{actionAtts.name}}" {{actionAtts.required}} aria-required="{{actionAtts.required}}" aria-label="{{actionAtts.ariaLabel}}" >
+                                                            <option selected="">Please select</option>
+                                                            {{#each options}}
+                                                                <option {{selected}} {{disabled}} value="{{key}}">{{value}}</option>
+                                                            {{/each}}
                                                         </select>
                                                     {{/isType}}
 
