@@ -17,15 +17,8 @@
         "buttonLink": ""
     },
 
-    "feedback": {
-        "title": "Website feedback",
-        "content": "<p>Help us improve the content on our website or tell us what is working really well.</p>",
-        "buttonLabel": "Leave your feedback",
-        "buttonLink": ""
-    },
-
     "acknowledgement": {
-        "content": "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
+        "content": "<p class='footer-acknowledgements'>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
     },
 
     "copyright": {
@@ -107,7 +100,7 @@
 
     "followlinks": {
         "title": "Follow us",
-        "enabled": true,
+        "enabled": false,
         "facebook": {
             "label": "Facebook",
             "link": "#",

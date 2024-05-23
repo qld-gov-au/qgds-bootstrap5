@@ -62,7 +62,9 @@
   a:visited {
     color: var(--#{$prefix}link-color);
   }
-
+  .border-column {
+    height: 100%;
+  }
   .footer-site-name {
     font-size: 1.25rem;
     line-height: 1.5;
@@ -225,9 +227,7 @@
 .dark-alt {
   --footer-bg-colour: #05325f;
 }
-.light {
-  --footer-bg-colour: #fff;
-}
+.light,
 .alt {
   --footer-bg-colour: #fff;
 }
@@ -236,6 +236,10 @@
   --font-colour: #fff;
   --action-colour: #ffe500;
   --border-colour: rgba(255, 255, 255, 0.2);
+  --colum-border-colour: var(--border-colour);
+  @media (max-width: 991.98px) {
+    --colum-border-colour: transparent;
+  }
 }
 /////////////////////////////////////////
 // Note html is there for the none theme
@@ -245,13 +249,19 @@
 html {
   --action-colour: #6bbe27;
   --border-colour: rgba(0, 0, 0, 0.2);
+  --colum-border-colour: var(--border-colour);
+  @media (max-width: 991.98px) {
+    --colum-border-colour: transparent;
+  }
 }
 
 footer.qld-footer {
+  // Measurements
+  --gap: 12px;
+  // Colours
   --qld-footer-bg: var(--footer-bg-colour);
   --qld-footer-color: var(--font-colour);
-  --qld-footer-column-border-color: var(--border-colour);
-
+  --qld-footer-column-border-color: var(--colum-border-colour);
   // FORMIO
   --callout-bg-colour: rgb(229, 238, 245);
   --formio-colour: #000;
@@ -294,23 +304,107 @@ footer.qld-footer {
     color: var(--formio-colour);
     background-color: var(--btn-disabled-colour);
   }
+
+  @media (max-width: 991.98px) {
+    padding-top: 24px;
+
+    .row {
+      --qld-gutter-x: 32px;
+      > .col-md-12 {
+        border-top: 2px solid var(--border-colour);
+        padding-inline: 0;
+        margin-inline-start: var(--qld-gutter-x);
+        width: calc(100vw - calc(var(--qld-gutter-x) * 2));
+        .border-column {
+          height: auto;
+        }
+        .footer-column {
+          margin-block: 1rem;
+        }
+      }
+      > .col-md-12:first-of-type {
+        border-top: none;
+      }
+      > .title {
+        border-bottom: 2px solid var(--border-colour);
+        padding-inline: var(--qld-gutter-x);
+      }
+      > .crest {
+        border-top: 2px solid var(--border-colour);
+        padding-inline: var(--qld-gutter-x);
+        margin-inline: 0;
+        width: 100%;
+      }
+    }
+    .footer-link-list {
+      // display: block;
+      // column-count: 3;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap);
+      a.nav-link,
+      a.nav-link:first-child {
+        margin: 0 !important;
+      }
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .row {
+      > .col-md-12 {
+        margin-inline-start: calc(var(--qld-gutter-x) * 0.5);
+        width: calc(100vw - var(--qld-gutter-x));
+      }
+      > .title,
+      > .crest {
+        padding-inline: calc(var(--qld-gutter-x) * 0.5);
+        margin-inline: 0;
+        width: 100%;
+      }
+    }
+    // .row > .col-md-12 {
+    //   margin-inline-start: calc(var(--qld-gutter-x) * .5);
+    //   width: calc(100vw - var(--qld-gutter-x));
+    // }
+    // .row > .title,
+    // .row > .crest {
+    //   padding-inline: calc(var(--qld-gutter-x) * .5)
+    // }
+    .btn-outline-secondary {
+      width: 100%;
+    }
+    .footer-column {
+      margin-right: 0;
+    }
+    .footer-link-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
 #qg-feedback-toggle {
+  ////////////////////////////
+  // Measurements
   --font-weight: 700;
   --font-size: 1rem;
   --spacing: 1rem;
   --border-radius: 4px;
+  --border-width: 3px;
+  --border-outline-width: 2px;
   --inner-border-radius: 3px;
   --form-control-border-width: 2px;
   --bootstrap-default-padding: 15px;
+  --text-underline-offset: 0.3em;
+  --text-decoration-thickness: 1px;
+  --text-underline-offset: 5px;
+  // --margin-block-end: 0;
 
   width: 100%;
-  margin-block-end: var(--bootstrap-default-padding);
+  // margin-block-end: var(--bootstrap-default-padding);
 
   #btn-footer-feedback {
     color: var(--qld-link-color);
-    border: 3px solid var(--qld-brand-accent);
+    border: var(--border-width) solid var(--qld-brand-accent);
     width: 100%;
     font-weight: normal;
   }
@@ -352,8 +446,8 @@ footer.qld-footer {
     text-decoration-color: rgba(var(--qld-link-color-rgb));
     text-decoration-line: underline;
     text-decoration-style: solid;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 5px;
+    text-decoration-thickness: var(--text-decoration-thickness);
+    text-underline-offset: var(--text-underline-offset);
     &:hover,
     &:visited {
       text-decoration-thickness: var(--qld-link-underline-thickness-hover);
@@ -377,7 +471,7 @@ footer.qld-footer {
     .formio-modified .form-check-input,
     .formio-modified .form-control {
       border-color: var(--qld-notify-success);
-      outline: 2px solid var(--qld-notify-success);
+      outline: var(--border-outline-width) solid var(--qld-notify-success);
     }
     .formio-component-submit .btn,
     .formio-component-submit .btn-primary {
@@ -390,7 +484,7 @@ footer.qld-footer {
         text-decoration: underline;
         text-decoration-line: underline;
         text-decoration-thickness: var(--qld-link-underline-thickness-hover);
-        text-underline-offset: 0.3em;
+        text-underline-offset: var(--text-underline-offset);
         background-color: var(--qld-btn-active-bg);
       }
     }
@@ -436,7 +530,7 @@ footer.qld-footer {
     }
     .callout {
       margin-block-start: var(--spacing);
-      background-color: rgb(229, 238, 245);
+      background-color: var(--callout-bg-colour);
       #feedback-serv-dep-staff {
         color: var(--formio-colour);
 
