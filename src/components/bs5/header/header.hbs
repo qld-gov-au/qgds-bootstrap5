@@ -277,7 +277,7 @@
                                                             aria-required="">
                                                                 <option selected="">Please select</option>
                                                                 {{#each options}}
-                                                                    <option value="{{value}}">{{value}}</option>
+                                                                    <option {{selected}} {{disabled}} value="{{key}}">{{value}}</option>
                                                                 {{/each}}
                                                         </select>
                                                     {{/isType}}
