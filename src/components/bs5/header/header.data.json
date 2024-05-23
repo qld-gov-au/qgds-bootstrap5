@@ -191,7 +191,9 @@
         "siteHeader": {
             "config": {
                 "masterbrand_enabled": true,
-                "otherbrand_enabled": false
+                "otherbrand_enabled": false,
+                "endorsed_enabled": false,
+                "standalone_enabled": false
             },
             "url": {
                 "value": "https://qld.gov.au"
@@ -298,7 +300,9 @@
         "siteHeader": {
             "config": {
                 "masterbrand_enabled": false,
-                "otherbrand_enabled": true
+                "subbrand_enabled": true,
+                "endorsed_enabled": false,
+                "standalone_enabled": false
             },
             "url": {
                 "value": "https://qld.gov.au"
@@ -331,6 +335,466 @@
                 },
                 "borderStyle": {
                     "full": false
+                }
+            }
+        }
+    },
+    "endorsed_variant": {
+        "icon-root": "assets/img/svg-icons.svg",
+        "sitePreHeader": {
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "text": {
+                "value": "Queensland Government websites"
+            },
+            "CTA": [
+                {
+                    "id": "CTAone",
+                    "url": {
+                        "value": "#"
+                    },
+                    "icon": {
+                        "value": "ctaIcon"
+                    },
+                    "text": {
+                        "value": "For Queenslanders"
+                    },
+                    "dropdown_enabled": true,
+                    "dropdown_options": {
+                        "dropdown_type": "list",
+                        "view_more_label": "Browse all information and services",
+                        "view_more_url": "https://www.qld.gov.au/queenslanders",
+                        "dropdown_config": {
+                            "groups": [
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Transport and motoring"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Employment and jobs"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Education and training"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Queensland and its government"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Health and wellbeing"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Community support"
+                                }
+                            ],
+                            "view_more": true,
+                            "view_more_options": {
+                                "url": "#",
+                                "label": "View more",
+                                "target": "_blank"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "CTAtwo",
+                    "url": {
+                        "value": "#"
+                    },
+                    "icon": {
+                        "value": "ctaIcon"
+                    },
+                    "text": {
+                        "value": "Business and Industry"
+                    },
+                    "dropdown_enabled": true,
+                    "dropdown_options": {
+                        "dropdown_type": "list",
+                        "view_more_label": "All categories",
+                        "view_more_url": "https://www.business.qld.gov.au/",
+                        "dropdown_config": {
+                            "groups": [
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Starting a business"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Running a business"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Employing people"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Payroll tax"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Industries"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Investing in Queensland"
+                                }
+                            ],
+                            "view_more": true,
+                            "view_more_options": {
+                                "url": "#",
+                                "label": "View more",
+                                "target": "_blank"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "CTAthree",
+                    "url": {
+                        "value": "#"
+                    },
+                    "icon": {
+                        "value": "ctaIcon"
+                    },
+                    "text": {
+                        "value": "Login"
+                    },
+                    "dropdown_enabled": true,
+                    "dropdown_options": {
+                        "dropdown_type": "form",
+                        "dropdown_config": {
+                            "groups": [
+                                {
+                                    "heading": "Log in to For government",
+                                    "content": "Most employees can log in using single sign on (SSO).",
+                                    "usesButton": "true",
+                                    "actionType": "button",
+                                    "action": {
+                                        "button_action": "#",
+                                        "button_targetAttr": "_blank",
+                                        "button_label": "Login"
+                                    },
+                                    "links": [
+                                        {
+                                            "action": "_blank",
+                                            "label": "If your agency doesn't use SSO.",
+                                            "url": "https://www.forgov.qld.gov.au/user#log-in"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "heading": "Select your agency",
+                                    "content": "See information relevant to your agency.",
+                                    "actionType": "select",
+                                    "options": [
+                                        {
+                                            "value": "agency 1"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "examples": [
+                                {
+                                    "heading": "For employees",
+                                    "actionType": "list",
+                                    "list_items": [
+                                        {
+                                            "action": "_self",
+                                            "label": "Your profile",
+                                            "href": "#"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "siteHeader": {
+            "config": {
+                "masterbrand_enabled": false,
+                "subbrand_enabled": false,
+                "endorsed_enabled": true,
+                "standalone_enabled": false
+            },
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "secondaryType": {
+                "logo": {
+                    "value": "assets/img/endorsed.svg"
+                },
+                "siteTitle": {
+                    "value": ""
+                },
+                "subline": {
+                    "value": ""
+                }
+            }
+        },
+        "siteSearchAsset": {
+            "value": "#",
+            "placeholder": "",
+            "label": "",
+            "formAction": {
+                "url": "https://www.forgov.qld.gov.au/search"
+            },
+            "options": {
+                "icons": {
+                    "menu-icon": "qld__icon__mobile-menu",
+                    "search-icon": "qld__icon__search",
+                    "search-close-icon": "qld__icon__close"
+                },
+                "borderStyle": {
+                    "full": true
+                }
+            }
+        }
+    },
+    "standalone_variant": {
+        "icon-root": "assets/img/svg-icons.svg",
+        "sitePreHeader": {
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "text": {
+                "value": "Queensland Government websites"
+            },
+            "CTA": [
+                {
+                    "id": "CTAone",
+                    "url": {
+                        "value": "#"
+                    },
+                    "icon": {
+                        "value": "ctaIcon"
+                    },
+                    "text": {
+                        "value": "For Queenslanders"
+                    },
+                    "dropdown_enabled": true,
+                    "dropdown_options": {
+                        "dropdown_type": "list",
+                        "view_more_label": "Browse all information and services",
+                        "view_more_url": "https://www.qld.gov.au/queenslanders",
+                        "dropdown_config": {
+                            "groups": [
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Transport and motoring"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Employment and jobs"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Education and training"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Queensland and its government"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Health and wellbeing"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Community support"
+                                }
+                            ],
+                            "view_more": true,
+                            "view_more_options": {
+                                "url": "#",
+                                "label": "View more",
+                                "target": "_blank"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "CTAtwo",
+                    "url": {
+                        "value": "#"
+                    },
+                    "icon": {
+                        "value": "ctaIcon"
+                    },
+                    "text": {
+                        "value": "Business and Industry"
+                    },
+                    "dropdown_enabled": true,
+                    "dropdown_options": {
+                        "dropdown_type": "list",
+                        "view_more_label": "All categories",
+                        "view_more_url": "https://www.business.qld.gov.au/",
+                        "dropdown_config": {
+                            "groups": [
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Starting a business"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Running a business"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Employing people"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Payroll tax"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Industries"
+                                },
+                                {
+                                    "action": "_blank",
+                                    "url": "#",
+                                    "label": "Investing in Queensland"
+                                }
+                            ],
+                            "view_more": true,
+                            "view_more_options": {
+                                "url": "#",
+                                "label": "View more",
+                                "target": "_blank"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "CTAthree",
+                    "url": {
+                        "value": "#"
+                    },
+                    "icon": {
+                        "value": "ctaIcon"
+                    },
+                    "text": {
+                        "value": "Login"
+                    },
+                    "dropdown_enabled": true,
+                    "dropdown_options": {
+                        "dropdown_type": "form",
+                        "dropdown_config": {
+                            "groups": [
+                                {
+                                    "heading": "Log in to For government",
+                                    "content": "Most employees can log in using single sign on (SSO).",
+                                    "usesButton": "true",
+                                    "actionType": "button",
+                                    "action": {
+                                        "button_action": "#",
+                                        "button_targetAttr": "_blank",
+                                        "button_label": "Login"
+                                    },
+                                    "links": [
+                                        {
+                                            "action": "_blank",
+                                            "label": "If your agency doesn't use SSO.",
+                                            "url": "https://www.forgov.qld.gov.au/user#log-in"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "heading": "Select your agency",
+                                    "content": "See information relevant to your agency.",
+                                    "actionType": "select",
+                                    "options": [
+                                        {
+                                            "value": "agency 1"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "examples": [
+                                {
+                                    "heading": "For employees",
+                                    "actionType": "list",
+                                    "list_items": [
+                                        {
+                                            "action": "_self",
+                                            "label": "Your profile",
+                                            "href": "#"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "siteHeader": {
+            "config": {
+                "masterbrand_enabled": false,
+                "subbrand_enabled": false,
+                "endorsed_enabled": false,
+                "standalone_enabled": true
+            },
+            "url": {
+                "value": "https://qld.gov.au"
+            },
+            "secondaryType": {
+                "logo": {
+                    "value": "assets/img/endorsed.svg"
+                },
+                "siteTitle": {
+                    "value": ""
+                },
+                "subline": {
+                    "value": ""
+                }
+            }
+        },
+        "siteSearchAsset": {
+            "value": "#",
+            "placeholder": "",
+            "label": "",
+            "formAction": {
+                "url": "https://www.forgov.qld.gov.au/search"
+            },
+            "options": {
+                "icons": {
+                    "menu-icon": "qld__icon__mobile-menu",
+                    "search-icon": "qld__icon__search",
+                    "search-close-icon": "qld__icon__close"
+                },
+                "borderStyle": {
+                    "full": true
                 }
             }
         }
