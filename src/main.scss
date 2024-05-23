@@ -20,14 +20,17 @@ $enable-cssgrid: true;
 $color-mode-type: data;
 $enable-dark-mode: true;
 
-
 // 1. Include bootstraps functions and variables first (so they can be referenced by proceeding files)
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/variables-dark";
 
+// 1.1 - Implement QGDS colour tokens
+@import "@qld-gov-au/qgds-tokens/dist/scss/_variables.scss";
+
 // 2. QLD Design System variables (Bootstrap overrides)
 @import "./scss/qld-variables";
+
 // @import "./scss/qld-variables-dark"; //future state
 @import "./scss/qld-type";
 

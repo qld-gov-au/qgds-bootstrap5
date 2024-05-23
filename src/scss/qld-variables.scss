@@ -235,6 +235,11 @@ $project-colors: (
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
 
+
+
+  // TEST ONLY
+  "test-token": $color-default-color-light-background-default
+
 );
 
 $theme-colors: map-merge($theme-colors, $project-colors);
