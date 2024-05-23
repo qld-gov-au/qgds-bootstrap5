@@ -1,0 +1,169 @@
+.qld-search-input {
+
+    //Default state - unfocused, unhovered
+    --text-color: var(--qld-dark-grey-muted);
+    --placeholder-color: var(--qld-dark-grey-muted);
+    --border-color: var(--qld-soft-grey);
+    --background-color: var(--qld-white);
+    --outline-color: var(--qld-light-blue);
+    --icon-color: var(--qld-dark-grey-muted);
+    --icon-color-on-btn: var(--qld-white);
+    --icon: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.5 6.5C11.5 4.71875 10.5312 3.09375 9 2.1875C7.4375 1.28125 5.53125 1.28125 4 2.1875C2.4375 3.09375 1.5 4.71875 1.5 6.5C1.5 8.3125 2.4375 9.9375 4 10.8438C5.53125 11.75 7.4375 11.75 9 10.8438C10.5312 9.9375 11.5 8.3125 11.5 6.5ZM10.5312 11.625C9.40625 12.5 8 13 6.5 13C2.90625 13 0 10.0938 0 6.5C0 2.9375 2.90625 0 6.5 0C10.0625 0 13 2.9375 13 6.5C13 8.03125 12.4688 9.4375 11.5938 10.5625L15.7812 14.7188C16.0625 15.0312 16.0625 15.5 15.7812 15.7812C15.4688 16.0938 15 16.0938 14.7188 15.7812L10.5312 11.625Z' fill='%23414141'/%3E%3C/svg%3E%0A");
+
+    position: relative;
+    min-width: 15rem; 
+    max-width: 40rem; 
+
+    &.full-width {
+        max-width: 100%;
+    }
+
+    //SVG Search Icon
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: calc(1rem - 2px);
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: var(--icon-color); 
+        mask: var(--icon) center center / 1.25rem no-repeat;
+    }
+
+    //Icon color is scoped against the parent container, not the input :( 
+    &:has(.form-control:hover) { --icon-color: var(--qld-dark-grey-muted); }
+    &:has(.form-control:focus) { --icon-color: var(--qld-text-grey); }
+
+    .form-control {
+
+        padding: 0.75rem 1rem 0.75rem 3rem;
+        border-radius: 0.25rem;
+        border: 2px solid var(--border-color);
+        background: var(--background-color); 
+        padding-right: 6rem;
+        color: var(--text-color);
+
+        &::placeholder {
+            color: var(--placeholder-color);
+        }
+
+        &:hover {
+            //Rescope hover state
+            --icon-color: var(--qld-dark-grey-muted);
+            --text-color: var(--qld-text-grey);
+            --placeholder-color: var(--qld-text-grey);
+            --border-color: var(--qld-light-action-primary);
+            --background-color: var(--qld-default-background-shade);
+        }
+
+        &:focus {
+            //Rescope focus state
+            --icon-color: var(--qld-text-grey);
+            --text-color: var(--qld-text-grey);
+            --placeholder-color: var(--qld-text-grey);
+            --border-color: var(--qld-soft-grey);
+            --background-color: var(--qld-white);
+            
+            outline: 3px solid var(--outline-color);
+            outline-offset: 2px;
+        }
+
+        + button {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 10;
+            border-radius: 0 0.25rem 0.25rem 0;
+    
+            // Adjust button padding to allow for input borders of 2px top and bottom
+            padding-top: calc(0.75rem - 2px);
+            padding-bottom: calc(0.75rem - 2px);
+
+            //prep a button "search-icon" which is invoked at smaller screeen sizes below 
+            span.btn-icon {
+                display: none;
+                width: 1.5rem;
+                height: 1.5rem;
+                height: 1.5rem;
+                margin-right: 0;
+                background-color: var(--icon-color-on-btn); 
+                mask: var(--icon) center center / 1.25rem no-repeat;
+            }
+        }
+    }
+}
+
+//Adjustments for 991px and below
+// Apply styles for medium screens and down
+@include media-breakpoint-down(md) {
+    .qld-search-input {
+        .form-control {
+            padding-left: 1rem;
+
+            + button {
+                span.btn-label {
+                    display: none;
+                }
+                //Show the search icon (on button) on small screens
+                span.btn-icon {
+                    display: block;
+                }
+            }
+
+        }
+
+        //Hide the search icon (input field) on small screens
+        &::before {
+            content: none;
+        }
+
+
+    }
+}
+
+.dark {
+    .qld-search-input {
+
+        // Rescope colours inside a dark container
+        
+        // Default state - unfocused, unhovered
+        --icon-color: #DEEBF9;
+        --icon-color-on-btn: var(--qld-dark-action-text);
+
+        --text-color: #DEEBF9;
+        --placeholder-color: #DEEBF9;
+        --border-color: var(--qld-dark-alt-border);
+        --background-color: var(--qld-dark-background);
+        
+        //Icon color is scoped against the parent container, not the input :( 
+        &:has(.form-control:hover) { 
+            --icon-color: var(--qld-white);
+        }
+        
+        &:has(.form-control:focus) { 
+            --icon-color: var(--qld-text-grey);
+            --text-color: var(--qld-text-grey);
+        }
+
+        .form-control {
+            &:hover {
+                //Dark - Hover state
+                --text-color: var(--qld-white);
+                --placeholder-color: var(--qld-white);
+                --background-color: var(--qld-dark-background-shade);
+                --border-color: var(--qld-dark-action-primary-hover);
+            }
+
+            &:focus {
+                //Dark - Focus state
+                --text-color: var(--qld-text-grey);
+                --placeholder-color: var(--qld-text-grey);
+                --border-color: var(--qld-light-grey);
+                --background-color: var(--qld-white);
+            }
+    
+        }
+    }
+}
