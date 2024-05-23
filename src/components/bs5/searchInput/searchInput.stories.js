@@ -65,7 +65,9 @@ export const Dark = {
   decorators: [
     (Story) => {
       return `
+      <div class="dark p-5">
           ${Story()}
+      </div>
       `;
     },
   ],
