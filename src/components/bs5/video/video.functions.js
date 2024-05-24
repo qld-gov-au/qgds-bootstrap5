@@ -15,10 +15,11 @@ export function videoEmbedPlay(event) {
 
   component.classList.remove("not-ready")
 
-  if (
-    !iframe.classList.contains("video-custom")
-  ) {
-    iframe.src = `${iframe.src}&autoplay=1`;
+  // Parse iFrame URL and set the 'autoplay' parameter to 1.
+  if (!iframe.classList.contains("video-custom")) {
+    const url = new URL(iframe.src);
+    url.searchParams.set('autoplay', '1');
+    iframe.src = url.toString();
   }
 
   iframe.focus()
