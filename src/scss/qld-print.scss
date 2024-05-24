@@ -1,0 +1,357 @@
+@media print {
+
+    .h1, h1 {
+      font-size: 1.5em; // Size of h2
+      margin-top: -5rem;
+    }
+
+    .h2, h2 {
+      font-size: 1.17em; // Size of h3
+      &:not(:first-child) {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .h3, h3 {
+      font-size: 1em; // Size of h4
+    }
+
+    .h4, h4 {
+      font-size: 0.83em; // Size of h5
+    }
+
+    .h5, h5 {
+      font-size: 0.67em; // Size of h6
+    }
+    
+    * {
+        width: 100%; 
+        margin: 0; 
+        float: none;
+        position: static;
+    }
+    *:before,
+    *:after {
+      color: #000 !important; // Black prints faster: h5bp.com/s
+      text-shadow: none !important;
+      // background: transparent !important; // originally for icons
+      box-shadow: none !important;
+    }
+    a,
+    a:visited {
+      text-decoration-line: underline;
+      color: #000 !important;
+    }
+  // Don't show links that are fragment identifiers,
+  // or use the `javascript:` pseudo protocol
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+      content: "";
+    }
+
+    blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+    thead {
+        display: table-header-group; // h5bp.com/t
+    }
+
+    tr,
+    img {
+      page-break-inside: avoid;
+      page-break-after: avoid;
+      page-break-before: avoid;
+    }
+
+    .qld__header__pre-header-brand-image {
+      display: block !important;
+    }
+    img {
+      max-width: 100% !important;
+      width: auto;
+    }
+    /** Setting margins */       
+    // @page { margin: 2cm }
+
+    /* Addding page breaks for best practice */
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+  
+    a {
+      page-break-inside: avoid;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+
+    table, pre {
+      page-break-inside: avoid;
+    }
+
+    ul, ol, dl {
+      page-break-before: avoid;
+    }
+    //dl is metadata in forgov
+    blockquote {
+      page-break-inside: avoid;
+    }
+
+
+    .btn,
+    .dropup > .btn {
+      > .caret {
+        border-top-color: #000 !important;
+      }
+    } // .caret is bootstrap class
+    .label {
+        border: 1px solid #000;
+    }
+
+    .table-bordered {
+        th,
+        td {
+          border: 1px solid #ddd !important;
+        }
+    }
+    .row {
+        display: block;
+      }
+
+    //disabled state can add grey background, maybe borderless for buttons with links.
+    //users might still use #qg and .qg. what to do?    
+
+    .btn {
+      border: none;
+        .btn-icon {
+            width: auto;
+        }
+        &:disabled,
+        &.disabled {
+            color: #d3d3d3!important;
+        }
+    }
+    
+    .qg-site-map { ////////////////// not sure if we have a site map yet or we should include it?
+    display:none !important;
+    }
+    #qg-primary-content {
+        max-width: 100%;
+        width:100%;
+        left:0;
+        table{
+          font-size: 15px;
+        }
+        margin-top: 0;
+        h1 {
+          font-size: 25px;
+        }
+        h2 {
+          font-size: 20px;
+        }
+    }
+
+      /* Hide sections that are not to print */
+    #qg-access, ///////////////////////////// not sure if we need to include these in this MVP?
+    #browser, ////////////////// including .qg-legal??
+    #qg-banner,
+    #tools,
+    #qg-site-nav,
+    #qg-section-nav,
+    .qg-section-nav,
+    #qg-site-map,
+    .qg-options,
+    #qg-page-feedback,
+    #header-bg,
+    .print-content-link,
+    #qg-site-header form,
+    .qg-utilities,
+    #qg-location-dropdown,
+    .qg-legal li {
+        display: none;
+    }
+
+      /* Some landmark headings should be visible */
+    .breadcrumb h2 {
+        position: static;
+    }
+    /* Style breadcrumbs */
+    .breadcrumb {
+        display: inline;
+        list-style: none;
+    }
+    .breadcrumb h2 {
+        font-size: 100%;
+        display: block;
+        margin: .5em 0;
+        font-weight: normal;
+    }
+    .breadcrumb ol,
+    .breadcrumb li,
+    .breadcrumb li.last-child,
+    .breadcrumb a {
+      text-decoration-line: none !important;
+      color: black !important;
+      display: inline !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .breadcrumb a {
+      padding-right: .5em;
+    }
+    .breadcrumb a:after, .breadcrumb .breadcrumb-item a:after {
+      content: " >";
+      
+    }
+    .breadcrumb li:before, .breadcrumb a:before {
+      display: none !important;
+    }
+
+     /* A few simple lines */
+  #qg-site-header {
+    border-bottom: 1px solid #000000 !important;
+    margin-bottom: 1em;
+    display: block;
+    min-height: 32mm;
+  }
+  #qg-site-map {
+    border-top: 1px solid #000000;
+    padding-top: 1em;
+  }
+
+  /* hide the tagline when printing */
+  #qg-branding {
+    display: none;
+  }
+
+  #page-container,
+  #content-container,
+  .article,
+  #document-properties,
+  #post-page-options,
+  #page-feedback,
+  #content .section,
+  #content,
+  .section,
+  .max-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .print-link-url,
+  #site-name img.qg-print-version,
+  #qg-logo img.qg-print-version,
+  #qg-coa img.qg-print-version {
+    margin: 0;
+    padding: 0;
+    text-decoration-line: none;
+    display: inline;
+  }
+
+  #ia .d1 img { 
+    float: left;
+  }
+
+    body {
+      /* Set some defaults */
+      background: white;
+  
+      /* Reset variables as needed for printing */
+      --qld-body-color: black;
+      
+    }
+  
+    /* Hide elements not needed for printing */
+    .navbar, footer, .sidebar {
+      display: none;
+    }
+
+    .row {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+  
+    /* Other print styles... */
+    .accordion-toggle-btn {
+      display: none;
+    }
+    header:after {
+      content:"(" attr(data-page-url) ")";
+      display: block;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+
+    .nav-item.active a {
+      display: block;
+    }
+    .accordion-collapse {
+        display: block!important;
+    }
+
+    a[href^=http]:after {
+        content:" (" attr(href) ")";
+        color: var(--qld-primary) !important;
+      }
+        
+    a.btn {
+      box-shadow: none;
+    }
+
+    button.btn {
+      display: none;
+    }
+
+    .global-alert { // no global alert
+      display: none;
+    }
+    
+    a.btn:after {
+        display: block;
+        content:" (" attr(href) ")";
+    }
+    /* Custom qld- styles */
+    .qld-side-navigation, .qld-inpage-nav, .qld__header__site-search.qld__header__site-search--closed {
+      display: none;
+    }
+    .qld__header__brand-image.qld__header__brand-image_subtype, .qld__header__brand-image {
+      display: block !important;
+    }
+
+    .qld__header__brand a:after {
+      display: none;
+    }
+  
+    /* <li class="breadcrumb-item active" aria-current="page" data-href="https://uat.forgov.qld.gov.au/mail-facilities-and-vehicles/vehicles/environment/ev-benefits">Benefits of zero emission electric vehicles</li> */
+    
+    // adding class to print data-href from breadcrumb link
+    .print-current-url {
+      display: block;
+      font-size: bold;
+      color: var(--qld-primary) !important;
+    }
+
+  }
+
+  /*print styles for forms*/
+@media only print {
+    form abbr[title*=required]:after {
+        content: ''
+    }
+    form .label {
+        border: none;
+    }
+  }
+  
+  .no-print {
+    @extend .d-print-none;
+  }

@@ -116,5 +116,8 @@ $enable-dark-mode: true;
 // Common Layout Blocks, under review
 @import "./components/common/layout/content.scss";
 
-// Themes, under review
+// Themes
 @import "./scss/qld-theme.scss";
+
+// Print
+@import "./scss/qld-print.scss";

@@ -54,6 +54,18 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    //Header 
+    // Get the <header> element
+    var header = document.querySelector('header');
+    if (header) {
+      // Get the current page URL without query string parameters
+      var url = window.location.origin + window.location.pathname;
+      // Set the data-page-url attribute on the <header> element
+      header.setAttribute('data-page-url', url);
+    }
+    
+    document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
+    
     // Navbar
     initializeNavbar();
 
