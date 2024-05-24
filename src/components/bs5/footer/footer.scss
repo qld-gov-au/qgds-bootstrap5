@@ -206,17 +206,17 @@
 /// Fix my Figma width issue
 /// Make the view full with
 
-// .css-qa4clq {
-//   max-width: 100% !important;
-// }
-// .css-k7lbue,
-// .css-xzp052 {
-//   padding-inline: 0 !important;
+.css-qa4clq {
+  max-width: 100% !important;
+}
+.css-k7lbue,
+.css-xzp052 {
+  padding-inline: 0 !important;
 
-//   .innerZoomElementWrapper > div {
-//     border-width: 0 !important;
-//   }
-// }
+  .innerZoomElementWrapper > div {
+    border-width: 0 !important;
+  }
+}
 /// Fix my Figma width issue
 /// END
 
@@ -304,12 +304,19 @@ footer.qld-footer {
     color: var(--formio-colour);
     background-color: var(--btn-disabled-colour);
   }
-
+  .footer-column {
+    // margin-block: calc(var(--gap) * 2);
+    margin-inline-end: 0;
+  }
   @media (max-width: 991.98px) {
-    padding-top: 24px;
-
+    --last-para-margin: 24px;
+    --qld-footer-padding-y: 0;
+    padding-top: calc(var(--gap) * 2);
+    .footer-site-name {
+      margin-block-end: calc(var(--gap) * 2);
+    }
     .row {
-      --qld-gutter-x: 32px;
+      --qld-gutter-x: calc(var(--gap) * 2);
       > .col-md-12 {
         border-top: 2px solid var(--border-colour);
         padding-inline: 0;
@@ -319,7 +326,8 @@ footer.qld-footer {
           height: auto;
         }
         .footer-column {
-          margin-block: 1rem;
+          margin-block: calc(var(--gap) * 2);
+          margin-inline-end: 0;
         }
       }
       > .col-md-12:first-of-type {
@@ -335,14 +343,24 @@ footer.qld-footer {
         margin-inline: 0;
         width: 100%;
       }
+      p:last-child {
+        margin-block-end: 0;
+      }
+    }
+    .btn-outline-secondary {
+      width: 100%;
     }
     .footer-link-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--gap);
+      // display: grid;
+      display: block;
+      column-count: 3;
+      // grid-template-columns: repeat(3, 1fr);
+      // grid-template-rows: repeat(3, 1fr);
+      // gap: var(--gap);
       a.nav-link,
       a.nav-link:first-child {
         margin: 0 !important;
+        margin-block-end: 1rem !important;
       }
     }
   }
@@ -359,15 +377,19 @@ footer.qld-footer {
         margin-inline: 0;
         width: 100%;
       }
+      p:last-child {
+        margin-block-end: var(--last-para-margin);
+      }
     }
-    .btn-outline-secondary {
-      width: 100%;
-    }
-    .footer-column {
-      margin-right: 0;
-    }
+    // .footer-column {
+    //   // margin-right: 0;
+    //   margin-inline-end: 0;
+    // }
     .footer-link-list {
-      grid-template-columns: repeat(2, 1fr);
+      column-count: 2;
+      width: 100%;
+      // grid-template-columns: repeat(2, 1fr);
+      // grid-template-rows: repeat(2, 1fr);
     }
   }
 }

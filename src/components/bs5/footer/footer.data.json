@@ -1,8 +1,9 @@
 {
-    "sitename": "Site name, Namestyle or Name Identifier",
+    "sitename": "For government",
     "contact": {
         "title": "Contact us",
         "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
+        "hasContactList": false,
         "list": [
             {
                 "icon": "icon-phone",
@@ -16,28 +17,35 @@
         "buttonLabel": "Contact us",
         "buttonLink": ""
     },
+    "footerHasCrest": false,
+    "footerHasStateOfQld": false,
 
     "acknowledgement": {
-        "content": "<p class='footer-acknowledgements'>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
+        "title": "Cultural acknowledgement",
+        "hasTitle": true,
+        "content": "<p class='footer-acknowledgements'>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
     },
 
     "copyright": {
-        "content": "<p>&copy; The State of Queensland 2024</p>"
+        "content": "&copy; The State of Queensland",
+        "hasYearFrom": true,
+        "yearFrom": "1995",
+        "currentYear": "2024"
     },
 
     "footerlinks": {
         "title": "",
         "list": [
             {
-                "title": "About us",
-                "link": "#"
-            },
-            {
-                "title": "Using our website",
+                "title": "Help",
                 "link": "#"
             },
             {
                 "title": "Copyright",
+                "link": "#"
+            },
+            {
+                "title": "Disclaimer",
                 "link": "#"
             },
             {
@@ -53,7 +61,7 @@
                 "link": "#"
             },
             {
-                "title": "Jobs",
+                "title": "Jobs in Queensland <span>Government</span>",
                 "link": "https://smartjobs.qld.gov.au",
                 "target": "_blank"
             },

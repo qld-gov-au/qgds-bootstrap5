@@ -16,16 +16,17 @@
                 <div class="footer-column footer-contact">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-12">
-                            <h2 class="footer-heading">{{ contact.title }}</h2>
+                            <h3 class="footer-heading">{{ contact.title }}</h3>
 
                             <div class="footer-content">
                                 {{{ contact.content }}}
-
-                                {{#each contact.list }}
-                                    <div class="footer-contact-item">
-                                        <span class="qld-icon {{icon}}" aria-hidden="true"></span> {{{ label }}}
-                                    </div>
-                                {{/each}}
+                                {{#if contact.hasContactList}}
+                                    {{#each contact.list }}
+                                        <div class="footer-contact-item">
+                                            <span class="qld-icon {{icon}}" aria-hidden="true"></span> {{{ label }}}
+                                        </div>
+                                    {{/each}}
+                                {{/if}}
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 col-lg-12">
@@ -40,7 +41,7 @@
                 <div class="footer-column">
                     <nav class="nav footer-link-list flex-column">
                         {{#each footerlinks.list }}
-                        <a class="nav-link" href="{{ link }}" target="{{ target }}">{{ title }}</a>
+                        <a class="nav-link" href="{{ link }}" target="{{ target }}">{{{ title }}}</a>
                         {{/each }}
                     </nav>
                 </div>
@@ -52,7 +53,7 @@
                 <div class="footer-column border-column">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-12">
-                            <h2 class="footer-heading">{{feedbackForm.title}}</h2>
+                            <h3 class="footer-heading">{{feedbackForm.title}}</h3>
                             <p>{{feedbackForm.content}}</p>
                         </div>
                         <div class="col-xs-12 col-md-6 col-lg-12">
@@ -87,7 +88,7 @@
             {{#if followlinks.enabled}}
             <div class="col-xs-12 col-md-12 col-lg-3">
                 <div class="footer-column border-column">
-                    <h2 class="footer-heading">{{followlinks.title}}</h2>
+                    <h3 class="footer-heading">{{followlinks.title}}</h3>
                     <nav class="nav footer-link-list footer-link-list--social flex-column">    
                         {{#if followlinks.facebook }}
                             <a class="nav-link" href="{{ link }}" target="{{ target }}">
@@ -150,6 +151,7 @@
             {{!-- Section 5: Aknowlegement, Qld Government Coat of Arms and Copyright information --}}
             <div class="col-xs-12 col-md-12 col-lg-3 crest">
                 <div class="footer-column border-column">
+                    {{#if footerHasCrest}}
                     <div class="footer-crest">
                         <svg width="252" height="44" viewBox="0 0 252 44" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -317,9 +319,16 @@
                                 fill="white" />
                         </svg>
                     </div>
-                    <div class="footer-content">{{{acknowledgement.content}}}
-                        <p>{{{copyright.content}}}</p>
-                        <p><a class="fw-semibold" href="https://www.qld.gov.au" rel="external">Queensland Government</a></p>
+                    {{/if}}
+                    <div class="footer-content">
+                        {{#if acknowledgement.hasTitle}}
+                            <h3 class="footer-heading">{{acknowledgement.title}}</h3>
+                        {{/if}}
+                        {{{acknowledgement.content}}}
+                        <p class="copyright">{{{copyright.content}}} {{#if copyright.hasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{copyright.currentYear}}</p>
+                        {{#if footerHasStateOfQld}}
+                            <p><a class="fw-semibold" href="https://www.qld.gov.au" rel="external">Queensland Government</a></p>
+                        {{/if}}
                     </div>
 
                 </div>      
