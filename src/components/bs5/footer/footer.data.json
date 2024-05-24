@@ -37,6 +37,13 @@
         "currentYear": "2024"
     },
 
+    "lockup": {
+        "link": {
+            "text": "Queensland Government",
+            "url": "https://www.qld.gov.au"
+        }
+    },
+
     "footerlinks": {
         "title": "",
         "list": [

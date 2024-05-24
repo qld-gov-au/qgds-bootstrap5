@@ -1,0 +1,11 @@
+{
+	"customClass": "",
+	"variantClass": "",
+	"placeholder": "Search website",
+	"inputID": "search",
+	"inputName": "query",
+	"buttonID": "search-button",
+	"buttonType": "submit",
+	"buttonLabel": "Search",
+	"ariaLabel": "Search website"
+}

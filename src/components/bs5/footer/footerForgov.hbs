@@ -233,21 +233,20 @@
                     </div>
 
                     <div class="footer-content">
-                        <p class="footer-acknowledgements ">
-                            Queensland Government acknowledges the Traditional Owners of the land and pays respect
-                            to Elders
-                            past, present and future.
-                        </p>
 
-                        <p>&copy; The State of Queensland 2023</p>
+                        <div class="footer-acknowledgements">
+                            {{#each acknowledgements}}
+                            {{{ content }}}
+                            {{/each}}
+                        </div>
 
-                        <!--
-                            https://getbootstrap.com/docs/5.2/utilities/text/#font-size
-                            Font-weight: semibold
-                        -->
+
+                        {{{ copyright.content }}}
+
                         <p>
-                            <a class="fw-semibold" href="https://www.qld.gov.au" rel="external">Queensland Government</a>
+                            <a class="fw-semibold" href="{{ lockup.link.URL }}" rel="external">{{ lockup.link.text }}</a>
                         </p>
+
                     </div>
 
                 </div>      
