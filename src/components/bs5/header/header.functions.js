@@ -21,7 +21,8 @@ export function toggleSearch(event) {
   // Get the search div
   const searchDiv = document.getElementById('qld-header-search');
   const toggleButton = event.currentTarget;
-  const toggleIcon = toggleButton.querySelector('svg use');
+  const searchIcon = toggleButton.querySelector('use.icon-search');
+  const closeIcon = toggleButton.querySelector('use.icon-close');
   const toggleText = toggleButton.querySelector('.qld__main-nav__toggle-text');
 
   // Check current class and swap
@@ -30,16 +31,20 @@ export function toggleSearch(event) {
       searchDiv.classList.remove('qld__header__site-search--open');
       searchDiv.classList.add('qld__header__site-search--closed');
 
-      // Change icon and text back to default
-      toggleIcon.setAttribute('href', 'assets/img/svg-icons.svg#qld__icon__search');
-      toggleText.textContent = 'Search';
+       // Change icon and text back to default
+       searchIcon.style.display = 'block';
+       closeIcon.style.display = 'none';
+       toggleText.textContent = 'Search';
+
+
     } else {
       searchDiv.classList.remove('qld__header__site-search--closed');
       searchDiv.classList.add('qld__header__site-search--open');
 
-      // Change icon and text to active state
-      toggleIcon.setAttribute('href', 'assets/img/svg-icons.svg#qld__icon__close');
-      toggleText.textContent = 'Close';
+       // Change icon and text to active state
+       searchIcon.style.display = 'none';
+       closeIcon.style.display = 'block';
+       toggleText.textContent = 'Close';
     }
 
     // Optional: Update the aria-expanded attribute for accessibility
@@ -54,7 +59,7 @@ export function toggleSearch(event) {
  * @param {string} value - The current input value.
  * @param {boolean} isDefault - Whether to show default suggestions or not.
  * @returns {void}
-**/
+ **/
 export function showSuggestions(value = '', isDefault = false) {
   const suggestions = document.getElementById('suggestions');
   const searchInput = document.getElementById('search-input');
@@ -137,29 +142,30 @@ export function selectSuggestion(value) {
   }
 }
 
-// Ensure the input exists before adding event listeners
-const searchInput = document.getElementById('search-input');
-if (searchInput) {
+// Attach event listeners
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('search-input');
 
-  // Events
-  searchInput.addEventListener('keyup', function() {
-    showSuggestions(this.value);
-  });
+  if (searchInput) {
+    searchInput.addEventListener('keyup', function() {
+      showSuggestions(this.value);
+    });
 
-  searchInput.addEventListener('focus', function() {
-    showSuggestions('', true);
-  });
-
-  searchInput.addEventListener('click', function() {
-    if (this.value === '') {
+    searchInput.addEventListener('focus', function() {
       showSuggestions('', true);
-    }
-  });
+    });
 
-  // Close suggestions when clicking outside
-  document.addEventListener('click', function(event) {
-    if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
-      document.getElementById('suggestions').style.display = 'none';
-    }
-  });
-}
+    searchInput.addEventListener('click', function() {
+      if (this.value === '') {
+        showSuggestions('', true);
+      }
+    });
+
+    // Close suggestions when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
+        document.getElementById('suggestions').style.display = 'none';
+      }
+    });
+  }
+});

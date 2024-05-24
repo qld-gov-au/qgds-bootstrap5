@@ -1,6 +1,11 @@
 {
     "masterbrand_variant": {
         "icon-root": "assets/img/svg-icons.svg",
+        "icons": {
+            "menu-icon": "qld__icon__mobile-menu",
+            "search-icon": "qld__icon__search",
+            "close-icon": "qld__icon__close"
+        },
         "sitePreHeader": {
             "url": {
                 "value": "https://qld.gov.au"
@@ -218,11 +223,6 @@
                 "url": "https://www.forgov.qld.gov.au/search"
             },
             "options": {
-                "icons": {
-                    "menu-icon": "qld__icon__mobile-menu",
-                    "search-icon": "qld__icon__search",
-                    "search-close-icon": "qld__icon__close"
-                },
                 "borderStyle": {
                     "full": true
                 }
@@ -231,6 +231,11 @@
     },
     "subbrand_variant": {
         "icon-root": "assets/img/svg-icons.svg",
+        "icons": {
+            "menu-icon": "qld__icon__mobile-menu",
+            "search-icon": "qld__icon__search",
+            "close-icon": "qld__icon__close"
+        },
         "sitePreHeader": {
             "url": {
                 "value": "https://qld.gov.au"
@@ -328,11 +333,6 @@
                 "url": "https://www.forgov.qld.gov.au/search"
             },
             "options": {
-                "icons": {
-                    "menu-icon": "qld__icon__mobile-menu",
-                    "search-icon": "qld__icon__search",
-                    "search-close-icon": "qld__icon__close"
-                },
                 "borderStyle": {
                     "full": false
                 }
@@ -341,6 +341,11 @@
     },
     "endorsed_variant": {
         "icon-root": "assets/img/svg-icons.svg",
+        "icons": {
+            "menu-icon": "qld__icon__mobile-menu",
+            "search-icon": "qld__icon__search",
+            "close-icon": "qld__icon__close"
+        },
         "sitePreHeader": {
             "url": {
                 "value": "https://qld.gov.au"
@@ -558,11 +563,6 @@
                 "url": "https://www.forgov.qld.gov.au/search"
             },
             "options": {
-                "icons": {
-                    "menu-icon": "qld__icon__mobile-menu",
-                    "search-icon": "qld__icon__search",
-                    "search-close-icon": "qld__icon__close"
-                },
                 "borderStyle": {
                     "full": true
                 }
@@ -571,6 +571,11 @@
     },
     "standalone_variant": {
         "icon-root": "assets/img/svg-icons.svg",
+        "icons": {
+            "menu-icon": "qld__icon__mobile-menu",
+            "search-icon": "qld__icon__search",
+            "close-icon": "qld__icon__close"
+        },
         "sitePreHeader": {
             "url": {
                 "value": "https://qld.gov.au"
@@ -788,11 +793,6 @@
                 "url": "https://www.forgov.qld.gov.au/search"
             },
             "options": {
-                "icons": {
-                    "menu-icon": "qld__icon__mobile-menu",
-                    "search-icon": "qld__icon__search",
-                    "search-close-icon": "qld__icon__close"
-                },
                 "borderStyle": {
                     "full": true
                 }

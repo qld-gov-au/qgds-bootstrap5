@@ -294,22 +294,18 @@
             </div>
             <div class="qld__header__main-nav-controls">
                 {{#if siteSearchAsset.value}}
-                <button aria-controls="qld-header-search"
-                    class="qld__header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
-                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
-                        class="qld__icon qld__icon--lg">
-                        <use href="{{icon-root}}#{{siteSearchAsset.options.icons.search-icon}}"></use>
+                <button aria-controls="qld-header-search" class="qld__header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
+                        <use class="icon-search" href="{{icon-root}}#{{icons.search-icon}}" style="display: block;"></use>
+                        <use class="icon-close" href="{{icon-root}}#{{icons.close-icon}}" style="display: none;"></use>
                     </svg>
                     <span class="qld__main-nav__toggle-text">Search</span>
                 </button>
                 {{/if}}
-                <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open"
-                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
-                        class="qld__icon qld__icon--lg">
-                        <use href="{{icon-root}}#{{siteSearchAsset.options.icons.menu-icon}}"></use>
-                    </svg>
+                <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
+                            <use href="{{icon-root}}#{{icons.menu-icon}}"></use>
+                        </svg>
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
             </div>
