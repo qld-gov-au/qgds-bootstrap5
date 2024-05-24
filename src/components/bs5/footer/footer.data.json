@@ -36,14 +36,6 @@
         "yearFrom": "1995",
         "currentYear": "2024"
     },
-
-    "lockup": {
-        "link": {
-            "text": "Queensland Government",
-            "url": "https://www.qld.gov.au"
-        }
-    },
-
     "footerlinks": {
         "title": "",
         "list": [
@@ -82,7 +74,6 @@
             }
         ]
     },
-
     "feedbackForm" : {
         "title": "Website feedback",
         "content": "Help us improve the content on our website or tell us what is working really well.",
@@ -116,7 +107,6 @@
         ],
         "formioResource": "https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"
     },
-
     "followlinks": {
         "title": "Follow us",
         "enabled": false,
@@ -129,17 +119,14 @@
             "label": "LinkedIn",
             "link": "#"
         },
-
         "twitterx": {
             "label": "X (Twitter)",
             "link": "#"
         },
-
         "youtube": {
             "label": "Youtube",
             "link": "#"
         },
-
         "instagram": {
             "label": "Instagram",
             "link": "#"
