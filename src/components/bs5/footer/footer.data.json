@@ -24,12 +24,21 @@
         "buttonLink": ""
     },
 
-    "acknowledgement": {
-        "content": "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
-    },
+    "acknowledgements": [
+        {
+            "content": "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
+        }
+    ],
 
     "copyright": {
         "content": "<p>&copy; The State of Queensland 2024</p>"
+    },
+
+    "lockup": {
+        "link": {
+            "text": "Queensland Government",
+            "url": "https://www.qld.gov.au"
+        }
     },
 
     "footerlinks": {
