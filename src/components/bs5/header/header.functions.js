@@ -113,11 +113,11 @@ export async function showSuggestions(value = '', isDefault = false) {
     suggestions.innerHTML = `
       <div class="suggestions-category mt-4 mb-2">
         <strong>Popular Services</strong>
-        <ul class="mt-2">${loadedSuggestions.popular_services.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${loadedSuggestions.popular_services.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <div class="suggestions-category mt-4">
         <strong>Categories</strong>
-        <ul class="mt-2">${loadedSuggestions.categories.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${loadedSuggestions.categories.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       ${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>` : ''}
     `;
@@ -149,7 +149,7 @@ export async function showSuggestions(value = '', isDefault = false) {
       suggestions.innerHTML = `
         <div class="suggestions-category mt-4">
           <strong>Suggestions</strong>
-          <ul class="mt-2">${fetchedSuggestions.map(item => `<li onclick="selectSuggestion('${item.disp}')"><a href="#">${item.disp}</a></li>`).join('')}</ul>
+          <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.disp}')"><a href="#">${item.disp}</a></li>`).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
@@ -172,9 +172,9 @@ export async function showSuggestions(value = '', isDefault = false) {
     // Use the fetched services to populate the services dropdown
     if (fetchedServices.response.resultPacket.results.length > 0) {
       suggestions.innerHTML += `
-        <div class="suggestions-category mt-4">
+        <div class="suggestions-category feature mt-4 py-4">
           <strong>Services</strong>
-          <ul class="mt-2">${fetchedServices.response.resultPacket.results.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
+          <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
