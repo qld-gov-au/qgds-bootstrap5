@@ -5,9 +5,9 @@
 changelog:
   categories:
     - title: Breaking Changes 🛠
-        labels:
-          - Semver-Major
-          - breaking-change
+      labels:
+        - Semver-Major
+        - breaking-change
 
     - title: 🏕 Features
       labels:
