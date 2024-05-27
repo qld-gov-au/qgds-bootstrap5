@@ -107,19 +107,23 @@ export async function showSuggestions(value = '', isDefault = false) {
     return;
   }
 
+  // Clear previous suggestions and services
+  suggestions.innerHTML = '';
+
   const loadedSuggestions = defaultSuggestions;
 
   if (isDefault) {
     suggestions.innerHTML = `
       <div class="suggestions-category mt-4 mb-2">
-        <strong>Popular Services</strong>
+        <strong>Popular services</strong>
         <ul class="mt-2">${loadedSuggestions.popular_services.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
+      <hr>
       <div class="suggestions-category mt-4">
-        <strong>Categories</strong>
+        <strong>Browse by category</strong>
         <ul class="mt-2">${loadedSuggestions.categories.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
-      ${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>` : ''}
+      <!--${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>-->` : ''}
     `;
     suggestions.classList.add('show');
     createPopper(searchInput, suggestions, {
@@ -142,14 +146,16 @@ export async function showSuggestions(value = '', isDefault = false) {
 
   if (suggestUrl) {
     const fetchedSuggestions = await fetchSuggestions(`${suggestUrl}&partial_query=${encodeURIComponent(value)}`);
-    console.log('Fetched suggestions:', fetchedSuggestions);
 
     // Use the fetched suggestions to populate the suggestions dropdown
     if (fetchedSuggestions.length > 0) {
       suggestions.innerHTML = `
         <div class="suggestions-category mt-4">
           <strong>Suggestions</strong>
-          <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.disp}')"><a href="#">${item.disp}</a></li>`).join('')}</ul>
+          <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
+            const highlightedText = item.disp.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
+            return `<li onclick="selectSuggestion('${item.disp}')"><a href="#">${highlightedText}</a></li>`;
+          }).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
@@ -167,14 +173,13 @@ export async function showSuggestions(value = '', isDefault = false) {
 
   if (resultsUrl) {
     const fetchedServices = await fetchServices(`${resultsUrl}&query=${encodeURIComponent(value)}`);
-    console.log('Fetched services:', fetchedServices);
 
     // Use the fetched services to populate the services dropdown
     if (fetchedServices.response.resultPacket.results.length > 0) {
       suggestions.innerHTML += `
-        <div class="suggestions-category feature mt-4 py-4">
+        <div class="suggestions-category feature pt-2">
           <strong>Services</strong>
-          <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
+          <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li class="pb-2" onclick="selectSuggestion('${item.title}')"><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
@@ -202,4 +207,17 @@ export function selectSuggestion(value) {
     searchInput.value = value;
     suggestions.style.display = 'none';
   }
+}
+
+// Debounce function to limit the rate of requests
+export function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }

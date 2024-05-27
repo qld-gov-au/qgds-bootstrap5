@@ -541,7 +541,7 @@
 						padding: 0;
 
 						li {
-							height: 3rem;
+							min-height: 3rem;
 							list-style: none;
 							cursor: pointer;
 
@@ -556,9 +556,7 @@
 							&:hover {
 								background-color: var(--#{$prefix}header_site-search-suggestions-hover);
 								margin: 0 -1rem;
-								a {
-									padding: 0 1rem;
-								}
+								padding: 0 1rem;
 							}
 						}
 					}

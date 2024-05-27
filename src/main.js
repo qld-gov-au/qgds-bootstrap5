@@ -26,7 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
     if(headerSearchButton) {
       document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
     }
-    
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
       searchInput.addEventListener('keyup', function() {
@@ -42,12 +41,17 @@ window.addEventListener("DOMContentLoaded", () => {
           showSuggestions('', true);
         }
       });
-  
       // Close suggestions when clicking outside
       document.addEventListener('click', function(event) {
         if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
           document.getElementById('suggestions').style.display = 'none';
         }
+      });
+      // Apply debounce to the showSuggestions function
+      const debouncedShowSuggestions = debounce(showSuggestions, 300);
+      // Add event listener for input with debounced function
+      document.getElementById('search-input').addEventListener('input', (event) => {
+        debouncedShowSuggestions(event.target.value);
       });
     }
 
