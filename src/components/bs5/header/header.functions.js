@@ -92,6 +92,36 @@ async function fetchServices(url) {
 }
 
 /**
+ * Sets the selected suggestion into the input field and submits the form.
+ *
+ * @param {string} value - The selected suggestion.
+ * @returns {void}
+ */
+export function selectSuggestion(value) {
+  const searchInput = document.getElementById('search-input');
+  const suggestions = document.getElementById('suggestions');
+  const form = document.getElementById('site-search');
+
+  if (searchInput && suggestions && form) {
+    searchInput.value = value;
+    suggestions.style.display = 'none';
+
+    // Construct the action URL with query and other parameters
+    const baseUrl = form.getAttribute('action');
+    const collection = 'qgov~sp-search';
+    const profile = 'qld';
+    const query = encodeURIComponent(value);
+    const actionUrl = `${baseUrl}?query=${query}&collection=${collection}&profile=${profile}`;
+
+    // Update the form's action attribute
+    form.setAttribute('action', actionUrl);
+
+    // Submit the form
+    form.submit();
+  }
+}
+
+/**
  * Shows suggestions based on the user's input.
  *
  * @param {string} value - The current input value.
@@ -116,12 +146,12 @@ export async function showSuggestions(value = '', isDefault = false) {
     suggestions.innerHTML = `
       <div class="suggestions-category mt-4 mb-2">
         <strong>Popular services</strong>
-        <ul class="mt-2">${loadedSuggestions.popular_services.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${loadedSuggestions.popular_services.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <hr>
       <div class="suggestions-category mt-4">
         <strong>Browse by category</strong>
-        <ul class="mt-2">${loadedSuggestions.categories.slice(0, 4).map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${loadedSuggestions.categories.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <!--${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>-->` : ''}
     `;
@@ -145,7 +175,7 @@ export async function showSuggestions(value = '', isDefault = false) {
   const resultsUrl = form.getAttribute('data-results-url');
 
   if (suggestUrl) {
-    const fetchedSuggestions = await fetchSuggestions(`${suggestUrl}&partial_query=${encodeURIComponent(value)}`);
+    const fetchedSuggestions = await fetchSuggestions(`${suggestUrl}?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld&partial_query=${encodeURIComponent(value)}`);
 
     // Use the fetched suggestions to populate the suggestions dropdown
     if (fetchedSuggestions.length > 0) {
@@ -153,8 +183,9 @@ export async function showSuggestions(value = '', isDefault = false) {
         <div class="suggestions-category mt-4">
           <strong>Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
+            if (!item.disp) return ''; // Check if item.disp is defined
             const highlightedText = item.disp.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-            return `<li onclick="selectSuggestion('${item.disp}')"><a href="#">${highlightedText}</a></li>`;
+            return `<li onclick="window.selectSuggestion('${item.disp}')"><a href="#">${highlightedText}</a></li>`;
           }).join('')}</ul>
         </div>
       `;
@@ -172,14 +203,14 @@ export async function showSuggestions(value = '', isDefault = false) {
   }
 
   if (resultsUrl) {
-    const fetchedServices = await fetchServices(`${resultsUrl}&query=${encodeURIComponent(value)}`);
+    const fetchedServices = await fetchServices(`${resultsUrl}?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`);
 
     // Use the fetched services to populate the services dropdown
-    if (fetchedServices.response.resultPacket.results.length > 0) {
+    if (fetchedServices.response.resultPacket && fetchedServices.response.resultPacket.results.length > 0) {
       suggestions.innerHTML += `
         <div class="suggestions-category feature pt-2">
           <strong>Services</strong>
-          <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li class="pb-2" onclick="selectSuggestion('${item.title}')"><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
+          <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li class="pb-2" onclick="window.selectSuggestion('${item.title}')"><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
@@ -193,31 +224,5 @@ export async function showSuggestions(value = '', isDefault = false) {
   }
 }
 
-/**
- * Sets the selected suggestion into the input field.
- *
- * @param {string} value - The selected suggestion.
- * @returns {void}
- */
-export function selectSuggestion(value) {
-  const searchInput = document.getElementById('search-input');
-  const suggestions = document.getElementById('suggestions');
-
-  if (searchInput && suggestions) {
-    searchInput.value = value;
-    suggestions.style.display = 'none';
-  }
-}
-
-// Debounce function to limit the rate of requests
-export function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
+// Attach the function to the window object to make it globally accessible
+window.selectSuggestion = selectSuggestion;

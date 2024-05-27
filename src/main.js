@@ -28,8 +28,13 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
+      let timeout;
+
       searchInput.addEventListener('keyup', function() {
-        showSuggestions(this.value);
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          showSuggestions(this.value);
+        }, 300);
       });
   
       searchInput.addEventListener('focus', function() {
@@ -46,12 +51,6 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
           document.getElementById('suggestions').style.display = 'none';
         }
-      });
-      // Apply debounce to the showSuggestions function
-      const debouncedShowSuggestions = debounce(showSuggestions, 300);
-      // Add event listener for input with debounced function
-      document.getElementById('search-input').addEventListener('input', (event) => {
-        debouncedShowSuggestions(event.target.value);
       });
     }
 

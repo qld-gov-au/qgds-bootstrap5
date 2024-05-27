@@ -179,8 +179,8 @@
             "label": "",
             "formAction": {
                 "url": "https://www.forgov.qld.gov.au/search",
-                "suggestions": "https://discover.search.qld.gov.au/s/suggest.json?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld",
-                "results": "https://discover.search.qld.gov.au/s/search.json?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes"
+                "suggestions": "https://discover.search.qld.gov.au/s/suggest.json",
+                "results": "https://discover.search.qld.gov.au/s/search.json"
             },
             "options": {
                 "borderStyle": {
