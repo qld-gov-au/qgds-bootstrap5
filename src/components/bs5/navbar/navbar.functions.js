@@ -42,17 +42,17 @@ export function initializeNavbar() {
   const overlay = document.getElementById('overlay');
 
   // Add event listeners to each dropdown item
-  if(dropdownItems) {
+  if (dropdownItems) {
     dropdownItems.forEach(item => {
       item.addEventListener('click', function(event) {
         // Stop the event from propagating - Bootstrap default click closes
-        event.stopPropagation();  
+        event.stopPropagation();
       });
     });
   }
 
   // Overlay on mobile open
-  if(overlay) {
+  if (overlay) {
     overlay.addEventListener('click', function () {
       // Check if the navbar is open
       if (navbarCollapse.classList.contains('show')) {
@@ -63,7 +63,7 @@ export function initializeNavbar() {
     });
   }
 
-  if(navbarCollapse) {
+  if (navbarCollapse) {
     // Overlay show/hide events
     navbarCollapse.addEventListener('show.bs.collapse', function () {
       overlay.classList.add('show'); // Show the overlay
@@ -74,7 +74,7 @@ export function initializeNavbar() {
     });
   }
 
-  if(dropdownToggles) {
+  if (dropdownToggles) {
     // Initialize Popper and toggle handling
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener('click', (event) => {
@@ -104,7 +104,7 @@ export function initializeNavbar() {
         } else {
           siblingElement.classList.remove('show');
         }
-        
+
         // Check if a Popper instance should be activated or not
         const resizeHandler = () => {
           if (window.innerWidth > 992) {
@@ -119,7 +119,6 @@ export function initializeNavbar() {
               });
             }
           } else {
-            const dropdownMenu = toggle.closest('.nav-item').querySelector('.dropdown-menu');
             if (dropdownMenu.dataset.popperActive) {
               activePoppers.forEach(popperInstance => popperInstance.destroy());
               activePoppers = []; // Clear out the array after destroying instances
@@ -134,6 +133,26 @@ export function initializeNavbar() {
       });
     });
   }
+
+  // Reset state on resize to mobile
+  const resetNavbarState = () => {
+    if (window.innerWidth <= 992) {
+      // Remove 'show' class from all dropdowns and sibling elements
+      document.querySelectorAll('.navbar .dropdown-menu').forEach(menu => {
+        menu.classList.remove('show');
+      });
+      document.querySelectorAll('.navbar .first-element').forEach(elem => {
+        elem.classList.remove('show');
+      });
+      // Destroy all active Popper instances
+      activePoppers.forEach(popperInstance => popperInstance.destroy());
+      activePoppers = [];
+    }
+  }
+
+  // Attach resize listener to reset navbar state on resize to mobile
+  window.addEventListener('resize', resetNavbarState);
+  resetNavbarState(); // Call handler immediately to apply correct setting on init
 }
 
 // Initialize the navbar (see main.js)

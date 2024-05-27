@@ -26,23 +26,26 @@ window.addEventListener("DOMContentLoaded", () => {
     if(headerSearchButton) {
       document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
     }
-    
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
-      searchInput.addEventListener('keyup', function() {
-        showSuggestions(this.value);
-      });
+      let timeout;
 
+      searchInput.addEventListener('keyup', function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          showSuggestions(this.value);
+        }, 300);
+      });
+  
       searchInput.addEventListener('focus', function() {
         showSuggestions('', true);
       });
-
+  
       searchInput.addEventListener('click', function() {
         if (this.value === '') {
           showSuggestions('', true);
         }
       });
-
       // Close suggestions when clicking outside
       document.addEventListener('click', function(event) {
         if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {

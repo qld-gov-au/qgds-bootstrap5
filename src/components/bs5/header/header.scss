@@ -483,13 +483,14 @@
 				color: var(--site-search-input-color);
 			}
 
+			//Search dropdown
 			.suggestions-dropdown {
 				position: absolute;
 				display: none;
 				left: 0;	
 				top: 100%;  
 				width: 100%;			
-				z-index: 99; // TO DO: Fix
+				z-index: 99; 
 				border-radius: .5rem;
 				background: var(--#{$prefix}header_site-search-suggestions-bg);
 				box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
@@ -497,6 +498,28 @@
 
 				.suggestions-category {
 					padding: 0 1rem;
+				}
+
+				hr {
+					margin: 0;
+				}
+
+				// Featured search result styles
+				.feature {
+					background-color: var(--#{$prefix}header_site-search-suggestions-feature_bg);
+					strong {
+						color: var(--#{$prefix}header_site-search-suggestions-feature_text-color);
+					}
+					ul {
+						li {
+							&:hover {
+								background-color: var(--#{$prefix}header_site-search-suggestions-feature_hover);
+							}
+							a {
+								color: var(--#{$prefix}header_site-search-suggestions-feature_text-color);
+							}
+						}
+					}				
 				}
 
 				// Show when active
@@ -522,7 +545,7 @@
 						padding: 0;
 
 						li {
-							height: 3rem;
+							min-height: 3rem;
 							list-style: none;
 							cursor: pointer;
 
@@ -537,9 +560,7 @@
 							&:hover {
 								background-color: var(--#{$prefix}header_site-search-suggestions-hover);
 								margin: 0 -1rem;
-								a {
-									padding: 0 1rem;
-								}
+								padding: 0 1rem;
 							}
 						}
 					}

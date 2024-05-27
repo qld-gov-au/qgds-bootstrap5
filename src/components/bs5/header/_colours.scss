@@ -126,9 +126,12 @@
     --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
 
     // Suggestions colours
-    --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-light-background);
-    --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-light-background__shade);
+    --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-light-background__shade);
+    --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-light-border);
     --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}header-color-light-designAccent);
+    --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}header-color-dark-background);
+    --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}header-color-dark-background__shade);
+    --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}header-color-dark-text);
 
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Dark/dark-alt modes
@@ -190,9 +193,12 @@
         --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
 
         // Suggestions colours
-        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-dark-alt-background);
-        --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-dark-background__shade);
+        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-dark-background__shade);
+        --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-dark-background);
         --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}header-color-dark-designAccent);
+        --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}header-color-dark-alt-background);
+        --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}header-color-dark-alt-background__shade);
+        --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}header-color-dark-text);
     }
 
     .dark-alt & {
