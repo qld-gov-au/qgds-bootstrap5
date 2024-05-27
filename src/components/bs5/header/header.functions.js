@@ -144,12 +144,12 @@ export async function showSuggestions(value = '', isDefault = false) {
 
   if (isDefault) {
     suggestions.innerHTML = `
-      <div class="suggestions-category mt-4 mb-2">
+      <div class="suggestions-category mt-2">
         <strong>Popular services</strong>
         <ul class="mt-2">${loadedSuggestions.popular_services.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <hr>
-      <div class="suggestions-category mt-4">
+      <div class="suggestions-category mt-2">
         <strong>Browse by category</strong>
         <ul class="mt-2">${loadedSuggestions.categories.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
@@ -180,7 +180,7 @@ export async function showSuggestions(value = '', isDefault = false) {
     // Use the fetched suggestions to populate the suggestions dropdown
     if (fetchedSuggestions.length > 0) {
       suggestions.innerHTML = `
-        <div class="suggestions-category mt-4">
+        <div class="suggestions-category mt-2">
           <strong>Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
             if (!item.disp) return ''; // Check if item.disp is defined
