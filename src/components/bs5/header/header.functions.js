@@ -31,25 +31,63 @@ export function toggleSearch(event) {
       searchDiv.classList.remove('qld__header__site-search--open');
       searchDiv.classList.add('qld__header__site-search--closed');
 
-       // Change icon and text back to default
-       searchIcon.style.display = 'block';
-       closeIcon.style.display = 'none';
-       toggleText.textContent = 'Search';
-
-
+      // Change icon and text back to default
+      searchIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+      toggleText.textContent = 'Search';
     } else {
       searchDiv.classList.remove('qld__header__site-search--closed');
       searchDiv.classList.add('qld__header__site-search--open');
 
-       // Change icon and text to active state
-       searchIcon.style.display = 'none';
-       closeIcon.style.display = 'block';
-       toggleText.textContent = 'Close';
+      // Change icon and text to active state
+      searchIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
+      toggleText.textContent = 'Close';
     }
 
     // Optional: Update the aria-expanded attribute for accessibility
     const isExpanded = searchDiv.classList.contains('qld__header__site-search--open');
     event.currentTarget.setAttribute('aria-expanded', isExpanded);
+  }
+}
+
+/**
+ * Fetches suggestions from the provided URL.
+ *
+ * @param {string} url - The URL to fetch suggestions from.
+ * @returns {Promise<Object>} - A promise that resolves to the fetched suggestions.
+ */
+async function fetchSuggestions(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching suggestions:", error);
+    return {};
+  }
+}
+
+/**
+ * Fetches related services from the provided URL.
+ *
+ * @param {string} url - The URL to fetch related services from.
+ * @returns {Promise<Object>} - A promise that resolves to the fetched services.
+ */
+async function fetchServices(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching services:", error);
+    return {};
   }
 }
 
@@ -60,7 +98,7 @@ export function toggleSearch(event) {
  * @param {boolean} isDefault - Whether to show default suggestions or not.
  * @returns {void}
  **/
-export function showSuggestions(value = '', isDefault = false) {
+export async function showSuggestions(value = '', isDefault = false) {
   const suggestions = document.getElementById('suggestions');
   const searchInput = document.getElementById('search-input');
 
@@ -97,33 +135,57 @@ export function showSuggestions(value = '', isDefault = false) {
     return;
   }
 
-  const allSuggestions = [...loadedSuggestions.popular_services, ...loadedSuggestions.categories];
-  const filteredSuggestions = allSuggestions.filter(item => item.title.toLowerCase().includes(value.toLowerCase()));
+  // Fetch suggestions from the provided URL
+  const form = document.getElementById('site-search');
+  const suggestUrl = form.getAttribute('data-suggestions');
+  const resultsUrl = form.getAttribute('data-results-url');
 
-  if (filteredSuggestions.length === 0) {
-    suggestions.innerHTML = '';
-    suggestions.style.display = 'none';
-    return;
+  if (suggestUrl) {
+    const fetchedSuggestions = await fetchSuggestions(`${suggestUrl}&partial_query=${encodeURIComponent(value)}`);
+    console.log('Fetched suggestions:', fetchedSuggestions);
+
+    // Use the fetched suggestions to populate the suggestions dropdown
+    if (fetchedSuggestions.length > 0) {
+      suggestions.innerHTML = `
+        <div class="suggestions-category mt-4">
+          <strong>Suggestions</strong>
+          <ul class="mt-2">${fetchedSuggestions.map(item => `<li onclick="selectSuggestion('${item.disp}')"><a href="#">${item.disp}</a></li>`).join('')}</ul>
+        </div>
+      `;
+      suggestions.classList.add('show');
+
+      // Initialize Popper.js to manage the dropdown position
+      createPopper(searchInput, suggestions, {
+        placement: 'bottom-start',
+      });
+      suggestions.style.display = 'block';
+    } else {
+      suggestions.innerHTML = '';
+      suggestions.style.display = 'none';
+    }
   }
 
-  const highlightText = (text, query) => {
-    const regex = new RegExp(`(${query})`, 'gi');
-    return text.replace(regex, '<strong>$1</strong>');
-  };
+  if (resultsUrl) {
+    const fetchedServices = await fetchServices(`${resultsUrl}&query=${encodeURIComponent(value)}`);
+    console.log('Fetched services:', fetchedServices);
 
-  suggestions.innerHTML = `
-    <div class="suggestions-category mt-4">
-      <strong>Suggestions</strong>
-      <ul class="mt-2">${filteredSuggestions.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.href}">${highlightText(item.title, value)}</a></li>`).join('')}</ul>
-    </div>
-  `;
-  suggestions.classList.add('show');
+    // Use the fetched services to populate the services dropdown
+    if (fetchedServices.response.resultPacket.results.length > 0) {
+      suggestions.innerHTML += `
+        <div class="suggestions-category mt-4">
+          <strong>Services</strong>
+          <ul class="mt-2">${fetchedServices.response.resultPacket.results.map(item => `<li onclick="selectSuggestion('${item.title}')"><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
+        </div>
+      `;
+      suggestions.classList.add('show');
 
-  // Initialize Popper.js to manage the dropdown position
-  createPopper(searchInput, suggestions, {
-    placement: 'bottom-start',
-  });
-  suggestions.style.display = 'block';
+      // Initialize Popper.js to manage the dropdown position
+      createPopper(searchInput, suggestions, {
+        placement: 'bottom-start',
+      });
+      suggestions.style.display = 'block';
+    }
+  }
 }
 
 /**
@@ -141,31 +203,3 @@ export function selectSuggestion(value) {
     suggestions.style.display = 'none';
   }
 }
-
-// Attach event listeners
-document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('search-input');
-
-  if (searchInput) {
-    searchInput.addEventListener('keyup', function() {
-      showSuggestions(this.value);
-    });
-
-    searchInput.addEventListener('focus', function() {
-      showSuggestions('', true);
-    });
-
-    searchInput.addEventListener('click', function() {
-      if (this.value === '') {
-        showSuggestions('', true);
-      }
-    });
-
-    // Close suggestions when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {
-        document.getElementById('suggestions').style.display = 'none';
-      }
-    });
-  }
-});

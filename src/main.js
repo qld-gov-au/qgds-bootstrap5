@@ -32,17 +32,17 @@ window.addEventListener("DOMContentLoaded", () => {
       searchInput.addEventListener('keyup', function() {
         showSuggestions(this.value);
       });
-
+  
       searchInput.addEventListener('focus', function() {
         showSuggestions('', true);
       });
-
+  
       searchInput.addEventListener('click', function() {
         if (this.value === '') {
           showSuggestions('', true);
         }
       });
-
+  
       // Close suggestions when clicking outside
       document.addEventListener('click', function(event) {
         if (!searchInput.contains(event.target) && !document.getElementById('suggestions').contains(event.target)) {

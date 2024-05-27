@@ -145,49 +145,7 @@
                     "dropdown_options": {
                         "dropdown_type": "form",
                         "dropdown_config": {
-                            "groups": [
-                                {
-                                    "heading": "Log in to For government",
-                                    "content": "Most employees can log in using single sign on (SSO).",
-                                    "usesButton": "true",
-                                    "actionType": "button",
-                                    "action": {
-                                        "button_action": "#",
-                                        "button_targetAttr": "_blank",
-                                        "button_label": "Login"
-                                    },
-                                    "links": [
-                                        {
-                                            "action": "_blank",
-                                            "label": "If your agency doesn't use SSO.",
-                                            "url": "https://www.forgov.qld.gov.au/user#log-in"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "heading": "Select your agency",
-                                    "content": "See information relevant to your agency.",
-                                    "actionType": "select",
-                                    "options": [
-                                        {
-                                            "value": "agency 1"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "examples": [
-                                {
-                                    "heading": "For employees",
-                                    "actionType": "list",
-                                    "list_items": [
-                                        {
-                                            "action": "_self",
-                                            "label": "Your profile",
-                                            "href": "#"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "content": "<div></div>"
                         }
                     }
                 }
@@ -220,7 +178,9 @@
             "placeholder": "",
             "label": "",
             "formAction": {
-                "url": "https://www.forgov.qld.gov.au/search"
+                "url": "https://www.forgov.qld.gov.au/search",
+                "suggestions": "https://discover.search.qld.gov.au/s/suggest.json?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld",
+                "results": "https://discover.search.qld.gov.au/s/search.json?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes"
             },
             "options": {
                 "borderStyle": {
@@ -281,23 +241,7 @@
                 "dropdown_options": {
                     "dropdown_type": "form",
                     "dropdown_config": {
-                        "groups": [
-                            {
-                                "heading": "Log in to For government",
-                                "button_action": "#",
-                                "button_targetAttr": "_blank",
-                                "button_label": "Login"
-                            }
-                        ],
-                        "examples": [
-                            {
-                                "heading": "For employees",
-                                "content": "See information relevant to your agency.",
-                                "button_action": "#",
-                                "button_targetAttr": "_blank",
-                                "button_label": "Login"
-                            }
-                        ]
+                        "content": "<div></div>"
                     }
                 }
             }
@@ -330,7 +274,9 @@
             "placeholder": "Placeholder",
             "label": "Label",
             "formAction": {
-                "url": "https://www.forgov.qld.gov.au/search"
+                "url": "https://www.forgov.qld.gov.au/search",
+                "suggestions": "https://discover.search.qld.gov.au/s/suggest.json?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld",
+                "results": "https://discover.search.qld.gov.au/s/search.json?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes"
             },
             "options": {
                 "borderStyle": {
@@ -485,49 +431,7 @@
                     "dropdown_options": {
                         "dropdown_type": "form",
                         "dropdown_config": {
-                            "groups": [
-                                {
-                                    "heading": "Log in to For government",
-                                    "content": "Most employees can log in using single sign on (SSO).",
-                                    "usesButton": "true",
-                                    "actionType": "button",
-                                    "action": {
-                                        "button_action": "#",
-                                        "button_targetAttr": "_blank",
-                                        "button_label": "Login"
-                                    },
-                                    "links": [
-                                        {
-                                            "action": "_blank",
-                                            "label": "If your agency doesn't use SSO.",
-                                            "url": "https://www.forgov.qld.gov.au/user#log-in"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "heading": "Select your agency",
-                                    "content": "See information relevant to your agency.",
-                                    "actionType": "select",
-                                    "options": [
-                                        {
-                                            "value": "agency 1"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "examples": [
-                                {
-                                    "heading": "For employees",
-                                    "actionType": "list",
-                                    "list_items": [
-                                        {
-                                            "action": "_self",
-                                            "label": "Your profile",
-                                            "href": "#"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "content": "<div></div>"
                         }
                     }
                 }
@@ -560,7 +464,9 @@
             "placeholder": "",
             "label": "",
             "formAction": {
-                "url": "https://www.forgov.qld.gov.au/search"
+                "url": "https://www.forgov.qld.gov.au/search",
+                "suggestions": "https://discover.search.qld.gov.au/s/suggest.json?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld",
+                "results": "https://discover.search.qld.gov.au/s/search.json?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes"
             },
             "options": {
                 "borderStyle": {
@@ -715,49 +621,7 @@
                     "dropdown_options": {
                         "dropdown_type": "form",
                         "dropdown_config": {
-                            "groups": [
-                                {
-                                    "heading": "Log in to For government",
-                                    "content": "Most employees can log in using single sign on (SSO).",
-                                    "usesButton": "true",
-                                    "actionType": "button",
-                                    "action": {
-                                        "button_action": "#",
-                                        "button_targetAttr": "_blank",
-                                        "button_label": "Login"
-                                    },
-                                    "links": [
-                                        {
-                                            "action": "_blank",
-                                            "label": "If your agency doesn't use SSO.",
-                                            "url": "https://www.forgov.qld.gov.au/user#log-in"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "heading": "Select your agency",
-                                    "content": "See information relevant to your agency.",
-                                    "actionType": "select",
-                                    "options": [
-                                        {
-                                            "value": "agency 1"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "examples": [
-                                {
-                                    "heading": "For employees",
-                                    "actionType": "list",
-                                    "list_items": [
-                                        {
-                                            "action": "_self",
-                                            "label": "Your profile",
-                                            "href": "#"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "content": "<div></div>"
                         }
                     }
                 }
