@@ -2,6 +2,8 @@
 // These variables are avaiable to the full project and all components. (This file is included at the top of main.scss to ensure this)
 
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss,
+
+//QGDS tokens - masterbrand
 @import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
 
 //QLD Names Colours
@@ -235,7 +237,6 @@ $project-colors: (
 $merged-theme-qld: map-merge($theme-colors, $qld-tokens);
 $theme-colors: map-merge($merged-theme-qld, $project-colors);
 
-
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (
   xs: 0,
@@ -245,14 +246,10 @@ $grid-breakpoints: (
   xl: 1312px
 );
 
-
-
 // Default border radius
 $border-radius: 0.25rem;
 $border-radius-sm: 0.25rem;
 $border-radius-lg: 0.25rem;
-
-
 
 // QGOV Borders
 $qld-border-width-thin : 1px;
@@ -260,8 +257,6 @@ $qld-border-width-default : 2px;
 $qld-border-width-medium : 3px;
 $qld-border-width-thick : 4px;
 $qld-border-width-extra-thick : 8px;
-
-
 
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
