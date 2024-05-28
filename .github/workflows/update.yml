@@ -60,7 +60,8 @@ jobs:
 
       - run: npm ci
 
-      - name: Update
+      - name: Update & Push git tags
+        if: ${{ env.HAVE_GIT_DEPLOY_KEY == 'true' }}
         run: |
           force="${{ github.event.inputs.force }}"
           dry="${{ github.event.inputs.dry }}"
@@ -68,14 +69,31 @@ jobs:
           if [ "$bump" = "" ]; then
             bump="patch"
           fi
-
+          
+          # Fetch the latest tags
+          git fetch --tags
+          
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          
+          # Get the current commit hash
+          CURRENT_COMMIT=$(git rev-parse HEAD)
+          
+          # Check if there are changes between the latest tag and the current commit
+          if git diff --quiet $LATEST_TAG $CURRENT_COMMIT; then
+            if [ "$force" != "1" ]; then
+              echo "No changes detected between the latest tag ($LATEST_TAG) and the current commit ($CURRENT_COMMIT)."  >> $GITHUB_STEP_SUMMARY
+              exit 0
+            else
+             echo "Force flag set continuing: No changes detected between the latest tag ($LATEST_TAG) and the current commit ($CURRENT_COMMIT)."  >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "Changes detected between the latest tag ($LATEST_TAG) and the current commit ($CURRENT_COMMIT)."  >> $GITHUB_STEP_SUMMARY
+          fi
+  
           # Bump Version
           npm version "$bump"
 
-
-      - name: Push git tags
-        if: ${{ env.HAVE_GIT_DEPLOY_KEY == 'true' }}
-        run: |
           dry="${{ github.event.inputs.dry }}"
           # Push
           if [ "$dry" = "1" ]; then
