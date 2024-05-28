@@ -202,12 +202,10 @@ $project-colors: (
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
   "dark-hover" : $qld-dark-hover,
-
   "light-action-primary": $qld-light-action-primary,
   "light-action-primary-hover": $qld-light-action-primary-hover,
   "light-action-secondary":  $qld-light-action-secondary,
   "light-action-secondary-hover":  $qld-light-action-secondary-hover,
-
   "dark-action-primary": $qld-dark-action-primary,
   "dark-action-primary-hover": $qld-dark-action-primary-hover,
   "dark-action-text": $qld-dark-action-text,
@@ -218,27 +216,19 @@ $project-colors: (
   //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
   "default-background": $qld-color-background,
   "default-background-shade": $qld-color-background--shade,
-
   "light-text-heading": $qld-text-headings,
   "light-text-text": $qld-text-grey,
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
   "light-border": $qld-light-border,
-
   "light-alt-background": $qld-color-light-alt-background,
   "light-alt-background-shade": $qld-color-light-alt-background--shade,
-
   "dark-background": $qld-color-dark-background,
   "dark-background-shade": $qld-color-dark-background--shade,
   "dark-alt-background": $qld-color-dark-alt-background,
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
-
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
-
-  // TEST FOR REVIEW
-  // "test-token": $color-default-color-light-background-default
-
 );
 
 // Merge maps
