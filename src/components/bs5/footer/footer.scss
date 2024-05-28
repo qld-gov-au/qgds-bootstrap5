@@ -18,7 +18,25 @@
 
   --component-icon-color: #131212;
 
+  --font-colour: var(--qld-body-color);
+  --action-colour: #6bbe27;
+  --border-colour: rgba(0, 0, 0, 0.2);
+  --colum-border-colour: var(--border-colour);
+  footer.qld-footer svg path {
+    --component-icon-color: var(--font-colour);
+  }
+
+  @media (max-width: 991.98px) {
+    --colum-border-colour: transparent;
+  }
+
   //Default palette (white text on blue)
+
+  .light,
+  .alt {
+    --footer-bg-colour: #fff;
+  }
+
   &.dark,
   &.dark-alt {
     --body-color: var(--#{$prefix}white);
@@ -34,11 +52,26 @@
 
     --#{$prefix}brand-accent: var(--#{$prefix}golden-yellow);
     --component-icon-color: #fff;
+
+    --font-colour: #fff;
+    --action-colour: #ffe500;
+    --border-colour: rgba(255, 255, 255, 0.2);
+    --colum-border-colour: var(--border-colour);
+    footer.qld-footer svg path {
+      --component-icon-color: var(--font-colour);
+    }
+    @media (max-width: 991.98px) {
+      --colum-border-colour: transparent;
+    }
   }
 
   //Dark alternative palette (white text on dark blue)
   &.dark-alt {
     --#{$prefix}footer-bg: var(--#{$prefix}brand-primary-dark);
+    --footer-bg-colour: #05325f;
+  }
+  &.dark {
+    --footer-bg-colour: #09549f;
   }
 }
 
@@ -197,67 +230,48 @@
   }
 }
 
-///////////////////////////////////////////
-/// Feedback Section
-/// START
-///
-
-///////////////////////////////////////////
-/// START
-/// Fix my Figma width issue
-/// Make the view full with
-html {
-  background-color: #fff !important;
-}
-.sb-show-main.sb-main-padded {
-  padding-inline: 0;
-}
-/// Fix my Figma width issue
-/// END
-///////////////////////////////////////////
-
 /// Set themes colour
-.dark {
-  --footer-bg-colour: #09549f;
-}
-.dark-alt {
-  --footer-bg-colour: #05325f;
-}
-.light,
-.alt {
-  --footer-bg-colour: #fff;
-}
-.dark,
-.dark-alt {
-  --font-colour: #fff;
-  --action-colour: #ffe500;
-  --border-colour: rgba(255, 255, 255, 0.2);
-  --colum-border-colour: var(--border-colour);
-  footer.qld-footer svg path {
-    --component-icon-color: var(--font-colour);
-  }
-  @media (max-width: 991.98px) {
-    --colum-border-colour: transparent;
-  }
-}
+// .dark {
+//   --footer-bg-colour: #09549f;
+// }
+// .dark-alt {
+//   --footer-bg-colour: #05325f;
+// }
+// .light,
+// .alt {
+//   --footer-bg-colour: #fff;
+// }
+// .dark,
+// .dark-alt {
+//   --font-colour: #fff;
+//   --action-colour: #ffe500;
+//   --border-colour: rgba(255, 255, 255, 0.2);
+//   --colum-border-colour: var(--border-colour);
+//   footer.qld-footer svg path {
+//     --component-icon-color: var(--font-colour);
+//   }
+//   @media (max-width: 991.98px) {
+//     --colum-border-colour: transparent;
+//   }
+// }
 /////////////////////////////////////////
 // Note html is there for the none theme
 // not sure if this would happen
-.light,
-.alt,
-html {
-  --font-colour: var(--qld-body-color);
-  --action-colour: #6bbe27;
-  --border-colour: rgba(0, 0, 0, 0.2);
-  --colum-border-colour: var(--border-colour);
-  footer.qld-footer svg path {
-    --component-icon-color: var(--font-colour);
-  }
+// .light,
+// .alt,
+// html {
+//   --font-colour: var(--qld-body-color);
+//   --action-colour: #6bbe27;
+//   --border-colour: rgba(0, 0, 0, 0.2);
+//   --colum-border-colour: var(--border-colour);
+//   footer.qld-footer svg path {
+//     --component-icon-color: var(--font-colour);
+//   }
 
-  @media (max-width: 991.98px) {
-    --colum-border-colour: transparent;
-  }
-}
+//   @media (max-width: 991.98px) {
+//     --colum-border-colour: transparent;
+//   }
+// }
 footer.qld-footer {
   // Measurements
   --font-size: 1rem;
