@@ -1,15 +1,7 @@
-import {
-  accordionToggleAll,
-  accordionToggleAllButtonState,
-  accordionHashLinks,
-} from "./components/bs5/accordion/accordion.functions";
-
-import {
-  videoEmbedPlay,
-  videoTranscriptTitle,
-} from "./components/bs5/video/video.functions";
-
+import { accordionToggleAll, accordionToggleAllButtonState, accordionHashLinks } from "./components/bs5/accordion/accordion.functions";
+import { videoEmbedPlay, videoTranscriptTitle } from "./components/bs5/video/video.functions";
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
+import { breadcrumbShorten, breadcrumbExpand } from "./components/bs5/breadcrumbs/breadcrumb.functions";
 import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
 import { toggleSearch, showSuggestions } from './components/bs5/header/header.functions';
 
@@ -22,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
   (() => {
 
     //Header search
-    let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search'); 
+    let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search');
     if(headerSearchButton) {
       document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
     }
@@ -36,11 +28,11 @@ window.addEventListener("DOMContentLoaded", () => {
           showSuggestions(this.value);
         }, 300);
       });
-  
+
       searchInput.addEventListener('focus', function() {
         showSuggestions('', true);
       });
-  
+
       searchInput.addEventListener('click', function() {
         if (this.value === '') {
           showSuggestions('', true);
@@ -56,6 +48,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Navbar
     initializeNavbar();
+
+    // Breadcrumb
+    breadcrumbShorten();
+
+    let breadcrumbToggle = document.querySelector('.breadcrumb-toggle a')
+
+    breadcrumbToggle.addEventListener("click", breadcrumbExpand)
 
     // Quick exit
     initQuickexit();
