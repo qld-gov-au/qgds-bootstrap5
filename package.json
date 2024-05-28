@@ -42,7 +42,7 @@
     "material-symbols": "^0.18.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.4.0",
+    "@chromatic-com/storybook": "^1.5.0",
     "@qld-gov-au/qgds-tokens": "^1.1.5",
     "@storybook/addon-essentials": "^8.1.4",
     "@storybook/addon-interactions": "^8.1.4",
