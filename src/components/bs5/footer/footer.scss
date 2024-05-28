@@ -337,6 +337,7 @@ footer.qld-footer {
   @media (max-width: 991.98px) {
     --last-para-margin: 24px;
     --qld-footer-padding-y: 0;
+
     padding-top: calc(var(--gap) * 2);
     .footer-site-name {
       margin-block-end: calc(var(--gap) * 2);
@@ -348,7 +349,7 @@ footer.qld-footer {
           border-top: 2px solid var(--border-colour);
           padding-inline: 0;
           margin-inline-start: var(--qld-gutter-x);
-          width: calc(100vw - calc(var(--qld-gutter-x) * 2));
+          width: calc(100% - calc(var(--qld-gutter-x) * 2));
           .border-column {
             height: auto;
           }
@@ -393,7 +394,7 @@ footer.qld-footer {
       > .row {
         > .col-md-12 {
           margin-inline-start: calc(var(--qld-gutter-x) * 0.5);
-          width: calc(100vw - var(--qld-gutter-x));
+          width: calc(100% - var(--qld-gutter-x));
         }
         > .title,
         > .crest {
