@@ -33,7 +33,7 @@
     }
     *:before,
     *:after {
-      color: #000 !important; // Black prints faster: h5bp.com/s
+      color: #000 !important; 
       text-shadow: none !important;
       // background: transparent !important; // originally for icons
       box-shadow: none !important;
@@ -55,7 +55,7 @@
       page-break-inside: avoid;
     }
     thead {
-        display: table-header-group; // h5bp.com/t
+        display: table-header-group; 
     }
 
     tr,
@@ -98,7 +98,6 @@
     ul, ol, dl {
       page-break-before: avoid;
     }
-    //dl is metadata in forgov
     blockquote {
       page-break-inside: avoid;
     }
@@ -109,7 +108,7 @@
       > .caret {
         border-top-color: #000 !important;
       }
-    } // .caret is bootstrap class
+    }
     .label {
         border: 1px solid #000;
     }
@@ -123,10 +122,6 @@
     .row {
         display: block;
       }
-
-    //disabled state can add grey background, maybe borderless for buttons with links.
-    //users might still use #qg and .qg. what to do?    
-
     .btn {
       border: none;
         .btn-icon {
@@ -346,9 +341,7 @@
       display: none;
     }
   
-    /* <li class="breadcrumb-item active" aria-current="page" data-href="https://uat.forgov.qld.gov.au/mail-facilities-and-vehicles/vehicles/environment/ev-benefits">Benefits of zero emission electric vehicles</li> */
-    
-    // adding class to print data-href from breadcrumb link
+    /* adding class to print data-href from breadcrumb link */
     .print-current-url {
       display: block;
       font-size: bold;
