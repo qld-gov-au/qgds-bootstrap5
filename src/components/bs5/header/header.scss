@@ -9,11 +9,9 @@
 	color: var(--#{$prefix}header_color);
 	background: var(--#{$prefix}header_bg);
 	font-size: 1rem;
-	line-height: 1.5;
 
 	@include media-breakpoint-up(sm) {
 		font-size: 1.25rem;
-		line-height: 1.6;
 	}
 
 	.container-fluid {
@@ -561,6 +559,11 @@
 								background-color: var(--#{$prefix}header_site-search-suggestions-hover);
 								margin: 0 -1rem;
 								padding: 0 1rem;
+
+								a {
+									text-decoration: underline;
+								}
+
 							}
 						}
 					}

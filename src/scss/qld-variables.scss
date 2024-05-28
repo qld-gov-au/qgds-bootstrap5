@@ -2,6 +2,7 @@
 // These variables are avaiable to the full project and all components. (This file is included at the top of main.scss to ensure this)
 
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss,
+@import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
 
 //QLD Names Colours
 $qld-dark-blue : #05325F;
@@ -236,11 +237,13 @@ $project-colors: (
   "link-visited-dark": $qld-link-visited-dark,
 
   // TEST FOR REVIEW
-  "test-token": $color-default-color-light-background-default
+  // "test-token": $color-default-color-light-background-default
 
 );
 
-$theme-colors: map-merge($theme-colors, $project-colors);
+// Merge maps
+$merged-theme-qld: map-merge($theme-colors, $qld-tokens);
+$theme-colors: map-merge($merged-theme-qld, $project-colors);
 
 
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
