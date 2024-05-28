@@ -138,7 +138,7 @@
         }
     }
     
-    .qg-site-map { ////////////////// not sure if we have a site map yet or we should include it?
+    .qg-site-map { 
     display:none !important;
     }
     #qg-primary-content {
@@ -158,8 +158,8 @@
     }
 
       /* Hide sections that are not to print */
-    #qg-access, ///////////////////////////// not sure if we need to include these in this MVP?
-    #browser, ////////////////// including .qg-legal??
+    #qg-access,
+    #browser, 
     #qg-banner,
     #tools,
     #qg-site-nav,
@@ -280,6 +280,20 @@
 
   
     /* Other print styles... */
+    blockquote {
+      border: none;
+    }
+    .pagination, .qld-quick-exit {
+      display: none;
+    }
+    .accordion {
+      --#{$prefix}accordion-btn-bg: transparent !important;
+      --#{$prefix}accordion-border-color:  transparent !important;
+      --#{$prefix}accordion-btn-color: var(--qld-body-color);
+      .accordion-button {
+        text-decoration: none;
+      }
+    }
     .accordion-toggle-btn {
       display: none;
     }
@@ -289,6 +303,7 @@
       font-size: 0.9rem;
       font-weight: bold;
       margin-bottom: 1em;
+      margin-left: 2em;
     }
 
     .nav-item.active a {
@@ -311,7 +326,7 @@
       display: none;
     }
 
-    .global-alert { // no global alert
+    .global-alert {
       display: none;
     }
     
