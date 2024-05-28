@@ -2,7 +2,6 @@
     // ------------------------------------------------------------------------------------------------------------------
     //  1. Common vars
     // ------------------------------------------------------------------------------------------------------------------
-
     // Shared thickness, offset etc. 
     --#{$prefix}header-underline__thickness-thin: 0.5px;
     --#{$prefix}header-underline__thickness-thick: 2px;
@@ -80,7 +79,7 @@
     --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}color-default-color-light-site-title);
     --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}color-default-color-light-text-lighter);
 
-    // Search
+    // Search bootstrap variables
     --site-search-bg: var(--#{$prefix}header-site-search-bg);
     --site-search-btn-color: var(--#{$prefix}header-site-search-btn-color);
     --site-search-btn-bg: var(--#{$prefix}header-site-search-btn-bg);
