@@ -3,7 +3,6 @@
     "contact": {
         "title": "Contact us",
         "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
-        "hasContactList": false,
         "list": [
             {
                 "icon": "icon-phone",
@@ -17,8 +16,14 @@
         "buttonLabel": "Contact us",
         "buttonLink": ""
     },
-    "footerHasCrest": false,
-    "footerHasStateOfQld": false,
+    "contactHasContactList": true,
+    "footerHasCrest": true,
+    "footerHasStateOfQld": true,
+    "feedbackFormEnabled": false,
+    "followlinksEnabled": true,
+    "acknowledgementHasTitle": false,
+    "copyrightHasYearFrom": false,
+    "copyrightOrganisationName": "Organisation",
     "lookup": {
         "link": {
             "URL": "https://www.qld.gov.au",
@@ -27,12 +32,10 @@
     },
     "acknowledgement": {
         "title": "Cultural acknowledgement",
-        "hasTitle": true,
         "content": "<p class='footer-acknowledgements'>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
     },
     "copyright": {
         "content": "&copy; The State of Queensland",
-        "hasYearFrom": true,
         "yearFrom": "1995",
         "currentYear": "2024"
     },
@@ -77,7 +80,6 @@
     "feedbackForm" : {
         "title": "Website feedback",
         "content": "Help us improve the content on our website or tell us what is working really well.",
-        "enabled": true,
         "btnTitle": "Leave your feedback",
         "formAttr": [
             {
@@ -109,7 +111,6 @@
     },
     "followlinks": {
         "title": "Follow us",
-        "enabled": false,
         "facebook": {
             "label": "Facebook",
             "link": "#",

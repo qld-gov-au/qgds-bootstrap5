@@ -202,23 +202,19 @@
 /// START
 ///
 
+///////////////////////////////////////////
 /// START
 /// Fix my Figma width issue
 /// Make the view full with
-
-// .css-qa4clq {
-//   max-width: 100% !important;
-// }
-// .css-k7lbue,
-// .css-xzp052 {
-//   padding-inline: 0 !important;
-
-//   .innerZoomElementWrapper > div {
-//     border-width: 0 !important;
-//   }
-// }
+html {
+  background-color: #fff !important;
+}
+.sb-show-main.sb-main-padded {
+  padding-inline: 0;
+}
 /// Fix my Figma width issue
 /// END
+///////////////////////////////////////////
 
 /// Set themes colour
 .dark {
@@ -237,6 +233,9 @@
   --action-colour: #ffe500;
   --border-colour: rgba(255, 255, 255, 0.2);
   --colum-border-colour: var(--border-colour);
+  footer.qld-footer svg path {
+    --component-icon-color: var(--font-colour);
+  }
   @media (max-width: 991.98px) {
     --colum-border-colour: transparent;
   }
@@ -247,16 +246,21 @@
 .light,
 .alt,
 html {
+  --font-colour: var(--qld-body-color);
   --action-colour: #6bbe27;
   --border-colour: rgba(0, 0, 0, 0.2);
   --colum-border-colour: var(--border-colour);
+  footer.qld-footer svg path {
+    --component-icon-color: var(--font-colour);
+  }
+
   @media (max-width: 991.98px) {
     --colum-border-colour: transparent;
   }
 }
-
 footer.qld-footer {
   // Measurements
+  --font-size: 1rem;
   --gap: 12px;
   --column-spacing: 32px;
   // Colours
@@ -264,7 +268,7 @@ footer.qld-footer {
   --qld-footer-color: var(--font-colour);
   --qld-footer-column-border-color: var(--colum-border-colour);
   // FORMIO
-  --callout-bg-colour: rgb(229, 238, 245);
+  --callout-bg-colour: #f5f5f5;
   --formio-colour: #000;
   --formio-bg-colour: #fff;
   --qld-link-color: var(--font-colour);
@@ -292,9 +296,11 @@ footer.qld-footer {
     left: calc(var(--column-spacing) * -1);
   }
   #qg-feedback-toggle {
+    --qld-form-check-bg: var(--formio-bg-colour);
     --qld-dark-alt-border: var(--qld-soft-grey);
     color: var(--formio-colour);
     .form-check-input {
+      --qld-form-check-bg: var(--formio-bg-colour);
       &:hover,
       &:focus {
         background-color: var(--formio-bg-colour);
@@ -364,7 +370,7 @@ footer.qld-footer {
       a.nav-link,
       a.nav-link:first-child {
         margin: 0 !important;
-        margin-block-end: 1rem !important;
+        margin-block-end: calc(var(--font-size) * 0.5) !important;
       }
     }
   }
@@ -397,7 +403,7 @@ footer.qld-footer {
   ////////////////////////////
   // Measurements
   --font-weight: 700;
-  --font-size: 1rem;
+  // --font-size: 1rem;
   --spacing: 1rem;
   --border-radius: 4px;
   --border-width: 3px;
@@ -408,6 +414,7 @@ footer.qld-footer {
   --text-underline-offset: 0.3em;
   --text-decoration-thickness: 1px;
   --text-underline-offset: 5px;
+  --h4-line-height: 24px;
 
   width: 100%;
 
@@ -429,7 +436,6 @@ footer.qld-footer {
       --qld-btn-bg: var(--background-colour);
       --qld-btn-hover-bg: var(--background-colour);
       --qld-btn-hover-border-color: var(--background-colour);
-      color: var(--qld-body-color);
     }
     width: 100%;
     text-align: left;
@@ -462,7 +468,24 @@ footer.qld-footer {
       text-decoration-thickness: var(--qld-link-underline-thickness-hover);
     }
   }
+  .qg-footer-feedback-footer {
+    border-block-start: 1px solid #ebebeb;
+    padding-block-start: 1rem;
+
+    a.qg-footer-feedback__close {
+      border: 3px solid #008635;
+      width: 100%;
+      display: block;
+      border-radius: var(--border-radius);
+      padding: 9px 24px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
   #feedbackFormIO {
+    --hr-border-colour: #ebebeb;
+    --thanksYou-heading-colour: #04284c;
+    --link-colour: #09549f;
     .formio-component-fieldSet2 {
       margin-block-end: 0;
     }
@@ -487,6 +510,7 @@ footer.qld-footer {
       --qld-btn-color: var(--qld-white);
       --qld-btn-border-color: transparent;
       --qld-btn-bg: var(--qld-sapphire-blue);
+      width: 100%;
       &:hover {
         border-color: var(--qld-btn-active-bg);
         text-decoration: underline;
@@ -527,6 +551,8 @@ footer.qld-footer {
       }
     }
     .form-control {
+      background-color: var(--formio-bg-colour);
+      color: var(--formio-colour);
       border: var(--form-control-border-width) solid var(--qld-soft-grey);
     }
     .formio-modified .is-invalid {
@@ -535,21 +561,50 @@ footer.qld-footer {
       outline-offset: 0;
     }
     .callout {
-      margin-block-start: var(--spacing);
+      margin-block: var(--spacing);
       background-color: var(--callout-bg-colour);
       #feedback-serv-dep-staff {
         color: var(--formio-colour);
         h4 {
           color: var(--formio-colour);
-          font-size: calc(var(--font-size) * 1.5);
+          font-size: var(--font-size);
           margin-block: 0;
           position: relative;
+          line-height: var(--h4-line-height);
         }
         p {
           margin-block-start: var(--qld-callout-spacer);
           margin-block-end: 0;
         }
       }
+    }
+    p a {
+      color: var(--link-colour);
+    }
+    .formio-component-html1 {
+      margin-block-start: calc(var(--spacing) * -1);
+
+      h2 {
+        margin-block-start: 0;
+        color: var(--thanksYou-heading-colour);
+        font-size: var(--spacing);
+        font-weight: bolder;
+        margin-block-end: var(--spacing);
+
+        &:first-of-type {
+          border-block-end: 1px solid var(--hr-border-colour);
+          padding-block-end: 13px;
+        }
+      }
+      p:last-of-type {
+        display: none;
+      }
+    }
+    button.btn-wizard-nav-submit {
+      display: none;
+    }
+    .formio-wizard-nav-container {
+      display: none;
     }
   }
 }

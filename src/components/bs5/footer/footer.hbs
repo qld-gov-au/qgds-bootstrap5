@@ -12,6 +12,7 @@
         <div class="row">
 
             {{!-- Section 1: Contact us and Site wide CTAs --}}
+            <!-- 1 -->
             <div class="col-xs-12 col-md-12 col-lg-3">
                 <div class="footer-column footer-contact">
                     <div class="row">
@@ -20,7 +21,7 @@
 
                             <div class="footer-content">
                                 {{{ contact.content }}}
-                                {{#if contact.hasContactList}}
+                                {{#if contactHasContactList}}
                                     {{#each contact.list }}
                                         <div class="footer-contact-item">
                                             <span class="qld-icon {{icon}}" aria-hidden="true"></span> {{{ label }}}
@@ -37,6 +38,7 @@
             </div>
 
             {{!-- Section 2: Section links (Custom secondary nav items) --}}
+            <!-- 2 -->
             <div class="col-xs-12 col-md-12 col-lg-3" aria-label="footer-navigation">
                 <div class="footer-column">
                     <nav class="nav footer-link-list flex-column">
@@ -48,7 +50,8 @@
             </div>
 
             {{!-- Section 3: Feedback form area --}}
-            {{#if feedbackForm.enabled}}
+            <!-- 3 -->
+            {{#if feedbackFormEnabled}}
             <div class="col-xs-12 col-md-12 col-lg-3">
                 <div class="footer-column border-column">
                     <div class="row">
@@ -85,7 +88,8 @@
             {{/if}}
 
             {{!-- Section 4: Social media and engagment --}}
-            {{#if followlinks.enabled}}
+            <!-- 4 -->
+            {{#if followlinksEnabled}}
             <div class="col-xs-12 col-md-12 col-lg-3">
                 <div class="footer-column border-column">
                     <h3 class="footer-heading">{{followlinks.title}}</h3>
@@ -149,6 +153,7 @@
             {{/if}}
 
             {{!-- Section 5: Aknowlegement, Qld Government Coat of Arms and Copyright information --}}
+            <!-- 5 -->
             <div class="col-xs-12 col-md-12 col-lg-3 crest">
                 <div class="footer-column border-column">
                     {{#if footerHasCrest}}
@@ -321,11 +326,11 @@
                     </div>
                     {{/if}}
                     <div class="footer-content">
-                        {{#if acknowledgement.hasTitle}}
+                        {{#if acknowledgementHasTitle}}
                             <h3 class="footer-heading">{{acknowledgement.title}}</h3>
                         {{/if}}
                         {{{acknowledgement.content}}}
-                        <p class="copyright">{{{copyright.content}}} {{#if copyright.hasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{copyright.currentYear}}</p>
+                        <p class="copyright">{{{copyright.content}}} {{#if copyrightOrganisationName}}({{copyrightOrganisationName}}) {{/if}}{{#if copyrightHasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{copyright.currentYear}}</p>
                         {{#if footerHasStateOfQld}}
                             <p><a class="fw-semibold" href="{{lookup.link.URL}}" rel="external">{{lookup.link.text}}</a></p>
                         {{/if}}
