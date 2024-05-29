@@ -49,14 +49,13 @@ export const TableByColumnsForCorrectAndIncorrect = {
   args: {
     "customClass": "",
     "variantClass": "qg-correct-incorrect",
-    "headers": ["Header", "Header"],
+    "headers": ["This", "Not this"],
     "rows": [
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Cell", "Sell"] },
+      { "cells": ["Lorem ipsum dolor", "Lorem ipsum jolor"] },
+      { "cells": ["Lorem ipsum dolor sit", "Lorem ipsum dolor cit"] },
+      { "cells": ["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amat"] },
+      { "cells": ["Lorem ipsum dolor sit amet consectetur", "Lorem ipsum dolor sit amet nonsectetur"] },
     ],
   }
   ,
@@ -68,14 +67,13 @@ export const TableByColumnsForIncorrectAndCorrect = {
   args: {
     "customClass": "",
     "variantClass": "qg-incorrect-correct",
-    "headers": ["Header", "Header"],
+    "headers": ["Not this", "This"],
     "rows": [
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Sell","Cell"] },
+      { "cells": ["Lorem ipsum jolor", "Lorem ipsum dolor"] },
+      { "cells": ["Lorem ipsum dolor cit", "Lorem ipsum dolor sit"] },
+      { "cells": ["Lorem ipsum dolor sit amat", "Lorem ipsum dolor sit amet"] },
+      { "cells": ["Lorem ipsum dolor sit amet nonsectetur", "Lorem ipsum dolor sit amet consectetur"] },
     ],
   }
   ,
@@ -106,10 +104,10 @@ export const TableByCell = {
                 </tr>
                 <tr class="">
                     <td>Cell</td>
-                    <td class="qg-incorrect">Cell</td>
+                    <td class="qg-correct">Cell</td>
                 </tr>
                 <tr class="">
-                  <td class="qg-correct">Cell</td>
+                  <td class="qg-incorrect">Cell</td>
                     <td>Cell</td>
                 </tr>
             </tbody>
