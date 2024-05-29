@@ -68,7 +68,7 @@
 
 .qg-correct, .qg-incorrect {
     position: relative;
-    margin: 0.4em 0;
+    margin: 0.4rem 0;
     padding: 1rem 1rem 1rem 3rem !important;
     border-width: 1px;
     border-radius: 5px;
@@ -103,8 +103,8 @@
    
       &:before {
         position: absolute;
-        top: 1.2em;
-        left: 1em;
+        top: 1.2rem;
+        left: 1rem;
         width: 20px;
         height: 20px;
         text-align: center;
@@ -148,14 +148,14 @@
   .table > tbody > tr, table {
     td.qg-correct {
       @extend .qg-correct;
-      padding: 0.75em 0.75em 0.75em 3rem !important;
+      padding: 0.75rem 0.75rem 0.75rem 3rem !important;
       &:before {
         top: 0.9rem;
       }
     }
     td.qg-incorrect {
       @extend .qg-incorrect;
-      padding: 0.75em 0.75em 0.75em 3rem !important;
+      padding: 0.75rem 0.75rem 0.75rem 3rem !important;
       &:before {
         top: 0.9rem;
       }
