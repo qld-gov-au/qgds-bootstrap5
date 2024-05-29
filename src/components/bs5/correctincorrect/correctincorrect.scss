@@ -68,55 +68,47 @@
 
 .qg-correct, .qg-incorrect {
     position: relative;
-  
     margin: 0.4em 0;
-    padding: 10px 10px 10px 45px !important;
-            //border-style: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        border-left-width: 7px;
-      
-        vertical-align: top;
-        
-        > :first-child { // only one first child
-            margin-top: -0.5em;
-            margin-bottom: 1em;
-            padding-top: 0.7em;
-    
-            &:before {
-                position: absolute;
-        
-                width: 20px;
-                height: 20px;
-                text-align: center;
-                }
-        }
-        > :not(first-child) {
-            flex: none;
-        }
-        > * {
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-        }
-
+    padding: 1rem 1rem 1rem 3rem !important;
     border-width: 1px;
+    border-radius: 5px;
     border-left-width: 7px;
-  
     vertical-align: top;
-        
-    // table & {
-        &:before {
-        position: absolute;
-        top: 0.7em;
-        left: 1em;
 
+      > :only-child { 
+        margin-bottom: 0;
+      }
+        
+      > :first-child {
+        &:before {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          }
+      }
+
+      > :last-child { 
+        margin-bottom: 0;
+      }
+
+      > :not(first-child) {
+          flex: none;
+      }
+
+      > * {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+   
+      &:before {
+        position: absolute;
+        top: 1.2em;
+        left: 1em;
         width: 20px;
         height: 20px;
         text-align: center;
-        }
-      // }
-
-   
+      }
 
   }
   
@@ -150,16 +142,23 @@
   }
   
   span.qg-correct, span.qg-incorrect {
-    display: inline-block;
-    max-width: 48%;
+    display: block;
   }
   
   .table > tbody > tr, table {
     td.qg-correct {
       @extend .qg-correct;
+      padding: 0.75em 0.75em 0.75em 3rem !important;
+      &:before {
+        top: 0.9rem;
+      }
     }
     td.qg-incorrect {
       @extend .qg-incorrect;
+      padding: 0.75em 0.75em 0.75em 3rem !important;
+      &:before {
+        top: 0.9rem;
+      }
     }
     td.qg-correct, td.qg-incorrect {
       border-left-width: 3px;
