@@ -23,15 +23,10 @@
   --border-colour: rgba(0, 0, 0, 0.2);
   --colum-border-colour: var(--border-colour);
 
-  // Form IO
-  --btn-close-colour: #008635;
-
   // Measurements
   --font-size: 1rem;
   --gap: 12px;
   --column-spacing: 32px;
-  // --tablet-max-width: 991.98px;
-  // --phone-max-width: 767.98px;
   --form-input-boarder-width: 2px;
   --font-weight: 700;
   --spacing: 1rem;
@@ -54,12 +49,13 @@
   --qld-footer-column-border-color: var(--colum-border-colour);
   --link-colour: #09549f;
   --navlink-colour: var(--link-colour);
-  // FORMIO
+  // FORM IO
   --callout-bg-colour: #f5f5f5;
   --formio-colour: #000;
   --formio-bg-colour: #fff;
   --qld-link-color: var(--font-colour);
   --btn-disabled-colour: #e8e8e8;
+  --btn-close-colour: #008635;
 
   footer.qld-footer svg path {
     --component-icon-color: var(--font-colour);
@@ -69,7 +65,6 @@
   }
 
   //Default palette (white text on blue)
-
   .light,
   .alt {
     --footer-bg-colour: #fff;
@@ -169,7 +164,7 @@
       background: var(--#{$prefix}footer-column-border-color);
       top: 0;
       bottom: 0;
-      inset-inline-start: calc(var(--spacing) * -1);
+      inset-inline-start: calc(var(--spacing) * -2);
     }
   }
 
@@ -399,10 +394,6 @@ footer.qld-footer {
 }
 
 #qg-feedback-toggle {
-  ////////////////////////////
-  /// Colour
-  --btn-close-colour: #008635;
-
   width: 100%;
 
   #btn-footer-feedback {
