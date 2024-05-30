@@ -1,42 +1,7 @@
 .qld__header {
     // ------------------------------------------------------------------------------------------------------------------
-    //  1. Palette colours
+    //  1. Common vars
     // ------------------------------------------------------------------------------------------------------------------
-    // Default light palette
-    --#{$prefix}header-color-crest-fill: #1D1D1D;
-    --#{$prefix}header-color-light-siteTitle: #022A50;
-    --#{$prefix}header-color-light-designAccent: #6BBE27;
-    --#{$prefix}header-color-light-text: #414141;
-    --#{$prefix}header-color-light-text__muted: #636363;
-    --#{$prefix}header-color-light-link: #09549F;
-    --#{$prefix}header-color-light-focus: #0085B3;
-    --#{$prefix}header-color-light-border: #EBEBEB;
-    --#{$prefix}header-color-light-background: #FFFFFF;
-    --#{$prefix}header-color-light-background__shade: #F5F5F5;
-    --#{$prefix}header-color-light-underline: #3F7AB4;
-    --#{$prefix}header-color-light-hover-underline: #09549F;
-    --#{$prefix}header-color-light-alt-button: #008733;
-    --#{$prefix}header-color-light-alt-button__hover: #00702B;
-    --#{$prefix}header-color-light-button__hover: #003E7D;
-
-    // Dark palette
-    --#{$prefix}header-color-dark-crest-fill: #FFFFFF;
-    --#{$prefix}header-color-dark-siteTitle: #FFFFFF;
-    --#{$prefix}header-color-dark-designAccent: #6BBE27;
-    --#{$prefix}header-color-dark-heading: #FFFFFF;
-    --#{$prefix}header-color-dark-text: #FFFFFF;
-    --#{$prefix}header-color-dark-text__muted: #DEEBF9;
-    --#{$prefix}header-color-dark-link: #FFFFFF;
-    --#{$prefix}header-color-dark-focus: #01B0E5;
-    --#{$prefix}header-color-dark-border: #1D9AC6;
-    --#{$prefix}header-color-dark-background: #09549F;
-    --#{$prefix}header-color-dark-background__shade: #04498F;
-    --#{$prefix}header-color-dark-underline: #B5CCE2;
-    --#{$prefix}header-color-dark-hover-underline: #FFFFFF;
-    --#{$prefix}header-color-dark-alt-button: #EFD700;
-    --#{$prefix}header-color-dark-alt-button__hover: #FFE817;
-    --#{$prefix}header-color-dark-alt-background: #05325F;
-    --#{$prefix}header-color-dark-alt-background__shade: #052C53;
 
     // Shared thickness, offset etc. 
     --#{$prefix}header-underline__thickness-thin: 0.5px;
@@ -44,76 +9,76 @@
     --#{$prefix}header-underline__offset: 0.3em;
 
     // ------------------------------------------------------------------------------------------------------------------
-    //  2. Second hand variables (each variant, default, light, dark, dark-alt)
+    //  2. Second hand variables (each variant, default, light, dark, dark-alt) using QGDS-Tokens (npm)
     // ------------------------------------------------------------------------------------------------------------------
-    //  Search
-    --#{$prefix}header-site-search-bg: var(--#{$prefix}header-color-light-background__shade);
-    --#{$prefix}header-site-search-btn-color: var(--#{$prefix}header-color-dark-text);
-    --#{$prefix}header-site-search-btn-bg: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header-site-search-border-color: var(--#{$prefix}header-color-light-button__hover);
-    --#{$prefix}header-site-search-icon-color:var(--#{$prefix}header-color-light-text__muted);
-    --#{$prefix}header-site-search-text-color:var(--#{$prefix}header-color-light-text);
+    //  Search inputs
+    --#{$prefix}header-site-search-bg: var(--#{$prefix}color-default-color-light-background-default-shade);
+    --#{$prefix}header-site-search-btn-color: var(--#{$prefix}color-default-color-dark-text-default);
+    --#{$prefix}header-site-search-btn-bg: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}header-site-search-border-color: var(--#{$prefix}color-default-color-light-action-primary-hover);
+    --#{$prefix}header-site-search-icon-color:var(--#{$prefix}color-default-color-light-text-lighter);
+    --#{$prefix}header-site-search-text-color:var(--#{$prefix}color-default-color-light-text-default);
 
-    // Search dark
-    --#{$prefix}header-dark-site-search-bg: var(--#{$prefix}header-color-dark-background__shade);
-    --#{$prefix}header-dark-site-search-btn-color: var(--#{$prefix}header-color-light-text);
-    --#{$prefix}header-dark-site-search-btn-bg: var(--#{$prefix}header-color-light-designAccent);
-    --#{$prefix}header-dark-site-search-border-color: var(--#{$prefix}header-color-dark-border);
-    --#{$prefix}header-dark-site-search-icon-color:var(--#{$prefix}header-color-dark-text__muted);
-    --#{$prefix}header-dark-site-search-text-color:var(--#{$prefix}header-color-dark-text);
+    // Search input dark
+    --#{$prefix}header-dark-site-search-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}header-dark-site-search-btn-color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}header-dark-site-search-btn-bg: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --#{$prefix}header-dark-site-search-border-color: var(--#{$prefix}color-default-color-dark-border-default);
+    --#{$prefix}header-dark-site-search-icon-color:var(--#{$prefix}color-default-color-dark-text-lighter);
+    --#{$prefix}header-dark-site-search-text-color:var(--#{$prefix}color-default-color-dark-text-default);
 
     // Header
-    --#{$prefix}header_color: var(--#{$prefix}header-color-light-text);
-    --#{$prefix}header_bg: var(--#{$prefix}header-color-light-background);
+    --#{$prefix}header_color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}header_bg: var(--#{$prefix}color-default-color-light-background-default);
 
     // Skip links
-    --#{$prefix}header_skip-link_color: var(--#{$prefix}header-color-dark-link);
-    --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}header-color-dark-focus);
-    --#{$prefix}header_skip-link_focus_text_color: var(--#{$prefix}header-color-dark-link);
-    --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}header-color-dark-background__shade);
+    --#{$prefix}header_skip-link_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+    --#{$prefix}header_skip-link_focus_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}color-default-color-dark-background-default-shade);
 
     // Pre-header bar
-    --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-dark-text);
-    --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-background);
+    --#{$prefix}header__pre-header_text_color: var(--#{$prefix}color-default-color-dark-text-default);
+    --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}color-default-color-dark-background-default);
     --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
-    --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}header-color-dark-text);
-    --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}header-color-dark-hover-underline);
-    --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}header-color-dark-underline);
+    --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}color-default-color-dark-text-default);
+    --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+    --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default);
     --#{$prefix}header__pre-header__anchor_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thin);
     --#{$prefix}header__pre-header__anchor_text_decoration_offset: var(--#{$prefix}header-underline__offset);
-    --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}header-color-dark-hover-underline);
+    --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
     --#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thick);
-    --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}header-color-dark-link);
+    --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}color-default-color-dark-link-default);
 
     // CTA Wrapper 
-    --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}header-color-dark-link);
-    --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}header-color-dark-alt-button);
-    --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}header-color-dark-alt-button__hover);
-    --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}header-color-dark-background);
+    --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}color-default-color-dark-action-secondary);
+    --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+    --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}color-default-color-dark-background-default);
 
-    --#{$prefix}header__CTA_text_color: var(--#{$prefix}header-color-dark-link);
-    --#{$prefix}header__CTA_border_color: var(--#{$prefix}header-color-dark-border);
+    --#{$prefix}header__CTA_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header__CTA_border_color: var(--#{$prefix}color-default-color-dark-border-default);
 
     // Toggle main navigation
-    --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}header-color-dark-link);
-    --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}header-color-dark-border);
-    --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}header-color-dark-background__shade);
-    --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}header-color-dark-alt-button__hover);
-    --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}header-color-dark-focus);
-    --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}header-color-dark-alt-button);
+    --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}color-default-color-dark-border-default);
+    --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+    --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+    --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}color-default-color-dark-action-secondary);
 
     // COA and title
-    --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}header-color-crest-fill);
-    --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}header-color-light-designAccent);
-    --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}header-color-light-siteTitle);
-    --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}header-color-light-link);
-    --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}header-color-light-link);
+    --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}color-default-color-light-crest-fill);
+    --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}color-default-color-light-site-title);
+    --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}color-default-color-light-link-default);
     --#{$prefix}header__brand__anchor__hover_brand-image__filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)), drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
 
     // Sitename heading
-    --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}header-color-light-siteTitle);
-    --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}header-color-light-text__muted);
+    --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}color-default-color-light-site-title);
+    --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}color-default-color-light-text-lighter);
 
     // Search
     --site-search-bg: var(--#{$prefix}header-site-search-bg);
@@ -122,16 +87,16 @@
     --site-search-border-color: var(--#{$prefix}header-site-search-border-color);
     --site-search-icon-color: var(--#{$prefix}header-site-search-icon-color);
     --site-search-input-color: var(--#{$prefix}header-site-search-text-color);
-    --site-search-input-focus-color: var(--#{$prefix}header-color-light-focus);
+    --site-search-input-focus-color: var(--#{$prefix}color-default-color-light-focus-default);
     --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
 
     // Suggestions colours
-    --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-light-background__shade);
-    --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-light-border);
-    --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}header-color-light-designAccent);
-    --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}header-color-dark-background);
-    --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}header-color-dark-background__shade);
-    --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}header-color-dark-text);
+    --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}color-default-color-light-background-default-shade);
+    --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}color-default-color-light-border-default);
+    --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}color-default-color-dark-text-default);
 
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Dark/dark-alt modes
@@ -139,49 +104,49 @@
     .dark &,
     .dark-alt & {
         // Root (dark/dark-alt)
-        --#{$prefix}header_color: var(--#{$prefix}header-color-dark-text);
+        --#{$prefix}header_color: var(--#{$prefix}color-default-color-dark-text-default);
 
         // Pre-header bar (dark)
-        --#{$prefix}header__pre-header_text_color: var(--#{$prefix}header-color-dark-text);
+        --#{$prefix}header__pre-header_text_color: var(--#{$prefix}color-default-color-dark-text-default);
         --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
-        --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}header-color-dark-link);
+        --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}color-default-color-dark-link-default);
 
-        --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}header-color-dark-text);
-        --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}header-color-dark-hover-underline);
-        --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}header-color-dark-underline);
+        --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}color-default-color-dark-text-default);
+        --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+        --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default);
         --#{$prefix}header__pre-header__anchor_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thin);
         --#{$prefix}header__pre-header__anchor_text_decoration_offset: var(--#{$prefix}header-underline__offset);
-        --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}header-color-dark-hover-underline);
+        --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
         --#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thick);
 
         // Pre-header CTA elements (dark/dark-alt)
-        --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}header-color-dark-link);
-        --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}header-color-dark-alt-button);
-        --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}header-color-dark-alt-button__hover);
+        --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}color-default-color-dark-action-secondary);
+        --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
 
         //Skip links
-        --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}header-color-dark-focus);
+        --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
 
         // Toggle navigation (dark/dark-alt)
-        --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}header-color-dark-link);
-        --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}header-color-dark-border);
-        --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}header-color-dark-background__shade);
-        --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}header-color-dark-alt-button__hover);
-        --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}header-color-dark-focus);
-        --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}header-color-dark-alt-button);
+        --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}color-default-color-dark-border-default);
+        --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+        --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+        --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+        --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}color-default-color-dark-action-secondary);
         
-        --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}header-color-dark-link);
-        --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}header-color-dark-link);
-        --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}header-color-dark-link);
+        --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}color-default-color-dark-link-default);
         --#{$prefix}header__brand__anchor__hover_brand-image__filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)), drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
-        --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}header-color-dark-designAccent);
-        --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}header-color-dark-siteTitle);
+        --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}color-default-color-dark-accent-design-accent);
+        --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}color-default-color-dark-site-title);
         
-        --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}header-color-dark-siteTitle);
-        --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}header-color-dark-text__muted);
+        --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}color-default-color-dark-site-title);
+        --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}color-default-color-dark-text-lighter);
 
         // COA
-        --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}header-color-dark-crest-fill);
+        --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}color-default-color-dark-crest-fill);
         
         // Search (dark/dark/alt)
         --site-search-bg: var(--#{$prefix}header-dark-site-search-bg);
@@ -193,22 +158,22 @@
         --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
 
         // Suggestions colours
-        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}header-color-dark-background__shade);
-        --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}header-color-dark-background);
-        --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}header-color-dark-designAccent);
-        --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}header-color-dark-alt-background);
-        --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}header-color-dark-alt-background__shade);
-        --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}header-color-dark-text);
+        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+        --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}color-default-color-dark-background-default);
+        --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}color-default-color-dark-accent-design-accent);
+        --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}color-default-color-dark-background-alt-shade);
+        --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}color-default-color-dark-text-default);
     }
 
     .dark-alt & {
-        --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-alt-background);
-        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-background);
+        --#{$prefix}header_bg: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}color-default-color-dark-background-default);
     }
 
     .dark & {
-        --#{$prefix}header_bg: var(--#{$prefix}header-color-dark-background);
-        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}header-color-dark-alt-background);
-        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}header-color-dark-alt-background);
+        --#{$prefix}header_bg: var(--#{$prefix}color-default-color-dark-background-default);
+        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}color-default-color-dark-background-alt);
     }
 }
