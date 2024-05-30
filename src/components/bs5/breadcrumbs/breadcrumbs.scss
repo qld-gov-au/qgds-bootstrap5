@@ -32,6 +32,12 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
 
 .breadcrumb {
     font-size: 0.875rem;
+
+    &.expanded {
+        .breadcrumb-toggle {
+            display: none;
+        }
+    }
 }
 
 .breadcrumb-item {
@@ -53,6 +59,20 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
         &:before {
             width: 1rem;
         }
+    }
+
+    &.shortened {
+        height: 0;
+        overflow: hidden;
+        max-width: 0;
+        transition: max-width 0s;
+        padding: 0;
+    }
+
+    .breadcrumb-toggle {
+        border: 0;
+        padding: 0;
+        vertical-align: inherit;
     }
 }
 
