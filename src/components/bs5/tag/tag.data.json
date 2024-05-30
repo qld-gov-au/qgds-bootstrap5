@@ -4,15 +4,19 @@
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies"
+				"content": "Tag text"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity"
+				"content": "Tag text"
 			},
 			{
 				"id": "Three",
-				"content": "General public"
+				"content": "Tag text"
+			},
+			{
+				"id": "Four",
+				"content": "Tag text"
 			}
 		]
 	},
@@ -21,17 +25,17 @@
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies",
+				"content": "Tag text",
 				"classes": "tag-large"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity",
+				"content": "Tag text",
 				"classes": "tag-large"
 			},
 			{
 				"id": "Three",
-				"content": "General public",
+				"content": "Tag text",
 				"classes": "tag-large"
 			}
 		]
@@ -41,17 +45,17 @@
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "<a href='javascript:void(0)'>Babies</a>",
+				"content": "<a href='javascript:void(0)'>Tag text</a>",
 				"classes": "tag-link"
 			},
 			{
 				"id": "Two",
-				"content": "<a href='javascript:void(0)'>Maternity</a>",
+				"content": "<a href='javascript:void(0)'>Tag text</a>",
 				"classes": "tag-link"
 			},
 			{
 				"id": "Three",
-				"content": "<a href='javascript:void(0)'>General public</a>",
+				"content": "<a href='javascript:void(0)'>Tag text</a>",
 				"classes": "tag-link"
 			}
 		]
@@ -62,15 +66,15 @@
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies"
+				"content": "Tag text"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity"
+				"content": "Tag text"
 			},
 			{
 				"id": "Three",
-				"content": "General public"
+				"content": "Tag text"
 			}
 		]
 	},
@@ -79,17 +83,17 @@
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies",
+				"content": "Tag text",
 				"classes": "tag-info"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity",
+				"content": "Tag text",
 				"classes": "tag-info"
 			},
 			{
 				"id": "Three",
-				"content": "General public",
+				"content": "Tag text",
 				"classes": "tag-info"
 			}
 		]
