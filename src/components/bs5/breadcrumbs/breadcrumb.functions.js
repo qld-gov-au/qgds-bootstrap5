@@ -25,6 +25,7 @@ export function breadcrumbShorten () {
         expandButton.setAttribute('href', 'javascript:void(0)')
         expandButton.setAttribute('aria-label', 'Expand the breadcrumbs')
         expandButton.textContent = '[...]'
+        expandButton.addEventListener('click', breadcrumbExpand)
 
         expandCrumb.appendChild(expandButton)
         crumb.after(expandCrumb)
