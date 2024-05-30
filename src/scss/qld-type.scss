@@ -55,7 +55,7 @@ $link-visited-color:          $qld-link-visited;
     --qld-link-hover-color: #FFF;
     --qld-link-hover-color-rgb: 255, 255, 255;
 
-    --qld-link-visited: var(--qld-link-visited-dark);
+    --qld-link-visited: var(--qld-link-visited-dark)!important;
 
     --qld-selection-color: var(--qld-brand-primary);
     --qld-selection-bg: var(--qld-white);
@@ -84,6 +84,17 @@ body {
     h6 {
         color: var(--qld-headings-color);
     }
+        // .dark, .dark-alt & {
+        a, a.nav-link {
+            text-decoration-color: #B5CCE2;
+            &:visited {
+                color: var(--qld-link-visited-dark)!important;
+                text-decoration-color: var(--qld-link-visited-dark)!important;
+            }
+            // color: var(--qld-link-visited-dark)!important;
+            
+        }
+    
 }
 
 a {
@@ -94,15 +105,21 @@ a,
 a.nav-link {
     text-decoration: underline;
     text-underline-offset: var(--qld-link-underline-offset);
-    text-decoration-thickness: var(--qld-link-underline-thickness);
+    text-decoration-thickness: var(--qld-link-underline-thickness)!important;
 
     &:hover {
-        text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+        text-decoration-thickness: var(--qld-link-underline-thickness-hover)!important;
     }
 
     &:visited {
         color: var(--qld-link-visited);
+        text-decoration-color: #8B63B0;
+        &:hover {
+            // text-decoration-thickness: var(--qld-link-underline-thickness-hover)!important;
+            text-decoration-thickness: 2px!important;
+        }
     }
+
 
     &:focus {
         outline: 2px solid var(--qld-focus-color);
