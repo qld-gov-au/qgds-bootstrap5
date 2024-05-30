@@ -52,12 +52,13 @@ export function toggleSearch(event) {
 }
 
 /**
- * Fetches suggestions from the provided URL.
+ * Fetches data from the provided URL.
  *
- * @param {string} url - The URL to fetch suggestions from.
- * @returns {Promise<Object>} - A promise that resolves to the fetched suggestions.
+ * @param {string} url - The URL to fetch data from.
+ * @param {string} type - The type of data to fetch (suggestions or services).
+ * @returns {Promise<Object>} - A promise that resolves to the fetched data.
  */
-async function fetchSuggestions(url) {
+async function fetchData(url, type) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -66,27 +67,7 @@ async function fetchSuggestions(url) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching suggestions:", error);
-    return {};
-  }
-}
-
-/**
- * Fetches related services from the provided URL.
- *
- * @param {string} url - The URL to fetch related services from.
- * @returns {Promise<Object>} - A promise that resolves to the fetched services.
- */
-async function fetchServices(url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching services:", error);
+    console.error(`Error fetching ${type}:`, error);
     return {};
   }
 }
@@ -169,13 +150,13 @@ export async function showSuggestions(value = '', isDefault = false) {
     return;
   }
 
-  // Fetch suggestions from the provided URL
+  // Fetch suggestions and services from the provided URLs
   const form = document.getElementById('site-search');
   const suggestUrl = form.getAttribute('data-suggestions');
   const resultsUrl = form.getAttribute('data-results-url');
 
   if (suggestUrl) {
-    const fetchedSuggestions = await fetchSuggestions(`${suggestUrl}?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld&partial_query=${encodeURIComponent(value)}`);
+    const fetchedSuggestions = await fetchData(`${suggestUrl}?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld&partial_query=${encodeURIComponent(value)}`, 'suggestions');
 
     // Use the fetched suggestions to populate the suggestions dropdown
     if (fetchedSuggestions.length > 0) {
@@ -203,7 +184,7 @@ export async function showSuggestions(value = '', isDefault = false) {
   }
 
   if (resultsUrl) {
-    const fetchedServices = await fetchServices(`${resultsUrl}?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`);
+    const fetchedServices = await fetchData(`${resultsUrl}?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`, 'services');
 
     // Use the fetched services to populate the services dropdown
     if (fetchedServices.response.resultPacket && fetchedServices.response.resultPacket.results.length > 0) {

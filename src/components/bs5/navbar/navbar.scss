@@ -255,7 +255,7 @@
     &__overlay {
         -webkit-transition: opacity .25s ease-in-out;
         transition: opacity .25s ease-in-out;
-        background-color: var(--#{$prefix}navbar-color-dark-alt-background__shade);
+        background-color: var(--#{$prefix}navbar-overlay);
         cursor: pointer;
         position: fixed;
         top: 0;
