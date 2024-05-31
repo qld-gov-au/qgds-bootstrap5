@@ -1,11 +1,10 @@
 {
-    "sitename": "For government",
+    "sitename": "Site name, Namestyle or Name Identifier",
     "contactHasContactList": true,
     "footerHasCrest": true,
     "footerHasStateOfQld": true,
     "feedbackFormEnabled": false,
     "followlinksEnabled": true,
-    "acknowledgementHasTitle": false,
     "copyrightHasYearFrom": false,
     "copyrightOrganisationName": "Organisation",
     "contact": {
@@ -31,10 +30,12 @@
             "text":"Queensland Government"
         }
     },
-    "acknowledgement": {
-        "title": "Cultural acknowledgement",
-        "content": "<p class='footer-acknowledgements'>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
-    },
+    "acknowledgements": [
+        {
+            "title": "",
+            "content": "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
+        }
+    ],
     "copyright": {
         "hasBorderColumn": true,
         "content": "&copy; The State of Queensland",

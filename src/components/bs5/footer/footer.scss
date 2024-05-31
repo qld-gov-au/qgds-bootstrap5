@@ -97,6 +97,7 @@
       --#{$prefix}icon-color: var(--#{$prefix}brand-accent);
       display: block;
       width: 1.5rem;
+      min-width: 1.5rem;
       margin-inline-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
       background-color: var(--#{$prefix}icon-color);
       --qld-brand-accent: var(--#{$prefix}footer-color-alt-button);

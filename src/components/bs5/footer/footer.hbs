@@ -274,15 +274,29 @@
                         </svg>
                     </div>
                     {{/if}}
+
                     <div class="footer-content">
-                        {{#if acknowledgementHasTitle}}
-                            <h3 class="footer-heading">{{acknowledgement.title}}</h3>
-                        {{/if}}
-                        {{{acknowledgement.content}}}
+
+                        <div class="footer-acknowledgements">
+                        
+                            {{#each acknowledgements}}
+                        
+                                {{#if title}}
+                                <h3 class="footer-heading">{{title}}</h3>
+                                {{/if}}
+
+                                {{{ content }}}
+                        
+                            {{/each}}
+                        
+                        </div>
+
                         <p class="copyright">{{{copyright.content}}} {{#if copyrightOrganisationName}}({{copyrightOrganisationName}}) {{/if}}{{#if copyrightHasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{copyright.currentYear}}</p>
+                        
                         {{#if footerHasStateOfQld}}
-                            <p><a class="fw-semibold" href="{{lookup.link.URL}}" rel="external">{{lookup.link.text}}</a></p>
+                            <p><a class="fw-semibold" href="{{lookup.link.URL }}" rel="external">{{lookup.link.text}}</a></p>
                         {{/if}}
+
                     </div>
 
                 </div>      
