@@ -1,15 +1,7 @@
-import {
-  accordionToggleAll,
-  accordionToggleAllButtonState,
-  accordionHashLinks,
-} from "./components/bs5/accordion/accordion.functions";
-
-import {
-  videoEmbedPlay,
-  videoTranscriptTitle,
-} from "./components/bs5/video/video.functions";
-
+import { accordionToggleAll, accordionToggleAllButtonState, accordionHashLinks } from "./components/bs5/accordion/accordion.functions";
+import { videoEmbedPlay, videoTranscriptTitle } from "./components/bs5/video/video.functions";
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
+import { breadcrumbShorten } from "./components/bs5/breadcrumbs/breadcrumb.functions";
 import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
 import { toggleSearch, showSuggestions } from './components/bs5/header/header.functions';
 
@@ -18,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
   (() => {
 
     //Header search
-    let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search'); 
+    let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search');
     if(headerSearchButton) {
       document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
     }
@@ -53,6 +45,9 @@ window.addEventListener("DOMContentLoaded", () => {
     // Navbar
     initializeNavbar();
     
+
+    // Breadcrumb
+    breadcrumbShorten();
 
     // Quick exit
     window.addEventListener('scroll', positionQuickExit, true);

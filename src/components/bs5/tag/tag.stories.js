@@ -28,9 +28,9 @@ export const Default = {
   args: defaultdata.default,
 };
 
-// Large Tag story
-export const Large = {
-  args: defaultdata.large,
+// Info Tag story
+export const Information = {
+  args: defaultdata.info,
 };
 
 // Action Tag story
@@ -38,17 +38,17 @@ export const Action = {
   args: defaultdata.action,
 };
 
-// Dark Tag story
-export const Dark = {
-  args: defaultdata.dark,
-};
-
-// Info Tag story
-export const Information = {
-  args: defaultdata.info,
-};
-
 // Filter Tag story
 export const Filter = {
   args: defaultdata.filter,
+};
+
+// Large Tag story
+export const Large = {
+  args: defaultdata.large,
+};
+
+// Dark Tag story
+export const Dark = {
+  args: defaultdata.dark,
 };

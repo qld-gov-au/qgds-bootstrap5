@@ -226,11 +226,12 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 
         a {
             color: var(--#{$prefix}card-link-color);
-            text-decoration: none;
+            font-weight: 600;
+            text-underline-offset: 3px;
 
             &:hover, &:focus {
                 text-decoration: underline;
-                text-underline-offset: 3px;
+                text-decoration-thickness: 3px;
             }
         }
     }
@@ -424,6 +425,16 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
                     vertical-align: middle;
                     margin-left: 0.5rem;
                 }
+            }
+        }
+    }
+}
+
+.card-feature {
+    .card-title {
+        a {
+            &:hover, &:focus {
+                text-decoration-thickness: 4px;
             }
         }
     }

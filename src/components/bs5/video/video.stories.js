@@ -14,7 +14,7 @@ export default {
   title: "Components/Video",
   args: defaultdata.youtube,
   render: (args) => {
-    const transcript = new Accordion({
+    const transcriptAccordion = new Accordion({
       groupid: `video-transcript-${args.videoId}`,
       accordionItems: [
         {
@@ -25,7 +25,7 @@ export default {
         },
       ],
     }).html;
-    return new Video({ ...args, transcript: transcript }).html;
+    return new Video({ ...args, transcriptAccordion }).html;
   },
 
   argTypes: {
@@ -72,10 +72,8 @@ export default {
     //   type: "figma",
     //   url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=24025-293663&mode=design&t=uf49yHsvyUfA39Lv-4",
     // },
-    docs: {
-      controls: {
-        exclude: ["transcript"],
-      },
+    controls: {
+      exclude: ["transcriptAccordion"],
     },
   },
 };

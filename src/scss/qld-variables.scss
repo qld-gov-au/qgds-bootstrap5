@@ -3,6 +3,9 @@
 
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss,
 
+//QGDS tokens - masterbrand
+@import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
+
 //QLD Names Colours
 $qld-dark-blue : #05325F;
 $qld-sapphire-blue : #09549F;
@@ -201,12 +204,10 @@ $project-colors: (
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
   "dark-hover" : $qld-dark-hover,
-
   "light-action-primary": $qld-light-action-primary,
   "light-action-primary-hover": $qld-light-action-primary-hover,
   "light-action-secondary":  $qld-light-action-secondary,
   "light-action-secondary-hover":  $qld-light-action-secondary-hover,
-
   "dark-action-primary": $qld-dark-action-primary,
   "dark-action-primary-hover": $qld-dark-action-primary-hover,
   "dark-action-text": $qld-dark-action-text,
@@ -217,28 +218,24 @@ $project-colors: (
   //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
   "default-background": $qld-color-background,
   "default-background-shade": $qld-color-background--shade,
-
   "light-text-heading": $qld-text-headings,
   "light-text-text": $qld-text-grey,
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
   "light-border": $qld-light-border,
-
   "light-alt-background": $qld-color-light-alt-background,
   "light-alt-background-shade": $qld-color-light-alt-background--shade,
-
   "dark-background": $qld-color-dark-background,
   "dark-background-shade": $qld-color-dark-background--shade,
   "dark-alt-background": $qld-color-dark-alt-background,
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
-
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
-
 );
 
-$theme-colors: map-merge($theme-colors, $project-colors);
-
+// Merge maps
+$merged-theme-qld: map-merge($theme-colors, $qld-tokens);
+$theme-colors: map-merge($merged-theme-qld, $project-colors);
 
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (
@@ -249,14 +246,10 @@ $grid-breakpoints: (
   xl: 1312px
 );
 
-
-
 // Default border radius
 $border-radius: 0.25rem;
 $border-radius-sm: 0.25rem;
 $border-radius-lg: 0.25rem;
-
-
 
 // QGOV Borders
 $qld-border-width-thin : 1px;
@@ -264,8 +257,6 @@ $qld-border-width-default : 2px;
 $qld-border-width-medium : 3px;
 $qld-border-width-thick : 4px;
 $qld-border-width-extra-thick : 8px;
-
-
 
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
