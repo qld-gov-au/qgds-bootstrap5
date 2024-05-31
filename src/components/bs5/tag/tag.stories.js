@@ -52,4 +52,3 @@ export const Large = {
 export const Dark = {
   args: defaultdata.dark,
 };
-
