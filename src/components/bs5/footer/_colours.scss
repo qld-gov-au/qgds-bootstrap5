@@ -1,0 +1,63 @@
+.qld-footer {
+  // ------------------------------------------------------------------------------------------------------------------
+  //  1. Palette colours
+  // ------------------------------------------------------------------------------------------------------------------
+  // Default palette
+  --#{$prefix}footer-color-crest-fill: #1d1d1d;
+  --#{$prefix}footer-color-border: rgba(0, 0, 0, 0.2); // not part of Mitch
+  --#{$prefix}footer-color-title: #022a50;
+  --#{$prefix}footer-color-designAccent: #6bbe27;
+  --#{$prefix}footer-color-text: #414141;
+  --#{$prefix}footer-color-text__muted: #636363; // not using
+  --#{$prefix}footer-color-link: #09549f;
+  --#{$prefix}footer-color-focus: #0085b3;
+  --#{$prefix}footer-color-background: #fff;
+  --#{$prefix}footer-color-alt-button: #008733;
+  --#{$prefix}footer-color-alt-button__hover: #00702b;
+
+  // ------------------------------------------------------------------------------------------------------------------
+  // 2. Colours
+  // ------------------------------------------------------------------------------------------------------------------
+  --qld-footer-column-border-color: var(--#{$prefix}footer-color-border);
+
+  // ------------------------------------------------------------------------------------------------------------------
+  //  3. FORM IO
+  // ------------------------------------------------------------------------------------------------------------------
+  --#{$prefix}formIO-bg-colour: #fff;
+  --#{$prefix}formIO-callout-bg-colour: #f5f5f5;
+  --#{$prefix}formIO-hr-colour: #f5f5f5;
+  --#{$prefix}formIO-formio-colour: #1d1d1d;
+  --#{$prefix}formIO-input-border: #7a7a7a;
+  --#{$prefix}formIO-btn-disabled-colour: #e8e8e8;
+  --#{$prefix}formIO-btn-close-colour: #008733;
+  --#{$prefix}formIO-btn-close-colour__hover: #00702b;
+  --#{$prefix}formIO-link-colour: #09549f;
+  --#{$prefix}formIO-link-colour-hover: #0085b3;
+  --#{$prefix}formIO-submit-btn: #09549f;
+  --#{$prefix}formIO-submit-btn-text: #fff;
+
+  @media (max-width: 991.98px) {
+    --qld-footer-column-border-color: transparent;
+  }
+
+  // ------------------------------------------------------------------------------------------------------------------
+  // Dark palette & Forgov
+  // ------------------------------------------------------------------------------------------------------------------
+  &.dark,
+  &.dark-alt {
+    --#{$prefix}footer-color-crest-fill: #fff;
+    --#{$prefix}footer-color-text: #fff;
+    --#{$prefix}footer-color-border: rgba(255, 255, 255, 0.2);
+    --#{$prefix}footer-color-title: #fff;
+    --#{$prefix}footer-color-alt-button: #efd700;
+    --#{$prefix}footer-color-alt-button__hover: #add33f;
+    --#{$prefix}footer-color-link: #fff;
+    --#{$prefix}footer-color-focus: #01b0e5;
+  }
+  &.dark-alt {
+    --#{$prefix}footer-color-background: #05325f;
+  }
+  &.dark {
+    --#{$prefix}footer-color-background: #09549f;
+  }
+}
