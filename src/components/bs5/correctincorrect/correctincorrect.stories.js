@@ -16,12 +16,13 @@ export default {
 
 export const ShortForm = {
   render: () => {
-    return `<span class="qg-correct">
-        Does not currently exist <a href='#'>www.qld.gov.au/CycloneXena</a>
-      </span>
-      <span class="qg-incorrect">
-        <p>Is an already existing page <a href='#'>www.qld.gov.au/recreation</a></p>
-      </span>`
+    return `
+    <span class="qg-correct">
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>.</p>
+    </span>
+    <span class="qg-incorrect">
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>.</p>
+    </span>`
   },
 }
 
@@ -29,14 +30,16 @@ export const LongForm = {
   render: () => {
     return `
     <div class="qg-correct">
-      <p><a href='#'>www.qld.gov.au/e10ok</a> contains only letters and numbers</p>
-      <p><a href='#'>www.qld.gov.au/CrossRiverRail</a> uses camel case to improve readability (Note: The actual link is not case sensitive and there may be instances where the URL is displayed in lowercase.)</p> <p><a href='#'>www.qld.gov.au/starting-a-cafe</a> is clear as the letter 'a' in the middle may be overlooked or confused as a single word</p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. </p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. Aenean sed pretium mauris. </p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. Aenean sed pretium mauris. Quisque euismod in nisl et consequat.</p>
     </div>
     <div class="qg-incorrect">
-      <p><a href='#'>www.qld.gov.au/$200rebate</a> contains a dollar sign</p>
-      <p><a href='#'>www.qld.gov.au/local parks</a> contains a space</p>
-      <p><a href='#'>www.qld.gov.au/under_scores</a> contains an underscore</p>
-      <p><a href='#'>www.qld.gov.au/water-ways-and-the-environment</a> excessively uses hyphens, which may make the URL less memorable</p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. </p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. Aenean sed pretium mauris. </p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. Aenean sed pretium mauris. Quisque euismod in nisl et consequat.</p>
     </div>`
   },
 }
@@ -46,14 +49,13 @@ export const TableByColumnsForCorrectAndIncorrect = {
   args: {
     "customClass": "",
     "variantClass": "qg-correct-incorrect",
-    "headers": ["Header", "Header"],
+    "headers": ["This", "Not this"],
     "rows": [
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Cell", "Sell"] },
+      { "cells": ["Lorem ipsum dolor", "Lorem ipsum jolor"] },
+      { "cells": ["Lorem ipsum dolor sit", "Lorem ipsum dolor cit"] },
+      { "cells": ["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amat"] },
+      { "cells": ["Lorem ipsum dolor sit amet consectetur", "Lorem ipsum dolor sit amet nonsectetur"] },
     ],
   }
   ,
@@ -65,14 +67,13 @@ export const TableByColumnsForIncorrectAndCorrect = {
   args: {
     "customClass": "",
     "variantClass": "qg-incorrect-correct",
-    "headers": ["Header", "Header"],
+    "headers": ["Not this", "This"],
     "rows": [
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
-      { "cells": ["Cell", "Cell"] },
+      { "cells": ["Sell","Cell"] },
+      { "cells": ["Lorem ipsum jolor", "Lorem ipsum dolor"] },
+      { "cells": ["Lorem ipsum dolor cit", "Lorem ipsum dolor sit"] },
+      { "cells": ["Lorem ipsum dolor sit amat", "Lorem ipsum dolor sit amet"] },
+      { "cells": ["Lorem ipsum dolor sit amet nonsectetur", "Lorem ipsum dolor sit amet consectetur"] },
     ],
   }
   ,
@@ -103,10 +104,10 @@ export const TableByCell = {
                 </tr>
                 <tr class="">
                     <td>Cell</td>
-                    <td class="qg-incorrect">Cell</td>
+                    <td class="qg-correct">Cell</td>
                 </tr>
                 <tr class="">
-                  <td class="qg-correct">Cell</td>
+                  <td class="qg-incorrect">Cell</td>
                     <td>Cell</td>
                 </tr>
             </tbody>
