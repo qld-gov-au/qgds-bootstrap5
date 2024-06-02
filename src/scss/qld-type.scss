@@ -72,6 +72,43 @@ body {
 
 ul, ol, p, .accordion-body {
     line-height: 1.75;
+<<<<<<< HEAD
+=======
+}
+
+li {
+    margin-top: 0.5rem;
+}
+.nav {
+    line-height: 0;
+}
+
+.dark,
+.dark-alt {
+    body & {
+        color: var(--qld-body-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--qld-headings-color);
+    }
+        // .dark, .dark-alt & {
+        a, a.nav-link {
+            text-decoration-color: #B5CCE2;
+            &:visited {
+                color: var(--qld-link-visited-dark)!important;
+                text-decoration-color: var(--qld-link-visited-dark)!important;
+            }
+            // color: var(--qld-link-visited-dark)!important;
+            
+        }
+    
+>>>>>>> 2ac1134 (Made appropriate changes for UX)
 }
 
 li {
