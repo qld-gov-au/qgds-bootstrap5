@@ -70,6 +70,17 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+ul, ol, p, .accordion-body {
+    line-height: 1.75;
+}
+
+li {
+    margin-top: 0.5rem;
+}
+.nav {
+    line-height: 0;
+}
+
 .dark,
 .dark-alt {
     body & {
