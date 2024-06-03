@@ -9,7 +9,7 @@
             {{/unless}}
             {{! print the current page as plain text}}
             {{#if @last}}
-            <li class="breadcrumb-item active" aria-current="page">{{linktext}}</li>
+            <li class="breadcrumb-item active" aria-current="page" data-href="{{link}}">{{linktext}}</li>
             {{/if}}
         {{/each}}
     </ol>
