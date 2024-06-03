@@ -16,9 +16,9 @@
         --#{$prefix}btn-bg: var(--#{$prefix}sapphire-blue);
         --#{$prefix}btn-hover-bg: var(--#{$prefix}button-dark-blue);
         --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
-        --#{$prefix}btn-active-color: var(--#{$prefix}text-dark-blue);
+        --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
         --#{$prefix}btn-disabled-bg: var(--#{$prefix}grey);
-        --#{$prefix}btn-disabled-color: var(--#{$prefix}light-text-heading);
+        --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
         --#{$prefix}btn-disabled-opacity: 1;
         --#{$prefix}btn-disabled-border-color: transparent;
     }
@@ -37,7 +37,7 @@
         --#{$prefix}btn-active-border-color: var(--#{$prefix}extra-light-grey);
         --#{$prefix}btn-active-shadow: none;
         --#{$prefix}btn-disabled-bg: transparent;
-        --#{$prefix}btn-disabled-color: var(--#{$prefix}light-text-heading);
+        --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
         --#{$prefix}btn-disabled-opacity: 1;
         --#{$prefix}btn-disabled-border-color: var(--#{$prefix}grey);
         --#{$prefix}gradient: none;
@@ -111,14 +111,6 @@
 }
 
 a.btn, .btn {
-    @include media-breakpoint-down(md) {
-        width: 100%;
-        margin: 24px 0;
-    }
-    @include media-breakpoint-up(md) {
-        margin: 1.5rem;
-    }
-    min-width: 160px;
     white-space: nowrap;
 
     span[class^=icon-],
