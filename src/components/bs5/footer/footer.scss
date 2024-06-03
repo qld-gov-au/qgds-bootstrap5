@@ -244,12 +244,12 @@
     .container {
       > .row {
         > .col-md-12 {
-          margin-inline-start: calc(var(--qld-gutter-x) * 0.5);
-          width: calc(100% - var(--qld-gutter-x));
+          margin-inline-start: var(--qld-gutter-x); //calc(var(--qld-gutter-x) * 0.5);
+          width: calc(100% - calc(var(--qld-gutter-x) * 2));
         }
         > .title,
         > .crest {
-          padding-inline: calc(var(--qld-gutter-x) * 0.5);
+          padding-inline: var(--qld-gutter-x); //calc(var(--qld-gutter-x) * 0.5);
           margin-inline: 0;
           width: 100%;
         }
