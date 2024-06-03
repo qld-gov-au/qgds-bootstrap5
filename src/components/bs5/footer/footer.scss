@@ -275,6 +275,9 @@
     border: var(--#{$prefix}footer-border-width) solid var(--qld-brand-accent);
     width: 100%;
     font-weight: normal;
+    &:active {
+      color: var(--#{$prefix}formIO-formio-colour);
+    }
   }
   #btn-footer-feedback:not(.collapsed) {
     border-radius: var(--#{$prefix}footer-border-radius);
@@ -335,7 +338,9 @@
   }
   #feedbackFormIO {
     --thanksYou-heading-colour: #04284c;
-
+    .qg-spinner {
+      margin-block-end: var(--#{$prefix}footer-spacing);
+    }
     .form-check-input {
       margin-left: 0;
       --qld-form-check-bg: var(--#{$prefix}formIO-bg-colour);
@@ -471,6 +476,9 @@
     }
     .formio-wizard-nav-container {
       display: none;
+    }
+    .formio-errors .error {
+      margin-block-end: 1rem;
     }
   }
 }
