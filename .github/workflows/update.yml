@@ -57,7 +57,6 @@ jobs:
         with:
           node-version: 20
 
-
       - run: npm ci
 
       - name: Update & Push git tags
