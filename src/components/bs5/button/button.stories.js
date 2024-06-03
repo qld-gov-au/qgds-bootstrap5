@@ -2,9 +2,21 @@
 import { Button } from './Button.js';
 import defaultdata from './button.data.json';
 
+/**
+ * Define the variants for Button component.
+ * Object key: variant's CSS class.
+ * Object value: variant's label on Storybook.
+ */
+const buttonVariants = {
+  "btn-primary": "Primary",
+  "btn-secondary": "Secondary",
+  "btn-tertiary": "Tertiary",
+}
+
 export default {
   tags: ['autodocs'],
   title: 'Components/Button',
+  args: defaultdata,
   render: (args) => {
     return `
     ${new Button(args).html}
@@ -12,7 +24,6 @@ export default {
     `//expand arguments, specifically turn isdisabled into true
   },
 
-  //https://storybook.js.org/docs/api/arg-types 
   argTypes: {
     isdisabled: {
       table: {
@@ -21,20 +32,21 @@ export default {
     },
     variantClass: {
       name: "Variants",
-      description: `Settable variant for the component`,
+      description: 'Settable variant type for Button component',
       control: {
         type: "radio",
-        labels: {
-          "btn-primary": "Primary",
-          "btn-secondary": "Secondary",
-          "btn-tertiary": "Tertiary",
-        },
+        labels: buttonVariants,
       },
-      options: [
-        "btn-primary",
-        "btn-secondary",
-        "btn-tertiary",
-      ],
+      options: Object.keys(buttonVariants),
+    },
+    iconPosition: {
+      description: 'Position of the icon placement',
+      control: "radio",
+      options: ["leading", "trailing"],
+    },
+    target: {
+      control: "select",
+      options: ["_self", "_blank", "_parent", "_top"],
     },
   },
 
@@ -44,26 +56,18 @@ export default {
       type: "figma",
       url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98058&mode=design&t=YBUAJHIxqF46Um9y-0",
     },
-    docs: {
-      controls: {
-      },
-    },
   },
-
-
-};
-
-// Default blockquote story
-export const Default = {
-  args: defaultdata,
 };
 
 /**
- * Dark Breadcrumbs story
+ * Default Button story
+ */
+export const Default = {};
+
+/**
+ * Dark Button story
  * */
 export const Dark = {
-  
-  args: defaultdata,
   parameters: {
     backgrounds: {
       default: 'Dark',
@@ -81,4 +85,42 @@ export const Dark = {
       `;
     },
   ],
+};
+
+/**
+ * Show all button variants in the Default theme.
+ * This Story can be used to help in troubleshooting.
+ */
+export const AllVariantsInDefaultColour = {
+  render:() => {
+    const states = [
+      { isdisabled: false, label: 'Enabled' },
+      { isdisabled: true, label: 'Disabled' },
+    ];
+
+    /* Return all button variants with label = variant + state */
+    return Object.entries(buttonVariants).map(([variantClass, variantLabel]) => {
+      const variantButtons = states.map(state =>
+        new Button({
+          ...defaultdata,
+          variantClass,
+          ...state,
+          label: state.label,
+        }).html
+      ).join('');
+
+      return `<div class="d-grid mb-4">
+                <div class="fw-bold">${variantLabel}</div>
+                <div>
+                  ${variantButtons}
+                </div>
+              </div>`;
+
+    }).join('');
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
 };
