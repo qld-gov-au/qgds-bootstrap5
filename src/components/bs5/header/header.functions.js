@@ -88,18 +88,6 @@ export function selectSuggestion(value) {
   if (searchInput && suggestions && form) {
     searchInput.value = value;
     suggestions.style.display = 'none';
-
-    // Construct the action URL with query and other parameters
-    const baseUrl = form.getAttribute('action');
-    const collection = searchInput.getAttribute('data-collection');
-    const profile = searchInput.getAttribute('data-profile');
-    const query = encodeURIComponent(value);
-    const actionUrl = `${baseUrl}?query=${query}&collection=${collection}&profile=${profile}`;
-
-    // Update the form's action attribute
-    form.setAttribute('action', actionUrl);
-
-    // Submit the form
     form.submit();
   }
 }
