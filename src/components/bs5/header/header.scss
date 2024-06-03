@@ -481,7 +481,7 @@
 			}
 
 			//Search dropdown
-			.suggestions-dropdown {
+			.suggestions {
 				position: absolute;
 				display: none;
 				left: 0;	
@@ -569,55 +569,6 @@
 				}
 			}
 
-			input[type="text"] {
-				box-shadow: none;
-				border: none;
-				padding-left: 3rem;
-				width: 20.62rem;
-				color: var(--site-search-input-color);
-				background: var(--site-search-bg);
-				border-radius: 0.25rem 0 0 0;
-				border-bottom: 2px solid var(--site-search-border-color);
-
-				@include media-breakpoint-down(lg) {
-					border: 2px solid var(--site-search-border-color);
-					width: 100%;
-				}
-
-				&:focus {
-					outline: 2px solid var(--site-search-input-focus-color);
-					outline-offset: 2px;
-				}
-
-				&.border-full {
-					border: 2px solid var(--site-search-border-color);
-					border-right: 0;
-					border-radius: 0.25rem 0 0 0.25rem;
-				}
-
-			}
-
-			input[type="submit"] {
-				border: none;
-				box-shadow: none;
-				border-radius: 0 0.25rem 0.25rem 0;
-				background: var(--site-search-btn-bg);
-				color: var(--site-search-btn-color);
-			}
-
-			//Icon
-			&:before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 2px;
-				width: 3rem;
-				mask-position: center center;
-				mask-repeat: no-repeat;
-				mask-image: var(--icon-search);
-				background-color: var(--site-search-icon-color);
-			}
 		}
 
 		@include media-breakpoint-down(lg) {

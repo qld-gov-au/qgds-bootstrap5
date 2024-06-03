@@ -879,16 +879,12 @@
             </div>
             {{/if}}
             {{#if siteSearchAsset.value}}
-            <div id="qld-header-search" class="qld__header__site-search qld__header__site-search--closed">
-                  <form id="site-search" role="search" 
-          {{#if siteSearchAsset.formAction.url}}action="{{siteSearchAsset.formAction.url}}"{{/if}}
-          {{#if siteSearchAsset.formAction.suggestions}}data-suggestions="{{siteSearchAsset.formAction.suggestions}}"{{/if}} 
-          {{#if siteSearchAsset.formAction.results}}data-results-url="{{siteSearchAsset.formAction.results}}"{{/if}} novalidate="true">
-                <input type="text" class="form-control{{#if siteSearchAsset.options.borderStyle.full}} border-full{{/if}}"
-                        placeholder="{{#if siteSearchAsset.placeholder}}{{siteSearchAsset.placeholder}}{{else}}Search this site{{/if}}"
-                        id="search-input">
-                <ul id="suggestions" class="suggestions-dropdown suggestions-dropdown__group"></ul>
-                <input type="submit" class="btn btn-primary" value="{{#if siteSearchAsset.label}}{{siteSearchAsset.label}}{{else}}Search{{/if}}">
+            <div class="qld__header__site-search qld__header__site-search--closed">
+                <form class="site-search" role="search" 
+                    {{#if siteSearchAsset.formAction.url}}
+                        action="{{siteSearchAsset.formAction.url}}"
+                    {{/if}}>
+                        {{{ searchInput }}}
                 </form>
             </div>
             {{/if}}

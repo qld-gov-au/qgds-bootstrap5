@@ -19,7 +19,7 @@ export function toggleSearch(event) {
   }
 
   // Get the search div
-  const searchDiv = document.getElementById('qld-header-search');
+  const searchDiv = document.getElementById('qld-search-input');
   const toggleButton = event.currentTarget;
   const searchIcon = toggleButton.querySelector('use.icon-search');
   const closeIcon = toggleButton.querySelector('use.icon-close');
@@ -79,9 +79,11 @@ async function fetchData(url, type) {
  * @returns {void}
  */
 export function selectSuggestion(value) {
-  const searchInput = document.getElementById('search-input');
+  const form = document.getElementsByClassName('site-search');
   const suggestions = document.getElementById('suggestions');
-  const form = document.getElementById('site-search');
+
+  //Search input
+  const searchInput = document.getElementsByClassName('qld-search-input');
 
   if (searchInput && suggestions && form) {
     searchInput.value = value;
@@ -89,8 +91,8 @@ export function selectSuggestion(value) {
 
     // Construct the action URL with query and other parameters
     const baseUrl = form.getAttribute('action');
-    const collection = 'qgov~sp-search';
-    const profile = 'qld';
+    const collection = searchInput.getAttribute('data-collection');
+    const profile = searchInput.getAttribute('data-profile');
     const query = encodeURIComponent(value);
     const actionUrl = `${baseUrl}?query=${query}&collection=${collection}&profile=${profile}`;
 
@@ -110,8 +112,15 @@ export function selectSuggestion(value) {
  * @returns {void}
  **/
 export async function showSuggestions(value = '', isDefault = false) {
-  const suggestions = document.getElementById('suggestions');
-  const searchInput = document.getElementById('search-input');
+  //Search input
+  const searchInput = document.getElementsByClassName('qld-search-input');
+  const suggestions = document.getElementsByClassName('suggestions');
+  
+  //Search input attributes
+  const collection = searchInput.getAttribute('data-collection');
+  const profile = searchInput.getAttribute('data-profile');
+  const suggestUrl = searchInput.getAttribute('data-suggestions');
+  const resultsUrl = searchInput.getAttribute('data-results-url');
 
   if (!suggestions || !searchInput) {
     console.error("Required elements not found.");
@@ -150,13 +159,8 @@ export async function showSuggestions(value = '', isDefault = false) {
     return;
   }
 
-  // Fetch suggestions and services from the provided URLs
-  const form = document.getElementById('site-search');
-  const suggestUrl = form.getAttribute('data-suggestions');
-  const resultsUrl = form.getAttribute('data-results-url');
-
   if (suggestUrl) {
-    const fetchedSuggestions = await fetchData(`${suggestUrl}?collection=qgov~sp-search&fmt=json%2B%2B&alpha=0.5&profile=qld&partial_query=${encodeURIComponent(value)}`, 'suggestions');
+    const fetchedSuggestions = await fetchData(`${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`, 'suggestions');
 
     // Use the fetched suggestions to populate the suggestions dropdown
     if (fetchedSuggestions.length > 0) {
@@ -184,7 +188,7 @@ export async function showSuggestions(value = '', isDefault = false) {
   }
 
   if (resultsUrl) {
-    const fetchedServices = await fetchData(`${resultsUrl}?collection=qgov~sp-search&profile=qld&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`, 'services');
+    const fetchedServices = await fetchData(`${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`, 'services');
 
     // Use the fetched services to populate the services dropdown
     if (fetchedServices.response.resultPacket && fetchedServices.response.resultPacket.results.length > 0) {

@@ -1,19 +1,23 @@
 // Navbar.stories.js
 import { Header } from './Header.js';
 import { Navbar } from '../navbar/Navbar.js';
+import { SearchInput } from "../searchInput/SearchInput.js";
+
 import { menu_state } from '../navbar/navbar.data.json';
+import defaultdata from '../searchInput/searchInput.data.json';
+
 import { 
   masterbrand_variant, 
   subbrand_variant, 
   endorsed_variant, 
   standalone_variant } from './header.data.json';
-  
+
 export default {
   tags: ['autodocs'],
   title: 'Components/Header',
   render: (args) => {
     return `
-        ${new Header(args).html}
+        ${new Header({...args, searchInput: new SearchInput(defaultdata).html}).html}
         ${new Navbar(args).html}
         `//expand arguments, specifically turn isdisabled into true
   },
@@ -28,7 +32,7 @@ export default {
 export const MasterBrand = {
   args: {
     ...masterbrand_variant,
-    ...menu_state,
+    ...menu_state
   },
   parameters: {
     backgrounds: {
@@ -51,7 +55,7 @@ export const MasterBrand = {
 export const Subbrand = {
   args: {
     ...subbrand_variant,
-    ...menu_state,
+    ...menu_state
   },
   parameters: {
     backgrounds: {
@@ -74,7 +78,7 @@ export const Subbrand = {
 export const EndorsedBrand = {
   args: {
     ...endorsed_variant,
-    ...menu_state,
+    ...menu_state
   },
   parameters: {
     backgrounds: {
