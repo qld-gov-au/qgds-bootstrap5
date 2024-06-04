@@ -17,7 +17,7 @@
     
     --#{$prefix}modal-box-shadow: #{$modal-content-box-shadow-xs};
     --#{$prefix}modal-inner-border-radius: #{$modal-content-inner-border-radius};
-    
+
     --#{$prefix}modal-header-padding: 2rem 2rem 0;
     --#{$prefix}modal-header-border-width: 0px;
 
@@ -50,10 +50,9 @@
 
     .modal-footer {
         padding: 0 2rem 2rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
+        // flex-direction: row;
+        // flex-wrap: nowrap;
+        // justify-content: flex-end;
         
         .btn {
             margin: 0 0 0 1.5rem;
@@ -64,13 +63,13 @@
     .modal-dialog {
         &.modal-sm {
             .modal-footer {
-                flex-direction: column-reverse;
+                // flex-direction: column-reverse;
                 .btn {
                     width: 100%;
-                    margin: 0 0 1.5rem 0;
-                    &:first-child {
-                        margin: 0;
-                    }
+                    margin: 0;
+                    // &:first-child {
+                    //     margin: 0;
+                    // }
                 }
             }
         }
@@ -79,13 +78,14 @@
     //Rescope for smaller viewports 
     @include media-breakpoint-between(xs, sm) {
         .modal-footer {
-            flex-direction: column-reverse;
+            // flex-direction: column-reverse;
             .btn {
+                margin: 0;
                 // width: 100%;
                 // margin: 0 0 1.5rem 0;
-                &:first-child {
-                    margin: 0;
-                }
+                // &:first-child {
+                //     margin: 0;
+                // }
             }
         }
     }
