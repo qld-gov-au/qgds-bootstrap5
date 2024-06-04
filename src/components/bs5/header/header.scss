@@ -475,104 +475,9 @@
 		form {
 			display: flex;
 			position: relative;
-
-			::placeholder {
-				color: var(--site-search-input-color);
-			}
-
-			//Search dropdown
-			.suggestions {
-				position: absolute;
-				display: none;
-				left: 0;	
-				top: 100%;  
-				width: 100%;			
-				z-index: 99; 
-				border-radius: .5rem;
-				background: var(--#{$prefix}header_site-search-suggestions-bg);
-				box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
-				border-bottom: solid .25rem var(--#{$prefix}header_site-search-suggestions-hover__border_color);
-
-				.suggestions-category {
-					padding: 0 1rem;
-				}
-
-				hr {
-					margin: 0;
-				}
-
-				// Featured search result styles
-				.feature {
-					background-color: var(--#{$prefix}header_site-search-suggestions-feature_bg);
-					strong {
-						color: var(--#{$prefix}header_site-search-suggestions-feature_text-color);
-					}
-					ul {
-						li {
-							&:hover {
-								background-color: var(--#{$prefix}header_site-search-suggestions-feature_hover);
-							}
-							a {
-								color: var(--#{$prefix}header_site-search-suggestions-feature_text-color);
-							}
-						}
-					}				
-				}
-
-				// Show when active
-				&.show {
-					display: block; 
-				}
-
-				&__group {
-					padding: 0;
-
-					a, strong {
-						color: var(--site-search-input-color);
-						font-weight: 400;
-						font-size: 1rem;
-						text-decoration: none; 
-					}
-
-					strong {
-						font-weight: 600;
-					}
-
-					ul {
-						padding: 0;
-
-						li {
-							min-height: 3rem;
-							list-style: none;
-							cursor: pointer;
-
-							a {
-								vertical-align: middle;
-								vertical-align: -webkit-baseline-middle;
-								&:hover {
-									text-decoration: underline; 
-								}
-							}
-
-							&:hover {
-								background-color: var(--#{$prefix}header_site-search-suggestions-hover);
-								margin: 0 -1rem;
-								padding: 0 1rem;
-
-								a {
-									text-decoration: underline;
-								}
-
-							}
-						}
-					}
-				}
-			}
-
 		}
-
+		
 		@include media-breakpoint-down(lg) {
-
 			// Mobile search open class
 			&--open {
 				z-index: 1;
@@ -584,10 +489,10 @@
 				margin-top: 1rem;
 				background-color: var(--#{$prefix}header_bg);
 			}
-
 			&--closed {
 				display: none;
 			}
 		}
 	}
+
 }

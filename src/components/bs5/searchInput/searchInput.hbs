@@ -3,22 +3,26 @@
 -->
 <div class="container {{variantClass}}">
     
-    <div class="qld-search-input {{customClass}}">
+    <form class="site-search" role="search" action="https://www.qld.gov.au/search">
 
-        <input id="{{ inputID }}" name=" {{ inputName }}" class="form-control" type="text" placeholder="{{placeholder}}" aria-label="{{ ariaLabel }}"
-        {{#each tags}}
-            data-{{@key}}="{{this}}"
-        {{/each}}
-        />
+        <div class="qld-search-input {{customClass}}">
 
-        {{#if suggestions}}
-            <ul class="suggestions suggestions__group"></ul>
-        {{/if}}
+            <input id="{{ inputID }}" name=" {{ inputName }}" class="form-control" type="text" placeholder="{{placeholder}}" aria-label="{{ ariaLabel }}"
+            {{#each tags}}
+                data-{{@key}}="{{this}}"
+            {{/each}}
+            />
 
-        <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
-            <span class="btn-icon"></span>
-            <span class="btn-label">{{ buttonLabel }}</span>
-        </button>
+            <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
+                <span class="btn-icon"></span>
+                <span class="btn-label">{{ buttonLabel }}</span>
+            </button>
 
-    </div>
+            {{#if suggestions}}
+                <ul class="suggestions suggestions__group"></ul>
+            {{/if}}
+
+        </div>
+    </form>
+    
 </div>
