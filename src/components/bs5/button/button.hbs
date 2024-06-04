@@ -1,21 +1,6 @@
-{{#unless islink}}
-<button class="btn {{variantClass}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
-{{#if iconClass}}
-    {{#ifCond iconPosition '==' 'leading'}}
-        <span class="btn-icon {{iconClass}}"></span>
-    {{/ifCond}}
-{{/if}}
-{{label}}
-{{#if iconClass}}
-    {{#ifCond iconPosition '==' 'trailing'}}
-        <span class="btn-icon {{iconClass}}"></span>
-    {{/ifCond}}
-{{/if}}
-</button>
-
-{{else}}
-
-<a class="btn {{variantClass}} {{#if isdisabled}} disabled {{/if}}" {{#if isdisabled}} aria-disabled="true" {{/if}} href="{{href}}" target="{{target}}" {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
+<div class="btn-group">
+    {{#unless islink}}
+    <button class="btn {{variantClass}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
     {{#if iconClass}}
         {{#ifCond iconPosition '==' 'leading'}}
             <span class="btn-icon {{iconClass}}"></span>
@@ -27,5 +12,22 @@
             <span class="btn-icon {{iconClass}}"></span>
         {{/ifCond}}
     {{/if}}
-</a>
-{{/unless }}
+    </button>
+
+    {{else}}
+
+    <a class="btn {{variantClass}} {{#if isdisabled}} disabled {{/if}}" {{#if isdisabled}} aria-disabled="true" {{/if}} href="{{href}}" target="{{target}}" {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
+        {{#if iconClass}}
+            {{#ifCond iconPosition '==' 'leading'}}
+                <span class="btn-icon {{iconClass}}"></span>
+            {{/ifCond}}
+        {{/if}}
+        {{label}}
+        {{#if iconClass}}
+            {{#ifCond iconPosition '==' 'trailing'}}
+                <span class="btn-icon {{iconClass}}"></span>
+            {{/ifCond}}
+        {{/if}}
+    </a>
+    {{/unless }}
+</div>

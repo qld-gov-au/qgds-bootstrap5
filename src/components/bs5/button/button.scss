@@ -94,14 +94,6 @@
     }
 }
 a.btn, .btn {
-    @include media-breakpoint-down(md) {
-        width: 100%;
-        margin: 24px 0;
-    }
-    @include media-breakpoint-up(md) {
-        margin: 1.5rem;
-    }
-    min-width: 160px;
     white-space: nowrap;
 
     span[class^=icon-],
@@ -233,3 +225,13 @@ a.btn, .btn {
     }
 }
 
+.btn-group .btn {
+    @include media-breakpoint-down(md) {
+        width: 100%;
+        margin: 24px 0;
+    }
+    @include media-breakpoint-up(md) {
+        margin: 1.5rem; 
+    }
+    min-width: 160px;
+}
