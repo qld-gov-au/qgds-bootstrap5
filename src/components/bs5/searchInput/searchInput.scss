@@ -204,7 +204,7 @@
 @include media-breakpoint-down(md) {
     .qld-search-input {
         .form-control {
-            padding-left: 0rem!important;
+            padding-left: 1rem;
 
             +button {
                 span.btn-label {
