@@ -9,6 +9,7 @@
     --#{$prefix}modal-margin: #{$modal-dialog-margin};
     --#{$prefix}modal-color: #{$modal-content-color};
     --#{$prefix}modal-bg: #{$modal-content-bg};
+    --#{$prefix}modal-padding: 1.5rem 2rem;
     
     --#{$prefix}modal-border-color: var(--qld-light-grey);
     --#{$prefix}modal-border-width: 1px;
@@ -16,10 +17,9 @@
     
     --#{$prefix}modal-box-shadow: #{$modal-content-box-shadow-xs};
     --#{$prefix}modal-inner-border-radius: #{$modal-content-inner-border-radius};
-    --#{$prefix}modal-header-padding: 2rem 1.5rem;
-
-    --#{$prefix}modal-header-border-color: var(--qld-light-grey);
-    --#{$prefix}modal-header-border-width: 1px;
+    
+    --#{$prefix}modal-header-padding: 2rem 2rem 0;
+    --#{$prefix}modal-header-border-width: 0px;
 
     --#{$prefix}modal-title-line-height: 2rem;
 
@@ -42,20 +42,14 @@
     }
 
     .modal-header {
-        padding: 2rem 1.5rem 1.5rem 1.5rem;
-
         .modal-title {
             line-height: var(--#{$prefix}modal-title-line-height);
             font-size: 1.5rem;
         }
     }
 
-    .modal-body {
-        padding: 1.5rem 1.5rem 2rem 1.5rem;
-    }
-
     .modal-footer {
-        padding: 0 1.5rem 2rem 1.5rem;
+        padding: 0 2rem 2rem;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -87,8 +81,8 @@
         .modal-footer {
             flex-direction: column-reverse;
             .btn {
-                width: 100%;
-                margin: 0 0 1.5rem 0;
+                // width: 100%;
+                // margin: 0 0 1.5rem 0;
                 &:first-child {
                     margin: 0;
                 }
