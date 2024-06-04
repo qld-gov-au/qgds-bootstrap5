@@ -183,7 +183,7 @@
     --last-para-margin: 24px;
     --qld-footer-padding-y: 0;
 
-    padding-top: calc(var(--#{$prefix}footer-gap) * 2);
+    padding-top: calc(var(--gap) * 2);
     .footer-site-name {
       margin-block-end: calc(var(--#{$prefix}footer-gap) * 2);
     }
@@ -193,6 +193,7 @@
 
         > .col-md-12 {
           border-top: calc(var(--#{$prefix}footer-border-width) - 1px) solid var(--#{$prefix}footer-color-border);
+
           padding-inline: 0;
           margin-inline-start: var(--qld-gutter-x);
           width: calc(100% - calc(var(--qld-gutter-x) * 2));
@@ -333,6 +334,8 @@
       text-decoration: none;
       &:hover {
         border-color: var(--#{$prefix}formIO-btn-close-colour__hover);
+        text-decoration: underline;
+        text-decoration-thickness: var(--qld-link-underline-thickness-hover);
       }
     }
   }
@@ -379,12 +382,12 @@
       width: 100%;
       &:hover,
       &:active {
-        color: var(--qld-btn-color);
-        border-color: var(--qld-btn-active-bg);
+        color: var(--#{$prefix}formIO-submit-btn-text); //var(--qld-btn-color);
+        border-color: var(--#{$prefix}formIO-submit-btn-hover); //var(--qld-btn-active-bg);
         text-decoration-line: underline;
-        text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+        text-decoration-thickness: var(--#{$prefix}formIO-form-control-border-width);
         text-underline-offset: var(--#{$prefix}footer-text-underline-offset);
-        background-color: var(--qld-btn-active-bg);
+        background-color: var(--#{$prefix}formIO-submit-btn-hover); //var(--qld-btn-active-bg);
       }
       &:disabled {
         color: var(--#{$prefix}formIO-formio-colour);
@@ -404,6 +407,9 @@
           span {
             margin-inline-start: var(--#{$prefix}footer-spacing);
           }
+        }
+        .form-check-input {
+          margin-left: 0;
         }
       }
     }
