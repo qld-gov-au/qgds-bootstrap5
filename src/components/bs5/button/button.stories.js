@@ -19,8 +19,10 @@ export default {
   args: defaultdata,
   render: (args) => {
     return `
-    ${new Button(args).html}
-    ${new Button({...args, isdisabled: true}).html}
+    <div class="btn-toolbar">
+      ${new Button(args).html}
+      ${new Button({...args, isdisabled: true}).html}
+    </div>
     `//expand arguments, specifically turn isdisabled into true
   },
 
@@ -88,10 +90,10 @@ export const Dark = {
 };
 
 /**
- * Show all button variants in the Default theme.
+ * Show all button variants in the Default Light mode.
  * This Story can be used to help in troubleshooting.
  */
-export const AllVariantsInDefaultColour = {
+export const AllVariantsInDefaultMode = {
   render:() => {
     const states = [
       { isdisabled: false, label: 'Enabled' },
@@ -111,7 +113,7 @@ export const AllVariantsInDefaultColour = {
 
       return `<div class="d-grid mb-4">
                 <div class="fw-bold">${variantLabel}</div>
-                <div>
+                <div class="btn-toolbar">
                   ${variantButtons}
                 </div>
               </div>`;
@@ -123,4 +125,54 @@ export const AllVariantsInDefaultColour = {
       disable: true,
     },
   },
+};
+
+/**
+ * Show all button variants in the Dark mode.
+ * This Story can be used to help in troubleshooting.
+ */
+export const AllVariantsInDarkMode = {
+  render:() => {
+    const states = [
+      { isdisabled: false, label: 'Enabled' },
+      { isdisabled: true, label: 'Disabled' },
+    ];
+
+    /* Return all button variants with label = variant + state */
+    return Object.entries(buttonVariants).map(([variantClass, variantLabel]) => {
+      const variantButtons = states.map(state =>
+        new Button({
+          ...defaultdata,
+          variantClass,
+          ...state,
+          label: state.label,
+        }).html
+      ).join('');
+
+      return `<div class="d-grid mb-4">
+                <div class="fw-bold">${variantLabel}</div>
+                <div class="btn-toolbar">
+                  ${variantButtons}
+                </div>
+              </div>`;
+
+    }).join('');
+  },
+  parameters: {
+    backgrounds: {
+      default: 'Dark',
+    },
+    controls: {
+      disable: true,
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
