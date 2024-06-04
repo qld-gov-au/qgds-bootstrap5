@@ -257,10 +257,15 @@
                     </div>
                     {{/if}}
                     <div class="footer-content">
-                        {{#if acknowledgementHasTitle}}
-                            <h3 class="footer-heading">{{ acknowledgement.title }}</h3>
-                        {{/if}}
-                        {{{ acknowledgement.content }}}
+                        {{#each acknowledgements}}
+                        
+                            {{#if title}}
+                                <h3 class="footer-heading">{{title}}</h3>
+                            {{/if}}
+
+                            {{{ content }}}
+                        
+                        {{/each}}
                         <p class="copyright">{{{ copyright.content }}} {{#if copyrightHasYearFrom }}{{ copyright.yearFrom }} - {{/if}} {{copyright.currentYear}}</p>
                         {{#if footerHasStateOfQld }}
                             <p><a class="fw-semibold" href="{{ lookup.link.URL }}" rel="external">{{ lookup.link.text }}</a></p>

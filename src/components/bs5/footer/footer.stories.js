@@ -59,8 +59,14 @@ export const Forgov = {
     followlinksEnabled: false,
     contactHasContactList: false,
     copyrightHasYearFrom: true,
-    acknowledgementHasTitle: true,
     footerHasStateOfQld: false,
+    acknowledgements: [
+      {
+        title: "Cultural acknowledgement",
+        content:
+          "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>",
+      },
+    ],
   },
   render: (args) => new FooterForgov(args).html,
 };
