@@ -34,7 +34,10 @@
     //Icon color is scoped against the parent container, not the input :( 
     &:has(.form-control:hover) { --icon-color: var(--qld-dark-grey-muted); }
     &:has(.form-control:focus) { --icon-color: var(--qld-text-grey); }
-
+    
+    .btn {
+        box-shadow:none;
+    }
     .form-control {
 
         padding: 0.75rem 1rem 0.75rem 3rem;
@@ -100,18 +103,31 @@
 @include media-breakpoint-down(md) {
     .qld-search-input {
         .form-control {
-            padding-left: 1rem;
+            padding-left: 0rem!important;
 
             + button {
                 span.btn-label {
                     display: none;
+                    width: 48px!important;
+                    padding: 0!important;
                 }
                 //Show the search icon (on button) on small screens
                 span.btn-icon {
                     display: block;
                 }
             }
+        }
+        #search-button {
+            &.btn {
+                padding: 0!important;
+                margin: 0!important;
+                width: 48px;
 
+                .btn-icon {
+                    margin-left: 10px!important;
+                }
+            }
+            
         }
 
         //Hide the search icon (input field) on small screens
