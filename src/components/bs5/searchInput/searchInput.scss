@@ -200,11 +200,13 @@
 @include media-breakpoint-down(md) {
     .qld-search-input {
         .form-control {
-            padding-left: 1rem;
+            padding-left: 0rem!important;
 
             +button {
                 span.btn-label {
                     display: none;
+                    width: 48px!important;
+                    padding: 0!important;
                 }
 
                 //Show the search icon (on button) on small screens
@@ -212,7 +214,18 @@
                     display: block;
                 }
             }
+        }
+        #search-button {
+            &.btn {
+                padding: 0!important;
+                margin: 0!important;
+                width: 48px;
 
+                .btn-icon {
+                    margin-left: 10px!important;
+                }
+            }
+            
         }
 
         //Hide the search icon (input field) on small screens
