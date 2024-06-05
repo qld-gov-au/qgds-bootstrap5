@@ -32,9 +32,7 @@ $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
 $qld-text-light-blue-dark : $core-default-color-neutral-lighter;
-// Commented out because it may not be defined
 $qld-light-green-dark : $core-default-color-brand-primary-light-green;
-// Commented out because it may not be defined
 $qld-dark-green-dark : $color-default-color-dark-action-primary;
 $qld-light-yellow : $core-default-color-status-caution-lightest;
 $qld-button-dark-blue : $color-default-color-light-action-primary-hover;
@@ -72,7 +70,7 @@ $qld-white-underline : $core-default-color-status-underline-light;
 $qld-dark-underline : $core-default-color-status-underline-dark;
 $qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
 $qld-maroon-modern : $core-default-color-brand-other-modern-maroon;
-$qld-notify-warning : $core-default-color-status-caution-default;
+$qld-notify-warning : $core-default-color-status-error-default;
 $qld-notify-information: $core-default-color-status-info-default;
 $qld-notify-success : $core-default-color-status-success-default;
 $qld-notify-alert : $core-default-color-status-caution-default;
@@ -220,8 +218,8 @@ $project-colors: (
 );
 
 // Merge maps
-$merged-theme-qld: map-merge($theme-colors, $qld-tokens);
-$theme-colors: map-merge($merged-theme-qld, $project-colors);
+$merged-theme: map-merge($theme-colors, $qld-tokens);
+$theme-colors: map-merge($merged-theme, $project-colors);
 
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (

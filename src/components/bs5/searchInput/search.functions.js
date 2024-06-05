@@ -147,4 +147,3 @@ async function fetchData(url, type) {
   
   // Attach the function to the window object to make it globally accessible
   window.selectSuggestion = selectSuggestion;
-  
