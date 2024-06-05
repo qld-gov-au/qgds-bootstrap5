@@ -46,7 +46,7 @@
 				color: var(--#{$prefix}header_skip-link_focus_text_color);
 				background-color: var(--#{$prefix}header_skip-link_focus_bg_color);
 				outline: 3px solid var(--#{$prefix}header_skip-link_focus_outline_color);
-				z-index: 600;
+				z-index: 999;
 			}
 		}
 	}
