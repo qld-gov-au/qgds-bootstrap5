@@ -9,8 +9,14 @@
 export function initBreadcrumb() {
   // Set the standard breadcrumb length.
   const maxLength = 4;
+
   // Get the breadcrumb DOM element.
-  const breadcrumbList = document.querySelector('.breadcrumb').querySelectorAll('.breadcrumb-item');
+  const breadcrumb = document.querySelector('.breadcrumb');
+  if (!breadcrumb) {
+    return;
+  }
+  const breadcrumbList = breadcrumb.querySelectorAll('.breadcrumb-item');
+
   // Return when breadcrumb does not exist.
   if (!breadcrumbList || !breadcrumbList.length) {
     return;
@@ -66,10 +72,15 @@ export function breadcrumbShorten(breadcrumbList, maxLength = 4) {
  * @returns {void} Returns early when the breadcrumb does not exist or is empty.
  */
 export function breadcrumbExpand(event) {
-  const breadcrumbList = event.target.closest('.breadcrumb').querySelectorAll('.breadcrumb-item');
+  const breadcrumb = event.target.closest('.breadcrumb');
+  if (!breadcrumb) {
+    console.log('breadcrumbExpand: Breadcrumb does not exist.');
+    return;
+  }
+  const breadcrumbList = breadcrumb.querySelectorAll('.breadcrumb-item');
 
   if (!breadcrumbList || !breadcrumbList.length) {
-    console.log('Breadcrumb does not exist or is empty.');
+    console.log('breadcrumbExpand: Breadcrumb does not exist or is empty.');
     return;
   }
   
