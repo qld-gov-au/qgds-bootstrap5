@@ -88,8 +88,12 @@ ul, ol, p, .accordion-body {
 li {
     margin-top: 0.5rem;
 }
-.nav {
-    line-height: 0;
+
+.nav, .nav ul {
+    line-height: 1.5!important;
+}
+.nav-item {
+    margin-top: 0;
 }
 
 .dark,
@@ -146,6 +150,12 @@ a.nav-link {
     outline: 2px solid var(--qld-focus-color);
     outline-offset: 2px;
   }
+}
+caption {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
 }
 
 a.nostyle {
