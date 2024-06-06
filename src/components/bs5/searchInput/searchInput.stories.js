@@ -6,7 +6,7 @@ export default {
   tags: ["autodocs"],
   title: "Components/Search Input",
   render: (args) => {
-    return new SearchInput(args).html;
+    return `<form class="site-search">${new SearchInput(args).html}</form>`;
   },
 
   argTypes: {

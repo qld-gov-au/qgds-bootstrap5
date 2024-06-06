@@ -4,8 +4,8 @@
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss,
 
 //QGDS tokens - masterbrand
-@import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
 @import "@qld-gov-au/qgds-tokens/dist/scss/_variables.scss";
+@import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
 
 //QLD Names Colours
 $qld-dark-blue : $core-default-color-brand-primary-dark-blue;
@@ -48,15 +48,17 @@ $qld-brand-secondary : $qld-light-green;
 $qld-brand-accent : $qld-golden-yellow;
 
 //Grays
-$qld-system-darkest : #1D1D1D;
-$qld-hint-text-color: #6F777b;
-$qld-dark-grey : #595959;
-$qld-dark-grey-muted : #636363; // --QLD-color-light-text__muted
-$qld-medium-grey : #78797E;
-$qld-soft-grey : #7A7A7A;
-$qld-alt-grey : #DADADA;
-$qld-light-link: #1E5866;
+$qld-system-darkest : $core-default-color-neutral-darkest;
+$qld-hint-text-color: $core-default-color-neutral-dark;
+$qld-dark-grey : $core-default-color-neutral-darker;
+$qld-medium-grey : $core-default-color-neutral-dark;
+$qld-alt-grey : $core-default-color-neutral-light;
+$qld-light-link: $color-default-color-light-link-default;
 
+//Should be core color rather than second hand reference (no match)
+$qld-soft-grey : $color-default-color-light-border-alt;
+
+$qld-dark-grey-muted : $color-default-color-light-text-lighter; 
 $qld-text-grey : $color-default-color-light-text-default;
 $qld-hint-text-color-muted: $core-default-color-neutral-lighter;
 $qld-color-dark-button-hover: $core-default-color-brand-primary-light-green;
@@ -218,8 +220,8 @@ $project-colors: (
 );
 
 // Merge maps
-$merged-theme: map-merge($theme-colors, $qld-tokens);
-$theme-colors: map-merge($merged-theme, $project-colors);
+$tokens: map-merge($theme-colors, $qld-tokens);
+$theme-colors: map-merge($tokens, $project-colors);
 
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (
