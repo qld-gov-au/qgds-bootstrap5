@@ -6,18 +6,16 @@ export default {
   tags: ["autodocs"],
   title: "Components/Quickexit",
   render: (args) => {
-    
-    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 
+    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.
     //We can't use commas on our class="..." attribute, so we need to replace the commas with spaces.
 
-    if( typeof(args.customClass) === 'string' ) {
-      args.customClass = args.customClass.replaceAll(","," ");
-    } else if ( typeof(args.customClass) === 'object' ) {
+    if (typeof args.customClass === "string") {
+      args.customClass = args.customClass.replaceAll(",", " ");
+    } else if (typeof args.customClass === "object") {
       args.customClass = args.customClass.join(" ");
     }
-  
+
     return new Quickexit(args).html;
-  
   },
 };
 
@@ -32,15 +30,39 @@ export const Default = {
  * Dark themed Loading Quickexit
  */
 export const Dark = {
-  args: { 
-	  ...defaultdata,
+  args: {
+    ...defaultdata,
   },
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-brand-primary)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
+ * Forgov Quickexit
+ */
+export const Forgov = {
+  args: {
+    ...defaultdata,
+    hasIconInfo: false,
+    hasTooltip: false,
+  },
+  parameters: {
+    backgrounds: {
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
     },
   },
   decorators: [
