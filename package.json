@@ -61,7 +61,7 @@
     "@whitespace/storybook-addon-html": "^6.1.1",
     "autoprefixer": "^10.4.15",
     "chalk": "^5.3.0",
-    "chromatic": "^11.5.1",
+    "chromatic": "^11.5.3",
     "esbuild": "0.21.4",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-eslint": "^0.3.7",
