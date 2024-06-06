@@ -4,11 +4,16 @@ import {
   accordionHashLinks,
 } from "./components/bs5/accordion/accordion.functions";
 import { videoEmbedPlay, videoTranscriptTitle } from "./components/bs5/video/video.functions";
-import { initializeNavbar } from "./components/bs5/navbar/navbar.functions";
-import { breadcrumbShorten } from "./components/bs5/breadcrumbs/breadcrumb.functions";
-import { positionQuickExit, initQuickexit } from "./components/bs5/quickexit/quickexit.functions";
-import { toggleSearch, showSuggestions } from "./components/bs5/header/header.functions";
+import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
+import { initBreadcrumb } from "./components/bs5/breadcrumbs/breadcrumb.functions";
+import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
+import { toggleSearch, showSuggestions } from './components/bs5/header/header.functions';
 import { displayFeedbackForm } from "./components/bs5/footer/footer.functions";
+
+window.addEventListener('scroll', positionQuickExit, true);
+window.addEventListener('resize', positionQuickExit, true);
+window.addEventListener('click', initQuickexit, true);
+window.addEventListener('keydown', initQuickexit, true);
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
@@ -69,7 +74,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     // Breadcrumb
-    breadcrumbShorten();
+    initBreadcrumb();
 
     // Quick exit
     window.addEventListener("scroll", positionQuickExit, true);

@@ -108,7 +108,7 @@ jobs:
           tag_branch: main
         if: success()
 
-      - name: Publish to qld-gov-au/qgds-qol-mvp-cdn
+      - name: Publish to qld-gov-au/qgds-bootstrap5-cdn
         uses: qld-gov-au/gha-cdn-version-tree-by-tag-builder@main
         with:
           repository: ${{ vars.TARGET_REPO_CDN }}
