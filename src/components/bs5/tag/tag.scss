@@ -54,16 +54,12 @@
             &:active,
             &:focus {
                 background-color: $qld-textbox-border-color;
+                color: $qld-white;
+                text-decoration: underline;
+                text-underline-offset: var(--qld-link-underline-offset);
 
                 a {
                     color: $qld-white;
-                }
-                &:hover,
-                &:active,
-                &:focus {
-                    color: $qld-white;
-                    text-decoration: underline;
-                    text-underline-offset: var(--qld-link-underline-offset);
                 }
             }
         }
