@@ -132,7 +132,11 @@ a.nav-link {
         color: var(--qld-headings-color);
     }
         a, a.nav-link {
+<<<<<<< HEAD
             text-decoration-color: #B5CCE2;
+=======
+            text-decoration-color: var(--qld-link-dark-underline);
+>>>>>>> c4b8f90d494af5fe4fc38c27d3c7b419382a87d3
             &:visited {
                 color: var(--qld-link-visited-dark);
                 text-decoration-color: var(--qld-link-visited-dark);
