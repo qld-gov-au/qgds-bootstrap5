@@ -1,3 +1,6 @@
+// QGDS QOL Button
+// extends https://getbootstrap.com/docs/5.3/components/buttons/#variables
+
 .btn {
     --#{$prefix}btn-padding-x: 1.5rem;
     --#{$prefix}btn-padding-y: 0.75rem;
@@ -8,50 +11,60 @@
     --#{$prefix}btn-focus-box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.2);
     --#{$prefix}btn-disabled-opacity: 0.5;
 
+    //Primary button variant
     &-primary {
-    --#{$prefix}btn-bg: var(--#{$prefix}sapphire-blue);
-    --#{$prefix}btn-hover-bg: var(--#{$prefix}button-dark-blue);
-    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}btn-active-color: var(--#{$prefix}text-dark-blue);
-    --#{$prefix}btn-disabled-bg: var(--#{$prefix}grey);
-    --#{$prefix}btn-disabled-color: var(--#{$prefix}light-text-heading);
-    --#{$prefix}btn-disabled-opacity: 1;
-    --#{$prefix}btn-disabled-border-color: transparent;
+        --#{$prefix}btn-bg: var(--#{$prefix}sapphire-blue);
+        --#{$prefix}btn-hover-bg: var(--#{$prefix}button-dark-blue);
+        --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
+        --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
+        --#{$prefix}btn-disabled-bg: var(--#{$prefix}grey);
+        --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
+        --#{$prefix}btn-disabled-opacity: 1;
+        --#{$prefix}btn-disabled-border-color: transparent;
     }
+
+    //Secondary button variant
     &-secondary,
     &-outline-secondary {
-    --#{$prefix}btn-bg: transparent;
-    --#{$prefix}btn-color: var(--#{$prefix}sapphire-blue);
-    --#{$prefix}btn-border-color: var(--#{$prefix}dark-green);
-    --#{$prefix}btn-hover-color: var(--#{$prefix}sapphire-blue);
-    --#{$prefix}btn-hover-bg: transparent;
-    --#{$prefix}btn-hover-border-color: var(--#{$prefix}alt-button-hover);
-    --#{$prefix}btn-active-color: var(--#{$prefix}text-dark-blue);
-    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}btn-active-border-color: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}btn-active-shadow: none;
-    --#{$prefix}btn-disabled-bg: transparent;
-    --#{$prefix}btn-disabled-color: var(--#{$prefix}light-text-heading);
-    --#{$prefix}btn-disabled-opacity: 1;
-    --#{$prefix}btn-disabled-border-color: var(--#{$prefix}grey);
-    --#{$prefix}gradient: none;
+        --#{$prefix}btn-bg: transparent;
+        --#{$prefix}btn-color: var(--#{$prefix}sapphire-blue);
+        --#{$prefix}btn-border-color: var(--#{$prefix}dark-green);
+        --#{$prefix}btn-hover-color: var(--#{$prefix}sapphire-blue);
+        --#{$prefix}btn-hover-bg: transparent;
+        --#{$prefix}btn-hover-border-color: var(--#{$prefix}alt-button-hover);
+        --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
+        --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
+        --#{$prefix}btn-active-border-color: var(--#{$prefix}extra-light-grey);
+        --#{$prefix}btn-active-shadow: none;
+        --#{$prefix}btn-disabled-bg: transparent;
+        --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
+        --#{$prefix}btn-disabled-opacity: 1;
+        --#{$prefix}btn-disabled-border-color: var(--#{$prefix}grey);
+        --#{$prefix}gradient: none;
     }
+
+    //Tertiary button variant    
     &-tertiary {
-    --#{$prefix}btn-color: #{$primary};
-    --#{$prefix}btn-border-color: transparent;
-    --#{$prefix}btn-hover-color: #{$primary};
-    --#{$prefix}btn-hover-bg: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}btn-hover-border-color: transparent;
-    --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
-    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}btn-active-shadow: none;
-    --#{$prefix}btn-disabled-bg: transparent;
-    --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
-    --#{$prefix}btn-disabled-opacity: 1;
-    --#{$prefix}btn-disabled-border-color: transparent;
-    --#{$prefix}gradient: none;
+        --#{$prefix}btn-color: #{$primary};
+        --#{$prefix}btn-border-color: transparent;
+        --#{$prefix}btn-hover-color: #{$primary};
+        --#{$prefix}btn-hover-bg: var(--#{$prefix}extra-light-grey);
+        --#{$prefix}btn-hover-border-color: transparent;
+        --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
+        --#{$prefix}btn-active-bg: transparent;
+        --#{$prefix}btn-active-shadow: none;
+        --#{$prefix}btn-disabled-bg: transparent;
+        --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
+        --#{$prefix}btn-disabled-opacity: 1;
+        --#{$prefix}btn-disabled-border-color: transparent;
+        --#{$prefix}gradient: none;
     }
-    .dark &, .dark-alt & {
+}
+
+.dark .btn, 
+.dark-alt .btn {
+
+    //Primary button variant (dark mode)
     &-primary {
         --#{$prefix}btn-bg: var(--#{$prefix}dark-green-dark);
         --#{$prefix}btn-border-color: var(--#{$prefix}dark-green-dark);
@@ -64,7 +77,9 @@
         --#{$prefix}btn-disabled-bg: rgba(224, 224, 224, 0.1);
         --#{$prefix}btn-disabled-color: var(--#{$prefix}text-light-blue-dark);
         --#{$prefix}btn-disabled-border-color: transparent;
-        }
+    }
+
+    //Secondary button variant (dark mode)
     &-secondary,
     &-outline-secondary {
         --#{$prefix}btn-border-color: var(--#{$prefix}golden-yellow);
@@ -78,6 +93,8 @@
         --#{$prefix}btn-disabled-color: var(--#{$prefix}text-light-blue-dark);
         --#{$prefix}btn-disabled-border-color: rgba(224, 224, 224, 0.1);
     }
+
+    //Tertiary button variant (dark mode)
     &-tertiary {
         --#{$prefix}btn-color: var(--#{$prefix}white);
         --#{$prefix}btn-bg: transparent;
@@ -91,8 +108,8 @@
         --#{$prefix}btn-disabled-color: var(--#{$prefix}text-light-blue-dark);
         --#{$prefix}btn-disabled-border-color: transparent;
     }
-    }
 }
+
 a.btn, .btn {
     white-space: nowrap;
 
@@ -122,6 +139,8 @@ a.btn, .btn {
     &.disabled {
         color: var(--#{$prefix}btn-disabled-color);
     }
+
+    //Primary button variant
     &-primary {
         box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
 
@@ -141,6 +160,8 @@ a.btn, .btn {
             box-shadow: none;
         }
     }
+
+    //Secondary button variant
     &-secondary,
     &-outline-secondary {
         .btn-icon {
@@ -170,6 +191,8 @@ a.btn, .btn {
             }
         }
     }
+
+    //Tertiary button variant
     &-tertiary {
         text-decoration: underline;
         text-underline-offset: 0.3em;
@@ -196,11 +219,14 @@ a.btn, .btn {
             }
         }
     }
+
+    //Dark mode button variants
     .dark &, .dark-alt & {
         &:focus {
             outline: var(--#{$prefix}dark-focus) solid 3px;
             outline-offset: 2px;
-            }
+        }
+
         &-secondary,
         &-outline-secondary {
             color: var(--#{$prefix}btn-disabled-color);
@@ -210,10 +236,15 @@ a.btn, .btn {
             .btn-icon {
                 color: var(--#{$prefix}golden-yellow);
             }
+            &:hover {
+                .btn-icon {
+                    color: var(--#{$prefix}dark-action-secondary-hover);
+                }
+            }
             &:active {
                 text-decoration: none;
                 .btn-icon {
-                    color: var(--#{$prefix}btn-active-color);
+                    color: var(--#{$prefix}white);
                 }
             }
             &:disabled, &.disabled {
@@ -225,7 +256,8 @@ a.btn, .btn {
     }
 }
 
-.btn-group .btn {
+// Buttons grouping using btn-toolbar.
+.btn-toolbar .btn {
     @include media-breakpoint-down(md) {
         width: 100%;
         margin: 24px 0;

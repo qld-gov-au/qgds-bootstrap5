@@ -65,6 +65,14 @@ const preview = {
                 method: 'alphabetical',
             }
         },
+        a11y: {
+            // Optional configuration for the a11y addon
+            config: {},
+            options: {
+                checks: { 'color-contrast': { options: { noScroll: true } } },
+                restoreScroll: true,
+            },
+        },
     },
 
     decorators: [

@@ -183,10 +183,10 @@ export async function showSuggestions(value = '', isDefault = false) {
         <div class="suggestions-category mt-2">
           <strong>Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
-            if (!item.disp) return ''; // Check if item.disp is defined
-            const highlightedText = item.disp.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-            return `<li onclick="window.selectSuggestion('${item.disp}')"><a href="#">${highlightedText}</a></li>`;
-          }).join('')}</ul>
+    if (!item.disp) return ''; // Check if item.disp is defined
+    const highlightedText = item.disp.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
+    return `<li onclick="window.selectSuggestion('${item.disp}')"><a href="#">${highlightedText}</a></li>`;
+  }).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
