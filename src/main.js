@@ -7,8 +7,9 @@ import { videoEmbedPlay, videoTranscriptTitle } from "./components/bs5/video/vid
 import { initializeNavbar } from './components/bs5/navbar/navbar.functions';
 import { initBreadcrumb } from "./components/bs5/breadcrumbs/breadcrumb.functions";
 import { positionQuickExit, initQuickexit } from './components/bs5/quickexit/quickexit.functions';
-import { toggleSearch, showSuggestions } from './components/bs5/header/header.functions';
 import { displayFeedbackForm } from "./components/bs5/footer/footer.functions";
+import { toggleSearch } from './components/bs5/header/header.functions';
+import { showSuggestions } from './components/bs5/searchInput/search.functions';
 
 window.addEventListener('scroll', positionQuickExit, true);
 window.addEventListener('resize', positionQuickExit, true);
@@ -18,11 +19,15 @@ window.addEventListener('keydown', initQuickexit, true);
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
     //Header search
-    let headerSearchButton = document.querySelector(".qld__main-nav__toggle-search");
+    let headerSearchButton = document.querySelector('.qld__main-nav__toggle-search');
+
     if (headerSearchButton) {
-      document.querySelector(".qld__main-nav__toggle-search").addEventListener("click", toggleSearch);
+      document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
     }
-    const searchInput = document.getElementById("search-input");
+
+    const form = document.querySelector('.site-search');
+    const searchInput = form.querySelector('.qld-search-input input');
+
     if (searchInput) {
       let timeout;
 
@@ -42,10 +47,11 @@ window.addEventListener("DOMContentLoaded", () => {
           showSuggestions("", true);
         }
       });
+
       // Close suggestions when clicking outside
-      document.addEventListener("click", function (event) {
-        if (!searchInput.contains(event.target) && !document.getElementById("suggestions").contains(event.target)) {
-          document.getElementById("suggestions").style.display = "none";
+      document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !document.querySelector('.suggestions').contains(event.target)) {
+          document.querySelector('.suggestions').style.display = 'none';
         }
       });
     }
@@ -59,8 +65,6 @@ window.addEventListener("DOMContentLoaded", () => {
       // Set the data-page-url attribute on the <header> element
       header.setAttribute('data-page-url', url);
     }
-    
-    document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
     
     // Navbar
     initializeNavbar();

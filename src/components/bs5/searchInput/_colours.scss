@@ -1,0 +1,63 @@
+.qld-search-input {
+    // ------------------------------------------------------------------------------------------------------------------
+    //  1. Common vars
+    // ------------------------------------------------------------------------------------------------------------------
+    //  Search inputs
+    --#{$prefix}site-search-bg: var(--#{$prefix}color-default-color-light-background-default-shade);
+    --#{$prefix}site-search-btn-color: var(--#{$prefix}color-default-color-dark-text-default);
+    --#{$prefix}site-search-btn-bg: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}site-search-border-color: var(--#{$prefix}color-default-color-light-action-primary-hover);
+    --#{$prefix}site-search-icon-color:var(--#{$prefix}color-default-color-light-text-lighter);
+    --#{$prefix}site-search-text-color:var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}site-search_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
+
+    // Search input dark
+    --#{$prefix}dark-site-search-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}dark-site-search-btn-color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}dark-site-search-btn-bg: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --#{$prefix}dark-site-search-border-color: var(--#{$prefix}color-default-color-dark-border-default);
+    --#{$prefix}dark-site-search-icon-color:var(--#{$prefix}color-default-color-dark-text-lighter);
+    --#{$prefix}dark-site-search-text-color:var(--#{$prefix}color-default-color-dark-text-default);
+    
+    // Dropdown
+    --#{$prefix}site-search-suggestions-bg: var(--#{$prefix}color-default-color-light-background-default-shade);
+    --#{$prefix}site-search-suggestions-hover: var(--#{$prefix}color-default-color-light-border-default);
+    --#{$prefix}site-search-suggestions-hover__border_color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --#{$prefix}site-search-suggestions-feature_bg: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}site-search-suggestions-feature_hover: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}site-search-suggestions-feature_text-color: var(--#{$prefix}color-default-color-dark-text-default);
+
+    // Search bootstrap variables
+    --site-search-bg: var(--#{$prefix}site-search-bg);
+    --site-search-btn-color: var(--#{$prefix}site-search-btn-color);
+    --site-search-btn-bg: var(--#{$prefix}site-search-btn-bg);
+    --site-search-border-color: var(--#{$prefix}site-search-border-color);
+    --site-search-icon-color: var(--#{$prefix}site-search-icon-color);
+    --site-search-input-color: var(--#{$prefix}site-search-text-color);
+    --site-search-text-color: var(--#{$prefix}site-search-text-color);
+    --site-search-input-focus-color: var(--#{$prefix}color-default-color-light-focus-default);
+
+    
+    // ------------------------------------------------------------------------------------------------------------------
+    //  2. Colour modes
+    // ------------------------------------------------------------------------------------------------------------------
+    .dark &,
+    .dark-alt & {
+        // Search (dark/dark/alt)
+        --site-search-bg: var(--#{$prefix}dark-site-search-bg);
+        --site-search-btn-color: var(--#{$prefix}dark-site-search-btn-color);
+        --site-search-btn-bg: var(--#{$prefix}dark-site-search-btn-bg);
+        --site-search-border-color: var(--#{$prefix}dark-site-search-border-color);
+        --site-search-icon-color: var(--#{$prefix}dark-site-search-icon-color);
+        --site-search-input-color: var(--#{$prefix}dark-site-search-text-color);
+        --site-search-text-color: var(--#{$prefix}dark-site-search-text-color);
+
+        // Suggestions colours
+        --#{$prefix}site-search-suggestions-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+        --#{$prefix}site-search-suggestions-hover: var(--#{$prefix}color-default-color-dark-background-default);
+        --#{$prefix}site-search-suggestions-hover__border_color: var(--#{$prefix}color-default-color-dark-accent-design-accent);
+        --#{$prefix}site-search-suggestions-feature_bg: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}site-search-suggestions-feature_hover: var(--#{$prefix}color-default-color-dark-background-alt-shade);
+        --#{$prefix}site-search-suggestions-feature_text-color: var(--#{$prefix}color-default-color-dark-text-default);
+    }
+}
