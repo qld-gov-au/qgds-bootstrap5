@@ -20,6 +20,7 @@
 
     // Mobile default is dark
     --#{$prefix}navbar-overlay: var(--#{$prefix}color-default-color-dark-background-alt-shade);
+    --#{$prefix}navbar-mobile-home-icon-color: var(--#{$prefix}color-default-color-light-action-secondary);
     --#{$prefix}navbar-mobile-header-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
     --#{$prefix}navbar-mobile-svg-color: var(--#{$prefix}color-default-color-dark-action-secondary);
     --#{$prefix}navbar-mobile-text-color: var(--#{$prefix}core-default-color-neutral-white);
@@ -44,6 +45,7 @@
     .dark &,
     .dark-alt & {
         // Mobile default is dark
+        --#{$prefix}navbar-mobile-home-icon-color: var(--#{$prefix}color-default-color-dark-action-secondary);
         --#{$prefix}navbar-mobile-menu-toggle-bg: var(--#{$prefix}color-default-color-dark-background-alt);
         --#{$prefix}navbar-mobile-header-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
         --#{$prefix}navbar-mobile-svg-color: var(--#{$prefix}color-default-color-dark-action-secondary);

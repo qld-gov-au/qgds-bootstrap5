@@ -44,6 +44,13 @@ window.addEventListener("DOMContentLoaded", () => {
           showSuggestions('', true);
         }
       });
+
+      // Close suggestions when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !document.querySelector('.suggestions').contains(event.target)) {
+          document.querySelector('.suggestions').style.display = 'none';
+        }
+      });
     }
 
     //Header 

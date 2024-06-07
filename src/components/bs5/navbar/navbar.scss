@@ -455,7 +455,12 @@
                 display: block;
                 height: 2rem;
                 width: 1.5rem;
-                color: var(--#{$prefix}navbar-home-icon-color);
+                @include media-breakpoint-up(lg) {
+                    color: var(--#{$prefix}navbar-home-icon-color);
+                }
+                @include media-breakpoint-down(lg) {
+                    color: var(--#{$prefix}navbar-mobile-home-icon-color);
+                }
             }
         }
         .nav-link {
@@ -481,9 +486,6 @@
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-hover-border);
                     margin-bottom: -0.5rem;
                 }
-                @include media-breakpoint-down(lg) {
-                    //background-color: var(--#{$prefix}navbar-mobile-menuitem-hover);
-                }
             }
 
             &:visited {
@@ -495,6 +497,9 @@
                     background-color: var(--#{$prefix}navbar-bg-color);
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-bg-color);
                     margin-bottom: -0.5rem;
+                }
+                @include media-breakpoint-down(lg) {
+                    background-color: var(--#{$prefix}navbar-bg-color);
                 }
             }
         }
