@@ -105,15 +105,15 @@ a,
 a.nav-link {
   text-decoration: underline;
   text-underline-offset: var(--qld-link-underline-offset);
-  text-decoration-thickness: var(--qld-link-underline-thickness)!important;
+  text-decoration-thickness: var(--qld-link-underline-thickness);
 
   &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness-hover)!important;
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
   }
 
     &:visited {
-        color: var(--qld-link-visited);
-        text-decoration-color: var(--qld-link-visited-underline);
+        color: #551A8B;
+        text-decoration-color: #551A8B;
         &:hover {
             text-decoration-thickness: 2px;
             text-decoration-color: #551A8B;
