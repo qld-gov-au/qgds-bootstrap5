@@ -61,7 +61,6 @@ $qld-light-background: #EFF4F9;
 $qld-light-background-shade: #E5EEF5;
 $qld-light-border: #ECEDE9;
 $qld-dark-focus: #01B0E5;
-$qld-link-dark-underline:#B5CCE2;
 $qld-link-visited: #551A8B;
 $qld-link-visited-underline: #8B63B0;
 $qld-link-visited-dark: #E1BBEE;
@@ -259,10 +258,8 @@ $project-colors: (
   "dark-background-shade": $qld-color-dark-background--shade,
   "dark-alt-background": $qld-color-dark-alt-background,
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
-  "link-dark-underline": $qld-link-dark-underline,
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
-  "link-visited-underline": $qld-link-visited-underline,
 );
 
 // Merge maps
