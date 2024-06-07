@@ -94,10 +94,10 @@ a,
 a.nav-link {
     text-decoration: underline;
     text-underline-offset: var(--qld-link-underline-offset);
-    text-decoration-thickness: var(--qld-link-underline-thickness)!important;
+    text-decoration-thickness: var(--qld-link-underline-thickness);
 
     &:hover {
-        text-decoration-thickness: var(--qld-link-underline-thickness-hover)!important;
+        text-decoration-thickness: var(--qld-link-underline-thickness-hover);
     }
 
     &:visited {
