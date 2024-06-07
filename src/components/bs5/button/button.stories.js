@@ -108,7 +108,7 @@ export const AllVariantsInDefaultMode = {
           variantClass,
           ...state,
           label: state.label,
-        }).html
+        }).html,
       ).join('');
 
       return `<div class="d-grid mb-4">
@@ -146,7 +146,7 @@ export const AllVariantsInDarkMode = {
           variantClass,
           ...state,
           label: state.label,
-        }).html
+        }).html,
       ).join('');
 
       return `<div class="d-grid mb-4">
