@@ -113,6 +113,18 @@ li {
         }
 }
 
+li {
+    margin-top: 0.5rem;
+}
+
+.nav, .nav ul {
+    line-height: 1.5;
+}
+.nav-item {
+    margin-top: 0;
+}
+
+// Light, Light alt
 a {
     font-weight: var(--qld-link-font-weight);
 }
@@ -129,10 +141,10 @@ a.nav-link {
 
     &:visited {
         color: var(--qld-link-visited);
-        text-decoration-color: #8B63B0;
+        text-decoration-color: var(--qld-link-visited-underline);
         &:hover {
             text-decoration-thickness: 2px;
-            text-decoration-color: #551A8B;
+            text-decoration-color: var(--qld-link-visited);
         }
     }
 
@@ -146,7 +158,6 @@ caption {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
-
 }
 
 a.nostyle {
