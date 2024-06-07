@@ -207,20 +207,15 @@
 				font-size: .875rem;
 				line-height: 1.42;
 				padding-left: .75rem;
+				margin: 0 .5rem;
 				align-items: center;
 				color: var(--#{$prefix}header__cta-wrapper__cta-link_text_color);
-
-				&:hover {
-					.qld__header__cta-link-icon {
-						color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_hover_color);
-					}
-				}
 			}
 
 			.qld__header__cta-link-icon {
-				height: 1.25rem;
-				width: 1.25rem;
-				margin-right: .5rem;
+				height: 1rem;
+				width: 1rem;
+				margin-left: .5rem;
 				text-align: center;
 				display: inline-block;
 				color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);

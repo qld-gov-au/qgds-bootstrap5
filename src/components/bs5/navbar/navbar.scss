@@ -82,8 +82,9 @@
 
 
     &-collapse {
+
         @include media-breakpoint-down(md) {
-            width: 320px;
+            width: 20rem;
         }
 
         @include media-breakpoint-up(md) {
@@ -474,11 +475,14 @@
             &.show,
             &:hover {
                 text-decoration: underline;
-
+                background-color: var(--#{$prefix}navbar-menuitem-hover);
                 @include media-breakpoint-up(lg) {
                     background-color: var(--#{$prefix}navbar-menuitem-hover);
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-hover-border);
                     margin-bottom: -0.5rem;
+                }
+                @include media-breakpoint-down(lg) {
+                    //background-color: var(--#{$prefix}navbar-mobile-menuitem-hover);
                 }
             }
 

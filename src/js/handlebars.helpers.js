@@ -56,11 +56,6 @@ export default function handlebarsHelpers(Handlebars) {
       return options.inverse(this); // Render the else block if present
     }
   });
-  // Assigns a tab index that starts at 2
-  let tabindexCount = 2;
-  Handlebars.registerHelper('tabindex', function() {
-    return tabindexCount++;
-  });
 }
 
 if(typeof(Handlebars) !== 'undefined') {
