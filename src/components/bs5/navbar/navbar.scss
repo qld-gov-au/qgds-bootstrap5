@@ -82,8 +82,9 @@
 
 
     &-collapse {
+
         @include media-breakpoint-down(md) {
-            width: 320px;
+            width: 20rem;
         }
 
         @include media-breakpoint-up(md) {
@@ -255,7 +256,7 @@
     &__overlay {
         -webkit-transition: opacity .25s ease-in-out;
         transition: opacity .25s ease-in-out;
-        background-color: var(--#{$prefix}navbar-color-dark-alt-background__shade);
+        background-color: var(--#{$prefix}navbar-overlay);
         cursor: pointer;
         position: fixed;
         top: 0;
@@ -454,7 +455,12 @@
                 display: block;
                 height: 2rem;
                 width: 1.5rem;
-                color: var(--#{$prefix}navbar-home-icon-color);
+                @include media-breakpoint-up(lg) {
+                    color: var(--#{$prefix}navbar-home-icon-color);
+                }
+                @include media-breakpoint-down(lg) {
+                    color: var(--#{$prefix}navbar-mobile-home-icon-color);
+                }
             }
         }
         .nav-link {
@@ -474,7 +480,7 @@
             &.show,
             &:hover {
                 text-decoration: underline;
-
+                background-color: var(--#{$prefix}navbar-menuitem-hover);
                 @include media-breakpoint-up(lg) {
                     background-color: var(--#{$prefix}navbar-menuitem-hover);
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-hover-border);
@@ -491,6 +497,9 @@
                     background-color: var(--#{$prefix}navbar-bg-color);
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-bg-color);
                     margin-bottom: -0.5rem;
+                }
+                @include media-breakpoint-down(lg) {
+                    background-color: var(--#{$prefix}navbar-bg-color);
                 }
             }
         }

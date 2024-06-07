@@ -189,12 +189,12 @@
                                         href="{{url.value}}" 
                                         class="qld__header__cta-link" 
                                     {{/if}}>
-                                    {{#if icon.value}}
-                                        <span class="qld__header__cta-link-icon">
-                                            <i class="{{icon-root}}#{{icon.value}}"></i>
-                                        </span>
-                                    {{/if}}
                                     <span class="qld__header__cta-link-text">{{text.value}}</span>
+                                    {{#if dropdown_enabled}}
+                                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__header__cta-link-icon">
+                                            <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}"></use>
+                                        </svg>
+                                    {{/if}}
                                 </a>
 
                                 {{#if dropdown_enabled}}
@@ -242,15 +242,15 @@
                 {{#if siteSearchAsset.value}}
                 <button aria-controls="qld-header-search" class="qld__header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
-                        <use class="icon-search" href="{{icon-root}}#{{icons.search-icon}}" style="display: block;"></use>
-                        <use class="icon-close" href="{{icon-root}}#{{icons.close-icon}}" style="display: none;"></use>
+                        <use class="icon-search" href="{{@root.icon-root}}#{{@root.icons.search-icon}}" style="display: block;"></use>
+                        <use class="icon-close" href="{{@root.icon-root}}#{{@root.icons.close-icon}}" style="display: none;"></use>
                     </svg>
                     <span class="qld__main-nav__toggle-text">Search</span>
                 </button>
                 {{/if}}
                 <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg">
-                            <use href="{{icon-root}}#{{icons.menu-icon}}"></use>
+                            <use href="{{@root.icon-root}}#{{@root.icons.menu-icon}}"></use>
                         </svg>
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
@@ -880,15 +880,13 @@
             {{/if}}
             {{#if siteSearchAsset.value}}
             <div id="qld-header-search" class="qld__header__site-search qld__header__site-search--closed">
-                  <form id="site-search" role="search" 
-          {{#if siteSearchAsset.formAction.url}}action="{{siteSearchAsset.formAction.url}}"{{/if}}
-          {{#if siteSearchAsset.formAction.suggestions}}data-suggestions="{{siteSearchAsset.formAction.suggestions}}"{{/if}} 
-          {{#if siteSearchAsset.formAction.results}}data-results-url="{{siteSearchAsset.formAction.results}}"{{/if}} novalidate="true">
-                <input type="text" class="form-control{{#if siteSearchAsset.options.borderStyle.full}} border-full{{/if}}"
-                        placeholder="{{#if siteSearchAsset.placeholder}}{{siteSearchAsset.placeholder}}{{else}}Search this site{{/if}}"
-                        id="search-input">
-                <ul id="suggestions" class="suggestions-dropdown suggestions-dropdown__group"></ul>
-                <input type="submit" class="btn btn-primary" value="{{#if siteSearchAsset.label}}{{siteSearchAsset.label}}{{else}}Search{{/if}}">
+                <form class="site-search" role="search" 
+                    {{#if siteSearchAsset.formAction.url}}
+                        action="{{siteSearchAsset.formAction.url}}"
+                    {{else}}
+                        action="https://www.qld.gov.au/search"
+                    {{/if}}>
+                        {{{ searchInput }}}
                 </form>
             </div>
             {{/if}}

@@ -7,5 +7,14 @@
 	"buttonID": "search-button",
 	"buttonType": "submit",
 	"buttonLabel": "Search",
-	"ariaLabel": "Search website"
+	"ariaLabel": "Search website",
+	"suggestions": true,
+	"tags": {
+		"collection": "qgov~sp-search",
+		"profile": "qld",
+		"numranks": "10",
+		"tiers": "off",
+		"suggestions": "https://discover.search.qld.gov.au/s/suggest.json",
+		"results-url": "https://discover.search.qld.gov.au/s/search.json"
+	}
 }
