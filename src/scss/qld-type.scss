@@ -55,7 +55,7 @@ $link-visited-color:          $qld-link-visited;
     --qld-link-hover-color: #FFF;
     --qld-link-hover-color-rgb: 255, 255, 255;
 
-    --qld-link-visited: var(--qld-link-visited-dark)!important;
+    --qld-link-visited: var(--qld-link-visited-dark);
 
     --qld-selection-color: var(--qld-brand-primary);
     --qld-selection-bg: var(--qld-white);
@@ -79,7 +79,7 @@ li {
 }
 
 .nav, .nav ul {
-    line-height: 1.5!important;
+    line-height: 1.5;
 }
 .nav-item {
     margin-top: 0;
@@ -132,11 +132,7 @@ a.nav-link {
         color: var(--qld-headings-color);
     }
         a, a.nav-link {
-<<<<<<< HEAD
             text-decoration-color: #B5CCE2;
-=======
-            text-decoration-color: var(--qld-link-dark-underline);
->>>>>>> c4b8f90d494af5fe4fc38c27d3c7b419382a87d3
             &:visited {
                 color: var(--qld-link-visited-dark);
                 text-decoration-color: var(--qld-link-visited-dark);
