@@ -8,6 +8,7 @@
 @import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
 
 //QLD Names Colours
+<<<<<<< HEAD
 $qld-dark-blue : $core-default-color-brand-primary-dark-blue;
 $qld-sapphire-blue : $core-default-color-brand-primary-sapphire-blue;
 $qld-light-blue : $core-default-color-brand-primary-light-blue;
@@ -38,6 +39,49 @@ $qld-light-yellow : $core-default-color-status-caution-lightest;
 $qld-button-dark-blue : $color-default-color-light-action-primary-hover;
 $qld-text-darkest : $color-default-color-dark-link-on-action;
 $qld-dark-hover : $color-default-color-dark-background-default-shade;
+=======
+$qld-dark-blue : #05325F;
+$qld-sapphire-blue : #09549F;
+$qld-light-blue : #0085B3;
+$qld-light-green : #6BBE27;
+$qld-dark-green : #008635;
+$qld-golden-yellow : #FFE500;
+$qld-maroon-traditional : #771E32;
+$qld-maroon-modern : #A70240;
+$qld-dark-text: #FFFFFF;
+$qld-dark-border: #1D9AC6;
+$qld-dark-alt-border: #09ACFE;
+$qld-alt-button-hover: #005B23;
+$qld-general-info-alert: #e5eef5;
+$qld-red-border: #8A1220;
+$qld-blue-border: #5C94C0;
+$qld-yellow-border: #B38800;
+$qld-dark-blue-shade : #052C53;
+$qld-light-background: #EFF4F9;
+$qld-light-background-shade: #E5EEF5;
+$qld-light-border: #ECEDE9;
+$qld-dark-focus: #01B0E5;
+$qld-link-dark-underline:#B5CCE2;
+$qld-link-visited: #551A8B;
+$qld-link-visited-underline: #8B63B0;
+$qld-link-visited-dark: #E1BBEE;
+$qld-text-light-blue-dark : #DEEBF9;
+$qld-light-green-dark : #ADD33F;
+$qld-dark-green-dark : #78BA00;
+$qld-light-yellow : #FFEF60;
+$qld-button-dark-blue : #003E7D;
+$qld-text-darkest : #121940;
+$qld-dark-hover : #044a8f;
+
+//Hypothetical
+$cobrand-blue : #132D4E;
+$cobrand-grey : #294d7b;
+$cobrand-maroon : #A70240;
+$cobrand-purple : #634B78;
+$cobrand-yellow : #FBAF54;
+$cobrand-orange : #FD855D;
+
+>>>>>>> c4b8f90 (QOLOE-171 Fixed minor link text-decoration colours)
 
 //QGOV Brand Mapping - QLD.GOV.AU
 $qld-brand-primary-dark : $qld-dark-blue;
@@ -215,8 +259,10 @@ $project-colors: (
   "dark-background-shade": $qld-color-dark-background--shade,
   "dark-alt-background": $qld-color-dark-alt-background,
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
+  "link-dark-underline": $qld-link-dark-underline,
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
+  "link-visited-underline": $qld-link-visited-underline,
 );
 
 // Merge maps

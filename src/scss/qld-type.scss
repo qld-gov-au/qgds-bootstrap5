@@ -96,33 +96,7 @@ li {
     margin-top: 0;
 }
 
-.dark,
-.dark-alt {
-  body & {
-    color: var(--qld-body-color);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--qld-headings-color);
-  }
-        // .dark, .dark-alt & {
-        a, a.nav-link {
-            text-decoration-color: #B5CCE2;
-            &:visited {
-                color: var(--qld-link-visited-dark)!important;
-                text-decoration-color: var(--qld-link-visited-dark)!important;
-            }
-            // color: var(--qld-link-visited-dark)!important;
-
-        }
-
-}
-
+// Light, Light alt
 a {
   font-weight: var(--qld-link-font-weight);
 }
@@ -131,18 +105,18 @@ a,
 a.nav-link {
   text-decoration: underline;
   text-underline-offset: var(--qld-link-underline-offset);
-  text-decoration-thickness: var(--qld-link-underline-thickness)!important;
+  text-decoration-thickness: var(--qld-link-underline-thickness);
 
   &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness-hover)!important;
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
   }
 
     &:visited {
         color: var(--qld-link-visited);
-        text-decoration-color: #8B63B0;
+        text-decoration-color: var(--qld-link-visited-underline);
         &:hover {
-            // text-decoration-thickness: var(--qld-link-underline-thickness-hover)!important;
-            text-decoration-thickness: 2px!important;
+            text-decoration-thickness: 2px;
+            text-decoration-color: var(--qld-link-visited);
         }
     }
 
@@ -151,6 +125,35 @@ a.nav-link {
     outline-offset: 2px;
   }
 }
+
+// Dark, dark alt
+.dark,
+.dark-alt {
+    body & {
+        color: var(--qld-body-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--qld-headings-color);
+    }
+        a, a.nav-link {
+            text-decoration-color: var(--qld-link-dark-underline);
+            &:visited {
+                color: var(--qld-link-visited-dark);
+                text-decoration-color: var(--qld-link-visited-dark);
+                &:hover {
+                    text-decoration-color: var(--qld-white);
+                }
+            }
+        }
+    }
+
+
 caption {
     font-size: 14px;
     font-weight: 400;
