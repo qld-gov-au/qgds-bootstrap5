@@ -72,47 +72,6 @@ body {
 
 ul, ol, p, .accordion-body {
     line-height: 1.75;
-<<<<<<< HEAD
-=======
-}
-
-li {
-    margin-top: 0.5rem;
-}
-
-.nav, .nav ul {
-    line-height: 1.5!important;
-}
-.nav-item {
-    margin-top: 0;
-}
-
-.dark,
-.dark-alt {
-    body & {
-        color: var(--qld-body-color);
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: var(--qld-headings-color);
-    }
-        // .dark, .dark-alt & {
-        a, a.nav-link {
-            text-decoration-color: #B5CCE2;
-            &:visited {
-                color: var(--qld-link-visited-dark)!important;
-                text-decoration-color: var(--qld-link-visited-dark)!important;
-            }
-            // color: var(--qld-link-visited-dark)!important;
-            
-        }
-    
->>>>>>> 2ac1134 (Made appropriate changes for UX)
 }
 
 li {
@@ -159,8 +118,8 @@ caption {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+}
 
-<<<<<<< HEAD
 // Dark, dark alt
 .dark,
 .dark-alt {
@@ -194,8 +153,6 @@ caption {
     font-weight: 400;
     line-height: 20px;
 
-=======
->>>>>>> c7019af (QOLOE-171 Added caption utility class, cleaned up side navigation line height and margin)
 }
 
 a.nostyle {
