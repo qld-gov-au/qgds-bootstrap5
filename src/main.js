@@ -63,8 +63,6 @@ window.addEventListener("DOMContentLoaded", () => {
       header.setAttribute('data-page-url', url);
     }
     
-    document.querySelector('.qld__main-nav__toggle-search').addEventListener('click', toggleSearch);
-    
     // Navbar
     initializeNavbar();
 
