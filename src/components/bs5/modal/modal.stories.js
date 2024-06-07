@@ -10,7 +10,7 @@ let buttonItems = [{
   "islink": true,
   "isdisabled": false,
   "iconClass": "",
-  "href": "https:///www.google.com",
+  "href": "https://www.google.com",
   "label": "External link",
   "target": "_blank",
   "dataatts": false,
@@ -35,7 +35,7 @@ let buttonItems = [{
   "label": "Confirm",
   "target": "",
   "dataatts": "data-bs-dismiss='modal'",
-  "arialabel": "Close",
+  "arialabel": "Confirm",
 }];
 
 defaultdata.footer.buttons = buttonItems.map((item) => { 
