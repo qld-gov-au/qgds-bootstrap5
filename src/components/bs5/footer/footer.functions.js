@@ -17,15 +17,20 @@ export function displayFeedbackForm() {
 
     document.body.appendChild(scriptEle);
 
+    // Success event
     scriptEle.addEventListener("load", () => {
-      // eslint-disable-next-line no-undef
-      FormioScript.init();
+      document.getElementById("btn-footer-feedback").addEventListener("click", runDisplayFeedbackFormIO);
     });
-    // error event
+    // Error event
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
       scriptEle.addEventListener("error", (ev) => {
         console.log("Error on loading file", ev);
       });
     }
   }
+}
+
+function runDisplayFeedbackFormIO() {
+  // eslint-disable-next-line no-undef
+  FormioScript.init();
 }
