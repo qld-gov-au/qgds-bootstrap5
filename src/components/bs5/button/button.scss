@@ -43,7 +43,7 @@
         --#{$prefix}gradient: none;
     }
 
-    //Tertiary button variant    
+    //Tertiary button variant
     &-tertiary {
         --#{$prefix}btn-color: #{$primary};
         --#{$prefix}btn-border-color: transparent;
@@ -61,7 +61,7 @@
     }
 }
 
-.dark .btn, 
+.dark .btn,
 .dark-alt .btn {
 
     //Primary button variant (dark mode)
