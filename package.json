@@ -16,6 +16,8 @@
     "serve": "live-server dist",
     "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
+    "storybook-single": "STORYBOOK_SINGLE=../src/components/bs5/button/button.stories.js npm run storybook",
+    "storybook-single-watch": "STORYBOOK_SINGLE=../src/components/bs5/button/button.stories.js npm-run-all --parallel watch storybook",
     "build-storybook": "storybook build --webpack-stats-json ",
     "build-storybook:serve": "live-server storybook-static"
   },
