@@ -1,5 +1,4 @@
 //Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
-
 $breadcrumb-divider-color: $qld-brand-secondary-dark;
 $breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='#{$breadcrumb-divider-color}' d='M234.8 36.25c3.438 3.141 5.156 7.438 5.156 11.75c0 3.891-1.406 7.781-4.25 10.86L53.77 256l181.1 197.1c6 6.5 5.625 16.64-.9062 22.61c-6.5 6-16.59 5.594-22.59-.8906l-192-208c-5.688-6.156-5.688-15.56 0-21.72l192-208C218.2 30.66 228.3 30.25 234.8 36.25z'/%3E%3C/svg%3E");
 $breadcrumb-divider-flipped: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='#{$breadcrumb-divider-color}'><path d='M85.14 475.8c-3.438-3.141-5.156-7.438-5.156-11.75c0-3.891 1.406-7.781 4.25-10.86l181.1-197.1L84.23 58.86c-6-6.5-5.625-16.64 .9062-22.61c6.5-6 16.59-5.594 22.59 .8906l192 208c5.688 6.156 5.688 15.56 0 21.72l-192 208C101.7 481.3 91.64 481.8 85.14 475.8z'/></svg>");
@@ -7,110 +6,97 @@ $breadcrumb-divider-flipped: url("data:image/svg+xml,<svg xmlns='http://www.w3.o
 $breadcrumb-divider-dark-color: $qld-brand-accent;
 $breadcrumb-divider-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='#{$breadcrumb-divider-dark-color}' d='M234.8 36.25c3.438 3.141 5.156 7.438 5.156 11.75c0 3.891-1.406 7.781-4.25 10.86L53.77 256l181.1 197.1c6 6.5 5.625 16.64-.9062 22.61c-6.5 6-16.59 5.594-22.59-.8906l-192-208c-5.688-6.156-5.688-15.56 0-21.72l192-208C218.2 30.66 228.3 30.25 234.8 36.25z'/%3E%3C/svg%3E");
 $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='#{$breadcrumb-divider-dark-color}'><path d='M85.14 475.8c-3.438-3.141-5.156-7.438-5.156-11.75c0-3.891 1.406-7.781 4.25-10.86l181.1-197.1L84.23 58.86c-6-6.5-5.625-16.64 .9062-22.61c6.5-6 16.59-5.594 22.59 .8906l192 208c5.688 6.156 5.688 15.56 0 21.72l-192 208C101.7 481.3 91.64 481.8 85.14 475.8z'/></svg>");
-
 //OR using custom CSS properties scoped to the component
+
 .breadcrumb {
-    --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
-    --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-flipped)};
-    --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}dark-grey-muted);
-    --#{$prefix}breadcrumb-bg: transparent;
-    --#{$prefix}breadcrumb-margin-bottom: 0;
-    --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
-
-    .dark &,
-    .dark-alt & {
-        --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}white);
-        --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
-        --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
-    }
-
+  --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
+  --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-flipped)};
+  --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-light-text-lighter);
+  --#{$prefix}breadcrumb-bg: transparent;
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
+  }
+  // Measurements
+  --#{$prefix}breadcrumb-margin-bottom: 0;
+  --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
+  --#{$prefix}breadcrumb-spaing: 1rem;
+  --#{$prefix}breadcrumb-fon-size: 1rem;
 }
 
 @include color-mode(dark) {
-
 }
-
 .breadcrumb {
-    font-size: 0.875rem;
-
-    &.expanded {
-        .breadcrumb-toggle {
-            display: none;
-        }
-    }
-}
-
-.breadcrumb-item {
-    // Show only parent page breadcrumb on small screens
-    display: none;
-
-    &:nth-last-child(2) {
-        display: list-item;
-
-        &:before {
-            content: var(--#{$prefix}breadcrumb-divider);
-            float: left;
-            padding-right: var(--qld-breadcrumb-item-padding-x);
-            width: 1rem;
-        }
-    }
-
-    + .breadcrumb-item {
-        &:before {
-            width: 1rem;
-        }
-    }
-
-    &.shortened {
-        height: 0;
-        overflow: hidden;
-        max-width: 0;
-        transition: max-width 0s;
-        padding: 0;
-    }
-
+  font-size: calc(var(--#{$prefix}breadcrumb-fon-size) * 0.875);
+  &.expanded {
     .breadcrumb-toggle {
-        border: 0;
-        padding: 0;
-        vertical-align: inherit;
+      display: none;
     }
+  }
+}
+.breadcrumb-item {
+  line-height: calc(var(--#{$prefix}breadcrumb-fon-size) * 2);
+  display: list-item;
+  a {
+    padding-inline-end: calc(var(--#{$prefix}breadcrumb-spaing) * 0.5);
+  }
+  &:after {
+    content: var(--#{$prefix}breadcrumb-divider-flipped);
+    float: inline-end;
+    padding-inline-end: var(--qld-breadcrumb-item-padding-x);
+    width: var(--#{$prefix}breadcrumb-spaing);
+  }
+  + .breadcrumb-item {
+    padding-inline-start: 0;
+    &:before {
+      display: none;
+    }
+  }
+  &.shortened {
+    height: 0;
+    overflow: hidden;
+    max-width: 0;
+    transition: max-width 0s;
+    padding: 0;
+  }
+  .breadcrumb-toggle {
+    border: 0;
+    padding: 0;
+    vertical-align: inherit;
+  }
+  &:last-child {
+    display: list-item;
+    &:after {
+      content: none;
+    }
+  }
 }
 
 @include media-breakpoint-up(md) {
-    .breadcrumb {
-        --#{$prefix}breadcrumb-padding-y: 2.5rem 0 1.5rem;
+  .breadcrumb {
+    --#{$prefix}breadcrumb-padding-y: calc(var(--#{$prefix}breadcrumb-spaing) * 2.5) 0
+      calc(var(--#{$prefix}breadcrumb-spaing) * 1.5);
+  }
+  .breadcrumb-item {
+    // Show current and parent page on medium screens
+    &:last-child {
+      &:after {
+        content: none;
+      }
     }
-
-    .breadcrumb-item {
-        + .breadcrumb-item:before {
-            content: var(--#{$prefix}breadcrumb-divider-flipped)
-        }
-        // Show current and parent page on medium screens
-        &:last-child {
-            display: list-item;
-        }
-
-        &:nth-last-child(2):before {
-            // Hide divider before parent page
-            content: none;
-        }
-    }
+  }
 }
 
 @include media-breakpoint-up(lg) {
+  .breadcrumb {
+    --#{$prefix}breadcrumb-padding-y: calc(var(--#{$prefix}breadcrumb-spaing) * 2) 0
+      calc(var(--#{$prefix}breadcrumb-spaing) * 2);
 
-    .breadcrumb {
-        --#{$prefix}breadcrumb-padding-y: 3rem 0 2rem;
-
-        font-size: 1rem;
-    }
-    .breadcrumb-item {
-        // Show all breadcrumbs on large screens
-        display: list-item;
-
-        &:nth-last-child(2):not(:first-child):before {
-            // Show divider before parent page
-            content: var(--#{$prefix}breadcrumb-divider-flipped);
-        }
-    }
+    font-size: var(--#{$prefix}breadcrumb-fon-size);
+  }
+  .breadcrumb-item {
+    // Show all breadcrumbs on large screens
+    display: list-item;
+  }
 }
