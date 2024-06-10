@@ -3,9 +3,15 @@ import { Header } from './Header.js';
 import { Navbar } from '../navbar/Navbar.js';
 import { SearchInput } from "../searchInput/SearchInput.js";
 
-import { menu_state } from '../navbar/navbar.data.json';
-import defaultdata from '../searchInput/searchInput.data.json';
+//Sample components
+import { Banner } from '../banner/Banner.js'; 
+import { Footer } from '../footer/Footer.js'; 
 
+// Mock data
+import { menu_state } from '../navbar/navbar.data.json';
+import searchData from '../searchInput/searchInput.data.json';
+import breadcrumbs from '../banner/banner.data.json';
+import footerData from '../footer/footer.data.json';
 
 import { 
   masterbrand_variant, 
@@ -18,7 +24,7 @@ export default {
   title: 'Components/Header',
   render: (args) => {
     return `
-        ${new Header({...args, searchInput: new SearchInput(defaultdata).html}).html}
+        ${new Header({...args, searchInput: new SearchInput(searchData).html}).html}
         ${new Navbar(args).html}
         `//expand arguments, specifically turn isdisabled into true
   },
@@ -195,7 +201,13 @@ export const StandaloneBrand = {
           --qld-color-default-color-dark-action-secondary: #FFD559;
         }
         </style>
-        ${Story()}
+        <main>
+          ${Story()}
+        </main>
+        <div>
+          ${new Banner(breadcrumbs).html}
+          ${new Footer(footerData).html}
+        </div>
       `;
     },
   ],

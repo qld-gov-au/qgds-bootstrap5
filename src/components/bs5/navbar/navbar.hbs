@@ -168,52 +168,52 @@
                 {{/if}}
                 {{/each }}
                 {{#each CTA}}
-                <li class="nav-item dropdown">
-                    <!-- Mobile only -->
-                    <div class="nav-item-group mobile-only">
+                    <li class="nav-item dropdown">
+                        <!-- Mobile only -->
+                        <div class="nav-item-group mobile-only">
 
-                        <!-- Primary dropdown style and behaviour -->
-                        <a class="nav-link first-element" href="{{target_url}}">
-                            {{label}}
-                        </a>
+                            <!-- Primary dropdown style and behaviour -->
+                            <a class="nav-link first-element" href="{{target_url}}">
+                                {{label}}
+                            </a>
 
-                        <button class="dropdown-toggle second-element" id="menuDropdown-{{id}}" role="button"
-                            aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
-                            aria-label="Toggle navigation">
-                            <svg class="toggle_icon">
-                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
-                            </svg>
-                            <span class="visually-hidden">Expand</span>
-                        </button>
+                            <button class="dropdown-toggle second-element" id="menuDropdown-{{id}}" role="button"
+                                aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
+                                aria-label="Toggle navigation">
+                                <svg class="toggle_icon">
+                                    <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
+                                </svg>
+                                <span class="visually-hidden">Expand</span>
+                            </button>
 
-                        {{#if dropdown_enabled}}
-                        <ul id="dropdown-menu-{{id}}" class="dropdown-menu" aria-labelledby="menuDropdown-{{id}}"
-                            role="menu" data-bs-popper="none">
-                            <div class="row dropdown-menu__inner">
-                                {{#if dropdown_options.dropdown_config.groups}}
-                                <div class="col-12">
-                                    <a class="dropdown-menu__featured" href="{{dropdown_options.view_more_url}}">
-                                        <span class="">{{dropdown_options.view_more_label}}</span>
-                                        <svg class="chevron__icon">
-                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
-                                            </use>
-                                        </svg>
-                                    </a>
-                                    <hr>
-                                </div>
+                            {{#if dropdown_enabled}}
+                            <ul id="dropdown-menu-{{id}}" class="dropdown-menu" aria-labelledby="menuDropdown-{{id}}"
+                                role="menu" data-bs-popper="none">
+                                <div class="row dropdown-menu__inner">
+                                    {{#if dropdown_options.dropdown_config.groups}}
+                                    <div class="col-12">
+                                        <a class="dropdown-menu__featured" href="{{dropdown_options.view_more_url}}">
+                                            <span class="">{{dropdown_options.view_more_label}}</span>
+                                            <svg class="chevron__icon">
+                                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                                </use>
+                                            </svg>
+                                        </a>
+                                        <hr>
+                                    </div>
                                     {{#each dropdown_options.dropdown_config.groups}}
-                                        {{#isType dropdown_options.dropdown_type "list"}}
-                                        <li class="col-lg-4 col-sm-12">
-                                            <a href="{{url}}" class="dropdown-item" target="{{action}}">
-                                                {{label}}
-                                                <svg class="chevron__icon">
-                                                    <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
-                                                    </use>
-                                                </svg>
-                                            </a>
-                                        </li>
+                                        {{#isType ../dropdown_options.dropdown_type "list"}}
+                                            <li class="col-lg-4 col-sm-12">
+                                                <a href="{{url}}" class="dropdown-item" target="{{action}}">
+                                                    {{label}}
+                                                    <svg class="chevron__icon">
+                                                        <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                                        </use>
+                                                    </svg>
+                                                </a>
+                                            </li>
                                         {{/isType}}
-                                        {{#isType dropdown_options.dropdown_type "form"}}
+                                        {{#isType ../dropdown_options.dropdown_type "form"}}
                                             {{#if dropdown_options.dropdown_config.content}}
                                                 {{{dropdown_options.dropdown_config.content}}}
                                             {{/if}}
@@ -235,14 +235,13 @@
                                         </a>
                                     </li>
                                     {{/if}}
-                                {{/if}}
-                            </div>
-                        </ul>
-                        {{/if}}
-                    </div>
-                </li>
+                                    {{/if}}
+                                </div>
+                            </ul>
+                            {{/if}}
+                        </div>
+                    </li>
                 {{/each}}
-
             </ul>
         </div>
         <div id="overlay" class="navbar__overlay" aria-controls="main-nav"></div>
