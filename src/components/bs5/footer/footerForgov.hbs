@@ -1,69 +1,98 @@
-<footer class="qld-footer {{variantClass}}" role="contentinfo">
+<footer class="qld-footer {{ variantClass }}" role="contentinfo">
 
-    <!-- Footer content container -->
+  <!-- Footer content container -->
     <div class="container">
 
         <div class="row">
-            <div class="col">
+            <div class="col title">
                 <h2 class="footer-site-name">{{ sitename }}</h2>
             </div>
         </div>
 
         <div class="row">
 
-            <!-- Section 2: Contact us and Site wide CTAs -->
-            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            {{!-- Section 1: Contact us and Site wide CTAs --}}
+            <div class="col-xs-12 col-md-12 col-lg-3">
+                <div class="footer-column footer-contact {{#if contact.hasBorderColumn}}border-column{{/if}}">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-12">
+                            <h3 class="footer-heading">{{ contact.title }}</h3>
 
-                <div class="footer-column footer-contact">
-                
-                    <h2 class="footer-heading">{{ contact.title }}</h2>
-
-                    <div class="footer-content">
-
-                        {{{ contact.content }}}
-
-                        {{#each contact.list }}
-                        <div class="footer-contact-item">
-                            <span class="qld-icon {{icon}}" aria-hidden="true"></span>
-                            {{{ label }}}
+                            <div class="footer-content">
+                                {{{ contact.content }}}
+                                {{#if contactHasContactList}}
+                                    {{#each contact.list}}
+                                        <div class="footer-contact-item">
+                                            <span class="qld-icon {{icon}}" aria-hidden="true"></span> {{{ label }}}
+                                        </div>
+                                    {{/each}}
+                                {{/if}}
+                            </div>
                         </div>
-                        {{/each}}
-
-                        <a href="{{ contact.buttonLink }}" class="btn btn-outline-secondary">{{ contact.buttonLabel }}</a>
-
+                        <div class="col-xs-12 col-md-6 col-lg-12">
+                            <a href="{{ contact.buttonLink }}" class="btn btn-outline-secondary">{{ contact.buttonLabel }}</a>
+                        </div>
                     </div>
-                
                 </div>
             </div>
 
-            <!-- Section 5: Social media and engagment -->
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 border-column">
-
-                <div class="footer-column footer-contact">
-                
-                    <h2 class="footer-heading">{{ feedback.title }}</h2>
-
-                    <div class="footer-content">
-
-                        {{{ feedback.content }}}
-
-                        <a href="{{ feedback.buttonLink }}" class="btn btn-outline-secondary">{{ feedback.buttonLabel }}</a>
-
-                    </div>
+            {{!-- Section 2: Section links (Custom secondary nav items) --}}
+            <div class="col-xs-12 col-md-12 col-lg-3" aria-label="footer-navigation">
+                <div class="footer-column {{#if footerlinks.hasBorderColumn}}border-column{{/if}}">
+                    <nav class="nav footer-link-list flex-column">
+                        {{#each footerlinks.list}}
+                            <a class="nav-link" href="{{ link }}" target="{{ target }}">{{{ title }}}</a>
+                        {{/each }}
+                    </nav>
                 </div>
-
             </div>
 
-                    
-                        
-                  
+            {{!-- Section 3: Feedback form area --}}
+            {{#if feedbackFormEnabled}}
+            <div class="col-xs-12 col-md-12 col-lg-3">
+                <div class="footer-column {{#if feedbackForm.hasBorderColumn}}border-column{{/if}}">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-12">
+                            <h3 class="footer-heading">{{ feedbackForm.title }}</h3>
+                            {{#if feedbackForm45}}
+                                <h2>dsdfsdf</h2>
+                            {{/if}}
+                            <p>{{ feedbackForm.content }}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-12">
+                            <div id="qg-feedback-toggle" class="qg-footer-feedback-wrap">
+                                <a id="btn-footer-feedback" class="btn btn-global-secondary qg-feedback-toggle collapsed" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="false" aria-controls="qg-footer-feedback" data-analytics-link-group="qg-feedback">
+                                    {{ feedbackForm.btnTitle }}
+                                </a>
+                                <div id="qg-footer-feedback" class="qg-footer-feedback__v2 collapse">
+                                    <script>
+                                        window.formioQldCdnVersion = "v2/v2.x.x-latest";
+                                    </script>
+                                    {{!-- If formioResource has the wrong URL or the future URL changes  --}}
+                                    {{!-- Make sure that this is also changed within footer.function.js --}}
+                                    {{!-- It is there to make sure that Form IO is alway got to --}}
+                                    <script src="{{{feedbackForm.formioResource}}}"></script>
+                                    <div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if @first}}{{ key }}{{/if}} {{#unless @first}}{{ key }}="{{ value }}"{{/unless}}{{/each}}>
+                                        <div class="qg-spinner" role="status">
+                                            <div class="spinner-border"></div>
+                                            <div class="qg-spinner-label">Loading...</div>
+                                        </div>
+                                    </div>
+                                    <div class="qg-footer-feedback-footer">
+                                        <a class="qg-footer-feedback__close" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="true" aria-controls="qg-footer-feedback">Close</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
 
-            <!-- Section 6: Aknowlegement, Qld Government Coat of Arms and Copyright information -->
-            <div class="col-12 col-md-12 col-lg-4 col-xl-5 offset-xl-1 border-column">
-
-                <div class="footer-column">
-
-                    <!-- SVG crest -->
+            {{!-- Section 4: Aknowlegement, Qld Government Coat of Arms and Copyright information --}}
+            <div class="col-xs-12 col-md-12 col-lg-3 crest">
+                <div class="footer-column {{#if copyright.hasBorderColumn}}border-column{{/if}}">
+                    {{#if footerHasCrest}}
                     <div class="footer-crest">
                         <svg width="252" height="44" viewBox="0 0 252 44" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -231,22 +260,21 @@
                                 fill="white" />
                         </svg>
                     </div>
-
+                    {{/if}}
                     <div class="footer-content">
+                        {{#each acknowledgements}}
+                        
+                            {{#if title}}
+                                <h3 class="footer-heading">{{title}}</h3>
+                            {{/if}}
 
-                        <div class="footer-acknowledgements">
-                            {{#each acknowledgements}}
                             {{{ content }}}
-                            {{/each}}
-                        </div>
-
-
-                        {{{ copyright.content }}}
-
-                        <p>
-                            <a class="fw-semibold" href="{{ lockup.link.URL }}" rel="external">{{ lockup.link.text }}</a>
-                        </p>
-
+                        
+                        {{/each}}
+                        <p class="copyright">{{{ copyright.content }}} {{#if copyrightHasYearFrom }}{{ copyright.yearFrom }} - {{/if}} {{copyright.currentYear}}</p>
+                        {{#if footerHasStateOfQld }}
+                            <p><a class="fw-semibold" href="{{ lookup.link.URL }}" rel="external">{{ lookup.link.text }}</a></p>
+                        {{/if}}
                     </div>
 
                 </div>      
@@ -254,5 +282,4 @@
 
         </div>
     </div>
-
 </footer>

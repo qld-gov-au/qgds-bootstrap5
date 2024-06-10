@@ -1,11 +1,11 @@
 // footer.stories.js
-import { Footer, FooterForgov } from './Footer.js';
+import { Footer, FooterForgov } from "./Footer.js";
 
-import defaultdata from './footer.data.json';
+import defaultdata from "./footer.data.json";
 
 export default {
-  tags: ['autodocs'],
-  title: 'Components/Footer',
+  tags: ["autodocs"],
+  title: "Components/Footer",
   render: (args) => new Footer(args).html,
 };
 
@@ -18,7 +18,6 @@ export const Default = {
     controls: { include: [] },
   },
 };
-
 
 /**
  * Footer: White
@@ -46,7 +45,6 @@ export const DarkAlt = {
   },
 };
 
-
 /**
  * Forgov footer
  */
@@ -56,6 +54,19 @@ export const Forgov = {
     ...defaultdata,
     variantClass: "dark",
     sitename: "For Government",
+    footerHasCrest: false,
+    feedbackFormEnabled: true,
+    followlinksEnabled: false,
+    contactHasContactList: false,
+    copyrightHasYearFrom: true,
+    footerHasStateOfQld: false,
+    acknowledgements: [
+      {
+        title: "Cultural acknowledgement",
+        content:
+          "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>",
+      },
+    ],
   },
   render: (args) => new FooterForgov(args).html,
 };
