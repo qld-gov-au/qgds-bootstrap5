@@ -17,14 +17,17 @@
             </div>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item nav-item-home">
-                    <a class="nav-link {{#if metadata.options.home-active}}nav-link-home-active{{/if}}" href="{{metadata.target_url}}">
+                    <a class="nav-link {{#if metadata.options.home-active}}nav-link-home-active{{/if}}"
+                        href="{{metadata.target_url}}">
                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
-                            <use href="{{#if metadata.options.icon-root}}{{metadata.options.icon-root}}#qld__icon__home{{/if}}"></use>
+                            <use
+                                href="{{#if metadata.options.icon-root}}{{metadata.options.icon-root}}#qld__icon__home{{/if}}">
+                            </use>
                         </svg>
                         {{#if metadata.options.showHomeTitleSmallDevices}}
-                            <span class="home-label">Home</span>
+                        <span class="home-label">Home</span>
                         {{else}}
-                            <span class="visually-hidden">Home</span>
+                        <span class="visually-hidden">Home</span>
                         {{/if}}
                     </a>
                 </li>
@@ -32,56 +35,58 @@
                 {{#if dropdown_enabled}}
                 <li class="nav-item dropdown">
                     <!-- Desktop primary dropdown style and behaviour -->
-                    <a class="nav-link dropdown-toggle desktop-only" href="{{target_url}}" id="menuDropdown" role="button"
-                        aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
-                        aria-label="Toggle navigation">
-                            {{title}}
-                            <svg class="toggle_icon">
-                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
-                            </svg>
+                    <a class="nav-link dropdown-toggle desktop-only" href="{{target_url}}" id="menuDropdown"
+                        role="button" aria-controls="" data-bs-toggle="dropdown" aria-expanded="false"
+                        aria-selected="false" aria-label="Toggle navigation">
+                        {{title}}
+                        <svg class="toggle_icon">
+                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
+                        </svg>
                     </a>
                     {{#if navigation_items}}
-                    <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
+                    <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu"
+                        data-bs-popper="none">
                         <div class="row dropdown-menu__inner">
                             {{#if dropdown_options}}
-                                <div class="col-12">
-                                    <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                        <span class="">{{dropdown_options.feature_link_value}}</span>
-                                        <svg class="chevron__icon">
-                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
-                                        </svg>
-                                    </a>
-                                    {{#if dropdown_options.feature_link_description}}
-                                        <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
-                                    {{/if}}
-                                    <hr>
-                                </div>
+                            <div class="col-12">
+                                <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                                    <span class="">{{dropdown_options.feature_link_value}}</span>
+                                    <svg class="chevron__icon">
+                                        <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
+                                    </svg>
+                                </a>
+                                {{#if dropdown_options.feature_link_description}}
+                                <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
+                                {{/if}}
+                                <hr>
+                            </div>
                             {{/if}}
                             {{#each navigation_items}}
-                                <li class="col-lg-4 col-sm-12">
-                                    <a href="{{target_url}}" class="dropdown-item">
-                                        {{title}}
-                                        <svg class="chevron__icon">
-                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
-                                        </svg>
-                                    </a>
-                                    {{#if description}}
-                                        <p class="dropdown-item__description">{{description}}</p>
-                                    {{/if}}
-                                </li>
-                            {{/each }} 
+                            <li class="col-lg-4 col-sm-12">
+                                <a href="{{target_url}}" class="dropdown-item">
+                                    {{title}}
+                                    <svg class="chevron__icon">
+                                        <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
+                                    </svg>
+                                </a>
+                                {{#if description}}
+                                <p class="dropdown-item__description">{{description}}</p>
+                                {{/if}}
+                            </li>
+                            {{/each }}
                             {{#if dropdown_options.view_value}}
-                                <li class="col-12 text-end">
-                                    <hr>
-                                    <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
-                                        <span>
-                                            {{dropdown_options.view_value}}
-                                            <svg class="chevron__icon">
-                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
+                            <li class="col-12 text-end">
+                                <hr>
+                                <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
+                                    <span>
+                                        {{dropdown_options.view_value}}
+                                        <svg class="chevron__icon">
+                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                            </use>
                                         </svg>
-                                        </span>
-                                    </a>
-                                </li>
+                                    </span>
+                                </a>
+                            </li>
                             {{/if}}
                         </div>
                     </ul>
@@ -94,57 +99,62 @@
                             {{title}}
                         </a>
 
-                        <button class="dropdown-toggle second-element" id="menuDropdown" role="button"
-                            aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
+                        <button class="dropdown-toggle second-element" id="menuDropdown" role="button" aria-controls=""
+                            data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
                             aria-label="Toggle navigation">
                             <svg class="toggle_icon">
-                                    <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
-                                </svg>
+                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
+                            </svg>
                             <span class="visually-hidden">Expand</span>
                         </button>
 
                         {{#if navigation_items}}
-                        <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu" data-bs-popper="none">
+                        <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu"
+                            data-bs-popper="none">
                             <div class="row dropdown-menu__inner">
                                 {{#if dropdown_options}}
-                                    <div class="col-12">
-                                        <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                            <span class="">{{dropdown_options.feature_link_value}}</span>
-                                            <svg class="chevron__icon">
-                                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
-                                            </svg>
-                                        </a>
-                                        {{#if dropdown_options.feature_link_description}}
-                                            <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
-                                        {{/if}}
-                                        <hr>
-                                    </div>
+                                <div class="col-12">
+                                    <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                                        <span class="">{{dropdown_options.feature_link_value}}</span>
+                                        <svg class="chevron__icon">
+                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                            </use>
+                                        </svg>
+                                    </a>
+                                    {{#if dropdown_options.feature_link_description}}
+                                    <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}
+                                    </p>
+                                    {{/if}}
+                                    <hr>
+                                </div>
                                 {{/if}}
                                 {{#each navigation_items}}
-                                    <li class="col-lg-4 col-sm-12">
-                                        <a href="{{target_url}}" class="dropdown-item">
-                                            {{title}}
-                                            <svg class="chevron__icon">
-                                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
-                                            </svg>
-                                        </a>
-                                        {{#if description}}
-                                            <p class="dropdown-item__description">{{description}}</p>
-                                        {{/if}}
-                                    </li>
-                                {{/each }} 
+                                <li class="col-lg-4 col-sm-12">
+                                    <a href="{{target_url}}" class="dropdown-item">
+                                        {{title}}
+                                        <svg class="chevron__icon">
+                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                            </use>
+                                        </svg>
+                                    </a>
+                                    {{#if description}}
+                                    <p class="dropdown-item__description">{{description}}</p>
+                                    {{/if}}
+                                </li>
+                                {{/each }}
                                 {{#if dropdown_options.view_value}}
-                                    <li class="col-12 text-end">
-                                        <hr>
-                                        <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
-                                            <span>
-                                                {{dropdown_options.view_value}}
-                                                <svg class="chevron__icon">
-                                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
+                                <li class="col-12 text-end">
+                                    <hr>
+                                    <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
+                                        <span>
+                                            {{dropdown_options.view_value}}
+                                            <svg class="chevron__icon">
+                                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                                </use>
                                             </svg>
-                                            </span>
-                                        </a>
-                                    </li>
+                                        </span>
+                                    </a>
+                                </li>
                                 {{/if}}
                             </div>
                         </ul>
@@ -157,6 +167,82 @@
                 </li>
                 {{/if}}
                 {{/each }}
+                {{#each CTA}}
+                <li class="nav-item dropdown">
+                    <!-- Mobile only -->
+                    <div class="nav-item-group mobile-only">
+
+                        <!-- Primary dropdown style and behaviour -->
+                        <a class="nav-link first-element" href="{{target_url}}">
+                            {{label}}
+                        </a>
+
+                        <button class="dropdown-toggle second-element" id="menuDropdown-{{id}}" role="button"
+                            aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
+                            aria-label="Toggle navigation">
+                            <svg class="toggle_icon">
+                                <use href="{{@root.metadata.options.icon-root}}#qld__icon__chevron-down"></use>
+                            </svg>
+                            <span class="visually-hidden">Expand</span>
+                        </button>
+
+                        {{#if dropdown_enabled}}
+                        <ul id="dropdown-menu-{{id}}" class="dropdown-menu" aria-labelledby="menuDropdown-{{id}}"
+                            role="menu" data-bs-popper="none">
+                            <div class="row dropdown-menu__inner">
+                                {{#if dropdown_options.dropdown_config.groups}}
+                                <div class="col-12">
+                                    <a class="dropdown-menu__featured" href="{{dropdown_options.view_more_url}}">
+                                        <span class="">{{dropdown_options.view_more_label}}</span>
+                                        <svg class="chevron__icon">
+                                            <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                            </use>
+                                        </svg>
+                                    </a>
+                                    <hr>
+                                </div>
+                                    {{#each dropdown_options.dropdown_config.groups}}
+                                        {{#isType dropdown_options.dropdown_type "list"}}
+                                        <li class="col-lg-4 col-sm-12">
+                                            <a href="{{url}}" class="dropdown-item" target="{{action}}">
+                                                {{label}}
+                                                <svg class="chevron__icon">
+                                                    <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                                    </use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        {{/isType}}
+                                        {{#isType dropdown_options.dropdown_type "form"}}
+                                            {{#if dropdown_options.dropdown_config.content}}
+                                                {{{dropdown_options.dropdown_config.content}}}
+                                            {{/if}}
+                                        {{/isType}}
+                                    {{/each }}
+                                    {{#if dropdown_options.dropdown_config.view_more}}
+                                    <li class="col-12 text-end">
+                                        <hr>
+                                        <a class="dropdown-menu__view_all"
+                                            href="{{dropdown_options.dropdown_config.view_more_options.url}}"
+                                            target="{{dropdown_options.dropdown_config.view_more_options.target}}">
+                                            <span>
+                                                {{dropdown_options.dropdown_config.view_more_options.label}}
+                                                <svg class="chevron__icon">
+                                                    <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right">
+                                                    </use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        </ul>
+                        {{/if}}
+                    </div>
+                </li>
+                {{/each}}
+
             </ul>
         </div>
         <div id="overlay" class="navbar__overlay" aria-controls="main-nav"></div>
