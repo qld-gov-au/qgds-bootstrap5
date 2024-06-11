@@ -25,6 +25,8 @@ window.addEventListener("DOMContentLoaded", () => {
     if (footerFormio) {
       displayFeedbackForm();
     }
+    // Breadcrumb
+    // initBreadcrumb();
 
     //Header search
     let headerSearchButton = document.querySelector(".qld__main-nav__toggle-search");
@@ -34,34 +36,37 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     const form = document.querySelector(".site-search");
-    const searchInput = form.querySelector(".qld-search-input input");
+    if (form) {
+      const form = document.querySelector(".site-search");
+      const searchInput = form.querySelector(".qld-search-input input");
 
-    if (searchInput) {
-      let timeout;
+      if (searchInput) {
+        let timeout;
 
-      searchInput.addEventListener("keyup", function () {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          showSuggestions(this.value);
-        }, 300);
-      });
+        searchInput.addEventListener("keyup", function () {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            showSuggestions(this.value);
+          }, 300);
+        });
 
-      searchInput.addEventListener("focus", function () {
-        showSuggestions("", true);
-      });
-
-      searchInput.addEventListener("click", function () {
-        if (this.value === "") {
+        searchInput.addEventListener("focus", function () {
           showSuggestions("", true);
-        }
-      });
+        });
 
-      // Close suggestions when clicking outside
-      document.addEventListener("click", function (event) {
-        if (!searchInput.contains(event.target) && !document.querySelector(".suggestions").contains(event.target)) {
-          document.querySelector(".suggestions").style.display = "none";
-        }
-      });
+        searchInput.addEventListener("click", function () {
+          if (this.value === "") {
+            showSuggestions("", true);
+          }
+        });
+
+        // Close suggestions when clicking outside
+        document.addEventListener("click", function (event) {
+          if (!searchInput.contains(event.target) && !document.querySelector(".suggestions").contains(event.target)) {
+            document.querySelector(".suggestions").style.display = "none";
+          }
+        });
+      }
     }
 
     //Header
@@ -77,7 +82,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Navbar
     initializeNavbar();
 
-    // Breadcrumb
+    // // Breadcrumb
     initBreadcrumb();
 
     // Quick exit
