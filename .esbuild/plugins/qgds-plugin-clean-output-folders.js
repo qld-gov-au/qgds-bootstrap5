@@ -34,6 +34,7 @@ export default function cleanFoldersPlugin() {
           //   fs.rmSync(docsdir, { recursive: true });
           // }
         }
+        isInitialBuild = false;
       });
     },
   };
