@@ -1,0 +1,5 @@
+.blockquote {
+  --#{$prefix}quote-border-color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+  --#{$prefix}quote-text-color: var(--#{$prefix}color-default-color-light-text-heading); // Fix
+  --#{$prefix}quote-ref-text-color: var(--#{$prefix}color-default-color-light-text-default); // Fix
+}
