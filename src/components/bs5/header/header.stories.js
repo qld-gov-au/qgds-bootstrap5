@@ -213,6 +213,112 @@ export const StandaloneBrand = {
         </main>
         <div>
           ${new Banner(bannerDataWithOverride).html}
+          <div class="feature-set-panel__light topic">
+            <div class="container my-64">
+                <h2 class="inside__heading">Explore our concessions and rebates</h2>
+                
+                <div class="mb-32">
+                    <p></p><p>Don’t miss out. Apply now for a range of Queensland Government funded support.</p><p></p>
+                </div>
+                
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4 topical-cards">
+                <div class="col">
+                  <div class="card card-default default icon-top card-single-action h-100">
+                      <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/pen.svg"></div>
+                      <div class="card-body">
+                          <h3 class="card-title">
+                              <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/education-parenting" class="stretched-link">Education and parenting</a>
+                          </h3>
+                      </div>
+                  </div>
+            </div>
+            <div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/bulb.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/energy-utilities" class="stretched-link">Energy and utilities</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/food.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/food-clothing" class="stretched-link">Food and clothing</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/house.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/housing" class="stretched-link">Housing</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/justice.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/legal-finance" class="stretched-link">Legal and finance</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/wheelchair.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/medical-disability" class="stretched-link">Medical and disability</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/senior.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/seniors" class="stretched-link">Seniors</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/business.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/small-business-owners" class="stretched-link">Small business owners</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/ball.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/sport-recreation" class="stretched-link">Sport and recreation</a>
+                    </h3>
+                </div>
+            </div>
+        </div><div class="col">
+            <div class="card card-default default icon-top card-single-action h-100">
+                <div class="card-icon icon-top"><img alt="" src="https://oss-uat.clients.squiz.net/queenslandsavers-dev/resources/images/qgds-card/bus.svg"></div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="https://oss-uat.clients.squiz.net/queenslandsavers-dev/concessions-and-rebates/transport" class="stretched-link">Transport</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        </div>
+
+                
+            </div>
+        </div>
           ${new Footer(footerDataWithOverride).html}
         </div>
       `;

@@ -28,17 +28,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //Header search
     let headerSearchButton = document.querySelector(".qld__main-nav__toggle-search");
-
     if (headerSearchButton) {
       document.querySelector(".qld__main-nav__toggle-search").addEventListener("click", toggleSearch);
     }
 
-    const form = document.querySelector(".site-search");
-    const searchInput = form.querySelector(".qld-search-input input");
-
-    if (searchInput) {
+    let form = document.querySelector(".site-search");
+    if (form) {
+      let searchInput = form.querySelector(".qld-search-input input");
       let timeout;
-
       searchInput.addEventListener("keyup", function () {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
@@ -66,10 +63,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //Header
     // Get the <header> element
-    var header = document.querySelector("header");
+    let header = document.querySelector("header");
     if (header) {
       // Get the current page URL without query string parameters
-      var url = window.location.origin + window.location.pathname;
+      let url = window.location.origin + window.location.pathname;
       // Set the data-page-url attribute on the <header> element
       header.setAttribute("data-page-url", url);
     }
