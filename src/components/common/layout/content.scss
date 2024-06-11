@@ -3,6 +3,6 @@
 
     >.container {
         // overwriting bootstrap's default 1.5rem gutter value
-        --qld-gutter-x: 2.5rem;
+        --#{$prefix}gutter-x: 2.5rem;
     }
 }
