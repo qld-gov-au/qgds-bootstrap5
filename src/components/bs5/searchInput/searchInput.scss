@@ -121,7 +121,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        left: calc(1rem - 2px);
+        left: calc(1rem - 0.125rem);
         width: 1.5rem;
         height: 1.5rem;
         background-color: var(--icon-color);
@@ -178,8 +178,8 @@
             border-radius: 0 0.25rem 0.25rem 0;
 
             // Adjust button padding to allow for input borders of 2px top and bottom
-            padding-top: calc(0.75rem - 2px);
-            padding-bottom: calc(0.75rem - 2px);
+            padding-top: calc(0.75rem - 0.125rem);
+            padding-bottom: calc(0.75rem - 0.125rem);
 
             //prep a button "search-icon" which is invoked at smaller screeen sizes below 
             span.btn-icon {
@@ -205,8 +205,6 @@
             +button {
                 span.btn-label {
                     display: none;
-                    // width: 48px!important;
-                    // padding: 0!important;
                 }
 
                 //Show the search icon (on button) on small screens
@@ -217,29 +215,25 @@
         }
         #search-button {
             &.btn {
-                padding: 0!important;
-                margin: 0!important;
-                width: 48px;
+                padding: 0;
+                margin: 0;
+                width: 3rem;
 
                 .btn-icon {
-                    margin-left: 12px!important;
+                    margin-left: 0.65rem;
                 }
-            }
-            
+            }            
         }
 
         //Hide the search icon (input field) on small screens
         &::before {
             content: none;
         }
-
-
     }
 }
 
 .dark {
     .qld-search-input {
-
         // Rescope colours inside a dark container
 
         // Default state - unfocused, unhovered
