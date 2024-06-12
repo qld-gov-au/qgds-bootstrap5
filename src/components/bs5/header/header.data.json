@@ -26,8 +26,10 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "Browse all information and services",
-                        "view_more_url": "https://www.qld.gov.au/queenslanders",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
@@ -60,13 +62,7 @@
                                     "url": "#",
                                     "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -81,47 +77,43 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "All categories",
-                        "view_more_url": "https://www.business.qld.gov.au/",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Starting a business"
+                                    "label": "Transport and motoring"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Running a business"
+                                    "label": "Employment and jobs"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Employing people"
+                                    "label": "Education and training"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Payroll tax"
+                                    "label": "Queensland and its government"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Industries"
+                                    "label": "Health and wellbeing"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Investing in Queensland"
+                                    "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -209,8 +201,10 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "Browse all information and services",
-                        "view_more_url": "https://www.qld.gov.au/queenslanders",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
@@ -243,13 +237,7 @@
                                     "url": "#",
                                     "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -264,47 +252,43 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "All categories",
-                        "view_more_url": "https://www.business.qld.gov.au/",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Starting a business"
+                                    "label": "Transport and motoring"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Running a business"
+                                    "label": "Employment and jobs"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Employing people"
+                                    "label": "Education and training"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Payroll tax"
+                                    "label": "Queensland and its government"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Industries"
+                                    "label": "Health and wellbeing"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Investing in Queensland"
+                                    "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -391,8 +375,10 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "Browse all information and services",
-                        "view_more_url": "https://www.qld.gov.au/queenslanders",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
@@ -425,13 +411,7 @@
                                     "url": "#",
                                     "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -446,47 +426,43 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "All categories",
-                        "view_more_url": "https://www.business.qld.gov.au/",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Starting a business"
+                                    "label": "Transport and motoring"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Running a business"
+                                    "label": "Employment and jobs"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Employing people"
+                                    "label": "Education and training"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Payroll tax"
+                                    "label": "Queensland and its government"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Industries"
+                                    "label": "Health and wellbeing"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Investing in Queensland"
+                                    "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -573,8 +549,10 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "Browse all information and services",
-                        "view_more_url": "https://www.qld.gov.au/queenslanders",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
@@ -607,13 +585,7 @@
                                     "url": "#",
                                     "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -628,47 +600,43 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "All categories",
-                        "view_more_url": "https://www.business.qld.gov.au/",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Starting a business"
+                                    "label": "Transport and motoring"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Running a business"
+                                    "label": "Employment and jobs"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Employing people"
+                                    "label": "Education and training"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Payroll tax"
+                                    "label": "Queensland and its government"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Industries"
+                                    "label": "Health and wellbeing"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Investing in Queensland"
+                                    "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -754,8 +722,10 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "Browse all information and services",
-                        "view_more_url": "https://www.qld.gov.au/queenslanders",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
@@ -788,13 +758,7 @@
                                     "url": "#",
                                     "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },
@@ -809,47 +773,43 @@
                     "dropdown_enabled": true,
                     "dropdown_options": {
                         "dropdown_type": "list",
-                        "view_more_label": "All categories",
-                        "view_more_url": "https://www.business.qld.gov.au/",
+                        "view_more": true,
+                        "label": "View all",
+                        "url": "https://www.qld.gov.au/queenslanders",
+                        "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Starting a business"
+                                    "label": "Transport and motoring"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Running a business"
+                                    "label": "Employment and jobs"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Employing people"
+                                    "label": "Education and training"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Payroll tax"
+                                    "label": "Queensland and its government"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Industries"
+                                    "label": "Health and wellbeing"
                                 },
                                 {
                                     "action": "_blank",
                                     "url": "#",
-                                    "label": "Investing in Queensland"
+                                    "label": "Community support"
                                 }
-                            ],
-                            "view_more": true,
-                            "view_more_options": {
-                                "url": "#",
-                                "label": "View more",
-                                "target": "_blank"
-                            }
+                            ]
                         }
                     }
                 },

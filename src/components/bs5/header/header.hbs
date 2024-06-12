@@ -176,62 +176,55 @@
             </a>
             <div class="qld__header__cta-wrapper">
                 {{#if sitePreHeader.CTA}}
-                {{#each sitePreHeader.CTA}}
-                <span {{#if dropdown_enabled}}class="dropdown dropdownCTA" {{/if}} role="navigation">
-                    <a {{#if dropdown_enabled}} id="dropdown{{id}}" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" class="qld__header__cta-link" {{else}} href="{{url.value}}"
-                        class="qld__header__cta-link" {{/if}}>
-                        <span class="qld__header__cta-link-text">{{text.value}}</span>
-                        {{#if dropdown_enabled}}
-                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
-                            class="qld__header__cta-link-icon">
-                            <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}"></use>
-                        </svg>
-                        {{/if}}
-                    </a>
-
-                    {{#if dropdown_enabled}}
-                    <ul class="dropdown-menu dark" aria-labelledby="dropdown{{id}}" role="list">
-                        {{#isType dropdown_options.dropdown_type "list"}}
-                            {{#if dropdown_options.dropdown_config}}
-                                {{#each dropdown_options.dropdown_config.groups}}
-                                <li class="qld__header__cta-list">
-                                    <a href="{{url}}" {{#if action}} target="{{action}}" {{/if}}>
-                                        {{label}}
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
-                                            <path
-                                                d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z"
-                                                fill="#FFE500" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                {{/each}}
-                                {{#if dropdown_options.dropdown_config.view_more}}
-                                <li class="qld__header__cta-list">
-                                    <a href="{{dropdown_options.dropdown_config.view_more_options.url}}"
-                                        href="{{dropdown_options.dropdown_config.view_more_options.target}}"
-                                        class="border-bottom-0">{{dropdown_options.dropdown_config.view_more_options.label}}
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg" class="viewMoreCTA">
-                                            <path
-                                                d="M8.84375 4.65625C8.65625 4.46875 8.3125 4.46875 8.125 4.65625C7.9375 4.84375 7.9375 5.1875 8.125 5.375L10.2813 7.5H4.5C4.21875 7.5 4 7.75 4 8C4 8.28125 4.21875 8.5 4.5 8.5L10.2813 8.5L8.125 10.6562C7.9375 10.8437 7.9375 11.1875 8.125 11.375C8.3125 11.5625 8.65625 11.5625 8.84375 11.375L11.8438 8.375C11.9375 8.28125 12 8.15625 12 8C12 7.875 11.9375 7.75 11.8438 7.65625L8.84375 4.65625ZM8 0C3.5625 0 0 3.59375 0 8C0 12.4375 3.5625 16 8 16C12.4063 16 16 12.4375 16 8C16 3.59375 12.4062 0 8 0ZM8 15C4.125 15 1 11.875 1 8C1 4.15625 4.125 1 8 1C11.8438 1 15 4.15625 15 8C15 11.875 11.8438 15 8 15Z"
-                                                fill="#FFE500" />
-                                        </svg>
-                                    </a>
-                                </li>
+                    {{#each sitePreHeader.CTA}}
+                        <span {{#if dropdown_enabled}} class="dropdown dropdownCTA" {{/if}}>
+                            <a {{#if dropdown_enabled}} id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="qld__header__cta-link" href="#" {{else}} href="{{url.value}}" class="qld__header__cta-link" {{/if}}>
+                                <span class="qld__header__cta-link-text">{{text.value}}</span>
+                                {{#if dropdown_enabled}}
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__header__cta-link-icon">
+                                        <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}"></use>
+                                    </svg>
                                 {{/if}}
+                            </a>
+                            {{#if dropdown_enabled}}
+                            <ul class="dropdown-menu dark" aria-labelledby="dropdown{{id}}" role="list">
+                                {{#isType dropdown_options.dropdown_type "list"}}
+                                    {{#if dropdown_options.dropdown_config}}
+                                        {{#each dropdown_options.dropdown_config.groups}}
+                                        <li class="qld__header__cta-list">
+                                            <a href="{{url}}" {{#if action}} target="{{action}}" {{/if}}>
+                                                {{label}}
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
+                                                    <path d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z" fill="#FFE500" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        {{/each}}
+                                        {{#if dropdown_options.view_more}}
+                                        <li class="qld__header__cta-list">
+                                            <a href="{{dropdown_options.url}}" target="{{dropdown_options.target}}" class="border-bottom-0">
+                                                {{dropdown_options.label}}
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg" class="viewMoreCTA">
+                                                    <path
+                                                        d="M8.84375 4.65625C8.65625 4.46875 8.3125 4.46875 8.125 4.65625C7.9375 4.84375 7.9375 5.1875 8.125 5.375L10.2813 7.5H4.5C4.21875 7.5 4 7.75 4 8C4 8.28125 4.21875 8.5 4.5 8.5L10.2813 8.5L8.125 10.6562C7.9375 10.8437 7.9375 11.1875 8.125 11.375C8.3125 11.5625 8.65625 11.5625 8.84375 11.375L11.8438 8.375C11.9375 8.28125 12 8.15625 12 8C12 7.875 11.9375 7.75 11.8438 7.65625L8.84375 4.65625ZM8 0C3.5625 0 0 3.59375 0 8C0 12.4375 3.5625 16 8 16C12.4063 16 16 12.4375 16 8C16 3.59375 12.4062 0 8 0ZM8 15C4.125 15 1 11.875 1 8C1 4.15625 4.125 1 8 1C11.8438 1 15 4.15625 15 8C15 11.875 11.8438 15 8 15Z"
+                                                        fill="#FFE500" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        {{/if}}
+                                    {{/if}}
+                                {{/isType}}
+                                {{#isType dropdown_options.dropdown_type "form"}}
+                                    {{#if dropdown_options.dropdown_config.content}}
+                                        {{{dropdown_options.dropdown_config.content}}}
+                                    {{/if}}
+                                {{/isType}}
+                            </ul>
                             {{/if}}
-                        {{/isType}}
-                        {{#isType dropdown_options.dropdown_type "form"}}
-                            {{#if dropdown_options.dropdown_config.content}}
-                                {{{dropdown_options.dropdown_config.content}}}
-                            {{/if}}
-                        {{/isType}}
-                    </ul>
-                    {{/if}}
-                </span>
-                {{/each}}
+                        </span>
+                    {{/each}}
                 {{/if}}
             </div>
             <div class="qld__header__main-nav-controls">
