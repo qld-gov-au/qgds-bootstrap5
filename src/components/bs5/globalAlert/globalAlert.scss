@@ -9,17 +9,18 @@
 
     .qld-global-alert-main {
         display: flex;
-        align-items: center;
+        // align-items: center; // this was affecting the close button
         margin: 6px 0;
         .global-alert-icon {
+            position: absolute;
             line-height: 1;
             margin-top: 2px;
             width: 2em;
             height: 1em;
             display: inline-block;
             transition: fill 0.3s ease;
-            align-self: center;
-            vertical-align: middle;
+            // align-self: center;
+            // vertical-align: middle;
             font-size: 1.5rem;
         }
         .global-alert-content {
