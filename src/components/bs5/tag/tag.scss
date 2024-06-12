@@ -41,6 +41,7 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
     //Status - High emphasis
     $tag-emphasis: "high";
     //Status - High -- General variables
+    --#{$prefix}tag-status-#{$tag-emphasis}-border: none;
 
         //Status - High -- Neutral
         $tag-type: "neutral";
@@ -190,6 +191,8 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
             }
 
             &.tag-high {
+                border: var(--#{$prefix}tag-status-high-border);
+
                 &.tag-neutral {
                     color: var(--#{$prefix}tag-status-high-neutral-color);
                     background: var(--#{$prefix}tag-status-high-neutral-bg);
