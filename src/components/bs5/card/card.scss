@@ -213,6 +213,11 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
         margin-bottom: 1rem;
     }
 
+    .card-body {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .card-title {
         font-size: var(--#{$prefix}card-title-font-size);
         line-height: var(--#{$prefix}card-title-line-height);
@@ -228,10 +233,11 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
             color: var(--#{$prefix}card-link-color);
             font-weight: 600;
             text-underline-offset: 3px;
+            text-decoration-thickness: var(--qld-link-underline-thickness);
 
             &:hover, &:focus {
                 text-decoration: underline;
-                text-decoration-thickness: 3px;
+                text-decoration-thickness: var(--qld-link-underline-thickness-hover);
             }
         }
     }
@@ -430,16 +436,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     }
 }
 
-.card-feature {
-    .card-title {
-        a {
-            &:hover, &:focus {
-                text-decoration-thickness: 4px;
-            }
-        }
-    }
-}
-
 @include media-breakpoint-up(md) {
     .card {
         &-feature {
@@ -447,7 +443,10 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
             flex: 0 1 100%;
             min-height: 300px;
 
-            .card-img,
+            .card-img {
+                min-height: 300px;
+                flex: 1;
+            }
             .card-inner {
                 flex: 1;
             }
@@ -479,6 +478,7 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 
             .card-img {
                 flex: 2;
+                min-height: 440px;
             }
             .card-inner {
                 flex: 1;
