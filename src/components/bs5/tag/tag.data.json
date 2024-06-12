@@ -138,8 +138,6 @@
 			}
 		],
 		"size": "tag-small",
-		"emphasis": "tag-low",
-		"iconSVG": "",
-		"iconPosition": "tag-icon-leading"
+		"emphasis": "tag-low"
 	}
 }

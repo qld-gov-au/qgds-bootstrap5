@@ -2,8 +2,6 @@
 import { Tag } from './Tag.js';
 import defaultdata from './tag.data.json';
 
-const themeVariants = {}
-
 const sizes = {
   "tag-small": "Small",
   "tag-big": "Big (Default)",
@@ -21,11 +19,6 @@ const types = {
   "tag-error": "Error",
   "tag-information": "Information",
 }
-
-const iconPositions = {
-  "tag-icon-leading": "Leading icon",
-  "tag-icon-trailing": "Trailing icon",
-};
 
 /**
  * Construct Status tag for all possible variants with various sizes, emphasis levels, and types.
@@ -50,8 +43,6 @@ function statusVariantsMarkup() {
         tagItems: tagItems,
         size: sizeClass,
         emphasis: emClass,
-        iconSVG: defaultdata.status.iconSVG,
-        iconPosition: defaultdata.status.iconPosition,
       }).html;
 
       //Return Tag component markup in grid with tag's emphasis and size as label. 
@@ -135,18 +126,6 @@ export const Status = {
         labels: emphasis,
       },
       options: Object.keys(emphasis),
-    },
-    iconSVG: {
-      description: "SVG content of the icon",
-      control: "text",
-    },
-    iconPosition: {
-      description: "Position of the icon placement",
-      control: {
-        type: "radio",
-        labels: iconPositions,
-      },
-      options: Object.keys(iconPositions),
     },
   },
 };
