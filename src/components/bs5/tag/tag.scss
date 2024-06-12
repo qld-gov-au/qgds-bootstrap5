@@ -70,8 +70,7 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 
     //Status - Big size (default)
     $tag-size: "big";
-    --#{$prefix}tag-status-#{$tag-size}-height: 40px;
-    --#{$prefix}tag-status-#{$tag-size}-padding: 8px, 0px, 8px, 0px;
+    --#{$prefix}tag-status-#{$tag-size}-padding: 0.5rem 1rem;
     --#{$prefix}tag-status-#{$tag-size}-font-size: 16px;
     --#{$prefix}tag-status-#{$tag-size}-line-height: 24px;
     --#{$prefix}tag-status-#{$tag-size}-font-weight: 400;
@@ -79,25 +78,20 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 
     //Status - Small size
     $tag-size: "small";
-    --#{$prefix}tag-status-#{$tag-size}-height: 24px;
-    --#{$prefix}tag-status-#{$tag-size}-padding: 10px;
+    --#{$prefix}tag-status-#{$tag-size}-padding: 0 0.5rem;
     --#{$prefix}tag-status-#{$tag-size}-font-size: 14px;
     --#{$prefix}tag-status-#{$tag-size}-line-height: 24px;
     --#{$prefix}tag-status-#{$tag-size}-font-weight: 400;
     --#{$prefix}tag-status-#{$tag-size}-border-radius: 20px;
 
     //TODO: Status - icon - leading 
-
+    
     //TODO: Status - icon - trailing
-     
+
 }
 
 // General styling rules.
 .tag-list {
-    // Can get rid of flex display, since tag-item is inline-block
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: wrap;
     list-style-type: none;
     margin: 0.5rem 0;
     padding: 30px;
@@ -223,14 +217,16 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
             }
 
             &.tag-big {
-                height: var(--#{$prefix}tag-status-big-height);
                 border-radius: var(--#{$prefix}tag-status-big-border-radius);
                 font-size: var(--#{$prefix}tag-status-big-font-size);
+                line-height: var(--#{$prefix}tag-status-big-line-height);
+                padding: var(--#{$prefix}tag-status-big-padding);
             }
             &.tag-small {
-                height: var(--#{$prefix}tag-status-small-height);
                 border-radius: var(--#{$prefix}tag-status-small-border-radius);
                 font-size: var(--#{$prefix}tag-status-small-font-size);
+                line-height: var(--#{$prefix}tag-status-small-line-height);
+                padding: var(--#{$prefix}tag-status-small-padding);
             }
         }
     }
