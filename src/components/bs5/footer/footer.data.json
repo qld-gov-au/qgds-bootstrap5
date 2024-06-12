@@ -14,11 +14,15 @@
         "list": [
             {
                 "icon": "icon-phone",
-                "label": "Phone: 13 QGOV (13 74 68)"
+                "label": "Phone: 13 QGOV (13 74 68)",
+                "linkValue": "137468",
+                "type":"tel"
             },
             {
                 "icon": "icon-email",
-                "label": "Email: <span class='user-select-all'>email@qld.gov.au</span>"
+                "label": "Email: <span class='user-select-all'>email@qld.gov.au</span>",
+                "linkValue": "email@qld.gov.au",
+                "type":"mailto"
             }
         ],
         "buttonLabel": "Contact us",
