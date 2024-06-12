@@ -2,8 +2,9 @@
 
 <ul class="tag-list {{variant}}">
   {{#each tagItems}}
-  <li class="tag-item {{classes}}">
-    {{{content}}}
-  </li>
+    <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
+      {{{content}}}
+    </li>
   {{/each }}
 </ul>
+
