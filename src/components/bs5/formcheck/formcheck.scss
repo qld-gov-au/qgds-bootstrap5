@@ -56,6 +56,7 @@ $form-check-input-outline-dark: 3px solid var(--#{$prefix}dark-focus);
 
 // SMALL BORDER WIDTH
 $form-check-input-border-width-small: 2px;
+$form-check-input-small-outline-width: 1px;
 
 // DARK ICON
 $form-check-input-checked-color-dark: #fff;
@@ -93,16 +94,24 @@ $form-check-btn-check-disabled-opacity: $btn-disabled-opacity;
 $form-check-inline-margin-end: 1rem;
 
 .small {
+  font-size: 1rem;
   .form-check .form-check-input {
     width: $form-check-input-width-small;
     height: $form-check-input-width-small;
 
     &[type="checkbox"],
     &[type="radio"] {
+      outline-width: 2px;
       border-width: #{$form-check-input-border-width-small};
       &:checked {
         background-size: 14px 14px;
       }
+    }
+  }
+  .valid,
+  .invalid {
+    .form-check .form-check-input[type="checkbox"] {
+      outline-width: $form-check-input-small-outline-width;
     }
   }
 }
@@ -200,7 +209,7 @@ $form-check-inline-margin-end: 1rem;
   .valid & {
     .form-check-input[type="radio"],
     .form-check-input[type="checkbox"] {
-      outline: #{$form-check-valid-color} solid 2px;
+      outline: #{$form-check-valid-color} solid 3px;
 
       &:focus {
         outline: #{$form-check-input-outline};
@@ -216,7 +225,7 @@ $form-check-inline-margin-end: 1rem;
   .invalid & {
     .form-check-input[type="radio"],
     .form-check-input[type="checkbox"] {
-      outline: #{$form-check-invalid-color} solid 2px;
+      outline: #{$form-check-invalid-color} solid 3px;
 
       &:focus {
         outline: #{$form-check-input-outline};
@@ -263,7 +272,7 @@ $form-check-inline-margin-end: 1rem;
     .valid & {
       .form-check-input[type="radio"],
       .form-check-input[type="checkbox"] {
-        outline: #{$form-check-valid-color} solid 2px;
+        outline: #{$form-check-valid-color} solid 3px;
         &:focus {
           outline: #{$form-check-input-outline-dark};
           outline-offset: 2px;
@@ -271,6 +280,9 @@ $form-check-inline-margin-end: 1rem;
         }
         &:checked:focus {
           outline: #{$form-check-input-outline-dark};
+        }
+        .small & {
+          outline-width: $form-check-input-small-outline-width;
         }
       }
     }
@@ -278,7 +290,7 @@ $form-check-inline-margin-end: 1rem;
     .invalid & {
       .form-check-input[type="radio"],
       .form-check-input[type="checkbox"] {
-        outline: #{$form-check-invalid-color} solid 2px;
+        outline: #{$form-check-invalid-color} solid 3px;
         &:focus {
           outline: #{$form-check-input-outline-dark};
           outline-offset: 2px;
@@ -287,10 +299,36 @@ $form-check-inline-margin-end: 1rem;
         &:checked:focus {
           outline: #{$form-check-input-outline-dark};
         }
+        .small & {
+          outline-width: $form-check-input-small-outline-width;
+        }
       }
     }
+
+    // .small {
+    //   .valid &,
+    //   .invalid & {
+    //     .form-check-input[type="radio"],
+    //     .form-check-input[type="checkbox"] {
+    //       outline-width: $form-check-input-small-outline-width !important;
+    //     }
+    //   }
+    // }
   }
   &-label {
     margin-left: 0.5rem;
   }
 }
+// .small {
+//   .valid,
+//   .invalid {
+//     .dark {
+//       .form-check {
+//         .form-check-input[type="radio"],
+//         .form-check-input[type="checkbox"] {
+//           outline-width: $form-check-input-small-outline-width;
+//         }
+//       }
+//     }
+//   }
+// }
