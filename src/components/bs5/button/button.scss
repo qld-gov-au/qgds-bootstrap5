@@ -94,6 +94,7 @@
         --#{$prefix}btn-hover-bg: transparent;
         --#{$prefix}btn-hover-color: var(--#{$prefix}white);
         --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
+        --#{$prefix}btn-active-border-color: var(--#{$prefix}extra-light-grey);
         --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
         --#{$prefix}btn-disabled-bg: transparent;
         --#{$prefix}btn-disabled-color: var(--#{$prefix}color-default-color-dark-text-lighter); 
@@ -278,15 +279,18 @@ a.btn, .btn {
                 color: var(--#{$prefix}btn-hover-border-color);
             }
         }
-        &:active {
-            .btn-icon {
-                color: var(--#{$prefix}btn-active-color);
-            }
-        }
         &:focus {
             border-color: var(--#{$prefix}btn-focus-border-color);
             .btn-icon {
                 color: var(--#{$prefix}btn-focus-border-color);
+            }
+        }
+        &:active {
+            color: var(--#{$prefix}btn-active-color);
+            background-color: var(--#{$prefix}btn-active-bg);
+            border-color: var(--#{$prefix}btn-active-bg);
+            .btn-icon {
+                color: var(--#{$prefix}btn-active-color);
             }
         }
         &:disabled, &.disabled {
@@ -305,14 +309,14 @@ a.btn, .btn {
                 color: var(--#{$prefix}dark-action-secondary-hover);
             }
         }
+        &:focus {
+            background-color: var(--#{$prefix}btn-hover-bg);
+        }
         &:active {
             text-decoration: none;
             .btn-icon {
                 color: var(--#{$prefix}white);
             }
-        }
-        &:focus {
-            background-color: var(--#{$prefix}btn-hover-bg);
         }
         &:disabled, &.disabled {
             .btn-icon {
