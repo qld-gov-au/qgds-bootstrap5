@@ -140,6 +140,6 @@
 		"size": "tag-small",
 		"emphasis": "tag-low",
 		"iconSVG": "",
-		"iconPosition": "leading"
+		"iconPosition": "tag-icon-leading"
 	}
 }

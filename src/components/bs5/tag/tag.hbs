@@ -3,17 +3,17 @@
 <ul class="tag-list {{variant}}">
   {{#each tagItems}}
     <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
-      {{#if iconSVG}}
-        {{#ifCond iconPosition '==' 'leading'}}
-            <span class="tag-icon">iconSVG</span>
+      {{#if ../iconSVG}}
+        {{#ifCond ../iconPosition '==' 'tag-icon-leading'}}
+            <span class="tag-icon">{{{../iconSVG}}}</span>
         {{/ifCond}}
       {{/if}}
 
       {{{content}}}
 
-      {{#if iconSVG}}
-        {{#ifCond iconPosition '==' 'trailing'}}
-            <span class="tag-icon">iconSVG</span>
+      {{#if ../iconSVG}}
+        {{#ifCond ../iconPosition '==' 'tag-icon-trailing'}}
+            <span class="tag-icon">{{{../iconSVG}}}</span>
         {{/ifCond}}
       {{/if}}
     </li>
