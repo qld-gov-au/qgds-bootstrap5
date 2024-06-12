@@ -1,13 +1,13 @@
 /* global Handlebars */
 
 /**
- * Registers Handlebars Helper for 'contains', 'ifCond', 'isType', 'isMultipleOfThree' and 'isEndOfRow'
+ * Registers Handlebars Helpers
  * @param {module} Handlebars Templating engine
  * @returns {void} Result of the helper operation
  */
 
 export default function handlebarsHelpers(Handlebars) {
-  
+  // Contains - 
   Handlebars.registerHelper("contains", function (needle, haystack, options) {
     needle = Handlebars.escapeExpression(needle);
     haystack = Handlebars.escapeExpression(haystack);
@@ -15,6 +15,7 @@ export default function handlebarsHelpers(Handlebars) {
       ? options.fn(this)
       : options.inverse(this);
   });
+  // ifCond - checks conditions 
   Handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
     switch (operator) {
     case "==":
@@ -47,12 +48,7 @@ export default function handlebarsHelpers(Handlebars) {
       return options.inverse(this);
     }
   });
-  Handlebars.registerHelper('isMultipleOfThree', function(index) {
-    return (index % 3 === 0); // This will check if the index of the current item in the iteration is a multiple of three (nav dropdown)
-  });
-  Handlebars.registerHelper('isEndOfRow', function(index) {
-    return ((index + 1) % 3 === 0); // Since index is zero-based, add 1 to check if it's the end of a row.
-  });
+  // Checks is expected type
   Handlebars.registerHelper('isType', function (value, expected, options) {
     if (value === expected) {
       return options.fn(this); // Render the block if condition is true

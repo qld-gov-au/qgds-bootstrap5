@@ -1,30 +1,38 @@
 <!-- QGDS Component: Loading Quick exit -->
 
-<div class="qld-quick-exit dark">
-  <div class="qld-quick-exit-inner container-fluid">
+<div class="qld-quick-exit"><!-- dark -->
+  <div class="qld-quick-exit-inner container-fluid{{#if hasIconInfo}} has-icon-info{{/if}}{{#if hasTooltip}} has-tooltip{{/if}}">
     <div class="qg-quick-exit__tips">
-      <a href="https://www.qld.gov.au/help/tips-to-browse-safely-online" class="qld-quick-exit-tip-link">
+      {{#if hasIconInfo}}
         <span class="qld-icon icon-info"></span>
-        <span class="qld-quick-exit-tip-title">Tips to browse safely online</span>
+      {{/if}}
+      <p class="qld-quick-exit-tip-title">{{{exitMessage}}}</p>
+      <a href="{{browseSafelyOnlineURL}}" class="qld-quick-exit-tip-link">
+        <span>{{exitMessageLinkText}}</span>
       </a>
     </div>
     <div class="qld-quick-exit-actions">
-      <ul class="qld-quick-exit-list">
-        <li class="qld-quick-exit-item qld-tooltip-container">
-          <input type="checkbox" id="qld-quick-exit-input" class="qld-quick-exit-input sr-only">
-          <label for="qld-quick-exit-input" class="qld-quick-exit-label qld-tooltip-parent">
-            <span class="qld-tooltip-prompt">What is this?</span>
-            <div class="qld-tooltip-wrapper">
-              <div class="qld-tooltip">
-                <span class="qld-tooltip-content">To leave this site quickly, click the 'Close this site' button or press 'ESC' on your keyboard. You will be taken to google.com.au.</span>
+      {{#if hasTooltip}}
+        <ul class="qld-quick-exit-list">
+          <li class="qld-quick-exit-item qld-tooltip-container">
+            <input type="checkbox" id="qld-quick-exit-input" class="qld-quick-exit-input sr-only" />
+            <label for="qld-quick-exit-input" class="qld-quick-exit-label qld-tooltip-parent">
+              <span class="qld-tooltip-prompt">{{qldTooltipPrompt}}</span>
+              <div class="qld-tooltip-wrapper">
+                <div class="qld-tooltip">
+                  <span class="qld-tooltip-content">{{qldTooltipContent}}</span>
+                </div>
               </div>
-            </div>
-          </label>
-        </li>
-        <li class="qld-quick-exit-item">
-          <button class="btn btn-secondary qld-quick-exit-button">Close this site</button>
-        </li>
-      </ul>
+            </label>
+          </li>
+          
+          <li class="qld-quick-exit-item">
+            {{/if}}
+              <button class="btn btn-secondary qld-quick-exit-button">{{{quickExitButtonText}}}</button>
+            {{#if hasTooltip}}
+          </li>   
+        </ul>
+      {{/if}}
     </div>
   </div>
 </div>

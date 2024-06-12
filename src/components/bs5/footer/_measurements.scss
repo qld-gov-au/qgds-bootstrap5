@@ -1,0 +1,30 @@
+.qld-footer {
+  // ------------------------------------------------------------------------------------------------------------------
+  // Measurements
+  // -text
+  --#{$prefix}footer-font-size: 0.875rem;
+  --#{$prefix}footer-text-underline-offset: 0.3em;
+  --#{$prefix}footer-font-underline-boarder: 2px;
+
+  // -spacing
+  --#{$prefix}footer-gap: 12px;
+  --#{$prefix}footer-column-spacing: 32px;
+  --#{$prefix}footer-spacing: 1rem;
+  --#{$prefix}footer-padding-y: 4rem;
+  --#{$prefix}footer-bootstrap-default-padding: 15px;
+  // -boarders
+  --#{$prefix}footer-border-width: 1px;
+  --#{$prefix}footer-special-border-width: 3px;
+  --#{$prefix}footer-border-radius: 4px;
+
+  // Icons and Crest
+  --#{$prefix}footer-social-icon-size-width: 1.5rem;
+  --#{$prefix}footer-social-icon-size-height: 20px;
+  --#{$prefix}footer-crest-max-width: 252px;
+
+  // Form IO
+  --#{$prefix}formIO-feeback-font-weight: 700;
+  --#{$prefix}formIO-border-outline-width: 2px;
+  --#{$prefix}formIO-form-control-border-width: 2px;
+  --#{$prefix}formIO-callout-heading-line-height: 24px;
+}

@@ -2,7 +2,6 @@
     // ------------------------------------------------------------------------------------------------------------------
     //  1. Common vars
     // ------------------------------------------------------------------------------------------------------------------
-
     // Shared thickness, offset etc. 
     --#{$prefix}header-underline__thickness-thin: 0.5px;
     --#{$prefix}header-underline__thickness-thick: 2px;
@@ -11,22 +10,6 @@
     // ------------------------------------------------------------------------------------------------------------------
     //  2. Second hand variables (each variant, default, light, dark, dark-alt) using QGDS-Tokens (npm)
     // ------------------------------------------------------------------------------------------------------------------
-    //  Search inputs
-    --#{$prefix}header-site-search-bg: var(--#{$prefix}color-default-color-light-background-default-shade);
-    --#{$prefix}header-site-search-btn-color: var(--#{$prefix}color-default-color-dark-text-default);
-    --#{$prefix}header-site-search-btn-bg: var(--#{$prefix}color-default-color-light-link-default);
-    --#{$prefix}header-site-search-border-color: var(--#{$prefix}color-default-color-light-action-primary-hover);
-    --#{$prefix}header-site-search-icon-color:var(--#{$prefix}color-default-color-light-text-lighter);
-    --#{$prefix}header-site-search-text-color:var(--#{$prefix}color-default-color-light-text-default);
-
-    // Search input dark
-    --#{$prefix}header-dark-site-search-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
-    --#{$prefix}header-dark-site-search-btn-color: var(--#{$prefix}color-default-color-light-text-default);
-    --#{$prefix}header-dark-site-search-btn-bg: var(--#{$prefix}color-default-color-light-accent-design-accent);
-    --#{$prefix}header-dark-site-search-border-color: var(--#{$prefix}color-default-color-dark-border-default);
-    --#{$prefix}header-dark-site-search-icon-color:var(--#{$prefix}color-default-color-dark-text-lighter);
-    --#{$prefix}header-dark-site-search-text-color:var(--#{$prefix}color-default-color-dark-text-default);
-
     // Header
     --#{$prefix}header_color: var(--#{$prefix}color-default-color-light-text-default);
     --#{$prefix}header_bg: var(--#{$prefix}color-default-color-light-background-default);
@@ -80,24 +63,6 @@
     --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}color-default-color-light-site-title);
     --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}color-default-color-light-text-lighter);
 
-    // Search
-    --site-search-bg: var(--#{$prefix}header-site-search-bg);
-    --site-search-btn-color: var(--#{$prefix}header-site-search-btn-color);
-    --site-search-btn-bg: var(--#{$prefix}header-site-search-btn-bg);
-    --site-search-border-color: var(--#{$prefix}header-site-search-border-color);
-    --site-search-icon-color: var(--#{$prefix}header-site-search-icon-color);
-    --site-search-input-color: var(--#{$prefix}header-site-search-text-color);
-    --site-search-input-focus-color: var(--#{$prefix}color-default-color-light-focus-default);
-    --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
-
-    // Suggestions colours
-    --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}color-default-color-light-background-default-shade);
-    --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}color-default-color-light-border-default);
-    --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}color-default-color-light-accent-design-accent);
-    --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}color-default-color-dark-background-default);
-    --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}color-default-color-dark-background-default-shade);
-    --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}color-default-color-dark-text-default);
-
     // ------------------------------------------------------------------------------------------------------------------
     //  3. Dark/dark-alt modes
     // ------------------------------------------------------------------------------------------------------------------
@@ -147,23 +112,6 @@
 
         // COA
         --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}color-default-color-dark-crest-fill);
-        
-        // Search (dark/dark/alt)
-        --site-search-bg: var(--#{$prefix}header-dark-site-search-bg);
-        --site-search-btn-color: var(--#{$prefix}header-dark-site-search-btn-color);
-        --site-search-btn-bg: var(--#{$prefix}header-dark-site-search-btn-bg);
-        --site-search-border-color: var(--#{$prefix}header-dark-site-search-border-color);
-        --site-search-icon-color: var(--#{$prefix}header-dark-site-search-icon-color);
-        --site-search-input-color: var(--#{$prefix}header-dark-site-search-text-color);
-        --site-search-text-color: var(--#{$prefix}header-site-search-text-color);
-
-        // Suggestions colours
-        --#{$prefix}header_site-search-suggestions-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
-        --#{$prefix}header_site-search-suggestions-hover: var(--#{$prefix}color-default-color-dark-background-default);
-        --#{$prefix}header_site-search-suggestions-hover__border_color: var(--#{$prefix}color-default-color-dark-accent-design-accent);
-        --#{$prefix}header_site-search-suggestions-feature_bg: var(--#{$prefix}color-default-color-dark-background-alt);
-        --#{$prefix}header_site-search-suggestions-feature_hover: var(--#{$prefix}color-default-color-dark-background-alt-shade);
-        --#{$prefix}header_site-search-suggestions-feature_text-color: var(--#{$prefix}color-default-color-dark-text-default);
     }
 
     .dark-alt & {
