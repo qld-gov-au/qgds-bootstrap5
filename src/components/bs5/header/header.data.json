@@ -64,7 +64,7 @@
                             "view_more": true,
                             "view_more_options": {
                                 "url": "#",
-                                "label": "View more",
+                                "label": "View all",
                                 "target": "_blank"
                             }
                         }
@@ -119,7 +119,7 @@
                             "view_more": true,
                             "view_more_options": {
                                 "url": "#",
-                                "label": "View more",
+                                "label": "View all",
                                 "target": "_blank"
                             }
                         }
