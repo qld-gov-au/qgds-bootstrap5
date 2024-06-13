@@ -42,7 +42,7 @@
 
         //Focus state
         --#{$prefix}btn-close-focus-color: var(--#{$prefix}color-default-color-light-text-heading);
-        --#{$prefix}btn-close-focus-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+        --#{$prefix}btn-close-focus-shadow: none;
         --#{$prefix}btn-close-focus-border: var(--#{$prefix}light-blue) solid 3px;
     }
 }
