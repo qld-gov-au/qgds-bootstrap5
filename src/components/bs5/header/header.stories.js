@@ -17,7 +17,7 @@ import {
   subbrand_variant,
   cobrand_variant,
   endorsed_variant,
-  standalone_variant
+  standalone_variant,
 } from './header.data.json';
 
 const sample_argtypes = {
@@ -56,7 +56,7 @@ const sample_argtypes = {
   '--qld-color-default-color-dark-border-alt': '#09ACFE',
   '--qld-color-default-color-dark-action-primary': '#4A93B3',
   '--qld-color-default-color-dark-action-primary-hover': '#FFFFFF',
-  '--qld-color-default-color-dark-action-secondary': '#FFD559'
+  '--qld-color-default-color-dark-action-secondary': '#FFD559',
 };
 
 const alternative_palette = {
@@ -88,7 +88,6 @@ const alternative_palette = {
   '--qld-color-default-color-light-text-heading': '#003549',
   '--qld-color-default-color-light-site-title': '#FFFFFF',
   '--qld-color-default-color-light-crest-fill': '#FFFFFF',
-  '--qld-color-default-color-light-accent-design-accent': '#FF0084',
   '--qld-color-default-color-dark-background-default': '#34001b',
   '--qld-color-default-color-dark-background-default-shade': '#000000',
   '--qld-color-default-color-dark-background-alt': '#080707',
@@ -97,7 +96,7 @@ const alternative_palette = {
   '--qld-color-default-color-dark-border-alt': '#09ACFE',
   '--qld-color-default-color-dark-action-primary': '#4A93B3',
   '--qld-color-default-color-dark-action-primary-hover': '#FFFFFF',
-  '--qld-color-default-color-dark-action-secondary': '#FFD559'
+  '--qld-color-default-color-dark-action-secondary': '#FFD559',
 };
 
 const arg_types = {
@@ -142,7 +141,7 @@ const arg_types = {
 const mergeArgs = (arg_types, variant, menu) => ({
   ...arg_types,
   ...variant,
-  ...menu
+  ...menu,
 });
 
 
@@ -165,7 +164,7 @@ export default {
 export const MasterBrand = {
   args: {
     ...masterbrand_variant,
-    ...menu_state
+    ...menu_state,
   },
   parameters: {
     backgrounds: {
@@ -188,7 +187,7 @@ export const MasterBrand = {
 export const Subbrand = {
   args: {
     ...subbrand_variant,
-    ...menu_state
+    ...menu_state,
   },
   parameters: {
     backgrounds: {
@@ -240,6 +239,7 @@ export const CoBrand = {
         <main>
           ${Story()}
           <br />
+          ${new Banner(bannerDataWithOverride).html}
           ${new Footer(footerDataWithOverride).html}
         </main>
       `;
