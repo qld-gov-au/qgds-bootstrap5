@@ -57,10 +57,6 @@
                                     {{feedbackForm.btnTitle}}
                                 </a>
                                 <div id="qg-footer-feedback" class="qg-footer-feedback__v2 collapse">
-                                    <script>
-                                        window.formioQldCdnVersion = "v2/v2.x.x-latest";
-                                    </script>
-                                    <script src="{{{feedbackForm.formioResource}}}"></script>
                                     <div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if @first}}{{key}}{{/if}} {{#unless @first}}{{key}}="{{value}}"{{/unless}}{{/each}}>
                                         <div class="qg-spinner" role="status">
                                             <div class="spinner-border"></div>
