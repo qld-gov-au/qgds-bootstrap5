@@ -35,7 +35,7 @@
         font-weight: 600;
         margin: 0 0 1rem 0;
         padding: 0;
-        color: var(--qld-headings-color);
+        color: var(--qld-color-default-color-light-text-heading);
     }
 
     p,
@@ -120,6 +120,7 @@
 
     &-#{$key} {
         border-color: $color;
+        border-width: 2px;
 
         &:before {
             background-color: $color;
