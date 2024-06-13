@@ -27,30 +27,31 @@
         <div class="card-icon {{iconPosition}} {{iconClasses}}"></div>
         {{/if}}
 
-        {{#if feature}}<div class="card-inner">{{/if}}
+        {{#if feature}}<div class="card-inner w-100">{{/if}}
 
-            <div class="card-body">
+            <div class="card-body w-100">
                 {{#if date}}
                 <div class="card-date">{{date}}</div>
                 {{/if}}
-                <h3 class="card-title">
-                    {{#if link}}
-                    <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
-                    {{else}}
-                    {{ title }}
-                    {{/if }}
-                </h3>
+                <div>
+                    <h3 class="card-title">
+                        {{#if link}}
+                        <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
+                        {{else}}
+                        {{ title }}
+                        {{/if }}
+                    </h3>
 
-                {{#if description}}
-                <p class="card-text">
-                    {{{description}}}
-                </p>
+                    {{#if description}}
+                    <p class="card-text">
+                        {{{description}}}
+                    </p>
+                    {{/if}}
+                </div>
+                {{#if arrow}}
+                <div class="card-icon icon-arrow"></div>
                 {{/if}}
             </div>
-
-            {{#if arrow}}
-            <div class="card-icon icon-arrow"></div>
-            {{/if}}
 
             {{#if footer}}
             <div class="card-footer">
