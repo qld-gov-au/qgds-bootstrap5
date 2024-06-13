@@ -401,19 +401,6 @@
                     "value": ""
                 }
             }
-        },
-        "siteSearchAsset": {
-            "value": "#",
-            "placeholder": "Placeholder",
-            "label": "Label",
-            "formAction": {
-                "url": "https://www.forgov.qld.gov.au/search"
-            },
-            "options": {
-                "borderStyle": {
-                    "full": false
-                }
-            }
         }
     },
     "endorsed_variant": {

@@ -55,8 +55,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Close suggestions when clicking outside
       document.addEventListener("click", function (event) {
-        if (!searchInput.contains(event.target) && !document.querySelector(".suggestions").contains(event.target)) {
-          document.querySelector(".suggestions").style.display = "none";
+        const searchInput = document.querySelector(".search-input");
+        const suggestions = document.querySelector(".suggestions");
+
+        if (!searchInput || !suggestions) return;
+
+        const isClickInsideSearchInput = searchInput.contains(event.target);
+        const isClickInsideSuggestions = suggestions.contains(event.target);
+
+        if (!isClickInsideSearchInput && !isClickInsideSuggestions) {
+          suggestions.style.display = "none";
         }
       });
     }
