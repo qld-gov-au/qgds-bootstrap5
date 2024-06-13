@@ -10,13 +10,11 @@
 
         <div class="row">
             
-            {{!-- Section 1: Contact us and Site wide CTAs --}}
             <div class="col-xs-12 col-md-12 col-lg-3">
                 <div class="footer-column footer-contact {{#if contact.hasBorderColumn}}border-column{{/if}}">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-12">
                             <h3 class="footer-heading">{{ contact.title }}</h3>
-
                             <div class="footer-content">
                                 {{{ contact.content }}}
                                 {{#if contactHasContactList}}
@@ -35,7 +33,6 @@
                 </div>
             </div>
 
-            {{!-- Section 2: Section links (Custom secondary nav items) --}}
             <div class="col-xs-12 col-md-12 col-lg-3" aria-label="footer-navigation">
                 <div class="footer-column {{#if footerlinks.hasBorderColumn}}border-column{{/if}}">
                     <nav class="nav footer-link-list flex-column">
@@ -46,7 +43,6 @@
                 </div>
             </div>
 
-            {{!-- Section 3: Feedback form area --}}
             {{#if feedbackFormEnabled}}
             <div class="col-xs-12 col-md-12 col-lg-3">
                 <div class="footer-column {{#if feedbackForm.hasBorderColumn}}border-column{{/if}}">
@@ -64,11 +60,7 @@
                                     <script>
                                         window.formioQldCdnVersion = "v2/v2.x.x-latest";
                                     </script>
-                                    {{!-- If formioResource has the wrong URL or the future URL changes  --}}
-                                    {{!-- Make sure that this is also changed within footer.function.js --}}
-                                    {{!-- It is there to make sure that Form IO is alway got to --}}
                                     <script src="{{{feedbackForm.formioResource}}}"></script>
-
                                     <div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if @first}}{{key}}{{/if}} {{#unless @first}}{{key}}="{{value}}"{{/unless}}{{/each}}>
                                         <div class="qg-spinner" role="status">
                                             <div class="spinner-border"></div>
@@ -86,11 +78,10 @@
             </div>
             {{/if}}
 
-            {{!-- Section 4: Social media and engagment --}}
             {{#if followlinksEnabled}}
             <div class="col-xs-12 col-md-12 col-lg-3">
                 <div class="footer-column {{#if followlinks.hasBorderColumn}}border-column{{/if}}">
-                    <h3 class="footer-heading">{{followlinks.title}}</h3>
+                    {{#if followlinks.title}}<h3 class="footer-heading">{{followlinks.title}}</h3>{{/if}}
                     <nav class="nav footer-link-list footer-link-list--social flex-column">    
                         {{#each followlinks.list }}
                             {{#if enabled}}
@@ -105,7 +96,6 @@
             </div>
             {{/if}}
 
-            {{!-- Section 5: Aknowlegement, Qld Government Coat of Arms and Copyright information --}}
             <div class="col-xs-12 col-md-12 col-lg-3 crest">
                 <div class="footer-column {{#if copyright.hasBorderColumn}}border-column{{/if}}">
                     {{#if footerHasCrest}}
@@ -279,33 +269,23 @@
                     {{/if}}
 
                     <div class="footer-content">
-
-                        <div class="footer-acknowledgements">
-                        
+                        <div class="footer-acknowledgements">                        
                             {{#each acknowledgements}}
-                        
                                 {{#if title}}
-                                <h3 class="footer-heading">{{title}}</h3>
+                                    <h3 class="footer-heading">{{title}}</h3>
                                 {{/if}}
-
                                 {{{ content }}}
-                        
                             {{/each}}
-                        
                         </div>
-
                         <p class="copyright">{{{copyright.content}}} {{#if copyrightOrganisationName}}({{copyrightOrganisationName}}) {{/if}}{{#if copyrightHasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{copyright.currentYear}}</p>
-                        
                         {{#if footerHasStateOfQld}}
                             <p><a class="fw-semibold" href="{{lookup.link.URL }}" rel="external">{{lookup.link.text}}</a></p>
                         {{/if}}
-
                     </div>
 
                 </div>      
             </div>
-
+            
         </div>
     </div>
-
 </footer>
