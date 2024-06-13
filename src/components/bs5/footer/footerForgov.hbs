@@ -54,9 +54,6 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-12">
                             <h3 class="footer-heading">{{ feedbackForm.title }}</h3>
-                            {{#if feedbackForm45}}
-                                <h2>dsdfsdf</h2>
-                            {{/if}}
                             <p>{{ feedbackForm.content }}</p>
                         </div>
                         <div class="col-xs-12 col-md-6 col-lg-12">
@@ -71,7 +68,7 @@
                                     {{!-- If formioResource has the wrong URL or the future URL changes  --}}
                                     {{!-- Make sure that this is also changed within footer.function.js --}}
                                     {{!-- It is there to make sure that Form IO is alway got to --}}
-                                    <script src="{{{feedbackForm.formioResource}}}"></script>
+                                    <script src="{{{feedbackForm.formioResource}}}"><\/script>
                                     <div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if @first}}{{ key }}{{/if}} {{#unless @first}}{{ key }}="{{ value }}"{{/unless}}{{/each}}>
                                         <div class="qg-spinner" role="status">
                                             <div class="spinner-border"></div>
