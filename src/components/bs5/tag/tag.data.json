@@ -112,5 +112,32 @@
 				"classes": "tag-large"
 			}
 		]
+	},
+	"status": {
+		"variant": "tag-status",
+		"tagItems": [
+			{
+				"content": "Neutral",
+				"classes": "tag-neutral"
+			},
+			{
+				"content": "Success",
+				"classes": "tag-success"
+			},
+			{
+				"content": "Warning",
+				"classes": "tag-warning"
+			},
+			{
+				"content": "Error",
+				"classes": "tag-error"
+			},
+			{
+				"content": "Information",
+				"classes": "tag-information"
+			}
+		],
+		"size": "tag-small",
+		"emphasis": "tag-low"
 	}
 }

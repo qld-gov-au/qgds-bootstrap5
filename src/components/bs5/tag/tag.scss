@@ -1,31 +1,112 @@
+// QGDS QOL Tag
+
+$close-icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M180.7 180.7C186.9 174.4 197.1 174.4 203.3 180.7L256 233.4L308.7 180.7C314.9 174.4 325.1 174.4 331.3 180.7C337.6 186.9 337.6 197.1 331.3 203.3L278.6 256L331.3 308.7C337.6 314.9 337.6 325.1 331.3 331.3C325.1 337.6 314.9 337.6 308.7 331.3L256 278.6L203.3 331.3C197.1 337.6 186.9 337.6 180.7 331.3C174.4 325.1 174.4 314.9 180.7 308.7L233.4 256L180.7 203.3C174.4 197.1 174.4 186.9 180.7 180.7zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 32C132.3 32 32 132.3 32 256C32 379.7 132.3 480 256 480C379.7 480 480 379.7 480 256C480 132.3 379.7 32 256 32z'/%3E%3C/svg%3E";
+$close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z'/%3E%3C/svg%3E";
+
+// QGDS specific tag variables.
 .tag-list {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
+
+    //Status - Low emphasis
+    $tag-emphasis: "low";
+    //Status - Low -- General variables
+    --#{$prefix}tag-status-#{$tag-emphasis}-color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}tag-status-#{$tag-emphasis}-border: 1px solid transparent;
+
+        //Status - Low -- Neutral
+        $tag-type: "neutral";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-neutral-lightest);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-neutral-light);
+
+        //Status - Low -- Success
+        $tag-type: "success";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-success-lighter);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-success-default);
+
+        //Status - Low -- Warning
+        $tag-type: "warning";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-caution-lightest);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-caution-default);
+
+        //Status - Low -- Error
+        $tag-type: "error";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-error-lighter);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-error-default);
+
+        //Status - Low -- Information
+        $tag-type: "information";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-info-lighter);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-info-default);
+
+
+    //Status - High emphasis
+    $tag-emphasis: "high";
+    //Status - High -- General variables
+    --#{$prefix}tag-status-#{$tag-emphasis}-border: none;
+
+        //Status - High -- Neutral
+        $tag-type: "neutral";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-color: var(--#{$prefix}core-default-color-neutral-black);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-neutral-light);
+
+        //Status - High -- Success
+        $tag-type: "success";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-success-darker);
+
+        //Status - High -- Warning
+        $tag-type: "warning";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-color: var(--#{$prefix}core-default-color-neutral-black);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-caution-default);
+
+        //Status - High -- Error
+        $tag-type: "error";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-error-default);
+
+        //Status - High -- Information
+        $tag-type: "information";
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-info-darker);
+
+
+    //Status - Big size (default)
+    $tag-size: "big";
+    --#{$prefix}tag-status-#{$tag-size}-padding: 0.5rem 1rem;
+    --#{$prefix}tag-status-#{$tag-size}-font-size: 16px;
+    --#{$prefix}tag-status-#{$tag-size}-line-height: 24px;
+    --#{$prefix}tag-status-#{$tag-size}-font-weight: 400;
+    --#{$prefix}tag-status-#{$tag-size}-border-radius: 40px;
+
+    //Status - Small size
+    $tag-size: "small";
+    --#{$prefix}tag-status-#{$tag-size}-padding: 0 0.5rem;
+    --#{$prefix}tag-status-#{$tag-size}-font-size: 14px;
+    --#{$prefix}tag-status-#{$tag-size}-line-height: 24px;
+    --#{$prefix}tag-status-#{$tag-size}-font-weight: 400;
+    --#{$prefix}tag-status-#{$tag-size}-border-radius: 20px;
+
+}
+
+// General styling rules.
+.tag-list {
     list-style-type: none;
-    flex-wrap: wrap;
     margin: 0.5rem 0;
     padding: 30px;
 
     .tag-item {
-        border-color: $qld-light-grey;
-        color: $qld-dark-grey-muted;
-    }
-
-    .tag-item {
-        margin: 0 0.5rem 0.5rem 0;
-        list-style-type: none;
         display: inline-block;
-        border-radius: 16px;
+        color: var(--#{$prefix}dark-grey-muted);
+        margin: 0 0.5rem 0.5rem 0;
         padding: 0 0.5rem;
-        border-width: 1px;
-        border-style: solid;
+        list-style-type: none;
+        border: 1px solid var(--#{$prefix}light-grey);
+        border-radius: 16px;
         font-size: 0.875rem;
         line-height: 1.5rem;
         text-align: center;
 
         &:focus-within {
-            outline: 2px solid var(--qld-focus-color);
+            outline: 2px solid var(--#{$prefix}focus-color);
             outline-offset: 2px;
             border-radius: 16px;
         }
@@ -39,8 +120,8 @@
         }
 
         &.tag-link {
-            color: $qld-sapphire-blue;
-            border-color: $qld-sapphire-blue;
+            color: var(--#{$prefix}sapphire-blue);
+            border-color: var(--#{$prefix}sapphire-blue);
 
             a {
                 text-decoration: none;
@@ -53,13 +134,13 @@
             &:hover,
             &:active,
             &:focus {
-                background-color: $qld-textbox-border-color;
-                color: $qld-white;
+                background-color: var(--#{$prefix}textbox-border-color);
+                color: var(--#{$prefix}white);
                 text-decoration: underline;
-                text-underline-offset: var(--qld-link-underline-offset);
+                text-underline-offset: var(--#{$prefix}link-underline-offset);
 
                 a {
-                    color: $qld-white;
+                    color: var(--#{$prefix}white);
                 }
             }
         }
@@ -74,22 +155,91 @@
         }
 
         &.tag-info {
-            color: $qld-dark-grey-muted;
+            color: var(--#{$prefix}dark-grey-muted);
             border: 0;
-            background-color: $qld-extra-light-grey;
+            background-color: var(--#{$prefix}extra-light-grey);
+        }
+    }
+
+    &.tag-status {
+        .tag-item {
+
+            &.tag-low {
+                color: var(--#{$prefix}tag-status-low-color);
+                border: var(--#{$prefix}tag-status-low-border);
+
+                &.tag-neutral {
+                    background: var(--#{$prefix}tag-status-low-neutral-bg);
+                    border-color: var(--#{$prefix}tag-status-low-neutral-border-color);
+                }
+                &.tag-success {
+                    background: var(--#{$prefix}tag-status-low-success-bg);
+                    border-color: var(--#{$prefix}tag-status-low-success-border-color);
+                }
+                &.tag-warning {
+                    background: var(--#{$prefix}tag-status-low-warning-bg);
+                    border-color: var(--#{$prefix}tag-status-low-warning-border-color);
+                }
+                &.tag-error {
+                    background: var(--#{$prefix}tag-status-low-error-bg);
+                    border-color: var(--#{$prefix}tag-status-low-error-border-color);
+                }
+                &.tag-information {
+                    background: var(--#{$prefix}tag-status-low-information-bg);
+                    border-color: var(--#{$prefix}tag-status-low-information-border-color);
+                }
+            }
+
+            &.tag-high {
+                border: var(--#{$prefix}tag-status-high-border);
+
+                &.tag-neutral {
+                    color: var(--#{$prefix}tag-status-high-neutral-color);
+                    background: var(--#{$prefix}tag-status-high-neutral-bg);
+                }
+                &.tag-success {
+                    color: var(--#{$prefix}tag-status-high-success-color);
+                    background: var(--#{$prefix}tag-status-high-success-bg);
+                }
+                &.tag-warning {
+                    color: var(--#{$prefix}tag-status-high-warning-color);
+                    background: var(--#{$prefix}tag-status-high-warning-bg);
+                }
+                &.tag-error {
+                    color: var(--#{$prefix}tag-status-high-error-color);
+                    background: var(--#{$prefix}tag-status-high-error-bg);
+                }
+                &.tag-information {
+                    color: var(--#{$prefix}tag-status-high-information-color);
+                    background: var(--#{$prefix}tag-status-high-information-bg);
+                }
+            }
+
+            &.tag-big {
+                border-radius: var(--#{$prefix}tag-status-big-border-radius);
+                font-size: var(--#{$prefix}tag-status-big-font-size);
+                line-height: var(--#{$prefix}tag-status-big-line-height);
+                padding: var(--#{$prefix}tag-status-big-padding);
+            }
+            &.tag-small {
+                border-radius: var(--#{$prefix}tag-status-small-border-radius);
+                font-size: var(--#{$prefix}tag-status-small-font-size);
+                line-height: var(--#{$prefix}tag-status-small-line-height);
+                padding: var(--#{$prefix}tag-status-small-padding);
+            }
         }
     }
 
     &.tag-dark {
-        background-color: $qld-sapphire-blue;
+        background-color: var(--#{$prefix}sapphire-blue);
 
         .tag-item {
-            color: $qld-dark-text;
+            color: var(--#{$prefix}dark-text);
         }
 
         .tag-link {
-            color: $qld-white;
-            border-color: $qld-white;
+            color: var(--#{$prefix}white);
+            border-color: var(--#{$prefix}white);
 
             a {
                 color: white;
@@ -98,54 +248,54 @@
             &:hover,
             &:active,
             &:focus {
-                background-color: $qld-light-green-dark;
-                border-color: $qld-light-green-dark;
+                background-color: var(--#{$prefix}light-green-dark);
+                border-color: var(--#{$prefix}light-green-dark);
 
                 a {
-                    color: $qld-text-darkest;
+                    color: var(--#{$prefix}text-darkest);
                 }
             }
         }
 
         .tag-info {
-            background-color: $qld-color-dark-background--shade;
+            background-color: var(--#{$prefix}color-dark-background--shade);
         }
     }
 
     &.tag-alt {
-        background-color: $qld-light-grey-alt;
+        background-color: var(--#{$prefix}light-grey-alt);
 
         .tag-item {
-            color: $qld-dark-grey-muted;
-            border-color: $qld-soft-grey;
+            color: var(--#{$prefix}dark-grey-muted);
+            border-color: var(--#{$prefix}soft-grey);
         }
 
         .tag-link:hover,
         .tag-link:active,
         .tag-link:focus {
-            color: $qld-white !important;
+            color: var(--#{$prefix}white) !important;
         }
 
         .tag-link {
-            color: $qld-sapphire-blue;
-            border-color: $qld-sapphire-blue;
+            color: var(--#{$prefix}sapphire-blue);
+            border-color: var(--#{$prefix}sapphire-blue);
         }
     }
 
     &.tag-dark-alt {
-        background-color: $qld-dark-blue;
+        background-color: var(--#{$prefix}dark-blue);
 
         .tag-item {
             a {
-                color: $qld-dark-text;
+                color: var(--#{$prefix}dark-text);
             }
 
-            color: $qld-dark-text;
-            border-color: $qld-dark-border;
+            color: var(--#{$prefix}dark-text);
+            border-color: var(--#{$prefix}dark-border);
         }
 
         .tag-info {
-            background-color: $qld-dark-blue-shade;
+            background-color: var(--#{$prefix}dark-blue-shade);
         }
 
         .tag-link {
@@ -153,32 +303,30 @@
             &:hover,
             &:active,
             &:focus {
-                background-color: $qld-light-green-dark;
-                border-color: $qld-light-green-dark;
+                background-color: var(--#{$prefix}light-green-dark);
+                border-color: var(--#{$prefix}light-green-dark);
 
                 a {
-                    color: $qld-text-darkest;
+                    color: var(--#{$prefix}text-darkest);
                 }
             }
         }
     }
+    
+    .close-icon {
+        mask-image: url($close-icon);
+        background-color: var(--#{$prefix}dark-green);
+        height: 1.25rem;
+        width: 1.25rem;
+        vertical-align: middle;
+        border: none;
+        margin-left: 0.5rem;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: var(--#{$prefix}alt-button-hover);
+            mask-image: url($close-icon-hover);
+        }
+    }    
 }
 
-$close-icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M180.7 180.7C186.9 174.4 197.1 174.4 203.3 180.7L256 233.4L308.7 180.7C314.9 174.4 325.1 174.4 331.3 180.7C337.6 186.9 337.6 197.1 331.3 203.3L278.6 256L331.3 308.7C337.6 314.9 337.6 325.1 331.3 331.3C325.1 337.6 314.9 337.6 308.7 331.3L256 278.6L203.3 331.3C197.1 337.6 186.9 337.6 180.7 331.3C174.4 325.1 174.4 314.9 180.7 308.7L233.4 256L180.7 203.3C174.4 197.1 174.4 186.9 180.7 180.7zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 32C132.3 32 32 132.3 32 256C32 379.7 132.3 480 256 480C379.7 480 480 379.7 480 256C480 132.3 379.7 32 256 32z'/%3E%3C/svg%3E";
-$close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z'/%3E%3C/svg%3E";
-
-.close-icon {
-    mask-image: url($close-icon);
-    background-color: $qld-dark-green;
-    height: 1.25rem;
-    width: 1.25rem;
-    vertical-align: middle;
-    border: none;
-    margin-left: 0.5rem;
-    cursor: pointer;
-
-    &:hover {
-        background-color: $qld-alt-button-hover;
-        mask-image: url($close-icon-hover);
-    }
-}
