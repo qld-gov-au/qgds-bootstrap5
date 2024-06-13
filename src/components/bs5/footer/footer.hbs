@@ -19,13 +19,9 @@
                                 {{{ contact.content }}}
                                 {{#if contactHasContactList}}
                                     {{#each contact.list }}
-                                        {{#if linkValue}}
-                                            <a href="{{type}}:{{linkValue}}" class="footer-contact-item"><span class="qld-icon {{icon}}" aria-hidden="true"></span> {{{ label }}}</a>
-                                        {{else}}
-                                            <div class="footer-contact-item">
-                                                <span class="qld-icon {{icon}}" aria-hidden="true"></span> {{{ label }}}
-                                            </div>
-                                        {{/if}}
+                                        <div class="footer-contact-item">
+                                            <span class="qld-icon {{icon}}" aria-hidden="true"></span> {{{ label }}}
+                                        </div>
                                     {{/each}}
                                 {{/if}}
                             </div>
