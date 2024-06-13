@@ -40,6 +40,7 @@ export function initializeNavbar() {
   const navbarCollapse = document.getElementById('navbarSupportedContent');
   const dropdownItems = document.querySelectorAll('ul.dropdown-menu');
   const overlay = document.getElementById('overlay');
+  const body = document.body;
 
   // Add event listeners to each dropdown item
   if (dropdownItems) {
@@ -59,6 +60,7 @@ export function initializeNavbar() {
         // If open, close it
         navbarCollapse.classList.remove('show');
         overlay.classList.remove('show');
+        body.style.overflow = ''; // Reset body positioning
       }
     });
   }
@@ -67,10 +69,12 @@ export function initializeNavbar() {
     // Overlay show/hide events
     navbarCollapse.addEventListener('show.bs.collapse', function () {
       overlay.classList.add('show'); // Show the overlay
+      body.style.overflow = 'hidden'; // Prevent background scroll
     });
 
     navbarCollapse.addEventListener('hide.bs.collapse', function () {
       overlay.classList.remove('show'); // Hide the overlay
+      body.style.overflow = ''; // Reset body positioning
     });
   }
 
@@ -147,6 +151,7 @@ export function initializeNavbar() {
       // Destroy all active Popper instances
       activePoppers.forEach(popperInstance => popperInstance.destroy());
       activePoppers = [];
+      body.style.overflow = ''; // Reset body positioning
     }
   }
 
