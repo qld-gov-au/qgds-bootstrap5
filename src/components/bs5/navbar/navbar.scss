@@ -451,21 +451,21 @@
                     }
                 }
             }
+
             .qld__icon {
                 display: block;
                 height: 2rem;
                 width: 1.5rem;
-                @include media-breakpoint-up(lg) {
-                    color: var(--#{$prefix}navbar-home-icon-color);
-
-                    :hover {
-                        color: var(--#{$prefix}navbar-home-icon-color-hover);
-                    }
-                }
-                @include media-breakpoint-down(lg) {
-                    color: var(--#{$prefix}navbar-mobile-home-icon-color);
-                }
+                color: var(--#{$prefix}navbar-home-icon-color);
             }
+
+            @include media-breakpoint-up(lg) {
+                &:hover .qld__icon {color: var(--#{$prefix}navbar-home-icon-color-hover);}
+            }
+            @include media-breakpoint-down(lg) {
+                &:hover .qld__icon {color: var(--#{$prefix}navbar-mobile-home-icon-color);}
+            }
+
         }
         .nav-link {
             color: var(--#{$prefix}navbar-nav-text-color);
@@ -481,10 +481,12 @@
             --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
             --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
 
-            &.show,
-            &:hover {
+            &:hover,
+            &.show:hover {
                 text-decoration: underline;
                 background-color: var(--#{$prefix}navbar-menuitem-hover);
+                color: var(--#{$prefix}navbar-link-color-hover);
+
                 @include media-breakpoint-up(lg) {
                     background-color: var(--#{$prefix}navbar-menuitem-hover);
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-hover-border);
@@ -492,8 +494,12 @@
                 }
             }
 
-            &:visited {
-                color: var(--#{$prefix}navbar-nav-text-color);
+            &.show {
+                text-decoration: underline;
+                color: var(--#{$prefix}navbar-link-color-hover);
+                background-color: var(--#{$prefix}navbar-menuitem-active);
+                border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-active);
+                margin-bottom: -0.5rem;
             }
 
             &-home-active {
@@ -501,11 +507,15 @@
                     background-color: var(--#{$prefix}navbar-bg-color);
                     border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-bg-color);
                     margin-bottom: -0.5rem;
+                    .qld__icon {color: var(--#{$prefix}navbar-home-icon-color-active);}
+                    &:hover .qld__icon {color: var(--#{$prefix}navbar-home-icon-color-hover);}
                 }
                 @include media-breakpoint-down(lg) {
                     background-color: var(--#{$prefix}navbar-bg-color);
                 }
             }
+
+            
         }
 
         .dropdown-toggle {

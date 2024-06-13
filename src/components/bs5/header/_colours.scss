@@ -23,7 +23,7 @@
     // Pre-header bar
     --#{$prefix}header__pre-header_text_color: var(--#{$prefix}color-default-color-dark-text-default);
     --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}color-default-color-dark-background-default);
-    --#{$prefix}header__pre-header_boxshadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
     --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}color-default-color-dark-text-default);
     --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
     --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default);
