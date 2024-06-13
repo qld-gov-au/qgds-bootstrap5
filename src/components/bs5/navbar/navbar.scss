@@ -299,7 +299,7 @@
             
             // Override the default bs-popper margin
             &[data-bs-popper] {
-                margin-top: 0;
+                margin-top: 1px;
             }
             
             @include media-breakpoint-up(lg) {
@@ -309,11 +309,29 @@
                 padding: 3rem 4rem;
                 margin-top: 0.5rem;
                 margin-left: -4rem;
-                border-radius: 0.75rem;
+                border-radius: 0 0 .75rem .75rem;
                 border: 0;
                 -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-                box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+                box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), -2px 2px 6px 2px rgba(0, 0, 0, 0.15);
+
+                // Override the default bs-popper margin
+                &[data-bs-popper] {
+                    margin-top: 9px !important; // Had to use important for override to work
+                }
+
+                ::before {
+                    position: absolute;
+                    content: ' ';
+                    height: 6px;
+                    top: -6px;
+                    left: 0;
+                    right: 0px;
+                    background-color: var(--#{$prefix}navbar-dropdown-bg-color);
+                    pointer-events: none; // so that pseudo-element isn't clickable
+                }
             }
+
+            
 
             @include media-breakpoint-down(lg) {
                 border-radius: 0;
@@ -323,6 +341,9 @@
                 &.show {
                     border-left: solid 0.25rem var(--#{$prefix}navbar-dropdown-bg-color);
                     margin-left: -0.25rem;
+                    border-top: 0;
+                    border-bottom: 0;
+                    border-right: 0;
                 }
             }
 
@@ -376,6 +397,10 @@
                         padding: 1rem 0;
                         color: var(--#{$prefix}navbar-link-color);
                         border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
+
+                        &:active {
+                            background-color: transparent;
+                        }
 
                         &:hover,
                         &:focus {
@@ -497,9 +522,11 @@
             &.show {
                 text-decoration: underline;
                 color: var(--#{$prefix}navbar-link-color-hover);
-                background-color: var(--#{$prefix}navbar-menuitem-active);
-                border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-active);
-                margin-bottom: -0.5rem;
+                @include media-breakpoint-up(lg) {
+                    background-color: var(--#{$prefix}navbar-menuitem-active);
+                    border-bottom: var(--#{$prefix}navbar-border-width) solid var(--#{$prefix}navbar-menuitem-active);
+                    margin-bottom: -0.5rem;
+                }
             }
 
             &-home-active {
