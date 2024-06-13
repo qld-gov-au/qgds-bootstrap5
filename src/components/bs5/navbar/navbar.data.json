@@ -262,5 +262,32 @@
                 }
             }
         ]
+    },
+    "cobrand_example": {
+        "metadata": {
+            "target_url": "metadata-index.html",
+            "options": {
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "home-active": true
+            }
+        },
+        "navigation": [
+            {
+                "title": "What's really in vapes?",
+                "icon": "",
+                "target_url": "index.html"
+            },
+            {
+                "title": "I want to quit",
+                "icon": "",
+                "target_url": "index.html"
+            },
+            {
+                "title": "Information for parents and carers",
+                "icon": "",
+                "target_url": "index.html"
+            }
+        ]
     }
 }

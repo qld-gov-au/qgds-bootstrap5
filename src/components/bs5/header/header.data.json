@@ -370,116 +370,10 @@
                         "value": "#"
                     },
                     "text": {
-                        "value": "For Queenslanders"
+                        "value": "Get support to quit"
                     },
-                    "dropdown_enabled": true,
-                    "dropdown_options": {
-                        "dropdown_type": "list",
-                        "view_more": true,
-                        "label": "View all",
-                        "url": "https://www.qld.gov.au/queenslanders",
-                        "target": "_blank",
-                        "dropdown_config": {
-                            "groups": [
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Transport and motoring"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Employment and jobs"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Education and training"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Queensland and its government"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Health and wellbeing"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Community support"
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "id": "CTAtwo",
                     "url": {
-                        "value": "#"
-                    },
-                    "text": {
-                        "value": "Business and Industry"
-                    },
-                    "dropdown_enabled": true,
-                    "dropdown_options": {
-                        "dropdown_type": "list",
-                        "view_more": true,
-                        "label": "View all",
-                        "url": "https://www.qld.gov.au/queenslanders",
-                        "target": "_blank",
-                        "dropdown_config": {
-                            "groups": [
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Transport and motoring"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Employment and jobs"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Education and training"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Queensland and its government"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Health and wellbeing"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Community support"
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "id": "CTAthree",
-                    "url": {
-                        "value": "#"
-                    },
-                    "text": {
-                        "value": "Login"
-                    },
-                    "dropdown_enabled": true,
-                    "dropdown_options": {
-                        "dropdown_type": "form",
-                        "dropdown_config": {
-                            "content": "<div></div>"
-                        }
+                        "value": "https://www.qld.gov.au"
                     }
                 }
             ]
@@ -501,10 +395,10 @@
                     "value": ""
                 },
                 "siteTitle": {
-                    "value": "Cairns and Hinterland"
+                    "value": "Vaping Exposed"
                 },
                 "subline": {
-                    "value": "Hospital and Health Service"
+                    "value": ""
                 }
             }
         },
