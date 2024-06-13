@@ -141,6 +141,153 @@
                 "icon": "",
                 "target_url": "index.html"
             }
+        ],
+        "CTA": [
+            {
+                "id": "CTAone",
+                "target_url": "index.html",
+                "label": "Business and Industry",
+                "dropdown_enabled": true,
+                "dropdown_options": {
+                    "dropdown_type": "list",
+                    "view_more_label": "Browse all information and services",
+                    "view_more_url": "https://www.qld.gov.au/queenslanders",
+                    "dropdown_config": {
+                        "groups": [
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Transport and motoring"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Employment and jobs"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Education and training"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Queensland and its government"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Health and wellbeing"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Community support"
+                            }
+                        ],
+                        "view_more": true,
+                        "view_more_options": {
+                            "url": "#",
+                            "label": "View more",
+                            "target": "_blank"
+                        }
+                    }
+                }
+            },
+            {
+                "id": "CTAtwo",
+                "target_url": "index.html",
+                "label": "For government",
+                "dropdown_enabled": true,
+                "dropdown_options": {
+                    "dropdown_type": "list",
+                    "view_more_label": "All categories",
+                    "view_more_url": "https://www.business.qld.gov.au/",
+                    "dropdown_config": {
+                        "groups": [
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Starting a business"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Running a business"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Employing people"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Payroll tax"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Industries"
+                            },
+                            {
+                                "action": "_blank",
+                                "url": "#",
+                                "label": "Investing in Queensland"
+                            }
+                        ],
+                        "view_more": true,
+                        "view_more_options": {
+                            "url": "#",
+                            "label": "View more",
+                            "target": "_blank"
+                        }
+                    }
+                }
+            },
+            {
+                "id": "CTAthree",
+                "target_url": "login.html",
+                "label": "Login",
+                "dropdown_enabled": true,
+                "dropdown_options": {
+                    "dropdown_type": "form",
+                    "dropdown_config": {
+                        "groups": [
+                            {
+                                "content": "<div></div>"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "cobrand_example": {
+        "metadata": {
+            "target_url": "metadata-index.html",
+            "options": {
+                "showHomeTitleSmallDevices": true,
+                "icon-root": "assets/img/svg-icons.svg",
+                "home-active": true
+            }
+        },
+        "navigation": [
+            {
+                "title": "What's really in vapes?",
+                "icon": "",
+                "target_url": "index.html"
+            },
+            {
+                "title": "I want to quit",
+                "icon": "",
+                "target_url": "index.html"
+            },
+            {
+                "title": "Information for parents and carers",
+                "icon": "",
+                "target_url": "index.html"
+            }
         ]
     }
 }
