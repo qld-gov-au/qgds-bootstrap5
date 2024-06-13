@@ -71,6 +71,7 @@
             background-size: var(--#{$prefix}btn-close-hover-bg-size);
             background-color: var(--#{$prefix}btn-close-hover-bg);
             outline: var(--#{$prefix}btn-close-focus-border);
+            outline-offset: 2px;
         }
     }
 
