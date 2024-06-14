@@ -9,7 +9,7 @@ import { initBreadcrumb } from "./components/bs5/breadcrumbs/breadcrumb.function
 import { positionQuickExit, initQuickexit } from "./components/bs5/quickexit/quickexit.functions";
 import { displayFeedbackForm } from "./components/bs5/footer/footer.functions";
 import { toggleSearch } from "./components/bs5/header/header.functions";
-import { showSuggestions } from "./components/bs5/searchInput/search.functions";
+import { showSuggestions, submitSearchForm } from "./components/bs5/searchInput/search.functions";
 
 window.addEventListener("scroll", positionQuickExit, true);
 window.addEventListener("resize", positionQuickExit, true);
@@ -54,20 +54,24 @@ window.addEventListener("DOMContentLoaded", () => {
       });
 
       // Close suggestions when clicking outside
-      document.addEventListener("click", function (event) {
-        const searchInput = document.querySelector(".search-input");
-        const suggestions = document.querySelector(".suggestions");
+      document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !document.querySelector('.suggestions').contains(event.target)) {
+          document.querySelector('.suggestions').style.display = 'none';
+        }
+      });
 
-        if (!searchInput || !suggestions) return;
-
-        const isClickInsideSearchInput = searchInput.contains(event.target);
-        const isClickInsideSuggestions = suggestions.contains(event.target);
-
-        if (!isClickInsideSearchInput && !isClickInsideSuggestions) {
-          suggestions.style.display = "none";
+      // Attach event listener to form submit
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const searchInput = document.querySelector('.qld-search-input input');
+        const query = searchInput.value.trim();
+        if (query) {
+          submitSearchForm(query);
         }
       });
     }
+    
+    
 
     //Header
     // Get the <header> element

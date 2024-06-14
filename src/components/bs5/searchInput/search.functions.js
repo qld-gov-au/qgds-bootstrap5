@@ -166,5 +166,32 @@ export async function showSuggestions(value = '', isDefault = false) {
   }
 }
 
+/**
+ * Submits the search form with proper parameters.
+ *
+ * @param {string} query - The search query.
+ * @returns {void}
+ */
+export function submitSearchForm(query) {
+  const form = document.querySelector('.site-search');
+  const searchInput = form.querySelector('.qld-search-input input');
+
+  const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
+  const profile = searchInput.getAttribute('data-profile') || 'qld';
+  const numRanks = searchInput.getAttribute('data-numranks') || '10';
+  const tiers = searchInput.getAttribute('data-tiers') || 'off';
+
+  const params = new URLSearchParams({
+    query: query.trim(),
+    collection: collection,
+    profile: profile,
+    num_ranks: numRanks,
+    tiers: tiers,
+  });
+
+  const searchUrl = `${form.getAttribute('action')}?${params.toString()}`;
+  window.location.href = searchUrl;
+}
+
 // Attach the function to the window object to make it globally accessible
 window.selectSuggestion = selectSuggestion;
