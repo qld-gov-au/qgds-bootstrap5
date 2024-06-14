@@ -5,10 +5,9 @@
 @import "./measurements";
 
 .qld-footer {
-
   padding-block: var(--#{$prefix}footer-padding-y);
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  // padding-left: 1.25rem;
+  // padding-right: 1.25rem;
   border-top: solid;
   border-top-width: calc(var(--#{$prefix}footer-special-border-width) + 1px);
   border-top-color: var(--#{$prefix}footer-color-designAccent);
@@ -158,14 +157,14 @@
 
     padding-top: calc(var(--gap) * 2);
     .footer-site-name {
-      margin-block-end: calc(var(--#{$prefix}footer-gap) * 2);
+      margin-block: calc(var(--#{$prefix}footer-gap) * 2);
     }
     .container {
       > .row {
-        --qld-gutter-x: calc(var(--#{$prefix}footer-gap) * 2);
+        --qld-gutter-x: calc(var(--#{$prefix}footer-gap) * 3);
 
         > .col-md-12 {
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 1px) solid
+          border-block-start: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
 
           padding-inline: 0;
@@ -188,12 +187,12 @@
           border-top: none;
         }
         > .title {
-          border-bottom: calc(var(--#{$prefix}footer-special-border-width) - 1px) solid
+          border-block-end: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
         }
         > .crest {
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 1px) solid
+          border-block-start: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
           margin-inline: 0;
