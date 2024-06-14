@@ -6,8 +6,6 @@
 
 .qld-footer {
   padding-block: var(--#{$prefix}footer-padding-y);
-  // padding-left: 1.25rem;
-  // padding-right: 1.25rem;
   border-top: solid;
   border-top-width: calc(var(--#{$prefix}footer-special-border-width) + 1px);
   border-top-color: var(--#{$prefix}footer-color-designAccent);
@@ -16,18 +14,11 @@
   font-size: var(--#{$prefix}footer-font-size);
 
   > .container {
-    // overwriting bootstrap's default 1.5rem gutter value
     --#{$prefix}gutter-x: 2.5rem;
   }
 
   a {
     --qld-link-color-rgb: var(--#{$prefix}footer-color-link);
-    &:hover {
-      color: var(--#{$prefix}footer-color-focus);
-    }
-    &:visited {
-      color: var(--#{$prefix}footer-color-link);
-    }
   }
   .footer-site-name {
     font-size: calc(var(--#{$prefix}footer-spacing) * 1.25);
@@ -47,8 +38,6 @@
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * 2);
     }
   }
-
-  //Bordered columns in the footer should only show above medium breakpoint
   .border-column {
     height: 100%;
     position: relative;
@@ -81,9 +70,6 @@
       margin-inline-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
       background-color: var(--#{$prefix}icon-color);
       --qld-brand-accent: var(--#{$prefix}footer-color-alt-button);
-      &:hover {
-        --qld-brand-accent: var(--#{$prefix}footer-color-alt-button__hover);
-      }
     }
   }
   .footer-crest {
@@ -104,9 +90,6 @@
         font-weight: 400;
         margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.7);
         padding: 0;
-        &:hover {
-          color: var(--#{$prefix}footer-color-focus);
-        }
         &:first-child {
           margin-block-start: calc(var(--#{$prefix}footer-spacing) * 0.5);
         }
@@ -122,9 +105,6 @@
           width: var(--#{$prefix}footer-social-icon-size-width);
           max-height: var(--#{$prefix}footer-social-icon-size-height);
           margin-inline-end: calc(var(--#{$prefix}footer-spacing) * 0.75);
-        }
-        &:hover {
-          --component-icon-color: var(--#{$prefix}footer-color-crest-fill);
         }
       }
     }
