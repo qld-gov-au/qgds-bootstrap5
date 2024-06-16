@@ -136,20 +136,27 @@
 
 			// Preheader CTA dropdown - custom functionality:
 			.dropdown {
+				line-height: 1.5;
 				.dropdown-menu.show {
 					width: 20.25rem;
 					min-height: 1rem;
-					padding: 0 2rem 1.25rem 2rem;
+					padding: 0rem 2rem 1.75rem;
 					border-radius: 0 0 .75rem .75rem;
 					border: 0;
 					background-color: var(--#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color);
 					box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
-					margin-top: 1rem !important; // Override the default bs-popper margin
+					margin-top: 0.8rem !important; // Overrides the default bs-popper margin
 
 					hr {
-						margin: 2rem 0;
+						margin: 1.5rem 0;
 						color: var(--#{$prefix}header__CTA_border_color);
-						border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+						border-color: var(--#{$prefix}header__CTA_border_color);
+						opacity: 1;
+					}
+
+					p {
+						font-size: 0.875rem;
+						line-height: 1.5;
 					}
 
 					a.btn-primary {
@@ -172,8 +179,7 @@
 
 					li.qld__header__cta-list {
 						a {
-							font-weight: 600;
-							font-size: 1rem;
+							font-weight: 400;
 							position: relative;
 							border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
 							padding: 1rem 1.75rem 1rem 0;
@@ -198,9 +204,35 @@
 								right: 0;
 							}
 						}
+
+						a.view-all {
+							text-decoration: underline;
+							text-underline-offset: var(--qld-link-underline-offset);
+							text-decoration-thickness: var(--qld-link-underline-thickness);
+							padding-right: 0;
+			
+							&:focus,
+							&:hover {
+								text-decoration: underline;
+								-webkit-text-decoration: underline;
+								text-decoration-color: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_color);
+								text-decoration-thickness: var(--#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness);
+							}
+			
+							&:disabled,
+							a[disabled] {
+								text-decoration: none;
+								-webkit-text-decoration: none;
+							}
+						}
+
 					}
 				}
 
+				ul.dropdown-menu.show:has(> li) {
+                    padding-bottom: 1.25rem;
+                }
+				
 				.dropdown-menu::before {
 					position: absolute;
 					content: ' ';
@@ -251,7 +283,7 @@
 			}
 
 			&:focus {
-				outline: 3px solid var(--#{$prefix}header__pre-header__anchor__focus_text_color);
+				outline: 3px solid var(--#{$prefix}header__pre-header__anchor__focus_outline_color);
 				outline-offset: 2px;
 			}
 
@@ -343,6 +375,10 @@
 				}
 			}
 		}
+	}
+
+	&__pre-header-url {
+		font-size: 0.875rem;
 	}
 
 	&__main {
