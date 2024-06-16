@@ -15,6 +15,18 @@ $font-family-sans-serif:
   "Segoe UI Symbol",
   "Noto Color Emoji" !default;
 
+// Override Bootstrap font variables
+$font-weight-base: 400;
+$font-weight-bold: 600;
+$font-weight-bolder: 900;
+
+// Apply custom font weights to Bootstrap's utility classes
+$font-weights: (
+  normal: 400,
+  bold: 600,
+  bolder: 900
+);
+
 $body-color: $qld-text-grey;
 $body-font-weight: 400;
 
@@ -81,8 +93,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-ul, ol, p, .accordion-body {
-    line-height: 1.75;
+.qld-content-body {
+  ul, ol, p {
+      line-height: 1.75;
+  }
+
+  li {
+    margin-top: 0.5rem;
+  }
+
+}
+
+strong, b, th {
+  font-weight: $font-weight-bold !important; // Overrides default BS styles
 }
 
 .nav, .nav ul {
