@@ -411,6 +411,10 @@
         var(--#{$prefix}formIO-callout-border-colour);
       #feedback-serv-dep-staff {
         color: var(--#{$prefix}formIO-formio-colour);
+        &.status {
+          margin: 0 !important;
+          background-color: transparent;
+        }
         h4 {
           color: var(--#{$prefix}formIO-formio-colour);
           font-size: var(--#{$prefix}footer-font-size);
