@@ -16,11 +16,6 @@
   color: var(--#{$prefix}footer-color-text);
   font-size: var(--#{$prefix}footer-font-size);
 
-  > .container {
-    // overwriting bootstrap's default 1.5rem gutter value
-    --#{$prefix}gutter-x: 2.5rem;
-  }
-
   a {
     --qld-link-color-rgb: var(--#{$prefix}footer-color-link);
     &:hover {
