@@ -82,7 +82,7 @@
     "rimraf": "^5.0.7",
     "sass": "^1.77.5",
     "storybook": "^8.1.9",
-    "vite": "^5.2.13",
+    "vite": "^5.3.1",
     "watch": "^1.0.2"
   },
   "peerDependencies": {
