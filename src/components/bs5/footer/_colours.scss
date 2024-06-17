@@ -57,7 +57,7 @@
     --#{$prefix}footer-color-alt-button: var(--#{$prefix}color-default-color-dark-action-secondary);
     --#{$prefix}footer-color-alt-button__hover: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
     --#{$prefix}footer-color-link: var(--#{$prefix}color-default-color-dark-link-default);
-    --#{$prefix}footer-color-focus: var(--#{$prefix}color-default-color-dark-focus-default);
+    --#{$prefix}footer-color-focus: var(--#{$prefix}color-default-color-dark-underline-default);
   }
   &.dark-alt {
     --#{$prefix}footer-color-background: var(--#{$prefix}color-default-color-dark-background-alt);

@@ -13,12 +13,14 @@
   color: var(--#{$prefix}footer-color-text);
   font-size: var(--#{$prefix}footer-font-size);
 
-  > .container {
-    --#{$prefix}gutter-x: 2.5rem;
-  }
-
   a {
     --qld-link-color-rgb: var(--#{$prefix}footer-color-link);
+    &:hover {
+      color: var(--#{$prefix}footer-color-focus);
+    }
+    &:visited {
+      color: var(--#{$prefix}footer-color-link);
+    }
   }
   .footer-site-name {
     font-size: calc(var(--#{$prefix}footer-spacing) * 1.25);
@@ -38,6 +40,8 @@
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * 2);
     }
   }
+
+  //Bordered columns in the footer should only show above medium breakpoint
   .border-column {
     height: 100%;
     position: relative;
@@ -70,6 +74,9 @@
       margin-inline-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
       background-color: var(--#{$prefix}icon-color);
       --qld-brand-accent: var(--#{$prefix}footer-color-alt-button);
+      &:hover {
+        --qld-brand-accent: var(--#{$prefix}footer-color-alt-button__hover);
+      }
     }
   }
   .footer-crest {
@@ -90,6 +97,9 @@
         font-weight: 400;
         margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.7);
         padding: 0;
+        &:hover {
+          color: var(--#{$prefix}footer-color-focus);
+        }
         &:first-child {
           margin-block-start: calc(var(--#{$prefix}footer-spacing) * 0.5);
         }
@@ -105,6 +115,9 @@
           width: var(--#{$prefix}footer-social-icon-size-width);
           max-height: var(--#{$prefix}footer-social-icon-size-height);
           margin-inline-end: calc(var(--#{$prefix}footer-spacing) * 0.75);
+        }
+        &:hover {
+          --component-icon-color: var(--#{$prefix}footer-color-crest-fill);
         }
       }
     }
@@ -130,21 +143,25 @@
   .container > .row > div {
     padding-inline: var(--#{$prefix}footer-column-spacing);
   }
-
+  .btn-global-secondary {
+    white-space: normal;
+  }
   @media (max-width: 991.98px) {
     --#{$prefix}last-para-margin: 24px;
     --qld-footer-padding-y: 0;
 
-    padding-top: calc(var(--gap) * 2);
+    padding-top: calc(var(--#{$prefix}footer-gap) * 2);
     .footer-site-name {
-      margin-block: calc(var(--#{$prefix}footer-gap) * 2);
+      margin-block-end: calc(var(--#{$prefix}footer-gap) * 2);
     }
     .container {
       > .row {
-        --qld-gutter-x: calc(var(--#{$prefix}footer-gap) * 3);
-
+        --qld-gutter-x: calc(var(--#{$prefix}footer-gap) * 2);
+        & > * {
+          padding-inline: 0;
+        }
         > .col-md-12 {
-          border-block-start: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
+          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
 
           padding-inline: 0;
@@ -167,12 +184,12 @@
           border-top: none;
         }
         > .title {
-          border-block-end: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
+          border-bottom: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
         }
         > .crest {
-          border-block-start: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
+          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
           margin-inline: 0;
@@ -185,6 +202,7 @@
     }
     .btn-outline-secondary {
       width: 100%;
+      min-width: auto !important;
     }
     .footer-link-list {
       display: block;
@@ -352,7 +370,7 @@
           margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
           margin-inline-start: 0;
           span {
-            margin-inline-start: var(--#{$prefix}footer-spacing);
+            margin-inline-start: calc(var(--#{$prefix}footer-spacing) - 4px);
           }
         }
         .form-check-input {
@@ -434,5 +452,12 @@
     .formio-errors .error {
       margin-block-end: var(--#{$prefix}footer-spacing);
     }
+  }
+}
+
+@media (max-width: 300px) {
+  // This is the min width where the content is still usable.
+  .qld-footer {
+    width: 300px;
   }
 }
