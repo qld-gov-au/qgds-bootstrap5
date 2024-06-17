@@ -213,11 +213,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
         margin-bottom: 1rem;
     }
 
-    .card-body {
-        display: flex;
-        justify-content: space-between;
-    }
-
     .card-title {
         font-size: var(--#{$prefix}card-title-font-size);
         line-height: var(--#{$prefix}card-title-line-height);
@@ -443,10 +438,7 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
             flex: 0 1 100%;
             min-height: 300px;
 
-            .card-img {
-                min-height: 300px;
-                flex: 1;
-            }
+            .card-img,
             .card-inner {
                 flex: 1;
             }
@@ -478,7 +470,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 
             .card-img {
                 flex: 2;
-                min-height: 440px;
             }
             .card-inner {
                 flex: 1;
