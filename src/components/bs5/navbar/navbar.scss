@@ -391,9 +391,14 @@
                     @include media-breakpoint-down(lg) {
                         padding-right: 0;
                     } 
+
+                    @include media-breakpoint-up(lg) {
+                        a.dropdown-item {
+                            font-weight: 600;
+                        }
+                    }
                     
                     a.dropdown-item {
-                        font-weight: 600;
                         padding: 1rem 0;
                         color: var(--#{$prefix}navbar-link-color);
                         border-bottom: solid 1px var(--#{$prefix}navbar-border-color);

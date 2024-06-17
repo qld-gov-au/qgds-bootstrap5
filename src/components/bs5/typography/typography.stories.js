@@ -15,7 +15,7 @@ export default {
     <h5>Heading 5</h5>
     <h6>Heading 6</h6>
     <p>Elementum euismod fringilla vitae varius. Justo imperdiet justo <strong>tincidunt vestibulum venenatis</strong> morbi molestie dolor orci. <a href="#">Risus sapien urna blandit eget</a>. Mi, nisl facilisis pellentesque bibendum. Gravida lobortis vel amet, ullamcorper vestibulum, in curabitur odio pulvinar.</p>
-    <p>Example paragraph. <a href="#">Internal link</a> and an <a href="#" rel="external">external link</a></p>
+    <p>Example paragraph. <a href="#">Internal link</a> and an <a href="#" rel="external">external link</a>.</p>
     <p><a class="qld__text-link--no-visited" href="#no-visit">Link without visited state</a></p>
     <ul>
     <li>List item</li>

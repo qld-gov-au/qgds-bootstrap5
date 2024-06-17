@@ -53,7 +53,6 @@
 
     .nav-title {
         color: var(--#{$prefix}-headings-color);
-        font-size: 1rem;
         line-height: 1.5;
         margin: 0;
         border-bottom: 2px solid var(--sidenav-heading-border-color);
@@ -62,6 +61,7 @@
             color: var(--#{$prefix}headings-color);
             text-decoration: none;
             font-weight: inherit;
+            font-size: 1rem;
         }
     }
 

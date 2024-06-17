@@ -101,19 +101,12 @@ body {
   li {
     margin-top: 0.5rem;
   }
-
 }
 
 strong, b, th {
   font-weight: $font-weight-bold !important; // Overrides default BS styles
 }
 
-.nav, .nav ul {
-    line-height: 1.5!important;
-}
-.nav-item {
-    margin-top: 0;
-}
 
 // Light, Light alt
 a {
@@ -123,11 +116,11 @@ a {
 a,
 a.nav-link {
   text-decoration: underline;
-  text-underline-offset: var(--qld-link-underline-offset);
-  text-decoration-thickness: var(--qld-link-underline-thickness);
+  text-underline-offset: var(--qld-link-underline-offset) !important;
+  text-decoration-thickness: var(--qld-link-underline-thickness) !important;
 
   &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover) !important;
   }
 
     &:visited {
