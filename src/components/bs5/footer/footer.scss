@@ -5,10 +5,7 @@
 @import "./measurements";
 
 .qld-footer {
-
   padding-block: var(--#{$prefix}footer-padding-y);
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
   border-top: solid;
   border-top-width: calc(var(--#{$prefix}footer-special-border-width) + 1px);
   border-top-color: var(--#{$prefix}footer-color-designAccent);
@@ -146,21 +143,25 @@
   .container > .row > div {
     padding-inline: var(--#{$prefix}footer-column-spacing);
   }
-
+  .btn-global-secondary {
+    white-space: normal;
+  }
   @media (max-width: 991.98px) {
     --#{$prefix}last-para-margin: 24px;
     --qld-footer-padding-y: 0;
 
-    padding-top: calc(var(--gap) * 2);
+    padding-top: calc(var(--#{$prefix}footer-gap) * 2);
     .footer-site-name {
       margin-block-end: calc(var(--#{$prefix}footer-gap) * 2);
     }
     .container {
       > .row {
         --qld-gutter-x: calc(var(--#{$prefix}footer-gap) * 2);
-
+        & > * {
+          padding-inline: 0;
+        }
         > .col-md-12 {
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 1px) solid
+          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
 
           padding-inline: 0;
@@ -183,12 +184,12 @@
           border-top: none;
         }
         > .title {
-          border-bottom: calc(var(--#{$prefix}footer-special-border-width) - 1px) solid
+          border-bottom: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
         }
         > .crest {
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 1px) solid
+          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
           margin-inline: 0;
@@ -201,6 +202,7 @@
     }
     .btn-outline-secondary {
       width: 100%;
+      min-width: auto !important;
     }
     .footer-link-list {
       display: block;
@@ -368,7 +370,7 @@
           margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
           margin-inline-start: 0;
           span {
-            margin-inline-start: var(--#{$prefix}footer-spacing);
+            margin-inline-start: calc(var(--#{$prefix}footer-spacing) - 4px);
           }
         }
         .form-check-input {
@@ -409,6 +411,10 @@
         var(--#{$prefix}formIO-callout-border-colour);
       #feedback-serv-dep-staff {
         color: var(--#{$prefix}formIO-formio-colour);
+        &.status {
+          margin: 0 !important;
+          background-color: transparent;
+        }
         h4 {
           color: var(--#{$prefix}formIO-formio-colour);
           font-size: var(--#{$prefix}footer-font-size);
@@ -450,5 +456,12 @@
     .formio-errors .error {
       margin-block-end: var(--#{$prefix}footer-spacing);
     }
+  }
+}
+
+@media (max-width: 300px) {
+  // This is the min width where the content is still usable.
+  .qld-footer {
+    width: 300px;
   }
 }
