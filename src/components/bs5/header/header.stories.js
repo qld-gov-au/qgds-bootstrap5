@@ -3,13 +3,11 @@ import { Navbar } from '../navbar/Navbar.js';
 import { SearchInput } from "../searchInput/SearchInput.js";
 
 // Sample components
-import { Banner } from '../banner/Banner.js';
 import { Footer } from '../footer/Footer.js';
 
 // Mock data
 import { menu_state, cobrand_example } from '../navbar/navbar.data.json';
 import searchData from '../searchInput/searchInput.data.json';
-import breadcrumbs from '../banner/banner.data.json';
 import footerData from '../footer/footer.data.json';
 
 import {
@@ -221,7 +219,6 @@ export const CoBrand = {
   decorators: [
     (Story, context) => {
       const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
       const footerDataWithOverride = { ...footerData, variantClass };
       
       // Generate CSS variables from args
@@ -239,7 +236,6 @@ export const CoBrand = {
         <main>
           ${Story()}
           <br />
-          ${new Banner(bannerDataWithOverride).html}
           ${new Footer(footerDataWithOverride).html}
         </main>
       `;
@@ -262,7 +258,6 @@ export const EndorsedBrand = {
   decorators: [
     (Story, context) => {
       const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
       const footerDataWithOverride = { ...footerData, variantClass };
       
       // Generate CSS variables from args
@@ -308,7 +303,6 @@ export const StandaloneBrand = {
   decorators: [
     (Story, context) => {
       const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
       const footerDataWithOverride = { ...footerData, variantClass };
       
       // Generate CSS variables from args
@@ -327,7 +321,6 @@ export const StandaloneBrand = {
           ${Story()}
         </main>
         <div>
-          ${new Banner(bannerDataWithOverride).html}
           <div class="feature-set-panel__light topic">
             <div class="container my-64">
                 <h2 class="inside__heading">Explore our concessions and rebates</h2>
