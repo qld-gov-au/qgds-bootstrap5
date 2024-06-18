@@ -4,7 +4,7 @@ import defaultdata from "./radio.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Formcheck/Radio",
+  title: "Components/Forms/Radio",
   render: (args) => {
     return `${new Formcheck(args).html}`;
   },

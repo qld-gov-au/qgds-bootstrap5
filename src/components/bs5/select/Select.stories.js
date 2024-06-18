@@ -4,7 +4,7 @@ import defaultdata from "./select.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Select",
+  title: "Components/Forms/Select",
   render: (args) => {
     
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 
