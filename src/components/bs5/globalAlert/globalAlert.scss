@@ -1,6 +1,6 @@
 .global-alert {
     
-    padding: 5px 0 5px 0;
+    // padding: 5px 0 5px 0;
 
     $chevron-icon-white: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 15.6081C27 16.1011 26.5897 16.4845 26.1282 16.4845L6.79487 16.4845L13.9744 24.7008C14.2821 25.0295 14.2821 25.5772 13.9231 25.9059C13.7692 26.0702 13.5641 26.125 13.359 26.125C13.1026 26.125 12.8974 26.0702 12.7436 25.8511L4.23077 16.2106C3.92308 15.882 3.92308 15.389 4.23077 15.0603L12.7436 5.41981C13.0513 5.03639 13.5641 5.03639 13.9231 5.36504C14.2821 5.69369 14.2821 6.24145 13.9744 6.5701L6.79487 14.7317L26.1282 14.7317C26.5897 14.7317 27 15.1699 27 15.6081Z" fill="#{$qld-white}"/></svg>');
     $chevron-icon-grey: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 15.6081C27 16.1011 26.5897 16.4845 26.1282 16.4845L6.79487 16.4845L13.9744 24.7008C14.2821 25.0295 14.2821 25.5772 13.9231 25.9059C13.7692 26.0702 13.5641 26.125 13.359 26.125C13.1026 26.125 12.8974 26.0702 12.7436 25.8511L4.23077 16.2106C3.92308 15.882 3.92308 15.389 4.23077 15.0603L12.7436 5.41981C13.0513 5.03639 13.5641 5.03639 13.9231 5.36504C14.2821 5.69369 14.2821 6.24145 13.9744 6.5701L6.79487 14.7317L26.1282 14.7317C26.5897 14.7317 27 15.1699 27 15.6081Z" fill="#{$qld-text-grey}"/></svg>');
@@ -15,20 +15,21 @@
         .global-alert-icon {
             position: absolute;
             line-height: 1;
-            margin-top: 2px;
-            width: 2em;
-            height: 1em;
+            width: 22px;
+            height: 22px;
             display: inline-block;
             transition: fill 0.3s ease;
             // align-self: center;
             // vertical-align: middle;
             font-size: 1.5rem;
+            padding-left: 1.5rem; // padding between icon and text. Added due to bug when content has 3 lines of text.
+
         }
         .global-alert-content {
             padding: 0 20px 0 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
             .global-alert-action a {
                 display: flex;
                 align-items: center;
@@ -71,6 +72,7 @@
         }
         .global-alert-action a {
             color: $qld-white;
+            text-decoration-color: $qld-white;
             &:after {
                 background: var(--chevron-icon-white);
             }
@@ -117,18 +119,76 @@
     }
 }
 
-
-@include media-breakpoint-up(lg) {
+@media (min-width: 768px) { // md and above
     .global-alert {
-        border-top: 5px solid black;
+        .qld-global-alert-main {
+            padding: 16px 16px;
+            .global-alert-content {
+                padding-left: 16px;
+                display: flex;
+                align-items: center;
+            }
+        }
     }
-}
-
-@media (min-width: 768px) {
     .global-alert-content {
         flex-direction: row !important;
     }
     .global-alert-action {
         margin-left: 2rem;
+    }
+    .global-alert-icon {
+        // aligning with text
+        padding-top: 12px;
+    }
+    
+}
+
+@media (max-width: 767.98px) { // sm and below
+    .global-alert {
+        .qld-global-alert-main {
+            padding: 12px 16px;
+        }
+        .global-alert-content {
+            padding: 0 16px 0 12px;
+        }
+    }
+    // .global-alert-icon {
+    //     // positioning at corner
+    //     position: relative;
+    //     top: -12px;
+    //     }
+    
+    .global-alert-icon {
+        // aligning with text
+        padding-top: 12px;
+    }
+}
+
+@include media-breakpoint-up(lg) { // 992px and above
+
+    .global-alert {
+        &.global-alert-critical {
+        border-top: 0.063rem solid var(--#{$prefix}core-default-color-status-error-darker);
+        }
+        &.global-alert-warning {
+            border-top: 0.063rem solid var(--#{$prefix}core-default-color-status-caution-darker);
+        }
+        &.global-alert-info {
+            border-top: 0.063rem solid var(--#{$prefix}core-default-color-status-info-darker);
+        }
+        .global-alert-icon {
+            // aligning with text
+            padding-top: 22px;
+        }
+        .qld-global-alert-main {
+            // Padding requires 64px in space between alert icon and left border; minus (24px(1.5rem) gutter + 16px padding) = 24px (1.5rem)
+            padding-left: 1.5rem;
+            .global-alert-content {
+                padding-left: 16px;
+                display: flex;
+                align-items: center;
+            }
+        }
+        
     }
 }
