@@ -3,7 +3,7 @@
 		"alertItems": [
 			{
 				"variant": "global-alert-critical",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
+				"content": "<strong>Testing:</strong> This website is currently undergoing testing This website is currently undergoing testing This website is currently undergoing testing This website is currently undergoing testing This website is currently undergoing testing This website is currently undergoing testing",
 				"action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
 			}
 		]
