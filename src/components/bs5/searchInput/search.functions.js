@@ -26,14 +26,14 @@ async function fetchData(url, type) {
  * Sets the selected suggestion into the input field and submits the form.
  *
  * @param {string} value - The selected suggestion.
+ * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  */
-export function selectSuggestion(value) {
-  const form = document.querySelector('.site-search');
+export function selectSuggestion(value, form) {
   const searchInput = form.querySelector('.qld-search-input input');
   const suggestions = form.querySelector('.suggestions');
 
-  if (searchInput && suggestions && form) {
+  if (searchInput && suggestions) {
     searchInput.value = value.trim();
     suggestions.style.display = 'none';
 
@@ -67,40 +67,41 @@ export function selectSuggestion(value) {
  *
  * @param {string} value - The current input value.
  * @param {boolean} isDefault - Whether to show default suggestions or not.
+ * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  **/
-export async function showSuggestions(value = '', isDefault = false) {
-  const form = document.querySelector('.site-search');
+export async function showSuggestions(value = '', isDefault = false, form) {
   const searchInput = form.querySelector('.qld-search-input input');
   const suggestions = form.querySelector('.suggestions');
-
-  // Search input attributes
-  const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search'; 
-  const profile = searchInput.getAttribute('data-profile') || 'qld';
-  const suggestUrl = searchInput.getAttribute('data-suggestions') || '10';
-  const resultsUrl = searchInput.getAttribute('data-results-url') || 'off';
 
   if (!suggestions || !searchInput) {
     console.error("Required elements not found.");
     return;
   }
 
+  // Search input attributes
+  const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
+  const profile = searchInput.getAttribute('data-profile') || 'qld';
+  const suggestUrl = searchInput.getAttribute('data-suggestions') || '10';
+  const resultsUrl = searchInput.getAttribute('data-results-url') || 'off';
+
   // Clear previous suggestions and services
   suggestions.innerHTML = '';
-  const loadedSuggestions = defaultSuggestions;
 
+  // Load suggestions based on the isDefault flag
   if (isDefault) {
+    // Load default suggestions
     suggestions.innerHTML = `
       <div class="suggestions-category mt-2">
         <strong>Popular services</strong>
-        <ul class="mt-2">${loadedSuggestions.popular_services.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${defaultSuggestions.popular_services.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <hr>
       <div class="suggestions-category mt-2">
         <strong>Browse by category</strong>
-        <ul class="mt-2">${loadedSuggestions.categories.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
+        <ul class="mt-2">${defaultSuggestions.categories.slice(0, 4).map(item => `<li onclick="window.selectSuggestion('${item.title}')"><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
-      <!--${loadedSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${loadedSuggestions.options.href}">${loadedSuggestions.options.label}</a></div>-->` : ''}
+      ${defaultSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${defaultSuggestions.options.href}">${defaultSuggestions.options.label}</a></div>` : ''}
     `;
     suggestions.classList.add('show');
     createPopper(searchInput, suggestions, {
@@ -116,24 +117,21 @@ export async function showSuggestions(value = '', isDefault = false) {
     return;
   }
 
+  // Fetch dynamic suggestions if available
   if (suggestUrl) {
-    
     const fetchedSuggestions = await fetchData(`${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`, 'suggestions');
 
-    // Use the fetched suggestions to populate the suggestions dropdown
     if (fetchedSuggestions.length > 0) {
       suggestions.innerHTML = `
         <div class="suggestions-category mt-2">
           <strong>Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
-    const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-    return `<li onclick="window.selectSuggestion('${item}')"><a href="#">${highlightedText}</a></li>`;
-  }).join('')}</ul>
+        const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
+        return `<li onclick="window.selectSuggestion('${item}')"><a href="#">${highlightedText}</a></li>`;
+      }).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
-
-      // Initialize Popper.js to manage the dropdown position
       createPopper(searchInput, suggestions, {
         placement: 'bottom-start',
       });
@@ -147,7 +145,6 @@ export async function showSuggestions(value = '', isDefault = false) {
   if (resultsUrl) {
     const fetchedServices = await fetchData(`${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`, 'services');
 
-    // Use the fetched services to populate the services dropdown
     if (fetchedServices.response.resultPacket && fetchedServices.response.resultPacket.results.length > 0) {
       suggestions.innerHTML += `
         <div class="suggestions-category feature pt-2">
@@ -156,8 +153,6 @@ export async function showSuggestions(value = '', isDefault = false) {
         </div>
       `;
       suggestions.classList.add('show');
-
-      // Initialize Popper.js to manage the dropdown position
       createPopper(searchInput, suggestions, {
         placement: 'bottom-start',
       });
@@ -166,14 +161,15 @@ export async function showSuggestions(value = '', isDefault = false) {
   }
 }
 
+
 /**
  * Submits the search form with proper parameters.
  *
  * @param {string} query - The search query.
+ * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  */
-export function submitSearchForm(query) {
-  const form = document.querySelector('.site-search');
+export function submitSearchForm(query, form) {
   const searchInput = form.querySelector('.qld-search-input input');
 
   const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
@@ -194,4 +190,11 @@ export function submitSearchForm(query) {
 }
 
 // Attach the function to the window object to make it globally accessible
-window.selectSuggestion = selectSuggestion;
+window.selectSuggestion = (value, form) => selectSuggestion(value, form);
+
+// Apply the functions to all forms on the page
+document.querySelectorAll('.site-search').forEach(form => {
+  const searchInput = form.querySelector('.qld-search-input input');
+  searchInput.addEventListener('input', () => showSuggestions(searchInput.value, false, form));
+  searchInput.addEventListener('focus', () => showSuggestions(searchInput.value, true, form));
+});

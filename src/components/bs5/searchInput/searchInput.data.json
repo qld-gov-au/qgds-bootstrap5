@@ -8,7 +8,7 @@
 	"buttonType": "submit",
 	"buttonLabel": "Search",
 	"ariaLabel": "Search website",
-	"suggestions": true,
+	"dropdown_enabled": true,
 	"tags": {
 		"collection": "qgov~sp-search",
 		"profile": "qld",
