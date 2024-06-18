@@ -10,7 +10,8 @@
             "name": "radioOption",
             "label": "Option 1",
             "value": "1",
-            "isDisabled": false
+            "isDisabled": false,
+            "isChecked": false
         },
         {
             "type": "radio",
@@ -18,7 +19,8 @@
             "name": "radioOption",
             "label": "Option 2",
             "value": "2",
-            "isDisabled": false
+            "isDisabled": false,
+            "isChecked": true
         },
         {
             "type": "radio",
@@ -26,7 +28,8 @@
             "name": "radioOption",
             "label": "Option 3",
             "value": "3",
-            "isDisabled": false
+            "isDisabled": false,
+            "isChecked": false
         },
         {
             "type": "radio",
@@ -34,7 +37,8 @@
             "name": "radioOption",
             "label": "Option 4",
             "value": "4",
-            "isDisabled": false
+            "isDisabled": false,
+            "isChecked": false
         },
         {
             "type": "radio",
@@ -42,7 +46,8 @@
             "name": "radioOption",
             "label": "Disabled",
             "value": "",
-            "isDisabled": true
+            "isDisabled": true,
+            "isChecked": false
         }
     ]
 }
