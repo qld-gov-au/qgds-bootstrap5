@@ -1,6 +1,11 @@
 .qld-table {
 
-    border: 1px solid var(--qld-light-grey);
+    --qld-table-border-color: var(--qld-light-grey);
+    --qld-table-header-color: var(--qld-light-text-heading);
+    --qld-table-cell-color: var(--qld-light-text-text);
+    --qld-table-striped-bg: var(--qld-extra-light-grey);
+
+    border: 1px solid var(--qld-table-border-color);
     border-radius: 0.75rem;
     margin-bottom: 1rem;
 
@@ -10,14 +15,9 @@
         border: 1px solid transparent;
     }
 
-
-    // @media (prefers-color-scheme: dark) {
-    //     --qld-table-border-color: var(--qld-white);
-    // }
-
     .table {
-
-        --qld-table-border-color: var(--qld-light-grey);
+        
+        --qld-table-striped-bg: var(--qld-extra-light-grey);
 
         margin-bottom: 0;
         border-radius: 0.75rem;
@@ -30,6 +30,7 @@
             color: var(--qld-headings-color);
             padding: 0.75rem;
             line-height: 2rem;
+            font-weight: 600;
             font-size: 1.25rem;
         }
 
@@ -43,14 +44,32 @@
 
         thead th,
         thead td {
-            border-bottom: 2px solid $qld-brand-secondary;
+            border-top: 1px solid var(--qld-table-border-color);
+            border-bottom: 2px solid var(--qld-brand-secondary);
+        }
+
+        th {
+            color: var(--qld-table-header-color);
+            padding: 1.25rem 0.75rem; 
+        }
+
+        td {
+            color: var(--qld-table-cell-color);
+            padding: 0.75rem; 
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--qld-table-border-color);
         }
 
         tfoot th,
         tfoot td {
             border-top: 2px solid $qld-brand-secondary;
             border-bottom: 0;
+            font-weight: 600;
+            padding: 1.25rem 0.75rem;
         }
+
     }
 
 
@@ -59,12 +78,15 @@
 
     //Then, we extend .table-dark with some additional rules 
     .table-dark {
-
+        --qld-table-border-color: var(--qld-dark-border);
+        --qld-table-header-color: var(--qld-white);
+        --qld-table-cell-color: var(--qld-white);
+        --qld-table-striped-bg: var(--qld-extra-light-grey);
+        
         caption,
         .sub-caption {
             background-color: #09549F;
             color: #FFF;
-
         }
 
         thead th {
@@ -72,6 +94,4 @@
             border-top: 1px solid var(--qld-table-border-color);
         }
     }
-
-
 }
