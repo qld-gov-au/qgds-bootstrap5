@@ -13,7 +13,7 @@ export default {
       name: "CDN",
       description: `CDN prefix or provided text`,
       control: { type: 'radio' ,
-        labels: { 'DEV': 'DEV', 'TEST' : 'TEST','BETA':'BETA','STAGING':'STAGING','PROD':'PROD','/__data/assets/git_bridge/0026/471752/': 'SQUIZ Custom'},
+        labels: { 'DEV': 'DEV', 'TEST' : 'TEST','BETA':'BETA','STAGING':'STAGING','PROD':'PROD','/__data/assets/git_bridge/0026/471752': 'SQUIZ Custom'},
       },
       options: [
         "DEV",
@@ -21,7 +21,7 @@ export default {
         "BETA",
         "STAGING",
         "PROD",
-        "/__data/assets/git_bridge/0026/471752/",
+        "/__data/assets/git_bridge/0026/471752",
       ],
     }
   },
