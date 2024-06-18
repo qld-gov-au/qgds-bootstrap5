@@ -64,7 +64,7 @@ export const DEV = {
 
 export const SQUIZ = {
   args: {
-    cdn: "/__data/assets/git_bridge/0026/471752/"
+    cdn: "/__data/assets/git_bridge/0026/471752"
   },
   decorators:[Story => {
     return `
