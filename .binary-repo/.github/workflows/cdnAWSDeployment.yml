@@ -231,10 +231,10 @@ jobs:
           role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
           aws-region: ap-southeast-2
 
-      - name: Deploy
+      - name: Deploy (package only)
         run: |
           bash -x ./.github/workflows/cdnDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
-            version=${{ env.version }} updateLatest=true
+            version=${{ env.version }} updateLatest=false
 
   deployPROD:
     name: Deploy to Prod Environment
