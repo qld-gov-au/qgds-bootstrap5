@@ -7,9 +7,9 @@
   --#{$prefix}quick-exit-button-text-colour: var(--#{$prefix}color-default-color-dark-link-on-action);
 
   --#{$prefix}quick-exit-tooltip-bg: var(--#{$prefix}core-default-color-neutral-white);
-  --#{$prefix}quick-exit-tooltip-btn-focus: rgba(255, 255, 255, 0.2);
+  --#{$prefix}quick-exit-tooltip-btn-focus: var(--#{$prefix}color-default-color-light-border-alt);
   --#{$prefix}quick-exit-tooltip-text: var(--#{$prefix}color-default-color-light-text-default);
-  --#{$prefix}quick-exit-tooltip-box-shadow: #8a8f91;
+  --#{$prefix}quick-exit-tooltip-box-shadow: var(--#{$prefix}color-default-color-light-border-default);
 
   .dark &,
   .dark-alt & {
@@ -21,8 +21,10 @@
     --#{$prefix}quick-exit-button-text-colour: var(--#{$prefix}color-default-color-dark-link-on-action);
 
     --#{$prefix}quick-exit-tooltip-bg: var(--#{$prefix}core-default-color-neutral-white);
-    --#{$prefix}quick-exit-tooltip-btn-focus: rgba(255, 255, 255, 0.2);
+    --#{$prefix}quick-exit-tooltip-btn-focus: var(--#{$prefix}color-default-color-light-border-alt);
     --#{$prefix}quick-exit-tooltip-text: var(--#{$prefix}color-default-color-light-text-default);
-    --#{$prefix}quick-exit-tooltip-box-shadow: #8a8f91;
+    --#{$prefix}quick-exit-tooltip-box-shadow: var(--#{$prefix}color-default-color-light-border-default);
+
+    --#{$prefix}link-visited-dark: var(--#{$prefix}core-default-color-neutral-white);
   }
 }
