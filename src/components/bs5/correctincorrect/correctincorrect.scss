@@ -101,7 +101,7 @@
    
       &:before {
         position: absolute;
-        top: 1.2rem;
+        top: 1.3rem;
         left: 1rem;
         width: 20px;
         height: 20px;
@@ -116,7 +116,7 @@
     background-color: #F2FAF4;
   
     &:before {
-            content: #{escape-svg($qg-correct-icon-tick)};
+            content: #{escape-svg($qg-correct-icon-tick)} / "Tick icon";
             // position: absolute;
             // top: 1.375rem;
             // left: 1em;
@@ -135,7 +135,7 @@
     &:before {
     //   content: "\f00d";
     //   color: #E22339;
-    content: #{escape-svg($qg-correct-icon-tick)};
+    content: #{escape-svg($qg-correct-icon-tick)} / "Cross icon";
     }
   }
   
