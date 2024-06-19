@@ -152,6 +152,9 @@ caption {
     font-weight: 400;
     line-height: 20px;
 }
+.alert {
+  print-color-adjust: exact;
+}
 
 // Dark, dark alt
 .dark,
