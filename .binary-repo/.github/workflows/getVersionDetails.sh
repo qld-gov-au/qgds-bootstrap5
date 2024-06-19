@@ -15,4 +15,4 @@ else
 fi
 
 IFS='.' read -r MAJOR MINOR PATCH <<< "$version"
-echo "url='https://$1.qgov.net.au/./qgds-bootstrap5/${MAJOR}/${version}'" >> $GITHUB_OUTPUT
+echo "url=https://$1.qgov.net.au/qgds-bootstrap5/${MAJOR}/${version}" >> $GITHUB_OUTPUT
