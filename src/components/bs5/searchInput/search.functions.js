@@ -184,7 +184,7 @@ export async function showSuggestions(value = '', isDefault = false, form) {
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  */
-export function submitSearchForm(query, form) {
+export function submitSearchForm(query = '', form) {
   const searchInput = form.querySelector('.qld-search-input input');
 
   const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
