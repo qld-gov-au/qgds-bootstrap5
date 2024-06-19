@@ -1,11 +1,6 @@
 .qld-table {
 
-    --qld-table-border-color: var(--qld-light-grey);
-    --qld-table-header-color: var(--qld-light-text-heading);
-    --qld-table-cell-color: var(--qld-light-text-text);
-    --qld-table-striped-bg: var(--qld-extra-light-grey);
-
-    border: 1px solid var(--qld-table-border-color);
+    border: 1px solid var(--qld-light-grey);
     border-radius: 0.75rem;
     margin-bottom: 1rem;
 
@@ -16,7 +11,9 @@
     }
 
     .table {
-        
+        --qld-table-border-color: var(--qld-light-grey);
+        --qld-table-header-color: var(--qld-light-text-heading);
+        --qld-table-cell-color: var(--qld-light-text-text);
         --qld-table-striped-bg: var(--qld-extra-light-grey);
 
         margin-bottom: 0;
@@ -32,6 +29,7 @@
             line-height: 2rem;
             font-weight: 600;
             font-size: 1.25rem;
+            border-bottom: 1px solid var(--qld-table-border-color);
         }
 
         .sub-caption {
@@ -44,7 +42,6 @@
 
         thead th,
         thead td {
-            border-top: 1px solid var(--qld-table-border-color);
             border-bottom: 2px solid var(--qld-brand-secondary);
         }
 
@@ -91,7 +88,6 @@
 
         thead th {
             background-color: #04498F;
-            border-top: 1px solid var(--qld-table-border-color);
         }
     }
 }
