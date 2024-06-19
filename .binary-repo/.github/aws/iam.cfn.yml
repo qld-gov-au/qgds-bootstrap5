@@ -1,0 +1,105 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |
+  CFN template: QGDS-Bootstrap5-${ENV} i.e. QGDS-Bootstrap5-DEV
+  CloudFormation template to create IAM role for GitHub Actions OIDC with permissions to sync an S3 bucket.
+  See https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/
+  And https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
+
+Parameters:
+  Environment:
+    Type: String
+    Default: 'DEV'
+    Description: Which environment this role is for (DEV|TEST|STAGING|PROD)
+  GitHubOrg:
+    Type: String
+    Description: GitHub organization or user name.
+    Default: 'qld-gov-au'
+  RepoName:
+    Type: String
+    Description: GitHub repository name.
+    Default: 'qgds-Bootstrap5-release'
+  Branch1:
+    Type: String
+    Description: Main branch name.
+    Default: 'main'
+  Branch2:
+    Type: String
+    Description: Alt branch name.
+    Default: 'develop'
+  S3BucketName:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/config/QGDS-Core/DEV/S3BucketName'
+    Description: Name of the S3 bucket.
+  S3BucketPath:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/config/QGDS-Core/DEV/S3BucketPath'
+    Description: Allowed Path to update
+  GitHubOIDCProviderARN:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/config/GitHubOIDCProviderARN'
+    Description: ARN of the GitHubOIDCProvider
+
+Conditions:
+  HasBranch1: !Not [!Equals [!Ref Branch1, ""]]
+  HasBranch2: !Not [!Equals [!Ref Branch2, ""]]
+
+Resources:
+#NOTE: This usually is created once per aws acccount, leave this in as reference
+#  GitHubOIDCProvider:
+#    Type: "AWS::IAM::OIDCProvider"
+#    Properties:
+#      Url: "https://token.actions.githubusercontent.com"
+#      ClientIdList:
+#        - "sts.amazonaws.com"
+#      ThumbprintList:
+#        - "6938fd4d98bab03faadb97b34396831e3780aea1"  # This thumbprint is for GitHub's SSL certificate
+
+  GitHubActionsRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Federated:
+                - !Ref GitHubOIDCProviderARN
+            Action:
+              - "sts:AssumeRoleWithWebIdentity"
+            Condition:
+              StringEquals:
+                "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                "token.actions.githubusercontent.com:sub": #username
+                  - !Sub "repo:${GitHubOrg}/${RepoName}:environment:${Environment}" #username when from environment deployment
+                  - !If
+                    - HasBranch1
+                    - !Sub "repo:${GitHubOrg}/${RepoName}:ref:refs/heads/${Branch1}"
+                    - !Ref "AWS::NoValue"
+                  - !If
+                    - HasBranch2
+                    - !Sub "repo:${GitHubOrg}/${RepoName}:ref:refs/heads/${Branch2}"
+                    - !Ref "AWS::NoValue"
+                  - !Sub "repo:${GitHubOrg}/${RepoName}:ref:refs/tags/v*"
+      Policies:
+        - PolicyName: "S3SyncPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "s3:ListBucket"
+                Resource:
+                  - !Sub "arn:aws:s3:::${S3BucketName}"
+                  - !Sub "arn:aws:s3:::${S3BucketName}/*"
+              - Effect: "Allow"
+                Action:
+                  - "s3:PutObject"
+                  - "s3:PutObjectAcl"
+                  - "s3:DeleteObject"
+                Resource:
+                  - !Sub "arn:aws:s3:::${S3BucketName}/${S3BucketPath}*"
+
+Outputs:
+  RoleArn:
+    Description: "The ARN of the IAM role for GitHub Actions."
+    Value: !GetAtt GitHubActionsRole.Arn
