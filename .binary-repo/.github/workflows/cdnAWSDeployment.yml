@@ -1,0 +1,282 @@
+name: Deploy CDN
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+    tags:
+      - v*
+  workflow_dispatch:
+    inputs:
+      updateLatest:
+        description: 'Also update the v1/v1.x.x_latest folders, if false, only version deployed'
+        required: false
+        default: true
+      deploy:
+        description: 'Allow production deployment'
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  deployDEV:
+    name: Deploy to Dev Environment
+    runs-on: ubuntu-latest
+    environment:
+      name: DEV
+      url: ${{ steps.version.outputs.url }}
+    concurrency:
+      group: dev-deployments
+      cancel-in-progress: false
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Save root directory
+        run: echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: Get Git Tag or Package.json Version
+        id: version
+        run: bash -x ./.github/workflows/getVersionDetails.sh "dev-static"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+          aws-region: ap-southeast-2
+
+      - name: Deploy
+        run: |
+          bash -x ./.github/workflows/cdnDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
+            version=${{ env.version }} updateLatest=true
+
+  deployTEST:
+    name: Deploy to Test Environment
+    runs-on: ubuntu-latest
+    environment:
+      name: TEST
+      url: ${{ steps.version.outputs.url }}
+    concurrency:
+      group: test-deployments
+      cancel-in-progress: false
+    if: ${{ github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main' }}
+    #delay: '3 days'
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Save root directory
+        run: echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: Get Git Tag or Package.json Version
+        id: version
+        run: bash -x ./.github/workflows/getVersionDetails.sh "test-static"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+          aws-region: ap-southeast-2
+
+      - name: Deploy
+        run: |
+          bash -x ./.github/workflows/cdnDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
+            version=${{ env.version }} updateLatest=true
+
+  deploySTAGING:
+    name: Deploy to Staging Environment
+    runs-on: ubuntu-latest
+    environment:
+      name: STAGING
+      url: ${{ steps.version.outputs.url }}
+    concurrency:
+      group: staging-deployments
+      cancel-in-progress: false
+    if: startsWith(github.ref, 'refs/tags/v')
+    #delay: '3 days'
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Save root directory
+        run: echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: Get Git Tag or Package.json Version
+        id: version
+        run: bash -x ./.github/workflows/getVersionDetails.sh "staging-static"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+          aws-region: ap-southeast-2
+
+      - name: Deploy
+        run: |
+          bash -x ./.github/workflows/cdnDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
+            version=${{ env.version }} updateLatest=true
+
+  #Legacy naming of staging.
+  deployBETA:
+    name: Deploy to Beta Environment
+    needs: deploySTAGING
+    runs-on: ubuntu-latest
+    environment:
+      name: BETA
+      url: ${{ steps.version.outputs.url }}
+    concurrency:
+      group: beta-deployments
+      cancel-in-progress: false
+
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Save root directory
+        run: echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: Get Git Tag or Package.json Version
+        id: version
+        run: bash -x ./.github/workflows/getVersionDetails.sh "beta-static"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+          aws-region: ap-southeast-2
+
+      - name: Deploy
+        run: |
+          bash -x ./.github/workflows/cdnDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
+            version=${{ env.version }} updateLatest=true
+
+  deployPRODprep:
+    name: (version only, no latest) Deploy to Prod Environment
+    needs: deploySTAGING
+    runs-on: ubuntu-latest
+    environment:
+      name: PROD
+      url: ${{ steps.version.outputs.url }}
+    concurrency:
+      group: prod-deployments
+      cancel-in-progress: false
+
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Save root directory
+        run: echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: Get Git Tag or Package.json Version
+        id: version
+        run: bash -x ./.github/workflows/getVersionDetails.sh "static"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+          aws-region: ap-southeast-2
+
+      - name: Deploy
+        run: |
+          bash -x ./.github/workflows/cdnDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
+            version=${{ env.version }} updateLatest=true
+
+  deployPROD:
+    name: Deploy to Prod Environment
+    needs: deploySTAGING
+    runs-on: ubuntu-latest
+    environment:
+      name: PROD
+      url: ${{ steps.version.outputs.url }}
+    concurrency:
+      group: prod-deployments
+      cancel-in-progress: false
+
+    #Lock Prod behind manual workflow dispatch flag. Redeploying to staging prior to prod does not hurt in this current usecase
+    if: startsWith(github.ref, 'refs/tags/v') &&  github.event.inputs.deploy == 'true'
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Save root directory
+        run: echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: Get Git Tag or Package.json Version
+        id: version
+        run: bash -x ./.github/workflows/getVersionDetails.sh "static"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+          aws-region: ap-southeast-2
+
+      - name: Deploy
+        run: |
+          bash -x ./.github/workflows/cdnDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
+            version=${{ env.version }} updateLatest=true
