@@ -65,9 +65,7 @@ window.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         const searchInput = document.querySelector('.qld-search-input input');
         const query = searchInput.value.trim();
-        if (query) {
-          submitSearchForm(query);
-        }
+        submitSearchForm(query);
       });
     }
     
