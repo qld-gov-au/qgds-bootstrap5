@@ -32,44 +32,50 @@ window.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".qld__main-nav__toggle-search").addEventListener("click", toggleSearch);
     }
 
-    let form = document.querySelector(".site-search");
-    if (form) {
-      let searchInput = form.querySelector(".qld-search-input input");
-      let timeout;
-      searchInput.addEventListener("keyup", function () {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          showSuggestions(this.value);
-        }, 300);
-      });
+    // Get all forms with the class 'site-search'
+    let forms = document.querySelectorAll(".site-search");
+    forms.forEach((form) => {
+      // Get the search input within the current form
+      let searchInput = form.querySelector('.qld-search-input input');
 
-      searchInput.addEventListener("focus", function () {
-        showSuggestions("", true);
-      });
+      if (searchInput) {
+        let timeout;
 
-      searchInput.addEventListener("click", function () {
-        if (this.value === "") {
-          showSuggestions("", true);
-        }
-      });
+        // Add keyup event listener to the search input
+        searchInput.addEventListener("keyup", function () {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            showSuggestions(this.value, false, form);
+          }, 300);
+        });
 
-      // Close suggestions when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!searchInput.contains(event.target) && !document.querySelector('.suggestions').contains(event.target)) {
-          document.querySelector('.suggestions').style.display = 'none';
-        }
-      });
+        // Add focus event listener to the search input
+        searchInput.addEventListener("focus", function () {
+          showSuggestions("", true, form);
+        });
 
-      // Attach event listener to form submit
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const searchInput = document.querySelector('.qld-search-input input');
-        const query = searchInput.value.trim();
-        submitSearchForm(query);
-      });
-    }
-    
-    
+        // Add click event listener to the search input
+        searchInput.addEventListener("click", function () {
+          if (this.value === "") {
+            showSuggestions("", true, form);
+          }
+        });
+
+        // Close suggestions when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!form.contains(event.target) && !form.querySelector('.suggestions').contains(event.target)) {
+            form.querySelector('.suggestions').style.display = 'none';
+          }
+        });
+
+        // Attach event listener to form submit
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          const query = searchInput.value.trim();
+          submitSearchForm(query, form);
+        });
+      }
+    });
 
     //Header
     // Get the <header> element
