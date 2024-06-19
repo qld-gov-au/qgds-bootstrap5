@@ -22,15 +22,15 @@ const preview = {
             },
         },
         viewport: {
-        viewports: { //QLD-media Breakpoints
-            small: {name: "Small", styles: {width: "400px", height: "800px"}},
-            medium: {name: "Medium", styles: {width: "700px", height: "800px"}},
-            large: {name: "Large", styles: {width: "992px", height: "800px"}},
-            xlarge: {name: "Extra Large", styles: {width: "1312px", height: "1000px"}},
-            xxlarge: {name: "Extra Extra Large", styles: {width: "1599px", height: "1000px"}},
-            navbreakpoint: {name: "Nave Breakpoint", styles: {width: "992px", height: "800px"}},
-            ...INITIAL_VIEWPORTS
-        },
+            viewports: { //QLD-media Breakpoints
+                small: {name: "Small", styles: {width: "400px", height: "800px"}},
+                medium: {name: "Medium", styles: {width: "700px", height: "800px"}},
+                large: {name: "Large", styles: {width: "992px", height: "800px"}},
+                xlarge: {name: "Extra Large", styles: {width: "1312px", height: "1000px"}},
+                xxlarge: {name: "Extra Extra Large", styles: {width: "1599px", height: "1000px"}},
+                navbreakpoint: {name: "Nave Breakpoint", styles: {width: "992px", height: "800px"}},
+                ...INITIAL_VIEWPORTS
+            },
         },
         hideNoControlsWarning: true,
         expanded: true,
