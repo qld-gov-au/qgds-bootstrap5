@@ -4,7 +4,7 @@ import defaultdata from "./textarea.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Textarea",
+  title: "Components/Forms/Textarea",
   render: (args) => {
     
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 

@@ -3,19 +3,17 @@
   //  1. Palette colours
   // ------------------------------------------------------------------------------------------------------------------
   // Default palette
-  --#{$prefix}footer-color-crest-fill: var(--#{$prefix}color-default-color-light-crest-fill); //#1d1d1d;
-  --#{$prefix}footer-color-border: rgba(0, 0, 0, 0.2); // No token for this
-  --#{$prefix}footer-color-title: var(--#{$prefix}color-default-color-light-site-title); //#022a50;
-  --#{$prefix}footer-color-designAccent: var(--#{$prefix}color-default-color-light-accent-design-accent); //#6bbe27;
-  --#{$prefix}footer-color-text: var(--#{$prefix}color-default-color-light-text-default); //#414141;
-  --#{$prefix}footer-color-text__muted: var(--#{$prefix}color-default-color-light-text-lighter); //#636363; // not using
-  --#{$prefix}footer-color-link: var(--#{$prefix}color-default-color-light-link-default); //#09549f;
-  --#{$prefix}footer-color-focus: var(--#{$prefix}color-default-color-light-focus-default); //#0085b3;
-  --#{$prefix}footer-color-background: var(--#{$prefix}color-default-color-light-background-default); //#fff;
-  --#{$prefix}footer-color-alt-button: var(--#{$prefix}color-default-color-light-action-primary); //#008733;
-  --#{$prefix}footer-color-alt-button__hover: var(
-    --#{$prefix}color-default-color-light-action-primary-hover
-  ); //#00702b;
+  --#{$prefix}footer-color-crest-fill: var(--#{$prefix}color-default-color-light-crest-fill);
+  --#{$prefix}footer-color-border: var(--#{$prefix}color-default-color-light-border-default);
+  --#{$prefix}footer-color-title: var(--#{$prefix}color-default-color-light-site-title);
+  --#{$prefix}footer-color-designAccent: var(--#{$prefix}color-default-color-light-accent-design-accent);
+  --#{$prefix}footer-color-text: var(--#{$prefix}color-default-color-light-text-default);
+  --#{$prefix}footer-color-text__muted: var(--#{$prefix}color-default-color-light-text-lighter);
+  --#{$prefix}footer-color-link: var(--#{$prefix}color-default-color-light-link-default);
+  --#{$prefix}footer-color-focus: var(--#{$prefix}color-default-color-light-focus-default);
+  --#{$prefix}footer-color-background: var(--#{$prefix}color-default-color-light-background-default);
+  --#{$prefix}footer-color-alt-button: var(--#{$prefix}core-default-color-brand-secondary-darkgreen);
+  --#{$prefix}footer-color-alt-button__hover: var(--#{$prefix}core-default-color-brand-primary-light-green);
 
   // ------------------------------------------------------------------------------------------------------------------
   // 2. Colours
@@ -25,21 +23,19 @@
   // ------------------------------------------------------------------------------------------------------------------
   //  3. FORM IO
   // ------------------------------------------------------------------------------------------------------------------
-  --#{$prefix}formIO-bg-colour: var(--#{$prefix}core-default-color-neutral-white); //#fff; var(--#{$prefix}); //
-  --#{$prefix}formIO-callout-bg-colour: var(--#{$prefix}core-default-color-neutral-lighter); //#f5f5f5;
-  --#{$prefix}formIO-hr-colour: var(--#{$prefix}core-default-color-neutral-lighter); //#f5f5f5;
-  --#{$prefix}formIO-formio-colour: var(--#{$prefix}core-default-color-neutral-black); //#1d1d1d;
-  --#{$prefix}formIO-input-border: var(--#{$prefix}color-default-color-light-border-alt); //#7a7a7a;
-  --#{$prefix}formIO-btn-disabled-colour: var(--#{$prefix}core-default-color-neutral-light); //#e8e8e8;
-  --#{$prefix}formIO-btn-close-colour: var(--#{$prefix}color-default-color-light-action-secondary); //#008733;
-  --#{$prefix}formIO-btn-close-colour__hover: var(
-    --#{$prefix}color-default-color-light-action-secondary-hover
-  ); //#00702b;
-  --#{$prefix}formIO-link-colour: var(--#{$prefix}color-default-color-light-link-default); //#09549f;
-  --#{$prefix}formIO-link-colour-hover: var(--#{$prefix}color-default-color-light-focus-default); //#0085b3;
-  --#{$prefix}formIO-submit-btn: var(--#{$prefix}color-default-color-light-action-primary); //#09549f;
+  --#{$prefix}formIO-bg-colour: var(--#{$prefix}core-default-color-neutral-white);
+  --#{$prefix}formIO-callout-bg-colour: var(--#{$prefix}core-default-color-neutral-lighter);
+  --#{$prefix}formIO-hr-colour: var(--#{$prefix}core-default-color-neutral-lighter);
+  --#{$prefix}formIO-formio-colour: var(--#{$prefix}core-default-color-neutral-black);
+  --#{$prefix}formIO-input-border: var(--#{$prefix}color-default-color-light-border-alt);
+  --#{$prefix}formIO-btn-disabled-colour: var(--#{$prefix}core-default-color-neutral-light);
+  --#{$prefix}formIO-btn-close-colour: var(--#{$prefix}color-default-color-light-action-secondary);
+  --#{$prefix}formIO-btn-close-colour__hover: var(--#{$prefix}color-default-color-light-action-secondary-hover);
+  --#{$prefix}formIO-link-colour: var(--#{$prefix}color-default-color-light-link-default);
+  --#{$prefix}formIO-link-colour-hover: var(--#{$prefix}color-default-color-light-focus-default);
+  --#{$prefix}formIO-submit-btn: var(--#{$prefix}color-default-color-light-action-primary);
   --#{$prefix}formIO-submit-btn-hover: var(--#{$prefix}color-default-color-light-action-primary-hover);
-  --#{$prefix}formIO-submit-btn-text: var(--#{$prefix}color-default-color-light-link-on-action); //#fff;
+  --#{$prefix}formIO-submit-btn-text: var(--#{$prefix}color-default-color-light-link-on-action);
   --#{$prefix}formIO-thankyou-page-title-colour: var(--#{$prefix}color-default-color-light-text-heading);
   --#{$prefix}formIO-border-notify-invalid: var(--#{$prefix}core-default-color-status-error-default);
   --#{$prefix}formIO-border-notify-success: var(--#{$prefix}core-default-color-status-success-default);
@@ -53,22 +49,20 @@
   // ------------------------------------------------------------------------------------------------------------------
   &.dark,
   &.dark-alt {
-    --#{$prefix}footer-color-crest-fill: var(--#{$prefix}color-default-color-dark-crest-fill); //#fff;
-    --#{$prefix}footer-color-text: var(--#{$prefix}color-default-color-dark-text-default); //#fff;
-    --#{$prefix}footer-color-border: rgba(255, 255, 255, 0.2); // No token for this
-    --#{$prefix}footer-color-title: var(--#{$prefix}color-default-color-dark-text-heading); //#fff;
+    --#{$prefix}footer-color-crest-fill: var(--#{$prefix}color-default-color-dark-crest-fill);
+    --#{$prefix}footer-color-text: var(--#{$prefix}color-default-color-dark-text-default);
+    --#{$prefix}footer-color-border: var(--#{$prefix}color-default-color-dark-border-default);
+    --#{$prefix}footer-color-title: var(--#{$prefix}color-default-color-dark-text-heading);
     --#{$prefix}footer-color-designAccent: var(--#{$prefix}color-default-color-dark-accent-design-accent);
-    --#{$prefix}footer-color-alt-button: var(--#{$prefix}color-default-color-dark-action-primary); //#efd700;
-    --#{$prefix}footer-color-alt-button__hover: var(
-      --#{$prefix}color-default-color-dark-action-primary-hover
-    ); //#add33f;
-    --#{$prefix}footer-color-link: var(--#{$prefix}color-default-color-dark-link-default); //#fff;
-    --#{$prefix}footer-color-focus: var(--#{$prefix}color-default-color-dark-focus-default); //#01b0e5;
+    --#{$prefix}footer-color-alt-button: var(--#{$prefix}color-default-color-dark-action-secondary);
+    --#{$prefix}footer-color-alt-button__hover: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+    --#{$prefix}footer-color-link: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}footer-color-focus: var(--#{$prefix}color-default-color-dark-underline-default);
   }
   &.dark-alt {
-    --#{$prefix}footer-color-background: var(--#{$prefix}color-default-color-dark-background-alt); //#05325f;
+    --#{$prefix}footer-color-background: var(--#{$prefix}color-default-color-dark-background-alt);
   }
   &.dark {
-    --#{$prefix}footer-color-background: var(--#{$prefix}color-default-color-dark-background-default); //#09549f;
+    --#{$prefix}footer-color-background: var(--#{$prefix}color-default-color-dark-background-default);
   }
 }

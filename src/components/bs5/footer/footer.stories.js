@@ -5,7 +5,7 @@ import defaultdata from "./footer.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Footer",
+  title: "!Core/Footer",
   render: (args) => new Footer(args).html,
 };
 
@@ -53,7 +53,7 @@ export const Forgov = {
   args: {
     ...defaultdata,
     variantClass: "dark",
-    sitename: "For Government",
+    sitename: "For government",
     footerHasCrest: false,
     feedbackFormEnabled: true,
     followlinksEnabled: false,
@@ -64,7 +64,7 @@ export const Forgov = {
       {
         title: "Cultural acknowledgement",
         content:
-          "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>",
+          "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>",
       },
     ],
   },

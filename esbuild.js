@@ -7,6 +7,7 @@ import QGDSrawLoader from "./.esbuild/plugins/qgds-plugin-raw-loader.js";
 import QDGScleanFolders from "./.esbuild/plugins/qgds-plugin-clean-output-folders.js";
 import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
+import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -62,11 +63,11 @@ const buildConfig = {
     QDGScopy(),
     QDGSbuildLog(),
     QGDSrawLoader(),
+    versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
-    sassPlugin(),
-    // eslint({}), //todo: configure eslint
-  ],
+    sassPlugin()
+  ]
 };
 
 async function StartBuild() {

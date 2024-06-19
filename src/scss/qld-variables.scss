@@ -49,7 +49,6 @@ $qld-brand-accent : $qld-golden-yellow;
 
 //Greys
 $qld-system-darkest : $core-default-color-neutral-darkest;
-$qld-hint-text-color: $core-default-color-neutral-dark;
 $qld-dark-grey : $core-default-color-neutral-darker;
 $qld-medium-grey : $core-default-color-neutral-dark;
 $qld-alt-grey : $core-default-color-neutral-light;
@@ -60,6 +59,7 @@ $qld-soft-grey : $color-default-color-light-border-alt;
 
 $qld-dark-grey-muted : $color-default-color-light-text-lighter; 
 $qld-text-grey : $color-default-color-light-text-default;
+$qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $core-default-color-neutral-lighter;
 $qld-color-dark-button-hover: $core-default-color-brand-primary-light-green;
 $qld-text-headings : $color-default-color-light-text-heading;

@@ -6,7 +6,7 @@ export default {
   tags: ["autodocs"],
   title: "Components/Search Input",
   render: (args) => {
-    return `<form class="site-search">${new SearchInput(args).html}</form>`;
+    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search">${new SearchInput(args).html}</form>`;
   },
 
   argTypes: {
