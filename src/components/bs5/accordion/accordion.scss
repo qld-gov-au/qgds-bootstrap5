@@ -2,155 +2,162 @@
 // #{$prefix} defined in main.scss
 
 //SASS variables;
-$accordion-padding:             1rem;
-$accordion-icon-color:          $qld-brand-secondary-dark;
-$accordion-icon-active-color:   $qld-brand-secondary-dark;
-$accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-$accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$accordion-padding: 1rem;
+$accordion-icon-color: $qld-brand-secondary-dark;
+$accordion-icon-active-color: $qld-brand-secondary-dark;
+$accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$accordion-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 
 $accordion-icon-dark-color: $qld-brand-accent;
 $accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 
-
 // CSS Scoped Variables
 //--#{$prefix}{component}-{property}
 
 .accordion {
-    --#{$prefix}accordion-color: var(--#{$prefix}body-color);
-    --#{$prefix}accordion-bg: var(--#{$prefix}body-bg);
-    --#{$prefix}accordion-border-color: var(--#{$prefix}light-grey);
-    --#{$prefix}accordion-border-width: 1px;
-    --#{$prefix}accordion-border-radius: 0;
-    --#{$prefix}accordion-inner-border-radius: 0;
-    --#{$prefix}accordion-btn-padding-x: 1rem;
-    --#{$prefix}accordion-btn-padding-y: 1rem;
-    --#{$prefix}accordion-btn-color: var(--#{$prefix}link-color);
-    --#{$prefix}accordion-btn-bg: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon)};
-    --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon)};
-    --#{$prefix}accordion-btn-icon-width: 1.5rem;
-    --#{$prefix}accordion-btn-icon-transform: rotate(180deg);
-    --#{$prefix}accordion-btn-icon-transition: transform .25s ease-in;
-    --#{$prefix}accordion-btn-focus-box-shadow: none;
-    --#{$prefix}accordion-active-bg: var(--#{$prefix}accordion-btn-bg);
-    --#{$prefix}accordion-active-color: var(--#{$prefix}accordion-btn-color);
-    --#{$prefix}focus: var(--#{$prefix}light-blue);
+  --#{$prefix}accordion-color: var(--#{$prefix}body-color);
+  --#{$prefix}accordion-bg: var(--#{$prefix}body-bg);
+  --#{$prefix}accordion-border-color: var(--#{$prefix}color-default-color-light-border-default);
+  --#{$prefix}accordion-border-width: 1px;
+  --#{$prefix}accordion-border-radius: 0;
+  --#{$prefix}accordion-inner-border-radius: 0;
+  --#{$prefix}accordion-btn-padding-x: 1rem;
+  --#{$prefix}accordion-btn-padding-y: 1rem;
+  --#{$prefix}accordion-btn-color: var(--#{$prefix}link-color);
+  --#{$prefix}accordion-btn-bg: var(--#{$prefix}extra-light-grey);
+  --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon)};
+  --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon)};
+  --#{$prefix}accordion-btn-icon-width: 1.5rem;
+  --#{$prefix}accordion-btn-icon-transform: rotate(180deg);
+  --#{$prefix}accordion-btn-icon-transition: transform 0.25s ease-in;
+  --#{$prefix}accordion-btn-focus-box-shadow: none;
+  --#{$prefix}accordion-active-bg: var(--#{$prefix}accordion-btn-bg);
+  --#{$prefix}accordion-active-color: var(--#{$prefix}accordion-btn-color);
+  --#{$prefix}focus: var(--#{$prefix}light-blue);
 
-    .light & {
-        --#{$prefix}accordion-bg: var(--#{$prefix}light-background);
-        --#{$prefix}accordion-btn-bg: var(--#{$prefix}light-background-shade);
-        --#{$prefix}accordion-border-color: var(--#{$prefix}light-border);
-    }
+  .light & {
+    --#{$prefix}accordion-bg: var(--#{$prefix}light-background);
+    --#{$prefix}accordion-btn-bg: var(--#{$prefix}light-background-shade);
+    --#{$prefix}accordion-border-color: var(--#{$prefix}color-default-color-light-border-light);
 
-    .alt & {
-        --#{$prefix}accordion-bg: var(--#{$prefix}light-grey-alt);
-        --#{$prefix}accordion-btn-bg: var(--#{$prefix}grey);
-        --#{$prefix}accordion-border-color: var(--#{$prefix}soft-grey);
-    }
+  }
 
-    // Shared 'Dark' theme variables
-    .dark &,
-    .dark-alt & {
-        --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon-dark)};
-        --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon-dark)};
-        --#{$prefix}accordion-color: var(--#{$prefix}white);
-        --#{$prefix}accordion-btn-color: var(--#{$prefix}white);
-        --#{$prefix}accordion-active-color: var(--#{$prefix}white);
-        --#{$prefix}focus: var(--#{$prefix}dark-focus);
-    }
+  .alt & {
+    --#{$prefix}accordion-bg: var(--#{$prefix}light-grey-alt);
+    --#{$prefix}accordion-btn-bg: var(--#{$prefix}grey);
+    --#{$prefix}accordion-border-color: var(--#{$prefix}soft-grey);
+  }
 
-    // Theme specific variables
-    .dark & {
-        --#{$prefix}accordion-bg: var(--#{$prefix}brand-primary);
-        --#{$prefix}accordion-btn-bg: var(--#{$prefix}dark-background-shade);
-        --#{$prefix}accordion-border-color: var(--#{$prefix}dark-border);
-    }
+  // Shared 'Dark' theme variables
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon-dark)};
+    --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon-dark)};
+    --#{$prefix}accordion-color: var(--#{$prefix}white);
+    --#{$prefix}accordion-btn-color: var(--#{$prefix}white);
+    --#{$prefix}accordion-active-color: var(--#{$prefix}white);
+    --#{$prefix}focus: var(--#{$prefix}dark-focus);
+  }
 
-    .dark-alt & {
-        --#{$prefix}accordion-bg: var(--#{$prefix}dark-blue);
-        --#{$prefix}accordion-btn-bg: var(--#{$prefix}dark-blue-shade);
-        --#{$prefix}accordion-border-color: var(--#{$prefix}dark-alt-border);
-    }
+  // Theme specific variables
+  .dark & {
+    --#{$prefix}accordion-bg: var(--#{$prefix}brand-primary);
+    --#{$prefix}accordion-btn-bg: var(--#{$prefix}dark-background-shade);
+    --#{$prefix}accordion-border-color: var(--#{$prefix}dark-border);
+  }
+
+  .dark-alt & {
+    --#{$prefix}accordion-bg: var(--#{$prefix}dark-blue);
+    --#{$prefix}accordion-btn-bg: var(--#{$prefix}dark-blue-shade);
+    --#{$prefix}accordion-border-color: var(--#{$prefix}dark-alt-border);
+  }
 }
 
 // Component styles
 .accordion {
+  margin-bottom: 2rem;
 
-    margin-bottom: 2rem;
+  &-button {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    text-decoration-line: underline;
+    text-underline-offset: var(--#{$prefix}link-underline-offset);
+    text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+    font-weight: 600;
 
-    &-button {
-        font-size: 1.25rem;
-        font-weight: 400;
-        line-height: 1.2;
-        text-decoration-line: underline;
-        text-underline-offset: var(--#{$prefix}link-underline-offset);
-        text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
-
-        &:hover {
-            background: var(--#{$prefix}accordion-bg);
-            text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
-        }
-
-        &:focus,
-        &:focus:not(:focus-visible) {
-            outline: 3px solid var(--#{$prefix}focus);
-            outline-offset: 2px;
-        }
+    &:hover {
+      background: var(--#{$prefix}accordion-bg);
+      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
     }
 
-    &-header {
-        font-weight: var(--#{$prefix}body-font-weight);
+    &:focus,
+    &:focus:not(:focus-visible) {
+      outline: 3px solid var(--#{$prefix}focus);
+      outline-offset: 2px;
     }
+  }
 
+  &-header {
+    font-weight: var(--#{$prefix}body-font-weight);
+  }
+}
+
+div .accordion-body {
+  padding: 1rem 1rem 1.25rem; //Override BS default
+
+ :last-child {
+    margin-bottom: 0;
+  }
 }
 
 // Toggle all button styles
 .accordion-toggle {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.5rem 0;
-    font-size: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
 
-    .accordion-toggle-btn {
-        background-color: transparent;
-        border: none;
-        color: var(--#{$prefix}link-color);
-        font-size: inherit;
-        margin-right: 0.5rem;
-        position: relative;
-        text-decoration: underline;
-        text-underline-offset: var(--#{$prefix}link-underline-offset);
-        text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+  .accordion-toggle-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--#{$prefix}link-color);
+    font-size: inherit;
+    margin-right: 0.5rem;
+    position: relative;
+    text-decoration: underline;
+    text-underline-offset: var(--#{$prefix}link-underline-offset);
+    text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
 
-        &:hover {
-            text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
-        }
-
-        &:after {
-            content: #{escape-svg($accordion-button-icon)};
-            display: inline-block;
-            width: 0.5rem;
-            height: 1rem;
-            position: absolute;
-            top: 50%;
-            margin-top: -0.5rem;
-            right: -0.5rem;
-            transition: transform .25s ease-in;
-
-            .dark &,
-            .dark-alt & {
-                content: #{escape-svg($accordion-button-icon-dark)};
-            }
-        }
-
-        .dark &,
-        .dark-alt & {
-            color: var(--#{$prefix}white);
-        }
-
-        &--open:after {
-            transform: rotate(180deg);
-        }
+    &:hover {
+      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
     }
+
+    &:after {
+      content: #{escape-svg($accordion-button-icon)};
+      display: inline-block;
+      width: 0.5rem;
+      height: 1rem;
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5rem;
+      right: -0.5rem;
+      transition: transform 0.25s ease-in;
+
+      .dark &,
+      .dark-alt & {
+        content: #{escape-svg($accordion-button-icon-dark)};
+      }
+    }
+
+    .dark &,
+    .dark-alt & {
+      color: var(--#{$prefix}white);
+    }
+
+    &--open:after {
+      transform: rotate(180deg);
+    }
+  }
 }

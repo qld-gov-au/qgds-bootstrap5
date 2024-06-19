@@ -4,19 +4,23 @@
     // ------------------------------------------------------------------------------------------------------------------
     --#{$prefix}navbar-border-width: 0.5rem;
     --#{$prefix}navbar-link-color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}navbar-link-color-hover: var(--#{$prefix}color-default-color-light-action-primary-hover);
     --#{$prefix}navbar-text-color: var(--#{$prefix}color-default-color-light-text-default);
     --#{$prefix}navbar-text-focus-color: var(--#{$prefix}color-default-color-light-focus-default);
     --#{$prefix}navbar-nav-text-color: var(--#{$prefix}color-default-color-light-text-default);
     --#{$prefix}navbar-bg-color: var(--#{$prefix}color-default-color-light-background-default-shade);
     --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}color-default-color-light-background-default);
+    --#{$prefix}navbar-menuitem-active: var(--#{$prefix}core-default-color-neutral-white);
     --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}core-default-color-neutral-lighter);
     --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}color-default-color-light-action-primary-hover);
     --#{$prefix}navbar-border-color: var(--#{$prefix}color-default-color-light-border-default);
     --#{$prefix}navbar-border-accent: var(--#{$prefix}color-default-color-light-accent-design-accent);
-    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}color-default-color-light-action-secondary);
+    --#{$prefix}navbar-home-icon-color-hover: var(--#{$prefix}color-default-color-light-action-primary-hover);
+    --#{$prefix}navbar-home-icon-color-active: var(--#{$prefix}color-default-color-light-text-heading);
     --#{$prefix}navbar-hover-color: var(--#{$prefix}color-default-color-light-action-primary-hover);
     --#{$prefix}navbar-icon-hover: var(--#{$prefix}color-default-color-dark-action-primary-hover);
-    --#{$prefix}navbar-svg-color: var(--#{$prefix}color-default-color-dark-action-primary);
+    --#{$prefix}navbar-svg-color: var(--#{$prefix}core-default-color-brand-secondary-darkgreen);
 
     // Mobile default is dark
     --#{$prefix}navbar-overlay: var(--#{$prefix}color-default-color-dark-background-alt-shade);
@@ -68,3 +72,4 @@
         --#{$prefix}navbar-svg-color: var(--#{$prefix}color-default-color-dark-action-secondary);
     }
 }
+

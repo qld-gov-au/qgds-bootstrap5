@@ -52,7 +52,7 @@ export function selectSuggestion(value) {
       collection: collection,
       profile: profile,
       num_ranks: numRanks,
-      tiers: tiers
+      tiers: tiers,
     });
 
     const searchUrl = `${actionUrl}?${params.toString()}`;
@@ -126,9 +126,9 @@ export async function showSuggestions(value = '', isDefault = false) {
         <div class="suggestions-category mt-2">
           <strong>Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
-            const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-            return `<li onclick="window.selectSuggestion('${item}')"><a href="#">${highlightedText}</a></li>`;
-          }).join('')}</ul>
+    const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
+    return `<li onclick="window.selectSuggestion('${item}')"><a href="#">${highlightedText}</a></li>`;
+  }).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');
@@ -164,6 +164,33 @@ export async function showSuggestions(value = '', isDefault = false) {
       suggestions.style.display = 'block';
     }
   }
+}
+
+/**
+ * Submits the search form with proper parameters.
+ *
+ * @param {string} query - The search query.
+ * @returns {void}
+ */
+export function submitSearchForm(query) {
+  const form = document.querySelector('.site-search');
+  const searchInput = form.querySelector('.qld-search-input input');
+
+  const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
+  const profile = searchInput.getAttribute('data-profile') || 'qld';
+  const numRanks = searchInput.getAttribute('data-numranks') || '10';
+  const tiers = searchInput.getAttribute('data-tiers') || 'off';
+
+  const params = new URLSearchParams({
+    query: query.trim(),
+    collection: collection,
+    profile: profile,
+    num_ranks: numRanks,
+    tiers: tiers,
+  });
+
+  const searchUrl = `${form.getAttribute('action')}?${params.toString()}`;
+  window.location.href = searchUrl;
 }
 
 // Attach the function to the window object to make it globally accessible

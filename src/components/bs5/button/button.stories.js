@@ -13,9 +13,40 @@ const buttonVariants = {
   "btn-tertiary": "Tertiary",
 }
 
+/**
+ * Define different status of button
+ */
+const statuses = [
+  { isdisabled: false, label: 'Enabled' },
+  { isdisabled: true, label: 'Disabled' },
+];
+
+/**
+ * Construct the HTML for buttons in all possible variants.
+ * @returns {HTML} HTML Markup
+ */
+function buttonVariantsMarkup() {
+  return Object.entries(buttonVariants).map(([variantClass, variantLabel]) => {
+    const variantButtons = statuses.map(status =>
+      new Button({
+        ...defaultdata,
+        variantClass,
+        ...status,
+      }).html,
+    ).join('');
+
+    return `<div class="d-grid mb-4">
+              <div class="fw-bold">${variantLabel}</div>
+              <div class="btn-toolbar">
+                ${variantButtons}
+              </div>
+            </div>`;
+  }).join('');
+}
+
 export default {
   tags: ['autodocs'],
-  title: 'Components/Button',
+  title: 'Components/Forms/Button',
   args: defaultdata,
   render: (args) => {
     return `
@@ -95,30 +126,7 @@ export const Dark = {
  */
 export const AllVariantsInDefaultMode = {
   render:() => {
-    const states = [
-      { isdisabled: false, label: 'Enabled' },
-      { isdisabled: true, label: 'Disabled' },
-    ];
-
-    /* Return all button variants with label = variant + state */
-    return Object.entries(buttonVariants).map(([variantClass, variantLabel]) => {
-      const variantButtons = states.map(state =>
-        new Button({
-          ...defaultdata,
-          variantClass,
-          ...state,
-          label: state.label,
-        }).html,
-      ).join('');
-
-      return `<div class="d-grid mb-4">
-                <div class="fw-bold">${variantLabel}</div>
-                <div class="btn-toolbar">
-                  ${variantButtons}
-                </div>
-              </div>`;
-
-    }).join('');
+    return buttonVariantsMarkup();
   },
   parameters: {
     controls: {
@@ -133,30 +141,7 @@ export const AllVariantsInDefaultMode = {
  */
 export const AllVariantsInDarkMode = {
   render:() => {
-    const states = [
-      { isdisabled: false, label: 'Enabled' },
-      { isdisabled: true, label: 'Disabled' },
-    ];
-
-    /* Return all button variants with label = variant + state */
-    return Object.entries(buttonVariants).map(([variantClass, variantLabel]) => {
-      const variantButtons = states.map(state =>
-        new Button({
-          ...defaultdata,
-          variantClass,
-          ...state,
-          label: state.label,
-        }).html,
-      ).join('');
-
-      return `<div class="d-grid mb-4">
-                <div class="fw-bold">${variantLabel}</div>
-                <div class="btn-toolbar">
-                  ${variantButtons}
-                </div>
-              </div>`;
-
-    }).join('');
+    return buttonVariantsMarkup();
   },
   parameters: {
     backgrounds: {

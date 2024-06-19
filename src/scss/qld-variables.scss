@@ -1,5 +1,5 @@
 // GLOBALLY SCOPED VARIABLES
-// These variables are avaiable to the full project and all components. (This file is included at the top of main.scss to ensure this)
+// These variables are available to the full project and all components. (This file is included at the top of main.scss to ensure this)
 
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.scss,
 
@@ -47,9 +47,8 @@ $qld-brand-secondary-dark : $qld-dark-green;
 $qld-brand-secondary : $qld-light-green;
 $qld-brand-accent : $qld-golden-yellow;
 
-//Grays
+//Greys
 $qld-system-darkest : $core-default-color-neutral-darkest;
-$qld-hint-text-color: $core-default-color-neutral-dark;
 $qld-dark-grey : $core-default-color-neutral-darker;
 $qld-medium-grey : $core-default-color-neutral-dark;
 $qld-alt-grey : $core-default-color-neutral-light;
@@ -60,6 +59,7 @@ $qld-soft-grey : $color-default-color-light-border-alt;
 
 $qld-dark-grey-muted : $color-default-color-light-text-lighter; 
 $qld-text-grey : $color-default-color-light-text-default;
+$qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $core-default-color-neutral-lighter;
 $qld-color-dark-button-hover: $core-default-color-brand-primary-light-green;
 $qld-text-headings : $color-default-color-light-text-heading;

@@ -106,6 +106,10 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 
     .view-all {
         --#{$prefix}card-view-all-icon: #{escape-svg($view-all-icon)};
+        a {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
     }
 
     // Colour variants
@@ -228,12 +232,17 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
             color: var(--#{$prefix}card-link-color);
             font-weight: 600;
             text-underline-offset: 3px;
+            text-decoration-thickness: var(--qld-link-underline-thickness);
 
             &:hover, &:focus {
                 text-decoration: underline;
-                text-decoration-thickness: 3px;
+                text-decoration-thickness: var(--qld-link-underline-thickness-hover);
             }
         }
+    }
+
+    .card-body li {
+        margin-top: 0.5rem;
     }
 
     &-single-action,
@@ -424,17 +433,8 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
                     width: 2rem;
                     vertical-align: middle;
                     margin-left: 0.5rem;
+                    color: var(--#{$prefix}color-default-color-light-action-secondary);
                 }
-            }
-        }
-    }
-}
-
-.card-feature {
-    .card-title {
-        a {
-            &:hover, &:focus {
-                text-decoration-thickness: 4px;
             }
         }
     }

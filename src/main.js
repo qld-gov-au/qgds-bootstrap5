@@ -9,7 +9,7 @@ import { initBreadcrumb } from "./components/bs5/breadcrumbs/breadcrumb.function
 import { positionQuickExit, initQuickexit } from "./components/bs5/quickexit/quickexit.functions";
 import { displayFeedbackForm } from "./components/bs5/footer/footer.functions";
 import { toggleSearch } from "./components/bs5/header/header.functions";
-import { showSuggestions } from "./components/bs5/searchInput/search.functions";
+import { showSuggestions, submitSearchForm } from "./components/bs5/searchInput/search.functions";
 
 window.addEventListener("scroll", positionQuickExit, true);
 window.addEventListener("resize", positionQuickExit, true);
@@ -28,17 +28,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //Header search
     let headerSearchButton = document.querySelector(".qld__main-nav__toggle-search");
-
     if (headerSearchButton) {
       document.querySelector(".qld__main-nav__toggle-search").addEventListener("click", toggleSearch);
     }
 
-    const form = document.querySelector(".site-search");
-    const searchInput = form.querySelector(".qld-search-input input");
-
-    if (searchInput) {
+    let form = document.querySelector(".site-search");
+    if (form) {
+      let searchInput = form.querySelector(".qld-search-input input");
       let timeout;
-
       searchInput.addEventListener("keyup", function () {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
@@ -57,19 +54,29 @@ window.addEventListener("DOMContentLoaded", () => {
       });
 
       // Close suggestions when clicking outside
-      document.addEventListener("click", function (event) {
-        if (!searchInput.contains(event.target) && !document.querySelector(".suggestions").contains(event.target)) {
-          document.querySelector(".suggestions").style.display = "none";
+      document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !document.querySelector('.suggestions').contains(event.target)) {
+          document.querySelector('.suggestions').style.display = 'none';
         }
       });
+
+      // Attach event listener to form submit
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const searchInput = document.querySelector('.qld-search-input input');
+        const query = searchInput.value.trim();
+        submitSearchForm(query);
+      });
     }
+    
+    
 
     //Header
     // Get the <header> element
-    var header = document.querySelector("header");
+    let header = document.querySelector("header");
     if (header) {
       // Get the current page URL without query string parameters
-      var url = window.location.origin + window.location.pathname;
+      let url = window.location.origin + window.location.pathname;
       // Set the data-page-url attribute on the <header> element
       header.setAttribute("data-page-url", url);
     }
