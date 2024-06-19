@@ -13,7 +13,7 @@
                 <p class="banner-lead">{{{content}}}</p>
 
                 {{#if ctabuttons}}
-                <div class="banner-cta">
+                <div class="banner-cta btn-toolbar">
                     {{#each ctabuttons}}
                     <a href="{{link}}" class="btn {{class}}" target="{{target}}">{{label}}</a>
                     {{/each}}
@@ -24,6 +24,6 @@
         </div>
     </div>
 
-    <div class="banner-image {{image.classes}}" style="--background-img:url({{image.url}})"></div>
+    <div class="banner-image {{image.classes}}" style="--banner-background-img:url({{image.url}})"></div>
 
 </div>
