@@ -214,10 +214,11 @@
                                             </li>
                                         {{/isType}}
                                         {{#isType ../dropdown_options.dropdown_type "form"}}
-                                            {{#if dropdown_options.dropdown_config.content}}
-                                                {{{dropdown_options.dropdown_config.content}}}
+                                            {{#if content}}
+                                                {{{content}}}
                                             {{/if}}
                                         {{/isType}}
+
                                     {{/each }}
                                     {{#if dropdown_options.dropdown_config.view_more}}
                                     <li class="col-12 text-end">

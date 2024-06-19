@@ -136,6 +136,7 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
             &:focus {
                 background-color: var(--#{$prefix}textbox-border-color);
                 color: var(--#{$prefix}white);
+                background-color: var(--#{$prefix}button-dark-blue);
                 text-decoration: underline;
                 text-underline-offset: var(--#{$prefix}link-underline-offset);
 
@@ -248,8 +249,9 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
             &:hover,
             &:active,
             &:focus {
-                background-color: var(--#{$prefix}light-green-dark);
+                background-color: var(--#{$prefix}dark-action-primary-hover);
                 border-color: var(--#{$prefix}light-green-dark);
+                color: var(--#{$prefix}text-darkest);
 
                 a {
                     color: var(--#{$prefix}text-darkest);
@@ -303,8 +305,9 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
             &:hover,
             &:active,
             &:focus {
-                background-color: var(--#{$prefix}light-green-dark);
+                background-color: var(--#{$prefix}dark-action-primary-hover);
                 border-color: var(--#{$prefix}light-green-dark);
+                color: var(--#{$prefix}text-darkest);
 
                 a {
                     color: var(--#{$prefix}text-darkest);
