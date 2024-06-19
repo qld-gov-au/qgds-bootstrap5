@@ -264,7 +264,7 @@
     }
   
     /* Hide elements not needed for printing */
-    .navbar, footer, .sidebar {
+    .navbar, footer, .sidebar, footer.qld-footer.dark {
       display: none;
     }
 
@@ -330,8 +330,8 @@
         content:" (" attr(href) ")";
     }
     /* Custom qld- styles */
-    .qld-side-navigation, .qld-inpage-nav, .qld__header__site-search.qld__header__site-search--closed {
-      display: none;
+    .qld-side-navigation, .qld-inpage-nav, .qld__header__site-search.qld__header__site-search--closed, .qld__header__pre-header {
+      display: none !important;
     }
     .qld__header__brand-image.qld__header__brand-image_subtype, .qld__header__brand-image {
       display: block !important;
