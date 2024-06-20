@@ -10,7 +10,7 @@
 	"ariaLabel": "Search website",
 	"suggestions": true,
 	"tags": {
-		"collection": "qgov~sp-search",
+		"collection": "qgov~sp-forgov",
 		"profile": "qld",
 		"numranks": "10",
 		"tiers": "off",
