@@ -329,6 +329,12 @@
         display: block;
         content:" (" attr(href) ")";
     }
+    a.stretched-link:after {
+      content:" (" attr(href) ")";
+      font-size: 13px;
+      line-height: 1;
+      position: relative;
+    }
     /* Custom qld- styles */
     .qld-side-navigation, .qld-inpage-nav, .qld__header__site-search.qld__header__site-search--closed, .qld__header__pre-header {
       display: none !important;
