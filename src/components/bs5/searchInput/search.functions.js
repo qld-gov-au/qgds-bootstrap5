@@ -72,27 +72,35 @@ export function selectSuggestion(value, form) {
 export async function showSuggestions(value = '', isDefault = false, form) {
   const searchInput = form.querySelector('.qld-search-input input');
   const suggestions = form.querySelector('.suggestions');
+  const defaultSuggestionsContainer = form.querySelector('.default-suggestions');
+  const dynamicSuggestionsContainer = form.querySelector('.dynamic-suggestions');
 
   if (!suggestions || !searchInput) {
     console.error("Required elements not found.");
     return;
   }
 
-  // Clear all previous suggestions
-  if (!isDefault) {
-    suggestions.innerHTML = '';
-  }
-
-  if (isDefault || value.length === 0) {
-    suggestions.style.display = isDefault ? 'block' : 'none';
-    if (isDefault) {
-      suggestions.classList.add('show');
-      createPopper(searchInput, suggestions, {
-        placement: 'bottom-start',
-      });
-    }
+  // Hide/show default suggestions
+  if (isDefault) {
+    defaultSuggestionsContainer.style.display = 'block';
+    dynamicSuggestionsContainer.innerHTML = '';
+    dynamicSuggestionsContainer.style.display = 'none';
+    createPopper(searchInput, suggestions, {
+      placement: 'bottom-start',
+    });
+    suggestions.style.display = 'block';
     return;
   }
+
+  if (value.length === 0) {
+    defaultSuggestionsContainer.style.display = 'none';
+    dynamicSuggestionsContainer.innerHTML = '';
+    dynamicSuggestionsContainer.style.display = 'none';
+    suggestions.style.display = 'none';
+    return;
+  }
+
+  defaultSuggestionsContainer.style.display = 'none';
 
   // Fetch dynamic suggestions if available
   const suggestUrl = searchInput.getAttribute('data-suggestions');
@@ -102,16 +110,15 @@ export async function showSuggestions(value = '', isDefault = false, form) {
     const fetchedSuggestions = await fetchData(`${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`, 'suggestions');
 
     if (fetchedSuggestions.length > 0) {
-      const suggestionsHTML = `
+      dynamicSuggestionsContainer.innerHTML = `
         <div class="suggestions-category mt-2">
           <strong>Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
-        const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-        return `<li><a href="#">${highlightedText}</a></li>`;
-      }).join('')}</ul>
+            const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
+            return `<li><a href="#">${highlightedText}</a></li>`;
+          }).join('')}</ul>
         </div>`;
-      suggestions.insertAdjacentHTML('beforeend', suggestionsHTML);
-      suggestions.classList.add('show');
+      dynamicSuggestionsContainer.style.display = 'block';
       createPopper(searchInput, suggestions, {
         placement: 'bottom-start',
       });
@@ -121,8 +128,9 @@ export async function showSuggestions(value = '', isDefault = false, form) {
       form.querySelectorAll('.suggestions li').forEach((item) => {
         item.addEventListener('click', () => selectSuggestion(item.innerText, form));
       });
-
     } else {
+      dynamicSuggestionsContainer.innerHTML = '';
+      dynamicSuggestionsContainer.style.display = 'none';
       suggestions.style.display = 'none';
     }
   }
@@ -134,13 +142,12 @@ export async function showSuggestions(value = '', isDefault = false, form) {
     const fetchedServices = await fetchData(`${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`, 'services');
 
     if (fetchedServices.response.resultPacket && fetchedServices.response.resultPacket.results.length > 0) {
-      const servicesHTML = `
+      dynamicSuggestionsContainer.innerHTML += `
         <div class="suggestions-category feature pt-2">
           <strong>Services</strong>
           <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
         </div>`;
-      suggestions.insertAdjacentHTML('beforeend', servicesHTML);
-      suggestions.classList.add('show');
+      dynamicSuggestionsContainer.style.display = 'block';
       createPopper(searchInput, suggestions, {
         placement: 'bottom-start',
       });
@@ -153,6 +160,7 @@ export async function showSuggestions(value = '', isDefault = false, form) {
     }
   }
 }
+
 
 /**
  * Submits the search form with proper parameters.

@@ -12,8 +12,8 @@
         </button>
 
         {{#if suggestions}}
-            <ul class="suggestions suggestions__group">
-                
+        <ul class="suggestions suggestions__group">
+            <div class="default-suggestions">
                 <div class="suggestions-category mt-2">
                     <strong>Popular services</strong>
                     <ul class="mt-2">
@@ -39,7 +39,9 @@
                         <a href="{{default_suggestions.options.href}}">{{default_suggestions.options.label}}</a>
                     </div>
                 {{/if}}
-            </ul>
+            </div>
+            <div class="dynamic-suggestions"></div>
+        </ul>
         {{/if}}
     </div>
 </div>

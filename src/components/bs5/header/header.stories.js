@@ -238,7 +238,6 @@ export const CoBrand = {
         </style>
         <main>
           ${Story()}
-          <br />
           ${new Banner(bannerDataWithOverride).html}
           ${new Footer(footerDataWithOverride).html}
         </main>
