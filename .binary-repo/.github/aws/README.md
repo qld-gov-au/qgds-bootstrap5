@@ -37,7 +37,7 @@ deploy_stack BETA
 
 ## GitHub Environments
  1. Setup one or more enviroments DEV|TEST|etc
- 2. Add secrets: AWS_IAM_ROLE and S3BUCKET based on what is set in your aws param store configuration
+ 2. Add secrets: AWS_IAM_ROLE and S3BUCKET (i.e. s3://myBucket/folderPrefix) based on what is set in your aws param store configuration
  3. Add branch/tag restrictions
  4. deploy via github action script cdnAWSDeployment.yml
 
@@ -52,6 +52,6 @@ Authenticate gh to your GitHub account by running
 ``gh auth login`` and following the prompts.
 
 ```shell
-./setup_github_environment.sh qld-gov-au qgds-bootstrap5-release DEV your-s3-bucket-name your-aws-iam-role-arn
+./setup_github_environment.sh qld-gov-au qgds-bootstrap5-release DEV "s3://your-s3-bucket-nam/folder" arn:aws:iam::00011122211:role/cfnCreatedRoleHere
 
 ```
