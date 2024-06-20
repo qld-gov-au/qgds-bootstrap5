@@ -41,6 +41,7 @@ $h6-font-size: $font-size-base * 0.875;
 $headings-font-weight: 600;
 $headings-line-height: 2;
 $headings-color: $qld-text-headings;
+$qld-heading-color: $core-default-color-brand-primary-light-green;
 
 $link-color: $qld-brand-primary;
 $link-hover-color: $qld-brand-primary;
@@ -118,6 +119,10 @@ strong, b, th {
 
 // Light, Light alt
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--#{$prefix}color-default-color-light-text-heading);
+}
+
 a,
 a.nav-link {
   text-underline-offset: var(--qld-link-underline-offset);
@@ -151,18 +156,15 @@ caption {
 // Dark, dark alt
 .dark,
 .dark-alt {
-    body & {
-        color: var(--qld-body-color);
-    }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: var(--qld-headings-color);
-    }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--#{$prefix}color-default-color-dark-text-heading);
+  }
+  
+
+  body & {
+      color: var(--qld-body-color);
+  }
         a, a.nav-link {
           text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
 
