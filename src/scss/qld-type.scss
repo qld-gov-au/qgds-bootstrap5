@@ -109,8 +109,10 @@ body {
   }
 }
 
+// Apply correct bold font-weight
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, 
 strong, b, th {
-  font-weight: $font-weight-bold !important; // Overrides default BS styles
+  font-weight: $font-weight-bold;
 }
 
 
@@ -119,10 +121,10 @@ strong, b, th {
 a,
 a.nav-link {
   text-underline-offset: var(--qld-link-underline-offset);
-  text-decoration-thickness: var(--qld-link-underline-thickness) !important;  // Overrides default BS styles
+  text-decoration-thickness: var(--qld-link-underline-thickness);
 
   &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness-hover) !important; // Overrides default BS styles
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
   }
 
     &:visited {
@@ -139,6 +141,7 @@ a.nav-link {
         outline-offset: 2px;
   }
 }
+
 caption {
     font-size: 14px;
     font-weight: 400;
