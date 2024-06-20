@@ -1,24 +1,29 @@
+// QGDS QOL In-page Navigation
+// extends Bootstrap Nav: https://getbootstrap.com/docs/5.2/components/navs-tabs/#sass-variables
+
+// QGDS specific In-page Navigation variables.
 .qld-inpage-nav {
-    --inpage-nav-padding-left: 1rem;
-    --inpage-nav-title-padding-left: $nav-link-padding-x;
-    --inpage-nav-link-padding-left: $nav-link-padding-x;
-    --inpage-nav-link-padding-y: 0.25rem;
-    --inpage-nav-border-color: var(--qld-brand-primary);
+    --#{$prefix}inpage-nav-padding-left: 1.5rem;
+    --#{$prefix}inpage-nav-title-padding-left: $nav-link-padding-x;
+    --#{$prefix}inpage-nav-link-padding-left: $nav-link-padding-x;
+    --#{$prefix}inpage-nav-link-padding-y: 0.25rem;
+    --#{$prefix}inpage-nav-border-color: var(--#{$prefix}brand-primary);
 }
 
 .dark .qld-inpage-nav,
 .dark-alt .qld-inpage-nav {
-    --inpage-nav-border-color: var(--qld-brand-secondary);
+    --#{$prefix}inpage-nav-border-color: var(--#{$prefix}dark-action-primary);
 
     .nav {
-        --#{$prefix}nav-link-color: #fff;
-        --#{$prefix}nav-link-hover-color: var(--qld-brand-accent);
+        --#{$prefix}nav-link-color: var(--#{$prefix}white);
+        --#{$prefix}nav-link-hover-color: var(--#{$prefix}brand-accent);
     }
 }
 
+// General styling rules.
 .qld-inpage-nav {
-    border-left: 4px solid var(--inpage-nav-border-color);
-    padding-left: var(--inpage-nav-padding-left);
+    border-left: 4px solid var(--#{$prefix}inpage-nav-border-color);
+    padding-left: var(--#{$prefix}inpage-nav-padding-left);
 
     ul.nav {
         display: flex;
@@ -31,14 +36,14 @@
         font-size: 1rem;
         line-height: 1.25;
         margin-bottom: 0;
-        padding-left: var(--inpage-nav-title-padding-left);
+        padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
     }
 
     .nav-item {
         .nav-link {
-            padding-top: var(--inpage-nav-link-padding-y);
-            padding-bottom: var(--inpage-nav-link-padding-y);
-            padding-left: var(--inpage-nav-title-padding-left);
+            padding-top: var(--#{$prefix}inpage-nav-link-padding-y);
+            padding-bottom: var(--#{$prefix}inpage-nav-link-padding-y);
+            padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
             color: var(--#{$prefix}nav-link-color);
         }
 
