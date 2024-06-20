@@ -144,8 +144,8 @@
     .form-control {
         padding: 0.75rem 1rem 0.75rem 3rem;
         border-radius: 0.25rem;
-        border: 2px solid var(--border-color);
-        background: var(--background-color);
+        border: 0.125rem solid var(--border-color);
+        background: var(--background-color); 
         padding-right: 6rem;
         color: var(--text-color);
 
@@ -169,9 +169,9 @@
             --placeholder-color: var(--qld-text-grey);
             --border-color: var(--qld-soft-grey);
             --background-color: var(--qld-white);
-
-            outline: 3px solid var(--outline-color);
-            outline-offset: 2px;
+            
+            outline: 0.188rem solid var(--outline-color);
+            outline-offset: 0.125rem;
         }
 
         +button {
