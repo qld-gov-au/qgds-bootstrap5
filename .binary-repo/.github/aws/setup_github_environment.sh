@@ -3,7 +3,7 @@
 # Check if correct number of arguments are provided
 if [ "$#" -ne 5 ]; then
   echo "Usage: $0 <repo_owner> <repo_name> <environment_name> <s3_bucket> <aws_iam_role>"
-  echo "i.e. $0 qld-gov-au qgds-core DEV \"s3bucket/folder\" aws_iam_role"
+  echo "i.e. $0 qld-gov-au qgds-core DEV \"s3://s3bucket/folder\" aws_iam_role"
   exit 1
 fi
 
