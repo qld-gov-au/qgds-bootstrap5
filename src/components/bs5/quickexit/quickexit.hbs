@@ -1,38 +1,40 @@
 <!-- QGDS Component: Loading Quick exit -->
 
 <div class="qld-quick-exit"><!-- dark -->
-  <div class="qld-quick-exit-inner container-fluid{{#if hasIconInfo}} has-icon-info{{/if}}{{#if hasTooltip}} has-tooltip{{/if}}">
-    <div class="qg-quick-exit__tips">
-      {{#if hasIconInfo}}
-        <span class="qld-icon icon-info"></span>
-      {{/if}}
-      <p class="qld-quick-exit-tip-title">{{{exitMessage}}}</p>
-      <a href="{{browseSafelyOnlineURL}}" class="qld-quick-exit-tip-link">
-        <span>{{exitMessageLinkText}}</span>
-      </a>
-    </div>
-    <div class="qld-quick-exit-actions">
-      {{#if hasTooltip}}
-        <ul class="qld-quick-exit-list">
-          <li class="qld-quick-exit-item qld-tooltip-container">
-            <input type="checkbox" id="qld-quick-exit-input" class="qld-quick-exit-input sr-only" />
-            <label for="qld-quick-exit-input" class="qld-quick-exit-label qld-tooltip-parent">
-              <span class="qld-tooltip-prompt">{{qldTooltipPrompt}}</span>
-              <div class="qld-tooltip-wrapper">
-                <div class="qld-tooltip">
-                  <span class="qld-tooltip-content">{{qldTooltipContent}}</span>
+  <div class="container">
+    <div class="qld-quick-exit-inner container-fluid {{#if hasIconInfo}} has-icon-info{{/if}}{{#if hasTooltip}} has-tooltip{{/if}}">
+      <div class="qg-quick-exit__tips">
+        {{#if hasIconInfo}}
+          <span class="qld-icon icon-info"></span>
+        {{/if}}
+        <p class="qld-quick-exit-tip-title">{{{exitMessage}}}</p>
+        <a href="{{browseSafelyOnlineURL}}" class="qld-quick-exit-tip-link">
+          <span>{{exitMessageLinkText}}</span>
+        </a>
+      </div>
+      <div class="qld-quick-exit-actions">
+        {{#if hasTooltip}}
+          <ul class="qld-quick-exit-list">
+            <li class="qld-quick-exit-item qld-tooltip-container">
+              <input type="checkbox" id="qld-quick-exit-input" class="qld-quick-exit-input sr-only" />
+              <label for="qld-quick-exit-input" class="qld-quick-exit-label qld-tooltip-parent">
+                <span class="qld-tooltip-prompt">{{qldTooltipPrompt}}</span>
+                <div class="qld-tooltip-wrapper">
+                  <div class="qld-tooltip">
+                    <span class="qld-tooltip-content">{{qldTooltipContent}}</span>
+                  </div>
                 </div>
-              </div>
-            </label>
-          </li>
-          
-          <li class="qld-quick-exit-item">
-            {{/if}}
-              <button class="btn btn-secondary qld-quick-exit-button">{{{quickExitButtonText}}}</button>
-            {{#if hasTooltip}}
-          </li>   
-        </ul>
-      {{/if}}
+              </label>
+            </li>
+            
+            <li class="qld-quick-exit-item">
+              {{/if}}
+                <button class="btn btn-secondary qld-quick-exit-button">{{{quickExitButtonText}}}</button>
+              {{#if hasTooltip}}
+            </li>   
+          </ul>
+        {{/if}}
+      </div>
     </div>
   </div>
 </div>
