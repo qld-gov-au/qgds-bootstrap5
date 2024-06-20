@@ -116,7 +116,6 @@ strong, b, th {
   font-weight: $font-weight-bold;
 }
 
-
 // Light, Light alt
 
 h1, h2, h3, h4, h5, h6 {
@@ -125,6 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a,
 a.nav-link {
+  text-decoration: underline;
   text-underline-offset: var(--qld-link-underline-offset);
   text-decoration-thickness: var(--qld-link-underline-thickness);
 

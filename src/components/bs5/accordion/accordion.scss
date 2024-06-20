@@ -100,6 +100,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 
   &-header {
     font-weight: var(--#{$prefix}body-font-weight);
+    margin-top: 0;
   }
 }
 
