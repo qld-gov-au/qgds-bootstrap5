@@ -229,15 +229,7 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
         }
 
         a {
-            color: var(--#{$prefix}card-link-color);
             font-weight: 600;
-            text-underline-offset: 3px;
-            text-decoration-thickness: var(--qld-link-underline-thickness);
-
-            &:hover, &:focus {
-                text-decoration: underline;
-                text-decoration-thickness: var(--qld-link-underline-thickness-hover);
-            }
         }
     }
 

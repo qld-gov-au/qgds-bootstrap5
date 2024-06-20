@@ -94,6 +94,12 @@ body {
 }
 
 .qld-content-body {
+
+  p {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
   ul, ol, p {
       line-height: 1.75;
   }
@@ -109,26 +115,22 @@ strong, b, th {
 
 
 // Light, Light alt
-a {
-  font-weight: var(--qld-link-font-weight);
-}
 
 a,
 a.nav-link {
-  text-decoration: underline;
-  text-underline-offset: var(--qld-link-underline-offset) !important;
-  text-decoration-thickness: var(--qld-link-underline-thickness) !important;
+  text-underline-offset: var(--qld-link-underline-offset);
+  text-decoration-thickness: var(--qld-link-underline-thickness) !important;  // Overrides default BS styles
 
   &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness-hover) !important;
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover) !important; // Overrides default BS styles
   }
 
     &:visited {
-        color: #551A8B;
-        text-decoration-color: #551A8B;
+        color: var(--#{$prefix}color-default-color-light-link-visited);
+        text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited);
         &:hover {
-            text-decoration-thickness: 2px;
-            text-decoration-color: #551A8B;
+            text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+            text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited-hover);
         }
     }
 
@@ -159,17 +161,18 @@ caption {
         color: var(--qld-headings-color);
     }
         a, a.nav-link {
-            text-decoration-color: #B5CCE2;
-            &:visited {
-                color: var(--qld-link-visited-dark);
-                text-decoration-color: var(--qld-link-visited-dark);
-                &:hover {
-                    text-decoration-color: #FFFFFF;
-                }
-            }
+          text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
+
+          &:visited {
+              color: var(--#{$prefix}color-default-color-dark-link-visited);
+              text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-visited);
+
+              &:hover {
+                text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+              }
+          }
         }
     }
-
 
 caption {
     font-size: 14px;
