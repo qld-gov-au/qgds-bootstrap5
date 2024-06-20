@@ -78,6 +78,9 @@
         --qld-brand-accent: var(--#{$prefix}footer-color-alt-button__hover);
       }
     }
+    b {
+      margin-inline-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
+    }
   }
   .footer-crest {
     display: block;
@@ -105,6 +108,9 @@
         }
         &:focus-visible {
           box-shadow: 0 0 0 3px var(--#{$prefix}footer-color-border);
+        }
+        span {
+          display: block;
         }
       }
       &--social .nav-link {
@@ -137,7 +143,7 @@
   .footer-contact {
     .btn {
       min-width: 200px; // magic number
-      margin-block-start: calc(var(--#{$prefix}footer-spacing) * 0.5);
+      margin-block-start: var(--#{$prefix}footer-spacing); // calc(var(--#{$prefix}footer-spacing) * 0.5);
     }
   }
   .container > .row > div {
@@ -161,6 +167,7 @@
           padding-inline: 0;
         }
         > .col-md-12 {
+          --qld-gutter-x: calc(var(--#{$prefix}footer-spacing) * 2);
           border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid
             var(--#{$prefix}footer-color-border);
 
@@ -194,6 +201,9 @@
           padding-inline: var(--qld-gutter-x);
           margin-inline: 0;
           width: 100%;
+          .footer-column {
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) * 2);
+          }
         }
         p:last-child {
           margin-block-end: 0;
@@ -218,6 +228,7 @@
     .container {
       > .row {
         > .col-md-12 {
+          --qld-gutter-x: var(--#{$prefix}footer-spacing);
           margin-inline-start: var(--qld-gutter-x);
           width: calc(100% - calc(var(--qld-gutter-x) * 2));
         }
@@ -226,6 +237,9 @@
           padding-inline: var(--qld-gutter-x);
           margin-inline: 0;
           width: 100%;
+          .footer-column {
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) * 2.5);
+          }
         }
         p:last-child {
           margin-block-end: var(--#{$prefix}last-para-margin);
@@ -249,6 +263,7 @@
     border: var(--#{$prefix}footer-special-border-width) solid var(--#{$prefix}footer-color-alt-button);
     width: 100%;
     font-weight: normal;
+    margin-block-start: var(--#{$prefix}footer-spacing);
     &:active {
       color: var(--#{$prefix}formIO-formio-colour);
     }
@@ -262,7 +277,9 @@
     width: 100%;
     text-align: start;
     background-color: var(--#{$prefix}formIO-bg-colour);
-    color: var(--#{$prefix}formIO-formio-colour);
+    // color: var(--#{$prefix}formIO-formio-colour);
+    color: var(--#{$prefix}light-text-heading);
+    font-weight: 700;
     border-color: var(--#{$prefix}formIO-bg-colour);
     border-start-start-radius: var(--#{$prefix}footer-border-radius);
     border-start-end-radius: var(--#{$prefix}footer-border-radius);
@@ -273,6 +290,8 @@
 }
 
 #qg-footer-feedback {
+  --qld-footer-bootstrap-default-padding: 1.5rem;
+
   background-color: var(--#{$prefix}formIO-bg-colour);
   a {
     color: var(--#{$prefix}formIO-link-colour);
@@ -324,8 +343,18 @@
       margin-block-end: 0;
     }
     .col-form-label {
-      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
-      font-weight: bold;
+      margin-block-end: var(--#{$prefix}footer-spacing);
+      padding-block-end: 4px;
+      font-weight: 600;
+      padding-block-start: var(--#{$prefix}formIO-spacing);
+      // color: var(--#{$prefix}formIO-thankyou-page-title-colour);
+      color: var(--#{$prefix}formIO-formio-colour); //tried to make it --qld-light-text-text but that var is incorrect
+      display: block;
+    }
+    .has-feedback {
+      label.col-form-label {
+        border-block-start: var(--qld-footer-border-width) solid var(--qld-formIO-hr-colour);
+      }
     }
     .formio-component-submit {
       margin-block-start: var(--#{$prefix}footer-spacing);
@@ -333,11 +362,11 @@
     .form-check {
       align-items: flex-start;
     }
-    .formio-modified .form-check-input,
-    .formio-modified .form-control {
-      border-color: var(--#{$prefix}formIO-border-notify-success);
-      outline: var(--#{$prefix}formIO-border-outline-width) solid var(--#{$prefix}formIO-border-notify-success);
-    }
+    // .formio-modified .form-check-input,
+    // .formio-modified .form-control {
+    //   border-color: var(--#{$prefix}formIO-border-notify-success);
+    //   outline: var(--#{$prefix}formIO-border-outline-width) solid var(--#{$prefix}formIO-border-notify-success);
+    // }
     .formio-component-submit .btn,
     .formio-component-submit .btn-primary {
       --qld-btn-active-bg: var(--#{$prefix}formIO-submit-btn);
@@ -366,8 +395,8 @@
         margin: 0;
         .form-check-label {
           display: flex;
-          align-items: center;
-          margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
+          align-items: start;
+          margin-block-end: var(--#{$prefix}footer-spacing);
           margin-inline-start: 0;
           span {
             margin-inline-start: calc(var(--#{$prefix}footer-spacing) - 4px);
@@ -405,7 +434,9 @@
     }
     .callout {
       margin-block: var(--#{$prefix}footer-spacing);
-      background-color: var(--#{$prefix}formIO-callout-bg-colour);
+      background-color: var(
+        --#{$prefix}core-default-color-neutral-lightest
+      ); //var(--#{$prefix}formIO-callout-bg-colour);
       border-left: none;
       border-inline-start: calc(var(--#{$prefix}formIO-form-control-border-width) * 2) solid
         var(--#{$prefix}formIO-callout-border-colour);
@@ -455,6 +486,14 @@
     }
     .formio-errors .error {
       margin-block-end: var(--#{$prefix}footer-spacing);
+    }
+    .field-required:after {
+      content: none;
+      content: "";
+    }
+    .field-required:before {
+      content: " *";
+      color: #eb0000;
     }
   }
 }

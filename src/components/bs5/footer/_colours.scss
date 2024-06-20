@@ -26,7 +26,7 @@
   --#{$prefix}formIO-bg-colour: var(--#{$prefix}core-default-color-neutral-white);
   --#{$prefix}formIO-callout-bg-colour: var(--#{$prefix}core-default-color-neutral-lighter);
   --#{$prefix}formIO-hr-colour: var(--#{$prefix}core-default-color-neutral-lighter);
-  --#{$prefix}formIO-formio-colour: var(--#{$prefix}core-default-color-neutral-black);
+  --#{$prefix}formIO-formio-colour: #414141; //var(--#{$prefix}core-default-color-neutral-black);
   --#{$prefix}formIO-input-border: var(--#{$prefix}color-default-color-light-border-alt);
   --#{$prefix}formIO-btn-disabled-colour: var(--#{$prefix}core-default-color-neutral-light);
   --#{$prefix}formIO-btn-close-colour: var(--#{$prefix}color-default-color-light-action-secondary);
