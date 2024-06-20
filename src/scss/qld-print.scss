@@ -208,6 +208,11 @@
     .breadcrumb li:before, .breadcrumb a:before {
       display: none !important;
     }
+    // displaying full breadcrumbs
+    .breadcrumb .breadcrumb-item.breadcrumb-toggle {
+      display: none!important;
+    }
+
 
      /* A few simple lines */
   #qg-site-header {
@@ -346,7 +351,7 @@
     .qld__header__brand a:after {
       display: none;
     }
-  
+    
     /* adding class to print data-href from breadcrumb link */
     .print-current-url {
       display: block;
