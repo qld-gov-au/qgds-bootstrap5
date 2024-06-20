@@ -60,7 +60,7 @@
     font-size: calc(var(--#{$prefix}footer-font-size) * 1.25);
     margin-block-end: var(--#{$prefix}footer-spacing);
     line-height: 1.5;
-    font-weight: 600;
+    margin-top: 0;
   }
   .footer-contact-item {
     display: flex;
@@ -153,6 +153,7 @@
     padding-top: calc(var(--#{$prefix}footer-gap) * 2);
     .footer-site-name {
       margin-block-end: calc(var(--#{$prefix}footer-gap) * 2);
+      margin-top: 0;
     }
     .container {
       > .row {
