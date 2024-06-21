@@ -40,7 +40,8 @@
   --#{$prefix}formIO-border-notify-invalid: var(--#{$prefix}core-default-color-status-error-default);
   --#{$prefix}formIO-border-notify-success: var(--#{$prefix}core-default-color-status-success-default);
   --#{$prefix}formIO-callout-border-colour: var(--#{$prefix}core-default-color-brand-primary-light-green);
-  @media (max-width: 991.98px) {
+  --#{$prefix}formIO-error: var(--#{$prefix}core-default-color-status-error-default);
+  @include media-breakpoint-down(lg) {
     --qld-footer-column-border-color: transparent;
   }
 

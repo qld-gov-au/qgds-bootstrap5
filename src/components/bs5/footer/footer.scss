@@ -40,7 +40,6 @@
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * 2);
     }
   }
-
   .border-column {
     height: 100%;
     position: relative;
@@ -90,7 +89,6 @@
       width: 100%;
     }
   }
-
   .nav {
     --#{$prefix}nav-link-color: var(--#{$prefix}footer-color-link);
     &.footer-link-list {
@@ -150,7 +148,7 @@
   .btn-global-secondary {
     white-space: normal;
   }
-  @media (max-width: 991.98px) {
+  @include media-breakpoint-down(lg) {
     --#{$prefix}last-para-margin: 24px;
     --qld-footer-padding-y: 0;
 
@@ -160,7 +158,8 @@
     }
     .container {
       > .row {
-        --qld-gutter-x: calc(var(--#{$prefix}footer-gap) * 2);
+        margin-inline: calc(var(--#{$prefix}footer-gap) * -1);
+        --qld-gutter-x: calc(var(--#{$prefix}footer-spacing) * 2);
         & > * {
           padding-inline: 0;
         }
@@ -222,17 +221,16 @@
       }
     }
   }
-  @media (max-width: 767.98px) {
+  @include media-breakpoint-down(md) {
     .container {
       > .row {
         > .col-md-12 {
-          --qld-gutter-x: var(--#{$prefix}footer-spacing);
-          margin-inline-start: var(--qld-gutter-x);
-          width: calc(100% - calc(var(--qld-gutter-x) * 2));
+          margin-inline-start: var(--#{$prefix}footer-spacing);
+          width: calc(100% - calc(var(--#{$prefix}footer-spacing) * 2));
         }
         > .title,
         > .crest {
-          padding-inline: var(--qld-gutter-x);
+          padding-inline: var(--qld-footer-spacing);
           margin-inline: 0;
           width: 100%;
           .footer-column {
@@ -285,7 +283,6 @@
     font-weight: bold;
   }
 }
-
 #qg-footer-feedback {
   --qld-footer-bootstrap-default-padding: 1.5rem;
 
@@ -482,13 +479,12 @@
     }
     .field-required:before {
       content: " *";
-      color: #eb0000;
+      color: var(--#{$prefix}formIO-error);
     }
   }
 }
-
-@media (max-width: 300px) {
+@include media-breakpoint-down(sm) {
   .qld-footer {
-    width: 300px;
+    width: 400px;
   }
 }
