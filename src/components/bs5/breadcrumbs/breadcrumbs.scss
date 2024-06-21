@@ -19,7 +19,7 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
 
     .dark &,
     .dark-alt & {
-        --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}white);
+        --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-text-lighter);
         --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
         --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
     }

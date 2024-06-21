@@ -133,7 +133,8 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 
             &:hover,
             &:active,
-            &:focus {
+            &:focus,
+            &:focus-within {
                 background-color: var(--#{$prefix}textbox-border-color);
                 color: var(--#{$prefix}white);
                 background-color: var(--#{$prefix}button-dark-blue);
@@ -150,7 +151,8 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 
             &:hover,
             &:active,
-            &:focus {
+            &:focus,
+            &:focus-within {
                 text-underline-offset: 0.1rem;
             }
         }
@@ -248,7 +250,8 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 
             &:hover,
             &:active,
-            &:focus {
+            &:focus,
+            &:focus-within {
                 background-color: var(--#{$prefix}dark-action-primary-hover);
                 border-color: var(--#{$prefix}light-green-dark);
                 color: var(--#{$prefix}text-darkest);
@@ -304,7 +307,8 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 
             &:hover,
             &:active,
-            &:focus {
+            &:focus,
+            &:focus-within {
                 background-color: var(--#{$prefix}dark-action-primary-hover);
                 border-color: var(--#{$prefix}light-green-dark);
                 color: var(--#{$prefix}text-darkest);
