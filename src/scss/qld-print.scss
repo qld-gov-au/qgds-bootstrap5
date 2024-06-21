@@ -329,6 +329,7 @@
     .global-alert {
       display: none;
     }
+
     
     a.btn:after {
         display: block;
@@ -361,6 +362,12 @@
 
   }
 
+  /* Print colors to show background elements */
+  
+  .alert, .card-img {
+    print-color-adjust: exact;
+  }
+  
   /*print styles for forms*/
 @media only print {
     form abbr[title*=required]:after {
