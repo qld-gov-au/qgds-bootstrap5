@@ -1,7 +1,4 @@
 .global-alert {
-    
-    // padding: 5px 0 5px 0;
-
     $chevron-icon-white: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 15.6081C27 16.1011 26.5897 16.4845 26.1282 16.4845L6.79487 16.4845L13.9744 24.7008C14.2821 25.0295 14.2821 25.5772 13.9231 25.9059C13.7692 26.0702 13.5641 26.125 13.359 26.125C13.1026 26.125 12.8974 26.0702 12.7436 25.8511L4.23077 16.2106C3.92308 15.882 3.92308 15.389 4.23077 15.0603L12.7436 5.41981C13.0513 5.03639 13.5641 5.03639 13.9231 5.36504C14.2821 5.69369 14.2821 6.24145 13.9744 6.5701L6.79487 14.7317L26.1282 14.7317C26.5897 14.7317 27 15.1699 27 15.6081Z" fill="#{$qld-white}"/></svg>');
     $chevron-icon-grey: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 15.6081C27 16.1011 26.5897 16.4845 26.1282 16.4845L6.79487 16.4845L13.9744 24.7008C14.2821 25.0295 14.2821 25.5772 13.9231 25.9059C13.7692 26.0702 13.5641 26.125 13.359 26.125C13.1026 26.125 12.8974 26.0702 12.7436 25.8511L4.23077 16.2106C3.92308 15.882 3.92308 15.389 4.23077 15.0603L12.7436 5.41981C13.0513 5.03639 13.5641 5.03639 13.9231 5.36504C14.2821 5.69369 14.2821 6.24145 13.9744 6.5701L6.79487 14.7317L26.1282 14.7317C26.5897 14.7317 27 15.1699 27 15.6081Z" fill="#{$qld-text-grey}"/></svg>');
 
@@ -10,26 +7,20 @@
 
     .qld-global-alert-main {
         display: flex;
-        // align-items: center; // this was affecting the close button
-        margin: 6px 0;
+
         .global-alert-icon {
-            position: absolute;
             line-height: 1;
             width: 22px;
             height: 22px;
             display: inline-block;
             transition: fill 0.3s ease;
-            // align-self: center;
-            // vertical-align: middle;
+            vertical-align: middle;
             font-size: 1.5rem;
             padding-left: 1.5rem; // padding between icon and text. Added due to bug when content has 3 lines of text.
 
         }
         .global-alert-content {
-            padding: 0 20px 0 16px;
-            // display: flex;
-            // flex-direction: column;
-            // align-items: center;
+            padding: 0 1.25rem 0 1rem;
             .global-alert-action a {
                 display: flex;
                 align-items: center;
@@ -122,12 +113,15 @@
 @media (min-width: 768px) { // md and above
     .global-alert {
         .qld-global-alert-main {
-            padding: 16px 16px;
+            padding: 1rem 1rem;
             .global-alert-content {
-                padding-left: 16px;
+                padding-left: 1rem;
                 display: flex;
                 align-items: center;
             }
+        }
+        .global-alert-message {
+            padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px
         }
     }
     .global-alert-content {
@@ -136,31 +130,21 @@
     .global-alert-action {
         margin-left: 2rem;
     }
-    .global-alert-icon {
-        // aligning with text
-        padding-top: 12px;
-    }
-    
 }
 
 @media (max-width: 767.98px) { // sm and below
     .global-alert {
         .qld-global-alert-main {
-            padding: 12px 16px;
+            padding: 0.75rem 1rem; // Also 12px 16px
         }
         .global-alert-content {
-            padding: 0 16px 0 12px;
+            padding: 0 1rem 0 0.75rem; // Also 0 16px 0 12px
         }
     }
-    // .global-alert-icon {
-    //     // positioning at corner
-    //     position: relative;
-    //     top: -12px;
-    //     }
     
     .global-alert-icon {
         // aligning with text
-        padding-top: 12px;
+        padding-top: 0.75rem;
     }
 }
 
@@ -178,17 +162,19 @@
         }
         .global-alert-icon {
             // aligning with text
-            padding-top: 22px;
+            padding-top: 1.375rem;
         }
         .qld-global-alert-main {
             // Padding requires 64px in space between alert icon and left border; minus (24px(1.5rem) gutter + 16px padding) = 24px (1.5rem)
             padding-left: 1.5rem;
             .global-alert-content {
-                padding-left: 16px;
+                padding-left: 1rem; // Also 16px
                 display: flex;
                 align-items: center;
             }
         }
-        
+        .global-alert-message {
+            padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px
+        }
     }
 }
