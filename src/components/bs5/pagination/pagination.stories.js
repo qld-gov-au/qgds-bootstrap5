@@ -135,7 +135,7 @@ export const DarkAlternative = {
   decorators: [
     (Story) => {
       return `
-      <div class="dark">
+      <div class="dark-alt">
           ${Story()}
       </div>
       `;
