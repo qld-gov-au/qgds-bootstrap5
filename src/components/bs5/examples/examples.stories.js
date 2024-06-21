@@ -19,7 +19,7 @@ export default {
   },
 };
 
-export const masterbranded_example = {
+export const MasterBrand = {
   args: {
     ...header,
     ...navigation,
