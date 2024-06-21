@@ -15,7 +15,7 @@ export default {
   parameters: {
     docs: {
       controls: {
-        exclude: ["variantClass", "customClass", "inputID", "inputName", "buttonID", "buttonType", "ariaLabel"],
+        exclude: ["customClass", "inputID", "inputName", "buttonID", "buttonType", "ariaLabel"],
       },
     },
   },

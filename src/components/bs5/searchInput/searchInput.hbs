@@ -1,22 +1,20 @@
 <!-- 
     QGDS Component: Search input 
 -->
-<div class="container {{variantClass}}">
 
-    <div class="qld-search-input {{customClass}}">
 
-        <input id="{{ inputID }}" name=" {{ inputName }}" class="form-control" type="text" placeholder="{{placeholder}}"
-            autocomplete="off" aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
+<div class="qld-search-input {{customClass}}">
 
-        <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
-            <span class="btn-icon"></span>
-            <span class="btn-label">{{ buttonLabel }}</span>
-        </button>
+    <input id="{{ inputID }}" name=" {{ inputName }}" class="form-control" type="text" placeholder="{{placeholder}}"
+        autocomplete="off" aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
 
-        {{#if suggestions}}
-        <ul class="suggestions suggestions__group"></ul>
-        {{/if}}
+    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
+        <span class="btn-icon"></span>
+        <span class="btn-label">{{ buttonLabel }}</span>
+    </button>
 
-    </div>
+    {{#if suggestions}}
+    <ul class="suggestions suggestions__group"></ul>
+    {{/if}}
 
 </div>

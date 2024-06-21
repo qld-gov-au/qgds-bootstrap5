@@ -91,16 +91,23 @@ export async function showSuggestions(value = '', isDefault = false, form) {
   if (isDefault) {
     // Load default suggestions
     suggestions.innerHTML = `
-      <div class="suggestions-category mt-2">
+      <div class="suggestions-category">
         <strong>Popular services</strong>
         <ul class="mt-2">${defaultSuggestions.popular_services.slice(0, 4).map(item => `<li><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <hr>
-      <div class="suggestions-category mt-2">
+      <div class="suggestions-category">
         <strong>Browse by category</strong>
         <ul class="mt-2">${defaultSuggestions.categories.slice(0, 4).map(item => `<li><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
-      ${defaultSuggestions.options.view_more ? `<div class="suggestions-category mt-4 mb-4"><a href="${defaultSuggestions.options.href}">${defaultSuggestions.options.label}</a></div>` : ''}
+      ${defaultSuggestions.options.view_more ? `
+        <div class="suggestions-category mt-0">
+        <ul class="mt-2">
+        <li>
+          <a href="${defaultSuggestions.options.href}">${defaultSuggestions.options.label}</a>
+        </li>
+        </ul>
+        </div>` : ''}
     `;
     suggestions.classList.add('show');
     createPopper(searchInput, suggestions, {
@@ -160,7 +167,7 @@ export async function showSuggestions(value = '', isDefault = false, form) {
       suggestions.innerHTML += `
         <div class="suggestions-category feature pt-2">
           <strong>Services</strong>
-          <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
+          <ul class="mt-2 pb-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
         </div>
       `;
       suggestions.classList.add('show');

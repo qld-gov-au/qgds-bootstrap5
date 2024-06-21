@@ -303,6 +303,7 @@
 
                 .dropdown-menu.show {
                     background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+                    border-left: solid .25rem var(--#{$prefix}navbar-mobile-cta-bg-color-open);
                     .dropdown-item {
                         color: var(--#{$prefix}navbar-mobile-text-color);
                         border-bottom: solid 1px var(--#{$prefix}navbar-mobile-border-color);
