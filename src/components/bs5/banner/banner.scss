@@ -1,69 +1,85 @@
-.qld-banner {
+// QGDS QOL Banner Component
 
+// QGDS specific banner variables.
+.qld-banner {
     //Defaults variables
-    --bg-color: var(--qld-light-grey);
-    --title-color: var(--headings-color);
-    --lead-color: var(--body-color);
-    --max-width: 1600px;
+    --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-light);
+    --#{$prefix}banner-title-color: var(--#{$prefix}color-default-color-light-text-heading);
+    --#{$prefix}banner-lead-color: var(--#{$prefix}body-color);
+    --#{$prefix}banner-max-width: 1600px;
 
     // Variants (text colour and backgrounds)
     &.alt {
-        --bg-color: var(--qld-alt-grey);
-        --bg-texture: url(assets/img/banner-texture-tile-light.png);
+        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-alt);
+        --#{$prefix}banner-bg-texture: url(assets/img/banner-texture-tile-light.png);
     }
 
     &.dark,
     &.dark-alt {
-        --title-color: var(--qld-white);
-        --lead-color: var(--qld-white);
+        --#{$prefix}banner-title-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}banner-lead-color: var(--#{$prefix}core-default-color-neutral-white);
 
         .breadcrumb {
             //Redfine variables already scoped in .breadcrumbs
             //These new values will only be scoped to breadcrumbs within the .banner-* class
-            --breadcrumb-color: var(--qld-white);
-            --qld-breadcrumb-divider-color: var(--qld-white);
-            --qld-breadcrumb-item-active-color: var(--qld-white); 
-            --qld-link-color-rgb: var(--qld-white);
+            --#{$prefix}banner-breadcrumb-color: var(--#{$prefix}core-default-color-neutral-white);
+            --#{$prefix}banner-breadcrumb-divider-color: var(--#{$prefix}core-default-color-neutral-white);
+            --#{$prefix}banner-breadcrumb-item-active-color: var(--#{$prefix}core-default-color-neutral-white); 
+            --#{$prefix}banner-ink-color-rgb: var(--#{$prefix}core-default-color-neutral-white);
         }
     }
 
     &.dark {
-        --bg-color: var(--qld-primary);
-        --bg-texture: url(assets/img/banner-texture-tile-dark.png);
+        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
+        --#{$prefix}banner-bg-texture: url(assets/img/banner-texture-tile-dark.png);
     }
 
     &.dark-alt {
-        --bg-color:var(--qld-dark-alt-background); //Todo, add this colour to variables.scss (?) Was defined in Figma. 
+        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
     }
 
     //Padding
-    --padding-top: 3rem;
-    --padding-bottom: 3rem;
+    --#{$prefix}banner-padding-top: 1rem;
+    --#{$prefix}banner-padding-bottom: 2rem;
+    --#{$prefix}banner-padding-x: 1rem;
 
     @include media-breakpoint-up(md) {
-        --padding-top: 3rem;
-        --padding-bottom: 3rem;
+        --#{$prefix}banner-padding-top: 2rem;
+        --#{$prefix}banner-padding-bottom: 2rem;
+        --#{$prefix}banner-padding-x: 2rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --#{$prefix}banner-padding-top: 3rem;
+        --#{$prefix}banner-padding-bottom: 3rem;
+        --#{$prefix}banner-padding-x: 3rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        --#{$prefix}banner-padding-top: 3rem;
+        --#{$prefix}banner-padding-bottom: 4rem;
+        --#{$prefix}banner-padding-x: 4rem;
     }
 }
 
 
-//Component
+// General styling rules.
 .qld-banner {
 
-    background-color: var(--bg-color);
-    padding: var(--padding-top) 0 var(--padding-bottom) 0;
+    background-color: var(--#{$prefix}banner-bg-color);
+    padding: var(--#{$prefix}banner-padding-top) var(--#{$prefix}banner-padding-x) var(--#{$prefix}banner-padding-bottom) var(--#{$prefix}banner-padding-x);
     position: relative;
-    max-width: var(--max-width);
+    max-width: var(--#{$prefix}banner-max-width);
 
     &.with-pattern {
-        background-image: var(--bg-texture);
+        background-image: var(--#{$prefix}banner-bg-texture);
         background-repeat: repeat;
     }
 
     .banner-title {
         // Line height (52px) / Font-size (40px) = 1.3
         line-height: 1.3;
-        color: var(--title-color);
+        color: var(--#{$prefix}banner-title-color);
         margin-top: 1.5rem;
         margin-bottom: 1rem;
         max-width: 90%;
@@ -73,12 +89,12 @@
         font-size: 1.5rem;
         line-height: 2rem;
         max-width: 50rem;
-        color: var(--lead-color);
+        color: var(--#{$prefix}banner-lead-color);
     }
 
     .breadcrumb {
-        color: var(--breadcrumb-color);
-        --qld-breadcrumb-padding-y: 0;
+        color: var(--#{$prefix}banner-breadcrumb-color);
+        --#{$prefix}breadcrumb-padding-y: 0;
     }
 
     .banner-cta {
@@ -92,22 +108,19 @@
 
     //Image
     .banner-image {
-        // --image-height: calc(100% + var(--padding-top) + var(--padding-bottom));
-        // width: calc(var(--image-height)/1.33);
-        // height: var(--image-height);
         position: absolute;
         top: 0;
         right: 0;
         left: 60%;
         height: 100%;
-        background: var(--background-img);
+        background: var(--#{$prefix}banner-background-img);
         background-size: cover;
         background-position: center center;
 
         //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle" 
         &--angle {
-            --banner-angle: 20%; //(angle in degrees)
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--banner-angle) 100%);
+            --#{$prefix}banner-angle: 20%; //(angle in degrees)
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--#{$prefix}banner-angle) 100%);
         }
 
     }
