@@ -113,8 +113,7 @@ a {
   font-weight: var(--qld-link-font-weight);
 }
 
-a,
-a.nav-link {
+a:not(.nav-link) {
   text-decoration: underline;
   text-underline-offset: var(--qld-link-underline-offset) !important;
   text-decoration-thickness: var(--qld-link-underline-thickness) !important;

@@ -507,10 +507,6 @@
 	&__main--masterbrand--true {
 		@include media-breakpoint-down(lg) {
 			height: 0;
-
-			.qld__header__site-search--open {
-				margin-top: 3rem;
-			}
 		}
 	}
 
@@ -531,6 +527,7 @@
 				position: absolute;
 				left: 0;
 				right: 0;
+				top: 0.4rem;
 				padding: 1rem;
 				background-color: var(--#{$prefix}header_bg);
 			}
