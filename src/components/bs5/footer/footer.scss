@@ -41,7 +41,6 @@
     }
   }
 
-  //Bordered columns in the footer should only show above medium breakpoint
   .border-column {
     height: 100%;
     position: relative;
@@ -92,7 +91,6 @@
     }
   }
 
-  //Footer Nav classes
   .nav {
     --#{$prefix}nav-link-color: var(--#{$prefix}footer-color-link);
     &.footer-link-list {
@@ -142,8 +140,8 @@
   }
   .footer-contact {
     .btn {
-      min-width: 200px; // magic number
-      margin-block-start: var(--#{$prefix}footer-spacing); // calc(var(--#{$prefix}footer-spacing) * 0.5);
+      min-width: 200px;
+      margin-block-start: var(--#{$prefix}footer-spacing);
     }
   }
   .container > .row > div {
@@ -277,7 +275,6 @@
     width: 100%;
     text-align: start;
     background-color: var(--#{$prefix}formIO-bg-colour);
-    // color: var(--#{$prefix}formIO-formio-colour);
     color: var(--#{$prefix}light-text-heading);
     font-weight: 700;
     border-color: var(--#{$prefix}formIO-bg-colour);
@@ -314,7 +311,7 @@
       width: 100%;
       display: block;
       border-radius: var(--#{$prefix}footer-border-radius);
-      padding: 9px 24px; // magic numbers
+      padding: 9px 24px;
       text-align: center;
       text-decoration: none;
       &:hover {
@@ -347,8 +344,7 @@
       padding-block-end: 4px;
       font-weight: 600;
       padding-block-start: var(--#{$prefix}formIO-spacing);
-      // color: var(--#{$prefix}formIO-thankyou-page-title-colour);
-      color: var(--#{$prefix}formIO-formio-colour); //tried to make it --qld-light-text-text but that var is incorrect
+      color: var(--#{$prefix}formIO-formio-colour);
       display: block;
     }
     .has-feedback {
@@ -362,11 +358,6 @@
     .form-check {
       align-items: flex-start;
     }
-    // .formio-modified .form-check-input,
-    // .formio-modified .form-control {
-    //   border-color: var(--#{$prefix}formIO-border-notify-success);
-    //   outline: var(--#{$prefix}formIO-border-outline-width) solid var(--#{$prefix}formIO-border-notify-success);
-    // }
     .formio-component-submit .btn,
     .formio-component-submit .btn-primary {
       --qld-btn-active-bg: var(--#{$prefix}formIO-submit-btn);
@@ -434,9 +425,7 @@
     }
     .callout {
       margin-block: var(--#{$prefix}footer-spacing);
-      background-color: var(
-        --#{$prefix}core-default-color-neutral-lightest
-      ); //var(--#{$prefix}formIO-callout-bg-colour);
+      background-color: var(--#{$prefix}core-default-color-neutral-lightest);
       border-left: none;
       border-inline-start: calc(var(--#{$prefix}formIO-form-control-border-width) * 2) solid
         var(--#{$prefix}formIO-callout-border-colour);
@@ -471,7 +460,7 @@
 
         &:first-of-type {
           border-block-end: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
-          padding-block-end: 13px; // magic number
+          padding-block-end: 13px;
         }
       }
       p:last-of-type {
@@ -499,7 +488,6 @@
 }
 
 @media (max-width: 300px) {
-  // This is the min width where the content is still usable.
   .qld-footer {
     width: 300px;
   }
