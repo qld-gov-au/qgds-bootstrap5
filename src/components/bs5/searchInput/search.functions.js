@@ -91,12 +91,12 @@ export async function showSuggestions(value = '', isDefault = false, form) {
   if (isDefault) {
     // Load default suggestions
     suggestions.innerHTML = `
-      <div class="suggestions-category">
+      <div class="suggestions-category mt-2">
         <strong>Popular services</strong>
         <ul class="mt-2">${defaultSuggestions.popular_services.slice(0, 4).map(item => `<li><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>
       <hr>
-      <div class="suggestions-category">
+      <div class="suggestions-category mt-2">
         <strong>Browse by category</strong>
         <ul class="mt-2">${defaultSuggestions.categories.slice(0, 4).map(item => `<li><a href="${item.href}">${item.title}</a></li>`).join('')}</ul>
       </div>

@@ -107,13 +107,8 @@ strong, b, th {
   font-weight: $font-weight-bold !important; // Overrides default BS styles
 }
 
-
-// Light, Light alt
 a {
   font-weight: var(--qld-link-font-weight);
-}
-
-a:not(.nav-link) {
   text-decoration: underline;
   text-underline-offset: var(--qld-link-underline-offset) !important;
   text-decoration-thickness: var(--qld-link-underline-thickness) !important;
