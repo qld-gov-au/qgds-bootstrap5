@@ -81,7 +81,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   &-button {
     font-size: 1.25rem;
     font-weight: 400;
-    line-height: 1.2;
     text-decoration-line: underline;
     text-underline-offset: var(--#{$prefix}link-underline-offset);
     text-decoration-thickness: var(--#{$prefix}link-underline-thickness);

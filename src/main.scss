@@ -28,9 +28,7 @@ $enable-dark-mode: true;
 
 // 2. QLD Design System variables (Bootstrap overrides)
 @import "./scss/qld-variables";
-
 // @import "./scss/qld-variables-dark"; //future state
-@import "./scss/qld-type";
 
 // 3. Include remainder of bootstrap
 // 3.1 Required
@@ -78,8 +76,10 @@ $enable-dark-mode: true;
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";
 
+//8. QLD Design System typography (bootstrap overrides and custom). Please maintain naming consistency.
+@import "./scss/qld-type";
 
-// 8. QLD Design System components (bootsrap overrides and custom). Please maintain naming consistency
+// 9. QLD Design System components (bootstrap overrides and custom). Please maintain naming consistency.
 @import "./components/bs5/accordion/accordion.scss";
 @import "./components/bs5/banner/banner.scss";
 @import "./components/bs5/blockquote/blockquote.scss";
