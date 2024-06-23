@@ -46,8 +46,11 @@
             }
 
             a.dropdown-item {
+                position: relative;
                 .chevron__icon {
-                    float: right;
+                    position: absolute;
+                    top: 1.15rem;
+                    right: 0;
                 }
             }
         }
