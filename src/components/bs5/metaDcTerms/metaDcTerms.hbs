@@ -1,0 +1,17 @@
+<!-- DCTERMS https://www.dublincore.org/specifications/dublin-core/dcmi-terms/-->
+{{#if dcTerms}}
+<meta name="DCTERMS.title" content="{{ title }}">
+<meta name="DCTERMS.publisher" scheme="AGLSTERMS.AglsAgent" content="{{#if dcTerms.publisher}}{{dcTerms.publisher}}{{else}}corporateName=The State of Queensland; jurisdiction=Queensland{{/if}}" />
+<meta name="DCTERMS.creator" scheme="AGLSTERMS.GOLD" content="{{#if dcTerms.creator}}{{dcTerms.creator}}{{else}}c=AU; o=The State of Queensland;{{/if}}">
+{{#if dcTerms.created}}<meta name="DCTERMS.created" content="{{ dcTerms.created }}">{{/if}}
+{{#if dcTerms.modified}}<meta name="DCTERMS.modified" content="{{ dcTerms.modified }}">{{/if}}
+{{#if description}}<meta name="DCTERMS.description" content="{{ description }}">{{/if}}
+{{#if uri}}<meta name="DCTERMS.identifier" scheme="DCTERMS.URI" content="{{ uri }}">{{/if}}
+<meta name="DCTERMS.jurisdiction" scheme="AGLSTERMS.AglsJuri" content="{{#if dcTerms.jurisdiction}}{{dcTerms.jurisdiction}}{{else}}Queensland{{/if}}">
+{{#if dcTerms.type}}<meta name="DCTERMS.type" scheme="DCTERMS.DCMIType" content="{{ dcTerms.type }}" />{{/if}}
+{{#if dcTerms.aggregationLevel}}<meta name="AGLSTERMS.aggregationLevel" content="{{ dcTerms.aggregationLevel }}"/>{{/if}}
+{{#if dcTerms.documentType}}<meta name="AGLSTERMS.documentType" scheme="AGLSTERMS.agls-document" content="{{ dcTerms.documentType }}" />{{/if}}
+{{#if dcTerms.subject}}<meta name="DCTERMS.subject" content="{{ dcTerms.subject }}" />{{/if}}
+{{#if dcTerms.audience}}<meta name="DCTERMS.audience" content="all" scheme="{{ dcTerms.audience }}" />{{/if}}
+{{#if dcTerms.licenseUri}}<meta name="DCTERMS.license" scheme="DCTERMS.URI" content="{{ dcTerms.licenseUri }}">{{/if}}
+{{/if}}

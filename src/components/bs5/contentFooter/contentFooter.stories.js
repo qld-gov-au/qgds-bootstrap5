@@ -1,28 +1,20 @@
-import defaultdata from "./head.data.json";
-import { Head } from "./Head.js";
+import defaultdata from "./contentFooter.data.json";
+import { ContentFooter } from "./contentFooter.js";
+import init from "../../../js/handlebars.init.js";
+import Handlebars from "handlebars";
 
 export default {
-  tags: ["autodocs"],
-  title: "!Core/Head/Includes CDN or Local",
+  title: "!Layout/Components/Content Footer",
   render: (args) => {
-    return new Head(args).html;
+    init(Handlebars)
+    return new ContentFooter(args).html;
   },
 
   argTypes: {
-    cdn: {
-      name: "CDN",
-      description: `CDN prefix or provided text`,
-      control: { type: 'radio' ,
-        labels: { 'DEV': 'DEV', 'TEST' : 'TEST','BETA':'BETA','STAGING':'STAGING','PROD':'PROD','/__data/assets/git_bridge/0026/471752': 'SQUIZ Custom'},
-      },
-      options: [
-        "DEV",
-        "TEST",
-        "BETA",
-        "STAGING",
-        "PROD",
-        "/__data/assets/git_bridge/0026/471752",
-      ],
+    lastUpdated: {
+      name: "Last Updated",
+      description: `Date page was Last Updated`,
+      control: { type: 'text'  },
     },
   },
 
