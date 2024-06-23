@@ -7,7 +7,7 @@ import { Footer } from "../footer/Footer";
 import { header, search, navigation, footer } from './example.data.json';
 
 export default {
-  title: 'Examples/Template',
+  title: 'Examples/Standard template',
   render: (args) => {
     const headerHtml = new Header({ ...args, searchInput: new SearchInput(search).html }).html;
     const navbarHtml = new Navbar(navigation).html;
@@ -19,7 +19,7 @@ export default {
   },
 };
 
-export const MasterBrand = {
+export const Masterbrand = {
   args: {
     ...header,
     ...navigation,
