@@ -312,7 +312,7 @@
                 }
 
                 .first-element {
-                    color: var(--#{$prefix}navbar-mobile-text-color);
+                    color: var(--#{$prefix}navbar-mobile-text-color) !important; //TO DO: resolve, caused by qld-type overrides
                     &.show {
                         background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
                         .dropdown-item {
