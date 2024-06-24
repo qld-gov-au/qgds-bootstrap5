@@ -286,6 +286,17 @@
   .btn.qg-feedback-toggle {
     font-weight: bold;
   }
+  &:has(#feedbackFormIO .formio-component-html1) {
+    #btn-footer-feedback {
+      display: none;
+      visibility: hidden;
+    }
+    #qg-footer-feedback {
+      padding-block-start: calc(var(--#{$prefix}footer-spacing) - 4px);
+      border-start-start-radius: var(--#{$prefix}footer-border-radius);
+      border-start-end-radius: var(--#{$prefix}footer-border-radius);
+    }
+  }
 }
 #qg-footer-feedback {
   --qld-footer-bootstrap-default-padding: 1.5rem;
@@ -293,8 +304,13 @@
   background-color: var(--#{$prefix}formIO-bg-colour);
   a {
     color: var(--#{$prefix}formIO-link-colour);
+    text-decoration-color: var(--#{$prefix}formIO-link-colour);
     &:hover {
-      color: var(--#{$prefix}formIO-link-colour-hover);
+      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover) !important;
+    }
+    &:hover,
+    &:visited {
+      color: var(--#{$prefix}formIO-link-colour);
     }
   }
   border-radius: var(--#{$prefix}footer-border-radius);
@@ -403,7 +419,7 @@
         }
       }
     }
-    .formio-component-howSatisfiedAreYouWithYourExperienceToday {
+    .formio-component-feedback-satisfaction {
       flex-direction: column;
       padding-inline-start: 0;
       margin-block-end: 0;
@@ -457,19 +473,25 @@
     }
     .formio-component-html1 {
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * -1);
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
 
       h2 {
         margin-block-start: 0;
         color: var(--#{$prefix}formIO-thankyou-page-title-colour);
-        font-size: var(--#{$prefix}footer-spacing);
-        font-weight: bolder;
+        font-size: 1rem;
+        font-weight: 600;
         margin-block-end: var(--#{$prefix}footer-spacing);
-
-        &:first-of-type {
-          border-block-end: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
-          padding-block-end: 13px;
-        }
       }
+      h2:first-child {
+        font-weight: 700;
+        color: var(--#{$prefix}formIO-thankyou-page-title-colour);
+        font-size: 1rem;
+        margin-block-start: 0;
+        margin-block-end: var(--#{$prefix}footer-spacing);
+        border-block-end: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
+        padding-block-end: calc(var(--#{$prefix}footer-spacing) - 3px);
+      }
+
       p:last-of-type {
         display: none;
       }
@@ -490,6 +512,14 @@
     .field-required:before {
       content: " *";
       color: var(--#{$prefix}formIO-error);
+    }
+    p {
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.25);
+    }
+    @include media-breakpoint-down(md) {
+      p {
+        margin-block-end: var(--#{$prefix}footer-spacing);
+      }
     }
   }
 }
