@@ -45,6 +45,8 @@
     </div>
 
     {{! Render the transcript content in an accordion template }}
-    {{{ transcriptAccordion }}}
+    {{#if transcriptContent}}
+        {{{ transcriptAccordion }}}
+    {{/if}}
 
 </section>
