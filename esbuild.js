@@ -52,7 +52,7 @@ const buildConfig = {
     },
     {
       in: "./src/js/handlebars.init.js",
-      out: "./components/handlebars.init.min",
+      out: "./assets/js/handlebars.init.min",
     },
   ],
 
