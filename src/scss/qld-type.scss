@@ -41,6 +41,7 @@ $h6-font-size: $font-size-base * 0.875;
 $headings-font-weight: 600;
 $headings-line-height: 2;
 $headings-color: $qld-text-headings;
+$qld-heading-color: $core-default-color-brand-primary-light-green;
 
 $link-color: $qld-brand-primary;
 $link-hover-color: $qld-brand-primary;
@@ -94,6 +95,12 @@ body {
 }
 
 .qld-content-body {
+
+  p {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
   ul, ol, p {
       line-height: 1.75;
   }
@@ -103,27 +110,34 @@ body {
   }
 }
 
+// Apply correct bold font-weight
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, 
 strong, b, th {
-  font-weight: $font-weight-bold !important; // Overrides default BS styles
+  font-weight: $font-weight-bold;
+}
+
+
+// Light, Light alt
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--#{$prefix}color-default-color-light-text-heading);
 }
 
 a,
 a.nav-link {
-  font-weight: var(--qld-link-font-weight);
-  text-decoration: underline;
-  text-underline-offset: var(--qld-link-underline-offset) !important;
-  text-decoration-thickness: var(--qld-link-underline-thickness) !important;
+  text-underline-offset: var(--qld-link-underline-offset);
+  text-decoration-thickness: var(--qld-link-underline-thickness);
 
   &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness-hover) !important;
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
   }
 
     &:visited {
-        color: #551A8B;
-        text-decoration-color: #551A8B;
+        color: var(--#{$prefix}color-default-color-light-link-visited);
+        text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited);
         &:hover {
-            text-decoration-thickness: 2px;
-            text-decoration-color: #551A8B;
+            text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+            text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited-hover);
         }
     }
 
@@ -132,6 +146,7 @@ a.nav-link {
         outline-offset: 2px;
   }
 }
+
 caption {
     font-size: 14px;
     font-weight: 400;
@@ -141,30 +156,28 @@ caption {
 // Dark, dark alt
 .dark,
 .dark-alt {
-    body & {
-        color: var(--qld-body-color);
-    }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: var(--qld-headings-color);
-    }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--#{$prefix}color-default-color-dark-text-heading);
+  }
+  
+
+  body & {
+      color: var(--qld-body-color);
+  }
         a, a.nav-link {
-            text-decoration-color: #B5CCE2;
-            &:visited {
-                color: var(--qld-link-visited-dark);
-                text-decoration-color: var(--qld-link-visited-dark);
-                &:hover {
-                    text-decoration-color: #FFFFFF;
-                }
-            }
+          text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
+
+          &:visited {
+              color: var(--#{$prefix}color-default-color-dark-link-visited);
+              text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-visited);
+
+              &:hover {
+                text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+              }
+          }
         }
     }
-
 
 caption {
     font-size: 14px;
