@@ -7,6 +7,8 @@ import Handlebars from "handlebars";
  *
  * @param {Handlebars} handlebars
  */
+let isHandlebarsHelpersAndPartialsRegistered = false;
+
 export default function init(handlebars = Handlebars) {
   if (typeof(handlebars) === 'undefined') {
     if(typeof(Handlebars) !== 'undefined') {
@@ -16,15 +18,12 @@ export default function init(handlebars = Handlebars) {
 
   if(typeof(handlebars) !== 'undefined') {
     //only load once
-    if (typeof handlebarsHelpers.registeredHandlebarsHelpers === 'undefined') {
+    if (!isHandlebarsHelpersAndPartialsRegistered) {
       handlebarsHelpers(handlebars);
-      handlebarsHelpers.registeredHandlebarsHelpers = true;
-    }
-    //only load once
-    if (typeof handlebarsPartials.registeredHandlebarsPartials === 'undefined') {
       handlebarsPartials(handlebars);
-      handlebarsPartials.registeredHandlebarsPartials = true;
-      console.log('partials loaded');
+      isHandlebarsHelpersAndPartialsRegistered = true;
+    } else {
+      console.log("HandleBars Helpers And Partials already loaded")
     }
   } else {
     console.log("Handlebars not found, init failed");

@@ -90,15 +90,3 @@ export default function handlebarsHelpers(handlebars) {
     return handlebars.helpers.formatDate(dateToFormat);
   });
 }
-
-//Only load once if Handlebars is available
-if(typeof(Handlebars) !== 'undefined') {
-  this.registedHandlebarsHelpers = undefined;
-  if (typeof this.registedHandlebarsHelpers === 'undefined') {
-    // eslint-disable-next-line no-undef
-    handlebarsHelpers(Handlebars);
-    this.registedHandlebarsHelpers = true;
-  }
-} else {
-  console.log("HandleBars is undefined, did not load helpers")
-}
