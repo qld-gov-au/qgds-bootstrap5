@@ -1,5 +1,6 @@
 import { forGov } from "../breadcrumbs/breadcrumbs.data.json";
 import { BreadcrumbsWrapperTest } from "./breadcrumbsWrapper.test.js";
+// eslint-disable-next-line no-unused-vars
 import init from "../../../js/handlebars.init.js"; //self init's when loaded
 
 const defaultData = { breadcrumbs: forGov };
