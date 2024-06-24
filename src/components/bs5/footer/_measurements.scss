@@ -3,6 +3,7 @@
   // Measurements
   // -text
   --#{$prefix}footer-font-size: 0.875rem;
+  --#{$prefix}footer-title-font-size: 1.25rem;
   --#{$prefix}footer-text-underline-offset: 0.3em;
   --#{$prefix}footer-font-underline-boarder: 2px;
 
@@ -23,8 +24,9 @@
   --#{$prefix}footer-crest-max-width: 252px;
 
   // Form IO
-  --#{$prefix}formIO-feeback-font-weight: 700;
+  --#{$prefix}formIO-feeback-font-weight: normal;
   --#{$prefix}formIO-border-outline-width: 2px;
   --#{$prefix}formIO-form-control-border-width: 2px;
   --#{$prefix}formIO-callout-heading-line-height: 24px;
+  --#{$prefix}formIO-spacing: 1rem;
 }
