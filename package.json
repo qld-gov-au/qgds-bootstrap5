@@ -95,7 +95,7 @@
     "qld.bootstrap.min.js": "./dist/assets/js/qld.bootstrap.min.js",
     "qld.bootstrap.css": "./dist/assets/css/qld.bootstrap.css",
     "handlebars.helpers.bundle.js": "./dist/components/handlebars.helpers.bundle.js",
-    "handlebars.init.js": "./dist/components/handlebars.init.js",
+    "handlebars.init.min.js": "./dist/components/handlebars.init.min.js",
     "bootstrap.min.js": "./dist/assets/js/boostrap.min.js"
   }
 }
