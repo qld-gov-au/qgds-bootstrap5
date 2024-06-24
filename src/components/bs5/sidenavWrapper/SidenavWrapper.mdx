@@ -1,0 +1,11 @@
+import { Canvas, Meta, Story } from "@storybook/blocks"
+import * as SidenavWrapperStories from "./sidenavWrapper.stories"
+
+<Meta of={SidenavWrapperStories} />
+
+# Side Wrapper navigation
+This is a partial-block to embed more content inside another partial https://handlebarsjs.com/guide/partials.html#partial-blocks
+<Canvas>
+  <Story of={SidenavWrapperStories.Default} />
+</Canvas>
+
