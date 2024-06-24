@@ -67,7 +67,7 @@ const versionPlugin = () => ({
 
         // Replace placeholders in HTML, Mustache, and Handlebars files
         build.onEnd(async (result) => {
-            console.log('version update starting');
+            console.log('version update starting...');
 
             //List new components
             const root = process.cwd();
@@ -85,11 +85,12 @@ const versionPlugin = () => ({
 
                     // Check if the content has changed
                     if (source !== newSource) {
-                        console.log(`Placeholder replaced in: ${file}, ${newSource}`);
+                        // console.log(`Placeholder replaced in: ${file}, ${newSource}`);
                         await fs.writeFile(file, newSource);
                     }
                 }
             }
+            console.log('version update Completed');
 
         });
 

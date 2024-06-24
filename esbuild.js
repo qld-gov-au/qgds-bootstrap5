@@ -3,6 +3,7 @@
 import * as esbuild from "esbuild";
 
 //Local ESBUILD PLUGINS
+import QGDSupdateHandlebarsPartialsPlugin from "./.esbuild/plugins/qgds-plugin-handlebar-partial-builder.js";
 import QGDSrawLoader from "./.esbuild/plugins/qgds-plugin-raw-loader.js";
 import QDGScleanFolders from "./.esbuild/plugins/qgds-plugin-clean-output-folders.js";
 import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
@@ -60,14 +61,15 @@ const buildConfig = {
   },
 
   plugins: [
+    QGDSupdateHandlebarsPartialsPlugin(),
     QDGScopy(),
     QDGSbuildLog(),
     QGDSrawLoader(),
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
-    sassPlugin()
-  ]
+    sassPlugin(),
+  ],
 };
 
 async function StartBuild() {

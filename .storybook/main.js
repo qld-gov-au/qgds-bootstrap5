@@ -4,8 +4,10 @@ const config = {
         "../src/stories/Introduction.mdx",
         // Include all stories found under the src/components directory ( For example: alert/alert.stories.js )
         // Exlude any stories starting with an underscore ( For example: _exludeme.stories.js )
-        "../src/**/!(*_)*.mdx",
-        "../src/**/!(*_)*.stories.js",
+        // "../src/**/!(*_)*.mdx",
+        // "../src/**/!(*_)*.stories.js",
+        process.env.STORYBOOK_SINGLE ? process.env.STORYBOOK_SINGLE : "../src/**/!(*_)*.mdx",
+        process.env.STORYBOOK_SINGLE ? process.env.STORYBOOK_SINGLE : "../src/**/!(*_)*.stories.js",
     ],
     staticDirs: [
         { from: '../dist', to: '/assets' },

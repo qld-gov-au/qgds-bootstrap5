@@ -64,7 +64,7 @@
                             {{#each navigation_items}}
                             <li class="col-lg-4 col-sm-12">
                                 <a href="{{target_url}}" class="dropdown-item">
-                                    {{title}}
+                                    <span class="dropdown-item__text">{{title}}</span>
                                     <svg class="chevron__icon">
                                         <use href="{{@root.metadata.options.icon-root}}#qld__icon__arrow-right"></use>
                                     </svg>
@@ -168,7 +168,7 @@
                 {{/if}}
                 {{/each }}
                 {{#each CTA}}
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown CTA_feature">
                         <!-- Mobile only -->
                         <div class="nav-item-group mobile-only">
 

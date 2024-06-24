@@ -30,6 +30,9 @@
     --#{$prefix}navbar-mobile-text-color: var(--#{$prefix}core-default-color-neutral-white);
     --#{$prefix}navbar-mobile-border-color: var(--#{$prefix}color-default-color-dark-border-default);
     --#{$prefix}navbar-mobile-menuitem-hover: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}navbar-mobile-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}navbar-mobile-cta-bg-color: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}navbar-mobile-cta-bg-color-open: var(--#{$prefix}color-default-color-dark-background-default);
 
     // Toggle icons for mobile
     --#{$prefix}navbar-mobile-menu-toggle-boxshadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
@@ -64,8 +67,15 @@
         --#{$prefix}navbar-text-color: var(--#{$prefix}core-default-color-neutral-white);
         --#{$prefix}navbar-nav-text-color: var(--#{$prefix}core-default-color-neutral-white);
         --#{$prefix}navbar-home-icon-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-home-icon-color-active: var(--#{$prefix}color-default-color-dark-text-heading);
+        --#{$prefix}navbar-home-icon-color-hover: var(--#{$prefix}color-default-color-dark-action-primary-hover);
+
         --#{$prefix}navbar-link-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-link-color-hover: var(--#{$prefix}core-default-color-neutral-white);
+
         --#{$prefix}navbar-border-color: var(--#{$prefix}color-default-color-dark-border-default);
+        --#{$prefix}navbar-menuitem-active: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-menuitem-active: var(--#{$prefix}color-default-color-dark-background-alt);
         --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
         --#{$prefix}navbar-icon-hover: var(--#{$prefix}color-default-color-dark-action-secondary);
         --#{$prefix}navbar-text-focus-color: var(--#{$prefix}color-default-color-dark-focus-default);

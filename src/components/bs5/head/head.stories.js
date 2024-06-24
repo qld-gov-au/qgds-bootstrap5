@@ -3,7 +3,7 @@ import { Head } from "./Head.js";
 
 export default {
   tags: ["autodocs"],
-  title: "!Core/HeadMeta",
+  title: "!Core/Head/Includes CDN or Local",
   render: (args) => {
     return new Head(args).html;
   },
@@ -23,7 +23,7 @@ export default {
         "PROD",
         "/__data/assets/git_bridge/0026/471752",
       ],
-    }
+    },
   },
 
   parameters: {
@@ -53,24 +53,24 @@ export const Default = {
 
 export const DEV = {
   args: {
-    cdn: "DEV"
+    cdn: "DEV",
   },
   decorators:[Story => {
     return `
           ${Story()}
       `;
-  }]
+  }],
 };
 
 export const SQUIZ = {
   args: {
-    cdn: "/__data/assets/git_bridge/0026/471752"
+    cdn: "/__data/assets/git_bridge/0026/471752",
   },
   decorators:[Story => {
     return `
           ${Story()}
       `;
-  }]
+  }],
 };
 
 
