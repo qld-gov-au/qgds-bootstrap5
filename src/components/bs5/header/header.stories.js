@@ -280,10 +280,7 @@ export const EndorsedBrand = {
           ${Story()}
         </main>
         <div>
-          ${new Banner(bannerDataWithOverride).html}
-          <form action="https://uat.forgov.qld.gov.au/search" class="site-search">
-            ${new SearchInput(searchData).html}
-          </form>          
+          ${new Banner(bannerDataWithOverride).html}         
           ${new Footer(footerDataWithOverride).html}
         </div>
       `;
@@ -326,9 +323,6 @@ export const StandaloneBrand = {
         </main>
         <div>
           ${new Banner(bannerDataWithOverride).html}
-          <form action="https://uat.forgov.qld.gov.au/search" class="site-search">
-            ${new SearchInput(searchData).html}
-          </form>
           ${new Footer(footerDataWithOverride).html}
         </div>
       `;

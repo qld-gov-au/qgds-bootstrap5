@@ -99,7 +99,7 @@
             top: 0;
             bottom: 0;
             overflow-x: hidden;
-            background-color: var(--#{$prefix}navbar-bg-color);
+            background-color: var(--#{$prefix}navbar-mobile-bg-color);
             
             /* Initially positioned off-screen to the right */
             transition: transform .25s ease-in-out;
@@ -287,10 +287,47 @@
 
         @include media-breakpoint-down(lg) {
             border-left: 4px solid var(--#{$prefix}navbar-border-accent);
+            background-color: var(--#{$prefix}navbar-bg-color);
         }
 
         .dropdown-container {
             display: flex;
+        }
+
+        .nav-item.CTA_feature {
+            
+            color: var(--#{$prefix}navbar-mobile-text-color);
+            background-color: var(--#{$prefix}navbar-mobile-cta-bg-color);
+            border-bottom: solid 1px var(--#{$prefix}navbar-mobile-border-color);
+
+            .mobile-only {
+
+                .dropdown-menu.show {
+                    background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+                    border-left: solid .25rem var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+
+                    .dropdown-item {
+                        color: var(--#{$prefix}navbar-mobile-text-color);
+                        border-bottom: solid 1px var(--#{$prefix}navbar-mobile-border-color);
+                    }
+                }
+
+                .first-element {
+                    color: var(--#{$prefix}navbar-mobile-text-color) !important; //TO DO: resolve, caused by qld-type overrides
+                    &.show {
+                        background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+                        .dropdown-item {
+                            border-bottom: solid 1px var(--#{$prefix}navbar-mobile-border-color);
+                        }
+                    }
+                    &:hover {
+                        color: var(--#{$prefix}navbar-mobile-text-color);
+                        background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+                    }
+                }
+
+                
+            }
         }
     }
 
@@ -504,7 +541,7 @@
 
         }
         .nav-link {
-            color: var(--#{$prefix}navbar-nav-text-color);
+            color: var(--#{$prefix}navbar-nav-text-color) !important; //To do: Due to qld-type.scss needing refractor. Remove later.
             text-decoration: none;
             line-height: 2rem;
             width: 100%;

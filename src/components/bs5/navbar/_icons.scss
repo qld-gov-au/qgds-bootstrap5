@@ -4,7 +4,7 @@
 .navbar {
     .dropdown-toggle {
         .toggle_icon {
-            color: var(--qld-navbar-svg-color);
+            color: var(--#{$prefix}navbar-svg-color);
             height: 1rem;
             width: 1rem;
             margin-left: .25rem;
