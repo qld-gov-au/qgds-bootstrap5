@@ -16,8 +16,6 @@
     "serve": "live-server dist",
     "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
-    "storybook-single": "STORYBOOK_SINGLE=../src/components/bs5/button/button.stories.js npm run storybook",
-    "storybook-single-watch": "STORYBOOK_SINGLE=../src/components/bs5/button/button.stories.js npm-run-all --parallel watch storybook",
     "build-storybook": "storybook build --webpack-stats-json ",
     "build-storybook:serve": "live-server storybook-static"
   },
@@ -95,7 +93,7 @@
     "qld.bootstrap.min.js": "./dist/assets/js/qld.bootstrap.min.js",
     "qld.bootstrap.css": "./dist/assets/css/qld.bootstrap.css",
     "handlebars.helpers.bundle.js": "./dist/components/handlebars.helpers.bundle.js",
-    "handlebars.init.js": "./dist/components/handlebars.init.js",
+    "handlebars.init.min.js": "./dist/components/handlebars.init.min.js",
     "bootstrap.min.js": "./dist/assets/js/boostrap.min.js"
   }
 }
