@@ -208,6 +208,11 @@
     .breadcrumb li:before, .breadcrumb a:before {
       display: none !important;
     }
+    // displaying full breadcrumbs
+    .breadcrumb .breadcrumb-item.breadcrumb-toggle {
+      display: none!important;
+    }
+
 
      /* A few simple lines */
   #qg-site-header {
@@ -264,7 +269,7 @@
     }
   
     /* Hide elements not needed for printing */
-    .navbar, footer, .sidebar {
+    .navbar, footer, .sidebar, footer.qld-footer.dark {
       display: none;
     }
 
@@ -324,14 +329,21 @@
     .global-alert {
       display: none;
     }
+
     
     a.btn:after {
         display: block;
         content:" (" attr(href) ")";
     }
+    a.stretched-link:after {
+      content:" (" attr(href) ")";
+      font-size: 13px;
+      line-height: 1;
+      position: relative;
+    }
     /* Custom qld- styles */
-    .qld-side-navigation, .qld-inpage-nav, .qld__header__site-search.qld__header__site-search--closed {
-      display: none;
+    .qld-side-navigation, .qld-inpage-nav, .qld__header__site-search.qld__header__site-search--closed, .qld__header__pre-header {
+      display: none !important;
     }
     .qld__header__brand-image.qld__header__brand-image_subtype, .qld__header__brand-image {
       display: block !important;
@@ -340,7 +352,7 @@
     .qld__header__brand a:after {
       display: none;
     }
-  
+    
     /* adding class to print data-href from breadcrumb link */
     .print-current-url {
       display: block;
@@ -350,6 +362,12 @@
 
   }
 
+  /* Print colors to show background elements */
+  
+  .alert, .card-img {
+    print-color-adjust: exact;
+  }
+  
   /*print styles for forms*/
 @media only print {
     form abbr[title*=required]:after {
