@@ -31,7 +31,7 @@
         border-bottom: solid .25rem var(--#{$prefix}site-search-suggestions-hover__border_color);
 
         .suggestions-category {
-            .suggestion-category-label {
+            &-label {
                 padding: 0 1rem;
             }
             ul {
