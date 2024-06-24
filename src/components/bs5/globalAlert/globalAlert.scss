@@ -121,7 +121,8 @@
             }
         }
         .global-alert-message {
-            padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px
+            padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px, according to Health DS
+            max-width: 80%;// Added to prevent Label from collapsing
         }
     }
     .global-alert-content {
@@ -163,18 +164,16 @@
         .global-alert-icon {
             // aligning with text
             padding-top: 1.375rem;
+            // temporary change to align icon to center
+            align-self: center;
         }
         .qld-global-alert-main {
             // Padding requires 64px in space between alert icon and left border; minus (24px(1.5rem) gutter + 16px padding) = 24px (1.5rem)
             padding-left: 1.5rem;
             .global-alert-content {
-                padding-left: 1rem; // Also 16px
-                display: flex;
-                align-items: center;
+                padding-left: 1rem; // Also: 16px
             }
         }
-        .global-alert-message {
-            padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px
-        }
+        
     }
 }
