@@ -124,13 +124,18 @@
             padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px, according to Health DS
             max-width: 80%;// Added to prevent Label from collapsing
         }
+        .global-alert-icon {
+            // temporary change to align icon with content
+            align-self: center;
+        }
+        .global-alert-content {
+            flex-direction: row !important;
+        }
+        .global-alert-action {
+            margin-left: 2rem;
+        }
     }
-    .global-alert-content {
-        flex-direction: row !important;
-    }
-    .global-alert-action {
-        margin-left: 2rem;
-    }
+
 }
 
 @media (max-width: 767.98px) { // sm and below
