@@ -82,6 +82,7 @@
 
 
     &-collapse {
+        position: relative;
 
         @include media-breakpoint-down(md) {
             width: 20rem;
@@ -330,7 +331,9 @@
         }
     }
 
-    .dropdown { 
+    .dropdown {
+        position: static;
+
         &-menu {
             background-color: var(--#{$prefix}navbar-dropdown-bg-color);
             
@@ -342,7 +345,7 @@
             @include media-breakpoint-up(lg) {
                 left: 0;
                 right: 0;
-                width: 1320px; //TO DO: FIX
+                width: 100%;
                 padding: 3rem 4rem;
                 margin-top: 0.5rem;
                 margin-left: -4rem;
@@ -367,8 +370,6 @@
                     pointer-events: none; // so that pseudo-element isn't clickable
                 }
             }
-
-            
 
             @include media-breakpoint-down(lg) {
                 border-radius: 0;
@@ -439,6 +440,12 @@
                         padding: 1rem 0;
                         color: var(--#{$prefix}navbar-link-color);
                         border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
+                        white-space: normal;
+
+                        .dropdown-item__text {
+                            display: inline-block;
+                            margin-right: 1.5rem;
+                        }
 
                         &:active {
                             background-color: transparent;
@@ -475,7 +482,6 @@
 
                         @include media-breakpoint-down(lg) {
                             padding: 1rem;
-                            white-space: normal;
                             overflow-wrap: break-word;
                         }
                     }
