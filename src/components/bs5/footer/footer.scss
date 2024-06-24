@@ -23,7 +23,7 @@
     }
   }
   .footer-site-name {
-    font-size: calc(var(--#{$prefix}footer-spacing) * 1.25);
+    font-size: var(--#{$prefix}footer-title-font-size);
     line-height: 1.5;
     font-weight: 600;
     margin-block-end: calc(var(--#{$prefix}footer-spacing) * 2);
@@ -55,7 +55,7 @@
   }
   .footer-heading {
     color: var(--#{$prefix}footer-color-title);
-    font-size: calc(var(--#{$prefix}footer-font-size) * 1.25);
+    font-size: var(--#{$prefix}footer-title-font-size);
     margin-block-end: var(--#{$prefix}footer-spacing);
     line-height: 1.5;
     font-weight: 600;
@@ -246,6 +246,10 @@
       column-count: 2;
       width: 100%;
     }
+    .footer-site-name,
+    .footer-heading {
+      font-size: calc(var(--#{$prefix}footer-title-font-size) - 0.25rem);
+    }
   }
 }
 
@@ -301,7 +305,7 @@
 
   .qg-footer-feedback-footer {
     border-block-start: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
-    padding-block-start: var(--#{$prefix}footer-spacing);
+    padding-block-start: calc(var(--#{$prefix}footer-spacing) + 4px);
 
     a.qg-footer-feedback__close {
       border: var(--#{$prefix}footer-special-border-width) solid var(--#{$prefix}formIO-btn-close-colour);
@@ -389,7 +393,11 @@
           span {
             margin-inline-start: calc(var(--#{$prefix}footer-spacing) - 4px);
           }
+          &:last-of-type {
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
+          }
         }
+
         .form-check-input {
           margin-left: 0;
         }
@@ -398,6 +406,7 @@
     .formio-component-howSatisfiedAreYouWithYourExperienceToday {
       flex-direction: column;
       padding-inline-start: 0;
+      margin-block-end: 0;
 
       label.col-form-label {
         margin-inline-start: 0;
@@ -421,7 +430,8 @@
       outline-offset: 0;
     }
     .callout {
-      margin-block: var(--#{$prefix}footer-spacing);
+      margin-block-start: 0;
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
       background-color: var(--#{$prefix}core-default-color-neutral-lightest);
       border-left: none;
       border-inline-start: calc(var(--#{$prefix}formIO-form-control-border-width) * 2) solid
@@ -481,10 +491,5 @@
       content: " *";
       color: var(--#{$prefix}formIO-error);
     }
-  }
-}
-@include media-breakpoint-down(sm) {
-  .qld-footer {
-    width: 400px;
   }
 }
