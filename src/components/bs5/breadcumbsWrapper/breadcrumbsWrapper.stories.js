@@ -1,14 +1,13 @@
 import { forGov } from "../breadcrumbs/breadcrumbs.data.json";
 import { BreadcrumbsWrapperTest } from "./breadcrumbsWrapper.test.js";
-import init from "../../../js/handlebars.init.js";
-import Handlebars from "handlebars";
+import init from "../../../js/handlebars.init.js"; //self init's when loaded
 
 const defaultData = { breadcrumbs: forGov };
 
 export default {
   title: "!Layout/Components/Breadcrumbs Wrapper",
   render: (args) => {
-    init(Handlebars)
+
     return new BreadcrumbsWrapperTest(args).html;
   },
   args: defaultData,

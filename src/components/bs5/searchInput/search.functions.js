@@ -114,9 +114,9 @@ export async function showSuggestions(value = '', isDefault = false, form) {
         <div class="suggestions-category mt-2">
           <strong>Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
-            const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-            return `<li><a href="#">${highlightedText}</a></li>`;
-          }).join('')}</ul>
+    const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
+    return `<li><a href="#">${highlightedText}</a></li>`;
+  }).join('')}</ul>
         </div>`;
       dynamicSuggestionsContainer.style.display = 'block';
       createPopper(searchInput, suggestions, {

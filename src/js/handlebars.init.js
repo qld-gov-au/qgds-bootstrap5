@@ -17,16 +17,18 @@ export default function init(handlebars = Handlebars) {
   }
 
   if(typeof(handlebars) !== 'undefined') {
-    //only load once
     if (!isHandlebarsHelpersAndPartialsRegistered) {
-      handlebarsHelpers(handlebars);
-      handlebarsPartials(handlebars);
       isHandlebarsHelpersAndPartialsRegistered = true;
     } else {
-      console.log("HandleBars Helpers And Partials already loaded")
+      console.log("HandleBars Helpers And Partials already loaded, loading again")
     }
+    handlebarsHelpers(handlebars);
+
+    handlebarsPartials(handlebars);
   } else {
     console.log("Handlebars not found, init failed");
   }
 }
+
+init();
 
