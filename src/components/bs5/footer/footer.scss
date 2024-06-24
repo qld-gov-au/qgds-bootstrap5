@@ -474,22 +474,24 @@
     .formio-component-html1 {
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * -1);
       margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
+
       h2 {
+        margin-block-start: 0;
+        color: var(--#{$prefix}formIO-thankyou-page-title-colour);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-block-end: var(--#{$prefix}footer-spacing);
+      }
+      h2:first-child {
         font-weight: 700;
         color: var(--#{$prefix}formIO-thankyou-page-title-colour);
-        font-size: var(--#{$prefix}footer-spacing);
+        font-size: 1rem;
         margin-block-start: 0;
         margin-block-end: var(--#{$prefix}footer-spacing);
         border-block-end: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
         padding-block-end: calc(var(--#{$prefix}footer-spacing) - 3px);
       }
-      h3 {
-        margin-block-start: 4px;
-        color: var(--#{$prefix}formIO-thankyou-page-title-colour);
-        font-size: var(--#{$prefix}footer-spacing);
-        font-weight: 600;
-        margin-block-end: var(--#{$prefix}footer-spacing);
-      }
+
       p:last-of-type {
         display: none;
       }
@@ -510,6 +512,14 @@
     .field-required:before {
       content: " *";
       color: var(--#{$prefix}formIO-error);
+    }
+    p {
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.25);
+    }
+    @include media-breakpoint-down(md) {
+      p {
+        margin-block-end: var(--#{$prefix}footer-spacing);
+      }
     }
   }
 }
