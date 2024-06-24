@@ -82,6 +82,7 @@
 
 
     &-collapse {
+        position: relative;
 
         @include media-breakpoint-down(md) {
             width: 20rem;
@@ -98,7 +99,7 @@
             top: 0;
             bottom: 0;
             overflow-x: hidden;
-            background-color: var(--#{$prefix}navbar-bg-color);
+            background-color: var(--#{$prefix}navbar-mobile-bg-color);
             
             /* Initially positioned off-screen to the right */
             transition: transform .25s ease-in-out;
@@ -286,14 +287,53 @@
 
         @include media-breakpoint-down(lg) {
             border-left: 4px solid var(--#{$prefix}navbar-border-accent);
+            background-color: var(--#{$prefix}navbar-bg-color);
         }
 
         .dropdown-container {
             display: flex;
         }
+
+        .nav-item.CTA_feature {
+            
+            color: var(--#{$prefix}navbar-mobile-text-color);
+            background-color: var(--#{$prefix}navbar-mobile-cta-bg-color);
+            border-bottom: solid 1px var(--#{$prefix}navbar-mobile-border-color);
+
+            .mobile-only {
+
+                .dropdown-menu.show {
+                    background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+                    border-left: solid .25rem var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+
+                    .dropdown-item {
+                        color: var(--#{$prefix}navbar-mobile-text-color);
+                        border-bottom: solid 1px var(--#{$prefix}navbar-mobile-border-color);
+                    }
+                }
+
+                .first-element {
+                    color: var(--#{$prefix}navbar-mobile-text-color) !important; //TO DO: resolve, caused by qld-type overrides
+                    &.show {
+                        background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+                        .dropdown-item {
+                            border-bottom: solid 1px var(--#{$prefix}navbar-mobile-border-color);
+                        }
+                    }
+                    &:hover {
+                        color: var(--#{$prefix}navbar-mobile-text-color);
+                        background-color: var(--#{$prefix}navbar-mobile-cta-bg-color-open);
+                    }
+                }
+
+                
+            }
+        }
     }
 
-    .dropdown { 
+    .dropdown {
+        position: static;
+
         &-menu {
             background-color: var(--#{$prefix}navbar-dropdown-bg-color);
             
@@ -305,7 +345,7 @@
             @include media-breakpoint-up(lg) {
                 left: 0;
                 right: 0;
-                width: 1320px; //TO DO: FIX
+                width: 100%;
                 padding: 3rem 4rem;
                 margin-top: 0.5rem;
                 margin-left: -4rem;
@@ -330,8 +370,6 @@
                     pointer-events: none; // so that pseudo-element isn't clickable
                 }
             }
-
-            
 
             @include media-breakpoint-down(lg) {
                 border-radius: 0;
@@ -402,6 +440,12 @@
                         padding: 1rem 0;
                         color: var(--#{$prefix}navbar-link-color);
                         border-bottom: solid 1px var(--#{$prefix}navbar-border-color);
+                        white-space: normal;
+
+                        .dropdown-item__text {
+                            display: inline-block;
+                            margin-right: 1.5rem;
+                        }
 
                         &:active {
                             background-color: transparent;
@@ -438,7 +482,6 @@
 
                         @include media-breakpoint-down(lg) {
                             padding: 1rem;
-                            white-space: normal;
                             overflow-wrap: break-word;
                         }
                     }
@@ -498,7 +541,7 @@
 
         }
         .nav-link {
-            color: var(--#{$prefix}navbar-nav-text-color);
+            color: var(--#{$prefix}navbar-nav-text-color) !important; //To do: Due to qld-type.scss needing refractor. Remove later.
             text-decoration: none;
             line-height: 2rem;
             width: 100%;
