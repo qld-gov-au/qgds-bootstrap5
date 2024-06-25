@@ -65,7 +65,8 @@ export default function QGDSupdateHandlebarsPartialsPlugin() {
                     process.exit(1);
                 }
 
-                const newContent = `/** THIS IS A GENERATED FILE **/
+                const newContent = `/* global Handlebars */
+/** THIS IS A GENERATED FILE **/
 
 ${importLines}
 
@@ -76,6 +77,9 @@ ${importLines}
  */
 export default function handlebarsPartials(handlebars) {
 ${registerLines}
+}
+if(typeof(Handlebars) !== 'undefined') {
+  handlebarsPartials(Handlebars);
 }
 `;
 

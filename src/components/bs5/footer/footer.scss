@@ -286,6 +286,17 @@
   .btn.qg-feedback-toggle {
     font-weight: bold;
   }
+  &:has(#feedbackFormIO .formio-component-html1) {
+    #btn-footer-feedback {
+      display: none;
+      visibility: hidden;
+    }
+    #qg-footer-feedback {
+      padding-block-start: calc(var(--#{$prefix}footer-spacing) - 4px);
+      border-start-start-radius: var(--#{$prefix}footer-border-radius);
+      border-start-end-radius: var(--#{$prefix}footer-border-radius);
+    }
+  }
 }
 #qg-footer-feedback {
   --qld-footer-bootstrap-default-padding: 1.5rem;
@@ -293,8 +304,13 @@
   background-color: var(--#{$prefix}formIO-bg-colour);
   a {
     color: var(--#{$prefix}formIO-link-colour);
+    text-decoration-color: var(--#{$prefix}formIO-link-colour);
     &:hover {
-      color: var(--#{$prefix}formIO-link-colour-hover);
+      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover) !important;
+    }
+    &:hover,
+    &:visited {
+      color: var(--#{$prefix}formIO-link-colour);
     }
   }
   border-radius: var(--#{$prefix}footer-border-radius);
@@ -337,27 +353,23 @@
     .form-check-input[type="radio"]:checked {
       background-image: url("data:image/svg+xml,%3csvg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle r='1.8' fill='%23414141'/%3e%3c/svg%3e");
     }
-    .formio-component-fieldSet2 {
-      margin-block-end: 0;
-    }
     .col-form-label {
-      margin-block-end: var(--#{$prefix}footer-spacing);
-      padding-block-end: 4px;
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
+      padding-block-end: 0;
       font-weight: 600;
-      padding-block-start: var(--#{$prefix}formIO-spacing);
-      color: var(--#{$prefix}formIO-formio-colour);
+      padding-block-start: 0;
       display: block;
     }
-    .has-feedback {
+    .wizard-page > .form-group:first-child .has-feedback {
       label.col-form-label {
         border-block-start: var(--qld-footer-border-width) solid var(--qld-formIO-hr-colour);
+        padding-block-start: var(--#{$prefix}formIO-spacing);
       }
     }
-    .formio-component-submit {
-      margin-block-start: var(--#{$prefix}footer-spacing);
-    }
-    .form-check {
-      align-items: flex-start;
+    .formio-component-textarea {
+      .col-form-label {
+        margin-block-end: 4px;
+      }
     }
     .formio-component-submit .btn,
     .formio-component-submit .btn-primary {
@@ -365,6 +377,7 @@
       --qld-btn-color: var(--#{$prefix}formIO-submit-btn-text);
       --qld-btn-border-color: transparent;
       --qld-btn-bg: var(--#{$prefix}formIO-submit-btn);
+      margin-block-start: calc(var(--#{$prefix}footer-spacing) + 4px);
       width: 100%;
       &:hover,
       &:active {
@@ -380,42 +393,29 @@
         background-color: var(--#{$prefix}formIO-btn-disabled-colour);
       }
     }
-    .form-radio {
-      .form-check {
-        display: block;
-        padding: 0;
-        margin: 0;
-        .form-check-label {
-          display: flex;
-          align-items: start;
-          margin-block-end: var(--#{$prefix}footer-spacing);
-          margin-inline-start: 0;
-          span {
-            margin-inline-start: calc(var(--#{$prefix}footer-spacing) - 4px);
+    .formio-component-radio {
+      flex-direction: column;
+      padding-inline-start: 0;
+      margin-block-end: 0;
+      align-items: start;
+
+      .form-radio {
+        .form-check {
+          display: block;
+          padding: 0;
+          margin: 0;
+          .form-check-label {
+            display: flex;
+            align-items: start;
+            margin-block-end: var(--#{$prefix}footer-spacing);
+            margin-inline-start: 0;
+            span {
+              margin-inline-start: calc(var(--#{$prefix}footer-spacing) - 4px);
+            }
           }
           &:last-of-type {
             margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
           }
-        }
-
-        .form-check-input {
-          margin-left: 0;
-        }
-      }
-    }
-    .formio-component-howSatisfiedAreYouWithYourExperienceToday {
-      flex-direction: column;
-      padding-inline-start: 0;
-      margin-block-end: 0;
-
-      label.col-form-label {
-        margin-inline-start: 0;
-      }
-      .form-check {
-        display: block;
-        margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.75);
-        span {
-          margin-block-end: 0;
         }
       }
     }
@@ -424,10 +424,25 @@
       color: var(--#{$prefix}formIO-formio-colour);
       border: var(--#{$prefix}formIO-form-control-border-width) solid var(--#{$prefix}formIO-input-border);
     }
-    .formio-modified .is-invalid {
-      outline: var(--#{$prefix}formIO-border-notify-invalid) solid var(--#{$prefix}formIO-form-control-border-width);
-      border-color: var(--#{$prefix}formIO-border-notify-invalid);
-      outline-offset: 0;
+
+    .formio-modified {
+      .form-check-input {
+        outline: var(--#{$prefix}formIO-border-notify-success) solid var(--#{$prefix}formIO-form-control-border-width);
+        outline-offset: 0;
+      }
+      .is-invalid {
+        outline: var(--#{$prefix}formIO-border-notify-invalid) solid var(--#{$prefix}formIO-form-control-border-width);
+      }
+      textarea {
+        outline: var(--#{$prefix}formIO-border-notify-success) solid var(--#{$prefix}formIO-form-control-border-width);
+        background-color: #f7fbf8;
+        outline-offset: 0;
+      }
+      textarea.is-invalid {
+        outline: var(--#{$prefix}formIO-border-notify-invalid) solid var(--#{$prefix}formIO-form-control-border-width);
+        background-color: #fff6f6;
+        margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.5);
+      }
     }
     .callout {
       margin-block-start: 0;
@@ -457,19 +472,25 @@
     }
     .formio-component-html1 {
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * -1);
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
 
       h2 {
         margin-block-start: 0;
         color: var(--#{$prefix}formIO-thankyou-page-title-colour);
-        font-size: var(--#{$prefix}footer-spacing);
-        font-weight: bolder;
+        font-size: 1rem;
+        font-weight: 600;
         margin-block-end: var(--#{$prefix}footer-spacing);
-
-        &:first-of-type {
-          border-block-end: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
-          padding-block-end: 13px;
-        }
       }
+      h2:first-child {
+        font-weight: 700;
+        color: var(--#{$prefix}formIO-thankyou-page-title-colour);
+        font-size: 1rem;
+        margin-block-start: 0;
+        margin-block-end: var(--#{$prefix}footer-spacing);
+        border-block-end: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
+        padding-block-end: calc(var(--#{$prefix}footer-spacing) - 3px);
+      }
+
       p:last-of-type {
         display: none;
       }
@@ -481,6 +502,7 @@
       display: none;
     }
     .formio-errors .error {
+      margin-block-start: calc(var(--#{$prefix}footer-spacing) * -1);
       margin-block-end: var(--#{$prefix}footer-spacing);
     }
     .field-required:after {
@@ -490,6 +512,14 @@
     .field-required:before {
       content: " *";
       color: var(--#{$prefix}formIO-error);
+    }
+    p {
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.25);
+    }
+    @include media-breakpoint-down(md) {
+      p {
+        margin-block-end: var(--#{$prefix}footer-spacing);
+      }
     }
   }
 }
