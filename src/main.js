@@ -51,7 +51,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Add focus event listener to the search input
         searchInput.addEventListener("focus", function () {
-          showSuggestions("", true, form);
+          if (this.value === "") {
+            showSuggestions("", true, form);
+          }
         });
 
         // Add click event listener to the search input
@@ -62,7 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         // Close suggestions when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
           if (!form.contains(event.target) && !form.querySelector('.suggestions').contains(event.target)) {
             form.querySelector('.suggestions').style.display = 'none';
           }
@@ -74,6 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
           const query = searchInput.value.trim();
           submitSearchForm(query, form);
         });
+
       }
     });
 

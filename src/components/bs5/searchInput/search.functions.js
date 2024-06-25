@@ -189,5 +189,32 @@ export function submitSearchForm(query = '', form) {
   window.location.href = searchUrl;
 }
 
+// Handle keyboard navigation
+document.addEventListener('keydown', function(event) {
+  const activeElement = document.activeElement;
+  const form = activeElement.closest('form');
+  if (!form) return;
+
+  const suggestions = form.querySelector('.suggestions');
+  if (!suggestions || suggestions.style.display === 'none') return;
+
+  if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+    const items = suggestions.querySelectorAll('a');
+    let currentIndex = Array.prototype.indexOf.call(items, document.activeElement);
+
+    if (event.key === 'ArrowDown') {
+      currentIndex = (currentIndex + 1) % items.length;
+    } else if (event.key === 'ArrowUp') {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+    }
+
+    items[currentIndex].focus();
+    event.preventDefault();
+  } else if (event.key === 'Enter' && activeElement.tagName === 'A') {
+    activeElement.click();
+    event.preventDefault();
+  }
+});
+
 // Attach the function to the window object to make it globally accessible
 window.selectSuggestion = (value, form) => selectSuggestion(value, form);
