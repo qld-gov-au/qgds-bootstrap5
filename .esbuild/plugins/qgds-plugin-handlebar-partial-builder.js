@@ -77,6 +77,9 @@ ${importLines}
 export default function handlebarsPartials(handlebars) {
 ${registerLines}
 }
+if(typeof(Handlebars) !== 'undefined') {
+  handlebarsPartials(Handlebars);
+}
 `;
 
                 fs.writeFileSync(PARTIALS_JS_FILE, newContent);
