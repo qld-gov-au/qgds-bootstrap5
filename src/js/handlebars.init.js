@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import Handlebars from "handlebars";
+/* global Handlebars */
 import handlebarsHelpers from "./handlebars.helpers.js";
 import handlebarsPartials from "./handlebars.partials.js";
 
@@ -29,4 +28,7 @@ export default function init(handlebars) {
   } else {
     console.log("Handlebars not found, init failed");
   }
+}
+if(typeof(Handlebars) !== 'undefined') {
+  init(Handlebars);
 }
