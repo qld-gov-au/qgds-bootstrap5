@@ -1,3 +1,4 @@
+/* global Handlebars */
 /** THIS IS A GENERATED FILE **/
 
 import accordion from "../components/bs5/accordion/accordion.hbs?raw";
@@ -89,4 +90,7 @@ export default function handlebarsPartials(handlebars) {
     handlebars.registerPartial("typography", typography);
     handlebars.registerPartial("video", video);
 
+}
+if(typeof(Handlebars) !== 'undefined') {
+  handlebarsPartials(Handlebars);
 }
