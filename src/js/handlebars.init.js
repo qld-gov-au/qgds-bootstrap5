@@ -1,19 +1,19 @@
+/* global Handlebars */
 import handlebarsHelpers from "./handlebars.helpers.js";
 import handlebarsPartials from "./handlebars.partials.js";
-import Handlebars from "handlebars";
 
-/**
- * init function to load all HandleBar partials and helpers
+
+let isHandlebarsHelpersAndPartialsRegistered = false;
+
+/*
+ * init function to load all HandleBar partials and helpers into passed in handlebars
+ * by default the helpers and partials will autoload if handleBars is found in environment
  *
  * @param {Handlebars} handlebars
  */
-let isHandlebarsHelpersAndPartialsRegistered = false;
-
-export default function init(handlebars = Handlebars) {
+export default function init(handlebars) {
   if (typeof(handlebars) === 'undefined') {
-    if(typeof(Handlebars) !== 'undefined') {
-      handlebars = Handlebars
-    }
+    console.error("Handlebars.init requires HandleBars");
   }
 
   if(typeof(handlebars) !== 'undefined') {
@@ -29,6 +29,6 @@ export default function init(handlebars = Handlebars) {
     console.log("Handlebars not found, init failed");
   }
 }
-
-init();
-
+if(typeof(Handlebars) !== 'undefined') {
+  init(Handlebars);
+}

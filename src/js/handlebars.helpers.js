@@ -1,3 +1,4 @@
+/* global Handlebars */
 /**
  * Registers Handlebars Helpers
  * @param {Handlebars} handlebars Templating engine
@@ -89,4 +90,8 @@ export default function handlebarsHelpers(handlebars) {
     // Call the formatDate helper with the determined date and format
     return handlebars.helpers.formatDate(dateToFormat);
   });
+}
+
+if(typeof(Handlebars) !== 'undefined') {
+  handlebarsHelpers(Handlebars);
 }
