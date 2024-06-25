@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
-import listFiles from "../helpers/listfiles.js";
+import listFilesHbs from "../helpers/listFilesHbs.js";
 import log from "../helpers/logger.js";
 
 // Helper function to get git information
@@ -62,18 +62,19 @@ const versionPlugin = () => ({
                 ...gitInfo,
                 majorVersion: extractMajorVersion(gitInfo.tag || 'v' + packageInfo.version),
             };
-            console.log(`version details collected: ${JSON.stringify(versionDetails)}`);
+            log( "green", `Version details collected: ${JSON.stringify(versionDetails)}`);
+            log( "black", "");
         });
 
         // Replace placeholders in HTML, Mustache, and Handlebars files
         build.onEnd(async (result) => {
-            console.log('version update starting...');
+            log( "green", 'version update starting...');
 
             //List new components
             const root = process.cwd();
             const relativePath = "/dist/components/";
 
-            const newTemplateFiles = listFiles(root + relativePath);
+            const newTemplateFiles = listFilesHbs(root + relativePath);
             for (const file of newTemplateFiles) {
                 if (/\.(html|mustache|hbs)$/.test(file)) {
                     // const outputPath = path.resolve(process.cwd(), file);
@@ -90,7 +91,7 @@ const versionPlugin = () => ({
                     }
                 }
             }
-            console.log('version update Completed');
+            log( "green", 'version update Completed');
 
         });
 

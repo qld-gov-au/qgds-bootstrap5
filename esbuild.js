@@ -48,10 +48,6 @@ const buildConfig = {
     },
     {
       in: "./src/js/handlebars.init.js",
-      out: "./components/handlebars.init.min",
-    },
-    {
-      in: "./src/js/handlebars.init.js",
       out: "./assets/js/handlebars.init.min",
     },
   ],
@@ -67,12 +63,12 @@ const buildConfig = {
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
     QDGScopy(),
-    QDGSbuildLog(),
     QGDSrawLoader(),
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
     sassPlugin(),
+    QDGSbuildLog(),
   ],
 };
 
