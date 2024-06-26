@@ -149,9 +149,11 @@ a,
 a.nav-link {
   text-underline-offset: var(--qld-link-underline-offset);
   text-decoration-thickness: var(--qld-link-underline-thickness);
+  text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
 
   &:hover {
     text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default-hover);
   }
 
     &:visited {
