@@ -11,7 +11,7 @@
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
     "build": "node esbuild.js",
-    "test": "mocha --timeout 10000",
+    "test": "mocha --timeout 10000 --require ./test/testServer.test.js ",
     "watch": "node esbuild.js --watch",
     "serve": "live-server dist",
     "dev-storybook": "npm-run-all --parallel watch storybook",

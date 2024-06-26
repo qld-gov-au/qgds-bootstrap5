@@ -1,44 +1,24 @@
-import {Builder, By, until} from 'selenium-webdriver';
+import {By, until} from 'selenium-webdriver';
 import {assert} from 'chai';
-import {exec} from 'child_process';
-import portfinder from 'portfinder';
 import {describe, before, after, it} from 'mocha';
+import {init, initAfter} from './testServer.test.js';
 
 describe('DOM Content Test with Selenium', function () {
   let driver;
-  let server;
   let serverPort;
 
   before(async function () {
     // Find an available port dynamically
-    serverPort = await portfinder.getPortPromise();
-
-    // Start live-server to serve the current working directory
-    server = await exec(`npx live-server --no-browser --port=${serverPort}`, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`live-server error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.error(`live-server stderr: ${stderr}`);
-        return;
-      }
-      console.log(`live-server stdout:\n${stdout}`);
-    });
-
-    // Initialize Selenium WebDriver (here using Chrome)
-    driver = await new Builder().forBrowser('chrome').build();
-
+    let data = await init();
+    serverPort = data.serverPort;
+    driver = data.driver;
+    await new Promise(resolve => setTimeout(resolve, 500))
   });
 
-  after(async function () {
-    if (driver) {
-      await driver.quit(); // Close WebDriver session
-    }
-    if (server) {
-      await server.kill('SIGINT'); // Stop live-server
-    }
-  });
+  after( async function () {
+    await initAfter();
+  })
+
 
   it('Should verify content after DOM load via handlebars.partials.js only', async function () {
 
