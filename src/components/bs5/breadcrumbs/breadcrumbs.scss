@@ -16,12 +16,19 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
     --#{$prefix}breadcrumb-bg: transparent;
     --#{$prefix}breadcrumb-margin-bottom: 0;
     --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
+    --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-light-underline-default-hover);
+
 
     .dark &,
     .dark-alt & {
         --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-text-lighter);
         --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
         --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
+        --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-dark-underline-default-hover);
     }
 
 }
@@ -73,6 +80,14 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
         border: 0;
         padding: 0;
         vertical-align: inherit;
+    }
+
+    a:visited {
+        color: var(--#{$prefix}breadcrumb-visited-link-color);
+        text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color);
+        &:hover {
+            text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color-hover);
+        }
     }
 }
 
