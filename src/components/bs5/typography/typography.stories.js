@@ -32,6 +32,15 @@ export default {
     <li>List item</li>
     </ol>
     </div>
+
+    <dl>
+      <dt>Website:</dt>
+      <dd><a href="https://www.qld.gov.au" target="_blank">https://www.qld.gov.au</a></dd>
+      <dt>Street address:</dt>
+      <dd>123 Street Street</dd>
+      <dd>Suburb QLD 4000</dd>
+    </dl>
+
     `;
   },
 

@@ -108,12 +108,29 @@ body {
   li {
     margin-top: 0.5rem;
   }
+
 }
 
 // Apply correct bold font-weight
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, 
-strong, b, th {
+strong, b, th, dt {
   font-weight: $font-weight-bold;
+}
+
+
+// Definition list
+dt {
+  margin-top: 0.5rem;
+}
+
+dd {
+  margin-bottom: 0;
+}
+
+// Custom format for last updated dl
+dl.qld-content-dates {
+  display: flex;
+  gap: 4px;
 }
 
 
@@ -206,3 +223,4 @@ a.nostyle {
   background: var(--qld-selection-bg);
   text-shadow: none;
 }
+
