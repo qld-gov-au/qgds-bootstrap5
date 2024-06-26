@@ -1,5 +1,7 @@
 <!-- DCTERMS https://www.dublincore.org/specifications/dublin-core/dcmi-terms/-->
 {{#if dcTerms}}
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+<link rel="schema.AGLSTERMS" href="https://agls.gov.au/documents/aglsterms/" />
 <meta name="DCTERMS.title" content="{{ title }}">
 <meta name="DCTERMS.publisher" scheme="AGLSTERMS.AglsAgent" content="{{#if dcTerms.publisher}}{{dcTerms.publisher}}{{else}}corporateName=The State of Queensland; jurisdiction=Queensland{{/if}}" />
 <meta name="DCTERMS.creator" scheme="AGLSTERMS.GOLD" content="{{#if dcTerms.creator}}{{dcTerms.creator}}{{else}}c=AU; o=The State of Queensland;{{/if}}">
