@@ -12,7 +12,7 @@ export default {
 
   argTypes: {
     lastUpdated: {
-      name: "Last Updated",
+      name: "Last updated",
       description: `Date page was Last Updated`,
       control: { type: 'text'  },
     },
