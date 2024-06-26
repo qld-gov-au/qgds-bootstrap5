@@ -358,8 +358,8 @@
                 &[data-bs-popper] {
                     margin-top: 9px !important; // Had to use important for override to work
                 }
-
-                ::before {
+                
+                &.show::before {
                     position: absolute;
                     content: ' ';
                     height: 6px;
