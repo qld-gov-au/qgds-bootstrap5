@@ -1,36 +1,39 @@
 //PREP REUSABLE VARIABLES, SCOPED TO .blockquote
 .blockquote {
-
-    //DEFAULT
-    --#{$prefix}quote-padding: 1.5rem 1rem 1.5rem 1.5rem;
-    --#{$prefix}quote-border-color: var(--qld-syntax-values);
-    --#{$prefix}quote-text-color: var(--qld-light-text-text);
-    --#{$prefix}quote-font-size: 1.25rem;
-    --#{$prefix}quote-line-height: 1.4;
-    --#{$prefix}quote-border-width: 0.25rem;
+  // Colours
+  --#{$prefix}quote-border-color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+  --#{$prefix}quote-text-color: var(--#{$prefix}color-default-color-light-text-heading);
+  --#{$prefix}quote-ref-text-color: var(--#{$prefix}color-default-color-light-text-default);
+  //Measurements
+  --#{$prefix}quote-spacing: 1rem;
+  --#{$prefix}quote-border-width: 0.25rem;
+  --#{$prefix}quote-border-width: 0.25rem;
+  // Fonts
+  --#{$prefix}quote-font-size: 1rem;
+  --#{$prefix}quote-heavy-font-weight: 600;
 }
 
 //Ruleset for COMPONENT, reference our scoped variables, or use variables of ::root node
 .blockquote {
-    border-left: solid var(--#{$prefix}quote-border-width) var(--#{$prefix}quote-border-color);
-    padding: var(--#{$prefix}quote-padding);
+  border-inline-start: var(--#{$prefix}quote-border-width) solid var(--#{$prefix}quote-border-color);
+  padding-block: calc(var(--#{$prefix}quote-spacing) * 0.5);
+  padding-inline-start: calc(var(--#{$prefix}quote-spacing) * 1.5);
+  padding-inline-end: calc(var(--#{$prefix}quote-spacing) * 1);
 
-    blockquote {
-
-        max-width: 54rem;
-        margin-bottom: 0;
-        color: var(--#{$prefix}quote-text-color);
-        font-size: var(--#{$prefix}quote-font-size);
-        line-height: var(--#{$prefix}quote-line-height);
-
-        p:last-child {
-            margin-bottom: 0;
-        }
+  blockquote {
+    max-width: 54rem;
+    margin-block-end: 0;
+    color: var(--#{$prefix}quote-text-color);
+    font-size: calc(var(--#{$prefix}quote-font-size) * 1.25);
+    line-height: calc(var(--#{$prefix}quote-font-size) * 1.4);
+    font-weight: var(--#{$prefix}quote-heavy-font-weight);
+    p:last-child {
+      margin-block-end: 0;
     }
-
-    .quote-source {
-        color: var(--qld-dark-grey-muted);
-        font-size: 0.875rem;
-        margin-top: 0.625rem;
-    }
+  }
+  .quote-source {
+    color: var(--#{$prefix}quote-ref-text-color);
+    font-size: calc(var(--#{$prefix}quote-font-size) * 0.875);
+    margin-block-start: calc(var(--#{$prefix}quote-spacing) * 0.625);
+  }
 }
