@@ -131,6 +131,11 @@ dd {
 dl.qld-content-dates {
   display: flex;
   gap: 4px;
+
+  dd {
+    margin-top: 0.5rem;
+  }
+
 }
 
 
