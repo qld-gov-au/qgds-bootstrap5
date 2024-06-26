@@ -112,7 +112,7 @@ export async function showSuggestions(value = '', isDefault = false, form) {
     if (fetchedSuggestions.length > 0) {
       dynamicSuggestionsContainer.innerHTML = `
         <div class="suggestions-category mt-2">
-          <strong>Suggestions</strong>
+          <strong class="suggestions-category-label">Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
     const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
     return `<li><a href="#">${highlightedText}</a></li>`;
@@ -144,7 +144,7 @@ export async function showSuggestions(value = '', isDefault = false, form) {
     if (fetchedServices.response.resultPacket && fetchedServices.response.resultPacket.results.length > 0) {
       dynamicSuggestionsContainer.innerHTML += `
         <div class="suggestions-category feature pt-2">
-          <strong>Services</strong>
+          <strong class="suggestions-category-label">Services</strong>
           <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
         </div>`;
       dynamicSuggestionsContainer.style.display = 'block';
