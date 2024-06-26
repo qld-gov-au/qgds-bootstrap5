@@ -11,7 +11,7 @@
   --#{$prefix}quote-heavy-font-weight: 600;
 }
 
-//Ruleset for COMPONENT, reference our scoped variables, or use variables of ::root node
+//Ruleset for COMPONENT, reference our scoped variables, or use variables of ::root-node
 .blockquote {
   border-inline-start: var(--#{$prefix}quote-border-width) solid var(--#{$prefix}quote-border-color);
   padding-block: calc(var(--#{$prefix}quote-spacing) * 0.5);
