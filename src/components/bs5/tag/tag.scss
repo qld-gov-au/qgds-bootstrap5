@@ -96,7 +96,7 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
     .tag-item {
         display: inline-block;
         color: var(--#{$prefix}dark-grey-muted);
-        margin: 0 0.5rem 0.5rem 0;
+        margin-top: 0.5rem;
         padding: 0 0.5rem;
         list-style-type: none;
         border: 1px solid var(--#{$prefix}light-grey);
