@@ -27,7 +27,7 @@ export const Default = {
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="qld-content-body">
+            <div class="qld-content-body" id="content">
             ${Story()}
             </div>
           </div>
