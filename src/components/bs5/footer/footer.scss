@@ -62,6 +62,7 @@
   }
   .footer-contact-item {
     display: flex;
+    flex-flow: wrap;
     align-items: center;
     margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.25);
     .qld-icon {
@@ -147,6 +148,16 @@
   }
   .btn-global-secondary {
     white-space: normal;
+  }
+
+  .r20 > .col-lg-3 {
+    width: 20%;
+  }
+  .r25 > .col-lg-3 {
+    width: 25%;
+  }
+  .r33 > .col-lg-3 {
+    width: 33%;
   }
   @include media-breakpoint-down(lg) {
     --#{$prefix}last-para-margin: 24px;
@@ -378,7 +389,9 @@
       --qld-btn-border-color: transparent;
       --qld-btn-bg: var(--#{$prefix}formIO-submit-btn);
       margin-block-start: calc(var(--#{$prefix}footer-spacing) + 4px);
+      white-space: normal;
       width: 100%;
+      padding-inline: minmax(0px, var(--#{$prefix}btn-padding-x));
       &:hover,
       &:active {
         color: var(--#{$prefix}formIO-submit-btn-text);
