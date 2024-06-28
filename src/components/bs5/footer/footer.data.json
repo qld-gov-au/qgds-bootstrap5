@@ -1,28 +1,28 @@
 {
     "sitename": "Site name, Namestyle or Name Identifier",
-    "contactHasContactList": true,
-    "footerHasCrest": true,
+    "contactHasContactListDisabled": false,
+    "footerHasCrestDisabled": false,
     "footerHasStateOfQld": true,
-    "feedbackFormEnabled": false,
-    "followlinksEnabled": true,
+    "feedbackFormDisabled" : false,
+    "followlinksDisabled": false,
     "copyrightHasYearFrom": false,
     "copyrightOrganisationName": "Organisation",
     "contact": {
         "hasBorderColumn": false,
         "title": "Contact us",
         "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
-        "list": [
-            {
+        "list": {
+            "phone": {
                 "icon": "icon-phone",
                 "label": "<b>Phone:</b> 13 QGOV (13 74 68)"
             },
-            {
+            "email": {
                 "icon": "icon-email",
                 "label": "<b>Email:</b> <span class='user-select-all'>email@qld.gov.au</span>"
             }
-        ],
+        },
         "buttonLabel": "Contact us",
-        "buttonLink": ""
+        "buttonLink": "https://www.qld.gov.au/contact-us"
     },
     "lookup": {
         "link": {
@@ -37,7 +37,7 @@
         }
     ],
     "copyright": {
-        "hasBorderColumn": true,
+        "hasBorderColumnDisabled": false,
         "content": "&copy; The State of Queensland",
         "yearFrom": "1995",
         "currentYear": "2024"
@@ -45,73 +45,30 @@
     "footerlinks": {
         "hasBorderColumn": false,
         "title": "",
-        "list": [
-            {
-                "title": "Help",
-                "link": "https://www.qld.gov.au/help"
-            },
-            {
-                "title": "Copyright",
-                "link": "https://www.qld.gov.au/legal/copyright"
-            },
-            {
-                "title": "Disclaimer",
-                "link": "https://www.qld.gov.au/legal/disclaimer"
-            },
-            {
-                "title": "Privacy",
-                "link": "https://www.qld.gov.au/legal/privacy"
-            },
-            {
-                "title": "Right to information",
-                "link": "https://www.qld.gov.au/about/rights-accountability/right-to-information"
-            },
-            {
-                "title": "Accessibility",
-                "link": "https://www.qld.gov.au/help/accessibility"
-            },
-            {
-                "title": "Jobs in Queensland <span>Government</span>",
-                "link": "https://smartjobs.qld.gov.au",
-                "target": "_blank"
-            },
-            {
-                "title": "Other languages",
-                "link": "https://www.qld.gov.au/help/languages"
-            }
-        ]
+        "list": {
+            "Help": { "link": "https://www.qld.gov.au/help" },
+            "Copyright": { "link": "https://www.qld.gov.au/legal/copyright" },
+            "Disclaimer": { "link": "https://www.qld.gov.au/legal/disclaimer" },
+            "Privacy": {"link": "https://www.qld.gov.au/legal/privacy" },
+            "Right to information": { "link": "https://www.qld.gov.au/about/rights-accountability/right-to-information" },
+            "Accessibility": { "link": "https://www.qld.gov.au/help/accessibility" },
+            "Jobs in Queensland Government": { "link": "https://smartjobs.qld.gov.au",  "new_window": true },
+            "Other languages": { "link": "https://www.qld.gov.au/help/languages" }
+        }
     },
     "feedbackForm" : {
-        "hasBorderColumn": true,
+        "hasBorderColumnDisabled": false,
         "title": "Website feedback",
         "content": "Help us improve the content on our website or tell us what is working well.",
         "btnTitle": "Leave your feedback",
-        "formAttr": [
-            {
-                "key": "data-formio",
-                "value": ""
-            },
-            {
-                "key": "data-formio-project-name",
-                "value": "dev-oldkihhcwbdtwye"
-            },
-            {
-                "key": "data-formio-form-name",
-                "value": "footerfeedbackcontactus"
-            },
-            {
-                "key": "data-formio-env-url",
-                "value": "api.forms.platforms.qld.gov.au"
-            },
-            {
-                "key": "data-formio-createForm-options",
-                "value": "formioCreateFormOptions"
-            },
-            {
-                "key": "data-formio-createForm-controller",
-                "value": "formioCreateFormController"
-            }
-        ],
+        "formAttr": {
+            "data-formio": "",
+            "data-formio-project-name": "oldkihhcwbdtwye",
+            "data-formio-form-name": "footerfeedbackcontactus",
+            "data-formio-env-url": "api.forms.platforms.qld.gov.au",
+            "data-formio-createForm-options": "formioCreateFormOptions",
+            "data-formio-createForm-controller": "formioCreateFormController"
+        },
         "formioResource": "https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"
     },
     "followlinks": {
