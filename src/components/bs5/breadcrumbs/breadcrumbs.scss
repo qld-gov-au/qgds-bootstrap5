@@ -10,122 +10,125 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
 
 //OR using custom CSS properties scoped to the component
 .breadcrumb {
-    --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
-    --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-flipped)};
-    --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}dark-grey-muted);
-    --#{$prefix}breadcrumb-bg: transparent;
-    --#{$prefix}breadcrumb-margin-bottom: 0;
-    --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
-    --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-light-link-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-light-underline-default-hover);
+  --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
+  --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-flipped)};
+  --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}dark-grey-muted);
+  --#{$prefix}breadcrumb-bg: transparent;
+  --#{$prefix}breadcrumb-margin-bottom: 0;
+  --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
+  --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-light-link-default);
+  --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(
+    --#{$prefix}color-default-color-light-underline-default
+  );
+  --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(
+    --#{$prefix}color-default-color-light-underline-default-hover
+  );
 
-
-    .dark &,
-    .dark-alt & {
-        --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-text-lighter);
-        --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
-        --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
-        --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-dark-link-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-dark-underline-default-hover);
-    }
-
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-text-lighter);
+    --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
+    --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
+    --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(
+      --#{$prefix}color-default-color-dark-underline-default
+    );
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(
+      --#{$prefix}color-default-color-dark-underline-default-hover
+    );
+  }
 }
 
 @include color-mode(dark) {
-
 }
 
 .breadcrumb {
-    font-size: 0.875rem;
-
-    &.expanded {
-        .breadcrumb-toggle {
-            display: none;
-        }
-    }
-}
-
-.breadcrumb-item {
-    // Show only parent page breadcrumb on small screens
-    display: none;
-
-    &:nth-last-child(2) {
-        display: list-item;
-
-        &:before {
-            content: var(--#{$prefix}breadcrumb-divider);
-            float: left;
-            padding-right: var(--qld-breadcrumb-item-padding-x);
-            width: 1rem;
-        }
-    }
-
-    + .breadcrumb-item {
-        &:before {
-            width: 1rem;
-        }
-    }
-
-    &.shortened {
-        height: 0;
-        overflow: hidden;
-        max-width: 0;
-        transition: max-width 0s;
-        padding: 0;
-    }
-
+  font-size: 0.875rem;
+  &.expanded {
     .breadcrumb-toggle {
-        border: 0;
-        padding: 0;
-        vertical-align: inherit;
+      display: none;
     }
-
-    a:visited {
-        color: var(--#{$prefix}breadcrumb-visited-link-color);
-        text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color);
-        &:hover {
-            text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color-hover);
-        }
+  }
+}
+.breadcrumb-item {
+  display: none;
+  line-height: 2rem;
+  &:nth-last-child(2) {
+    display: list-item;
+    &:before {
+      content: var(--#{$prefix}breadcrumb-divider);
+      float: left;
+      padding-right: var(--qld-breadcrumb-item-padding-x);
+      width: 1rem;
     }
+  }
+  a:after {
+    content: none;
+  }
+  &.shortened {
+    height: 0;
+    overflow: hidden;
+    max-width: 0;
+    transition: max-width 0s;
+    padding: 0;
+  }
+  .breadcrumb-toggle {
+    border: 0;
+    padding: 0;
+    vertical-align: inherit;
+  }
+  a:visited {
+    color: var(--#{$prefix}breadcrumb-visited-link-color);
+    text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color);
+    &:hover {
+      text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color-hover);
+    }
+  }
 }
 
 @include media-breakpoint-up(md) {
-    .breadcrumb {
-        --#{$prefix}breadcrumb-padding-y: 2.5rem 0 1.5rem;
+  .breadcrumb {
+    --#{$prefix}breadcrumb-padding-y: 2.5rem 0 1.5rem;
+  }
+  .breadcrumb-item {
+    :after {
+      content: var(--#{$prefix}breadcrumb-divider-flipped);
     }
-
-    .breadcrumb-item {
-        + .breadcrumb-item:before {
-            content: var(--#{$prefix}breadcrumb-divider-flipped)
-        }
-        // Show current and parent page on medium screens
-        &:last-child {
-            display: list-item;
-        }
-
-        &:nth-last-child(2):before {
-            // Hide divider before parent page
-            content: none;
-        }
+    &:last-child {
+      content: none;
     }
+  }
 }
 
 @include media-breakpoint-up(lg) {
+  .breadcrumb {
+    --#{$prefix}breadcrumb-padding-y: 3rem 0 2rem;
 
-    .breadcrumb {
-        --#{$prefix}breadcrumb-padding-y: 3rem 0 2rem;
-
-        font-size: 1rem;
+    font-size: 1rem;
+  }
+  .breadcrumb-item {
+    display: list-item;
+    padding-left: 0;
+    padding-right: var(--qld-breadcrumb-item-padding-x);
+    & + .breadcrumb-item {
+      padding-left: 0;
+      &:before {
+        content: none;
+      }
     }
-    .breadcrumb-item {
-        // Show all breadcrumbs on large screens
-        display: list-item;
-
-        &:nth-last-child(2):not(:first-child):before {
-            // Show divider before parent page
-            content: var(--#{$prefix}breadcrumb-divider-flipped);
-        }
+    &:nth-last-child(2):not(:first-child):before {
+      content: none;
     }
+    &.active {
+      &:before {
+        content: none;
+      }
+    }
+    a:after {
+      width: 1rem;
+      content: var(--#{$prefix}breadcrumb-divider-flipped);
+      float: right;
+      padding-left: var(--qld-breadcrumb-item-padding-x);
+    }
+  }
 }
