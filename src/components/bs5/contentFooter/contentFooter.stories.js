@@ -28,7 +28,7 @@ export default {
 };
 
 /**
- * Default head metadata
+ * Default Content Footer
  * 
  */
 export const Default = {
@@ -42,21 +42,12 @@ export const Default = {
   ],
 };
 
-
-export const DEV = {
+/**
+ * Default empty Content Footer
+ *
+ */
+export const DefaultEmpty = {
   args: {
-    cdn: "DEV",
-  },
-  decorators:[Story => {
-    return `
-          ${Story()}
-      `;
-  }],
-};
-
-export const SQUIZ = {
-  args: {
-    cdn: "/__data/assets/git_bridge/0026/471752",
   },
   decorators:[Story => {
     return `
