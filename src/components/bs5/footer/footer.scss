@@ -286,7 +286,7 @@
   .btn.qg-feedback-toggle {
     font-weight: bold;
   }
-  &:has(#feedbackFormIO .formio-component-html1) {
+  &:has(.show #feedbackFormIO .formio-component-html1) {
     #btn-footer-feedback {
       display: none;
       visibility: hidden;
