@@ -77,7 +77,7 @@
     "minimist": "^1.2.8",
     "npm-run-all2": "^6.1.2",
     "onchange": "^7.1.0",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.39",
     "prettier": "3.3.2",
     "raw-loader": "^4.0.2",
     "rimraf": "^5.0.7",
