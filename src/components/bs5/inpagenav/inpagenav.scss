@@ -40,6 +40,7 @@
     }
 
     .nav-item {
+        margin-top: 0;
         .nav-link {
             padding-top: var(--#{$prefix}inpage-nav-link-padding-y);
             padding-bottom: var(--#{$prefix}inpage-nav-link-padding-y);
