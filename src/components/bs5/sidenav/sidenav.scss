@@ -18,6 +18,9 @@
 
     --sidenav-hover-bg: var(--#{$prefix}extra-light-grey);
     --sidenav-hover-color: var(--#{$prefix}brand-primary);
+    --sidenav-hover-underline-color: var(--#{$prefix}color-default-color-light-underline-hover);
+    --sidenav-visited-color: var(--#{$prefix}color-default-color-light-link);
+    --sidenav-active-color: var(--#{$prefix}color-default-color-light-text-heading);
 
     --sidenav-heading-border-color: #{$qld-brand-secondary};
     --sidenav-item-border-color: #{$qld-soft-grey};
@@ -34,8 +37,12 @@
     .qld-side-navigation {
         --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2309ACFE' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");        
         
-        --sidenav-hover-bg: var(--#{$prefix}brand-primary-dark);
+        --sidenav-hover-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
         --sidenav-hover-color: var(--#{$prefix}white);
+        --sidenav-hover-underline-color:  var(--#{$prefix}color-default-color-dark-underline-hover);
+        --sidenav-visited-color: var(--#{$prefix}white);
+        --sidenav-active-color: var(--#{$prefix}color-default-color-dark-text-heading);
+
         --sidenav-heading-border-color: var(--#{$prefix}brand-secondary);
         --sidenav-item-border-color:    var(--#{$prefix}brand-primary-light);
         --sidenav-subitem-border-color: var(--#{$prefix}brand-primary-light);
@@ -44,9 +51,8 @@
 }
 
 @include color-mode(dark) {
-    
-}
 
+}
 
 
 .qld-side-navigation {
@@ -62,6 +68,12 @@
             text-decoration: none;
             font-weight: inherit;
             font-size: 1rem;
+        }
+
+        .nav-link {
+            &:visited {
+                color: var(--#{$prefix}headings-color);
+            }
         }
     }
 
@@ -80,7 +92,20 @@
             text-underline-offset: 0.25rem;
             text-decoration-thickness: 2px;
         }
+    }
 
+    a.nav-link {
+        &:visited {
+            color: var(--sidenav-visited-color);
+            &:hover {
+                color: var(--sidenav-hover-color);
+                text-decoration-color: var(--sidenav-hover-underline-color);
+            }
+        }
+    }
+
+    .nav-item.active {
+        color: var(--sidenav-active-color);
     }
 
     //Side navigation (ul.nav) 
