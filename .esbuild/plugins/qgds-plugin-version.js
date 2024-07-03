@@ -2,28 +2,49 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
-import listFilesHbs from "../helpers/listFilesHbs.js";
-import log from "../helpers/logger.js";
+import listFilesHbs, {listFiles, listFilesJS} from "../helpers/listFilesHbs.js";
 
 // Helper function to get git information
 const getGitInfo = () => {
-    const getGitBranch = () => execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+    const getGitBranch = () => {
+
+        try {
+            return  execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+        } catch {
+            return ``;
+        }
+    }
     const getGitTag = () => {
+
         try {
             return execSync('git describe --tags --exact-match 2>/dev/null').toString().trim();
         } catch {
-            return null;
+            return ``;
         }
     };
-    const getGitCommit = () => execSync('git rev-parse HEAD').toString().trim();
-    const getGitCommitDate = () => execSync('git log -1 --format=%cI').toString().trim();
+    const getGitCommit = () => {
 
-    return {
+        try {
+            return execSync('git rev-parse HEAD').toString().trim();
+        } catch {
+            return ``;
+        }
+    }
+    const getGitCommitDate = () => {
+        try {
+            execSync('git log -1 --format=%cI').toString().trim();
+        } catch {
+            return ``;
+        }
+    }
+
+    var output = JSON.stringify({
         branch: getGitBranch(),
         tag: getGitTag(),
         commit: getGitCommit(),
         datetime: getGitCommitDate(),
-    };
+    });
+    return output
 };
 
 // Function to extract major version prefix from a tag
@@ -57,23 +78,18 @@ const versionPlugin = () => ({
         build.onStart(async () => {
             const packageInfo = await getPackageJson();
             var majorVersion = extractMajorVersion('v' + packageInfo.version)
-            var gitInfo = {};
-            try {
-                gitInfo = getGidtInfo();
-                majorVersion = extractMajorVersion(gitInfo.tag);
-            } catch (e) {
-                 console.log(`git info not found`);
-                gitInfo = {};
-            }
+            var gitInfo = getGitInfo();
 
             versionDetails = {
                 ...packageInfo,
                 ...gitInfo,
-                majorVersion: extractMajorVersion(majorVersion),
+                majorVersion: majorVersion,
             };
             //log( "green", `Version details collected: ${JSON.stringify(versionDetails)}`);
             //log( "black", "");
         });
+
+
 
         // Replace placeholders in HTML, Mustache, and Handlebars files
         build.onEnd(async (result) => {
@@ -81,11 +97,12 @@ const versionPlugin = () => ({
 
             //List new components
             const root = process.cwd();
-            const relativePath = "/dist/components/";
+            const relativePath = "/dist";
 
-            const newTemplateFiles = listFilesHbs(root + relativePath);
+            const newTemplateFiles = listFiles(root + relativePath);
+            //console.log(newTemplateFiles)
             for (const file of newTemplateFiles) {
-                if (/\.(js|html|mustache|hbs)$/.test(file)) {
+                if (/\.(js|html|hbs)$/.test(file)) {
                     // const outputPath = path.resolve(process.cwd(), file);
                     let source = await fs.readFile(file, 'utf8');
                     let newSource = source.replace(/###VERSION###/g, JSON.stringify(versionDetails));
@@ -95,11 +112,13 @@ const versionPlugin = () => ({
 
                     // Check if the content has changed
                     if (source !== newSource) {
-                        // console.log(`Placeholder replaced in: ${file}, ${newSource}`);
+                         //console.log(`Placeholder replaced in: ${file}, ${newSource}`);
+                         //console.log(`Placeholder replaced in: ${file}`);
                         await fs.writeFile(file, newSource);
                     }
                 }
             }
+
             //log( "green", 'version update Completed');
 
         });

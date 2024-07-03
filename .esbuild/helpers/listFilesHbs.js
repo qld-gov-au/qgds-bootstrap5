@@ -38,4 +38,17 @@ export const listFilesCSS = (dir, filelist = []) => {
 };
 
 
+export const listFiles = (dir, filelist = []) => {
+  fs.readdirSync(dir, { withFileTypes: true }).forEach((file) => {
+    const dirFile = path.join(dir, file.name);
+    if (file.isDirectory()) {
+      filelist = listFiles(dirFile, filelist);
+    } else {
+      filelist.push(dirFile);
+    }
+  });
+  return filelist;
+};
+
+
 export default listFilesHbs;
