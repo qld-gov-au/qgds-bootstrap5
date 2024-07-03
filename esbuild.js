@@ -27,15 +27,11 @@ const buildConfig = {
   target: ["es6"],
   logLevel: "info",
   outdir: "./dist/",
-  external: ["fs", "path", "../img/*"],
+  external: ["fs", "path", "bootstrap", "../img/*"],
 
   entryPoints: [
     {
-      in: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-      out: "./assets/js/bootstrap.min",
-    },
-    {
-      in: "./src/main.js",
+      in: "./src/js/qld.bootstrap.js",
       out: "./assets/js/qld.bootstrap.min",
     },
     {

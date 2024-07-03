@@ -160,5 +160,5 @@ export function initializeNavbar() {
   resetNavbarState(); // Call handler immediately to apply correct setting on init
 }
 
-// Initialize the navbar (see main.js)
+// Initialize the navbar (see qld.bootstrap.js)
 // document.addEventListener('DOMContentLoaded', initializeNavbar);

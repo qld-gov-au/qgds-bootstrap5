@@ -8,6 +8,10 @@ export default function copyPlugin() {
     verbose: false,
     watch: true,
     assets: [
+      {from: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.js"], to: ["./dist/assets/js/bootstrap.js"]},
+      {from: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"], to: ["./dist/assets/js/bootstrap.min.js"]},
+      {from: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map"], to: ["./dist/assets/js/bootstrap.min.js.map"]},
+
       {from: ["./src/components/bs5/**/*.hbs"], to: ["./dist/assets/components/bs5/"],},
       {from: ["./src/js/handlebars.*"], to: ["./dist/assets/js/"],},
       {from: ["./src/img/*"], to: ["./dist/assets/img"]},
