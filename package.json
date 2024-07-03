@@ -39,7 +39,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "bootstrap": "^5.3.1",
-    "material-symbols": "^0.20.0",
+    "material-symbols": "^0.21.0",
     "run-parallel": "^1.2.0"
   },
   "devDependencies": {
