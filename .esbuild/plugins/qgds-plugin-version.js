@@ -56,11 +56,20 @@ const versionPlugin = () => ({
         let versionDetails;
         build.onStart(async () => {
             const packageInfo = await getPackageJson();
-            const gitInfo = getGitInfo();
+            var majorVersion = extractMajorVersion('v' + packageInfo.version)
+            var gitInfo = {};
+            try {
+                gitInfo = getGidtInfo();
+                majorVersion = extractMajorVersion(gitInfo.tag);
+            } catch (e) {
+                 console.log(`git info not found`);
+                gitInfo = {};
+            }
+
             versionDetails = {
                 ...packageInfo,
                 ...gitInfo,
-                majorVersion: extractMajorVersion(gitInfo.tag || 'v' + packageInfo.version),
+                majorVersion: extractMajorVersion(majorVersion),
             };
             //log( "green", `Version details collected: ${JSON.stringify(versionDetails)}`);
             //log( "black", "");
