@@ -38,12 +38,12 @@ const getGitInfo = () => {
         }
     }
 
-    var output = JSON.stringify({
+    var output = {
         branch: getGitBranch(),
         tag: getGitTag(),
         commit: getGitCommit(),
         datetime: getGitCommitDate(),
-    });
+    };
     return output
 };
 
