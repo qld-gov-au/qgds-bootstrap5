@@ -99,11 +99,6 @@ const buildNodeConfig = {
   ],
 }
 async function StartBuild() {
-  //node js module
-  let ctxNode = await esbuild.context(buildNodeConfig);
-  await ctxNode.rebuild();
-  await ctxNode.dispose();
-
   let ctx = await esbuild.context(buildConfig);
 
   if (argv.watch === true) {
@@ -116,7 +111,10 @@ async function StartBuild() {
     await ctx.dispose();
   }
 
-
+  //node js module
+  let ctxNode = await esbuild.context(buildNodeConfig);
+  await ctxNode.rebuild();
+  await ctxNode.dispose();
 
 }
 
