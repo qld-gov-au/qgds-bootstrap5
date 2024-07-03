@@ -12,13 +12,12 @@ import searchData from '../searchInput/searchInput.data.json';
 import breadcrumbs from '../banner/banner.data.json';
 import footerData from '../footer/footer.data.json';
 
-import {
-  masterbrand_variant,
-  subbrand_variant,
-  cobrand_variant,
-  endorsed_variant,
-  standalone_variant,
-} from './header.data.json';
+import masterBrand_variant from './header.variant.masterbrand.data.json'
+import subBrand_variant from './header.variant.subbrand.data.json'
+import coBrand_variant from './header.variant.cobrand.data.json'
+import endorsed_variant from './header.variant.endorsed.data.json'
+import standAlone_variant from './header.variant.standalone.data.json'
+
 
 const sample_argtypes = {
   '--qld-color-default-color-light-background-default': '#ffffff',
@@ -163,7 +162,33 @@ export default {
 // Navbar story with 'Light' color theme
 export const MasterBrand = {
   args: {
-    ...masterbrand_variant,
+    ...masterBrand_variant,
+    ...menu_state,
+  },
+  parameters: {
+    backgrounds: {
+      default: "Light",
+      values: [
+        { name: 'Light', value: 'var(--qld-light-background)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+        ${Story()}
+      `;
+    },
+  ],
+};
+
+
+/**
+ * Master Brand with only manu state included
+ *
+ */
+export const MasterBrandBlankJson = {
+  args: {
     ...menu_state,
   },
   parameters: {
@@ -186,7 +211,7 @@ export const MasterBrand = {
 // Navbar story with 'Dark' color theme
 export const Subbrand = {
   args: {
-    ...subbrand_variant,
+    ...subBrand_variant,
     ...menu_state,
   },
   parameters: {
@@ -208,7 +233,7 @@ export const Subbrand = {
 
 // Co brand
 export const CoBrand = {
-  args: mergeArgs(alternative_palette, cobrand_variant, cobrand_example),
+  args: mergeArgs(alternative_palette, coBrand_variant, cobrand_example),
   argTypes: arg_types,
   parameters: {
     backgrounds: {
@@ -290,7 +315,7 @@ export const EndorsedBrand = {
 
 // Standalone
 export const StandaloneBrand = {
-  args: mergeArgs(sample_argtypes, standalone_variant, menu_state),
+  args: mergeArgs(sample_argtypes, standAlone_variant, menu_state),
   argTypes: arg_types,
   parameters: {
     backgrounds: {

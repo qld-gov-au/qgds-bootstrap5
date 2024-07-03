@@ -1,0 +1,51 @@
+{
+  "icon-root": "assets/img/svg-icons.svg",
+  "icons": {
+    "menu-icon": "qld__icon__mobile-menu",
+    "search-icon": "qld__icon__search",
+    "close-icon": "qld__icon__close",
+    "chevron_down": "qld__icon__chevron-down"
+  },
+  "sitePreHeader": {
+    "preHeaderBrand": {
+      "url": "https://cobrand.qld.gov.au",
+      "text": "cobrand.qld.gov.au"
+    },
+    "CTA": [
+      {
+        "id": "CTAone",
+        "url": {
+          "value": "#"
+        },
+        "text": {
+          "value": "Get support to quit"
+        }
+      }
+    ]
+  },
+  "siteHeader": {
+    "config": {
+      "masterbrand_disabled": true,
+      "subbrand_enabled": true,
+      "cobrand_enabled": false,
+      "endorsed_enabled": false,
+      "standalone_enabled": false
+    },
+    "url": {
+      "value": "https://www.qld.gov.au"
+    },
+    "logo": {},
+    "secondaryType": {
+      "logo": {
+        "value": ""
+      },
+      "siteTitle": {
+        "value": "Vaping Exposed"
+      },
+      "subline": {
+        "value": ""
+      }
+    }
+  },
+  "siteSearch_disabled": true
+}
