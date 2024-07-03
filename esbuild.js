@@ -72,7 +72,38 @@ const buildConfig = {
   ],
 };
 
+const buildNodeConfig = {
+  loader: buildConfig.loader,
+  bundle: true,
+  minify: false,
+  sourcemap: true,
+  minifyIdentifiers: false,
+  logLevel: buildConfig.logLevel,
+  outdir: buildConfig.outdir,
+  external: buildConfig.external,
+  platform: "node",
+  target: ["node20"],
+  format: 'esm',
+  entryPoints: [
+    {
+      in: "./src/js/handlebars.init.cjs",
+      out: "./assets/node/handlebars.init.min",
+    },
+  ],
+  plugins: [
+    QGDSupdateHandlebarsPartialsPlugin(),
+    QDGScopy(),
+    QGDSrawLoader(),
+    versionPlugin(),
+    handlebarsPlugin(),
+  ],
+}
 async function StartBuild() {
+  //node js module
+  let ctxNode = await esbuild.context(buildNodeConfig);
+  await ctxNode.rebuild();
+  await ctxNode.dispose();
+
   let ctx = await esbuild.context(buildConfig);
 
   if (argv.watch === true) {
@@ -84,6 +115,7 @@ async function StartBuild() {
     await ctx.rebuild();
     await ctx.dispose();
   }
+
 
 
 }

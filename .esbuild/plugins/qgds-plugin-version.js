@@ -62,13 +62,13 @@ const versionPlugin = () => ({
                 ...gitInfo,
                 majorVersion: extractMajorVersion(gitInfo.tag || 'v' + packageInfo.version),
             };
-            log( "green", `Version details collected: ${JSON.stringify(versionDetails)}`);
-            log( "black", "");
+            //log( "green", `Version details collected: ${JSON.stringify(versionDetails)}`);
+            //log( "black", "");
         });
 
         // Replace placeholders in HTML, Mustache, and Handlebars files
         build.onEnd(async (result) => {
-            log( "green", 'version update starting...');
+            //log( "green", 'version update starting...');
 
             //List new components
             const root = process.cwd();
@@ -76,7 +76,7 @@ const versionPlugin = () => ({
 
             const newTemplateFiles = listFilesHbs(root + relativePath);
             for (const file of newTemplateFiles) {
-                if (/\.(html|mustache|hbs)$/.test(file)) {
+                if (/\.(js|html|mustache|hbs)$/.test(file)) {
                     // const outputPath = path.resolve(process.cwd(), file);
                     let source = await fs.readFile(file, 'utf8');
                     let newSource = source.replace(/###VERSION###/g, JSON.stringify(versionDetails));
@@ -91,7 +91,7 @@ const versionPlugin = () => ({
                     }
                 }
             }
-            log( "green", 'version update Completed');
+            //log( "green", 'version update Completed');
 
         });
 
