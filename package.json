@@ -12,9 +12,11 @@
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
     "build": "node esbuild.js",
-    "test": "echo 'no tests yet'",
+    "test": "npm-run-all --parallel --race serve:test test:testrunner",
+    "test:testrunner": "sleep 2 && mocha --timeout 10000 --require ./test/testServer.test.js ",
     "watch": "node esbuild.js --watch",
     "serve": "live-server dist",
+    "serve:test": "live-server --no-browser --port=8081",
     "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --webpack-stats-json ",
@@ -40,8 +42,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "bootstrap": "^5.3.1",
-    "material-symbols": "^0.21.0",
-    "run-parallel": "^1.2.0"
+    "material-symbols": "^0.21.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.0",
@@ -63,6 +64,7 @@
     "@vitejs/plugin-vue": "5.0.5",
     "@whitespace/storybook-addon-html": "^6.1.1",
     "autoprefixer": "^10.4.15",
+    "chai": "^5.1.1",
     "chalk": "^5.3.0",
     "chromatic": "^11.5.4",
     "esbuild": "0.23.0",
@@ -76,13 +78,17 @@
     "handlebars": "4.7.8",
     "live-server": "1.2.2",
     "minimist": "^1.2.8",
+    "mocha": "^10.5.1",
     "npm-run-all2": "^6.2.1",
     "onchange": "^7.1.0",
+    "portfinder": "^1.0.32",
     "postcss": "^8.4.39",
     "prettier": "3.3.2",
     "raw-loader": "^4.0.2",
     "rimraf": "^5.0.7",
+    "run-parallel": "^1.2.0",
     "sass": "^1.77.6",
+    "selenium-webdriver": "^4.22.0",
     "storybook": "^8.1.11",
     "vite": "^5.3.3",
     "watch": "^1.0.2"
