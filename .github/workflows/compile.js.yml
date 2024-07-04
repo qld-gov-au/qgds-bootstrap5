@@ -71,6 +71,12 @@ jobs:
         run: |
           npm run test
 
+
+      - name: Integration Test
+        run: |
+          npm run test:integration
+        continue-on-error: true
+
       - name: Build 🔧
         run: | # build the files
           npm run build
