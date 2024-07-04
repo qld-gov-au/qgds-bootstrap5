@@ -21,6 +21,8 @@ describe('DOM Content Test with Selenium on Full Page Partials', function () {
     } catch (e) {
       console.log(`error waiting, moving on, error was: ${e}`)
     }
+    
+    await new Promise(resolve => setTimeout(resolve, 500))
 
   });
 
