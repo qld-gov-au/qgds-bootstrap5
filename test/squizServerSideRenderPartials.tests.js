@@ -1,6 +1,6 @@
-import {By, until} from 'selenium-webdriver';
+import { By, until } from 'selenium-webdriver';
 import { expect } from 'chai';
-import {describe, before, after, it } from 'mocha';
+import { describe, before, after, it } from 'mocha';
 import { init, initAfter } from './testServer.test.js';
 
 describe('DOM Content Test with Selenium on Full Page Partials', function () {
