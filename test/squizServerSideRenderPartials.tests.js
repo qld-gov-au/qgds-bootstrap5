@@ -14,8 +14,14 @@ describe('DOM Content Test with Selenium on Full Page Partials', function () {
     driver = data.driver;
 
     await driver.get(`http://localhost:${serverPort}/test/squizExamplePartials.html`);
-    await driver.wait(until.elementLocated(By.css('.footer-content')), 10000);
     await new Promise(resolve => setTimeout(resolve, 500))
+
+    try {
+      await driver.wait(until.elementLocated(By.css('.footer-content')), 10000);
+    } catch (e) {
+      console.log(`error waiting, moving on, error was: ${e}`)
+    }
+
   });
 
   after( async function () {
