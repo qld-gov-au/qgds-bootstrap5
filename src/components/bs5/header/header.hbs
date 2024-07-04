@@ -179,7 +179,7 @@
                     {{#each sitePreHeader.CTA}}
                         <span {{#if dropdown_enabled}} class="dropdown dropdownCTA" {{/if}}>
                             <a {{#if dropdown_enabled}} id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="qld__header__cta-link" href="#" {{else}} href="{{url.value}}" class="qld__header__cta-link" {{/if}}>
-                                <span class="qld__header__cta-link-text">{{text.value}}</span>
+                                <span class="qld__header__cta-link-text">{{{text.value}}}</span>
                                 {{#if dropdown_enabled}}
                                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__header__cta-link-icon">
                                         <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}"></use>
