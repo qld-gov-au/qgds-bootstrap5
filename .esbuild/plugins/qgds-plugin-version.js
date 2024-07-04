@@ -2,28 +2,49 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
-import listFiles from "../helpers/listfiles.js";
-import log from "../helpers/logger.js";
+import listFilesHbs, {listFiles, listFilesJS} from "../helpers/listFilesHbs.js";
 
 // Helper function to get git information
 const getGitInfo = () => {
-    const getGitBranch = () => execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+    const getGitBranch = () => {
+
+        try {
+            return  execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+        } catch {
+            return ``;
+        }
+    }
     const getGitTag = () => {
+
         try {
             return execSync('git describe --tags --exact-match 2>/dev/null').toString().trim();
         } catch {
-            return null;
+            return ``;
         }
     };
-    const getGitCommit = () => execSync('git rev-parse HEAD').toString().trim();
-    const getGitCommitDate = () => execSync('git log -1 --format=%cI').toString().trim();
+    const getGitCommit = () => {
 
-    return {
+        try {
+            return execSync('git rev-parse HEAD').toString().trim();
+        } catch {
+            return ``;
+        }
+    }
+    const getGitCommitDate = () => {
+        try {
+            execSync('git log -1 --format=%cI').toString().trim();
+        } catch {
+            return ``;
+        }
+    }
+
+    var output = {
         branch: getGitBranch(),
         tag: getGitTag(),
         commit: getGitCommit(),
         datetime: getGitCommitDate(),
     };
+    return output
 };
 
 // Function to extract major version prefix from a tag
@@ -56,26 +77,32 @@ const versionPlugin = () => ({
         let versionDetails;
         build.onStart(async () => {
             const packageInfo = await getPackageJson();
-            const gitInfo = getGitInfo();
+            var majorVersion = extractMajorVersion('v' + packageInfo.version)
+            var gitInfo = getGitInfo();
+
             versionDetails = {
                 ...packageInfo,
                 ...gitInfo,
-                majorVersion: extractMajorVersion(gitInfo.tag || 'v' + packageInfo.version),
+                majorVersion: majorVersion,
             };
-            console.log(`version details collected: ${JSON.stringify(versionDetails)}`);
+            //log( "green", `Version details collected: ${JSON.stringify(versionDetails)}`);
+            //log( "black", "");
         });
+
+
 
         // Replace placeholders in HTML, Mustache, and Handlebars files
         build.onEnd(async (result) => {
-            console.log('version update starting...');
+            //log( "green", 'version update starting...');
 
             //List new components
             const root = process.cwd();
-            const relativePath = "/dist/components/";
+            const relativePath = "/dist";
 
             const newTemplateFiles = listFiles(root + relativePath);
+            //console.log(newTemplateFiles)
             for (const file of newTemplateFiles) {
-                if (/\.(html|mustache|hbs)$/.test(file)) {
+                if (/\.(js|html|hbs)$/.test(file)) {
                     // const outputPath = path.resolve(process.cwd(), file);
                     let source = await fs.readFile(file, 'utf8');
                     let newSource = source.replace(/###VERSION###/g, JSON.stringify(versionDetails));
@@ -85,12 +112,14 @@ const versionPlugin = () => ({
 
                     // Check if the content has changed
                     if (source !== newSource) {
-                        // console.log(`Placeholder replaced in: ${file}, ${newSource}`);
+                         //console.log(`Placeholder replaced in: ${file}, ${newSource}`);
+                         //console.log(`Placeholder replaced in: ${file}`);
                         await fs.writeFile(file, newSource);
                     }
                 }
             }
-            console.log('version update Completed');
+
+            //log( "green", 'version update Completed');
 
         });
 
