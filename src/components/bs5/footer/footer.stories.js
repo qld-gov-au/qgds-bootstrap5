@@ -153,21 +153,13 @@ export const DarkAlt = {
 export const Forgov = {
   args: {
     ...defaultdata,
-    variantClass: "dark",
     sitename: "For government",
-    footerHasCrest: false,
+    variantClass: "dark",
+    contactHasContactList: true,
+    footerHasCrest: true,
+    footerHasStateOfQld: true,
     feedbackFormEnabled: true,
-    followlinksEnabled: false,
-    contactHasContactList: false,
-    copyrightHasYearFrom: true,
-    footerHasStateOfQld: false,
-    acknowledgements: [
-      {
-        title: "Cultural acknowledgement",
-        content:
-          "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>",
-      },
-    ],
+    followlinksEnabled: true,
   },
   render: (args) => new FooterForgov(args).html,
 };
