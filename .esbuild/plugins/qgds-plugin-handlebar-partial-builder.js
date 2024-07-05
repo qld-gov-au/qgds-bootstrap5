@@ -58,7 +58,7 @@ export default function QGDSupdateHandlebarsPartialsPlugin() {
                     const componentPath = path.relative(path.dirname(PARTIALS_JS_FILE), file).replace(/\\/g, '/');
 
                     importLines += `import ${importName} from "${componentPath}?raw";\n`;
-                    registerLines += `    handlebars.registerPartial("${componentName}", ${importName});\n`;
+                    registerLines += `  handlebars.registerPartial("${componentName}", ${importName});\n`;
                 }
 
                 if (duplicateFound) {
@@ -84,7 +84,7 @@ if(typeof(Handlebars) !== 'undefined') {
 `;
 
                 fs.writeFileSync(PARTIALS_JS_FILE, newContent);
-                console.log('handlebar.partials.js has been updated.');
+                //console.log(`${PARTIALS_JS_FILE} has been updated.`);
             });
         },
     }

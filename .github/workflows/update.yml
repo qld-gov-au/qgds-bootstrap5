@@ -57,7 +57,8 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm ci
+      - name: npm ci (don't run prepare)
+        run: npm ci --ignore-scripts
 
       - name: Update & Push git tags
         if: ${{ env.HAVE_GIT_DEPLOY_KEY == 'true' }}

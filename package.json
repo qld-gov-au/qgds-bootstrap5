@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "1.0.21",
+  "version": "1.1.0",
   "description": "",
   "repository": {
     "type": "git",
@@ -8,12 +8,16 @@
   },
   "main": "index.js",
   "scripts": {
+    "prepare": "npm run build",
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
     "build": "node esbuild.js",
-    "test": "echo 'no tests yet'",
+    "test": "echo 'no unit tests built yet'",
+    "test:integration": "npm-run-all --parallel --race serve:test test:testrunner",
+    "test:testrunner": "sleep 2 && mocha --timeout 10000 --require ./test/testServer.test.js ",
     "watch": "node esbuild.js --watch",
     "serve": "live-server dist",
+    "serve:test": "live-server --no-browser --port=8081",
     "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --webpack-stats-json ",
@@ -39,8 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "bootstrap": "^5.3.1",
-    "material-symbols": "^0.20.0",
-    "run-parallel": "^1.2.0"
+    "material-symbols": "^0.21.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.0",
@@ -62,9 +65,10 @@
     "@vitejs/plugin-vue": "5.0.5",
     "@whitespace/storybook-addon-html": "^6.1.1",
     "autoprefixer": "^10.4.15",
+    "chai": "^5.1.1",
     "chalk": "^5.3.0",
     "chromatic": "^11.5.4",
-    "esbuild": "0.22.0",
+    "esbuild": "0.23.0",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-eslint": "^0.3.7",
     "esbuild-plugin-handlebars": "1.0.3",
@@ -75,25 +79,30 @@
     "handlebars": "4.7.8",
     "live-server": "1.2.2",
     "minimist": "^1.2.8",
-    "npm-run-all2": "^6.1.2",
+    "mocha": "^10.5.1",
+    "npm-run-all2": "^6.2.2",
     "onchange": "^7.1.0",
+    "portfinder": "^1.0.32",
     "postcss": "^8.4.39",
     "prettier": "3.3.2",
     "raw-loader": "^4.0.2",
     "rimraf": "^5.0.7",
+    "run-parallel": "^1.2.0",
     "sass": "^1.77.6",
+    "selenium-webdriver": "^4.22.0",
     "storybook": "^8.1.11",
-    "vite": "^5.3.2",
+    "vite": "^5.3.3",
     "watch": "^1.0.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "exports": {
-    "qld.bootstrap.min.js": "./dist/assets/js/qld.bootstrap.min.js",
-    "qld.bootstrap.css": "./dist/assets/css/qld.bootstrap.css",
-    "handlebars.helpers.bundle.js": "./dist/components/handlebars.helpers.bundle.js",
-    "handlebars.init.min.js": "./dist/components/handlebars.init.min.js",
-    "bootstrap.min.js": "./dist/assets/js/boostrap.min.js"
+    "./qld.bootstrap.min.js": "./dist/assets/js/qld.bootstrap.min.js",
+    "./qld.bootstrap.css": "./dist/assets/css/qld.bootstrap.css",
+    "./handlebars.helpers.bundle.js": "./dist/assets/js/handlebars.helpers.bundle.js",
+    "./handlebars.init.min.js": "./dist/assets/js/handlebars.init.min.js",
+    "./handlebarsInit": "./dist/assets/node/handlebars.init.min.js",
+    "./bootstrap.min.js": "./dist/assets/js/boostrap.min.js"
   }
 }

@@ -11,6 +11,7 @@ export default function log(color, message) {
     blue: "\x1b[34m",
     red: "\x1b[31m",
     reset: "\x1b[0m",
+    black: "\x1b[0m",
     magenta: "\x1b[35m",
     cyan: "\x1b[36m",
   };

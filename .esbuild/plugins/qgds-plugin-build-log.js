@@ -1,6 +1,6 @@
 /* global process */
 import log from "../helpers/logger.js";
-import listFiles from "../helpers/listfiles.js";
+import listFilesHbs, {listFilesCSS, listFilesJS} from "../helpers/listFilesHbs.js";
 
 
 export default function buildlog() {
@@ -16,24 +16,32 @@ export default function buildlog() {
       build.onEnd((result) => {
         console.log("BUNDLING:");
         build.initialOptions.entryPoints.forEach((entry) => {
-          log("cyan", entry.in);
+          log("cyan", `${entry.in} -> ${entry.out}`);
         });
-        
-        console.log(`\n`);
-        console.log("CREATED:");
-        log("magenta", `CSS\t\t./dist/assets/css/qld.bootstrap.css`);
-        log("blue", "JS\t\t./dist/assets/js/bootstrap.min.js");
-        log("blue", `JS\t\t./dist/assets/js/qld.bootstrap.min.js`);
-
-        //List new components
         const root = process.cwd();
-        const relativePath = "/dist/components/bs5/";
-        const newTemplateFiles = listFiles(root + relativePath);
-        
-        newTemplateFiles.forEach((file) => {
+
+        log( "black", "\n");
+        log( "black", "CREATED:");
+
+        listFilesCSS(root + "/dist/").forEach((file) => {
+          let newfile = file.replace(root, "");
+          log("magenta", `CSS:\t\t.${newfile}`);
+        });
+
+
+        listFilesJS(root + "/dist/").forEach((file) => {
+          let newfile = file.replace(root, "");
+          log("blue", `JS:\t\t.${newfile}`);
+        });
+
+
+        //List new assets
+
+        listFilesHbs(root + "/dist/").forEach((file) => {
           let newfile = file.replace(root, "");
           log("cyan", `Template:\t.${newfile}`);
         });
+
 
       });
 

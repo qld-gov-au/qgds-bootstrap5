@@ -27,15 +27,11 @@ const buildConfig = {
   target: ["es6"],
   logLevel: "info",
   outdir: "./dist/",
-  external: ["fs", "path", "../img/*"],
+  external: ["fs", "path", "bootstrap", "../img/*"],
 
   entryPoints: [
     {
-      in: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-      out: "./assets/js/bootstrap.min",
-    },
-    {
-      in: "./src/main.js",
+      in: "./src/js/qld.bootstrap.js",
       out: "./assets/js/qld.bootstrap.min",
     },
     {
@@ -45,10 +41,6 @@ const buildConfig = {
     {
       in: "./src/js/handlebars.helpers.js",
       out: "./assets/js/handlebars.helpers.bundle",
-    },
-    {
-      in: "./src/js/handlebars.init.js",
-      out: "./components/handlebars.init.min",
     },
     {
       in: "./src/js/handlebars.init.js",
@@ -67,15 +59,41 @@ const buildConfig = {
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
     QDGScopy(),
-    QDGSbuildLog(),
     QGDSrawLoader(),
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
     sassPlugin(),
+    QDGSbuildLog(),
   ],
 };
 
+const buildNodeConfig = {
+  loader: buildConfig.loader,
+  bundle: true,
+  minify: false,
+  sourcemap: true,
+  minifyIdentifiers: false,
+  logLevel: buildConfig.logLevel,
+  outdir: buildConfig.outdir,
+  external: buildConfig.external,
+  platform: "node",
+  target: ["node20"],
+  format: 'esm',
+  entryPoints: [
+    {
+      in: "./src/js/handlebars.init.cjs",
+      out: "./assets/node/handlebars.init.min",
+    },
+  ],
+  plugins: [
+    QGDSupdateHandlebarsPartialsPlugin(),
+    QDGScopy(),
+    QGDSrawLoader(),
+    versionPlugin(),
+    handlebarsPlugin(),
+  ],
+}
 async function StartBuild() {
   let ctx = await esbuild.context(buildConfig);
 
@@ -89,6 +107,10 @@ async function StartBuild() {
     await ctx.dispose();
   }
 
+  //node js module
+  let ctxNode = await esbuild.context(buildNodeConfig);
+  await ctxNode.rebuild();
+  await ctxNode.dispose();
 
 }
 
