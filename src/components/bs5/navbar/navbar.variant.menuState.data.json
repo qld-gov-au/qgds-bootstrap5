@@ -3,7 +3,7 @@
     "target_url": "metadata-index.html",
     "options": {
       "showHomeTitleSmallDevices": true,
-      "icon-root": "/assets/img/svg-icons.svg",
+      "icon-root": "./assets/img/svg-icons.svg",
       "home-active": true
     }
   },

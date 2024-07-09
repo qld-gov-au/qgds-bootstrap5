@@ -8,11 +8,11 @@ const config = {
         "../src/**/!(*_)*.stories.js",
     ],
     staticDirs: [
-        { from: '../dist', to: '/assets' },
+        { from: '../dist', to: '/' },
     ], //Bring dist in statically instead of having it minified
     addons: [//Storybook addons
     //https://storybook.js.org/addons/
-    "@storybook/addon-a11y", "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@chromatic-com/storybook", "@storybook/addon-mdx-gfm"],
+    "@storybook/addon-a11y", "@storybook/addon-themes", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-links", "@chromatic-com/storybook"],
 
     framework: {
         //Build the storybook with html-vite rendered - faster than webpack
