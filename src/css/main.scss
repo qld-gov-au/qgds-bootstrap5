@@ -27,7 +27,7 @@ $enable-dark-mode: true;
 @import "~bootstrap/scss/variables-dark";
 
 // 2. QLD Design System variables (Bootstrap overrides)
-@import "./scss/qld-variables";
+@import "./qld-variables";
 // @import "./scss/qld-variables-dark"; //future state
 
 // 3. Include remainder of bootstrap
@@ -77,44 +77,44 @@ $enable-dark-mode: true;
 @import "~bootstrap/scss/utilities/api";
 
 //8. QLD Design System typography (bootstrap overrides and custom). Please maintain naming consistency.
-@import "./scss/qld-type";
+@import "./qld-type";
 
 // 9. QLD Design System components (bootstrap overrides and custom). Please maintain naming consistency.
-@import "./components/bs5/accordion/accordion.scss";
-@import "./components/bs5/banner/banner.scss";
-@import "./components/bs5/blockquote/blockquote.scss";
-@import "./components/bs5/breadcrumbs/breadcrumbs.scss";
-@import "./components/bs5/button/button.scss";
-@import "./components/bs5/callout/callout.scss";
-@import "./components/bs5/card/card.scss";
-@import "./components/bs5/correctincorrect/correctincorrect.scss";
-@import "./components/bs5/dateinput/dateinput.scss";
-@import "./components/bs5/formcheck/formcheck.scss";
-@import "./components/bs5/footer/footer.scss";
-@import "./components/bs5/globalAlert/globalAlert.scss";
-@import "./components/bs5/header/header.scss";
-@import "./components/bs5/icons/icons.scss";
-@import "./components/bs5/inpageAlert/inpageAlert.scss";
-@import "./components/bs5/inpagenav/inpagenav.scss";
-@import "./components/bs5/modal/modal.scss";
-@import "./components/bs5/navbar/navbar.scss";
-@import "./components/bs5/pagination/pagination.scss";
-@import "./components/bs5/quickexit/quickexit.scss";
-@import "./components/bs5/sidenav/sidenav.scss";
-@import "./components/bs5/searchInput/searchInput.scss";
-@import "./components/bs5/spinner/spinner.scss";
-@import "./components/bs5/table/table.scss";
-@import "./components/bs5/tag/tag.scss";
-@import "./components/bs5/textbox/textInput.scss";
-@import "./components/bs5/typography/typography.scss";
-@import "./components/bs5/video/video.scss";
+@import "../components/bs5/accordion/accordion";
+@import "../components/bs5/banner/banner";
+@import "../components/bs5/blockquote/blockquote";
+@import "../components/bs5/breadcrumbs/breadcrumbs";
+@import "../components/bs5/button/button";
+@import "../components/bs5/callout/callout";
+@import "../components/bs5/card/card";
+@import "../components/bs5/correctincorrect/correctincorrect";
+@import "../components/bs5/dateinput/dateinput";
+@import "../components/bs5/formcheck/formcheck";
+@import "../components/bs5/footer/footer";
+@import "../components/bs5/globalAlert/globalAlert";
+@import "../components/bs5/header/header";
+@import "../components/bs5/icons/icons";
+@import "../components/bs5/inpageAlert/inpageAlert";
+@import "../components/bs5/inpagenav/inpagenav";
+@import "../components/bs5/modal/modal";
+@import "../components/bs5/navbar/navbar";
+@import "../components/bs5/pagination/pagination";
+@import "../components/bs5/quickexit/quickexit";
+@import "../components/bs5/sidenav/sidenav";
+@import "../components/bs5/searchInput/searchInput";
+@import "../components/bs5/spinner/spinner";
+@import "../components/bs5/table/table";
+@import "../components/bs5/tag/tag";
+@import "../components/bs5/textbox/textInput";
+@import "../components/bs5/typography/typography";
+@import "../components/bs5/video/video";
 
 
 // Common Layout Blocks, under review
-@import "./components/common/layout/content.scss";
+@import "../components/common/layout/content";
 
 // Themes
-@import "./scss/qld-theme.scss";
+@import "qld-theme";
 
 // Print
-@import "./scss/qld-print.scss";
+@import "qld-print";
