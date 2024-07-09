@@ -237,6 +237,10 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
         margin-top: 0.5rem;
     }
 
+    .card-text > :last-child {
+        margin-bottom: 0;
+    }
+
     &-single-action,
     &-multi-action {
         box-shadow: var(--#{$prefix}card-box-shadow);
