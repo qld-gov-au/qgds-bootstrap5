@@ -9,7 +9,6 @@ const config = {
     ],
     staticDirs: [
         { from: '../dist', to: '/assets' },
-        { from: '../src/assets/img', to: '/assets/img' },
     ], //Bring dist in statically instead of having it minified
     addons: [//Storybook addons
     //https://storybook.js.org/addons/

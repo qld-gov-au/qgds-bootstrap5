@@ -12,13 +12,11 @@ import searchData from '../searchInput/searchInput.data.json';
 import breadcrumbs from '../banner/banner.data.json';
 import footerData from '../footer/footer.data.json';
 
-import {
-  masterbrand_variant,
-  subbrand_variant,
-  cobrand_variant,
-  endorsed_variant,
-  standalone_variant,
-} from './header.data.json';
+import masterbrand_variant from './header.variant.masterBrand.data.json';
+import subbrand_variant from './header.variant.subBrand.data.json';
+import cobrand_variant from './header.variant.coBrand.data.json';
+import endorsed_variant from './header.variant.endorsed.data.json';
+import standalone_variant from './header.variant.standAlone.data.json';
 
 const sample_argtypes = {
   '--qld-color-default-color-light-background-default': '#ffffff',

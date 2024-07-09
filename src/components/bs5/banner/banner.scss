@@ -11,7 +11,7 @@
     // Variants (text colour and backgrounds)
     &.alt {
         --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-alt);
-        --#{$prefix}banner-bg-texture: url(assets/img/banner-texture-tile-light.png);
+        --#{$prefix}banner-bg-texture: url(img/banner-texture-tile-light.png);
     }
 
     &.dark,
@@ -31,7 +31,7 @@
 
     &.dark {
         --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
-        --#{$prefix}banner-bg-texture: url(assets/img/banner-texture-tile-dark.png);
+        --#{$prefix}banner-bg-texture: url(img/banner-texture-tile-dark.png);
     }
 
     &.dark-alt {
