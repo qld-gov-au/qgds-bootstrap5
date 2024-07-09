@@ -14,7 +14,7 @@ export default function copyPlugin() {
 
       {from: ["./src/components/bs5/**/*.hbs"], to: ["./dist/assets/components/bs5/"],},
       {from: ["./src/js/handlebars.*"], to: ["./dist/assets/js/"],},
-      {from: ["./src/img/*"], to: ["./dist/assets/img"]},
+      {from: ["./src/assets/img/*"], to: ["./dist/assets/img"]},
       // Sample data
       {from: ["./src/components/bs5/**/*.data.json"], to: ["./dist/sample-data/"],},
 
