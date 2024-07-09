@@ -1,5 +1,5 @@
 {
-  "icon-root": "assets/img/svg-icons.svg",
+  "icon-root": "/assets/img/svg-icons.svg",
   "icons": {
     "menu-icon": "qld__icon__mobile-menu",
     "search-icon": "qld__icon__search",
@@ -150,10 +150,10 @@
         "value": ""
       },
       "siteTitle": {
-        "value": "Queensland Government Design System"
+        "value": ""
       },
       "subline": {
-        "value": "QGDS"
+        "value": ""
       }
     }
   },

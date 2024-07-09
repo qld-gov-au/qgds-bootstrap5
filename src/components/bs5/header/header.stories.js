@@ -7,8 +7,8 @@ import { Banner } from '../banner/Banner.js';
 import { Footer } from '../footer/Footer.js';
 
 // Mock data
-import menu_state from '../navbar/navbar.varient.menuState.data.json';
-import cobrand_example from '../navbar/navbar.varient.coBrand.data.json';
+import menu_state from '../navbar/navbar.variant.menuState.data.json';
+import cobrand_example from '../navbar/navbar.variant.coBrand.data.json';
 import searchData from '../searchInput/searchInput.data.json';
 import breadcrumbs from '../banner/banner.data.json';
 import footerData from '../footer/footer.data.json';
@@ -183,7 +183,7 @@ export const MasterBrand = {
 };
 
 // Navbar story with 'Dark' color theme
-export const Subbrand = {
+export const SubBrand = {
   args: {
     ...subbrand_variant,
     ...menu_state,
