@@ -7,7 +7,8 @@ import { Banner } from '../banner/Banner.js';
 import { Footer } from '../footer/Footer.js';
 
 // Mock data
-import { menu_state, cobrand_example } from '../navbar/navbar.data.json';
+import menu_state from '../navbar/navbar.varient.menuState.data.json';
+import cobrand_example from '../navbar/navbar.varient.coBrand.data.json';
 import searchData from '../searchInput/searchInput.data.json';
 import breadcrumbs from '../banner/banner.data.json';
 import footerData from '../footer/footer.data.json';
