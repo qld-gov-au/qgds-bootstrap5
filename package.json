@@ -52,7 +52,6 @@
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",
-    "@storybook/addon-mdx-gfm": "^8.1.11",
     "@storybook/addon-themes": "^8.1.11",
     "@storybook/blocks": "^8.1.9",
     "@storybook/cli": "^8.1.11",

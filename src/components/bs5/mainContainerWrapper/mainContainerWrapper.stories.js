@@ -3,8 +3,8 @@ import { MainContainerWrapperTest } from "./mainContainerWrapper.test.js";
 import init from "./../../../js/handlebars.init";
 import Handlebars from "handlebars";
 //Data
-import { masterbrand_variant } from '../header/header.data.json';
-import { menu_state } from "../navbar/navbar.data.json";
+import masterbrand_variant from '../header/header.variant.masterBrand.data.json';
+import menu_state from "../navbar/navbar.variant.menuState.data.json";
 import breadcrumbsData from "../breadcrumbs/breadcrumbs.data.json";
 import searchData from "../searchInput/searchInput.data.json";
 import globalAlertData from "../globalAlert/globalAlert.data.json";
