@@ -116,7 +116,7 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
         content: none;
       }
     }
-    &:nth-last-child(2):not(:first-child):before {
+    &:nth-last-child(2):before {
       content: none;
     }
     &.active {
