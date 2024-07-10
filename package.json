@@ -53,7 +53,7 @@
     "@storybook/addon-interactions": "^8.2.1",
     "@storybook/addon-links": "^8.2.1",
     "@storybook/addon-themes": "^8.2.1",
-    "@storybook/blocks": "^8.1.9",
+    "@storybook/blocks": "^8.2.1",
     "@storybook/cli": "^8.2.1",
     "@storybook/html": "^8.2.1",
     "@storybook/html-vite": "^8.2.1",
@@ -89,7 +89,7 @@
     "run-parallel": "^1.2.0",
     "sass": "^1.77.6",
     "selenium-webdriver": "^4.22.0",
-    "storybook": "^8.1.11",
+    "storybook": "^8.2.1",
     "vite": "^5.3.3",
     "watch": "^1.0.2"
   },
