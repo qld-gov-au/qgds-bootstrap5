@@ -1,0 +1,41 @@
+    <span {{#if dropdown_enabled}} class="dropdown dropdownCTA" {{/if}}>
+                            <a {{#if dropdown_enabled}} id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="qld__header__cta-link" href="#" {{else}} href="{{url.value}}" class="qld__header__cta-link" {{/if}}>
+                                <span class="qld__header__cta-link-text">{{{text.value}}}</span>
+                                {{#if dropdown_enabled}}
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__header__cta-link-icon">
+                                        <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}"></use>
+                                    </svg>
+                                {{/if}}
+                            </a>
+        {{#if dropdown_enabled}}
+            <ul class="dropdown-menu dark" aria-labelledby="dropdown{{id}}" role="list">
+                                {{#isType dropdown_options.dropdown_type "list"}}
+                                    {{#if dropdown_options.dropdown_config}}
+                                        {{#each dropdown_options.dropdown_config.groups}}
+                                            <li class="qld__header__cta-list">
+                                            <a href="{{url}}" {{#if action}} target="{{action}}" {{/if}}>
+                                                {{label}}
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
+                                                    <path d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z" fill="#FFE500" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        {{/each}}
+                                        {{#if dropdown_options.view_more}}
+                                            <li class="qld__header__cta-list">
+                                            <a href="{{dropdown_options.url}}" target="{{dropdown_options.target}}" class="view-all border-bottom-0">
+                                                {{dropdown_options.label}}
+                                            </a>
+                                        </li>
+                                        {{/if}}
+                                    {{/if}}
+                                {{/isType}}
+                {{#isType dropdown_options.dropdown_type "form"}}
+                    {{#if dropdown_options.dropdown_config.content}}
+                        {{{dropdown_options.dropdown_config.content}}}
+                    {{/if}}
+                {{/isType}}
+                            </ul>
+        {{/if}}
+                        </span>
