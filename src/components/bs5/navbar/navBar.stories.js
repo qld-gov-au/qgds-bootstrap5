@@ -202,7 +202,7 @@ export const CoBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
+      const { ...args } = context.args;
       
       // Generate CSS variables from args
       const cssVariables = Object.keys(args).filter(key => key.startsWith('--')).map(key => {
@@ -238,7 +238,7 @@ export const EndorsedBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
+      const { ...args } = context.args;
       
       // Generate CSS variables from args
       const cssVariables = Object.keys(args).filter(key => key.startsWith('--')).map(key => {
@@ -274,7 +274,7 @@ export const StandaloneBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
+      const { ...args } = context.args;
       
       // Generate CSS variables from args
       const cssVariables = Object.keys(args).filter(key => key.startsWith('--')).map(key => {
