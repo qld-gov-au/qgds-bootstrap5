@@ -16,13 +16,17 @@ import footerData from "../footer/footer.data.json";
 const defaultData = {
   cdn: ".", //for StoryBook it's ., for normal usage "PROD"
   title: "title goes here",
+  "icon-root": masterbrand_variant["icon-root"],
+  icons: masterbrand_variant.icons,
   description: "my description",
   uri: "http://localhost/uri/here",
   dcTerms: dcTerms,
   seo: metaOpenGraphData.seo,
   og: metaOpenGraphData.og,
-  header: masterbrand_variant,
-  search: searchData,
+  header: {
+    ...masterbrand_variant,
+  searchData: searchData
+  },
   navbar: menu_state,
   breadcrumbs: breadcrumbsData.forGov,
   globalAlert: globalAlertData.critical,
