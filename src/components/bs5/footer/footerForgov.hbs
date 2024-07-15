@@ -12,9 +12,9 @@
                 <div class="footer-column footer-contact {{#if contact.hasBorderColumn}}border-column{{/if}}">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-12">
-                            <h3 class="footer-heading">{{#if contact.title}}{{ contact.title }}{{else}}Contact us{{/if}}</h3>
+                            <h3 class="footer-heading">{{ contact.title }}</h3>
+                            
                             <div class="footer-content">
-                                {{#if contact.content}}{{{ contact.content }}}{{else}}<p>Get in touch for enquiries, feedback, complaints and compliments.</p>{{/if}}
                                 {{{ contact.content }}}
                                 {{#if contactHasContactList}}
                                     {{#each contact.list}}
@@ -26,23 +26,21 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 col-lg-12">
-                            <a href="{{#if contact.buttonLink}}{{ contact.buttonLink }}{{else}}https://www.qld.gov.au/contact-us{{/if}}" class="btn btn-outline-secondary">{{#if contact.buttonLabel}}{{ contact.buttonLabel }}{{else}}Contact us{{/if}}</a>
+                            <a href="{{ contact.buttonLink }}" class="btn btn-outline-secondary">{{ contact.buttonLabel }}</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-xs-12 col-md-12 col-lg-3" aria-label="footer-navigation">
-                {{#if footerlinks}}
-                    <div class="footer-column {{#if footerlinks.hasBorderColumn}}border-column{{/if}}">
-                        {{#if footerlinks.title}}<h3 class="footer-heading">{{footerlinks.title}}</h3>{{/if}}
-                        <nav class="nav footer-link-list flex-column">
-                            {{#each footerlinks.list }}
-                            <a class="nav-link" href="{{ this.link }}" {{#if this.new_window }} target="_blank" {{/if}}>{{{ @key }}}</a>
-                            {{/each }}
-                        </nav>
-                    </div>
-                {{/if}}
+                <div class="footer-column {{#if footerlinks.hasBorderColumn}}border-column{{/if}}">
+                    {{#if footerlinks.title}}<h3 class="footer-heading">{{footerlinks.title}}</h3>{{/if}}
+                    <nav class="nav footer-link-list flex-column">
+                        {{#each footerlinks.list}}
+                            <a class="nav-link" href="{{ link }}" {{#if target}}target="{{ target }}"{{/if}}>{{{ title }}}</a>
+                        {{/each }}
+                    </nav>
+                </div>
             </div>
 
             {{#if feedbackFormEnabled}}
