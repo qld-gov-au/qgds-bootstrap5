@@ -14,15 +14,22 @@
   color: var(--#{$prefix}footer-color-text);
   font-size: var(--#{$prefix}footer-font-size);
 
-  a {
+  a:not(.btn), a.nav-link {
     --qld-link-color-rgb: var(--#{$prefix}footer-color-link);
+    text-decoration: underline;
+    text-decoration-color: var(--#{$prefix}footer-color-link);
+    text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+    text-underline-offset: var(--#{$prefix}link-underline-offset);
 
     &:hover {
-      color: var(--#{$prefix}footer-color-focus);
+      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
     }
 
     &:visited {
       color: var(--#{$prefix}footer-color-link);
+      text-decoration: underline;
+      text-decoration-color: var(--#{$prefix}footer-color-link);
+      text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
     }
   }
 
@@ -119,10 +126,6 @@
         font-weight: 400;
         margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.7);
         padding: 0;
-
-        &:hover {
-          color: var(--#{$prefix}footer-color-focus);
-        }
 
         &:first-child {
           margin-block-start: calc(var(--#{$prefix}footer-spacing) * 0.5);

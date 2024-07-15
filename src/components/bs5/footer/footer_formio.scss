@@ -121,7 +121,6 @@
         .form-control {
             background-color: var(--#{$prefix}formIO-bg-colour);
             color: var(--#{$prefix}formIO-formio-colour);
-            border: var(--#{$prefix}formIO-form-control-border-width) solid var(--#{$prefix}formIO-input-border);
         }
 
         .formio-modified {

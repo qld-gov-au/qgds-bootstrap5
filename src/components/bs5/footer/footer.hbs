@@ -339,7 +339,7 @@
                             <p class="copyright">
                                 {{{copyright.content}}}
                                 {{#if copyrightOrganisationName}} ({{copyrightOrganisationName}}) {{/if}} 
-                                {{#if copyrightHasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{copyright.currentYear}}
+                                {{#if copyrightHasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{formatDateOrToday "" "YYYY" }}
                             </p>
                         {{else}}
                             {{!default }}
