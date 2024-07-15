@@ -156,10 +156,11 @@ export const Forgov = {
     sitename: "For government",
     variantClass: "dark",
     contactHasContactList: true,
-    footerHasCrest: true,
+    footerHasCrest: false,
     footerHasStateOfQld: true,
     feedbackFormEnabled: true,
     followlinksEnabled: true,
+    copyrightHasYearFrom: true,
   },
   render: (args) => new FooterForgov(args).html,
 };
