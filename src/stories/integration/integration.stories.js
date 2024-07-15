@@ -21,13 +21,17 @@ const defaultData = {
   template: template, // Adjust template path relative to this file
   cdn: ".", //for storybook it's ., for normal usage "PROD"
   title: "title goes here",
+  "icon-root": headerData["icon-root"],
+  icons: headerData.icons,
   description: "my description",
   uri: "http://localhost/uri/here",
   dcTerms: dcTerms,
   seo: metaOpenGraphData.seo,
   og: metaOpenGraphData.og,
-  header: headerData,
-  search: searchData,
+  header: {
+    ...headerData,
+    searchData: searchData
+  },
   navbar: navbarData,
   breadcrumbs: breadcrumbsData,
   globalAlert: globalAlertData,

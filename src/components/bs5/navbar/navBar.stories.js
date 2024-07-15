@@ -1,24 +1,9 @@
-import { Navbar } from '../navbar/Navbar.js';
-import { SearchInput } from "../searchInput/SearchInput.js";
-
-// Sample components
-import { Banner } from '../banner/Banner.js';
-import { Footer } from '../footer/Footer.js';
-
 // Mock data
-import menu_state from '../navbar/navbar.variant.menuState.data.json';
-import cobrand_example from '../navbar/navbar.variant.coBrand.data.json';
-import searchData from '../searchInput/searchInput.data.json';
-import breadcrumbs from '../banner/banner.data.json';
-import footerData from '../footer/footer.data.json';
+import menu_state from './navbar.variant.menuState.data.json';
+import cobrand_example from './navbar.variant.coBrand.data.json';
 
-import masterbrand_variant from './header.variant.masterBrand.data.json';
-import subbrand_variant from './header.variant.subBrand.data.json';
-import cobrand_variant from './header.variant.coBrand.data.json';
-import endorsed_variant from './header.variant.endorsed.data.json';
-import standalone_variant from './header.variant.standAlone.data.json';
 import Handlebars from "handlebars";
-import template from "./header.hbs?raw";
+import template from "./navbar.hbs?raw";
 
 const sample_argtypes = {
   '--qld-color-default-color-light-background-default': '#ffffff',
@@ -147,11 +132,10 @@ const mergeArgs = (...args) => {
 
 export default {
   tags: ['autodocs'],
-  title: 'Core/Header',
+  title: 'Core/Nav Bar',
   render: (args) => {
     return `
-        ${Handlebars.compile(template)({ ...args, searchInput: new SearchInput(searchData).html })}
-        ${new Navbar(args).html}
+        ${Handlebars.compile(template)(args)}
         `;
   },
   argTypes: {},
@@ -163,7 +147,6 @@ export default {
 // Navbar story with 'Light' color theme
 export const MasterBrand = {
   args: {
-    ...masterbrand_variant,
     ...menu_state,
   },
   parameters: {
@@ -186,7 +169,6 @@ export const MasterBrand = {
 // Navbar story with 'Dark' color theme
 export const SubBrand = {
   args: {
-    ...subbrand_variant,
     ...menu_state,
   },
   parameters: {
@@ -208,7 +190,7 @@ export const SubBrand = {
 
 // Co brand
 export const CoBrand = {
-  args: mergeArgs(alternative_palette, cobrand_variant, cobrand_example),
+  args: mergeArgs(alternative_palette, cobrand_example),
   argTypes: arg_types,
   parameters: {
     backgrounds: {
@@ -220,9 +202,7 @@ export const CoBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
-      const footerDataWithOverride = { ...footerData, variantClass };
+      const { ...args } = context.args;
       
       // Generate CSS variables from args
       const cssVariables = Object.keys(args).filter(key => key.startsWith('--')).map(key => {
@@ -238,8 +218,6 @@ export const CoBrand = {
         </style>
         <main>
           ${Story()}
-          ${new Banner(bannerDataWithOverride).html}
-          ${new Footer(footerDataWithOverride).html}
         </main>
       `;
     },
@@ -248,7 +226,7 @@ export const CoBrand = {
 
 // Endorsed brand
 export const EndorsedBrand = {
-  args: mergeArgs(sample_argtypes, endorsed_variant, menu_state),
+  args: mergeArgs(sample_argtypes, menu_state),
   argTypes: arg_types,
   parameters: {
     backgrounds: {
@@ -260,9 +238,7 @@ export const EndorsedBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
-      const footerDataWithOverride = { ...footerData, variantClass };
+      const { ...args } = context.args;
       
       // Generate CSS variables from args
       const cssVariables = Object.keys(args).filter(key => key.startsWith('--')).map(key => {
@@ -279,10 +255,6 @@ export const EndorsedBrand = {
         <main>
           ${Story()}
         </main>
-        <div>
-          ${new Banner(bannerDataWithOverride).html}         
-          ${new Footer(footerDataWithOverride).html}
-        </div>
       `;
     },
   ],
@@ -290,7 +262,7 @@ export const EndorsedBrand = {
 
 // Standalone
 export const StandaloneBrand = {
-  args: mergeArgs(sample_argtypes, standalone_variant, menu_state),
+  args: mergeArgs(sample_argtypes, menu_state),
   argTypes: arg_types,
   parameters: {
     backgrounds: {
@@ -302,9 +274,7 @@ export const StandaloneBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
-      const footerDataWithOverride = { ...footerData, variantClass };
+      const { ...args } = context.args;
       
       // Generate CSS variables from args
       const cssVariables = Object.keys(args).filter(key => key.startsWith('--')).map(key => {
@@ -321,10 +291,6 @@ export const StandaloneBrand = {
         <main>
           ${Story()}
         </main>
-        <div>
-          ${new Banner(bannerDataWithOverride).html}
-          ${new Footer(footerDataWithOverride).html}
-        </div>
       `;
     },
   ],
