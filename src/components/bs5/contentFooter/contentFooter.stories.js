@@ -1,12 +1,9 @@
 import defaultdata from "./contentFooter.data.json";
 import { ContentFooter } from "./contentFooter.js";
-import init from "../../../js/handlebars.init.js";
-import Handlebars from "handlebars";
 
 export default {
   title: "!Layout/Components/Content Footer",
   render: (args) => {
-    init(Handlebars)
     return new ContentFooter(args).html;
   },
 
