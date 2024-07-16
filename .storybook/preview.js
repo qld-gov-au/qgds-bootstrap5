@@ -1,9 +1,11 @@
-import "../dist/assets/js/bootstrap.min.js";
-import "../dist/assets/js/qld.bootstrap.min.js";
-import "../dist/assets/css/qld.bootstrap.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import "../src/js/qld.bootstrap.js";
+import "../src/css/main.scss";
 import {withThemeByClassName} from '@storybook/addon-themes';
 import {allBackgrounds} from "./modes.js";
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import init from "../src/js/handlebars.init.js";
+import Handlebars from "handlebars";
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
@@ -88,6 +90,7 @@ const preview = {
             defaultTheme: 'None',
         }),
         (Story) => {
+            init(Handlebars);
             return `
 			
 					${Story()}

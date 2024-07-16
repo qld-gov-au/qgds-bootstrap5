@@ -1,7 +1,4 @@
 import { FullPageTest } from "./fullPage.test.js";
-import init from "../../../js/handlebars.init.js";
-import Handlebars from "handlebars";
-
 import { dcTerms } from '../metaDcTerms/MetaDcTerms.data.json';
 import metaOpenGraphData from '../metaOpenGraph/MetaOpenGraph.data.json';
 import masterbrand_variant from '../header/header.variant.masterBrand.data.json';
@@ -16,6 +13,8 @@ import footerData from "../footer/footer.data.json";
 const defaultData = {
   cdn: ".", //for StoryBook it's ., for normal usage "PROD"
   title: "title goes here",
+  "icon-root": masterbrand_variant["icon-root"],
+  icons: masterbrand_variant.icons,
   description: "my description",
   uri: "http://localhost/uri/here",
   dcTerms: dcTerms,
@@ -34,7 +33,6 @@ const defaultData = {
 export default {
   title: "!Layout/Full Page",
   render: (args) => {
-    init(Handlebars)
     return new FullPageTest(args).html;
   },
   args: defaultData,

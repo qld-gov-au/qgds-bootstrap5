@@ -1,12 +1,11 @@
 /* global, __dirname */
 
-import init from "./../../js/handlebars.init";
+
 import Handlebars from 'handlebars';
 
 export class MainIntegration {
 
   constructor(data, args = {}) {
-    init(Handlebars);
     console.log("contracutor");
     this.data = data;
     this.args = args;

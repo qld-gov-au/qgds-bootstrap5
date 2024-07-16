@@ -1,13 +1,10 @@
 // ComponentExample.stories.js
 import { SidenavWrapperTest } from "./SidenavWrapper.test.js";
 import defaultdata from "./../sidenav/sidenav.data.json";
-import init from "./../../../js/handlebars.init";
-import Handlebars from "handlebars";
 export default {
   tags: ["autodocs"],
   title: "!Layout/Components/Side Navigation Wrapper",
   render: (args) => {
-    init(Handlebars);
     return new SidenavWrapperTest(args).html;
   },
 
