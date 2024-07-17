@@ -43,7 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "bootstrap": "^5.3.1",
-    "material-symbols": "^0.21.1"
+    "material-symbols": "^0.21.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
