@@ -7,18 +7,17 @@ import { Banner } from '../banner/Banner.js';
 import { Footer } from '../footer/Footer.js';
 
 // Mock data
-import { menu_state, cobrand_example } from '../navbar/navbar.data.json';
+import menu_state from '../navbar/navbar.variant.menuState.data.json';
+import cobrand_example from '../navbar/navbar.variant.coBrand.data.json';
 import searchData from '../searchInput/searchInput.data.json';
 import breadcrumbs from '../banner/banner.data.json';
 import footerData from '../footer/footer.data.json';
 
-import {
-  masterbrand_variant,
-  subbrand_variant,
-  cobrand_variant,
-  endorsed_variant,
-  standalone_variant,
-} from './header.data.json';
+import masterbrand_variant from './header.variant.masterBrand.data.json';
+import subbrand_variant from './header.variant.subBrand.data.json';
+import cobrand_variant from './header.variant.coBrand.data.json';
+import endorsed_variant from './header.variant.endorsed.data.json';
+import standalone_variant from './header.variant.standAlone.data.json';
 
 const sample_argtypes = {
   '--qld-color-default-color-light-background-default': '#ffffff',
@@ -184,7 +183,7 @@ export const MasterBrand = {
 };
 
 // Navbar story with 'Dark' color theme
-export const Subbrand = {
+export const SubBrand = {
   args: {
     ...subbrand_variant,
     ...menu_state,

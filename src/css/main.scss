@@ -1,0 +1,117 @@
+// Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
+
+// External fonts
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600;900&display=swap');
+$font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sitename: "Fira Sans";
+
+//Icons
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css");
+//TODO: should we pull from ../../node_modules/@fortawesome/fontawesome-free/css/all.css instead of cdn
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+
+//Prefix to namespace design-system classes
+$prefix: "qld-";
+$enable-cssgrid: true;
+$color-mode-type: data;
+$enable-dark-mode: true;
+
+
+// 1. Include bootstraps functions and variables first (so they can be referenced by proceeding files)
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// 2. QLD Design System variables (Bootstrap overrides)
+@import "./qld-variables";
+// @import "./scss/qld-variables-dark"; //future state
+
+// 3. Include remainder of bootstrap
+// 3.1 Required
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+
+// 3.2 Recommended, Resets and shared
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/helpers";
+
+// 3.3 Optional components
+@import "../../node_modules/bootstrap/scss/accordion";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/offcanvas";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/placeholders";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/toasts";
+@import "../../node_modules/bootstrap/scss/tooltip";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+//8. QLD Design System typography (bootstrap overrides and custom). Please maintain naming consistency.
+@import "./qld-type";
+
+// 9. QLD Design System components (bootstrap overrides and custom). Please maintain naming consistency.
+@import "../components/bs5/accordion/accordion";
+@import "../components/bs5/banner/banner";
+@import "../components/bs5/blockquote/blockquote";
+@import "../components/bs5/breadcrumbs/breadcrumbs";
+@import "../components/bs5/button/button";
+@import "../components/bs5/callout/callout";
+@import "../components/bs5/card/card";
+@import "../components/bs5/correctincorrect/correctincorrect";
+@import "../components/bs5/dateinput/dateinput";
+@import "../components/bs5/formcheck/formcheck";
+@import "../components/bs5/footer/footer";
+@import "../components/bs5/globalAlert/globalAlert";
+@import "../components/bs5/header/header";
+@import "../components/bs5/icons/icons";
+@import "../components/bs5/inpageAlert/inpageAlert";
+@import "../components/bs5/inpagenav/inpagenav";
+@import "../components/bs5/modal/modal";
+@import "../components/bs5/navbar/navbar";
+@import "../components/bs5/pagination/pagination";
+@import "../components/bs5/quickexit/quickexit";
+@import "../components/bs5/sidenav/sidenav";
+@import "../components/bs5/searchInput/searchInput";
+@import "../components/bs5/spinner/spinner";
+@import "../components/bs5/table/table";
+@import "../components/bs5/tag/tag";
+@import "../components/bs5/textbox/textInput";
+@import "../components/bs5/typography/typography";
+@import "../components/bs5/video/video";
+
+
+// Common Layout Blocks, under review
+@import "../components/common/layout/content";
+
+// Themes
+@import "qld-theme";
+
+// Print
+@import "qld-print";

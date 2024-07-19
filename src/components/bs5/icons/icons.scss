@@ -20,7 +20,7 @@
 	//Default color
 	background: var(--#{$prefix}icon-color);
 
-	//Change color at component level... e.g. on cards.scss, use:
+	//Change color at component level... e.g. on cards.css, use:
 	// .card { --#{$prefix}icon-color: purple; }
 
 	&.icon-dot-grid {

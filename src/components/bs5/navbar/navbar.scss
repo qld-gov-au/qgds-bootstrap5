@@ -541,7 +541,7 @@
 
         }
         .nav-link {
-            color: var(--#{$prefix}navbar-nav-text-color) !important; //To do: Due to qld-type.scss needing refractor. Remove later.
+            color: var(--#{$prefix}navbar-nav-text-color) !important; //To do: Due to qld-type.css needing refractor. Remove later.
             text-decoration: none;
             line-height: 2rem;
             width: 100%;

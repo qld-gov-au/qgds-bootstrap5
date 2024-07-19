@@ -136,10 +136,10 @@
   },
   "siteHeader": {
     "config": {
-      "masterbrand_enabled": true,
+      "masterbrand_enabled": false,
       "subbrand_enabled": false,
       "cobrand_enabled": false,
-      "endorsed_enabled": false,
+      "endorsed_enabled": true,
       "standalone_enabled": false
     },
     "url": {
@@ -147,13 +147,13 @@
     },
     "secondaryType": {
       "logo": {
-        "value": ""
+        "value": "assets/img/endorsed.svg"
       },
       "siteTitle": {
-        "value": "Queensland Government Design System"
+        "value": "Endorsed brand example"
       },
       "subline": {
-        "value": "QGDS"
+        "value": ""
       }
     }
   },
