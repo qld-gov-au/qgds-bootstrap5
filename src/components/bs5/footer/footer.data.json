@@ -1,5 +1,6 @@
 {
     "sitename": "Site name, Namestyle or Name Identifier",
+    "variantClass": "",
     "contactHasContactListDisabled": false,
     "footerHasCrestDisabled": false,
     "footerHasStateOfQld": true,
@@ -32,15 +33,14 @@
     },
     "acknowledgements": [
         {
-            "title": "",
+            "title": "Acknowledgement of Country",
             "content": "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
         }
     ],
     "copyright": {
         "hasBorderColumnDisabled": false,
         "content": "&copy; The State of Queensland",
-        "yearFrom": "1995",
-        "currentYear": "2024"
+        "yearFrom": "1995"
     },
     "footerlinks": {
         "hasBorderColumn": false,
