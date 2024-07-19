@@ -2,7 +2,6 @@
 // Search input - palettes and second hand variables:
 @import './colours';
 // ----------------------------------------------------------------------------------------------------------------------
-
 .qld-search-input {
     //Default state - unfocused, unhovered
     --text-color: var(--qld-dark-grey-muted);
@@ -43,6 +42,7 @@
                     a {
                         padding: 0.5rem 1rem;
                         display: inline-block;
+                        width: 100%;
                     }
                 }
             }

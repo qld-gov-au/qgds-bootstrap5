@@ -92,14 +92,6 @@ export async function showSuggestions(value = '', isDefault = false, form) {
     return;
   }
 
-  if (value.length === 0) {
-    defaultSuggestionsContainer.style.display = 'none';
-    dynamicSuggestionsContainer.innerHTML = '';
-    dynamicSuggestionsContainer.style.display = 'none';
-    suggestions.style.display = 'none';
-    return;
-  }
-
   defaultSuggestionsContainer.style.display = 'none';
 
   // Fetch dynamic suggestions if available
