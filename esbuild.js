@@ -35,7 +35,7 @@ const buildConfig = {
       out: "./assets/js/qld.bootstrap.min",
     },
     {
-      in: "./src/main.scss",
+      in: "./src/css/main.scss",
       out: "./assets/css/qld.bootstrap",
     },
     {

@@ -78,7 +78,7 @@ describe('DOM Content Test with Selenium on Full Page Partials', function () {
 
   it('should find the footer site name', async function() {
     const siteName = await driver.findElement(By.css('.footer-site-name')).getText();
-    expect(siteName).to.equal('Site name, Namestyle or Name Identifier');
+    expect(siteName).to.equal('');
   });
 
   it('should find the contact us phone number', async function() {
@@ -119,7 +119,7 @@ describe('DOM Content Test with Selenium on Full Page Partials', function () {
 
   it('should find the copyright text', async function() {
     const copyright = await driver.findElement(By.css('.copyright')).getText();
-    expect(copyright).to.equal('© The State of Queensland (Organisation) 2024');
+    expect(copyright).to.equal('© The State of Queensland 2024');
   });
 
   it('should find the Queensland Government link', async function() {

@@ -1,0 +1,242 @@
+{
+  "metadata": {
+    "target_url": "metadata-index.html",
+    "options": {
+      "showHomeTitleSmallDevices": true,
+      "icon-root": "./assets/img/svg-icons.svg",
+      "home-active": true
+    }
+  },
+  "navigation": [
+    {
+      "title": "Mega menu",
+      "icon": "",
+      "target_url": "index.html",
+      "dropdown_enabled": true,
+      "dropdown_options": {
+        "feature_link_value": "Getting ready",
+        "feature_link_href": "index.html",
+        "feature_link_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+        "view_value": "View all",
+        "view_href": "index.html"
+      },
+      "navigation_items": [
+        {
+          "title": "Find your reason",
+          "description": "One of the best motivations for quitting is having a clear reason in mind so you know exactly why you’re doing it in the first place.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Quit stories",
+          "description": "Be encouraged and motivated by listening to stories of others who've quit smoking for life.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Vaping (e-cigarettes)",
+          "description": "Vaping products are also known as e-cigarettes, e-cigars, vape pens or personal vapourisers. Vapes are harmful. The safest option is to not vape at all.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Choose your method",
+          "description": "There are plenty of ways to quit smoking cigarettes and vapes. Find one that suits you best and commit to it.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Pregnancy and smoking",
+          "description": "Whether you’re thinking about getting pregnant, you're pregnant or have recently given birth, quitting smoking or vaping is the best thing you can do for the health of  you and your baby.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Sign up for our support program",
+          "description": "Sign up for My Quit Journey to support you to stop smoking.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Plan your journey",
+          "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+          "target_url": "index.html"
+        }
+      ]
+    },
+    {
+      "title": "Simple list",
+      "icon": "",
+      "target_url": "index.html",
+      "dropdown_enabled": true,
+      "dropdown_options": {
+        "feature_link_value": "Patients and visitors",
+        "feature_link_href": "index.html",
+        "feature_link_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+        "view_value": "View all",
+        "view_href": "index.html"
+      },
+      "navigation_items": [
+        {
+          "title": "Visiting someone in hospital",
+          "description": "One of the best motivations for quitting is having a clear reason in mind so you know exactly why you’re doing it in the first place.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Aboriginal and Torres Strait Islander support",
+          "description": "Be encouraged and motivated by listening to stories of others who've quit smoking for life.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Your healthcare rights and responsibilities",
+          "description": "Vaping products are also known as e-cigarettes, e-cigars, vape pens or personal vapourisers. Vapes are harmful. The safest option is to not vape at all.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Going to hospital",
+          "description": "There are plenty of ways to quit smoking cigarettes and vapes. Find one that suits you best and commit to it.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Interpreter services",
+          "description": "Whether you’re thinking about getting pregnant, you're pregnant or have recently given birth, quitting smoking or vaping is the best thing you can do for the health of  you and your baby.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Health costs, insurance and financial support",
+          "description": "Sign up for My Quit Journey to support you to stop smoking.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Leaving hospital",
+          "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+          "target_url": "index.html"
+        },
+        {
+          "title": "Your health record",
+          "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+          "target_url": "index.html"
+        }
+      ]
+    },
+    {
+      "title": "Contact us",
+      "icon": "",
+      "target_url": "index.html"
+    }
+  ],
+  "CTA": [
+    {
+      "id": "CTAone",
+      "target_url": "#",
+      "label": "Business and Industry",
+      "dropdown_enabled": true,
+      "dropdown_options": {
+        "dropdown_type": "list",
+        "view_more_label": "Browse all information and services",
+        "view_more_url": "https://www.qld.gov.au/queenslanders",
+        "dropdown_config": {
+          "groups": [
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Transport and motoring"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Employment and jobs"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Education and training"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Queensland and its government"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Health and wellbeing"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Community support"
+            }
+          ],
+          "view_more": true,
+          "view_more_options": {
+            "url": "#",
+            "label": "View more",
+            "target": "_blank"
+          }
+        }
+      }
+    },
+    {
+      "id": "CTAtwo",
+      "target_url": "#",
+      "label": "For government",
+      "dropdown_enabled": true,
+      "dropdown_options": {
+        "dropdown_type": "list",
+        "view_more_label": "All categories",
+        "view_more_url": "https://www.business.qld.gov.au/",
+        "dropdown_config": {
+          "groups": [
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Starting a business"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Running a business"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Employing people"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Payroll tax"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Industries"
+            },
+            {
+              "action": "_blank",
+              "url": "#",
+              "label": "Investing in Queensland"
+            }
+          ],
+          "view_more": true,
+          "view_more_options": {
+            "url": "#",
+            "label": "View more",
+            "target": "_blank"
+          }
+        }
+      }
+    },
+    {
+      "id": "CTAthree",
+      "target_url": "#",
+      "label": "Login",
+      "dropdown_enabled": true,
+      "dropdown_options": {
+        "dropdown_type": "form",
+        "dropdown_config": {
+          "groups": [
+            {
+              "content": "<div></div>"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

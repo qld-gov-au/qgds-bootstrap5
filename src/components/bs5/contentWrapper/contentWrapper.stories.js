@@ -1,13 +1,10 @@
 // ComponentExample.stories.js
 import { ContentWrapperTest } from "./ContentWrapper.test.js";
 import defaultdata from "./contentWrapper.data.json";
-import init from "./../../../js/handlebars.init";
-import Handlebars from "handlebars";
 
 export default {
   title: "!Layout/Components/Content Wrapper",
   render: (args) => {
-    init(Handlebars);
     return new ContentWrapperTest(args).html;
   },
 

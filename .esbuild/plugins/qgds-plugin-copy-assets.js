@@ -11,6 +11,7 @@ export default function copyPlugin() {
       {from: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.js"], to: ["./dist/assets/js/bootstrap.js"]},
       {from: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"], to: ["./dist/assets/js/bootstrap.min.js"]},
       {from: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map"], to: ["./dist/assets/js/bootstrap.min.js.map"]},
+      {from: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.*"], to: ["./dist/assets/js/"]},
 
       {from: ["./src/components/bs5/**/*.hbs"], to: ["./dist/assets/components/bs5/"],},
       {from: ["./src/js/handlebars.*"], to: ["./dist/assets/js/"],},
