@@ -2,7 +2,6 @@
 // Search input - palettes and second hand variables:
 @import './colours';
 // ----------------------------------------------------------------------------------------------------------------------
-
 .qld-search-input {
     //Default state - unfocused, unhovered
     --text-color: var(--qld-dark-grey-muted);
@@ -186,49 +185,59 @@
             outline: 0.188rem solid var(--outline-color);
             outline-offset: 0.125rem;
         }
+    }
+    button {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: 0 0.25rem 0.25rem 0;
 
-        +button {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            border-radius: 0 0.25rem 0.25rem 0;
+        // Adjust button padding to allow for input borders of 2px top and bottom
+        padding-top: calc(0.75rem - 0.125rem);
+        padding-bottom: calc(0.75rem - 0.125rem);
 
-            // Adjust button padding to allow for input borders of 2px top and bottom
-            padding-top: calc(0.75rem - 0.125rem);
-            padding-bottom: calc(0.75rem - 0.125rem);
-
-            //prep a button "search-icon" which is invoked at smaller screeen sizes below 
-            span.btn-icon {
-                display: none;
-                width: 1.5rem;
-                height: 1.5rem;
-                height: 1.5rem;
-                margin-right: 0;
-                background-color: var(--icon-color-on-btn);
-                mask: var(--icon) center center / 1.25rem no-repeat;
-            }
+        //prep a button "search-icon" which is invoked at smaller screeen sizes below
+        span.btn-icon {
+            display: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0;
+            background-color: var(--icon-color-on-btn);
+            mask: var(--icon) center center / 1.25rem no-repeat;
         }
     }
 }
 
+@include media-breakpoint-up(md) {
+    .qld-search-input {
+        button {
+            span.btn-label {
+                display: block;
+            }
+            span.btn-icon {
+                display: none;
+            }
+        }
+    }
+}
 //Adjustments for 991px and below
 // Apply styles for medium screens and down
 @include media-breakpoint-down(md) {
     .qld-search-input {
+        button {
+            span.btn-label {
+                display: none;
+            }
+
+            //Show the search icon (on button) on small screens
+            span.btn-icon {
+                display: block;
+            }
+        }
         .form-control {
             padding-left: 1rem;
-
-            +button {
-                span.btn-label {
-                    display: none;
-                }
-
-                //Show the search icon (on button) on small screens
-                span.btn-icon {
-                    display: block;
-                }
-            }
         }
 
         #search-button {
