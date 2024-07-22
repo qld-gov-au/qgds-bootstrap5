@@ -30,12 +30,8 @@ async function fetchData(url, type) {
  */
 export function selectSuggestion(value, form) {
   const searchInput = form.querySelector('.qld-search-input input');
-  const searchButton = form.querySelector('#search-button');
   const suggestions = form.querySelector('.suggestions');
 
-  if (searchButton.hasFocus()) {
-    searchInput.setAttribute("outline", "0");
-  }
   if (searchInput && suggestions) {
     searchInput.value = value.trim();
     suggestions.style.display = 'none';
