@@ -110,7 +110,7 @@ export default function handlebarsHelpers(handlebars) {
    * - Short format: Display the duration in simplified format of "HH:MM:SS". It is the default format.
    * - Long format: Display the duration in descriptive format of "X hours Y minutes Z seconds".
    *
-   * @param {Object} duration - Duration object with properties 'hours', 'minutes', and 'seconds'.
+   * @param {Object | String} duration - Duration object with properties: 'hours', 'minutes', and 'seconds'. Duration string: "HH:MM:SS".
    * @param {String} format - Option for format type 'short' or 'long'. If none provided, 'short' is the defaut value.
    *
    * @returns {String} Formatted duration
@@ -124,15 +124,35 @@ export default function handlebarsHelpers(handlebars) {
    *
    * Usage:
    * {{formatDuration duration}}
-   * {{formatDuration duration long}}
+   * {{formatDuration duration "long"}}
    */
   handlebars.registerHelper('formatDuration', function(duration, format) {
+    // Return empty string when there is no duration.
     if (!duration) {
       return "";
     }
-    const {hours = "", minutes = "", seconds = ""} = duration;
+
+    // Nothing to process here when the duration is already in short format string
+    // (to support existing CMS metadata).
+    if (typeof(duration) === 'string' && format !== "long") {
+      return duration;
+    }
+
     let durationString = "";
     let parts = [];
+    // Support for object type 'duration'.
+    let {hours = "", minutes = "", seconds = ""} = duration;
+
+    // Support for string type 'duration'.
+    if (typeof(duration) === 'string') {
+      const durationSplit = duration.split(":");
+      seconds = durationSplit[0];
+      if (durationSplit.length == 2) {
+        [minutes = "", seconds = ""] = durationSplit;
+      } else if (durationSplit.length == 3) {
+        [hours = "", minutes = "", seconds = ""] = durationSplit;
+      }
+    }
 
     // Long format: "X hours Y minutes Z seconds"
     if (format === "long") {

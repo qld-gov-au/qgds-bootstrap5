@@ -4,11 +4,7 @@
     "videoId": "LDU_Txk06tM",
     "videoSize": "col-12",
     "aspectRatio": "16x9",
-    "duration": {
-      "hours": 0,
-      "minutes": 3,
-      "seconds": 12
-    },
+    "duration": "3:12",
     "thumbnail": "https://img.youtube.com/vi/LDU_Txk06tM/sddefault.jpg",
     "urlParams": {
       "autoplay": 0,
@@ -23,11 +19,7 @@
     "videoId": "251763826",
     "videoSize": "col-8",
     "aspectRatio": "4x3",
-    "duration": {
-      "hours": 0,
-      "minutes": 5,
-      "seconds": 0
-    },
+    "duration": "5:00",
     "thumbnail": "./img/banner-example-3-to-2.jpg",
     "urlParams": {
       "autoplay": 0,
@@ -44,11 +36,7 @@
     "videoId": "https://embed.ted.com/talks/lang/en/adam_grosser_a_mobile_fridge_for_vaccines",
     "videoSize": "col-8",
     "aspectRatio": "16x9",
-    "duration": {
-      "hours": 0,
-      "minutes": 3,
-      "seconds": 17
-    },
+    "duration": "3:17",
     "thumbnail": "./img/banner-example-3-to-2.jpg",
     "analyticsTrackingCode": "",
     "description": "<h3>Custom video embed</h3><p>Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim.</p>",
