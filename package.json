@@ -83,7 +83,7 @@
     "onchange": "^7.1.0",
     "portfinder": "^1.0.32",
     "postcss": "^8.4.40",
-    "prettier": "3.3.2",
+    "prettier": "3.3.3",
     "raw-loader": "^4.0.2",
     "rimraf": "^6.0.1",
     "run-parallel": "^1.2.0",
