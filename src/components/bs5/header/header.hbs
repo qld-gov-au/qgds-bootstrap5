@@ -182,7 +182,7 @@
                                 <span class="qld__header__cta-link-text">{{{text.value}}}</span>
                                 {{#if dropdown_enabled}}
                                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__header__cta-link-icon">
-                                        <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}"></use>
+                                        <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}" aria-hidden="true"></use>
                                     </svg>
                                 {{/if}}
                             </a>
@@ -227,7 +227,7 @@
                     class="qld__header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                         class="qld__icon qld__icon--lg">
-                        <use class="icon-search" href="{{@root.icon-root}}#{{@root.icons.search-icon}}"
+                        <use class="icon-search" href="{{@root.icon-root}}#{{@root.icons.search-icon}}" aria-hidden="true"
                             style="display: block;"></use>
                         <use class="icon-close" href="{{@root.icon-root}}#{{@root.icons.close-icon}}"
                             style="display: none;"></use>
@@ -240,7 +240,7 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                         class="qld__icon qld__icon--lg">
-                        <use href="{{@root.icon-root}}#{{@root.icons.menu-icon}}"></use>
+                        <use href="{{@root.icon-root}}#{{@root.icons.menu-icon}}" aria-hidden="true"></use>
                     </svg>
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
