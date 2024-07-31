@@ -17,13 +17,18 @@
         }
 
         textarea {
+            border: 2px solid var(--#{$prefix}soft-grey);
+            border-radius: 4px;
+
             &:hover {
-                background-color: var(--#{$prefix}color-default-color-light-background-default-shade);
+                background-color: var(--#{$prefix}extra-light-grey);
+                border-color: $qld-textbox-border-color;
             }
             &:focus {
                 outline: 3px solid var(--#{$prefix}light-blue);
                 outline-offset: 2px;
-                background-color: var(--#{$prefix}extra-light-grey);
+                background-color: var(--#{$prefix}white);
+                border: 2px solid var(--#{$prefix}light-grey);
             }
             &.is-valid {
                 outline: none;
@@ -126,7 +131,11 @@
         .formio-modified {
             .form-check-input {
                 outline: none;
-                outline-offset: 0;
+
+                &:focus {
+                    outline: 3px solid var(--#{$prefix}light-blue);
+                    outline-offset: 3px;
+                }
             }
 
             .is-invalid {
@@ -134,17 +143,17 @@
             }
 
             textarea {
-                outline: none;
                 background-color: var(--#{$prefix}formIO-bg-colour);
-                outline-offset: 0;
 
                 &:hover {
-                    background-color: var(--#{$prefix}color-default-color-light-background-default-shade);
+                    background-color: var(--#{$prefix}extra-light-grey);
+                    border-color: $qld-textbox-border-color;
                 }
                 &:focus {
                     outline: 3px solid var(--#{$prefix}light-blue);
                     outline-offset: 2px;
-                    background-color: var(--#{$prefix}extra-light-grey);
+                    background-color: var(--#{$prefix}white);
+                    border: 2px solid var(--#{$prefix}light-grey);
                 }
                 &.is-valid {
                     outline: none;
