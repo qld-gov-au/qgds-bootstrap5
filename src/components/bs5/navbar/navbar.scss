@@ -250,6 +250,7 @@
 
             &--close {
                 background-color: transparent;
+                z-index: 100;
 
                 @include media-breakpoint-up(md) {
                     border-width: 2px

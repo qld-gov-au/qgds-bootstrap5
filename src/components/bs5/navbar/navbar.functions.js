@@ -90,12 +90,16 @@ export function initializeNavbar() {
       if (headerEl) {
         headerEl.setAttribute('aria-hidden', true);
       }
-    });
+      if (openMenuButton) {
+        openMenuButton.setAttribute('aria-label', 'Close menu');
+      }
+  });
 
     // Once mobile nav has been hidden.
     // Change focus back to Open Menu button and unhide Header from screenreader.
     navbarCollapse.addEventListener('hidden.bs.collapse', function () {
       if (openMenuButton) {
+        openMenuButton.setAttribute('aria-label', 'Open menu');
         openMenuButton.focus();
       }
       if (headerEl) {
