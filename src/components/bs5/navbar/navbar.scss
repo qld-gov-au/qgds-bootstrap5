@@ -191,6 +191,11 @@
                 }
             }
 
+            &:focus {
+				outline: 3px solid var(--#{$prefix}color-default-color-dark-focus-default);
+				outline-offset: 2px;
+			}
+
             @include media-breakpoint-up(md) {
                 padding: 0.75rem 1rem;
             }
