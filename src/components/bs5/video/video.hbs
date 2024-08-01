@@ -10,15 +10,21 @@
 <section class="video not-ready {{#unless thumbnail}}empty-thumbnail{{/unless}} {{videoSize}}">
     <div class="video-player ratio ratio-{{aspectRatio}}">
 
-        <a href="#" class="video-thumbnail video-controls">
+        <a href="#" class="video-thumbnail video-controls" title="Play Video" 
+            aria-label="Watch video {{#if duration}}- duration {{formatDuration duration "long"}}{{/if}}">
+
             <div class="video-thumbnail-image" style="--thumbnail:url({{thumbnail}})"></div>
 
             <div class="video-nav">
-                <div class="video-watch"><span class="icon"></span><span>Watch</span></div>
+                <div class="video-watch">
+                    <span class="icon"></span><span>Watch</span>
+                </div>
 
-            {{#if duration}}
-                <div title="Video duration" class="video-duration"><span class="icon"></span><span>{{duration}}</span></div>
-            {{/if}}
+                {{#if duration}}
+                    <div title="Video duration" class="video-duration">
+                        <span class="icon"></span><span>{{formatDuration duration}}</span>
+                    </div>
+                {{/if}}
             </div>
         </a>
 
