@@ -140,18 +140,20 @@ export default function handlebarsHelpers(handlebars) {
 
     let durationString = "";
     let parts = [];
-    // Support for object type 'duration'.
-    let {hours = "", minutes = "", seconds = ""} = duration;
+    let hours, minutes, seconds;
 
     // Support for string type 'duration'.
     if (typeof(duration) === 'string') {
-      const durationSplit = duration.split(":");
+      const durationSplit = duration.split(":");  
       seconds = durationSplit[0];
       if (durationSplit.length == 2) {
         [minutes = "", seconds = ""] = durationSplit;
       } else if (durationSplit.length == 3) {
         [hours = "", minutes = "", seconds = ""] = durationSplit;
       }
+    } else {
+      // Support for object type 'duration'.
+      [hours = "", minutes = "", seconds = ""] = duration;
     }
 
     // Long format: "X hours Y minutes Z seconds"
