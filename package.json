@@ -61,7 +61,7 @@
     "@storybook/test": "^8.2.1",
     "@storybook/theming": "^8.2.1",
     "@stylistic/eslint-plugin-js": "2.1.0",
-    "@vitejs/plugin-vue": "5.1.1",
+    "@vitejs/plugin-vue": "5.1.2",
     "@whitespace/storybook-addon-html": "^6.1.1",
     "autoprefixer": "^10.4.15",
     "chai": "^5.1.1",
