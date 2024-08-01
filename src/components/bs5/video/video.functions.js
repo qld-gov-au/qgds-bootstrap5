@@ -7,13 +7,13 @@
  * @returns {void}
  */
 export function videoEmbedPlay(event) {
-  event.preventDefault()
+  event.preventDefault();
 
   const thumbnail = event.target,
     component = thumbnail.closest(".video"),
     iframe = component.querySelector(".video-embed iframe")
 
-  component.classList.remove("not-ready")
+  component.classList.remove("not-ready");
 
   // Parse iFrame URL and set the 'autoplay' parameter to 1.
   if (!iframe.classList.contains("video-custom")) {
@@ -22,7 +22,7 @@ export function videoEmbedPlay(event) {
     iframe.src = url.toString();
   }
 
-  iframe.focus()
+  iframe.focus();
 
 }
 
