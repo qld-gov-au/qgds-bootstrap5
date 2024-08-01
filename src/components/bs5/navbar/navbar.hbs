@@ -4,17 +4,21 @@
 <nav id="main-nav" class="navbar navbar-expand-lg" aria-label="Website navigation" role="navigation">
     <div class="container navbar-contain">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            {{!-- Header for mobile navigation --}}
             <div class="navbar__header">
                 <h6 class="navbar__heading">Menu</h6>
                 <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Close navigation">
+                    aria-expanded="false" aria-label="Close menu">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
                         <use href="{{metadata.options.icon-root}}#qld__icon__close"></use>
                     </svg>
                     <span class="navbar__toggle-text">Close</span>
                 </button>
             </div>
+            {{!-- End: Header for mobile navigation --}}
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item nav-item-home">
                     <a class="nav-link {{#if metadata.options.home-active}}nav-link-home-active{{/if}}"
@@ -44,7 +48,7 @@
                         </svg>
                     </a>
                     {{#if navigation_items}}
-                    <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu"
+                    <ul id="dropdown-menu" class="dropdown-menu" role="menu"
                         data-bs-popper="none">
                         <div class="row dropdown-menu__inner">
                             {{#if dropdown_options}}
@@ -109,7 +113,7 @@
                         </button>
 
                         {{#if navigation_items}}
-                        <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="menuDropdown" role="menu"
+                        <ul id="dropdown-menu" class="dropdown-menu" role="menu"
                             data-bs-popper="none">
                             <div class="row dropdown-menu__inner">
                                 {{#if dropdown_options}}
@@ -187,7 +191,7 @@
                             </button>
 
                             {{#if dropdown_enabled}}
-                            <ul id="dropdown-menu-{{id}}" class="dropdown-menu" aria-labelledby="menuDropdown-{{id}}"
+                            <ul id="dropdown-menu-{{id}}" class="dropdown-menu"
                                 role="menu" data-bs-popper="none">
                                 <div class="row dropdown-menu__inner">
                                     {{#if dropdown_options.dropdown_config.groups}}

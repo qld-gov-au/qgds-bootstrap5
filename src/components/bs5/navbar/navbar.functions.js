@@ -41,6 +41,9 @@ export function initializeNavbar() {
   const dropdownItems = document.querySelectorAll('ul.dropdown-menu');
   const overlay = document.getElementById('overlay');
   const body = document.body;
+  const headerEl = document.querySelector('header');
+  const closeMenuButton = document.querySelector('.navbar__toggle--close');
+  const openMenuButton = document.querySelector('.qld__main-nav__toggle--open');
 
   // Add event listeners to each dropdown item
   if (dropdownItems) {
@@ -66,15 +69,42 @@ export function initializeNavbar() {
   }
 
   if (navbarCollapse) {
-    // Overlay show/hide events
+    // When mobile collapsible-navigation is opened
     navbarCollapse.addEventListener('show.bs.collapse', function () {
       overlay.classList.add('show'); // Show the overlay
       body.style.overflow = 'hidden'; // Prevent background scroll
     });
 
+    // When colapsible navigation is closed
     navbarCollapse.addEventListener('hide.bs.collapse', function () {
       overlay.classList.remove('show'); // Hide the overlay
       body.style.overflow = ''; // Reset body positioning
+    });
+
+    // Once mobile nav has been made visible.
+    // Change focus to Close Menu button and hide Header from screenreader.
+    navbarCollapse.addEventListener('shown.bs.collapse', function () {
+      if (closeMenuButton) {
+        closeMenuButton.focus();
+      }
+      if (headerEl) {
+        headerEl.setAttribute('aria-hidden', true);
+      }
+      if (openMenuButton) {
+        openMenuButton.setAttribute('aria-label', 'Close menu');
+      }
+  });
+
+    // Once mobile nav has been hidden.
+    // Change focus back to Open Menu button and unhide Header from screenreader.
+    navbarCollapse.addEventListener('hidden.bs.collapse', function () {
+      if (openMenuButton) {
+        openMenuButton.setAttribute('aria-label', 'Open menu');
+        openMenuButton.focus();
+      }
+      if (headerEl) {
+        headerEl.setAttribute('aria-hidden', false);
+      }
     });
   }
 
