@@ -3,7 +3,7 @@ module.exports = {
     "browser": true,
     "es2021": true,
   },
-  "extends": ["eslint:recommended", "plugin:json/recommended", "plugin:storybook/recommended"],
+  "extends": ["eslint:recommended", "plugin:json/recommended", "plugin:storybook/recommended", "plugin:import/recommended"],
   "overrides": [
     {
       "env": {
@@ -48,5 +48,6 @@ module.exports = {
       },
     ],
     "no-warning-comments": 1,
+    "import/no-unresolved": 0
   },
 }
