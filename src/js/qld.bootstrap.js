@@ -10,11 +10,13 @@ import { positionQuickExit, initQuickexit } from "./../components/bs5/quickexit/
 import { displayFeedbackForm } from "./../components/bs5/footer/footer.functions";
 import { toggleSearch } from "./../components/bs5/header/header.functions";
 import { showSuggestions, submitSearchForm } from "./../components/bs5/searchInput/search.functions";
+import { handleScreenReaderAccessibility } from "./../components/bs5/select/select2.functions";
 
 window.addEventListener("scroll", positionQuickExit, true);
 window.addEventListener("resize", positionQuickExit, true);
 window.addEventListener("click", initQuickexit, true);
 window.addEventListener("keydown", initQuickexit, true);
+window.addEventListener("DOMContentLoaded", handleScreenReaderAccessibility, true);
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
