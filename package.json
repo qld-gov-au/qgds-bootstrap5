@@ -63,7 +63,7 @@
     "@stylistic/eslint-plugin-js": "2.1.0",
     "@vitejs/plugin-vue": "5.1.2",
     "@whitespace/storybook-addon-html": "^6.1.1",
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.20",
     "chai": "^5.1.1",
     "chalk": "^5.3.0",
     "chromatic": "^11.5.5",
