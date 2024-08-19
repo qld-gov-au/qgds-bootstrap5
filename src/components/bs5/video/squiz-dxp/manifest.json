@@ -1,6 +1,6 @@
 {
     "$schema": "http://localhost:3000/schemas/v1.json#",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "video",
     "displayName": "Video Component",
     "description": "QGDS Bootstrap 5 - Video Component",
