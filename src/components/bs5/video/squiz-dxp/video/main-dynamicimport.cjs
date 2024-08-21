@@ -4,7 +4,7 @@
  */
 module.exports = async function (input) {
     try {
-        const { formatDuration } = await import('../../../../js/helpers/formatDuration.js');
+        const { formatDuration } = await import('./static/server-formatDuration.js');
 
         return `
             <section class="video not-ready ${!input.thumbnail ? 'empty-thumbnail': ''} ${input.videoSize}">
@@ -37,7 +37,7 @@ module.exports = async function (input) {
             </section>
         `;
     } catch (error) {
-        console.error('Error on loading formatDuration helper.');
+        console.error('Error on loading video template.');
         return ``;
     }
 };

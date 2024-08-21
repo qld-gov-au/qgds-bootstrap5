@@ -1,0 +1,99 @@
+{
+    "$schema": "http://localhost:3000/schemas/v1.json#",
+    "version": "1.1.3",
+    "name": "qgds-bs5-video",
+    "displayName": "Video Component",
+    "description": "QGDS Bootstrap 5 - Video Component",
+    "namespace": "elvi-qgds-bs5",
+    "mainFunction": "main",
+    "staticFiles": {
+        "locationRoot": "static"
+    },
+    "functions": [
+        {
+            "name": "main",
+            "entry": "main.cjs",
+            "input": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string"
+                    },
+                    "videoId": {
+                        "type": "string"
+                    },
+                    "videoSize": {
+                        "type": "string"
+                    },
+                    "aspectRatio": {
+                        "type": "string"
+                    },
+                    "duration": {
+                        "type": "string"
+                    },
+                    "thumbnail": {
+                        "type": "string"
+                    },
+                    "urlParams": {
+                        "title": "URL Params",
+                        "type": "object",
+                        "properties": {
+                            "autoplay": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "controls": {
+                                "type": "integer",
+                                "default": 1
+                            }
+                        },
+                        "required": []
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "transcriptContent": {
+                        "type": "string"
+                    },
+                    "transcriptAccordion": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source",
+                    "videoId",
+                    "videoSize",
+                    "aspectRatio",
+                    "duration"
+                ]
+            },
+            "output": {
+                "responseType": "html",
+                "staticFiles": [
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "video.functions.js"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "previews": {
+        "default": {
+            "functionData": {
+                "main": {
+                    "inputData": {
+                        "type": "file",
+                        "path": "static/video.data.json"
+                    },
+                    "wrapper": {
+                        "path": "preview-wrapper.html"
+                    }
+                }
+            }
+        }
+    }
+}
