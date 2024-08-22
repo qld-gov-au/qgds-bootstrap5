@@ -1,0 +1,100 @@
+{
+    "$schema": "http://localhost:3000/schemas/v1.json#",
+    "version": "1.0.6",
+    "name": "qgds-bs5-accordion",
+    "displayName": "Accordion Component",
+    "description": "QGDS Bootstrap 5 - Accordion Component",
+    "namespace": "elvi-qgds-bs5",
+    "mainFunction": "main",
+    "staticFiles": {
+        "locationRoot": "static"
+    },
+    "functions": [
+        {
+            "name": "main",
+            "entry": "main.cjs",
+            "input": {
+                "type": "object",
+                "properties": {
+                    "groupId": {
+                        "type": "string"
+                    },
+                    "toggleAll": {
+                        "type": "boolean"
+                    },
+                    "accordionItems": {
+                        "title": "Accordion items array",
+                        "type": "array",
+                        "items": { 
+                            "type": "object"
+                        },
+                        "properties": {
+                            "accordionItem": {
+                                "title": "Item of accordion",
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "expanded": {
+                                        "type": "boolean"
+                                    },
+                                    "content": {
+                                        "type": "FormattedText"
+                                    }
+                                },
+                                "required": []
+                            }
+                        },
+                        "required": []
+                    }
+                },
+                "required": []
+            },
+            "output": {
+                "responseType": "html",
+                "staticFiles": [
+                    {
+                        "location": "header",
+                        "file": {
+                            "type": "css",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/css/qld.bootstrap.css"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/bootstrap.min.js"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/qld.bootstrap.min.js"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "previews": {
+        "default": {
+            "functionData": {
+                "main": {
+                    "inputData": {
+                        "type": "file",
+                        "path": "static/accordion.data.json"
+                    },
+                    "wrapper": {
+                        "path": "preview-wrapper.html"
+                    }
+                }
+            }
+        }
+    }
+}
