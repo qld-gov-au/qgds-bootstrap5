@@ -12,7 +12,7 @@
     "functions": [
         {
             "name": "main",
-            "entry": "main.cjs",
+            "entry": "main-livepreview.cjs",
             "input": {
                 "type": "object",
                 "properties": {
@@ -26,33 +26,27 @@
                         "title": "Accordion items array",
                         "type": "array",
                         "items": { 
-                            "type": "object"
-                        },
-                        "properties": {
-                            "accordionItem": {
-                                "title": "Item of accordion",
-                                "type": "object",
-                                "properties": {
-                                    "id": {
-                                        "type": "string"
-                                    },
-                                    "title": {
-                                        "type": "string"
-                                    },
-                                    "expanded": {
-                                        "type": "boolean"
-                                    },
-                                    "content": {
-                                        "type": "FormattedText"
-                                    }
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
                                 },
-                                "required": []
-                            }
-                        },
-                        "required": []
+                                "title": {
+                                    "type": "string"
+                                },
+                                "expanded": {
+                                    "type": "boolean"
+                                },
+                                "content": {
+                                    "type": "string",
+                                    "format": "multi-line"
+                                }
+                            },
+                            "required": ["id", "title"]
+                        }
                     }
                 },
-                "required": []
+                "required": ["groupId"]
             },
             "output": {
                 "responseType": "html",
