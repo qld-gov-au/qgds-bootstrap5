@@ -1,6 +1,6 @@
 {
     "$schema": "http://localhost:3000/schemas/v1.json#",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "name": "qgds-bs5-accordion",
     "displayName": "Accordion Component",
     "description": "QGDS Bootstrap 5 - Accordion Component",
