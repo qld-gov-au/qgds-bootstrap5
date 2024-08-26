@@ -4,7 +4,8 @@
  */
 module.exports = async function (input) {
     try {
-        const { formatDuration } = await import('./static/server-formatDuration.js');
+        // const { formatDuration } = await import('server-formatDuration.js');
+        const formatDuration = require('server-formatDuration.js');
 
         return `
             <section class="video not-ready ${!input.thumbnail ? 'empty-thumbnail': ''} ${input.videoSize}">
