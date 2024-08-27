@@ -1,0 +1,114 @@
+{
+    "$schema": "http://localhost:3000/schemas/v1.json#",
+    "version": "1.0.1",
+    "name": "table",
+    "displayName": "Table Component",
+    "description": "QGDS Bootstrap 5 - Table Component",
+    "namespace": "qgds-bs5-dev",
+    "mainFunction": "main",
+    "functions": [
+        {
+            "name": "main",
+            "entry": "main.cjs",
+            "input": {
+                "type": "object",
+                "properties": {
+                    "customClass": {
+                        "type": "string"
+                    },
+                    "variantClass": {
+                        "type": "string"
+                    },
+                    "caption": {
+                        "type": "string"
+                    },
+                    "subcaption": {
+                        "type": "string"
+                    },
+                    "headers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "rows": {
+                        "title": "Rows content",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "cells": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "required": []
+                        },
+                        "required": []
+                    },
+                    "footer": {
+                        "title": "Footer cells",
+                        "type": "array",
+                        "items": { 
+                            "type": "object",
+                            "properties": {
+                                "cells": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "required": []
+                        },
+                        "required": []
+                    }
+                },
+                "required": []
+            },
+            "output": {
+                "responseType": "html",
+                "staticFiles": [
+                    {
+                        "location": "header",
+                        "file": {
+                            "type": "css",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/css/qld.bootstrap.css"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/bootstrap.min.js"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/qld.bootstrap.min.js"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "previews": {
+        "default": {
+            "functionData": {
+                "main": {
+                    "inputData": {
+                        "type": "file",
+                        "path": "previews/example.data.json"
+                    },
+                    "wrapper": {
+                        "path": "previews/preview.html"
+                    }
+                }
+            }
+        }
+    }
+}
