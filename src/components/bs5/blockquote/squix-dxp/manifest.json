@@ -62,7 +62,7 @@
                 "main": {
                     "inputData": {
                         "type": "file",
-                        "path": "previews/blockquote.data.json"
+                        "path": "previews/example.data.json"
                     },
                     "wrapper": {
                         "path": "previews/preview.html"
