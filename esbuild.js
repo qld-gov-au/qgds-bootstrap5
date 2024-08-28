@@ -9,6 +9,7 @@ import QDGScleanFolders from "./.esbuild/plugins/qgds-plugin-clean-output-folder
 import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
+import buildDxpComponent from "./.esbuild/plugins/qgds-plugin-build-dxp-component.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -94,6 +95,17 @@ const buildNodeConfig = {
     handlebarsPlugin(),
   ],
 }
+
+/* Config for Squiz DXP build */
+const buildDxpConfig = {
+  entryPoints: ['./component/blockquote/dummy.js'],
+  bundle: true,
+  outdir: './component/blockquote/dxp-dist',
+  plugins: [customDxpOperations()],
+  logLevel: 'info',
+}
+
+/* Default build */
 async function StartBuild() {
   let ctx = await esbuild.context(buildConfig);
 
@@ -111,8 +123,19 @@ async function StartBuild() {
   let ctxNode = await esbuild.context(buildNodeConfig);
   await ctxNode.rebuild();
   await ctxNode.dispose();
-
 }
 
-//Initate the project build...
-StartBuild();
+/* Build for Squiz DXP Component Service */
+async function buildDxp() {
+  let ctx = await esbuild.context(buildDxpConfig);
+  await esbuild.build(ctx);
+}
+
+
+// Select project build based on passed-in argument.
+if (argv.type === 'dxp') {
+  buildDxp();
+} else {
+  // Initate the project build...
+  StartBuild();
+}
