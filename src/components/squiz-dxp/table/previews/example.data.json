@@ -1,0 +1,26 @@
+{
+	"customClass": "",
+	"variantClass": "",
+	"caption": "Table caption",
+    "subcaption": "2021 - 2024",
+	"headers": ["Header", "Header", "Header"],
+	"rows": [
+		{ "cells": ["Cell", "Cell", "Cell"] },
+		{ "cells": ["Cell", "Cell", "Cell"] },
+		{ "cells": ["Cell", "Cell", "Cell"] },
+		{ "cells": ["Cell", "Cell", "Cell"] },
+		{ "cells": ["Cell", "Cell", "Cell"] },
+		{ "cells": ["Cell", "Cell", "Cell"] }
+	],
+	"footer": [
+		{
+			"cells": [
+				"Footer",
+				"Footer",
+				"Footer"
+			]
+		}
+	]
+}
+
+

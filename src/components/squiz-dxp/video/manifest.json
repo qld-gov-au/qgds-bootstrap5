@@ -1,0 +1,110 @@
+{
+    "$schema": "http://localhost:3000/schemas/v1.json",
+    "version": "1.0.1",
+    "name": "video",
+    "displayName": "Video Component",
+    "description": "QGDS Bootstrap 5 - Video Component",
+    "namespace": "qgds-bs5-dev",
+    "mainFunction": "main",
+    "functions": [
+        {
+            "name": "main",
+            "entry": "main.cjs",
+            "input": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string"
+                    },
+                    "videoId": {
+                        "type": "string"
+                    },
+                    "videoSize": {
+                        "type": "string"
+                    },
+                    "aspectRatio": {
+                        "type": "string"
+                    },
+                    "duration": {
+                        "type": "string"
+                    },
+                    "thumbnail": {
+                        "type": "string"
+                    },
+                    "urlParams": {
+                        "title": "URL Params",
+                        "type": "object",
+                        "properties": {
+                            "autoplay": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "controls": {
+                                "type": "integer",
+                                "default": 1
+                            }
+                        },
+                        "required": []
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "transcriptContent": {
+                        "type": "string"
+                    },
+                    "transcriptAccordion": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source",
+                    "videoId",
+                    "videoSize",
+                    "aspectRatio",
+                    "duration"
+                ]
+            },
+            "output": {
+                "responseType": "html",
+                "staticFiles": [
+                    {
+                        "location": "header",
+                        "file": {
+                            "type": "css",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/css/qld.bootstrap.css"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/bootstrap.min.js"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/qld.bootstrap.min.js"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "previews": {
+        "default": {
+            "functionData": {
+                "main": {
+                    "inputData": {
+                        "type": "file",
+                        "path": "previews/example.data.json"
+                    },
+                    "wrapper": {
+                        "path": "previews/preview.html"
+                    }
+                }
+            }
+        }
+    }
+}
