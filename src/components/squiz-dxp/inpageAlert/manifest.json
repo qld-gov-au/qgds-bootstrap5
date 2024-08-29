@@ -1,0 +1,73 @@
+{
+    "$schema": "http://localhost:3000/schemas/v1.json",
+    "name": "inpagealert",
+    "namespace": "qgds-bs5-dev",
+    "displayName": "Inpage Alert Component",
+    "description": "QGDS Bootstrap 5 - Inpage alert Component",
+    "version": "1.0.0",
+    "mainFunction": "main",
+    "functions": [
+        {
+            "name": "main",
+            "entry": "main.cjs",
+            "input": {
+                "type": "object",
+                "properties": {
+                    "variantClass": {
+                        "type": "string"
+                    },
+                    "heading": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content"
+                ]
+            },
+            "output": {
+                "responseType": "html",
+                "staticFiles": [
+                    {
+                        "location": "header",
+                        "file": {
+                            "type": "css",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/css/qld.bootstrap.css"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/bootstrap.min.js"
+                        }
+                    },
+                    {
+                        "location": "footer",
+                        "file": {
+                            "type": "js",
+                            "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/qld.bootstrap.min.js"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "previews": {
+        "default": {
+            "functionData": {
+                "main": {
+                    "inputData": {
+                        "type": "file",
+                        "path": "previews/example.data.json"
+                    },
+                    "wrapper": {
+                        "path": "previews/preview.html"
+                    }
+                }
+            }
+        }
+    }
+}
