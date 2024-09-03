@@ -1,0 +1,19 @@
+{
+	"title": "Card title",
+	"description": "Card body text",
+	"date": "",
+	"variantClass": "default",
+	"image": "testImage",
+	"imageAlt": "",
+	"iconClasses": "",
+	"iconPosition": "",
+	"action": "single",
+	"link": "",
+	"arrow": true,
+	"feature": false,
+	"featureImagePosition": "imageposition",
+	"video": false,
+	"videoDuration": "",
+	"footer": "this is footer",
+	"equalHeight": false
+  }
