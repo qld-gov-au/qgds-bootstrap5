@@ -1,0 +1,370 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "header",
+  "namespace": "qgds-bs5-dev",
+  "displayName": "Header",
+  "description": "QGDS Bootstrap 5 - Header Component",
+  "version": "1.0.1",
+  "mainFunction": "main",
+  "icon": {
+    "id": "fiber_new",
+    "color": {
+      "type": "enum",
+      "value": "blue"
+    }
+  },
+  "staticFiles": {
+    "locationRoot": "static"
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.cjs",
+      "input": {
+        "type": "object",
+        "properties": {
+          "iconRoot": {
+            "type": "string"
+          },
+          "icons": {
+            "type": "object",
+            "properties": {
+              "menuIcon": { "type": "string" },
+              "searchIcon": { "type": "string" },
+              "closeIcon": { "type": "string" },
+              "chevronDown": { "type": "string" }
+            },
+            "required": []
+          },
+          "sitePreHeader": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "object",
+                "properties": {
+                  "value": { "type": "string", "format": "uri" }
+                },
+                "required": []
+              },
+              "text": {
+                "type": "object",
+                "properties": {
+                  "value": { "type": "string" }
+                },
+                "required": []
+              },
+              "CTA": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "url": {
+                      "type": "object",
+                      "properties": {
+                        "value": { "type": "string" }
+                      },
+                      "required": []
+                    },
+                    "text": {
+                      "type": "object",
+                      "properties": {
+                        "value": { "type": "string" }
+                      },
+                      "required": []
+                    },
+                    "dropdown_enabled": { "type": "boolean" },
+                    "dropdown_options": {
+                      "type": "object",
+                      "properties": {
+                        "dropdown_type": { "type": "string" },
+                        "view_more": { "type": "boolean" },
+                        "label": { "type": "string" },
+                        "url": { "type": "string" },
+                        "target": { "type": "string" },
+                        "dropdown_config": {
+                          "type": "object",
+                          "properties": {
+                            "groups": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "action": { "type": "string" },
+                                  "url": { "type": "string" },
+                                  "label": { "type": "string" }
+                                },
+                                "required": []
+                              }
+                            },
+                            "content": { "type": "string" }
+                          },
+                          "required": []
+                        }
+                      },
+                      "required": []
+                    }
+                  },
+                  "required": []
+                }
+              }
+            },
+            "required": ["url", "text", "CTA"]
+          },
+          "siteHeader": {
+            "type": "object",
+            "properties": {
+              "config": {
+                "type": "object",
+                "properties": {
+                  "masterbrand_enabled": { "type": "boolean" },
+                  "subbrand_enabled": { "type": "boolean" },
+                  "cobrand_enabled": { "type": "boolean" },
+                  "endorsed_enabled": { "type": "boolean" },
+                  "standalone_enabled": { "type": "boolean" }
+                },
+                "required": []
+              },
+              "url": {
+                "type": "object",
+                "properties": {
+                  "value": { "type": "string", "format": "uri" }
+                },
+                "required": []
+              },
+              "logo": {
+                "type": "object",
+                "properties": {
+                  "value": { "type": "string", "format": "uri" }
+                },
+                "required": []
+              },
+              "secondaryType": {
+                "type": "object",
+                "properties": {
+                  "logo": {
+                    "type": "object",
+                    "properties": {
+                      "value": { "type": "string" }
+                    },
+                    "required": []
+                  },
+                  "siteTitle": {
+                    "type": "object",
+                    "properties": {
+                      "value": { "type": "string" }
+                    },
+                    "required": []
+                  },
+                  "subline": {
+                    "type": "object",
+                    "properties": {
+                      "value": { "type": "string" }
+                    },
+                    "required": []
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "siteSearchAsset": {
+            "type": "object",
+            "properties": {
+              "value": { "type": "string" },
+              "placeholder": { "type": "string" },
+              "label": { "type": "string" },
+              "formAction": {
+                "type": "object",
+                "properties": {
+                  "url": { "type": "string", "format": "uri" }
+                },
+                "required": ["url"]
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "borderStyle": {
+                    "type": "object",
+                    "properties": {
+                      "full": { "type": "boolean" }
+                    },
+                    "required": ["full"]
+                  }
+                },
+                "required": ["borderStyle"]
+              }
+            },
+            "required": ["value", "formAction", "options"]
+          },
+          "searchInput": {
+            "type": "object",
+            "properties": {
+              "customClass": { "type": "string" },
+              "variantClass": { "type": "string" },
+              "placeholder": { "type": "string" },
+              "inputID": { "type": "string" },
+              "inputName": { "type": "string" },
+              "buttonID": { "type": "string" },
+              "buttonType": { "type": "string" },
+              "buttonLabel": { "type": "string" },
+              "ariaLabel": { "type": "string" },
+              "suggestions": { "type": "boolean" },
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "collection": { "type": "string"},
+                  "profile": { "type": "string"},
+                  "numranks": { "type": "integer"},
+                  "tiers": { "type": "string"},
+                  "suggestions": { "type": "string"},
+                  "resultUrl": { "type": "string"}
+                },
+                "required": ["collection"]
+              },
+              "default_suggestions": {
+                "type": "object",
+                "properties": {
+                  "popular_services": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "title": { "type": "string" },
+                        "link": { "type": "string" }
+                      },
+                      "required": []
+                    }
+                  },
+                  "categories": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "title": { "type": "string" },
+                        "link": { "type": "string" }
+                      },
+                      "required": []
+                    }
+                  },
+                  "options": {
+                    "type": "object",
+                    "properties": {
+                      "label": { "type": "string" },
+                      "view_more": { "type": "boolean" },
+                      "href": { "type": "string" }
+                    },
+                    "required": []
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "navBar": {
+            "type": "object",
+            "properties": {
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "target_url": { "type": "string" },
+                  "options": {
+                    "type": "object",
+                    "properties": {
+                      "showHomeTitleSmallDevices": { "type": "boolean" },
+                      "iconRoot": { "type": "string" },
+                      "homeActive": { "type": "boolean" }
+                    },
+                    "required": []
+                  }
+                },
+                "required": []
+              },
+              "navigation": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": { "type": "string" },
+                    "icon": { "type": "string" },
+                    "target_url": { "type": "string" },
+                    "dropdown_enabled": { "type": "boolean" },
+                    "dropdown_options": {
+                      "type": "object",
+                      "properties": {
+                        "feature_link_value": { "type": "string" },
+                        "feature_link_href": { "type": "string" },
+                        "feature_link_description": { "type": "string" },
+                        "view_value": { "type": "string" },
+                        "view_href": { "type": "string" }
+                      },
+                      "required": []
+                    },
+                    "navigation_items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": { "type": "string" },
+                          "description": { "type": "string" },
+                          "target_url": { "type": "string" }
+                        },
+                        "required": []
+                      }
+                    }
+                  },
+                  "required": []
+                }
+              }
+            },
+            "required": []
+          }
+        },
+        "required": []
+      },
+      "output": {
+        "responseType": "html",
+        "staticFiles": [
+          {
+            "location": "header",
+            "file": {
+              "type": "css",
+              "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/css/qld.bootstrap.css"
+            }
+          },
+          {
+            "location": "footer",
+            "file": {
+              "type": "js",
+              "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/bootstrap.min.js"
+            }
+          },
+          {
+            "location": "footer",
+            "file": {
+              "type": "js",
+              "filepath": "https://static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/js/qld.bootstrap.min.js"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "previews/example.data.json"
+          },
+          "wrapper": {
+            "path": "previews/preview.html"
+          }
+        }
+      }
+    }
+  }
+}

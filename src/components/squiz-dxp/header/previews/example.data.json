@@ -1,0 +1,361 @@
+{
+  "iconRoot": "svg-icons.svg",
+  "icons": {
+    "menuIcon": "qld__icon__mobile-menu",
+    "searchIcon": "qld__icon__search",
+    "closeIcon": "qld__icon__close",
+    "chevronDown": "qld__icon__chevron-down"
+  },
+  "sitePreHeader": {
+    "url": {
+      "value": "https://qld.gov.au"
+    },
+    "text": {
+      "value": "www.qld.gov.au"
+    },
+    "CTA": [
+      {
+        "id": "CTAone",
+        "url": {
+          "value": "#"
+        },
+        "text": {
+          "value": "For Queenslanders"
+        },
+        "dropdown_enabled": true,
+        "dropdown_options": {
+          "dropdown_type": "list",
+          "view_more": true,
+          "label": "View all",
+          "url": "https://www.qld.gov.au/queenslanders",
+          "target": "_blank",
+          "dropdown_config": {
+            "groups": [
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Transport and motoring"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Employment and jobs"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Education and training"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Queensland and its government"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Health and wellbeing"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Community support"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "CTAtwo",
+        "url": {
+          "value": "#"
+        },
+        "text": {
+          "value": "Business and Industry"
+        },
+        "dropdown_enabled": true,
+        "dropdown_options": {
+          "dropdown_type": "list",
+          "view_more": true,
+          "label": "View all",
+          "url": "https://www.qld.gov.au/queenslanders",
+          "target": "_blank",
+          "dropdown_config": {
+            "groups": [
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Transport and motoring"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Employment and jobs"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Education and training"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Queensland and its government"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Health and wellbeing"
+              },
+              {
+                "action": "_blank",
+                "url": "#",
+                "label": "Community support"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "CTAthree",
+        "url": {
+          "value": "#"
+        },
+        "text": {
+          "value": "Login"
+        },
+        "dropdown_enabled": true,
+        "dropdown_options": {
+          "dropdown_type": "form",
+          "dropdown_config": {
+            "content": "<div></div>"
+          }
+        }
+      }
+    ]
+  },
+  "siteHeader": {
+    "config": {
+      "masterbrand_enabled": true,
+      "subbrand_enabled": false,
+      "cobrand_enabled": false,
+      "endorsed_enabled": false,
+      "standalone_enabled": false
+    },
+    "url": {
+      "value": "https://qld.gov.au"
+    },
+    "logo": {
+      "value": ""
+    },
+    "secondaryType": {
+      "logo": {
+        "value": ""
+      },
+      "siteTitle": {
+        "value": ""
+      },
+      "subline": {
+        "value": ""
+      }
+    }
+  },
+  "siteSearchAsset": {
+    "value": "#",
+    "placeholder": "",
+    "label": "",
+    "formAction": {
+      "url": "https://www.forgov.qld.gov.au/search"
+    },
+    "options": {
+      "borderStyle": {
+        "full": true
+      }
+    }
+  },
+  "searchInput": {
+    "customClass": "",
+    "variantClass": "",
+    "placeholder": "Search website",
+    "inputID": "search",
+    "inputName": "query",
+    "buttonID": "search-button",
+    "buttonType": "submit",
+    "buttonLabel": "Search",
+    "ariaLabel": "Search website",
+    "suggestions": true,
+    "tags": {
+      "collection": "qgov~sp-search",
+      "profile": "qld",
+      "numranks": 10,
+      "tiers": "off",
+      "suggestions": "https://discover.search.qld.gov.au/s/suggest.json",
+      "results-url": "https://discover.search.qld.gov.au/s/search.json"
+    },
+    "default_suggestions": {
+      "popular_services": [
+        {
+          "title": "Apply for leave",
+          "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application"
+        },
+        {
+          "title": "Apply for higher duties or relieving at level",
+          "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level"
+        },
+        {
+          "title": "Extend a temporary or casual employee",
+          "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment/extending-my-job/extend-a-temporary-or-casual-employee"
+        },
+        {
+          "title": "Hire a staff member (recruitment)",
+          "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment"
+        }
+      ],
+      "categories": [
+        {
+          "title": "Search for directives, policies, circulars, and guidelines",
+          "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines"
+        },
+        {
+          "title": "Employee pay and benefits",
+          "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits"
+        },
+        {
+          "title": "Queensland Shared Services",
+          "link": "https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services"
+        },
+        {
+          "title": "Career development",
+          "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development"
+        }
+      ],
+      "options": {
+        "label": "Browse all categories",
+        "view_more": false,
+        "href": "/queenslanders"
+      }
+    }
+  },
+  "navBar": {
+    "metadata": {
+      "target_url": "metadata-index.html",
+      "options": {
+        "showHomeTitleSmallDevices": true,
+        "iconRoot": "svg-icons.svg",
+        "homeActive": true
+      }
+    },
+    "navigation": [
+      {
+        "title": "Mega menu",
+        "icon": "",
+        "target_url": "index.html",
+        "dropdown_enabled": true,
+        "dropdown_options": {
+          "feature_link_value": "Getting ready",
+          "feature_link_href": "index.html",
+          "feature_link_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+          "view_value": "View all",
+          "view_href": "index.html"
+        },
+        "navigation_items": [
+          {
+            "title": "Find your reason",
+            "description": "One of the best motivations for quitting is having a clear reason in mind so you know exactly why you’re doing it in the first place.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Quit stories",
+            "description": "Be encouraged and motivated by listening to stories of others who've quit smoking for life.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Vaping (e-cigarettes)",
+            "description": "Vaping products are also known as e-cigarettes, e-cigars, vape pens or personal vapourisers. Vapes are harmful. The safest option is to not vape at all.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Choose your method",
+            "description": "There are plenty of ways to quit smoking cigarettes and vapes. Find one that suits you best and commit to it.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Pregnancy and smoking",
+            "description": "Whether you’re thinking about getting pregnant, you're pregnant or have recently given birth, quitting smoking or vaping is the best thing you can do for the health of  you and your baby.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Sign up for our support program",
+            "description": "Sign up for My Quit Journey to support you to stop smoking.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Plan your journey",
+            "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+            "target_url": "index.html"
+          }
+        ]
+      },
+      {
+        "title": "Simple list",
+        "icon": "",
+        "target_url": "index.html",
+        "dropdown_enabled": true,
+        "dropdown_options": {
+          "feature_link_value": "Patients and visitors",
+          "feature_link_href": "index.html",
+          "feature_link_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+          "view_value": "View all",
+          "view_href": "index.html"
+        },
+        "navigation_items": [
+          {
+            "title": "Visiting someone in hospital",
+            "description": "One of the best motivations for quitting is having a clear reason in mind so you know exactly why you’re doing it in the first place.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Aboriginal and Torres Strait Islander support",
+            "description": "Be encouraged and motivated by listening to stories of others who've quit smoking for life.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Your healthcare rights and responsibilities",
+            "description": "Vaping products are also known as e-cigarettes, e-cigars, vape pens or personal vapourisers. Vapes are harmful. The safest option is to not vape at all.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Going to hospital",
+            "description": "There are plenty of ways to quit smoking cigarettes and vapes. Find one that suits you best and commit to it.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Interpreter services",
+            "description": "Whether you’re thinking about getting pregnant, you're pregnant or have recently given birth, quitting smoking or vaping is the best thing you can do for the health of  you and your baby.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Health costs, insurance and financial support",
+            "description": "Sign up for My Quit Journey to support you to stop smoking.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Leaving hospital",
+            "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+            "target_url": "index.html"
+          },
+          {
+            "title": "Your health record",
+            "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
+            "target_url": "index.html"
+          }
+        ]
+      },
+      {
+        "title": "Contact us",
+        "icon": "",
+        "target_url": "index.html"
+      }
+    ]
+  }
+}
