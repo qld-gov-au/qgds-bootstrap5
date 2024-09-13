@@ -4,7 +4,7 @@
   "namespace": "qgds-bs5-dev",
   "displayName": "Header",
   "description": "QGDS Bootstrap 5 - Header Component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "mainFunction": "main",
   "icon": {
     "id": "fiber_new",
@@ -24,15 +24,28 @@
         "type": "object",
         "properties": {
           "iconRoot": {
-            "type": "string"
+            "type": "string",
+            "default": "svg-icons.svg"
           },
           "icons": {
             "type": "object",
             "properties": {
-              "menuIcon": { "type": "string" },
-              "searchIcon": { "type": "string" },
-              "closeIcon": { "type": "string" },
-              "chevronDown": { "type": "string" }
+              "menu": {
+                "type": "string",
+                "default": "qld__icon__menu"
+              },
+              "search": {
+                "type": "string",
+                "default": "qld__icon__search"
+              },
+              "close": {
+                "type": "string",
+                "default": "qld__icon__close"
+              },
+              "chevronDown": {
+                "type": "string",
+                "default": "qld__icon__chevron-down"
+              }
             },
             "required": []
           },
@@ -42,14 +55,21 @@
               "url": {
                 "type": "object",
                 "properties": {
-                  "value": { "type": "string", "format": "uri" }
+                  "value": {
+                    "type": "string",
+                    "format": "uri",
+                    "default": "https://qld.gov.au"
+                  }
                 },
                 "required": []
               },
               "text": {
                 "type": "object",
                 "properties": {
-                  "value": { "type": "string" }
+                  "value": {
+                    "type": "string",
+                    "default": "www.qld.gov.au"
+                  }
                 },
                 "required": []
               },
@@ -58,30 +78,48 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "id": { "type": "string" },
+                    "id": {
+                      "type": "string"
+                    },
                     "url": {
                       "type": "object",
                       "properties": {
-                        "value": { "type": "string" }
+                        "value": {
+                          "type": "string"
+                        }
                       },
                       "required": []
                     },
                     "text": {
                       "type": "object",
                       "properties": {
-                        "value": { "type": "string" }
+                        "value": {
+                          "type": "string"
+                        }
                       },
                       "required": []
                     },
-                    "dropdown_enabled": { "type": "boolean" },
+                    "dropdown_enabled": {
+                      "type": "boolean"
+                    },
                     "dropdown_options": {
                       "type": "object",
                       "properties": {
-                        "dropdown_type": { "type": "string" },
-                        "view_more": { "type": "boolean" },
-                        "label": { "type": "string" },
-                        "url": { "type": "string" },
-                        "target": { "type": "string" },
+                        "dropdown_type": {
+                          "type": "string"
+                        },
+                        "view_more": {
+                          "type": "boolean"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "target": {
+                          "type": "string"
+                        },
                         "dropdown_config": {
                           "type": "object",
                           "properties": {
@@ -90,14 +128,22 @@
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "action": { "type": "string" },
-                                  "url": { "type": "string" },
-                                  "label": { "type": "string" }
+                                  "action": {
+                                    "type": "string"
+                                  },
+                                  "url": {
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "type": "string"
+                                  }
                                 },
                                 "required": []
                               }
                             },
-                            "content": { "type": "string" }
+                            "content": {
+                              "type": "string"
+                            }
                           },
                           "required": []
                         }
@@ -109,7 +155,11 @@
                 }
               }
             },
-            "required": ["url", "text", "CTA"]
+            "required": [
+              "url",
+              "text",
+              "CTA"
+            ]
           },
           "siteHeader": {
             "type": "object",
@@ -117,25 +167,41 @@
               "config": {
                 "type": "object",
                 "properties": {
-                  "masterbrand_enabled": { "type": "boolean" },
-                  "subbrand_enabled": { "type": "boolean" },
-                  "cobrand_enabled": { "type": "boolean" },
-                  "endorsed_enabled": { "type": "boolean" },
-                  "standalone_enabled": { "type": "boolean" }
+                  "masterbrand_enabled": {
+                    "type": "boolean"
+                  },
+                  "subbrand_enabled": {
+                    "type": "boolean"
+                  },
+                  "cobrand_enabled": {
+                    "type": "boolean"
+                  },
+                  "endorsed_enabled": {
+                    "type": "boolean"
+                  },
+                  "standalone_enabled": {
+                    "type": "boolean"
+                  }
                 },
                 "required": []
               },
               "url": {
                 "type": "object",
                 "properties": {
-                  "value": { "type": "string", "format": "uri" }
+                  "value": {
+                    "type": "string",
+                    "format": "uri",
+                    "default": "https://qld.gov.au"
+                  }
                 },
                 "required": []
               },
               "logo": {
                 "type": "object",
                 "properties": {
-                  "value": { "type": "string", "format": "uri" }
+                  "value": {
+                    "type": "string"
+                  }
                 },
                 "required": []
               },
@@ -145,21 +211,27 @@
                   "logo": {
                     "type": "object",
                     "properties": {
-                      "value": { "type": "string" }
+                      "value": {
+                        "type": "string"
+                      }
                     },
                     "required": []
                   },
                   "siteTitle": {
                     "type": "object",
                     "properties": {
-                      "value": { "type": "string" }
+                      "value": {
+                        "type": "string"
+                      }
                     },
                     "required": []
                   },
                   "subline": {
                     "type": "object",
                     "properties": {
-                      "value": { "type": "string" }
+                      "value": {
+                        "type": "string"
+                      }
                     },
                     "required": []
                   }
@@ -172,15 +244,28 @@
           "siteSearchAsset": {
             "type": "object",
             "properties": {
-              "value": { "type": "string" },
-              "placeholder": { "type": "string" },
-              "label": { "type": "string" },
+              "value": {
+                "type": "string",
+                "default": "#"
+              },
+              "placeholder": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
               "formAction": {
                 "type": "object",
                 "properties": {
-                  "url": { "type": "string", "format": "uri" }
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "default": "https://www.qld.gov.au/search"
+                  }
                 },
-                "required": ["url"]
+                "required": [
+                  "url"
+                ]
               },
               "options": {
                 "type": "object",
@@ -188,40 +273,87 @@
                   "borderStyle": {
                     "type": "object",
                     "properties": {
-                      "full": { "type": "boolean" }
+                      "full": {
+                        "type": "boolean"
+                      }
                     },
-                    "required": ["full"]
+                    "required": []
                   }
                 },
-                "required": ["borderStyle"]
+                "required": []
               }
             },
-            "required": ["value", "formAction", "options"]
+            "required": [
+              "value",
+              "formAction"
+            ]
           },
           "searchInput": {
             "type": "object",
             "properties": {
-              "customClass": { "type": "string" },
-              "variantClass": { "type": "string" },
-              "placeholder": { "type": "string" },
-              "inputID": { "type": "string" },
-              "inputName": { "type": "string" },
-              "buttonID": { "type": "string" },
-              "buttonType": { "type": "string" },
-              "buttonLabel": { "type": "string" },
-              "ariaLabel": { "type": "string" },
-              "suggestions": { "type": "boolean" },
+              "customClass": {
+                "type": "string"
+              },
+              "variantClass": {
+                "type": "string"
+              },
+              "placeholder": {
+                "type": "string",
+                "default": "Search website"
+              },
+              "inputID": {
+                "type": "string",
+                "default": "search"
+              },
+              "inputName": {
+                "type": "string",
+                "default": "query"
+              },
+              "buttonID": {
+                "type": "string",
+                "default": "search-button"
+              },
+              "buttonType": {
+                "type": "string",
+                "default": "submit"
+              },
+              "buttonLabel": {
+                "type": "string",
+                "default": "Search"
+              },
+              "ariaLabel": {
+                "type": "string",
+                "default": "Search website"
+              },
+              "suggestions": {
+                "type": "boolean",
+                "default": true
+              },
               "tags": {
                 "type": "object",
                 "properties": {
-                  "collection": { "type": "string"},
-                  "profile": { "type": "string"},
-                  "numranks": { "type": "integer"},
-                  "tiers": { "type": "string"},
-                  "suggestions": { "type": "string"},
-                  "resultUrl": { "type": "string"}
+                  "collection": {
+                    "type": "string"
+                  },
+                  "profile": {
+                    "type": "string"
+                  },
+                  "numranks": {
+                    "type": "integer"
+                  },
+                  "tiers": {
+                    "type": "string"
+                  },
+                  "suggestions": {
+                    "type": "string"
+                  },
+                  "resultUrl": {
+                    "type": "string"
+                  }
                 },
-                "required": ["collection"]
+                "required": [
+                  "collection"
+                ]
               },
               "default_suggestions": {
                 "type": "object",
@@ -231,8 +363,12 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "title": { "type": "string" },
-                        "link": { "type": "string" }
+                        "title": {
+                          "type": "string"
+                        },
+                        "link": {
+                          "type": "string"
+                        }
                       },
                       "required": []
                     }
@@ -242,8 +378,12 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "title": { "type": "string" },
-                        "link": { "type": "string" }
+                        "title": {
+                          "type": "string"
+                        },
+                        "link": {
+                          "type": "string"
+                        }
                       },
                       "required": []
                     }
@@ -251,9 +391,15 @@
                   "options": {
                     "type": "object",
                     "properties": {
-                      "label": { "type": "string" },
-                      "view_more": { "type": "boolean" },
-                      "href": { "type": "string" }
+                      "label": {
+                        "type": "string"
+                      },
+                      "view_more": {
+                        "type": "boolean"
+                      },
+                      "href": {
+                        "type": "string"
+                      }
                     },
                     "required": []
                   }
@@ -269,13 +415,20 @@
               "metadata": {
                 "type": "object",
                 "properties": {
-                  "target_url": { "type": "string" },
+                  "target_url": {
+                    "type": "string"
+                  },
                   "options": {
                     "type": "object",
                     "properties": {
-                      "showHomeTitleSmallDevices": { "type": "boolean" },
-                      "iconRoot": { "type": "string" },
-                      "homeActive": { "type": "boolean" }
+                      "showHomeTitleSmallDevices": {
+                        "type": "boolean",
+                        "default": true
+                      },
+                      "homeActive": {
+                        "type": "boolean",
+                        "default": true
+                      }
                     },
                     "required": []
                   }
@@ -287,18 +440,36 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "title": { "type": "string" },
-                    "icon": { "type": "string" },
-                    "target_url": { "type": "string" },
-                    "dropdown_enabled": { "type": "boolean" },
+                    "title": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    },
+                    "target_url": {
+                      "type": "string"
+                    },
+                    "dropdown_enabled": {
+                      "type": "boolean"
+                    },
                     "dropdown_options": {
                       "type": "object",
                       "properties": {
-                        "feature_link_value": { "type": "string" },
-                        "feature_link_href": { "type": "string" },
-                        "feature_link_description": { "type": "string" },
-                        "view_value": { "type": "string" },
-                        "view_href": { "type": "string" }
+                        "feature_link_value": {
+                          "type": "string"
+                        },
+                        "feature_link_href": {
+                          "type": "string"
+                        },
+                        "feature_link_description": {
+                          "type": "string"
+                        },
+                        "view_value": {
+                          "type": "string"
+                        },
+                        "view_href": {
+                          "type": "string"
+                        }
                       },
                       "required": []
                     },
@@ -307,9 +478,15 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "title": { "type": "string" },
-                          "description": { "type": "string" },
-                          "target_url": { "type": "string" }
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "target_url": {
+                            "type": "string"
+                          }
                         },
                         "required": []
                       }

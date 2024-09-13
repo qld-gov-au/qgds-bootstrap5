@@ -1,9 +1,9 @@
 {
   "iconRoot": "svg-icons.svg",
   "icons": {
-    "menuIcon": "qld__icon__mobile-menu",
-    "searchIcon": "qld__icon__search",
-    "closeIcon": "qld__icon__close",
+    "menu": "qld__icon__menu",
+    "search": "qld__icon__search",
+    "close": "qld__icon__close",
     "chevronDown": "qld__icon__chevron-down"
   },
   "sitePreHeader": {
