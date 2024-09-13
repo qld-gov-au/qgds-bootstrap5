@@ -51,6 +51,7 @@
           },
           "sitePreHeader": {
             "type": "object",
+            "title": "Pre-Header",
             "properties": {
               "url": {
                 "type": "object",
@@ -75,6 +76,7 @@
               },
               "CTA": {
                 "type": "array",
+                "title": "Call to Action",
                 "items": {
                   "type": "object",
                   "properties": {
@@ -100,7 +102,8 @@
                       "required": []
                     },
                     "dropdown_enabled": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "default": false
                     },
                     "dropdown_options": {
                       "type": "object",
@@ -109,7 +112,8 @@
                           "type": "string"
                         },
                         "view_more": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "default": false
                         },
                         "label": {
                           "type": "string"
@@ -138,7 +142,7 @@
                                     "type": "string"
                                   }
                                 },
-                                "required": []
+                                "required": ["url", "label"]
                               }
                             },
                             "content": {
@@ -163,24 +167,30 @@
           },
           "siteHeader": {
             "type": "object",
+            "title": "Site Header",
             "properties": {
               "config": {
                 "type": "object",
                 "properties": {
                   "masterbrand_enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": true
                   },
                   "subbrand_enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": false
                   },
                   "cobrand_enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": false
                   },
                   "endorsed_enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": false
                   },
                   "standalone_enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": false
                   }
                 },
                 "required": []
@@ -243,6 +253,7 @@
           },
           "siteSearchAsset": {
             "type": "object",
+            "title": "Site Search",
             "properties": {
               "value": {
                 "type": "string",
@@ -274,7 +285,8 @@
                     "type": "object",
                     "properties": {
                       "full": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "default": false
                       }
                     },
                     "required": []
@@ -290,6 +302,7 @@
           },
           "searchInput": {
             "type": "object",
+            "title": "Search Input",
             "properties": {
               "customClass": {
                 "type": "string"
@@ -391,11 +404,12 @@
                   "options": {
                     "type": "object",
                     "properties": {
+                      "view_more": {
+                        "type": "boolean",
+                        "default": false
+                      },
                       "label": {
                         "type": "string"
-                      },
-                      "view_more": {
-                        "type": "boolean"
                       },
                       "href": {
                         "type": "string"
@@ -411,6 +425,7 @@
           },
           "navBar": {
             "type": "object",
+            "title": "Main Navigation",
             "properties": {
               "metadata": {
                 "type": "object",
@@ -437,6 +452,7 @@
               },
               "navigation": {
                 "type": "array",
+                "title": "Navigation Heading",
                 "items": {
                   "type": "object",
                   "properties": {
@@ -450,7 +466,8 @@
                       "type": "string"
                     },
                     "dropdown_enabled": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "default": false
                     },
                     "dropdown_options": {
                       "type": "object",
@@ -474,6 +491,7 @@
                       "required": []
                     },
                     "navigation_items": {
+                      "title": "Dropdown Items",
                       "type": "array",
                       "items": {
                         "type": "object",
@@ -488,11 +506,11 @@
                             "type": "string"
                           }
                         },
-                        "required": []
+                        "required": ["title", "target_url"]
                       }
                     }
                   },
-                  "required": []
+                  "required": ["title", "target_url"]
                 }
               }
             },

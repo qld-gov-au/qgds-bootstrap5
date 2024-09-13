@@ -230,8 +230,8 @@
         }
       ],
       "options": {
-        "label": "Browse all categories",
         "view_more": false,
+        "label": "Browse all categories",
         "href": "/queenslanders"
       }
     }

@@ -8,8 +8,7 @@
  * The reasoning behind this is because "Header component" should be drag and drop within DXP Matrix as one component, to ensure uniformity of the header looking and feel.
  * 
  */
-module.exports = async function (input, info) {
-  
+module.exports = async function (input, info) {  
   const DEFAULT_ICON_ROOT_URL = info.ctx.getStaticResourceUrl(input.iconRoot);
 
   const qgovCrestOnlinePreHeader = `<svg class="qld__header__pre-header-brand-image" viewBox="0 0 165 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,12 +549,15 @@ module.exports = async function (input, info) {
    */
   const navbarHomeIcon = (navBar) => {
     return `<li class="nav-item nav-item-home">
-                <a class="nav-link ${navBar.metadata.options.homeActive ? `nav-link-home-active` : `` }"
-                    href="${navBar.metadata.target_url}">
+                <a class="nav-link 
+                    ${(navBar.metadata.options.homeActive === true || navBar.metadata.options.homeActive == 'true') ? 
+                    `nav-link-home-active` : `` }"
+                    href="${navBar.metadata.target_url}"
+                  >
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
                         <use href="${getIconUrl('qld__icon__home')}" aria-hidden="true"></use>
                     </svg>
-                    ${navBar.metadata.options.showHomeTitleSmallDevices ? 
+                    ${(navBar.metadata.options.showHomeTitleSmallDevices === true || navBar.metadata.options.showHomeTitleSmallDevices == 'true') ? 
                     `<span class="home-label">Home</span>`
                     :
                     `<span class="visually-hidden">Home</span>`
@@ -609,9 +611,12 @@ module.exports = async function (input, info) {
                   : ``
                 }
 
-                ${nav.navigation_items.map((navItem) => dropdownNavItem(navItem, desktop)).join('')}
+                ${nav.navigation_items && nav.navigation_items.length ? 
+                  nav.navigation_items.map((navItem) => dropdownNavItem(navItem, desktop)).join('')
+                  : ``
+                }
 
-                ${nav.dropdown_options.view_value ? 
+                ${nav.dropdown_options && nav.dropdown_options.view_value ? 
                   `<li class="col-12 text-end">
                       <hr>
                       <a class="dropdown-menu__view_all" href="${nav.dropdown_options.view_href}">
@@ -699,6 +704,9 @@ module.exports = async function (input, info) {
    * Navbar component - Main Navigation
    */
   const navbarMainNavigation = (navBar) => {
+    if (!navBar.navigation || !navBar.navigation.length) {
+      return ``;
+    }
     let navItems = navBar.navigation.map((nav) => {
       if (nav.dropdown_enabled) {
         return navbarMainNavigationDropdown(nav);
@@ -741,12 +749,12 @@ module.exports = async function (input, info) {
    */
   const searchInputComponentSuggestions = (searchInput) => {
     if (!searchInput.suggestions || !searchInput.default_suggestions || 
-        (!searchInput.default_suggestions.popular_services || !searchInput.default_suggestions.categories) || 
-        (!searchInput.default_suggestions.popular_services.length || !searchInput.default_suggestions.categories.length) ) {
+        ((!searchInput.default_suggestions.popular_services && !searchInput.default_suggestions.categories)) || 
+        ((!searchInput.default_suggestions.popular_services.length && !searchInput.default_suggestions.categories.length)) ) {
       return ``;
     }
 
-    const {popular_services, categories, options} = searchInput.default_suggestions;
+    const {popular_services=[], categories=[], options=null} = searchInput.default_suggestions;
 
     let suggestionsDOM = [];
     if (popular_services && popular_services.length) {
@@ -775,8 +783,8 @@ module.exports = async function (input, info) {
 
                   ${suggestionsDOM.join('<hr>')}
 
-                  ${options.view_more ? 
-                      `<div class="suggestions-category mt-4 mb-4">
+                  ${(options.view_more === true || options.view_more == 'true') ? 
+                      `<div class="suggestions-category mt-4 mb-4 view_more">
                           <a href="${options.href}">${options.label}</a>
                       </div>`
                     : ``
@@ -794,11 +802,18 @@ module.exports = async function (input, info) {
    * @returns string
    */
   const searchInputComponent = (searchInput) => {
+    if (!searchInput) {
+      return ``;
+    }
+    let tags = [];
+    if (searchInput.tags) {
+      tags = Object.entries(searchInput.tags).map(([key, tag]) => `data-${key}="${tag}"`);
+    }
     return `<div class="container ${searchInput.variantClass}">
               <div class="qld-search-input ${searchInput.customClass} d-flex">
                   <input id="${searchInput.inputID}" name=" ${searchInput.inputName}" class="form-control" type="text" placeholder="${searchInput.placeholder}"
                       autocomplete="off" aria-label="${searchInput.ariaLabel}" 
-                      ${Object.entries(searchInput.tags).map(([key, tag]) => `data-${key}="${tag}"`).join(' ')}
+                      ${tags.join(' ')}
                   >
                   <button class="btn btn-primary" type="${searchInput.buttonType}" id="${searchInput.buttonID}">
                       <span class="btn-icon"></span>
@@ -912,18 +927,18 @@ module.exports = async function (input, info) {
   /**
    * Header for Master branding.
    * Logo used here is the "QGOV Crest Online" version.
-   *  
+   * 
    * @param {Object} siteHeader 
    * @returns string
    */
   const mainHeaderBrandMaster = (siteHeader) => {
-    if (!siteHeader.config.masterbrand_enabled) {
+    if (!siteHeader.config.masterbrand_enabled || siteHeader.config.masterbrand_enabled == 'false') {
       return ``;
     }
     return `<div class="qld__header__brand">
               <a href="${siteHeader.url.value}">
                   <div class="qld__header__brand-image">
-                    ${siteHeader.logo.value ? 
+                    ${siteHeader.logo && siteHeader.logo.value ? 
                       `<img src="${siteHeader.logo.value}" width="329.57" height="56">
                           <title>Queensland Government</title>
                         </img>`
@@ -943,14 +958,15 @@ module.exports = async function (input, info) {
    * @returns string
    */
   const mainHeaderBrandSubCo = (siteHeader) => {
-    if (!siteHeader.config.subbrand_enabled || !siteHeader.config.cobrand_enabled) {
+    if ((!siteHeader.config.subbrand_enabled || siteHeader.config.subbrand_enabled == 'false') &&
+        (!siteHeader.config.cobrand_enabled || siteHeader.config.cobrand_enabled == 'false')) {
       return ``;
     }
     
     return `<div class="qld__header__brand">
               <a href="${siteHeader.url.value}">
                   <div class="qld__header__brand-image qld__header__brand-image_subtype">
-                    ${siteHeader.logo.value ? 
+                    ${siteHeader.logo && siteHeader.logo.value ? 
                       `<img src="${siteHeader.logo.value}" width="170" height="56">
                           <title>Queensland Government</title>
                         </img>`
@@ -960,10 +976,11 @@ module.exports = async function (input, info) {
                   </div>
                   ${siteHeader.secondaryType ? 
                     `<div class="qld__header__site-name">
-                        <span class="qld__header__heading">
-                            ${siteHeader.secondaryType.siteTitle.value}
-                        </span>
-                        ${siteHeader.secondaryType.subline.value ?
+                        ${siteHeader.secondaryType.siteTitle && siteHeader.secondaryType.siteTitle.value ?
+                          `<span class="qld__header__heading"> ${siteHeader.secondaryType.siteTitle.value} </span>`
+                          : ``
+                        }
+                        ${siteHeader.secondaryType.subline && siteHeader.secondaryType.subline.value ?
                           `<span class="qld__header__subline"> ${siteHeader.secondaryType.subline.value} </span>`
                           : ``
                         }
@@ -983,12 +1000,13 @@ module.exports = async function (input, info) {
    * @returns string
    */
   const mainHeaderBrandEndorsed = (siteHeader) => {
-    if (!siteHeader.config.endorsed_enabled) {
+    if (!siteHeader.config.endorsed_enabled || siteHeader.config.endorsed_enabled == 'false') {
       return ``;
     }
+
     return `<div class="qld__header__brand">
                 <a href="${siteHeader.url.value}">
-                    ${siteHeader.secondaryType.logo.value ? 
+                    ${siteHeader.secondaryType.logo && siteHeader.secondaryType.logo.value ? 
                       `<div class="qld__header__brand-image qld__header__brand-image_subtype">
                             <div class="qld__header__site-name">
                                 <img class="qld__header__secondary-image" alt="${siteHeader.secondaryType.siteTitle.value}"
@@ -1020,7 +1038,7 @@ module.exports = async function (input, info) {
    * @returns string
    */
   const mainHeaderBrandStandalone = (siteHeader) => {
-    if (!siteHeader.config.standalone_enabled) {
+    if (!siteHeader.config.standalone_enabled || siteHeader.config.standalone_enabled == 'false') {
       return ``;
     }
     return `<div class="qld__header__brand">
