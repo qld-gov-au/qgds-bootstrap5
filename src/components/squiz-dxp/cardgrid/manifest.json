@@ -17,7 +17,112 @@
     {
       "name": "main",
       "entry": "main.js",
-      "input": {},
+      "input": {
+        "properties": {
+          "noAction": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            },
+            "variantClass": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "imageAlt": {
+              "type": "string"
+            },
+            "iconClasses": {
+              "type": "string"              
+            },
+            "action": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            },
+            "arrow": {
+              "type": "boolean"
+            },
+            "feature": {
+              "type": "string"
+            },
+            "featureImagePosition": {
+              "type": "string"
+            },
+            "video": {
+              "type": "boolean"
+            },
+            "videoDuration": {
+              "type": "string"
+            },
+            "footer": {
+              "type": "string"
+            },
+            "equalHeight": {
+              "type": "boolean"
+            },
+          "required": []
+          },
+          "singleAction": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            },
+            "variantClass": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "imageAlt": {
+              "type": "string"
+            },
+            "iconClasses": {
+              "type": "string"              
+            },
+            "action": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            },
+            "arrow": {
+              "type": "boolean"
+            },
+            "feature": {
+              "type": "string"
+            },
+            "featureImagePosition": {
+              "type": "string"
+            },
+            "video": {
+              "type": "boolean"
+            },
+            "videoDuration": {
+              "type": "string"
+            },
+            "footer": {
+              "type": "string"
+            },
+            "equalHeight": {
+              "type": "boolean"
+            },
+          "required": []
+          }
+        }
+      },
       "output": {
         "responseType": "html",
         "staticFiles": [
