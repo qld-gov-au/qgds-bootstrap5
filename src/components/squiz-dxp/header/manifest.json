@@ -4,7 +4,7 @@
   "namespace": "qgds-bs5-dev",
   "displayName": "Header",
   "description": "QGDS Bootstrap 5 - Header Component",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "mainFunction": "main",
   "icon": {
     "id": "fiber_new",
