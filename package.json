@@ -79,7 +79,7 @@
     "live-server": "1.2.2",
     "minimist": "^1.2.8",
     "mocha": "^10.7.3",
-    "npm-run-all2": "^6.2.2",
+    "npm-run-all2": "^6.2.3",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.32",
     "postcss": "^8.4.45",
