@@ -707,6 +707,17 @@ module.exports = async function (input, info) {
     if (!navBar.navigation || !navBar.navigation.length) {
       return ``;
     }
+
+    // TODO: Handling navBar in matrix asset uri format
+    console.log(JSON.stringify(navBar.navigation));
+    if (typeof(navBar.navigation) === 'string') {
+      const navigationAsset = info.ctx.resolveUri(navBar.navigation);
+      console.log(JSON.stringify(navigationAsset));
+
+      return `<li class="nav-item"><a class="nav-link">JSON.stringify(navigationAsset) = ${JSON.stringify(navigationAsset)}</a></li>`;
+    }
+
+
     let navItems = navBar.navigation.map((nav) => {
       if (nav.dropdown_enabled) {
         return navbarMainNavigationDropdown(nav);
@@ -852,7 +863,16 @@ module.exports = async function (input, info) {
         </svg>
       </a>
       <ul class="dropdown-menu dark" role="list">
-        ${cta.dropdown_options.dropdown_type == "list"? listDropdown : ''}
+        ${cta.dropdown_options.dropdown_type == "list" ? 
+            listDropdown + 
+            `${cta.dropdown_options.view_more_config && cta.dropdown_options.view_more_config.view_more ?
+              `<li class="qld__header__cta-list">
+                <a href="${cta.dropdown_options.view_more_config.url}" target="${cta.dropdown_options.view_more_config.target}" class="view-all border-bottom-0">
+                    ${cta.dropdown_options.view_more_config.label}
+                </a>
+              </li>`
+              : ''}`
+          : ''}
         ${cta.dropdown_options.dropdown_type == "form" && cta.dropdown_options.dropdown_config.content ? cta.dropdown_options.dropdown_config.content : ''}
       </ul>`;
   }

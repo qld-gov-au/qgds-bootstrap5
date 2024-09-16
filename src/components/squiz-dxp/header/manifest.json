@@ -4,7 +4,7 @@
   "namespace": "qgds-bs5-dev",
   "displayName": "Header",
   "description": "QGDS Bootstrap 5 - Header Component",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "mainFunction": "main",
   "icon": {
     "id": "fiber_new",
@@ -109,25 +109,18 @@
                       "type": "object",
                       "properties": {
                         "dropdown_type": {
-                          "type": "string"
-                        },
-                        "view_more": {
-                          "type": "boolean",
-                          "default": false
-                        },
-                        "label": {
-                          "type": "string"
-                        },
-                        "url": {
-                          "type": "string"
-                        },
-                        "target": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "list",
+                            "form"
+                          ]
                         },
                         "dropdown_config": {
+                          "title": "Dropdown Item",
                           "type": "object",
                           "properties": {
                             "groups": {
+                              "title": "Link Item",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -142,11 +135,57 @@
                                     "type": "string"
                                   }
                                 },
-                                "required": ["url", "label"]
+                                "required": [
+                                  "url",
+                                  "label"
+                                ]
                               }
                             },
                             "content": {
+                              "title": "Content Item",
+                              "anyOf": [
+                                {
+                                  "title": "Multi line",
+                                  "type": "string",
+                                  "format": "multi-line"
+                                },
+                                {
+                                  "title": "WYSIWYG",
+                                  "type": "FormattedText"
+                                },
+                                {
+                                  "title": "Matrix Asset",
+                                  "type": "string",
+                                  "format": "matrix-asset-uri"
+                                }
+                              ]
+                            }
+                          },
+                          "required": []
+                        },
+                        "view_more_config": {
+                          "title": "View More settings",
+                          "type": "object",
+                          "properties": {
+                            "view_more": {
+                              "type": "boolean",
+                              "default": false
+                            },
+                            "label": {
                               "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
+                            },
+                            "target": {
+                              "type": "string",
+                              "enum": [
+                                "_self",
+                                "_blank",
+                                "_parent",
+                                "_top"
+                              ],
+                              "default": "_self"
                             }
                           },
                           "required": []
@@ -424,17 +463,19 @@
             "required": []
           },
           "navBar": {
-            "type": "object",
             "title": "Main Navigation",
+            "type": "object",
             "properties": {
               "metadata": {
                 "type": "object",
+                "title": "Metadata",
                 "properties": {
                   "target_url": {
                     "type": "string"
                   },
                   "options": {
                     "type": "object",
+                    "title": "Options",
                     "properties": {
                       "showHomeTitleSmallDevices": {
                         "type": "boolean",
@@ -451,67 +492,85 @@
                 "required": []
               },
               "navigation": {
-                "type": "array",
-                "title": "Navigation Heading",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "title": {
-                      "type": "string"
-                    },
-                    "icon": {
-                      "type": "string"
-                    },
-                    "target_url": {
-                      "type": "string"
-                    },
-                    "dropdown_enabled": {
-                      "type": "boolean",
-                      "default": false
-                    },
-                    "dropdown_options": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "title": "Navigation from Matrix Asset",
+                    "format": "matrix-asset-uri"
+                  },
+                  {
+                    "type": "array",
+                    "title": "Navigation from manual input",
+                    "items": {
                       "type": "object",
+                      "title": "Navigation Item",
                       "properties": {
-                        "feature_link_value": {
+                        "title": {
                           "type": "string"
                         },
-                        "feature_link_href": {
+                        "icon": {
                           "type": "string"
                         },
-                        "feature_link_description": {
+                        "target_url": {
                           "type": "string"
                         },
-                        "view_value": {
-                          "type": "string"
+                        "dropdown_enabled": {
+                          "type": "boolean",
+                          "default": false
                         },
-                        "view_href": {
-                          "type": "string"
+                        "dropdown_options": {
+                          "title": "Dropdown Options",
+                          "type": "object",
+                          "properties": {
+                            "feature_link_value": {
+                              "type": "string"
+                            },
+                            "feature_link_href": {
+                              "type": "string"
+                            },
+                            "feature_link_description": {
+                              "type": "string"
+                            },
+                            "view_value": {
+                              "type": "string"
+                            },
+                            "view_href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": []
+                        },
+                        "navigation_items": {
+                          "title": "Dropdown Items",
+                          "type": "array",
+                          "items": {
+                            "title": "Dropdown Item",
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "target_url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "title",
+                              "target_url"
+                            ]
+                          }
                         }
                       },
-                      "required": []
-                    },
-                    "navigation_items": {
-                      "title": "Dropdown Items",
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "title": {
-                            "type": "string"
-                          },
-                          "description": {
-                            "type": "string"
-                          },
-                          "target_url": {
-                            "type": "string"
-                          }
-                        },
-                        "required": ["title", "target_url"]
-                      }
+                      "required": [
+                        "title",
+                        "target_url"
+                      ]
                     }
-                  },
-                  "required": ["title", "target_url"]
-                }
+                  }
+                ]
               }
             },
             "required": []
