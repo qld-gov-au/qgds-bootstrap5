@@ -90,7 +90,7 @@
     "sass": "^1.78.0",
     "selenium-webdriver": "^4.24.1",
     "storybook": "^8.2.1",
-    "vite": "^5.4.4",
+    "vite": "^5.4.6",
     "watch": "^1.0.2"
   },
   "peerDependencies": {
