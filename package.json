@@ -87,7 +87,7 @@
     "raw-loader": "^4.0.2",
     "rimraf": "^6.0.1",
     "run-parallel": "^1.2.0",
-    "sass": "^1.78.0",
+    "sass": "^1.80.1",
     "selenium-webdriver": "^4.24.1",
     "storybook": "^8.2.1",
     "vite": "^5.4.6",
