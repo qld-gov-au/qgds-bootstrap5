@@ -1,8 +1,10 @@
 {
-	"classes": "btn-outline-secondary",
-	"isbutton": false,
+	"variantClass": "btn-primary",
 	"islink": true,
-	"href": "https://google.com",
+	"isdisabled": false,
+	"iconClass": "fa-solid fa-arrow-up-right-from-square",
+	"iconPosition": "leading",
 	"label": "Call to action",
+	"href": "https://google.com",
 	"target": "_blank"
 }

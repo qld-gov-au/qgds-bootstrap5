@@ -1,0 +1,120 @@
+// QGDS QOL Modal Component
+// extends Modal https://getbootstrap.com/docs/5.3/components/modal/#variables
+// extends Close Button https://getbootstrap.com/docs/5.2/components/close-button/#variables
+
+// QGDS specific modal variables.
+.modal {
+    --#{$prefix}modal-zindex: #{$zindex-modal};
+    --#{$prefix}modal-width: #{$modal-md};
+    
+    --#{$prefix}modal-margin: #{$modal-dialog-margin};
+    --#{$prefix}modal-color: #{$modal-content-color};
+    --#{$prefix}modal-bg: #{$modal-content-bg};
+    --#{$prefix}modal-padding: 1.5rem 2rem;
+    
+    --#{$prefix}modal-border-color: var(--#{$prefix}light-grey);
+    --#{$prefix}modal-border-width: 1px;
+    --#{$prefix}modal-border-radius: 0.75rem;
+    
+    --#{$prefix}modal-box-shadow: #{$modal-content-box-shadow-xs};
+    --#{$prefix}modal-inner-border-radius: #{$modal-content-inner-border-radius};
+
+    --#{$prefix}modal-header-padding: 2rem 2rem 0;
+    --#{$prefix}modal-header-border-width: 0px;
+
+    --#{$prefix}modal-title-line-height: 2rem;
+
+    --#{$prefix}modal-footer-gap: 0;
+    --#{$prefix}modal-footer-bg: none;
+    --#{$prefix}modal-footer-border-color: none; 
+    --#{$prefix}modal-footer-border-width: none;
+
+    .btn-close {
+        --#{$prefix}btn-close-icon: "data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 13 13' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.0547 18.5938C17.8203 18.8281 17.3906 18.8281 17.1562 18.5938L12 13.3984L6.80469 18.5938C6.57031 18.8281 6.14062 18.8281 5.90625 18.5938C5.67188 18.3594 5.67188 17.9297 5.90625 17.6953L11.1016 12.5L5.90625 7.34375C5.67188 7.10938 5.67188 6.67969 5.90625 6.44531C6.14062 6.21094 6.57031 6.21094 6.80469 6.44531L12 11.6406L17.1562 6.44531C17.3906 6.21094 17.8203 6.21094 18.0547 6.44531C18.2891 6.67969 18.2891 7.10938 18.0547 7.34375L12.8594 12.5L18.0547 17.6953C18.2891 17.9297 18.2891 18.3594 18.0547 18.5938Z' /%3E%3C/svg%3E%0A";
+        --#{$prefix}btn-close-color: var(--#{$prefix}color-default-color-light-text-lighter);
+        --#{$prefix}btn-close-width: 40px;
+        --#{$prefix}btn-border-radius: 50%;
+
+        //Hover state
+        --#{$prefix}btn-close-hover-color: var(--#{$prefix}color-default-color-light-text-heading);
+        --#{$prefix}btn-close-hover-bg: var(--#{$prefix}core-default-color-neutral-lightest);
+        --#{$prefix}btn-close-hover-bg-size: 15px;
+
+        //Focus state
+        --#{$prefix}btn-close-focus-color: var(--#{$prefix}color-default-color-light-text-heading);
+        --#{$prefix}btn-close-focus-shadow: none;
+        --#{$prefix}btn-close-focus-border: var(--#{$prefix}light-blue) solid 3px;
+    }
+}
+
+// General styling rules.
+.modal {
+    .btn-close {
+        width: var(--#{$prefix}btn-close-width);
+        height: var(--#{$prefix}btn-close-width);
+        border-radius: var(--#{$prefix}btn-border-radius);
+        background-size: 12px;
+        padding: 0;
+        flex-shrink: 0;  //Flex, do not shrink this perfectly round button.
+
+        &:hover {
+            width: var(--#{$prefix}btn-close-width);
+            height: var(--#{$prefix}btn-close-width);
+            color: var(--#{$prefix}btn-close-hover-color);
+            background-size: var(--#{$prefix}btn-close-hover-bg-size);
+            background-color: var(--#{$prefix}btn-close-hover-bg);
+        }
+        &:focus {
+            width: var(--#{$prefix}btn-close-width);
+            height: var(--#{$prefix}btn-close-width);
+            color: var(--#{$prefix}btn-close-focus-color);
+            background-size: var(--#{$prefix}btn-close-hover-bg-size);
+            background-color: var(--#{$prefix}btn-close-hover-bg);
+            outline: var(--#{$prefix}btn-close-focus-border);
+            outline-offset: 2px;
+        }
+    }
+
+    .modal-header {
+        .modal-title {
+            line-height: var(--#{$prefix}modal-title-line-height);
+            font-size: 1.5rem;
+        }
+    }
+
+    .modal-footer {
+        padding: 0 2rem 2rem;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        
+        .btn {
+            margin: 0 0 0 1.5rem;
+        }
+    }
+
+    //Rescope for smaller modals 
+    .modal-dialog {
+        &.modal-sm {
+            .modal-footer {
+                flex-wrap: wrap;
+                .btn {
+                    width: 100%;
+                    margin: 1rem 0;
+                }
+            }
+        }
+    }
+
+    //Rescope for smaller viewports 
+    @include media-breakpoint-down(md) {
+        .modal-footer {
+            flex-wrap: wrap;
+            .btn {
+                width: 100%;
+                margin: 1rem 0;
+            }
+        }
+    }
+
+}

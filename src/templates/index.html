@@ -1,58 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{pageTitle}}</title>
 
-    <link rel="stylesheet" href="assets/css/qld.bootstrap.css">
+    <link rel="stylesheet" href="assets/css/qld.bootstrap.css" />
+  </head>
 
-</head>
-
-<body>
-
-    {{{ components.header }}} <!-- Include the 'header' partial here without HTML escaping -->
-
+  <body>
+    {{{ components.header }}}
+    <!-- Include the 'header' partial here without HTML escaping -->
 
     <main class="qld-body">
+      <!-- Banner -->
+      {{{ components.banner }}}
+      <!-- Include the 'banner' partial here without HTML escaping -->
 
-        <!-- Banner -->
-        {{{ components.banner }}} <!-- Include the 'banner' partial here without HTML escaping -->
+      <!-- Main content -->
+      <div class="container qld-content">
+        <div class="row">
+          <!-- Left Aside -->
+          <div class="col-3">{{{ components.sidenav }}}</div>
 
-        <!-- Main content -->
-        <div class="container qld-content">
+          <div class="col-7 ms-40">
+            <!-- Breadcrumbs -->
+            {{{ breadcrumbs }}}
 
-            <div class="row">
-
-                <!-- Left Aside -->
-                <div class="col-3">
-                    {{{ components.sidenav }}}
-                </div>
-
-                <div class="col-7 ms-40">
-
-                    <!-- Breadcrumbs -->
-                    {{{ breadcrumbs }}}
-
-                    <div id="app"></div>
-                    {{{ content }}}
-
-                </div>
-
-            </div>
+            <div id="app"></div>
+            {{{ content }}}
+          </div>
         </div>
+      </div>
 
-        {{{ components.footer }}} <!-- Include the 'footer' partial here without HTML escaping -->
-
+      {{{ components.footer }}}
+      <!-- Include the 'footer' partial here without HTML escaping -->
     </main>
 
-
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
-
-</body>
-
+    <script src="assets/js/qld.bootstrap.min.js"></script>
+  </body>
 </html>

@@ -1,0 +1,136 @@
+// QLD Desing System Bootstrap 5 library
+// Extends: https://getbootstrap.com/docs/5.3/components/alerts/#variables
+
+//All alerts have the same text and background color, even on darker themes
+//To account for this, we redefine the global vars at the .alert scope 
+
+.alert,
+.light .alert,
+.light-alt .alert,
+.dark .alert,
+.dark-alt .alert {
+    --qld-headings-color: var(--#{$prefix}light-text-text);
+    --qld-body-color: var(--#{$prefix}light-text-text);
+    --qld-alert-color: var(--#{$prefix}light-text-text);
+    --qld-alert-bg: #FFF;
+    --qld-link-color: #{$link-color};
+    --qld-link-hover-color: #{$link-hover-color};
+    --qld-link-visited: #{$link-visited-color};
+    --qld-selection-color: var(--qld-white);
+    --qld-selection-bg: var(--qld-brand-primary);
+    --qld-focus-color: var(--qld-light-focus);
+}
+
+
+
+.alert {
+
+    padding-left: 4rem;
+    // color: var(--text-color);
+    // background: var(--alert-bg);
+
+    .alert-heading {
+        line-height: 1.5;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 1rem 0;
+        padding: 0;
+        color: var(--qld-color-default-color-light-text-heading);
+    }
+
+    p,
+    ul,
+    ol {
+        line-height: 1.5;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        color: var(--qld-link-color);
+
+        &:visited {
+            color: var(--qld-link-visited);
+        }
+    }
+
+
+
+    // Close button for dismissible alerts
+    .btn-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        height: 2rem;
+        width: 2rem;
+        background: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg style='mix-blend-mode:multiply'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23F5F5F5'/%3E%3C/g%3E%3Cpath d='M17.2871 15.9004L21.3105 11.916L22.1309 11.0957C22.248 10.9785 22.248 10.7832 22.1309 10.627L21.2715 9.76758C21.1152 9.65039 20.9199 9.65039 20.8027 9.76758L15.998 14.6113L11.1543 9.76758C11.0371 9.65039 10.8418 9.65039 10.6855 9.76758L9.82617 10.627C9.70898 10.7832 9.70898 10.9785 9.82617 11.0957L14.6699 15.9004L9.82617 20.7441C9.70898 20.8613 9.70898 21.0566 9.82617 21.2129L10.6855 22.0723C10.8418 22.1895 11.0371 22.1895 11.1543 22.0723L15.998 17.2285L19.9824 21.252L20.8027 22.0723C20.9199 22.1895 21.1152 22.1895 21.2715 22.0723L22.1309 21.2129C22.248 21.0566 22.248 20.8613 22.1309 20.7441L17.2871 15.9004Z' fill='%231D1D1D'/%3E%3C/svg%3E") no-repeat center center;
+    }
+
+    //Alert sidebar color and icon
+    //Colors and icons defined below 
+    &:before,
+    &:after {
+        content: "";
+        width: 3rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    &:after {
+        color: #fff;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    //alerts color map
+    $alert-colors-map: (
+        "success": (color: var(--#{$prefix}success),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_5702_82645' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'%3E%3Cpath d='M9.2207 12.6953C8.99805 12.918 8.58984 12.918 8.36719 12.6953L5.99219 10.3203C5.76953 10.0977 5.76953 9.68945 5.99219 9.4668C6.21484 9.24414 6.62305 9.24414 6.8457 9.4668L8.8125 11.4336L13.1172 7.0918C13.3398 6.86914 13.748 6.86914 13.9707 7.0918C14.1934 7.31445 14.1934 7.72266 13.9707 7.94531L9.2207 12.6953ZM19.5 9.875C19.5 15.1445 15.2324 19.375 10 19.375C4.73047 19.375 0.5 15.1445 0.5 9.875C0.5 4.64258 4.73047 0.375 10 0.375C15.2324 0.375 19.5 4.64258 19.5 9.875ZM10 1.5625C5.39844 1.5625 1.6875 5.31055 1.6875 9.875C1.6875 14.4766 5.39844 18.1875 10 18.1875C14.5645 18.1875 18.3125 14.4766 18.3125 9.875C18.3125 5.31055 14.5645 1.5625 10 1.5625Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_5702_82645)'%3E%3Crect width='20' height='20' fill='%23FFFFFF'/%3E%3C/g%3E%3C/svg%3E%0A"
+        ),
+        "info": (color: var(--#{$prefix}info),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_5702_82508' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='1' y='1' width='18' height='18'%3E%3Cpath d='M10 7.20312C9.48047 7.20312 9.10938 6.83203 9.10938 6.3125C9.10938 5.83008 9.48047 5.42188 10 5.42188C10.4824 5.42188 10.8906 5.83008 10.8906 6.3125C10.8906 6.83203 10.4824 7.20312 10 7.20312ZM15.9375 1.5625C17.2363 1.5625 18.3125 2.63867 18.3125 3.9375V15.8125C18.3125 17.1484 17.2363 18.1875 15.9375 18.1875H4.0625C2.72656 18.1875 1.6875 17.1484 1.6875 15.8125V3.9375C1.6875 2.63867 2.72656 1.5625 4.0625 1.5625H15.9375ZM17.125 15.8125V3.9375C17.125 3.30664 16.5684 2.75 15.9375 2.75H4.0625C3.39453 2.75 2.875 3.30664 2.875 3.9375V15.8125C2.875 16.4805 3.39453 17 4.0625 17H15.9375C16.5684 17 17.125 16.4805 17.125 15.8125ZM11.7812 13.4375C12.0781 13.4375 12.375 13.7344 12.375 14.0312C12.375 14.3652 12.0781 14.625 11.7812 14.625H8.21875C7.88477 14.625 7.625 14.3652 7.625 14.0312C7.625 13.7344 7.88477 13.4375 8.21875 13.4375H9.40625V9.875H8.8125C8.47852 9.875 8.21875 9.61523 8.21875 9.28125C8.21875 8.98438 8.47852 8.6875 8.8125 8.6875H10C10.2969 8.6875 10.5938 8.98438 10.5938 9.28125V13.4375H11.7812Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_5702_82508)'%3E%3Crect width='20' height='20' fill='%23FFFFFF'/%3E%3C/g%3E%3C/svg%3E%0A"
+        ),
+        "warning": (color: var(--#{$prefix}warning),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_5702_80802' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='2' width='20' height='17'%3E%3Cpath d='M10 13.9062C10.457 13.9062 10.8438 14.293 10.8086 14.75C10.8086 15.2422 10.457 15.5938 10 15.5938C9.54297 15.5938 9.15625 15.2422 9.15625 14.75C9.15625 14.293 9.50781 13.9062 10 13.9062ZM10 12.5C9.68359 12.5 9.4375 12.2539 9.4375 11.9375V6.875C9.4375 6.59375 9.71875 6.3125 10 6.3125C10.2461 6.3125 10.5273 6.59375 10.5273 6.875V11.9375C10.5273 12.2539 10.2812 12.5 10 12.5ZM18.7188 15.2422C19.0703 15.8398 19.0703 16.543 18.7188 17.1406C18.3672 17.7734 17.7344 18.125 17.0312 18.125H2.96875C2.23047 18.125 1.59766 17.7734 1.24609 17.1406C0.894531 16.543 0.894531 15.8398 1.24609 15.2422L8.27734 3.35938C8.62891 2.76172 9.26172 2.375 10 2.375C10.7031 2.41016 11.3359 2.76172 11.6875 3.35938L18.7188 15.2422ZM17.7344 16.5781C17.9102 16.332 17.875 16.0508 17.7344 15.8047L10.7031 3.92188C10.5625 3.67578 10.2812 3.53516 10 3.5C9.96484 3.5 10 3.5 10 3.5C9.68359 3.5 9.40234 3.67578 9.26172 3.92188L2.23047 15.8047C2.08984 16.0508 2.05469 16.332 2.23047 16.5781C2.37109 16.8594 2.65234 17 2.96875 17H16.9961C17.3125 17 17.5938 16.8594 17.7344 16.5781Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_5702_80802)'%3E%3Crect width='20' height='20' fill='%231D1D1D'/%3E%3C/g%3E%3C/svg%3E%0A"
+        ),
+        "danger": (color: var(--#{$prefix}danger),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_34619_4370' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='4' y='4' width='12' height='12'%3E%3Cpath d='M14.8438 14.875C14.6562 15.0625 14.3125 15.0625 14.125 14.875L10 10.7188L5.84375 14.875C5.65625 15.0625 5.3125 15.0625 5.125 14.875C4.9375 14.6875 4.9375 14.3438 5.125 14.1562L9.28125 10L5.125 5.875C4.9375 5.6875 4.9375 5.34375 5.125 5.15625C5.3125 4.96875 5.65625 4.96875 5.84375 5.15625L10 9.3125L14.125 5.15625C14.3125 4.96875 14.6562 4.96875 14.8438 5.15625C15.0312 5.34375 15.0312 5.6875 14.8438 5.875L10.6875 10L14.8438 14.1562C15.0312 14.3438 15.0312 14.6875 14.8438 14.875Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_34619_4370)'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/g%3E%3Ccircle cx='10' cy='10' r='9.5' stroke='white'/%3E%3C/svg%3E%0A"
+        ),
+        //.alert-error can be a clone of .alert-danger
+        "error": (color: var(--#{$prefix}danger),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_34619_4370' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='4' y='4' width='12' height='12'%3E%3Cpath d='M14.8438 14.875C14.6562 15.0625 14.3125 15.0625 14.125 14.875L10 10.7188L5.84375 14.875C5.65625 15.0625 5.3125 15.0625 5.125 14.875C4.9375 14.6875 4.9375 14.3438 5.125 14.1562L9.28125 10L5.125 5.875C4.9375 5.6875 4.9375 5.34375 5.125 5.15625C5.3125 4.96875 5.65625 4.96875 5.84375 5.15625L10 9.3125L14.125 5.15625C14.3125 4.96875 14.6562 4.96875 14.8438 5.15625C15.0312 5.34375 15.0312 5.6875 14.8438 5.875L10.6875 10L14.8438 14.1562C15.0312 14.3438 15.0312 14.6875 14.8438 14.875Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_34619_4370)'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/g%3E%3Ccircle cx='10' cy='10' r='9.5' stroke='white'/%3E%3C/svg%3E%0A"
+        ),
+        "light": (color: var(--#{$prefix}light-grey),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_5702_82508' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='1' y='1' width='18' height='18'%3E%3Cpath d='M10 7.20312C9.48047 7.20312 9.10938 6.83203 9.10938 6.3125C9.10938 5.83008 9.48047 5.42188 10 5.42188C10.4824 5.42188 10.8906 5.83008 10.8906 6.3125C10.8906 6.83203 10.4824 7.20312 10 7.20312ZM15.9375 1.5625C17.2363 1.5625 18.3125 2.63867 18.3125 3.9375V15.8125C18.3125 17.1484 17.2363 18.1875 15.9375 18.1875H4.0625C2.72656 18.1875 1.6875 17.1484 1.6875 15.8125V3.9375C1.6875 2.63867 2.72656 1.5625 4.0625 1.5625H15.9375ZM17.125 15.8125V3.9375C17.125 3.30664 16.5684 2.75 15.9375 2.75H4.0625C3.39453 2.75 2.875 3.30664 2.875 3.9375V15.8125C2.875 16.4805 3.39453 17 4.0625 17H15.9375C16.5684 17 17.125 16.4805 17.125 15.8125ZM11.7812 13.4375C12.0781 13.4375 12.375 13.7344 12.375 14.0312C12.375 14.3652 12.0781 14.625 11.7812 14.625H8.21875C7.88477 14.625 7.625 14.3652 7.625 14.0312C7.625 13.7344 7.88477 13.4375 8.21875 13.4375H9.40625V9.875H8.8125C8.47852 9.875 8.21875 9.61523 8.21875 9.28125C8.21875 8.98438 8.47852 8.6875 8.8125 8.6875H10C10.2969 8.6875 10.5938 8.98438 10.5938 9.28125V13.4375H11.7812Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_5702_82508)'%3E%3Crect width='20' height='20' fill='%23595959'/%3E%3C/g%3E%3C/svg%3E%0A"
+        ),
+        "dark": (color: var(--#{$prefix}dark-grey),
+            icon: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_5702_82508' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='1' y='1' width='18' height='18'%3E%3Cpath d='M10 7.20312C9.48047 7.20312 9.10938 6.83203 9.10938 6.3125C9.10938 5.83008 9.48047 5.42188 10 5.42188C10.4824 5.42188 10.8906 5.83008 10.8906 6.3125C10.8906 6.83203 10.4824 7.20312 10 7.20312ZM15.9375 1.5625C17.2363 1.5625 18.3125 2.63867 18.3125 3.9375V15.8125C18.3125 17.1484 17.2363 18.1875 15.9375 18.1875H4.0625C2.72656 18.1875 1.6875 17.1484 1.6875 15.8125V3.9375C1.6875 2.63867 2.72656 1.5625 4.0625 1.5625H15.9375ZM17.125 15.8125V3.9375C17.125 3.30664 16.5684 2.75 15.9375 2.75H4.0625C3.39453 2.75 2.875 3.30664 2.875 3.9375V15.8125C2.875 16.4805 3.39453 17 4.0625 17H15.9375C16.5684 17 17.125 16.4805 17.125 15.8125ZM11.7812 13.4375C12.0781 13.4375 12.375 13.7344 12.375 14.0312C12.375 14.3652 12.0781 14.625 11.7812 14.625H8.21875C7.88477 14.625 7.625 14.3652 7.625 14.0312C7.625 13.7344 7.88477 13.4375 8.21875 13.4375H9.40625V9.875H8.8125C8.47852 9.875 8.21875 9.61523 8.21875 9.28125C8.21875 8.98438 8.47852 8.6875 8.8125 8.6875H10C10.2969 8.6875 10.5938 8.98438 10.5938 9.28125V13.4375H11.7812Z' fill='%2303213F'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_5702_82508)'%3E%3Crect width='20' height='20' fill='%23FFFFFF'/%3E%3C/g%3E%3C/svg%3E%0A"
+        )
+    );
+
+//Sets colors (border and icon-background) and icons for each alert type
+@each $key, $properties in $alert-colors-map {
+
+    $color: map-get($properties, color);
+    $icon: map-get($properties, icon);
+
+    &-#{$key} {
+        border-color: $color;
+        border-width: 2px;
+
+        &:before {
+            background-color: $color;
+        }
+
+        &:after {
+            background-image: url($icon);
+        }
+
+    }
+}
+
+}

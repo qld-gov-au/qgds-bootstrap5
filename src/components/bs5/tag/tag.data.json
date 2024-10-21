@@ -1,101 +1,105 @@
 {
 	"default": {
-		"varient": "tag-default",
+		"variant": "tag-default",
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies"
+				"content": "Tag text"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity"
+				"content": "Tag text"
 			},
 			{
 				"id": "Three",
-				"content": "General public"
+				"content": "Tag text"
+			},
+			{
+				"id": "Four",
+				"content": "Tag text"
 			}
 		]
 	},
 	"large": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies",
+				"content": "Tag text",
 				"classes": "tag-large"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity",
+				"content": "Tag text",
 				"classes": "tag-large"
 			},
 			{
 				"id": "Three",
-				"content": "General public",
+				"content": "Tag text",
 				"classes": "tag-large"
 			}
 		]
 	},
 	"action": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "<a href='javascript:void(0)'>Babies</a>",
+				"content": "<a href='javascript:void(0)'>Tag text</a>",
 				"classes": "tag-link"
 			},
 			{
 				"id": "Two",
-				"content": "<a href='javascript:void(0)'>Maternity</a>",
+				"content": "<a href='javascript:void(0)'>Tag text</a>",
 				"classes": "tag-link"
 			},
 			{
 				"id": "Three",
-				"content": "<a href='javascript:void(0)'>General public</a>",
+				"content": "<a href='javascript:void(0)'>Tag text</a>",
 				"classes": "tag-link"
 			}
 		]
 	},
 	"dark": {
 		"classes": "",
-		"varient": "tag-dark",
+		"variant": "tag-dark",
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies"
+				"content": "Tag text"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity"
+				"content": "Tag text"
 			},
 			{
 				"id": "Three",
-				"content": "General public"
+				"content": "Tag text"
 			}
 		]
 	},
 	"info": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Babies",
+				"content": "Tag text",
 				"classes": "tag-info"
 			},
 			{
 				"id": "Two",
-				"content": "Maternity",
+				"content": "Tag text",
 				"classes": "tag-info"
 			},
 			{
 				"id": "Three",
-				"content": "General public",
+				"content": "Tag text",
 				"classes": "tag-info"
 			}
 		]
 	},
 	"filter": {
-		"varient": "",
+		"variant": "",
 		"tagItems": [
 			{
 				"id": "One",
@@ -108,5 +112,32 @@
 				"classes": "tag-large"
 			}
 		]
+	},
+	"status": {
+		"variant": "tag-status",
+		"tagItems": [
+			{
+				"content": "Neutral",
+				"classes": "tag-neutral"
+			},
+			{
+				"content": "Success",
+				"classes": "tag-success"
+			},
+			{
+				"content": "Warning",
+				"classes": "tag-warning"
+			},
+			{
+				"content": "Error",
+				"classes": "tag-error"
+			},
+			{
+				"content": "Information",
+				"classes": "tag-information"
+			}
+		],
+		"size": "tag-small",
+		"emphasis": "tag-low"
 	}
 }

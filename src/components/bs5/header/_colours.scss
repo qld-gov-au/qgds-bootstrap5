@@ -1,0 +1,127 @@
+.qld__header {
+    // ------------------------------------------------------------------------------------------------------------------
+    //  1. Common vars
+    // ------------------------------------------------------------------------------------------------------------------
+    // Shared thickness, offset etc. 
+    --#{$prefix}header-underline__thickness-thin: 0.5px;
+    --#{$prefix}header-underline__thickness-thick: 2px;
+    --#{$prefix}header-underline__offset: 0.3em;
+
+    // ------------------------------------------------------------------------------------------------------------------
+    //  2. Second hand variables (each variant, default, light, dark, dark-alt) using QGDS-Tokens (npm)
+    // ------------------------------------------------------------------------------------------------------------------
+    // Header
+    --#{$prefix}header_color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}header_bg: var(--#{$prefix}color-default-color-light-background-default);
+
+    // Skip links
+    --#{$prefix}header_skip-link_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+    --#{$prefix}header_skip-link_focus_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header_skip-link_focus_bg_color: var(--#{$prefix}color-default-color-dark-background-default-shade);
+
+    // Pre-header bar
+    --#{$prefix}header__pre-header_text_color: var(--#{$prefix}color-default-color-dark-text-default);
+    --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
+    --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}color-default-color-dark-text-default);
+    --#{$prefix}header__pre-header__anchor__focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+    --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default);
+    --#{$prefix}header__pre-header__anchor_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thin);
+    --#{$prefix}header__pre-header__anchor_text_decoration_offset: var(--#{$prefix}header-underline__offset);
+    --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+    --#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thick);
+    --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+
+    // CTA Wrapper 
+    --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}color-default-color-dark-action-secondary);
+    --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+    --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}color-default-color-dark-background-default);
+
+    --#{$prefix}header__CTA_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header__CTA_border_color: var(--#{$prefix}color-default-color-dark-border-default);
+
+    // Toggle main navigation
+    --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}color-default-color-dark-border-default);
+    --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+    --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+    --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}color-default-color-dark-action-secondary);
+
+    // COA and title
+    --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}color-default-color-light-crest-fill);
+    --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}color-default-color-light-site-title);
+    --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}header__brand__anchor__hover_brand-image__filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)), drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
+
+    // Sitename heading
+    --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}color-default-color-light-site-title);
+    --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}color-default-color-light-text-lighter);
+
+    // ------------------------------------------------------------------------------------------------------------------
+    //  3. Dark/dark-alt modes
+    // ------------------------------------------------------------------------------------------------------------------
+    .dark &,
+    .dark-alt & {
+        // Root (dark/dark-alt)
+        --#{$prefix}header_color: var(--#{$prefix}color-default-color-dark-text-default);
+
+        // Pre-header bar (dark)
+        --#{$prefix}header__pre-header_text_color: var(--#{$prefix}color-default-color-dark-text-default);
+        --#{$prefix}header__pre-header_boxshadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
+        --#{$prefix}header__pre-header__url_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+
+        --#{$prefix}header__pre-header__anchor_text_color: var(--#{$prefix}color-default-color-dark-text-default);
+        --#{$prefix}header__pre-header__anchor__focus_text_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+        --#{$prefix}header__pre-header__anchor_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default);
+        --#{$prefix}header__pre-header__anchor_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thin);
+        --#{$prefix}header__pre-header__anchor_text_decoration_offset: var(--#{$prefix}header-underline__offset);
+        --#{$prefix}header__pre-header__anchor__focus_text_decoration_color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+        --#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness: var(--#{$prefix}header-underline__thickness-thick);
+
+        // Pre-header CTA elements (dark/dark-alt)
+        --#{$prefix}header__cta-wrapper__cta-link_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__cta-wrapper__cta-link-icon_color: var(--#{$prefix}color-default-color-dark-action-secondary);
+        --#{$prefix}header__cta-wrapper__cta-link-icon_hover_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+
+        //Skip links
+        --#{$prefix}header_skip-link_focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+
+        // Toggle navigation (dark/dark-alt)
+        --#{$prefix}header__toggle-main-nav_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__toggle-main-nav_border_color: var(--#{$prefix}color-default-color-dark-border-default);
+        --#{$prefix}header__toggle-main-nav__hover_bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+        --#{$prefix}header__toggle-main-nav__hover_svg_color: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+        --#{$prefix}header__toggle-main-nav__focus_outline_color: var(--#{$prefix}color-default-color-dark-focus-default);
+        --#{$prefix}header__toggle-main-nav__svg_color: var(--#{$prefix}color-default-color-dark-action-secondary);
+        
+        --#{$prefix}header__brand__anchor__hover_text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__brand__anchor__hover_brand-image__text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__brand__anchor__hover_headingsubline__text_color: var(--#{$prefix}color-default-color-dark-link-default);
+        --#{$prefix}header__brand__anchor__hover_brand-image__filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)), drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
+        --#{$prefix}header__brand-image__subtype__border_color: var(--#{$prefix}color-default-color-dark-accent-design-accent);
+        --#{$prefix}header__brand-image__subtype__text_color: var(--#{$prefix}color-default-color-dark-site-title);
+        
+        --#{$prefix}header__site-name__heading__text_color: var(--#{$prefix}color-default-color-dark-site-title);
+        --#{$prefix}header__site-name__subline__text_color: var(--#{$prefix}color-default-color-dark-text-lighter);
+
+        // COA
+        --#{$prefix}header__brand-image__crest_fill: var(--#{$prefix}color-default-color-dark-crest-fill);
+    }
+
+    .dark-alt & {
+        --#{$prefix}header_bg: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}color-default-color-dark-background-default);
+    }
+
+    .dark & {
+        --#{$prefix}header_bg: var(--#{$prefix}color-default-color-dark-background-default);
+        --#{$prefix}header__pre-header_bg_color: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color: var(--#{$prefix}color-default-color-dark-background-alt);
+    }
+}

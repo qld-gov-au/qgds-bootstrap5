@@ -1,6 +1,7 @@
 version: 2
 updates:
 - package-ecosystem: npm
+  versioning-strategy: increase
   directory: "/"
   target-branch: "develop"
   schedule:
@@ -11,6 +12,17 @@ updates:
       patterns:
         - "@storybook/*"
         - storybook
+        - "@chromatic-com/storybook"
+        - "@whitespace/storybook-addon-html"
+        - "chromatic"
+    eslint:
+      patterns:
+        - "eslint*"
+        - "@stylistic/eslint-plugin-js"
+        - "esbuild-plugin-eslint"
+    esbuild:
+      patterns:
+        - "esbuild*"
   open-pull-requests-limit: 10
   reviewers:
   - qld-gov-au/qld-online-dev-team

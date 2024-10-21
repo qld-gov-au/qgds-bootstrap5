@@ -1,0 +1,64 @@
+<!-- QGDS Component: Date input -->
+
+<!-- Label -->
+<label id="dategroup-label"
+    class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
+    for="example-1">
+    {{label-text}}
+    {{#if optional-text}}
+    <span class="label-text-optional">({{optional-text}})</span>
+    {{/if}}
+</label>
+
+<!-- Hint text -->
+{{#if hint-text}}
+<span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
+{{/if}}
+
+{{#contains "qld-input-success" customClass}}
+<span id="text-field-success" class="qld-input-success">
+    {{successMessageText}}
+</span>
+{{/contains}}
+
+{{#contains "qld-input-error" customClass}}
+<span id="text-field-error" class="qld-input-error">
+    {{errorMessageText}}
+</span>
+{{/contains}}
+
+<div aria-labelledby="dategroup-label" role="group" class="row date-container {{customClass}}">
+    <!-- day group -->
+    <div class="day-group">
+        <label for="dayinput" class="date-label qld-text-input-label">Day</label>
+        <div>
+            <input aria-required="true" aria-labelledby="dategroup-label" placeholder="{{day-placeholder}}" type="text"
+                inputmode="numeric" maxlength="2"
+                class="qld-text-input form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}" id="dayinput" ref="day"
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
+                {{/if}}>
+        </div>
+    </div>
+    <!-- month group -->
+    <div class="date-group">
+        <label for="monthinput" class="date-label qld-text-input-label">Month</label>
+        <div>
+            <input aria-required="true" aria-labelledby="dategroup-label" placeholder="{{month-placeholder}}"
+                type="text" inputmode="numeric" maxlength="2"
+                class="qld-text-input form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}" id="monthinput" ref="month"
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
+                {{/if}}>
+        </div>
+    </div>
+    <!-- year group -->
+    <div class="date-group">
+        <label for="yearinput" class="date-label">Year</label>
+        <div class="year-label">
+            <input aria-required="true" aria-labelledby="dategroup-label qld-text-input-label"
+                placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4"
+                class="qld-text-input form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}"
+                id="yearinput" ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if
+                isRequired}}required aria-required="true" {{/if}}>
+        </div>
+    </div>
+</div>

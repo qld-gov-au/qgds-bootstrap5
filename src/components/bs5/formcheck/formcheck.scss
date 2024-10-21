@@ -1,0 +1,296 @@
+// NTGOV Form Controls, radios, checkboxes and input groups
+// https://getbootstrap.com/docs/5.2/forms/form-control/#variables
+
+//Globally scoped - all inputs will generally use these values
+
+$input-padding-y: 0.75rem;
+$input-padding-x: 1rem;
+$input-line-height: 1.5;
+$input-font-size: 1rem;
+
+$input-padding-y-sm: $input-padding-y;
+$input-padding-x-sm: $input-padding-x;
+$input-font-size-sm: 1rem;
+
+$input-padding-y-lg: $input-padding-y;
+$input-padding-x-lg: $input-padding-x;
+$input-font-size-lg: 1rem;
+
+$input-border-width: 3px;
+$input-border-radius: $border-radius;
+$input-transition:
+  border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+
+// Checks and radios (LARGE)
+$form-check-input-width: 2rem;
+
+$form-check-input-width-small: 22px;
+
+$form-check-min-height: $font-size-base * $line-height-base;
+$form-check-padding-start: $form-check-input-width + 0.5rem;
+$form-check-margin-bottom: 1rem;
+$form-check-label-color: $body-color;
+$form-check-label-cursor: null;
+$form-check-transition: null;
+
+$form-check-input-active-filter: brightness(100%);
+
+$form-check-input-bg: $input-bg;
+$form-check-input-border: 2px solid var(--#{$prefix}soft-grey);
+$form-check-input-border-radius: 0.25em;
+$form-check-radio-border-radius: 50%;
+
+$form-check-input-checked-color: #414141;
+$form-check-input-checked-bg-color: transparent;
+$form-check-input-checked-border-color: var(--#{$prefix}soft-grey);
+
+$form-check-hover: var(--#{$prefix}dark-hover);
+
+$form-check-valid-color: var(--#{$prefix}notify-success);
+$form-check-invalid-color: var(--#{$prefix}notify-warning);
+
+// OUTLINES
+$form-check-input-outline: 3px solid var(--#{$prefix}light-blue);
+$form-check-input-outline-dark: 3px solid var(--#{$prefix}dark-focus);
+
+// SMALL BORDER WIDTH
+$form-check-input-border-width-small: 2px;
+
+// DARK ICON
+$form-check-input-checked-color-dark: #fff;
+
+// DARK BORDER
+$form-check-input-border-dark: 0.15em solid var(--#{$prefix}dark-alt-border);
+
+// RADIO CHECKED LIGHT
+$form-radio-bg-image: url("data:image/svg+xml,<svg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'><circle r='1.8' fill='#{$form-check-input-checked-color}'/></svg>");
+
+// RADIO CHECKED DARK
+$form-radio-bg-image-dark: url("data:image/svg+xml,<svg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'><circle r='1.8' fill='#{$form-check-input-checked-color-dark}'/></svg>");
+
+// CHECKBOX CHECKED LIGHT
+$form-check-bg-image: url("data:image/svg+xml,<svg width='18' height='13' viewBox='0 0 18 13' fill='#{$form-check-input-checked-color}' xmlns='http://www.w3.org/2000/svg'><path d='M17.5547 0.445312C17.7891 0.679688 17.7891 1.10938 17.5547 1.34375L6.92969 11.9688C6.69531 12.2031 6.26562 12.2031 6.03125 11.9688L0.40625 6.34375C0.171875 6.10938 0.171875 5.67969 0.40625 5.44531C0.640625 5.21094 1.07031 5.21094 1.30469 5.44531L6.5 10.6406L16.6562 0.445312C16.8906 0.210938 17.3203 0.210938 17.5547 0.445312Z' /></svg>");
+
+// CHECKBOX CHECKED DARK
+$form-check-bg-image-dark: url("data:image/svg+xml,<svg width='18' height='13' viewBox='0 0 18 13' fill='#{$form-check-input-checked-color-dark}' xmlns='http://www.w3.org/2000/svg'><path d='M17.5547 0.445312C17.7891 0.679688 17.7891 1.10938 17.5547 1.34375L6.92969 11.9688C6.69531 12.2031 6.26562 12.2031 6.03125 11.9688L0.40625 6.34375C0.171875 6.10938 0.171875 5.67969 0.40625 5.44531C0.640625 5.21094 1.07031 5.21094 1.30469 5.44531L6.5 10.6406L16.6562 0.445312C16.8906 0.210938 17.3203 0.210938 17.5547 0.445312Z' /></svg>");
+
+// ESCAPE SVGs FOR ICONS
+$form-radio-button: #{escape-svg($form-radio-bg-image)};
+$form-radio-button-dark: #{escape-svg($form-radio-bg-image-dark)};
+$form-checkbox-button: #{escape-svg($form-check-bg-image)};
+$form-checkbox-button-dark: #{escape-svg($form-check-bg-image-dark)};
+
+$form-check-input-indeterminate-color: $component-active-color;
+$form-check-input-indeterminate-bg-color: $component-active-bg;
+$form-check-input-indeterminate-border-color: $form-check-input-indeterminate-bg-color;
+$form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>");
+
+$form-check-input-disabled-opacity: 0.5;
+$form-check-label-disabled-opacity: $form-check-input-disabled-opacity;
+$form-check-btn-check-disabled-opacity: $btn-disabled-opacity;
+
+$form-check-inline-margin-end: 1rem;
+
+.small {
+  .form-check .form-check-input {
+    width: $form-check-input-width-small;
+    height: $form-check-input-width-small;
+
+    &[type="checkbox"],
+    &[type="radio"] {
+      border-width: #{$form-check-input-border-width-small};
+      &:checked {
+        background-size: 14px 14px;
+      }
+    }
+  }
+}
+
+.form-label {
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--body-color);
+  margin-bottom: 0.25rem;
+}
+
+.form-label-hint {
+  color: var(--#{$prefix}dark-grey-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  // CSS Custom properties scoped to .form-control components
+  // Settable via frontend or JS if required. Related to theme.
+
+  --#{$prefix}input-bg: transparent;
+  --#{$prefix}input-border-color: #{$form-check-input-checked-border-color};
+  --#{$prefix}input-color: var(--#{$prefix}dark-grey-muted);
+  --#{$prefix}input-border-color-hover: var(--#{$prefix}button-dark-blue);
+
+  padding: $input-padding-y $input-padding-x;
+  border: solid $input-border-width var(--#{$prefix}input-border-color);
+  border-radius: $input-border-radius;
+  font-size: $input-font-size;
+
+  &:active,
+  &:focus {
+    border-color: var(--#{$prefix}input-border-color-hover);
+    outline: #{$form-check-input-outline};
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: $form-check-margin-bottom;
+
+  .form-check-input {
+    width: $form-check-input-width;
+    height: $form-check-input-width;
+    margin-top: 0;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: var(--#{$prefix}extra-light-grey);
+    }
+    &:active,
+    &:focus {
+      border-color: var(--#{$prefix}input-border-color-hover);
+      outline: #{$form-check-input-outline};
+      outline-offset: 3px;
+      box-shadow: none;
+    }
+  }
+
+  // DEFAULT RADIO
+  .form-check-input[type="radio"] {
+    background-image: none;
+    background-size: calc(2rem - 8px);
+    border: $form-check-input-border;
+
+    &:checked {
+      background-color: transparent;
+      background-image: #{$form-radio-button};
+      background-size: calc(2rem - 8px);
+    }
+  }
+
+  // DEFAULT CHECKBOX
+  .form-check-input[type="checkbox"] {
+    background-size: calc(2rem - 8px);
+    border: $form-check-input-border;
+    border-radius: 0;
+
+    &:checked {
+      background-image: #{$form-checkbox-button};
+      background-color: #{$form-check-input-checked-bg-color};
+      background-size: 1.125rem;
+      background-position: center;
+      border-color: #{$form-check-input-checked-border-color};
+    }
+  }
+
+  // DEFAULT VALID
+  .valid & {
+    .form-check-input[type="radio"],
+    .form-check-input[type="checkbox"] {
+      outline: #{$form-check-valid-color} solid 2px;
+
+      &:focus {
+        outline: #{$form-check-input-outline};
+        outline-offset: 2px;
+        box-shadow: none;
+      }
+      &:checked:focus {
+        outline: #{$form-check-input-outline};
+      }
+    }
+  }
+  // DEFAULT INVALID
+  .invalid & {
+    .form-check-input[type="radio"],
+    .form-check-input[type="checkbox"] {
+      outline: #{$form-check-invalid-color} solid 2px;
+
+      &:focus {
+        outline: #{$form-check-input-outline};
+        outline-offset: 2px;
+        box-shadow: none;
+      }
+      &:checked:focus {
+        outline: #{$form-check-input-outline};
+      }
+    }
+  }
+  // DARK
+  .dark &,
+  .dark-alt & {
+    .form-check-input {
+      &:hover,
+      &:focus {
+        background-color: #{$form-check-hover};
+      }
+    }
+    .form-check-input[type="checkbox"]:checked {
+      background-image: #{$form-checkbox-button-dark};
+    }
+    .form-check-input[type="radio"]:checked {
+      background-image: #{$form-radio-button-dark};
+    }
+    .form-check-input,
+    .form-check-input:checked {
+      border: #{$form-check-input-border-dark};
+    }
+    .form-check-input:focus {
+      outline: #{$form-check-input-outline-dark};
+    }
+    .small & {
+      .form-check-input[type="checkbox"],
+      .form-check-input[type="radio"] {
+        &:checked {
+          background-color: transparent;
+          background-size: 14px 14px;
+        }
+      }
+    }
+    // DARK VALID
+    .valid & {
+      .form-check-input[type="radio"],
+      .form-check-input[type="checkbox"] {
+        outline: #{$form-check-valid-color} solid 2px;
+        &:focus {
+          outline: #{$form-check-input-outline-dark};
+          outline-offset: 2px;
+          box-shadow: none;
+        }
+        &:checked:focus {
+          outline: #{$form-check-input-outline-dark};
+        }
+      }
+    }
+    // DARK INVALID
+    .invalid & {
+      .form-check-input[type="radio"],
+      .form-check-input[type="checkbox"] {
+        outline: #{$form-check-invalid-color} solid 2px;
+        &:focus {
+          outline: #{$form-check-input-outline-dark};
+          outline-offset: 2px;
+          box-shadow: none;
+        }
+        &:checked:focus {
+          outline: #{$form-check-input-outline-dark};
+        }
+      }
+    }
+  }
+  &-label {
+    margin-left: 0.5rem;
+  }
+}

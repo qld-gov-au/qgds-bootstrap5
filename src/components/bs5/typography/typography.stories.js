@@ -7,15 +7,40 @@ export default {
   title: "Components/Typography",
   render: () => {
     return `
+    <div class="qld-content-body" id="content">
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
     <h4>Heading 4</h4>
     <h5>Heading 5</h5>
     <h6>Heading 6</h6>
-    <p>Elementum euismod fringilla vitae varius. Justo imperdiet justo tincidunt vestibulum venenatis morbi molestie dolor orci. <a href="#">Risus sapien urna blandit eget</a>. Mi, nisl facilisis pellentesque bibendum. Gravida lobortis vel amet, ullamcorper vestibulum, in curabitur odio pulvinar.</p>
-    <p>Example paragraph. <a href="#">Internal link</a> and an <a href="#" rel="external">external link</a></p>
+    <p>Elementum euismod fringilla vitae varius. Justo imperdiet justo <strong>tincidunt vestibulum venenatis</strong> morbi molestie dolor orci. <a href="#">Risus sapien urna blandit eget</a>. Mi, nisl facilisis pellentesque bibendum. Gravida lobortis vel amet, ullamcorper vestibulum, in curabitur odio pulvinar.</p>
+    <p>Example paragraph. <a href="#">Internal link</a> and an <a href="#" rel="external">external link</a>.</p>
     <p><a class="qld__text-link--no-visited" href="#no-visit">Link without visited state</a></p>
+    <ul>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+    </ul>
+    <ol>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+    </ol>
+    </div>
+
+    <dl>
+      <dt>Website:</dt>
+      <dd><a href="https://www.qld.gov.au" target="_blank">https://www.qld.gov.au</a></dd>
+      <dt>Street address:</dt>
+      <dd>123 Street Street</dd>
+      <dd>Suburb QLD 4000</dd>
+    </dl>
+
     `;
   },
 
@@ -64,9 +89,11 @@ export const Light = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="light">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],
@@ -85,9 +112,11 @@ export const Alternative = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="alt">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],
@@ -106,9 +135,11 @@ export const Dark = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="dark">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],
@@ -127,9 +158,11 @@ export const DarkAlternative = {
   decorators: [
     (Story) => {
       return `
+      <div class="container-fluid"><div class="row"><div class="col-12">
       <div class="dark-alt">
           ${Story()}
       </div>
+      </div></div></div>
       `;
     },
   ],

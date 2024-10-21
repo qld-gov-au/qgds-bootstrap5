@@ -1,0 +1,19 @@
+import { Canvas, Meta, Story, Source } from "@storybook/blocks"
+import * as ModalStories from "./modal.stories"
+
+import { Modal } from './Modal.js';
+import defaultdata from './modal.data.json';
+
+# Modal
+<Meta of={ModalStories} />
+
+## Demo
+Please use the **Default story** to see the modal in action.  
+
+## Example code
+<Source code={new Modal(defaultdata).html} language='jsx' dark={false}/>
+
+## Design resources
+- [Draft state (Figma)](https://www.figma.com/file/nMmoukrjPJ8qvUiwmuj1bs/forgov.qld.gov.au?type=design&node-id=1062-38211&mode=design&t=Mo0dPyJzGQ7YPs0s-0)
+- [Bootstrap] https://getbootstrap.com/docs/5.3/components/modal/
+

@@ -1,0 +1,26 @@
+{
+	"navtitle": "On this page",
+	"variantClass": "",
+	"navitems": [
+		{
+			"linktext": "Section heading",
+			"linkid": "#section-heading"
+		},
+		{
+			"linktext": "Content heading",
+			"linkid": "#content-heading"
+		},
+		{
+			"linktext": "Pre-registration inspection",
+			"linkid": "#inspection"
+		},
+		{
+			"linktext": "Fees and charges",
+			"linkid": "#fees-and-charges"
+		},
+		{
+			"linktext": "Related services",
+			"linkid": "#related-services"
+		}
+	]
+}

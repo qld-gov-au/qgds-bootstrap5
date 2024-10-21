@@ -28,7 +28,7 @@ jobs:
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
@@ -71,42 +71,39 @@ jobs:
         run: |
           npm run test
 
+
+      - name: Integration Test
+        run: |
+          npm run test:integration
+        continue-on-error: true
+
       - name: Build 🔧
         run: | # build the files
           npm run build
-#      - name: Build storybook 🔧
-#        run: | # build the Storybook files
-#          npm run build-storybook
-
-      - name: setup Package
-        run: |
-          ls -ltr
-          mkdir -p ./target/docs
-          cp -r ./docs ./target/docs
-          cp -r ./dist ./target/dist
 
       - uses: actions/upload-artifact@v4.3.1
         with:
           name: Package
-          path: ./target
-
+          path: ./dist
 
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
         id: extract_branch
 
       - name: display branch name
         shell: bash
         run: echo "${{ steps.extract_branch.outputs.branch }}"
 
-
-      - name: setup Publish
+      - name: setup Publish with details for binary repo including package.json for reference
         run: |
           set -x
-          cp -r ./binary-repo/* ./dist
+          cp package.json ./dist
+          mkdir ./dist/.github
+          cp -r ./.binary-repo/* ./dist
+          cp -r ./.binary-repo/.github/* ./dist/.github
 
-      - name: Publish qgds-qol-dist
+      - name: Publish qgds-bootstrap5-release
         uses: qld-gov-au/gha-publish-to-git@master
         with:
           repository: ${{ vars.TARGET_REPO }}
@@ -118,7 +115,7 @@ jobs:
           tag_branch: main
         if: success()
 
-      - name: Publish to qld-gov-au/qgds-qol-mvp-cdn
+      - name: Publish to qld-gov-au/qgds-bootstrap5-cdn
         uses: qld-gov-au/gha-cdn-version-tree-by-tag-builder@main
         with:
           repository: ${{ vars.TARGET_REPO_CDN }}

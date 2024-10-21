@@ -1,0 +1,232 @@
+//Typography
+$font-family-sans-serif:
+  "Noto Sans",
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji" !default;
+
+// Override Bootstrap font variables
+$font-weight-base: 400;
+$font-weight-bold: 600;
+$font-weight-bolder: 900;
+
+// Apply custom font weights to Bootstrap's utility classes
+$font-weights: (
+  normal: 400,
+  bold: 600,
+  bolder: 900
+);
+
+$body-color: $qld-text-grey;
+$body-font-weight: 400;
+
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.5;
+$h4-font-size: $font-size-base * 1.25;
+$h5-font-size: $font-size-base * 1;
+$h6-font-size: $font-size-base * 0.875;
+
+$headings-font-weight: 600;
+$headings-line-height: 2;
+$headings-color: $qld-text-headings;
+$qld-heading-color: $core-default-color-brand-primary-light-green;
+
+$link-color: $qld-brand-primary;
+$link-hover-color: $qld-brand-primary;
+$link-visited-color: $qld-link-visited;
+
+//Links
+.default,
+.light,
+.alt,
+:root {
+  --qld-link-underline-offset: 0.3rem;
+  --qld-link-underline-thickness: 0.5px;
+  --qld-link-underline-thickness-hover: 2px;
+  --qld-headings-color: #{$headings-color};
+  --qld-body-color: #{$body-color};
+  --qld-body-font-weight: #{$body-font-weight};
+  --qld-link-font-weight: 400;
+  --qld-link-color: #{$link-color};
+  --qld-link-color-rgb: #{to-rgb($link-color)};
+  --qld-link-hover-color: var(--qld-link-color);
+  --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
+  --qld-selection-color: var(--qld-white);
+  --qld-selection-bg: var(--qld-brand-primary);
+  --qld-focus-color: var(--qld-light-blue);
+}
+
+.dark,
+.dark-alt,
+:root[data-bs-theme="dark"] {
+  --qld-headings-color: #fff;
+  --qld-body-color: #fff;
+  --qld-body-bg: var(--qld-brand-primary);
+
+  --qld-link-color: #fff;
+  --qld-link-color-rgb: 255, 255, 255;
+
+  --qld-link-hover-color: #fff;
+  --qld-link-hover-color-rgb: 255, 255, 255;
+
+  --qld-link-visited: var(--qld-link-visited-dark);
+
+  --qld-selection-color: var(--qld-brand-primary);
+  --qld-selection-bg: var(--qld-white);
+
+  --qld-focus-color: var(--qld-dark-focus);
+}
+
+//Content and links
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.qld-content-body {
+
+  p {
+    margin-bottom: 1.25rem;
+  }
+
+  ul, ol, p {
+      line-height: 1.75;
+  }
+
+  li {
+    margin-top: 0.5rem;
+  }
+
+}
+
+// Apply correct bold font-weight
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
+strong, b, th, dt {
+  font-weight: $font-weight-bold;
+}
+
+
+// Definition list
+dt {
+  margin-top: 0.5rem;
+}
+
+dd {
+  margin-bottom: 0;
+}
+
+// Custom format for last updated dl
+dl.qld-content-dates {
+  display: flex;
+  gap: 4px;
+
+  dd {
+    margin-top: 0.5rem;
+  }
+
+}
+
+
+// Light, Light alt
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--#{$prefix}color-default-color-light-text-heading);
+}
+
+a,
+a.nav-link {
+  text-underline-offset: var(--qld-link-underline-offset);
+  text-decoration-thickness: var(--qld-link-underline-thickness);
+  text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
+
+  &:hover {
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default-hover);
+  }
+
+    &:visited {
+        color: var(--#{$prefix}color-default-color-light-link-visited);
+        text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited);
+        &:hover {
+            text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+            text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited-hover);
+        }
+    }
+
+    &:focus {
+        outline: 2px solid var(--qld-focus-color);
+        outline-offset: 2px;
+  }
+}
+
+caption {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+// Dark, dark alt
+.dark,
+.dark-alt {
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--#{$prefix}color-default-color-dark-text-heading);
+  }
+
+
+  body & {
+      color: var(--qld-body-color);
+  }
+        a, a.nav-link {
+          text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
+
+          &:visited {
+              color: var(--#{$prefix}color-default-color-dark-link-visited);
+              text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-visited);
+
+              &:hover {
+                text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+              }
+          }
+        }
+    }
+
+caption {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
+}
+
+a.nostyle {
+  text-decoration: unset;
+  text-underline-offset: unset;
+  text-decoration-thickness: unset;
+
+  &:hover {
+    text-decoration-thickness: unset;
+  }
+}
+
+::-moz-selection {
+  background: var(--qld-selection-bg);
+  text-shadow: none;
+}
+
+::selection {
+  color: var(--qld-selection-color);
+  background: var(--qld-selection-bg);
+  text-shadow: none;
+}
+

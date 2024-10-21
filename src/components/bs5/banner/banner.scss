@@ -1,70 +1,87 @@
-.qld-banner {
+// QGDS QOL Banner Component
 
+// QGDS specific banner variables.
+.qld-banner {
     //Defaults variables
-    --bg-color: var(--qld-light-grey);
-    --title-color: var(--headings-color);
-    --lead-color: var(--body-color);
+    --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-light);
+    --#{$prefix}banner-title-color: var(--#{$prefix}color-default-color-light-text-heading);
+    --#{$prefix}banner-lead-color: var(--#{$prefix}body-color);
+    --#{$prefix}banner-max-width: 1600px;
 
     // Variants (text colour and backgrounds)
-    &.banner-alt {
-        --bg-color: var(--qld-alt-grey);
+    &.alt {
+        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-alt);
+        --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-light.png);
     }
 
-    &.banner-dark,
-    &.banner-dark-alt {
-        --title-color: var(--qld-white);
-        --lead-color: var(--qld-white);
+    &.dark,
+    &.dark-alt {
+        --#{$prefix}banner-title-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}banner-lead-color: var(--#{$prefix}core-default-color-neutral-white);
 
         .breadcrumb {
             //Redfine variables already scoped in .breadcrumbs
             //These new values will only be scoped to breadcrumbs within the .banner-* class
-            --breadcrumb-color: var(--qld-white);
-            --qld-breadcrumb-divider-color: var(--qld-white);
-            --qld-breadcrumb-item-active-color: var(--qld-white); 
-            --qld-link-color-rgb: var(--qld-white);
+            --#{$prefix}banner-breadcrumb-color: var(--#{$prefix}core-default-color-neutral-white);
+            --#{$prefix}banner-breadcrumb-divider-color: var(--#{$prefix}core-default-color-neutral-white);
+            --#{$prefix}banner-breadcrumb-item-active-color: var(--#{$prefix}core-default-color-neutral-white); 
+            --#{$prefix}banner-ink-color-rgb: var(--#{$prefix}core-default-color-neutral-white);
         }
     }
 
-    &.banner-dark {
-        --bg-color: var(--qld-primary);
+    &.dark {
+        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
+        --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark.png);
     }
 
-    &.banner-dark-alt {
-        --bg-color: #0C3B71; //Todo, add this colour to variables.scss (?) Was defined in Figma. 
+    &.dark-alt {
+        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
     }
 
     //Padding
-    --padding-top: 1rem;
-    --padding-bottom: 2rem;
+    --#{$prefix}banner-padding-top: 1rem;
+    --#{$prefix}banner-padding-bottom: 2rem;
+    --#{$prefix}banner-padding-x: 1rem;
 
     @include media-breakpoint-up(md) {
-        --padding-top: 2.5rem;
-        --padding-bottom: 3rem;
+        --#{$prefix}banner-padding-top: 2rem;
+        --#{$prefix}banner-padding-bottom: 2rem;
+        --#{$prefix}banner-padding-x: 2rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --#{$prefix}banner-padding-top: 3rem;
+        --#{$prefix}banner-padding-bottom: 3rem;
+        --#{$prefix}banner-padding-x: 3rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        --#{$prefix}banner-padding-top: 3rem;
+        --#{$prefix}banner-padding-bottom: 4rem;
+        --#{$prefix}banner-padding-x: 4rem;
     }
 }
 
-// DARK THEME
-@include color-mode(dark) {
-    .qld-banner {
-        // Inherits from :root dark mode variables, but can be overridden here.
-        --banner-title-color: var(--headings-color);
-        --banner-lead-color: var(--body-color);
-    }
-}
 
-
-//Component
+// General styling rules.
 .qld-banner {
 
-    background-color: var(--bg-color);
-    padding: var(--padding-top) 0 var(--padding-bottom) 0;
+    background-color: var(--#{$prefix}banner-bg-color);
+    padding: var(--#{$prefix}banner-padding-top) var(--#{$prefix}banner-padding-x) var(--#{$prefix}banner-padding-bottom) var(--#{$prefix}banner-padding-x);
     position: relative;
+    max-width: var(--#{$prefix}banner-max-width);
+
+    &.with-pattern {
+        background-image: var(--#{$prefix}banner-bg-texture);
+        background-repeat: repeat;
+    }
 
     .banner-title {
         // Line height (52px) / Font-size (40px) = 1.3
         line-height: 1.3;
-        color: var(--title-color);
-        margin-bottom: 1.5rem;
+        color: var(--#{$prefix}banner-title-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
         max-width: 90%;
     }
 
@@ -72,37 +89,58 @@
         font-size: 1.5rem;
         line-height: 2rem;
         max-width: 50rem;
-        color: var(--lead-color);
+        color: var(--#{$prefix}banner-lead-color);
     }
 
     .breadcrumb {
-        color: var(--breadcrumb-color);
+        color: var(--#{$prefix}banner-breadcrumb-color);
+        --#{$prefix}breadcrumb-padding-y: 0;
     }
+
+    .banner-cta {
+        margin-top: 1.5rem;
+
+        .btn {
+            margin-right: 0.75rem;
+        }
+    }
+
 
     //Image
     .banner-image {
-        --image-height: calc(100% + var(--padding-top) + var(--padding-bottom));
         position: absolute;
-        top: calc(var(--padding-top) * -1);
+        top: 0;
         right: 0;
-        height: var(--image-height);
-        width: calc(var(--image-height)/1.33);
-        background: url('../img/banner-example-3-to-2.jpg');
+        left: 60%;
+        height: 100%;
+        background: var(--#{$prefix}banner-background-img);
         background-size: cover;
         background-position: center center;
 
         //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle" 
         &--angle {
-            --banner-angle: 29%; //(angle in degrees)
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--banner-angle) 100%);
+            --#{$prefix}banner-angle: 20%; //(angle in degrees)
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--#{$prefix}banner-angle) 100%);
         }
 
     }
 
     //Hide banner image below tablet
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         .banner-image {
             display: none;
+        }
+    }
+
+    //Stack buttons at very small viewports
+    @include media-breakpoint-down(sm) {
+        .banner-cta {
+            flex-direction: column;
+            .btn {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
     }
 

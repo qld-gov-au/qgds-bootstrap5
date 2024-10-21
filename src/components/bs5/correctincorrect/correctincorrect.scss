@@ -1,53 +1,183 @@
-.example-component {
 
-    // Creating custom CSS variables scoped to .example-component
-
-    //Inherit from global variables
-    --#{$prefix}component-bg-color:     var(--#{$prefix}bg-color);
-    --#{$prefix}component-text-color:   var(--#{$prefix}body-color);
-
-    //or set manually
-    --#{$prefix}component-padding:      1.25rem;
-    --#{$prefix}component-margin:       1.25rem 0;
-    --#{$prefix}component-border-color: #414141;
-}
-
-//Dark theme
-@include color-mode(dark) {
-
-    .example-component {
-
-        // Re-define custom CSS variableS for dark mode
-        // https://getbootstrap.com/docs/5.3/customize/color-modes/#enable-dark-mode
-
-        --#{$prefix}component-border-color: #F1F1F1;
+// .qg-correct {
+//     $qg-correct-icon-tick: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><mask id='mask0_1057_66071' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'><path d='M10 1.5625C6.99414 1.5625 4.28516 3.1582 2.80078 5.71875C1.2793 8.31641 1.2793 11.4707 2.80078 14.0312C4.28516 16.6289 6.99414 18.1875 10 18.1875C12.9688 18.1875 15.6777 16.6289 17.1621 14.0312C18.6836 11.4707 18.6836 8.31641 17.1621 5.71875C15.6777 3.1582 12.9688 1.5625 10 1.5625ZM10 19.375C6.58594 19.375 3.46875 17.5938 1.76172 14.625C0.0546875 11.6934 0.0546875 8.09375 1.76172 5.125C3.46875 2.19336 6.58594 0.375 10 0.375C13.377 0.375 16.4941 2.19336 18.2012 5.125C19.9082 8.09375 19.9082 11.6934 18.2012 14.625C16.4941 17.5938 13.377 19.375 10 19.375ZM13.9707 7.94531L9.2207 12.6953C8.99805 12.918 8.58984 12.918 8.36719 12.6953L5.99219 10.3203C5.76953 10.0977 5.76953 9.68945 5.99219 9.4668C6.21484 9.24414 6.62305 9.24414 6.8457 9.4668L8.8125 11.4336L13.1172 7.0918C13.3398 6.86914 13.748 6.86914 13.9707 7.0918C14.1934 7.31445 14.1934 7.72266 13.9707 7.94531Z' fill='#04284C'/></mask><g mask='url(#mask0_1057_66071)'><rect width='20' height='20' fill='#339D37'/></g></svg>");
     
-    }
-}
+//     // set color as a variable
+//     background-color: #F2FAF4;
+//     position: relative; // Make sure this parent element is positioned relative for the absolute child &:before
 
-
-// Assign custom properties as required
-// Define other component styles
-.example-component {
+//     padding: 1.5em 1.5em 1.5em 3em !important;
+  
+//     //border-style: solid;
+//     border-width: 1px;
+//     border-left-width: 7px;
+  
+//     vertical-align: top;
     
-    background-color: var(--#{$prefix}component-bg-color);
-    color: var(--#{$prefix}component-text-color);
+//     > :first-child { // only one first child
+//         margin-top: 0;
 
-    padding: var(--#{$prefix}component-padding);
-    margin: var(--#{$prefix}component-margin);
-    border: 1px solid var(--#{$prefix}component-border-color);
+//         &:before {
+//             content: #{escape-svg($qg-correct-icon-tick)};
+//             position: absolute;
+//             top: 1.375rem;
+//             left: 1em;
+//             flex: 1;
+//             width: 20px;
+//             height: 20px;
+//             text-align: center;
+//         }
+//     }
+//     > :not(first-child) {
+//         flex: none;
+//     }
+//     }
+//     .qg-incorrect {
+//         $qg-correct-icon-tick: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><mask id='mask0_1057_66079' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='4' y='4' width='12' height='12'><path d='M14.125 14.875L10 10.7188L5.84375 14.875C5.65625 15.0625 5.34375 15.0625 5.125 14.875C4.9375 14.6562 4.9375 14.3438 5.125 14.1562L9.28125 10L5.125 5.875C4.9375 5.6875 4.9375 5.375 5.125 5.15625C5.34375 4.96875 5.65625 4.96875 5.84375 5.15625L10 9.3125L14.125 5.15625C14.3125 4.96875 14.625 4.96875 14.8438 5.15625C15.0312 5.375 15.0312 5.6875 14.8438 5.875L10.6875 10L14.8438 14.1562C15.0312 14.3438 15.0312 14.6562 14.8438 14.875C14.625 15.0625 14.3125 15.0625 14.125 14.875Z' fill='#04284C'/></mask><g mask='url(#mask0_1057_66079)'><rect width='20' height='20' fill='#E22339'/></g><circle cx='10' cy='10' r='9.5' stroke='#E22339'/></svg>");
+        
+//         // set color as a variable
+//         background-color: #FDF0F0;
+//         position: relative; // Make sure this parent element is positioned relative for the absolute child &:before
     
+//         padding: 1.5em 1.5em 1.5em 3em !important;
+      
+//         //border-style: solid;
+//         border-width: 1px;
+//         border-left-width: 7px;
+      
+//         vertical-align: top;
+        
+//         > :first-child { // only one first child
+//             margin-top: 0;
+    
+//             &:before {
+//                 content: #{escape-svg($qg-correct-icon-tick)};
+//                 position: absolute;
+//                 top: 1.375rem;
+//                 left: 1em;
+//                 flex: 1;
+//                 width: 20px;
+//                 height: 20px;
+//                 text-align: center;
+//             }
+//         }
+//         > :not(first-child) {
+//             flex: none;
+//         }
+// }
 
-    &-title {
-        font-weight: 600;
+.qg-correct, .qg-incorrect {
+    position: relative;
+    margin: 0.4rem 0;
+    padding: 1rem 1rem 1rem 3rem !important;
+    border-radius: 4px;
+    vertical-align: top;
+
+      > :only-child { 
         margin-bottom: 0;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+      }
+        
+      > :first-child {
+        &:before {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          }
+      }
 
-    &-text {
-        padding-top: 1rem;
+      > :last-child { 
         margin-bottom: 0;
-        line-height: 1.5rem;
+      }
+
+      > :not(first-child) {
+          flex: none;
+      }
+
+      > * {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+   
+      &:before {
+        position: absolute;
+        top: 1.3rem;
+        left: 1rem;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+      }
+
+  }
+  
+  .qg-correct {
+    $qg-correct-icon-tick: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><mask id='mask0_1057_66071' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'><path d='M10 1.5625C6.99414 1.5625 4.28516 3.1582 2.80078 5.71875C1.2793 8.31641 1.2793 11.4707 2.80078 14.0312C4.28516 16.6289 6.99414 18.1875 10 18.1875C12.9688 18.1875 15.6777 16.6289 17.1621 14.0312C18.6836 11.4707 18.6836 8.31641 17.1621 5.71875C15.6777 3.1582 12.9688 1.5625 10 1.5625ZM10 19.375C6.58594 19.375 3.46875 17.5938 1.76172 14.625C0.0546875 11.6934 0.0546875 8.09375 1.76172 5.125C3.46875 2.19336 6.58594 0.375 10 0.375C13.377 0.375 16.4941 2.19336 18.2012 5.125C19.9082 8.09375 19.9082 11.6934 18.2012 14.625C16.4941 17.5938 13.377 19.375 10 19.375ZM13.9707 7.94531L9.2207 12.6953C8.99805 12.918 8.58984 12.918 8.36719 12.6953L5.99219 10.3203C5.76953 10.0977 5.76953 9.68945 5.99219 9.4668C6.21484 9.24414 6.62305 9.24414 6.8457 9.4668L8.8125 11.4336L13.1172 7.0918C13.3398 6.86914 13.748 6.86914 13.9707 7.0918C14.1934 7.31445 14.1934 7.72266 13.9707 7.94531Z' fill='#04284C'/></mask><g mask='url(#mask0_1057_66071)'><rect width='20' height='20' fill='#339D37'/></g></svg>");
+    // border-color: $qg-correct-border-color;
+    background-color: #F2FAF4;
+  
+    &:before {
+            content: #{escape-svg($qg-correct-icon-tick)} / "Tick icon";
+            // position: absolute;
+            // top: 1.375rem;
+            // left: 1em;
+            // flex: 1;
+            // width: 20px;
+            // height: 20px;
+            // text-align: center;
     }
-}
+  }
+  
+  .qg-incorrect {
+    $qg-correct-icon-tick: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><mask id='mask0_1057_66079' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='4' y='4' width='12' height='12'><path d='M14.125 14.875L10 10.7188L5.84375 14.875C5.65625 15.0625 5.34375 15.0625 5.125 14.875C4.9375 14.6562 4.9375 14.3438 5.125 14.1562L9.28125 10L5.125 5.875C4.9375 5.6875 4.9375 5.375 5.125 5.15625C5.34375 4.96875 5.65625 4.96875 5.84375 5.15625L10 9.3125L14.125 5.15625C14.3125 4.96875 14.625 4.96875 14.8438 5.15625C15.0312 5.375 15.0312 5.6875 14.8438 5.875L10.6875 10L14.8438 14.1562C15.0312 14.3438 15.0312 14.6562 14.8438 14.875C14.625 15.0625 14.3125 15.0625 14.125 14.875Z' fill='#04284C'/></mask><g mask='url(#mask0_1057_66079)'><rect width='20' height='20' fill='#E22339'/></g><circle cx='10' cy='10' r='9.5' stroke='#E22339'/></svg>");
+    // border-color: $qg-incorrect-border-color;
+    background-color: #FDF0F0;
+  
+    &:before {
+    //   content: "\f00d";
+    //   color: #E22339;
+    content: #{escape-svg($qg-correct-icon-tick)} / "Cross icon";
+    }
+  }
+  
+  span.qg-correct, span.qg-incorrect {
+    display: block;
+  }
+  
+  .table > tbody > tr, table {
+    td.qg-correct {
+      @extend .qg-correct;
+      padding: 0.75rem 0.75rem 0.75rem 3rem !important;
+      &:before {
+        top: 0.9rem;
+      }
+    }
+    td.qg-incorrect {
+      @extend .qg-incorrect;
+      padding: 0.75rem 0.75rem 0.75rem 3rem !important;
+      &:before {
+        top: 0.9rem;
+      }
+    }
+  }
+  
+  .table.qg-correct-incorrect > tbody > tr, table.qg-correct-incorrect {
+    td:nth-child(odd) {
+      @extend .qg-correct;
+      //border-left-width: 3px;
+    }
+    td:nth-child(even) {
+      @extend .qg-incorrect;
+      //border-left-width: 3px;
+    }
+  }
+
+  .table.qg-incorrect-correct > tbody > tr, table.qg-incorrect-correct {
+    td:nth-child(even) {
+      @extend .qg-correct;
+      //border-left-width: 3px;
+    }
+    td:nth-child(odd) {
+      @extend .qg-incorrect;
+      //border-left-width: 3px;
+    }
+  }

@@ -4,21 +4,21 @@
 	"accordionItems": [
 		{
 			"id": "One",
-			"title": "Accordion Item #1",
+			"title": "Accordion item #1",
 			"expanded": true,
-			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas.</p><p>Aenean sed pretium mauris. Quisque euismod in nisl et consequat.</p> "
 		},
 		{
 			"id": "Two",
-			"title": "Accordion Item #2",
+			"title": "Accordion item #2",
 			"expanded": false,
-			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ul>"
 		},
 		{
 			"id": "Three",
-			"title": "Accordion Item #3",
+			"title": "Accordion item #3",
 			"expanded": false,
-			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ol>"
 		}
 	]
 }

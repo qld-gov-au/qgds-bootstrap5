@@ -1,0 +1,85 @@
+.navbar {
+    // ------------------------------------------------------------------------------------------------------------------
+    //  1. Assign local var using qgds-tokens
+    // ------------------------------------------------------------------------------------------------------------------
+    --#{$prefix}navbar-border-width: 0.5rem;
+    --#{$prefix}navbar-link-color: var(--#{$prefix}color-default-color-light-link-default);
+    --#{$prefix}navbar-link-color-hover: var(--#{$prefix}color-default-color-light-action-primary-hover);
+    --#{$prefix}navbar-text-color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}navbar-text-focus-color: var(--#{$prefix}color-default-color-light-focus-default);
+    --#{$prefix}navbar-nav-text-color: var(--#{$prefix}color-default-color-light-text-default);
+    --#{$prefix}navbar-bg-color: var(--#{$prefix}color-default-color-light-background-default-shade);
+    --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}color-default-color-light-background-default);
+    --#{$prefix}navbar-menuitem-active: var(--#{$prefix}core-default-color-neutral-white);
+    --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}core-default-color-neutral-lighter);
+    --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}color-default-color-light-action-primary-hover);
+    --#{$prefix}navbar-border-color: var(--#{$prefix}color-default-color-light-border-default);
+    --#{$prefix}navbar-border-accent: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --#{$prefix}navbar-home-icon-color: var(--#{$prefix}color-default-color-light-action-secondary);
+    --#{$prefix}navbar-home-icon-color-hover: var(--#{$prefix}color-default-color-light-action-primary-hover);
+    --#{$prefix}navbar-home-icon-color-active: var(--#{$prefix}color-default-color-light-text-heading);
+    --#{$prefix}navbar-hover-color: var(--#{$prefix}color-default-color-light-action-primary-hover);
+    --#{$prefix}navbar-icon-hover: var(--#{$prefix}color-default-color-dark-action-primary-hover);
+    --#{$prefix}navbar-svg-color: var(--#{$prefix}core-default-color-brand-secondary-darkgreen);
+
+    // Mobile default is dark
+    --#{$prefix}navbar-overlay: var(--#{$prefix}color-default-color-dark-background-alt-shade);
+    --#{$prefix}navbar-mobile-home-icon-color: var(--#{$prefix}color-default-color-light-action-secondary);
+    --#{$prefix}navbar-mobile-header-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}navbar-mobile-svg-color: var(--#{$prefix}color-default-color-dark-action-secondary);
+    --#{$prefix}navbar-mobile-text-color: var(--#{$prefix}core-default-color-neutral-white);
+    --#{$prefix}navbar-mobile-border-color: var(--#{$prefix}color-default-color-dark-border-default);
+    --#{$prefix}navbar-mobile-menuitem-hover: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}navbar-mobile-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}navbar-mobile-cta-bg-color: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --#{$prefix}navbar-mobile-cta-bg-color-open: var(--#{$prefix}color-default-color-dark-background-default);
+
+    // Toggle icons for mobile
+    --#{$prefix}navbar-mobile-menu-toggle-boxshadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
+    --#{$prefix}navbar-mobile-menu-toggle-boxshadow__hover: 0px 4px 8px 3px rgba(0, 0, 0, .1), 0px 1px 3px rgba(0, 0, 0, .2);
+    --#{$prefix}navbar-mobile-menu-toggle-bg: var(--#{$prefix}color-default-color-light-background-default);
+
+    // ------------------------------------------------------------------------------------------------------------------
+    //  3. Modes
+    // ------------------------------------------------------------------------------------------------------------------
+    .alt &,
+    .light & {
+        --#{$prefix}navbar-title-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}color-default-color-light-text-default);
+        --#{$prefix}navbar-border-color: var(--#{$prefix}color-default-color-light-border-default);
+    }
+
+    .dark &,
+    .dark-alt & {
+        // Mobile default is dark
+        --#{$prefix}navbar-mobile-home-icon-color: var(--#{$prefix}color-default-color-dark-action-secondary);
+        --#{$prefix}navbar-mobile-menu-toggle-bg: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}navbar-mobile-header-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}navbar-mobile-svg-color: var(--#{$prefix}color-default-color-dark-action-secondary);
+        --#{$prefix}navbar-mobile-text-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-mobile-border-color: var(--#{$prefix}color-default-color-dark-border-default);
+        --#{$prefix}navbar-mobile-menuitem-hover: var(--#{$prefix}color-default-color-dark-background-alt-shade);
+
+        --#{$prefix}navbar-bg-color: var(--#{$prefix}color-default-color-dark-background-default-shade);
+        --#{$prefix}navbar-dropdown-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}navbar-menuitem-hover: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}navbar-title-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-text-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-nav-text-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-home-icon-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-home-icon-color-active: var(--#{$prefix}color-default-color-dark-text-heading);
+        --#{$prefix}navbar-home-icon-color-hover: var(--#{$prefix}color-default-color-dark-action-primary-hover);
+
+        --#{$prefix}navbar-link-color: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-link-color-hover: var(--#{$prefix}core-default-color-neutral-white);
+
+        --#{$prefix}navbar-border-color: var(--#{$prefix}color-default-color-dark-border-default);
+        --#{$prefix}navbar-menuitem-active: var(--#{$prefix}core-default-color-neutral-white);
+        --#{$prefix}navbar-menuitem-active: var(--#{$prefix}color-default-color-dark-background-alt);
+        --#{$prefix}navbar-menuitem-hover-border: var(--#{$prefix}color-default-color-dark-action-secondary-hover);
+        --#{$prefix}navbar-icon-hover: var(--#{$prefix}color-default-color-dark-action-secondary);
+        --#{$prefix}navbar-text-focus-color: var(--#{$prefix}color-default-color-dark-focus-default);
+        --#{$prefix}navbar-svg-color: var(--#{$prefix}color-default-color-dark-action-secondary);
+    }
+}
+

@@ -30,7 +30,7 @@ jobs:
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
@@ -85,6 +85,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -163,7 +164,7 @@ jobs:
 #          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Publish
-        run: npm publish --tag ${{ steps.latest_tag.outputs.latest-tag }}
+        run: npm publish --provenance --access=public --tag ${{ steps.latest_tag.outputs.latest-tag }}
         if: ${{ env.DO_DEPLOYMENT == 'true' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

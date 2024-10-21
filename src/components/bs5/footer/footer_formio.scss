@@ -1,0 +1,274 @@
+#qg-footer-feedback {
+    #feedbackFormIO {
+        .qg-spinner {
+            padding: var(--#{$prefix}footer-spacing) 0;
+            text-align: center;
+        }
+
+        .form-check-input {
+            margin-left: 0;
+            --qld-form-check-bg: var(--#{$prefix}formIO-bg-colour);
+
+            &:hover,
+            &:focus {
+                background-color: var(--#{$prefix}extra-light-grey);
+                cursor: pointer;
+            }
+        }
+
+        textarea {
+            border: 2px solid var(--#{$prefix}soft-grey);
+            border-radius: 4px;
+
+            &:hover {
+                background-color: var(--#{$prefix}extra-light-grey);
+                border-color: $qld-textbox-border-color;
+            }
+            &:focus {
+                outline: 3px solid var(--#{$prefix}light-blue);
+                outline-offset: 2px;
+                background-color: var(--#{$prefix}white);
+                border: 2px solid var(--#{$prefix}light-grey);
+            }
+            &.is-valid {
+                outline: none;
+                background-color: var(--#{$prefix}core-default-color-status-error-lightest);
+                margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
+                border: var(--#{$prefix}formIO-form-control-border-width) solid var(--#{$prefix}formIO-border-notify-invalid);
+                box-shadow: none;  // Overrides Bootstrap5 styling for invalid input.
+
+                &:focus {
+                    outline: 3px solid var(--#{$prefix}light-blue);
+                }
+            }
+        }
+
+        .form-check-input[type="radio"]:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle r='1.8' fill='%23414141'/%3e%3c/svg%3e");
+        }
+
+        .col-form-label {
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
+            padding-block-end: 0;
+            font-weight: 600;
+            padding-block-start: 0;
+            display: block;
+        }
+
+        .wizard-page>.form-group:first-child .has-feedback {
+            label.col-form-label {
+                border-block-start: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
+                padding-block-start: var(--#{$prefix}formIO-spacing);
+            }
+        }
+
+        .formio-component-textarea {
+            .col-form-label {
+                margin-block-end: 4px;
+            }
+        }
+
+        .formio-component-submit .btn,
+        .formio-component-submit .btn-primary {
+            --qld-btn-active-bg: var(--#{$prefix}formIO-submit-btn);
+            --qld-btn-color: var(--#{$prefix}formIO-submit-btn-text);
+            --qld-btn-border-color: transparent;
+            --qld-btn-bg: var(--#{$prefix}formIO-submit-btn);
+            margin-block-start: calc(var(--#{$prefix}footer-spacing) + 4px);
+            width: 100%;
+
+            &:hover,
+            &:active {
+                color: var(--#{$prefix}formIO-submit-btn-text);
+                border-color: var(--#{$prefix}formIO-submit-btn-hover);
+                text-decoration-line: underline;
+                text-decoration-thickness: var(--#{$prefix}formIO-form-control-border-width);
+                text-underline-offset: var(--#{$prefix}footer-text-underline-offset);
+                background-color: var(--#{$prefix}formIO-submit-btn-hover);
+            }
+
+            &:disabled {
+                color: var(--#{$prefix}formIO-formio-colour);
+                background-color: var(--#{$prefix}formIO-btn-disabled-colour);
+            }
+        }
+
+        .formio-component-radio {
+            flex-direction: column;
+            padding-inline-start: 0;
+            margin-block-end: 0;
+            align-items: start;
+
+            .form-radio {
+                .form-check {
+                    display: block;
+                    padding: 0;
+                    margin: 0;
+
+                    .form-check-label {
+                        display: flex;
+                        align-items: start;
+                        margin-block-end: var(--#{$prefix}footer-spacing);
+                        margin-inline-start: 0;
+
+                        span {
+                            margin-inline-start: calc(var(--#{$prefix}footer-spacing) - 4px);
+                        }
+                    }
+
+                    &:last-of-type {
+                        margin-block-end: 0px;
+                    }
+                }
+            }
+        }
+
+        .form-control {
+            background-color: var(--#{$prefix}formIO-bg-colour);
+            color: var(--#{$prefix}formIO-formio-colour);
+        }
+
+        .formio-modified {
+            .form-check-input {
+                outline: none;
+
+                &:focus {
+                    outline: 3px solid var(--#{$prefix}light-blue);
+                    outline-offset: 3px;
+                }
+            }
+
+            .is-invalid {
+                outline: var(--#{$prefix}formIO-border-notify-invalid) solid var(--#{$prefix}formIO-form-control-border-width);
+            }
+
+            textarea {
+                background-color: var(--#{$prefix}formIO-bg-colour);
+
+                &:hover {
+                    background-color: var(--#{$prefix}extra-light-grey);
+                    border-color: $qld-textbox-border-color;
+                }
+                &:focus {
+                    outline: 3px solid var(--#{$prefix}light-blue);
+                    outline-offset: 2px;
+                    background-color: var(--#{$prefix}white);
+                    border: 2px solid var(--#{$prefix}light-grey);
+                }
+                &.is-valid {
+                    outline: none;
+                    background-color: var(--#{$prefix}core-default-color-status-error-lightest);
+                    margin-block-end: calc(var(--#{$prefix}footer-spacing) * 0.5);
+                    border: var(--#{$prefix}formIO-form-control-border-width) solid var(--#{$prefix}formIO-border-notify-invalid);
+                    box-shadow: none;  // Overrides Bootstrap5 styling for invalid input. 
+
+                    &:focus {
+                        outline: 3px solid var(--#{$prefix}light-blue);
+                    }
+                }
+
+                /* Overrides the 'dark' theme that the form is inherited from footer's dark theme - because the form's background is white (light theme). */
+                &::selection {
+                    color: var(--#{$prefix}white);
+                    background-color: var(--#{$prefix}brand-primary);
+                }
+                /* End: Overrides 'dark' theme */
+            }
+        }
+
+        .callout {
+            margin-block-start: 0;
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
+            background-color: var(--#{$prefix}core-default-color-neutral-lightest);
+            border-left: none;
+            border-inline-start: calc(var(--#{$prefix}formIO-form-control-border-width) * 2) solid var(--#{$prefix}formIO-callout-border-colour);
+
+            #feedback-serv-dep-staff {
+                color: var(--#{$prefix}formIO-formio-colour);
+
+                &.status {
+                    margin: 0 !important;
+                    background-color: transparent;
+                }
+
+                h4 {
+                    color: var(--#{$prefix}formIO-formio-colour);
+                    font-size: var(--#{$prefix}footer-font-size);
+                    margin-block: 0;
+                    position: relative;
+                    line-height: var(--#{$prefix}formIO-callout-heading-line-height);
+                }
+
+                p {
+                    margin-block-start: var(--#{$prefix}footer-spacing);
+                    margin-block-end: 0;
+                }
+            }
+        }
+
+        .formio-component-html1 {
+            margin-block-start: calc(var(--#{$prefix}footer-spacing) * -1);
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) + 4px);
+
+            h2 {
+                margin-block-start: 0;
+                color: var(--#{$prefix}formIO-thankyou-page-title-colour);
+                font-size: 1rem;
+                font-weight: 600;
+                margin-block-end: var(--#{$prefix}footer-spacing);
+            }
+
+            h2:first-child {
+                font-weight: 700;
+                color: var(--#{$prefix}formIO-thankyou-page-title-colour);
+                font-size: 1rem;
+                margin-block-start: 0;
+                margin-block-end: var(--#{$prefix}footer-spacing);
+                border-block-end: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
+                padding-block-end: calc(var(--#{$prefix}footer-spacing) - 3px);
+            }
+
+            p:last-of-type {
+                display: none;
+            }
+        }
+
+        button.btn-wizard-nav-submit {
+            display: none;
+        }
+
+        .formio-wizard-nav-container {
+            display: none;
+        }
+
+        .formio-errors .error {
+            margin-block-start: 0px;
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) * 2);        
+        }
+
+        .formio-component.has-error .invalid-feedback,
+        .formio-component.has-message .invalid-feedback {
+            margin-top: 0px;
+        }
+
+        .field-required:after {
+            content: none;
+            content: "";
+        }
+
+        .field-required:before {
+            content: " *";
+            color: var(--#{$prefix}formIO-error);
+        }
+
+        p {
+            margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.25);
+        }
+
+        @include media-breakpoint-down(md) {
+            p {
+                margin-block-end: var(--#{$prefix}footer-spacing);
+            }
+        }
+    }
+}
