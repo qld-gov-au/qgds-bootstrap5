@@ -2,7 +2,7 @@ import defaultdata from "./../contentFooter/contentFooter.data.json";
 import { ContentFooterWrapperTest } from "./contentFooterWrapper.test.js";
 
 export default {
-  title: "!Layout/Components/Content Footer Wrapper",
+  title: "5. Wrappers/Components/Content Footer Wrapper",
   render: (args) => {
     return new ContentFooterWrapperTest(args).html;
   },

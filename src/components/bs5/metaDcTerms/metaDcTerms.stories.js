@@ -10,7 +10,7 @@ const defaultData = {
 
 export default {
   tags: ["autodocs"],
-  title: "!Core/Head/Meta Dublin Core Terms (DCTERMS)",
+  title: "1. Core/Head/Meta Dublin Core Terms (DCTERMS)",
   args: defaultData,
   render: (args) => {
     return new MetaDcTerms(args).html;

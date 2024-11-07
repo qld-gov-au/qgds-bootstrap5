@@ -11,7 +11,7 @@ import { Accordion } from "../accordion/Accordion.js";
  */
 export default {
   tags: ["autodocs"],
-  title: "Components/Video",
+  title: "4. Components/Video",
   args: defaultdata.youtube,
   render: (args) => {
     const transcriptAccordion = new Accordion({

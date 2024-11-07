@@ -58,7 +58,7 @@ function statusVariantsMarkup() {
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/Tag',
+  title: '4. Components/Tag',
   render: (args) => new Tag(args).html,
   argTypes: {
     variant: {

@@ -3,7 +3,7 @@ import { SidenavWrapperTest } from "./SidenavWrapper.test.js";
 import defaultdata from "./../sidenav/sidenav.data.json";
 export default {
   tags: ["autodocs"],
-  title: "!Layout/Components/Side Navigation Wrapper",
+  title: "5. Wrappers/Components/Side Navigation Wrapper",
   render: (args) => {
     return new SidenavWrapperTest(args).html;
   },

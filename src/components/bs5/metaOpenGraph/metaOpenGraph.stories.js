@@ -10,7 +10,7 @@ const defaultData = {
 
 export default {
   tags: ["autodocs"],
-  title: "!Core/Head/Meta OpenGraph and SEO",
+  title: "1. Core/Head/Meta OpenGraph and SEO",
   args: defaultData,
   render: (args) => {
     return new MetaOpenGraph(args).html;

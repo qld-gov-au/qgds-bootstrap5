@@ -9,7 +9,7 @@ import defaultdata from "./accordion.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Accordion",
+  title: "4. Components/Accordion",
   render: (args) => new Accordion(args).html,
   args: defaultdata,
 

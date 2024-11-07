@@ -9,7 +9,7 @@ import breadcrumbdata from '../breadcrumbs/breadcrumbs.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/Banner (Navigation)',
+  title: '4. Components/Banner (Navigation)',
   render: (args) => new Banner(args).html,
   argTypes: {
     variantClass: {

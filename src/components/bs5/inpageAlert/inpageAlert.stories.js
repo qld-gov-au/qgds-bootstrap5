@@ -20,7 +20,7 @@ export default {
    *
    * @type {string}
    */
-  title: "Components/In-page Alert",
+  title: "4. Components/In-page Alert",
 
   /**
    * Function that renders the HTML snippet for the story.

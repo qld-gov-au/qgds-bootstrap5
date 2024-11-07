@@ -3,7 +3,7 @@ import { ContentWrapperTest } from "./ContentWrapper.test.js";
 import defaultdata from "./contentWrapper.data.json";
 
 export default {
-  title: "!Layout/Components/Content Wrapper",
+  title: "5. Wrappers/Components/Content Wrapper",
   render: (args) => {
     return new ContentWrapperTest(args).html;
   },

@@ -41,7 +41,7 @@ const defaultData = {
 };
 
 export default {
-  title: 'Integration/Main Integration Template',
+  title: '6. Integration/Main Integration Template',
   render: (args) => {
     return new MainIntegration(args).html;
   },

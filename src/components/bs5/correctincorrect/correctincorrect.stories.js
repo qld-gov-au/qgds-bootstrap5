@@ -5,7 +5,7 @@ import { Table } from '../table/Table.js';
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/CorrectIncorrect',
+  title: '4. Components/CorrectIncorrect',
   render: (args) => {
     return `${new CorrectIncorrect(args).html}`
   },
