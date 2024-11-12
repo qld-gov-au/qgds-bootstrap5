@@ -4,7 +4,7 @@ import defaultdata from "./inpagenav.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "4. Components/In-page Nav",
+  title: "3. Components/In-page Nav",
   render: (args) => new Inpagenav(args).html,
 
   parameters: {

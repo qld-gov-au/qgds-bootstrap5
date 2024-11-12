@@ -46,7 +46,7 @@ function buttonVariantsMarkup() {
 
 export default {
   tags: ['autodocs'],
-  title: '4. Components/Button',
+  title: '3. Components/Button',
   args: defaultdata,
   render: (args) => {
     return `

@@ -45,7 +45,7 @@ defaultdata.footer.buttons = buttonItems.map((item) => {
 
 export default {
   tags: [''],
-  title: '4. Components/Modal',
+  title: '3. Components/Modal',
   render: (args) => new Modal(args).html,
 
   argTypes: {

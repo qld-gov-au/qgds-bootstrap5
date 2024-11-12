@@ -26,7 +26,7 @@ const defaultData = {
 };
 
 export default {
-  title: "5. Wrappers/Main Container Wrapper",
+  title: "4. Wrappers/Main Container Wrapper",
   render: (args) => {
     return new MainContainerWrapperTest(args).html;
   },

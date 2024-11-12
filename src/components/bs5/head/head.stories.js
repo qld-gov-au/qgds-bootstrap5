@@ -3,7 +3,7 @@ import { Head } from "./Head.js";
 
 export default {
   tags: ["autodocs"],
-  title: "1. Core/Head/Includes CDN or Local",
+  title: "1. Core Styles/Head/Includes CDN or Local",
   render: (args) => {
     return new Head(args).html;
   },

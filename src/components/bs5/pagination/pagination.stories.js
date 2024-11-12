@@ -4,7 +4,7 @@ import defaultdata from './pagination.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: '4. Components/Pagination',
+  title: '3. Components/Pagination',
   render: (args) => new Pagination(args).html,
   
   parameters: {

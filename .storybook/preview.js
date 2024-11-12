@@ -65,6 +65,8 @@ const preview = {
         options: {
             storySort: {
                 method: 'alphabetical',
+                // Set order of components in the Layout category
+                order: ['*', ['Header', 'Footer', 'Breadcrumbs', 'Side navigation']],
             }
         },
         a11y: {

@@ -31,7 +31,7 @@ const defaultData = {
 };
 
 export default {
-  title: "5. Wrappers/Full Page",
+  title: "4. Wrappers/Full Page",
   render: (args) => {
     return new FullPageTest(args).html;
   },
