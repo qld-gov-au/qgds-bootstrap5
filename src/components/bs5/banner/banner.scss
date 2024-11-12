@@ -101,7 +101,8 @@
         margin-top: 1.5rem;
 
         .btn {
-            margin-right: 0.75rem;
+            margin-inline-start: 0;
+            margin-inline-end: 2.25rem;
         }
     }
 
@@ -132,13 +133,20 @@
         }
     }
 
+    @include media-breakpoint-down(md) {
+        .banner-cta {
+            .btn {
+                margin-inline-end: 0;
+            }
+        }
+    }
     //Stack buttons at very small viewports
     @include media-breakpoint-down(sm) {
         .banner-cta {
             flex-direction: column;
             .btn {
                 width: 100%;
-                margin-right: 0;
+                margin-inline-end: 0;
                 margin-bottom: 1rem;
             }
         }
