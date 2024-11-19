@@ -155,6 +155,17 @@ export const WithCallToAction = {
   },
 }
 
+/**
+ * Banner with Advance Banner
+ */
+export const AdvanceBanner = {
+  args: { 
+    ...defaultdata,
+    variantClass: "dark qld-banner-extended qld-banner-rounded",
+    breadcrumbs: breadcrumbs.html,
+  },
+}
+
 
 
 
