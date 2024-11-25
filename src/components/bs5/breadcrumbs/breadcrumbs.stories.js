@@ -4,7 +4,7 @@ import defaultdata from './breadcrumbs.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: 'Core/Breadcrumbs',
+  title: '2. Layout/Breadcrumbs',
   args: defaultdata.default,
   render: (args) => new Breadcrumbs(args).html,
 

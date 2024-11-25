@@ -146,7 +146,7 @@ const mergeArgs = (arg_types, variant, menu) => ({
 
 export default {
   tags: ['autodocs'],
-  title: 'Core/Header',
+  title: '2. Layout/Header',
   render: (args) => {
     return `
         ${new Header({ ...args, searchInput: new SearchInput(searchData).html }).html}
