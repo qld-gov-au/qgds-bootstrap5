@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
-    "@qld-gov-au/qgds-tokens": "^1.2.1",
+    "@qld-gov-au/qgds-tokens": "^3.1.2",
     "@storybook/addon-a11y": "^8.4.2",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
