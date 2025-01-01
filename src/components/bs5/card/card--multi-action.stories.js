@@ -8,7 +8,7 @@ import tagdata from "../tag/tag.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Card/Multi action",
+  title: "3. Components/Card/Multi action",
   render: (args) => {
     const tags = new Tag(tagdata.action).html;
 

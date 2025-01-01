@@ -6,7 +6,7 @@ import defaultdata from "./footer.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "!Core/Footer",
+  title: "2. Layout/Footer",
   render: (args) => new Footer(args).html,
   // parameters: {
   //   controls: {include: []},

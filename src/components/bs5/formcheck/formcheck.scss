@@ -146,7 +146,7 @@ $form-check-inline-margin-end: 1rem;
 
 .form-check {
   display: flex;
-  align-items: center;
+  align-items: start;
   margin-bottom: $form-check-margin-bottom;
 
   .form-check-input {
@@ -292,5 +292,6 @@ $form-check-inline-margin-end: 1rem;
   }
   &-label {
     margin-left: 0.5rem;
+    margin-top: 0.25rem;
   }
 }
