@@ -1,0 +1,74 @@
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Widgets
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__widgets {
+    bottom:0.75rem;
+    right: 0.75rem;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+  
+    .qld__btn--floating {
+      display: inline-block;
+    }
+  }
+  
+  .qld__widgets + .qld__footer {
+    @include media-breakpoint-up(xl) {
+        padding-bottom: 4rem;
+    }
+  }
+  
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // Back to top
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
+    margin-top: 0.5rem;
+    background-color: var(--#{$prefix}color-default-color-light-background-default-shade);
+    
+    color: var(--#{$prefix}color-default-color-light-action-primary);
+    padding: 0.5rem 1rem;
+    display: none;
+    border: 3px solid var(--#{$prefix}color-default-color-light-background-default-shade);
+    border-radius: 4px;
+
+    &:after {
+      width: 1rem;
+      height: 1rem;
+      margin: 0 0.25rem;
+      content: "↑";
+      color: var(--#{$prefix}color-default-color-light-action-secondary);
+      display: inline-block;
+      width: auto;
+      height: auto;
+    }
+    &:hover {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--#{$prefix}color-default-color-light-background-alt-shade);
+      border-color: var(--#{$prefix}color-default-color-light-background-alt-shade);
+      color: var(--#{$prefix}color-default-color-light-action-primary);
+      text-decoration-color: var(--#{$prefix}color-default-color-light-action-primary);
+      &::after {
+        content: "↑";
+        color: var(--#{$prefix}color-default-color-light-action-secondary-hover);
+      }
+    }
+  }
+  body a.qld__btn.qld__btn--floating.show {
+    display: block;
+}
+  @media print {
+    .qld__widgets {
+      display: none !important;
+    }
+  }
+  
