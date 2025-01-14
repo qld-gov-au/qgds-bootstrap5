@@ -3,8 +3,7 @@ A Queensland Online - Design System development space
 
 Please see [For Gov - Queensland Government Design System](https://www.forgov.qld.gov.au/information-and-communication-technology/communication-and-publishing/website-and-digital-publishing/website-standards-guidelines-and-templates/queensland-government-design-system) for more details.
 
-This is a BS5 flavour based on [QGDS Figma Design](https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?m=auto&node-id=6902-69802&t=q6FMpeH4XPs1hjP1-1). <br/>
-Qld Health edition can be found at [design-system.health.qld.gov.au](https://www.design-system.health.qld.gov.au/).
+This is a Bootstrap 5 flavour based on [QGDS Figma Design](https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?m=auto&node-id=6902-69802&t=q6FMpeH4XPs1hjP1-1). <br/>
 
 This includes:
 - Public NPM Release packages:
@@ -17,17 +16,19 @@ This includes:
 ## Technical overview
 
 - ES6 Javascript
-- ESbuild for bundling, minification and transpiling
-- Storybook for component development and documentation
-- Mustache JS / Handlebars JS for component and HTML templating
-- Figma for design and prototyping
+- ESBuild for bundling, minification and transpiling
+- Storybook and Chromatics for component development, testing, and documentation
+- Handlebars JS for component rendering and HTML templating
+- Figma for design, prototyping, and the source of truth for the component design
 - CSS/SCSS, extending Bootstrap 5.3 core components with custom CSS properties
+- Queensland Government Design System - Design Tokens 1.2
 - NPM for package management
 
 
 ## Documentation
 
 - Storybook examples available at [https://qld-gov-au.github.io/qgds-bootstrap5/](https://qld-gov-au.github.io/qgds-bootstrap5/)
+- Design System documentation [https://www.designsystem.qld.gov.au/](https://www.designsystem.qld.gov.au/).
 
 
 ## Development Getting started
