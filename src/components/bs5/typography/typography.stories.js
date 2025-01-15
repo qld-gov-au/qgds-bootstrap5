@@ -4,7 +4,7 @@
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Typography",
+  title: "1. Core Styles/Typography",
   render: () => {
     return `
     <div class="qld-content-body" id="content">

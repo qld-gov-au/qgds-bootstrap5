@@ -4,7 +4,7 @@ import defaultdata from './checkbox.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/Forms/Checkbox',
+  title: '3. Components/Forms/Checkbox',
   render: (args) => {
     return `${new Formcheck(args).html}`
   },

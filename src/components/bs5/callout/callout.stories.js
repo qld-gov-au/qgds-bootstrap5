@@ -4,7 +4,7 @@ import defaultdata from './callout.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/Callout',
+  title: '3. Components/Callout',
   render: (args) => new Callout(args).html,
 
   argTypes: {

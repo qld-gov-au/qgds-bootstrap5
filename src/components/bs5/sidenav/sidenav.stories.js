@@ -4,7 +4,7 @@ import defaultdata from "./sidenav.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "!Core/Side navigation",
+  title: "2. Layout/Side navigation",
   render: (args) => {
     return new Sidenav(args).html;  
   },
