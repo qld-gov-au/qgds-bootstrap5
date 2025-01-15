@@ -4,17 +4,22 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__widgets {
-    bottom:0.75rem;
-    right: 0.75rem;
-    align-items: flex-end;
     display: flex;
+    align-items: flex-end;
     flex-direction: column;
-    position: fixed;
+    position: relative;
     z-index: 1;
-  
+    &.fixed {
+        position: fixed;
+        bottom:0.75rem;
+        right: 0.75rem;
+        z-index: 10;
+    }
+
     .qld__btn--floating {
       display: inline-block;
     }
+    
   }
   
   .qld__widgets + .qld__footer {

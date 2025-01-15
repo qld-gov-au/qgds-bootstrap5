@@ -1,16 +1,28 @@
 export function backToTop() {
     // Get the Back To Top object:
-    let mybutton = document.getElementById("backToTop");
+    // The offset is the number of pixels after which the button is displayed
+    // The dynamic attribute is used to determine if the buttons CSS uses Relitive or Fixed positioning
 
-    // When the user scrolls down 30px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
+    let mybutton = document.getElementById("backToTop");
+    let btnIsDynamic = mybutton.getAttribute("data-dynamic");
+    
+    mybutton.addEventListener("click", goToTop);
+
+    if (btnIsDynamic == "true") {
+        mybutton.classList.remove("show");
+        window.onscroll = function() {scrollFunction()};
+    }
 
     function scrollFunction() {
-        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-            mybutton.classList.add("show");
-            mybutton.addEventListener("click", goToTop)
-        } else {
-            mybutton.classList.remove("show");
+        if (btnIsDynamic == "true") { 
+            let offset = mybutton.getAttribute("data-offset");
+            if (document.body.scrollTop > offset || document.documentElement.scrollTop > offset) {
+                mybutton.classList.add("show");
+                mybutton.setAttribute("aria-hidden", false);
+            } else {
+                mybutton.classList.remove("show");
+                mybutton.setAttribute("aria-hidden", true);
+            }
         }
     }
 
