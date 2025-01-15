@@ -16,12 +16,12 @@
     "test:integration": "npm-run-all --parallel --race serve:test test:testrunner",
     "test:testrunner": "sleep 2 && mocha --timeout 10000 --require ./test/testServer.test.js ",
     "watch": "node esbuild.js --watch",
-    "serve": "live-server dist",
-    "serve:test": "live-server --no-browser --port=8081",
+    "serve": "http-server dist -p 8080",
+    "serve:test": "http-server dist -p 8081 --silent",
     "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --webpack-stats-json ",
-    "build-storybook:serve": "live-server storybook-static"
+    "build-storybook:serve": "http-server storybook-static -p 8080"
   },
   "keywords": [],
   "author": "",
@@ -76,7 +76,7 @@
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-storybook": "^0.11.0",
     "handlebars": "4.7.8",
-    "live-server": "1.2.2",
+    "http-server": "^14.1.1",
     "minimist": "^1.2.8",
     "mocha": "^10.7.3",
     "npm-run-all2": "^6.2.3",
@@ -91,7 +91,7 @@
     "selenium-webdriver": "^4.24.1",
     "storybook": "^8.4.2",
     "vite": "^5.4.6",
-    "watch": "^1.0.2"
+    "watch": "^0.13.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
