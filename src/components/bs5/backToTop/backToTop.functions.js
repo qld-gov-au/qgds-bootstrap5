@@ -4,8 +4,8 @@ export function backToTop() {
   // The dynamic attribute is used to determine if the buttons CSS uses Relitive or Fixed positioning
 
   let mybutton = document.getElementById("backToTop");
-  let btnIsDynamic = mybutton.getAttribute("data-dynamic");
-    
+  let btnIsDynamic = mybutton.getAttribute("data-btn-dynamic");
+  
   mybutton.addEventListener("click", goToTop);
 
   if (btnIsDynamic == "true") {
