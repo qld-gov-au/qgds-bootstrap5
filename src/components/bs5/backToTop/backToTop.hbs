@@ -1,6 +1,6 @@
 {{#unless hide_back_to_top}}
   <div class="qld__widgets {{#if dynamic}}fixed{{/if}}">
-      <a href="#" id="backToTop" class="qld__btn qld__btn--floating qld__btn--back-to-top show" data-offset="{{offset}}" data-dynamic="{{dynamic}}" aria-label="{{#if text}}{{text}}{{else}}Back to top{{/if}}">
+      <a href="#" id="backToTop" class="qld__btn qld__btn--floating qld__btn--back-to-top show" {{#if dynamic}}data-offset="{{offset}}" data-dynamic="{{dynamic}}"{{/if}} aria-label="{{#if text}}{{text}}{{else}}Back to top{{/if}}">
         <span>{{#if text}}{{text}}{{else}}Back to top{{/if}}</span>
       </a>
   </div>
