@@ -5,8 +5,8 @@
 
 .qld__widgets {
     display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+    align-items: baseline;
+    flex-direction: row;
     position: relative;
     z-index: 1;
     &.fixed {
@@ -34,12 +34,11 @@
   
   body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
     margin-top: 0.5rem;
+    margin-inline-start: auto;
     background-color: var(--#{$prefix}color-default-color-light-background-default-shade);
-    
+    border: 3px solid var(--#{$prefix}color-default-color-light-background-default-shade);
     color: var(--#{$prefix}color-default-color-light-action-primary);
     padding: 0.5rem 1rem;
-    display: none;
-    border: 3px solid var(--#{$prefix}color-default-color-light-background-default-shade);
     border-radius: 4px;
 
     &:after {
@@ -52,7 +51,7 @@
       width: auto;
       height: auto;
     }
-    &:hover {
+    &:hover, &:focus {
         box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
     }
     &:hover,
@@ -68,9 +67,7 @@
       }
     }
   }
-  body a.qld__btn.qld__btn--floating.show {
-    display: block;
-}
+
   @media print {
     .qld__widgets {
       display: none !important;

@@ -1,6 +1,3 @@
 {
-    "hide_back_to_top": false,
-    "text":"Back to top",   
-    "dynamic":false,
-    "offset": 100
+    "hide_back_to_top": false
 }
