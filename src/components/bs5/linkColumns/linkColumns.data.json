@@ -1,0 +1,68 @@
+{
+    "has_all_link": true,
+    "id": "link-column-1",
+    "theme": "light",
+    "columns": "3",
+    "data": {
+        "items": [
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 01"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 02"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 03"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 04"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 05"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 06"
+            },{
+                "type": "link",
+                "url": "#",
+                "value": "List item 07"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 08"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 09"
+            },{
+                "type": "link",
+                "url": "#",
+                "value": "List item 10"
+            },
+            {
+                "type": "link",
+                "url": "#",
+                "value": "List item 11"
+            },
+            {
+                "all_link":true,
+                "url": "#",
+                "value": "View all"
+            }
+        ]
+    }
+}

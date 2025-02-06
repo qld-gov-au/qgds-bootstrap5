@@ -1,0 +1,13 @@
+{{#if data.items}}
+    <section class="link-column {{theme}}">
+        <ul class="nav col-{{columns}}">
+            {{#each data.items}}
+                <li class="nav-item{{#if ../has_all_link }}{{#if this.all_link }} all-link{{/if}}{{/if}}">
+                    <a class="nav-link" href="{{this.url}}">
+                        {{{this.value}}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+{{/if}}
