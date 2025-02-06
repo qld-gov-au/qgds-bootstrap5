@@ -10,7 +10,7 @@ import defaultdata from "./linkColumns.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "2. Layout/Link Columns",
+  title: "3. Components/Link Columns",
   
   render: (args) => new LinkColumns(args).html,
   args: defaultdata,
