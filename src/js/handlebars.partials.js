@@ -23,6 +23,7 @@ import head from "../components/bs5/head/head.hbs?raw";
 import header from "../components/bs5/header/header.hbs?raw";
 import inpageAlert from "../components/bs5/inpageAlert/inpageAlert.hbs?raw";
 import inpagenav from "../components/bs5/inpagenav/inpagenav.hbs?raw";
+import linkColumns from "../components/bs5/linkColumns/linkColumns.hbs?raw";
 import mainContainerWrapper from "../components/bs5/mainContainerWrapper/mainContainerWrapper.hbs?raw";
 import metaDcTerms from "../components/bs5/metaDcTerms/metaDcTerms.hbs?raw";
 import metaOpenGraph from "../components/bs5/metaOpenGraph/metaOpenGraph.hbs?raw";
@@ -71,6 +72,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("header", header);
   handlebars.registerPartial("inpageAlert", inpageAlert);
   handlebars.registerPartial("inpagenav", inpagenav);
+  handlebars.registerPartial("linkColumns", linkColumns);
   handlebars.registerPartial("mainContainerWrapper", mainContainerWrapper);
   handlebars.registerPartial("metaDcTerms", metaDcTerms);
   handlebars.registerPartial("metaOpenGraph", metaOpenGraph);
