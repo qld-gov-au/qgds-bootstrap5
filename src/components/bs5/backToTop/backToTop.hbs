@@ -1,7 +1,12 @@
 {{#unless hide_back_to_top}}
   <div class="qld__widgets">
-      <a href="#" id="backToTop" class="qld__btn qld__btn--floating qld__btn--back-to-top show" aria-label="Back to top">
+      <a href="#" id="backToTop" class="qld__btn qld__btn--back-to-top" data-min-page-height="{{min_page_height}}" aria-label="Back to top">
         <span>Back to top</span>
+        {{#if has_icon}}
+          <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
+            <use href="./assets/img/svg-icons.svg#qld__icon__arrow-up"></use>
+          </svg> 
+        {{/if}}
       </a>
   </div>
 {{/unless}}

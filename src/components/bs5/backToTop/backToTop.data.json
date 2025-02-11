@@ -1,3 +1,5 @@
 {
-    "hide_back_to_top": false
+    "hide_back_to_top": false,
+    "has_icon": true,
+    "min_page_height": 0
 }
