@@ -19,16 +19,16 @@ export default {
     has_icon: { 
       control: 'boolean',
     },
-     min_page_height: { 
+    min_page_height: { 
       name: "Minimum Page Height",
       description: 'Sets the minimum page height before the back to top button is displayed. This might be tricky to observe, as you will need to set the pages height using CSS to see the effect.',
       control: { 
         type: 'range', 
         min: 0,
         max: 4,
-        step: 1
-      } 
-    }
+        step: 1,
+      }, 
+    },
   },
 
 
