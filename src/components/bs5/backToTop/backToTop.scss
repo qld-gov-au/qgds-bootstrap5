@@ -15,22 +15,14 @@
       right: 0.75rem;
       z-index: 10;
   }
-  // --windowHeight: 100vh;
-  // margin-top: calc(var(--windowHeight) * 4);
-  
 }
 
 .qld__widgets + .qld__footer {
   @include media-breakpoint-up(xl) {
-      padding-bottom: 4rem;
+      padding-block-end: 4rem;
   }
 }
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Back to top
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// body a.qld__btn--back-to-top {
 .qld__btn--back-to-top {  
   --btn-background-colour: var(--#{$prefix}color-default-color-light-background-default-shade);
   --btn-background-colour-hover: var(--#{$prefix}color-default-color-light-background-alt-shade);
