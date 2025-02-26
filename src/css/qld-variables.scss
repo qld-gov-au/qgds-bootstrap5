@@ -16,7 +16,7 @@ $qld-dark-green : $core-default-color-brand-secondary-darkgreen;
 $qld-golden-yellow : $core-default-color-brand-secondary-golden-yellow;
 $qld-maroon-traditional : $core-default-color-brand-other-gov-maroon;
 $qld-maroon-modern : $core-default-color-brand-other-modern-maroon;
-$qld-dark-text: $core-default-color-neutral-white;
+$qld-dark-text: $color-default-color-dark-text-default;
 $qld-dark-border: $color-default-color-dark-border-default;
 $qld-dark-alt-border: $color-default-color-dark-border-alt;
 $qld-alt-button-hover: $color-default-color-light-action-secondary-hover;
@@ -31,13 +31,14 @@ $qld-light-border: $color-default-color-light-border-default;
 $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
-$qld-text-light-blue-dark : $core-default-color-neutral-lighter;
+$qld-text-darkest : $color-default-color-dark-link-on-action;
+$qld-dark-hover : $color-default-color-dark-background-default-shade;
+
+$qld-text-light-blue-dark : $core-default-color-brand-primary-dark-blue;
 $qld-light-green-dark : $core-default-color-brand-primary-light-green;
 $qld-dark-green-dark : $color-default-color-dark-action-primary;
 $qld-light-yellow : $core-default-color-status-caution-lightest;
 $qld-button-dark-blue : $color-default-color-light-action-primary-hover;
-$qld-text-darkest : $color-default-color-dark-link-on-action;
-$qld-dark-hover : $color-default-color-dark-background-default-shade;
 
 //QGOV Brand Mapping - QLD.GOV.AU
 $qld-brand-primary-dark : $qld-dark-blue;
@@ -46,6 +47,18 @@ $qld-brand-primary-light : $qld-light-blue;
 $qld-brand-secondary-dark : $qld-dark-green;
 $qld-brand-secondary : $qld-light-green;
 $qld-brand-accent : $qld-golden-yellow;
+
+// Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss). 
+// Nuetrals were dropped from _variables.scss, but retained in _map.scss.
+$core-default-color-neutral-black: #131212;
+$core-default-color-neutral-darkest: #222020;
+$core-default-color-neutral-darker: #444444;
+$core-default-color-neutral-dark: #78797e;
+$core-default-color-neutral-light: #e0e0e0;
+$core-default-color-neutral-lighter: #ebebeb;
+$core-default-color-neutral-lightest: #f5f5f5;
+$core-default-color-neutral-white: #ffffff;
+
 
 //Greys
 $qld-system-darkest : $core-default-color-neutral-darkest;
@@ -57,7 +70,7 @@ $qld-light-link: $color-default-color-light-link-default;
 //Should be core color rather than second hand reference (no match)
 $qld-soft-grey : $color-default-color-light-border-alt;
 
-$qld-dark-grey-muted : $color-default-color-light-text-lighter; 
+$qld-dark-grey-muted : $color-default-color-light-text-lighter;
 $qld-text-grey : $color-default-color-light-text-default;
 $qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $color-default-color-dark-text-lighter;
@@ -190,8 +203,8 @@ $project-colors: (
   "dark-hover" : $qld-dark-hover,
   "light-action-primary": $qld-light-action-primary,
   "light-action-primary-hover": $qld-light-action-primary-hover,
-  "light-action-secondary":  $qld-light-action-secondary,
-  "light-action-secondary-hover":  $qld-light-action-secondary-hover,
+  "light-action-secondary": $qld-light-action-secondary,
+  "light-action-secondary-hover": $qld-light-action-secondary-hover,
   "dark-action-primary": $qld-dark-action-primary,
   "dark-action-primary-hover": $qld-dark-action-primary-hover,
   "dark-action-text": $qld-dark-action-text,

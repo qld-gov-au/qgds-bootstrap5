@@ -1,15 +1,17 @@
 // Banner.stories.js
-import { Banner } from './Banner.js';
-import defaultdata from './banner.data.json';
+import { Banner } from "./Banner.js";
+import defaultdata from "./banner.data.json";
 
 //Breadcrumbs
-import { Breadcrumbs } from '../breadcrumbs/Breadcrumbs.js';
-import breadcrumbdata from '../breadcrumbs/breadcrumbs.data.json';
+import { Breadcrumbs } from "../breadcrumbs/Breadcrumbs.js";
+import breadcrumbdata from "../breadcrumbs/breadcrumbs.data.json";
 
+//Import components required for the banner
+import { Button } from "../button/Button.js";
 
 export default {
-  tags: ['autodocs'],
-  title: '3. Components/Banner (Navigation)',
+  tags: ["autodocs"],
+  title: "3. Components/Banners",
   render: (args) => new Banner(args).html,
   argTypes: {
     variantClass: {
@@ -18,9 +20,9 @@ export default {
       control: {
         type: "radio",
         labels: {
-          "light": "Light",
-          "alt": "Light Alternative",
-          "dark": "Dark",
+          light: "Light",
+          alt: "Light Alternative",
+          dark: "Dark",
           "dark-alt": "Dark Alternative",
           "alt with-pattern": "Light Alternative (with pattern)",
           "dark with-pattern": "Dark (with pattern)",
@@ -55,9 +57,8 @@ export default {
   parameters: {
     docs: {
       controls: {
-        exclude: ['image', 'breadcrumbs'],
+        exclude: ["image", "breadcrumbs"],
         hideNoControlsWarning: true,
-
       },
     },
   },
@@ -66,75 +67,88 @@ export default {
 /**
  * Default banner with breadcrumbs
  */
-const breadcrumbs = new Breadcrumbs(breadcrumbdata['default']);
+const breadcrumbs = new Breadcrumbs(breadcrumbdata["default"]);
 
 export const Default = {
   args: {
     ...defaultdata,
-    content: "",
+    abstract: "",
     image: false,
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
 };
 
+/**
+ * "No-banner banner
+ */
+export const NoBanner = {
+  args: {
+    ...defaultdata,
+    title: false,
+    abstract: false,
+    image: false,
+    ctabuttons: false,
+    breadcrumbs: breadcrumbs.html,
+  },
+};
 
 /**
  * Banner with lead content
  */
-export const WithLeadContent = {
-  args: { 
+export const WithAbstract = {
+  args: {
     ...defaultdata,
     image: false,
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with background pattern
  */
-export const WithPattern = {
-  args: { 
+export const WithTexture = {
+  args: {
     ...defaultdata,
     title: "A long page title that wraps onto another line",
-    variantClass: "dark with-pattern",
+    variantClass: "dark with-texture",
     image: false,
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with background pattern (alternative)
  */
-export const WithPatternAlt = {
-  args: { 
+export const WithTextureAlt = {
+  args: {
     ...defaultdata,
     title: "A long page title that wraps onto another line",
-    variantClass: "alt with-pattern",
+    variantClass: "alt with-texture",
     image: false,
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with feature image
  */
 export const WithFeatureImage = {
-  args: { 
+  args: {
     ...defaultdata,
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with feature image (angled)
  */
 export const WithFeatureImageAngle = {
-  args: { 
+  args: {
     ...defaultdata,
     ctabuttons: false,
     image: {
@@ -143,18 +157,48 @@ export const WithFeatureImageAngle = {
     },
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with call to action
  */
+
+let primaryButton = new Button({
+  variantClass: "btn-primary",
+  islink: true,
+  isdisabled: false,
+  label: "Call to action",
+  href: "https://google.com",
+  target: "_blank",
+});
+
+let secondaryButton = new Button({
+  variantClass: "btn-secondary",
+  islink: true,
+  isdisabled: false,
+  label: "Call to action",
+  href: "https://google.com",
+  target: "_blank",
+});
+
 export const WithCallToAction = {
-  args: { 
+  title: "Call to action/Buttons",
+  args: {
     ...defaultdata,
     breadcrumbs: breadcrumbs.html,
+    abstract:
+      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    //abstract: "Hello world short sentence",
+    ctablocks: [
+      {
+        content: `
+          <!-- Bootstrap button group -->
+          <div class="btn-group" role="group" aria-label="Available options">
+            ${primaryButton.html}
+            ${secondaryButton.html}
+          </div>
+        `,
+      },
+    ],
   },
-}
-
-
-
-
+};

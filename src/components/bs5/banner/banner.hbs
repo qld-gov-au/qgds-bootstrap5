@@ -4,26 +4,30 @@
 
     <div class="container">
         <div class="row">
-            
+
             <div class="col-12 col-md-7">
 
                 {{{breadcrumbs}}}
 
+                {{#if title}}
                 <h1 class="banner-title">{{{title}}}</h1>
-                <p class="banner-lead">{{{content}}}</p>
-
-                {{#if ctabuttons}}
-                <div class="banner-cta btn-toolbar">
-                    {{#each ctabuttons}}
-                    <a href="{{link}}" class="btn {{class}}" target="{{target}}">{{label}}</a>
-                    {{/each}}
-                </div>
                 {{/if}}
+
+                {{#if abstract}}
+                <p class="banner-abstract">{{{abstract}}}</p>
+                {{/if}}
+
+
+                {{#each ctablocks }}
+                {{{ content }}}
+                {{/each}}
 
             </div>
         </div>
     </div>
 
+    {{#if image}}
     <div class="banner-image {{image.classes}}" style="--banner-background-img:url({{image.url}})"></div>
+    {{/if}}
 
 </div>

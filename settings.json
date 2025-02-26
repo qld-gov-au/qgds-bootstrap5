@@ -1,0 +1,18 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "prettier.configPath": "prettier.json",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "json"
+  ],
+  // Ensure ESLint formatting still runs on these files
+  "eslint.format.enable": true
+}
