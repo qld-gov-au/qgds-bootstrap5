@@ -2,7 +2,6 @@
 
 // QGDS specific banner variables.
 .qld-banner {
-
     //Defaults variables
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-light);
     --#{$prefix}banner-title-color: var(--#{$prefix}color-default-color-light-text-heading);
@@ -13,7 +12,6 @@
     --#{$prefix}banner-background-img: none;
 
     --#{$prefix}banner-background-img: url(assets/img/banner-example-3-to-2.jpg);
-
 
     // Variants (text colour and backgrounds)
     &.alt {
@@ -74,10 +72,8 @@
     }
 }
 
-
 // General styling rules.
 .qld-banner {
-
     background-color: var(--#{$prefix}banner-bg-color);
     padding-top: var(--#{$prefix}banner-padding-top);
     padding-bottom: var(--#{$prefix}banner-padding-bottom);
@@ -95,7 +91,6 @@
         line-height: 1.3;
         color: var(--#{$prefix}banner-title-color);
         margin: 1.875rem 0 0 0;
-        max-width: 90%;
     }
 
     .banner-abstract {
@@ -112,21 +107,39 @@
         --#{$prefix}breadcrumb-padding-y: 0;
     }
 
+    // Buttons grouping using btn-toolbar.
+
     .btn-group {
+
         margin-top: 1.5rem;
-        flex-wrap: wrap;
 
         .btn {
+
+            /* Required for specificity - overrides some of bootstraps .btn-group defaults */
             &[class*="btn-"] {
                 border-radius: var(--#{$prefix}btn-border-radius);
-
-                &:not(:last-child) {
-                    margin-right: 1rem;
-                }
+                margin-right: 1rem;
             }
         }
-    }
 
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            display: flex;
+
+            .btn[class*="btn-"] {
+
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 1rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+
+    }
 
     //Image
     .banner-image {
@@ -139,12 +152,11 @@
         background-size: cover;
         background-position: center center;
 
-        //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle" 
+        //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle"
         &--angle {
             --#{$prefix}banner-angle: 20%; //(angle in degrees)
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--#{$prefix}banner-angle) 100%);
         }
-
     }
 
     //Hide banner image below tablet
@@ -166,5 +178,4 @@
             }
         }
     }
-
 }

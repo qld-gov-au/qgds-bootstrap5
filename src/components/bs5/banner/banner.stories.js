@@ -167,7 +167,7 @@ let primaryButton = new Button({
   variantClass: "btn-primary",
   islink: true,
   isdisabled: false,
-  label: "Call to action",
+  label: "Apply online",
   href: "https://google.com",
   target: "_blank",
 });
@@ -176,7 +176,7 @@ let secondaryButton = new Button({
   variantClass: "btn-secondary",
   islink: true,
   isdisabled: false,
-  label: "Call to action",
+  label: "Get help",
   href: "https://google.com",
   target: "_blank",
 });
@@ -186,6 +186,7 @@ export const WithCallToAction = {
   args: {
     ...defaultdata,
     breadcrumbs: breadcrumbs.html,
+    title: "QLD.GOV.AU Services",
     abstract:
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     //abstract: "Hello world short sentence",
