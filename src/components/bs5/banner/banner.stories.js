@@ -186,10 +186,9 @@ export const WithCallToAction = {
   args: {
     ...defaultdata,
     breadcrumbs: breadcrumbs.html,
-    title: "QLD.GOV.AU Services",
+    title: "Register your vehicle or motorcycle",
     abstract:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    //abstract: "Hello world short sentence",
+      "You can use this service to get a quote for your vehicle or motorcycle registration.",
     ctablocks: [
       {
         content: `

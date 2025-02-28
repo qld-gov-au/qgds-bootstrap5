@@ -17,12 +17,8 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
   --#{$prefix}breadcrumb-margin-bottom: 0;
   --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
   --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-light-link-default);
-  --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(
-    --#{$prefix}color-default-color-light-underline-default
-  );
-  --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(
-    --#{$prefix}color-default-color-light-underline-default-hover
-  );
+  --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
+  --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-light-underline-default-hover);
 
   .dark &,
   .dark-alt & {
@@ -30,31 +26,30 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
     --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
     --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
     --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-dark-link-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(
-      --#{$prefix}color-default-color-dark-underline-default
-    );
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(
-      --#{$prefix}color-default-color-dark-underline-default-hover
-    );
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
+    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-dark-underline-default-hover);
   }
 }
 
-@include color-mode(dark) {
-}
+@include color-mode(dark) {}
 
 .breadcrumb {
   font-size: 0.875rem;
+
   &.expanded {
     .breadcrumb-toggle {
       display: none;
     }
   }
 }
+
 .breadcrumb-item {
   display: none;
   line-height: 2rem;
+
   &:nth-last-child(2) {
     display: list-item;
+
     &:before {
       content: var(--#{$prefix}breadcrumb-divider);
       float: left;
@@ -62,9 +57,25 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
       width: 1rem;
     }
   }
-  a:after {
-    content: none;
+
+  a {
+    display: inline-block;
+
+    :visited {
+      color: var(--#{$prefix}breadcrumb-visited-link-color);
+      text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color);
+
+      &:hover {
+        text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color-hover);
+      }
+    }
+
+    &:after {
+      content: none;
+    }
+
   }
+
   &.shortened {
     height: 0;
     overflow: hidden;
@@ -72,28 +83,25 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
     transition: max-width 0s;
     padding: 0;
   }
+
   .breadcrumb-toggle {
     border: 0;
     padding: 0;
     vertical-align: inherit;
   }
-  a:visited {
-    color: var(--#{$prefix}breadcrumb-visited-link-color);
-    text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color);
-    &:hover {
-      text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color-hover);
-    }
-  }
+
 }
 
 @include media-breakpoint-up(md) {
   .breadcrumb {
     --#{$prefix}breadcrumb-padding-y: 2.5rem 0 1.5rem;
   }
+
   .breadcrumb-item {
     :after {
       content: var(--#{$prefix}breadcrumb-divider-flipped);
     }
+
     &:last-child {
       content: none;
     }
@@ -106,24 +114,30 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
 
     font-size: 1rem;
   }
+
   .breadcrumb-item {
     display: list-item;
     padding-left: 0;
     padding-right: var(--qld-breadcrumb-item-padding-x);
-    & + .breadcrumb-item {
+
+    &+.breadcrumb-item {
       padding-left: 0;
+
       &:before {
         content: none;
       }
     }
+
     &:nth-last-child(2):before {
       content: none;
     }
+
     &.active {
       &:before {
         content: none;
       }
     }
+
     a:after {
       width: 1rem;
       content: var(--#{$prefix}breadcrumb-divider-flipped);
