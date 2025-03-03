@@ -1,7 +1,7 @@
 export function backToTop() {
-  var backToTop = document.getElementsByClassName("back-to-top");
+  let hasBackToTop = document.getElementsByClassName("back-to-top");
   
-  if (backToTop) {
+  if (hasBackToTop.length > 0) {
     let backToTop = document.querySelector(".back-to-top");
 
     let parentValue = backToTop.closest(".qld__widgets");

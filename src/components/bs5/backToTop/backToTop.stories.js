@@ -7,8 +7,6 @@
 import { BackToTop } from './backToTop.js';
 import defaultdata from './backToTop.data.json';
 
-import { Button } from '../button/Button.js';
-
 export default {
   tags: ["autodocs"],
   title: "3. Components/Widgets (Back to Top)",
