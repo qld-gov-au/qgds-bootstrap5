@@ -23,31 +23,26 @@
   }
 }
 
-.qld__btn--back-to-top {  
+.back-to-top {  
   --btn-background-colour: var(--#{$prefix}color-default-color-light-background-default-shade);
   --btn-background-colour-hover: var(--#{$prefix}color-default-color-light-background-alt-shade);
   --btn-font-colour: var(--#{$prefix}color-default-color-light-action-primary);
   --btn-font-colour-hover: var(--#{$prefix}color-default-color-light-action-primary);
-  --btn-border: 0px; //This is to allow borders added to btn
+  --btn-border: 0px;
   --btn-border-colour: var(--btn-background-colour);
 
   margin-block-start: 0.5rem;
   margin-inline-start: auto;
   background-color: var(--btn-background-colour);
   border: var(--btn-border) solid var(--btn-border-colour);
-  color: var(--btn-font-colour);
   padding: calc(0.75rem - var(--btn-border));
   border-radius: 0.25rem;
-  display: flex;
-  gap: 0.5rem;
-  text-decoration: none;
 
-  svg {
-    height: 1.5rem;
-    width: 1.5rem;
-    display: inline-block;
+  .fa-arrow-up {
+    font-size: 1.3rem; 
     color: var(--#{$prefix}color-default-color-light-action-secondary);
   }
+  
   &:hover, &:focus {
       box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
   }
@@ -59,7 +54,7 @@
     color: var(--btn-font-colour-hover);
     text-decoration-color: var(--btn-font-colour-hover);
     border-color: var(--btn-border-colour);
-    svg {
+    .fa-arrow-up {
       color: var(--#{$prefix}color-default-color-light-action-secondary-hover);
     }
   }

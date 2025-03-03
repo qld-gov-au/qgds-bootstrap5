@@ -7,29 +7,26 @@
 import { BackToTop } from './backToTop.js';
 import defaultdata from './backToTop.data.json';
 
+import { Button } from '../button/Button.js';
+
 export default {
   tags: ["autodocs"],
   title: "3. Components/Widgets (Back to Top)",
-  render: (args) => new BackToTop(args).html,
   args: defaultdata,
-  argTypes: {
-    hide_back_to_top: { 
-      control: 'boolean', 
+  
+  render: (args) => {
+      const transcriptBtn = new Button({
+        variantClass: "back-to-top",
+        islink: true,
+        isdisabled: false,
+        iconClass: "fa-solid fa-arrow-up",
+        iconPosition: "trailing",
+        label: "Back to top",
+        href: "#",
+        target: "_self"
+      }).html;
+      return new BackToTop({ ...args, transcriptBtn }).html;
     },
-    has_icon: { 
-      control: 'boolean',
-    },
-    min_page_height: { 
-      name: "Minimum Page Height",
-      description: 'Sets the minimum page height before the back to top button is displayed. This might be tricky to observe, as you will need to set the pages height using CSS to see the effect.',
-      control: { 
-        type: 'range', 
-        min: 0,
-        max: 4,
-        step: 1,
-      }, 
-    },
-  },
 
 
   /**
