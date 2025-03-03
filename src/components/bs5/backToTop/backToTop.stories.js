@@ -12,21 +12,8 @@ import { Button } from '../button/Button.js';
 export default {
   tags: ["autodocs"],
   title: "3. Components/Widgets (Back to Top)",
+  render: (args) => new BackToTop(args).html,
   args: defaultdata,
-  
-  render: (args) => {
-      const transcriptBtn = new Button({
-        variantClass: "back-to-top",
-        islink: true,
-        isdisabled: false,
-        iconClass: "fa-solid fa-arrow-up",
-        iconPosition: "trailing",
-        label: "Back to top",
-        href: "#",
-        target: "_self"
-      }).html;
-      return new BackToTop({ ...args, transcriptBtn }).html;
-    },
 
 
   /**
