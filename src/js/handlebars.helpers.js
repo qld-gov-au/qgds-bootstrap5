@@ -184,8 +184,14 @@ export default function handlebarsHelpers(handlebars) {
 
   // helper for extending components to set overridable data values
   // if the value is not set in the component data.json, it will use the hds data value
-  handlebars.registerHelper("default", function(value, fallback) {
+  handlebars.registerHelper('default', function(value, fallback) {
     return value !== undefined ? value : fallback;
+  });
+  
+  // helper that checks for "undefined" values within data.json
+  // allows for setting a default value if the value is not defined
+  handlebars.registerHelper('isdefined', function (value, fallback) {
+    return value !== undefined? value : fallback;
   });
 }
 
