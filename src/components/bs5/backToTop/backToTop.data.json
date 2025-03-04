@@ -2,13 +2,7 @@
     "hide_back_to_top": false,
     "min_page_height": 0,
     "button": {
-        "variantClass": "back-to-top",
-        "islink": true,
-        "isdisabled": false,
-        "iconClass": "fa-solid fa-arrow-up",
-        "iconPosition": "trailing",
         "label": "Back to top",
-        "href": "#",
-        "target": "_self"
+        "islink": true 
     }
 }

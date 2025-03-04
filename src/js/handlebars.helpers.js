@@ -181,6 +181,12 @@ export default function handlebarsHelpers(handlebars) {
     }
     return durationString;
   });
+
+  // helper for extending components to set overridable data values
+  // if the value is not set in the component data.json, it will use the hds data value
+  handlebars.registerHelper("default", function(value, fallback) {
+    return value !== undefined ? value : fallback;
+  });
 }
 
 if(typeof(Handlebars) !== 'undefined') {
