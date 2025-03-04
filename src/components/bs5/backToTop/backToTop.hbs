@@ -1,14 +1,14 @@
 {{#unless hide_back_to_top}}
   <div class="qld__widgets" data-min-page-height="{{isdefined min_page_height 0}}">
     {{> button  
-      variantClass=(default button.variantClass "back-to-top")
-      islink=(default button.islink true)
-      isdisabled=(default button.isdisabled false)
-      iconClass=(default button.iconClass "fa-solid fa-arrow-up")
-      iconPosition=(default button.iconPosition "trailing")
-      label=(default button.label "Back to top")
-      href=(default button.href "#")
-      target=(default button.target "_self")
+      variantClass=(isdefined button.variantClass "back-to-top")
+      islink=(isdefined button.islink true)
+      isdisabled=(isdefined button.isdisabled false)
+      iconClass=(isdefined button.iconClass "fa-solid fa-arrow-up")
+      iconPosition=(isdefined button.iconPosition "trailing")
+      label=(isdefined button.label "Back to top")
+      href=(isdefined button.href "#")
+      target=(isdefined button.target "_self")
     }}
   </div>
 {{/unless}}
