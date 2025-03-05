@@ -81,7 +81,7 @@
     "mocha": "^10.7.3",
     "npm-run-all2": "^6.2.3",
     "onchange": "^7.1.0",
-    "portfinder": "^1.0.32",
+    "portfinder": "^1.0.33",
     "postcss": "^8.4.47",
     "prettier": "3.3.3",
     "raw-loader": "^4.0.2",
