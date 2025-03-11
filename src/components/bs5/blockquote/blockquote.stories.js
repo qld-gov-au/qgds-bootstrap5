@@ -4,7 +4,7 @@ import defaultdata from './blockquote.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: 'Components/Blockquote',
+  title: '3. Components/Blockquote',
   render: (args) => new Blockquote(args).html,
 };
 
