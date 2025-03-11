@@ -3,7 +3,7 @@ import { BreadcrumbsWrapperTest } from "./breadcrumbsWrapper.test.js";
 const defaultData = { breadcrumbs: forGov };
 
 export default {
-  title: "!Layout/Components/Breadcrumbs Wrapper",
+  title: "4. Wrappers/Components/Breadcrumbs Wrapper",
   render: (args) => {
     return new BreadcrumbsWrapperTest(args).html;
   },
