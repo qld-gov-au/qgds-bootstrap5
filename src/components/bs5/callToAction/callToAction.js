@@ -5,6 +5,7 @@ export class CallToAction {
   // Use the global Component class to create a new instance of the Accordion component.
   // A data object, containing the Handlebars placeholder replacement strings, should be provided as an argument.
 
+  
   constructor(data = {}) {
     return new Component(template, data);
   }
