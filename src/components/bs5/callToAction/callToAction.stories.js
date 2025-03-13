@@ -27,7 +27,7 @@ export default {
 export const ViewAll = {
   args: {
     ...defaultdata,
-    label: "View all"
+    label: "View all",
   },
 };
 

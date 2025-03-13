@@ -200,7 +200,7 @@ export default function handlebarsHelpers(handlebars) {
       // Check if any item in the array matches the name and is true
       for (let j = 0; j < array.length; j++) {
         if (array[j][name] === true) {
-          matchedItems.push(name);  // Add to matchedItems if found and true
+          matchedItems.push(name); // Add to matchedItems if found and true
           break;
         }
       }
