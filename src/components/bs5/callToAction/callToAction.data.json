@@ -1,8 +1,10 @@
 {
-	"sizeSmall": false,
-	"isdisabled": false,
-    "styles": "default",
+	"id": "",
 	"label": "Label",
 	"href": "#123",
-	"target": "_blank"
+	"target": "_blank",
+	"class": [
+		{"small": false}, 
+		{"view-all": true}
+	]
 }

@@ -7,6 +7,7 @@ import blockquote from "../components/bs5/blockquote/blockquote.hbs?raw";
 import breadcrumbs from "../components/bs5/breadcrumbs/breadcrumbs.hbs?raw";
 import breadcrumbsWrapper from "../components/bs5/breadcumbsWrapper/breadcrumbsWrapper.hbs?raw";
 import button from "../components/bs5/button/button.hbs?raw";
+import callToAction from "../components/bs5/callToAction/callToAction.hbs?raw";
 import callout from "../components/bs5/callout/callout.hbs?raw";
 import card from "../components/bs5/card/card.hbs?raw";
 import contentFooter from "../components/bs5/contentFooter/contentFooter.hbs?raw";
@@ -55,6 +56,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("breadcrumbs", breadcrumbs);
   handlebars.registerPartial("breadcrumbsWrapper", breadcrumbsWrapper);
   handlebars.registerPartial("button", button);
+  handlebars.registerPartial("callToAction", callToAction);
   handlebars.registerPartial("callout", callout);
   handlebars.registerPartial("card", card);
   handlebars.registerPartial("contentFooter", contentFooter);

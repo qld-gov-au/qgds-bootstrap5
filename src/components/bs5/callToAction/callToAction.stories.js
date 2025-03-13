@@ -12,7 +12,6 @@ export default {
   title: "3. Components/CallToAction",
   render: (args) => new CallToAction(args).html,
   args: defaultdata,
-
   parameters: {
     design: {
       name: "QGDS Figma Reference",
@@ -28,8 +27,7 @@ export default {
 export const ViewAll = {
   args: {
     ...defaultdata,
-    styles: "view all",
-    label: "View all",
+    label: "View all"
   },
 };
 
