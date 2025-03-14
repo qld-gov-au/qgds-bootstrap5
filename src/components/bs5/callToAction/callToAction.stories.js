@@ -10,8 +10,23 @@ import defaultdata from "./callToAction.data.json";
 export default {
   tags: ["autodocs"],
   title: "3. Components/CallToAction",
+  // render: (args) => new CallToAction(args).html,
   render: (args) => new CallToAction(args).html,
   args: defaultdata,
+  render: (args) => {
+    return `
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          ${new CallToAction({...args, label: 'View All'}).html}
+        </div>
+        <div class="col">
+          ${new CallToAction({...args, label: 'Label', "class": [{"small": false}, {"view-all": false}]}).html}
+        </div>
+      </div>
+    </div>
+    `
+  },
   parameters: {
     design: {
       name: "QGDS Figma Reference",
@@ -22,19 +37,11 @@ export default {
 };
 
 /**
- * Call To Action - View All
- */
-export const ViewAll = {
-  args: {
-    ...defaultdata,
-    label: "View all",
-  },
-};
-
-/**
  * Call To Action - Default
  */
-export const Default = {};
+export const Default = {
+  args: defaultdata,
+};
 
 /**
  * Call To Action - Light
