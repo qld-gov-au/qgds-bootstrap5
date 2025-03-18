@@ -9,7 +9,7 @@ import defaultdata from "./directionLinks.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "3. Components/DirectionLinks",
+  title: "3. Components/Direction Links",
   args: defaultdata,
   render: (args) => {
     return `

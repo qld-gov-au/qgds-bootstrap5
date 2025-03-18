@@ -1,7 +1,7 @@
-// QGDS QOL CallTOAction
+// QGDS QOL Direction Links
 
 .qld-dir-link {
-    --cta-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
+    --dir-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
     --link-colour: var(--qld-sapphire-blue);
     --icon-colour: var(--qld-light-green);
     --icon-colour-hover: var(--qld-dark-green);
@@ -12,9 +12,7 @@
     width: fit-content;
     justify-content: space-between;
     align-self: flex-start;
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 2rem;
+    font-size: 1rem;
 
     &.small {
         font-size: .875rem;
@@ -31,14 +29,13 @@
         &::after {
             content: "";
             display: inline-block;
-            width: 1.25rem;
-            height: 1.5rem;
-            mask-image: var(--cta-icon);
+            width: 1rem;
+            height: 1.25rem;
+            mask-image: var(--dir-icon);
             mask-repeat: no-repeat;
             mask-position: 0 .25rem;
             background-color: var(--icon-colour);
             margin-inline: .5rem;
-            transition: margin 0.3s ease;
         }
     }
 
@@ -46,9 +43,6 @@
         .icon {
             &::after {
                 background-color: var(--icon-colour-hover);
-                margin-inline-start: 1rem;
-                margin-inline-end: 0;
-                transition: margin 0.3s ease;
             }
         }
     }
@@ -67,7 +61,6 @@
     &.left {
         flex-direction: row-reverse;
         .icon {
-            mask-position: 0 -0.25rem;
             transform: rotate(180deg);
         }
     }
