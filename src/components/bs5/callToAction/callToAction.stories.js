@@ -65,6 +65,29 @@ export const Light = {
 };
 
 /**
+ * Call To Action - Light-Alt
+ * */
+export const LightAlt = {
+  parameters: {
+    backgrounds: {
+      default: 'LightAlt',
+      values: [
+        { name: 'LightAlt', value: 'var(--qld-light-alt-background)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="light-alt">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
  * Call To Action - Dark
  * */
 export const Dark = {
@@ -72,7 +95,7 @@ export const Dark = {
     backgrounds: {
       default: 'Dark',
       values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
+        { name: 'Dark', value: 'var(--qld-dark-background)' },
       ],
     },
   },
@@ -95,7 +118,7 @@ export const DarkAlt = {
     backgrounds: {
       default: 'DarkAlt',
       values: [
-        { name: 'DarkAlt', value: 'var(--qld-dark-blue)' },
+        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
       ],
     },
   },
