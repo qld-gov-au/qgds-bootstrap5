@@ -35,7 +35,7 @@ export default {
     design: {
       name: "QGDS Figma Reference",
       type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=v3sxViBgYUUmwplL-0",
+      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5624-62902&t=8gBcIy6lPlfZ8NHz-0",
     },
   },
 };
@@ -69,6 +69,29 @@ export const Light = {
 };
 
 /**
+ * Direction Link - Light-Alt
+ * */
+export const LightAlt = {
+  parameters: {
+    backgrounds: {
+      default: 'LightAlt',
+      values: [
+        { name: 'LightAlt', value: 'var(--qld-light-alt-background)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+        <div class="light-alt">
+            ${Story()}
+        </div>
+        `;
+    },
+  ],
+};
+
+/**
  * Direction Link - Dark
  * */
 export const Dark = {
@@ -76,7 +99,7 @@ export const Dark = {
     backgrounds: {
       default: 'Dark',
       values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
+        { name: 'Dark', value: 'var(--qld-dark-background)' },
       ],
     },
   },
@@ -100,7 +123,7 @@ export const DarkAlt = {
     backgrounds: {
       default: 'DarkAlt',
       values: [
-        { name: 'DarkAlt', value: 'var(--qld-dark-blue)' },
+        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
       ],
     },
   },
