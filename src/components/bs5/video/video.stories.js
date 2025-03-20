@@ -84,7 +84,6 @@ export default {
     controls: {
       exclude: ["transcriptAccordion"],
     },
-    deepControls: { enabled: true },
   },
 };
 
