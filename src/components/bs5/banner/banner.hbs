@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            
+
             <div class="col-12 col-md-7">
 
                 {{{breadcrumbs}}}
@@ -24,6 +24,8 @@
         </div>
     </div>
 
-    <div class="banner-image {{image.classes}}" style="--banner-background-img:url({{image.url}})"></div>
+    {{#if image }}
+    <div class="banner-image {{image.classes}}" style="background-image:url({{ image.url }})"></div>
+    {{/if}}
 
 </div>

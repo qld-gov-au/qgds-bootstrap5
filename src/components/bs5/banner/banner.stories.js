@@ -1,15 +1,14 @@
 // Banner.stories.js
-import { Banner } from './Banner.js';
-import defaultdata from './banner.data.json';
+import { Banner } from "./Banner.js";
+import defaultdata from "./banner.data.json";
 
 //Breadcrumbs
-import { Breadcrumbs } from '../breadcrumbs/Breadcrumbs.js';
-import breadcrumbdata from '../breadcrumbs/breadcrumbs.data.json';
-
+import { Breadcrumbs } from "../breadcrumbs/Breadcrumbs.js";
+import breadcrumbdata from "../breadcrumbs/breadcrumbs.data.json";
 
 export default {
-  tags: ['autodocs'],
-  title: '3. Components/Banner (Navigation)',
+  tags: ["autodocs"],
+  title: "3. Components/Banner (Navigation)",
   render: (args) => new Banner(args).html,
   argTypes: {
     variantClass: {
@@ -26,38 +25,59 @@ export default {
           "dark with-pattern": "Dark (with pattern)",
         },
       },
-      options: [
-        "light",
-        "alt",
-        "dark",
-        "dark-alt",
-        "alt with-pattern",
-        "dark with-pattern",
-      ],
+      options: ["light", "alt", "dark", "dark-alt", "alt with-pattern", "dark with-pattern"],
     },
-    image: {
-      table: {
-        disable: true,
-      },
-    },
+
     breadcrumbs: {
       table: {
         disable: true,
       },
     },
+
     ctabuttons: {
       table: {
         disable: true,
       },
+    },
+
+    /* dot notaion syntax here for storybook-addon-deep-controls support */
+
+    "image.url": {
+      name: "Image URL",
+      description: "URL of the image to display in the banner",
+      control: {
+        type: "file",
+      },
+    },
+
+    "image.alt": {
+      name: "Image Alt",
+      description: "Alt text for the image",
+      control: {
+        type: "text",
+      },
+    },
+
+    "image.classes": {
+      name: "Image Classes",
+      description: "Additional classes to apply to the image",
+      control: {
+        type: "radio",
+        labels: {
+          "align-grid": "Align grid",
+          "align-right": "Align right",
+          "align-fixed": "Fixed",
+        },
+      },
+      options: ["align-grid", "align-right", "align-fixed"],
     },
   },
 
   parameters: {
     docs: {
       controls: {
-        exclude: ['image', 'breadcrumbs'],
+        exclude: ["image", "breadcrumbs"],
         hideNoControlsWarning: true,
-
       },
     },
   },
@@ -66,7 +86,7 @@ export default {
 /**
  * Default banner with breadcrumbs
  */
-const breadcrumbs = new Breadcrumbs(breadcrumbdata['default']);
+const breadcrumbs = new Breadcrumbs(breadcrumbdata["default"]);
 
 export const Default = {
   args: {
@@ -78,24 +98,23 @@ export const Default = {
   },
 };
 
-
 /**
  * Banner with lead content
  */
 export const WithLeadContent = {
-  args: { 
+  args: {
     ...defaultdata,
     image: false,
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with background pattern
  */
 export const WithPattern = {
-  args: { 
+  args: {
     ...defaultdata,
     title: "A long page title that wraps onto another line",
     variantClass: "dark with-pattern",
@@ -103,13 +122,13 @@ export const WithPattern = {
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with background pattern (alternative)
  */
 export const WithPatternAlt = {
-  args: { 
+  args: {
     ...defaultdata,
     title: "A long page title that wraps onto another line",
     variantClass: "alt with-pattern",
@@ -117,24 +136,24 @@ export const WithPatternAlt = {
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with feature image
  */
 export const WithFeatureImage = {
-  args: { 
+  args: {
     ...defaultdata,
     ctabuttons: false,
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with feature image (angled)
  */
 export const WithFeatureImageAngle = {
-  args: { 
+  args: {
     ...defaultdata,
     ctabuttons: false,
     image: {
@@ -143,18 +162,14 @@ export const WithFeatureImageAngle = {
     },
     breadcrumbs: breadcrumbs.html,
   },
-}
+};
 
 /**
  * Banner with call to action
  */
 export const WithCallToAction = {
-  args: { 
+  args: {
     ...defaultdata,
     breadcrumbs: breadcrumbs.html,
   },
-}
-
-
-
-
+};
