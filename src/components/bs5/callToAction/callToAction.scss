@@ -1,0 +1,93 @@
+// QGDS QOL CallTOAction
+
+.qld-cta-link {
+    --cta-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
+    --link-colour: var(--qld-light-action-primary );
+    --icon-colour: var(--qld-light-action-secondary);
+    --icon-colour-hover: var(--qld-light-action-secondary-hover);
+
+    color: var(--link-colour);
+    text-decoration-color: var(--link-colour);
+    display: flex;
+    width: fit-content;
+    justify-content: space-between;
+    align-self: flex-start;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2rem;
+
+    &.small {
+        font-size: .875rem;
+        line-height: 1rem;
+        .icon{
+            &::after{
+                zoom: .7;
+                mask-position: 0;
+            }
+        }
+    }
+
+    .icon {
+        &::after {
+            content: "";
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.5rem;
+            mask-image: var(--cta-icon);
+            mask-repeat: no-repeat;
+            mask-position: 0 .25rem;
+            background-color: var(--icon-colour);
+            margin-inline: .5rem;
+            transition: margin 0.3s ease;
+        }
+    }
+
+    &:hover {
+        .icon {
+            &::after {
+                background-color: var(--icon-colour-hover);
+                margin-inline-start: 1rem;
+                margin-inline-end: 0;
+                transition: margin 0.3s ease;
+            }
+        }
+    }
+}
+
+.view-all {
+    .icon {
+        &::after {
+            --cta-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M283.3 148.7c-6.25-6.25-16.38-6.25-22.62 0s-6.25 16.38 0 22.62L329.4 240H144C135.2 240 128 247.2 128 256s7.156 16 16 16h185.4l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.62s16.38 6.25 22.62 0l96-96C382.4 264.2 384 260.1 384 256s-1.562-8.188-4.688-11.31L283.3 148.7zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 480c-123.5 0-224-100.5-224-224s100.5-224 224-224s224 100.5 224 224S379.5 480 256 480z'/%3E%3C/svg%3E");
+        }
+    }
+}
+
+.light, .alt {
+    .qld-cta-link { 
+        --link-colour: var(--qld-light-action-primary);
+        --icon-colour: var(--qld-light-action-secondary);
+        --icon-colour-hover: var(--qld-light-action-secondary-hover);
+    }
+}
+
+.dark, .dark-alt {
+    .qld-cta-link { 
+        --link-colour: var(--qld-dark-text);
+        --icon-colour: var(--qld-dark-action-secondary);
+        --icon-colour-hover: var(--qld-dark-action-secondary-hover);
+    }
+}
+
+li .qld-cta-link {
+    width: auto;
+}
+
+a[aria-disabled="true"] {
+    pointer-events: none;
+    color: var(--qld-dark-grey-muted);
+    .icon {
+        &::after {
+            background-color: var(--qld-dark-grey-muted);
+        }
+    }
+}
