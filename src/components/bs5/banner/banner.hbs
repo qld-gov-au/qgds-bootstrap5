@@ -1,8 +1,6 @@
 <!-- QGDS Partial: banner -->
 
-{{!-- Additional method added to support both classes array, and legacy variantClass strings --}}
-
-<div class="container-fluid qld-banner {{ variantClass }} {{ texture }}" role="banner">
+<div class="container-fluid qld-banner {{ variantClass }} {{ backgroundType }}" role="banner">
 
   <div class="container">
 
@@ -28,7 +26,7 @@
         {{#if buttons}}
         <div class="banner-cta" role="group" aria-label="Available options">
           {{#each buttons}}
-          {{> qgds-button this }}
+          {{> button this }}
           {{/each}}
         </div>
         {{/if}}
@@ -37,7 +35,7 @@
         {{#if cards}}
         <div class="banner-cta" role="group" aria-label="Available options">
           {{#each cards }}
-          {{> qgds-card this }}
+          {{> card this }}
           {{/each }}
         </div>
         {{/if}}

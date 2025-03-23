@@ -30,18 +30,7 @@ const config = {
     name: "@storybook/html-vite",
     options: {},
   },
-  framework: {
-    //Build the storybook with html-vite rendered - faster than webpack
-    //https://www.npmjs.com/package/@storybook/html-vite
-    name: "@storybook/html-vite",
-    options: {},
-  },
 
-  //Autodocs for each component
-  //https://storybook.js.org/docs/writing-docs/autodocs
-  docs: {
-    defaultName: "Overview",
-  },
   //Autodocs for each component
   //https://storybook.js.org/docs/writing-docs/autodocs
   docs: {

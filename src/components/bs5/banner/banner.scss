@@ -18,7 +18,7 @@
   --#{$prefix}banner-background-img: none;
 
   //Default texture
-  --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light.png);
+  --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-default.png);
 
   //Widths
   --#{$prefix}banner-content-max-width: 80%;
@@ -29,10 +29,12 @@
   // based on parent class (light, light-alt, dark, dark-alt)
   &.alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
+    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light.png);
   }
 
   &.light-alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-alt-background);
+    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light-alt.png);
   }
 
   &.dark,
@@ -40,7 +42,6 @@
     //Share same text colors
     --#{$prefix}banner-title-color: var(--#{$prefix}dark-text-heading);
     --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text-text);
-    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
 
     .breadcrumb {
       //Variables scoped in the .breadcrumbs.scss component
@@ -61,27 +62,56 @@
   // .dark-alt only
   &.dark-alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
-    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
+    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark-alt.png);
   }
+
+  //The "no-banner" variant contains only breadcrumbs
+  &.no-banner {
+    --#{$prefix}banner-padding-top: 1rem;
+    --#{$prefix}banner-padding-bottom: 1rem;
+  }
+
+  // Small viewports
+  @include media-breakpoint-up(sm) {}
 
   // Medium viewports and above
   @include media-breakpoint-up(md) {
-    --#{$prefix}banner-padding-top: 2rem;
-    --#{$prefix}banner-padding-bottom: 2rem;
+    --#{$prefix}banner-padding-top: 1.5rem;
+    --#{$prefix}banner-padding-bottom: 1.5rem;
     --#{$prefix}banner-content-max-width: 60%;
+
+    &.no-banner {
+      //TODO This creates a specificity issue with lg and up breakpoint
+      --#{$prefix}banner-padding-top: 1.5rem;
+      --#{$prefix}banner-padding-bottom: 1.5rem;
+    }
   }
 
   // Large viewports and above
   @include media-breakpoint-up(lg) {
     --#{$prefix}banner-padding-top: 3rem;
     --#{$prefix}banner-padding-bottom: 3rem;
-    --#{$prefix}banner-image-max-width: 33vw;
+
+    &.no-banner {
+      --#{$prefix}banner-padding-top: 2.25rem;
+      --#{$prefix}banner-padding-bottom: 2.25rem;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    --#{$prefix}banner-padding-bottom: 4rem;
   }
 
 }
 
 
 .qld-banner {
+
+  position: relative;
+  background-color: var(--#{$prefix}banner-bg-color);
+  min-height: var(--#{$prefix}banner-min-height);
+  padding-top: var(--#{$prefix}banner-padding-top);
+  padding-bottom: var(--#{$prefix}banner-padding-bottom);
 
   /* Banner Grid Layout:
       
@@ -106,11 +136,9 @@
 
   .banner-inner {
     display: grid;
+    grid-template-columns: repeat(12, 1fr); // 12-column grid
     grid-template-rows: auto auto auto;
     gap: 0;
-
-    // Mobile / single column by default
-    grid-template-columns: repeat(12, 1fr); // 12-column grid
 
     .banner-breadcrumbs {
       grid-column: 1 / span 12;
@@ -146,10 +174,6 @@
     }
   }
 
-  // .qld-banner rule continue here
-  position: relative;
-  background-color: var(--#{$prefix}banner-bg-color);
-  min-height: var(--#{$prefix}banner-min-height);
 
   .banner-image {
     position: relative;
@@ -353,6 +377,6 @@
 /// 
 /// 
 
-.banner-inner>* {
-  border: 1px solid white;
-}
+// .banner-inner>* {
+//   border: 1px solid white;
+// }
