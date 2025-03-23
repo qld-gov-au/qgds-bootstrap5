@@ -1,4 +1,8 @@
 /** @type { import('@storybook/html-vite').StorybookConfig } */
+
+import path from "path";
+import fs from "fs";
+
 const config = {
   stories: [
     "../src/stories/Introduction.mdx",
@@ -62,6 +66,16 @@ const config = {
     //         }
     //     },
     // });
+
+    config.server = {
+      ...config.server,
+      fs: {
+        allow: [
+          path.resolve(__dirname, "../src/assets"), // Allow access to assets
+        ],
+      },
+    };
+
     return config;
   },
 };

@@ -13,6 +13,5 @@
     "javascriptreact",
     "json"
   ],
-  // Ensure ESLint formatting still runs on these files
   "eslint.format.enable": true
 }

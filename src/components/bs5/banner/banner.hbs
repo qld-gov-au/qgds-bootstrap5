@@ -2,59 +2,64 @@
 
 {{!-- Additional method added to support both classes array, and legacy variantClass strings --}}
 
-<div class="container-fluid qld-banner {{ variantClass }} {{ join classes }}" role="banner">
+<div class="container-fluid qld-banner {{ variantClass }} {{ texture }}" role="banner">
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
+  <div class="container">
 
-                <div class="banner-inner">
+    <div class="banner-inner">
 
-                    {{> breadcrumbs breadcrumbs }}
+      <div class="banner-breadcrumbs">
+        {{> breadcrumbs breadcrumbs }}
+      </div>
 
-                    {{#if title}}
-                    <h1 class="banner-title">{{title}}</h1>
-                    {{/if}}
+      <div class="banner-content">
 
-                    {{#if abstract~}}
-                    <div class="banner-abstract">
-                        {{abstract}}
-                    </div>
-                    {{/if}}
+        {{#if title}}
+        <h1 class="banner-title">{{title}}</h1>
+        {{/if}}
 
-                    {{!-- CTA Buttons block. Pass an array of button data objects --}}
-                    {{#if buttons~}}
-                    <div class="banner-cta" role="group" aria-label="Available options">
-                        {{#each buttons}}
-                        {{> qgds-button this }}
-                        {{/each}}
-                    </div>
-                    {{/if}}
-
-                    {{!-- CTA Cards block. Pass an array of card data objects --}}
-                    {{#if cards~}}
-                    <div class="banner-cta" role="group" aria-label="Available options">
-                        {{#each cards }}
-                        {{> qgds-card this }}
-                        {{/each }}
-                    </div>
-                    {{/if}}
-
-                    {{!-- ~A generic content block for edge cases. Allows any HTML via content variable~ --}}
-                    {{#if content~}}
-                    <div class="banner-content">
-                        {{{ sanitise content }}}
-                    </div>
-                    {{/if}}
-
-                </div>
-
-                {{#if image }}
-                <div class="banner-image {{ join image.classes }}" style="background-image:url({{image.url}})"
-                    role="img" aria-label="{{ image.alt }}"></div>
-                {{/if}}
-
-            </div>
+        {{#if abstract}}
+        <div class="banner-abstract">
+          {{abstract}}
         </div>
+        {{/if}}
+
+        {{!-- CTA Buttons block. Pass an array of button data objects --}}
+        {{#if buttons}}
+        <div class="banner-cta" role="group" aria-label="Available options">
+          {{#each buttons}}
+          {{> qgds-button this }}
+          {{/each}}
+        </div>
+        {{/if}}
+
+        {{!-- CTA Cards block. Pass an array of card data objects --}}
+        {{#if cards}}
+        <div class="banner-cta" role="group" aria-label="Available options">
+          {{#each cards }}
+          {{> qgds-card this }}
+          {{/each }}
+        </div>
+        {{/if}}
+
+        {{!-- ~A generic content block for edge cases. Allows any HTML via content variable~ --}}
+        {{#if content}}
+        <div class="banner-extra">
+          {{{ sanitise content }}}
+        </div>
+        {{/if}}
+
+      </div>
+      {{!-- End banner content --}}
+
+      {{#if image }}
+      <div class="banner-image {{ join image.classes }}">
+        <div class="banner-image-inner" style="background-image:url({{image.url}})" role="img"
+          aria-label="{{ image.alt }}"></div>
+      </div>
+      {{/if}}
+
     </div>
+
+  </div>
 </div>

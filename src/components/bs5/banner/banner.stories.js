@@ -19,34 +19,46 @@ export default {
   },
 
   argTypes: {
-    classes: {
+    variantClass: {
       name: "Variant Class",
       description: `Settable backgrounds for the banner component`,
       control: {
         type: "radio",
         labels: {
+          "": "Default",
           light: "Light",
           alt: "Light Alternative",
           dark: "Dark",
           "dark-alt": "Dark Alternative",
-          "alt with-pattern": "Light Alternative (with pattern)",
-          "dark with-pattern": "Dark (with pattern)",
         },
       },
 
-      options: [
-        "light",
-        "alt",
-        "dark",
-        "dark-alt",
-        "alt with-pattern",
-        "dark with-pattern",
-      ],
+      options: ["", "light", "alt", "dark", "dark-alt"],
     },
 
-    image: {
-      table: {
-        disable: true,
+    texture: {
+      name: "Texture",
+      description: `Settable textures for the banner component`,
+      control: {
+        type: "radio",
+        labels: {
+          "none-bad": "None",
+          "with-texture": "With Texture",
+        },
+      },
+      options: ["none", "with-texture"],
+    },
+
+    "image.classes": {
+      name: "Image Classes",
+      description: `Settable image for the banner component`,
+      control: {
+        type: "radio",
+        labels: {
+          "align-fixed": "Align Fixed",
+          "align-right": "Align Right",
+          "align-grid": "Align Grid",
+        },
       },
     },
 
@@ -91,7 +103,7 @@ export const Default = {
 export const NoBanner = {
   args: {
     ...defaultdata,
-    classes: "dark-alt",
+    variantClass: "dark-alt",
     title: false,
     abstract: false,
     image: false,
@@ -115,19 +127,7 @@ export const WithTexture = {
   args: {
     ...defaultdata,
     title: "A long page title that wraps onto another line",
-    classes: ["dark", "with-texture"],
-    image: false,
-  },
-};
-
-/**
- * Banner with background pattern (alternative)
- */
-export const WithTextureAlt = {
-  args: {
-    ...defaultdata,
-    title: "A long page title that wraps onto another line",
-    classes: ["alt", "with-texture"],
+    texture: "with-texture",
     image: false,
   },
 };
@@ -135,10 +135,32 @@ export const WithTextureAlt = {
 /**
  * Banner with feature image
  */
-export const WithFeatureImage = {
+export const WithImage = {
   args: {
     ...defaultdata,
+    variantClass: `${defaultdata.variantClass} has-image`,
+    cta: "",
   },
+  argTypes: {
+    cta: {
+      control: {
+        type: "radio",
+        options: ["none", "buttons", "cards"],
+      },
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: ["cards"], // Exclude `cards` from manual control since it's derived
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      const { cta } = context.args;
+      const cards = cta === "cards" ? carddata : {};
+      return Story({ args: { ...context.args, cards } });
+    },
+  ],
 };
 
 /**
@@ -149,7 +171,7 @@ export const WithFeatureImageAngle = {
     ...defaultdata,
     image: {
       ...defaultdata.image,
-      classes: ["banner-image", "banner-image--angle"],
+      classes: ["image-angle"],
     },
   },
 };

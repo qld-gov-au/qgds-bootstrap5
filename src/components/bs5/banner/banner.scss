@@ -1,181 +1,358 @@
 // QGDS Bootstrap 5 Banner Component
 
-// QGDS specific banner variables.
 .qld-banner {
-    //Defaults variables
-    --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-light);
-    --#{$prefix}banner-title-color: var(--#{$prefix}color-default-color-light-text-heading);
-    --#{$prefix}banner-abstract-color: var(--#{$prefix}body-color);
-    --#{$prefix}banner-max-width: 1600px;
 
-    --#{$prefix}banner-bg-texture: none;
-    --#{$prefix}banner-background-img: none;
+  //Note, default values are mobile viewport first
 
-    --#{$prefix}banner-background-img: url(assets/img/banner-example-3-to-2.jpg);
+  //Padding and margins
+  --#{$prefix}banner-padding-top: 1rem;
+  --#{$prefix}banner-padding-bottom: 2rem;
 
-    // Variants (text colour and backgrounds)
-    &.alt {
-        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-light-background-alt);
-        --#{$prefix}banner-bg-texture: url(assets/img/banner-texture-tile-light.png);
+  //Text Color
+  --#{$prefix}banner-title-color: var(--#{$prefix}light-text-heading);
+  --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text-text);
+
+  //Backgrounds
+  --#{$prefix}banner-bg-color: var(--#{$prefix}default-background);
+  --#{$prefix}banner-bg-texture: none;
+  --#{$prefix}banner-background-img: none;
+
+  //Default texture
+  --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light.png);
+
+  //Widths
+  --#{$prefix}banner-content-max-width: 80%;
+  --#{$prefix}banner-min-height: 0;
+
+
+  // Colour Palette changes 
+  // based on parent class (light, light-alt, dark, dark-alt)
+  &.alt {
+    --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
+  }
+
+  &.light-alt {
+    --#{$prefix}banner-bg-color: var(--#{$prefix}light-alt-background);
+  }
+
+  &.dark,
+  &.dark-alt {
+    //Share same text colors
+    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text-heading);
+    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
+
+    .breadcrumb {
+      //Variables scoped in the .breadcrumbs.scss component
+      //Re-scoping for breadcrumbs that exist inside a .banner-* parent class
+      --#{$prefix}banner-breadcrumb-color: var(--#{$prefix}core-default-color-neutral-white);
+      --#{$prefix}banner-breadcrumb-divider-color: var(--#{$prefix}core-default-color-neutral-white);
+      --#{$prefix}banner-breadcrumb-item-active-color: var(--#{$prefix}core-default-color-neutral-white);
+      --#{$prefix}banner-ink-color-rgb: var(--#{$prefix}core-default-color-neutral-white);
+    }
+  }
+
+  // .dark only
+  &.dark {
+    --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
+  }
+
+  // .dark-alt only
+  &.dark-alt {
+    --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
+    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
+  }
+
+  // Medium viewports and above
+  @include media-breakpoint-up(md) {
+    --#{$prefix}banner-padding-top: 2rem;
+    --#{$prefix}banner-padding-bottom: 2rem;
+    --#{$prefix}banner-content-max-width: 60%;
+  }
+
+  // Large viewports and above
+  @include media-breakpoint-up(lg) {
+    --#{$prefix}banner-padding-top: 3rem;
+    --#{$prefix}banner-padding-bottom: 3rem;
+    --#{$prefix}banner-image-max-width: 33vw;
+  }
+
+}
+
+
+.qld-banner {
+
+  /* Banner Grid Layout:
+      
+  Mobile (default):
+  |-----------------------------|
+  | .banner-breadcrumbs         | grid-row: 1 / 2
+  |-----------------------------|
+  | .banner-image               | grid-row: 2 / 3
+  |-----------------------------|
+  | .banner-content             | grid-row: 3 / 4
+  |-----------------------------|
+  
+  Desktop (768px and above):  
+  |------------------------|---------------------|
+  | .banner-breadcrumbs    |                     |
+  | (grid-row 1 / 2)       |                     |
+  |------------------------|  .banner-image      |
+  | .banner-content        |  (grid-row: 1 / 3)  |
+  | (grid-row: 2 / 3)      |                     |
+  |------------------------|---------------------|
+  */
+
+  .banner-inner {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 0;
+
+    // Mobile / single column by default
+    grid-template-columns: repeat(12, 1fr); // 12-column grid
+
+    .banner-breadcrumbs {
+      grid-column: 1 / span 12;
+      grid-row: 1 / span 1;
     }
 
-    &.dark,
-    &.dark-alt {
-        --#{$prefix}banner-title-color: var(--#{$prefix}core-default-color-neutral-white);
-        --#{$prefix}banner-accent-color: var(--#{$prefix}core-default-color-neutral-white);
-
-        .breadcrumb {
-            //Redfines variables already scoped in .breadcrumbs
-            //These new values will only be scoped to breadcrumbs within the .banner-* class
-            --#{$prefix}banner-breadcrumb-color: var(--#{$prefix}core-default-color-neutral-white);
-            --#{$prefix}banner-breadcrumb-divider-color: var(--#{$prefix}core-default-color-neutral-white);
-            --#{$prefix}banner-breadcrumb-item-active-color: var(--#{$prefix}core-default-color-neutral-white);
-            --#{$prefix}banner-ink-color-rgb: var(--#{$prefix}core-default-color-neutral-white);
-        }
+    .banner-content {
+      grid-column: 1 / span 12;
+      grid-row: 3 / span 1;
     }
 
-    &.dark {
-        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
-        --#{$prefix}banner-bg-texture: url(assets/img/banner-texture-tile-dark.png);
+    .banner-image {
+      grid-column: 1 / span 12;
+      grid-row: 2 / span 1;
     }
 
-    &.dark-alt {
-        --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
+    // Grid Layout - Medium and above (two columns)
+    @media screen and (min-width: 768px) {
+
+      .banner-breadcrumbs {
+        grid-column: 1 / span 7; // Spans 7 columns (left side)
+      }
+
+      .banner-content {
+        grid-column: 1 / span 7; // Spans 7 columns (left side)
+        grid-row: 2 / span 1; // Optional: Ensures it stays in the second row
+      }
+
+      .banner-image {
+        grid-column: 8 / span 5; // Spans 5 columns (right side)
+        grid-row: 1 / span 2; // Spans rows 1 and 2
+      }
     }
+  }
+
+  // .qld-banner rule continue here
+  position: relative;
+  background-color: var(--#{$prefix}banner-bg-color);
+  min-height: var(--#{$prefix}banner-min-height);
+
+  .banner-image {
+    position: relative;
+    overflow: hidden;
+
+    //Banner image classes: .banner-image.with-angle
+    &.with-angle {
+      --#{$prefix}banner-angle: 20%; //(angle in degrees)
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--#{$prefix}banner-angle) 100%);
+    }
+
+    //Gradient overlay: .banner-image.with-gradient
+    &.with-gradient:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to right, var(--#{$prefix}banner-bg-color), transparent);
+    }
+
+    //Align to grid: .banner-image.align-grid 
+    &.align-grid {
+      .banner-image-inner {
+        margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
+        margin-bottom: calc(var(--#{$prefix}banner-padding-bottom) * -1);
+      }
+    }
+
+    //Image grid
+    &.align-fixed-3-2 {
+      .banner-image-inner {
+        width: 100%;
+        height: 66.7%;
+      }
+    }
+  }
+
+  .banner-image-inner {
+    height: 100%;
+    min-height: 100%;
+    background-image: var(--#{$prefix}banner-background-img);
+    background-color: var(--#{$prefix}banner-bg-color);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+
+
+
+  &.with-texture {
+    background-image: var(--#{$prefix}banner-bg-texture);
+
+    .banner-image {
+      display: none;
+      background-image: none;
+    }
+  }
+
+
+  .banner-content {
+
+    padding-right: 3rem;
 
     &:has(.banner-title) {
-        --#{$prefix}banner-padding-bottom: 4rem;
+      --#{$prefix}banner-padding-bottom: 4rem;
     }
 
     &:has(.banner-abstract) {
-        --#{$prefix}banner-padding-bottom: 3rem;
+      --#{$prefix}banner-padding-bottom: 3rem;
+    }
+  }
+
+  .banner-title {
+    // Line height (52px) / Font-size (40px) = 1.3
+    line-height: 1.3;
+    color: var(--#{$prefix}banner-title-color);
+    margin: 1.5rem 0 0 0;
+  }
+
+  .banner-abstract {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 1.5rem 1rem 0 0;
+    max-width: 50rem; //To make readable. Clips line length for very wide viewports. 
+    color: var(--#{$prefix}banner-abstract-color);
+  }
+
+  .breadcrumb {
+    color: var(--#{$prefix}banner-breadcrumb-color);
+    --#{$prefix}breadcrumb-padding-y: 0;
+  }
+
+  .banner-extra {
+    margin: 1rem 0 0 0;
+  }
+
+
+  // QGDS components within banners. Supports qgds-button and qgds-card
+  .banner-cta {
+    margin-top: 1.5rem;
+
+    //Button group
+    .btn {
+      margin-right: 1rem;
     }
 
-    //Padding
-    --#{$prefix}banner-padding-top: 1rem;
-    --#{$prefix}banner-padding-bottom: 2rem;
-
-    @include media-breakpoint-up(md) {
-        --#{$prefix}banner-padding-top: 2rem;
-        --#{$prefix}banner-padding-bottom: 2rem;
+    //Cards
+    .card {
+      margin-top: 1rem;
+      max-width: 70%;
     }
 
-    @include media-breakpoint-up(lg) {
-        --#{$prefix}banner-padding-top: 3rem;
-        --#{$prefix}banner-padding-bottom: 3rem;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+      display: flex;
+
+      .btn[class*="btn-"] {
+
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
     }
 
-    @include media-breakpoint-up(xl) {
-        --#{$prefix}banner-padding-top: 3rem;
-        --#{$prefix}banner-padding-bottom: 3rem;
-        --#{$prefix}banner-min-height: 21.5rem; //334 px min height on XL viewports
+  }
+
+  //Image
+  // .banner-image {
+  //   // max-width: var(--#{$prefix}banner-image-max-width);
+  //   //Default position is to "float" passed the grid
+  //   // position: absolute;
+  //   background-size: cover;
+  //   background-position: center center;
+
+  //   // &.with-gradient:after {
+  //   //   content: "";
+  //   //   position: absolute;
+  //   //   top: 0;
+  //   //   right: 0;
+  //   //   bottom: 0;
+  //   //   left: 0;
+  //   //   background-image: linear-gradient(to right, var(--#{$prefix}banner-bg-color), transparent);
+  //   // }
+
+
+  //   //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle"
+  //   // &--angle {
+  //   //   --#{$prefix}banner-angle: 20%; //(angle in degrees)
+  //   //   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--#{$prefix}banner-angle) 100%);
+  //   // }
+
+  //   // @include media-breakpoint-down(md) {
+  //   //   --#{$prefix}banner-image-max-width: 100%;
+  //   // }
+
+  // }
+
+  @include media-breakpoint-up(md) {
+    .banner-image {
+      // max-width: calc(100% + var(--qld-gutter-x));
+      // max-width: 200%;
+      // margin-left: calc(var(--qld-gutter-x)* -0.5);
     }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .banner-cta .card {
+      max-width: 100%;
+    }
+  }
+
+  //Stack buttons at very small viewports
+  @include media-breakpoint-down(sm) {
+    .banner-cta {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
 
-// General styling rules.
-.qld-banner {
-    background-color: var(--#{$prefix}banner-bg-color);
-    padding-top: var(--#{$prefix}banner-padding-top);
-    padding-bottom: var(--#{$prefix}banner-padding-bottom);
-    position: relative;
-    max-width: var(--#{$prefix}banner-max-width);
-    min-height: var(--#{$prefix}banner-min-height);
 
-    &.with-texture {
-        background-image: var(--#{$prefix}banner-bg-texture);
-        background-repeat: repeat;
-    }
 
-    .banner-title {
-        // Line height (52px) / Font-size (40px) = 1.3
-        line-height: 1.3;
-        color: var(--#{$prefix}banner-title-color);
-        margin: 1.875rem 0 0 0;
-    }
 
-    .banner-abstract {
-        font-size: 1.5rem;
-        line-height: 2rem;
-        margin-top: 1.5rem;
-        margin-bottom: 0;
-        max-width: 50rem;
-        color: var(--#{$prefix}banner-lead-color);
-    }
 
-    .breadcrumb {
-        color: var(--#{$prefix}banner-breadcrumb-color);
-        --#{$prefix}breadcrumb-padding-y: 0;
-    }
 
-    // Buttons grouping using btn-toolbar.
+/// DEBUGGING and TESTING - delete when done
+/// 
+/// 
+/// 
 
-    .btn-group {
-
-        margin-top: 1.5rem;
-
-        .btn {
-
-            /* Required for specificity - overrides some of bootstraps .btn-group defaults */
-            &[class*="btn-"] {
-                border-radius: var(--#{$prefix}btn-border-radius);
-                margin-right: 1rem;
-            }
-        }
-
-        @include media-breakpoint-down(sm) {
-            flex-direction: column;
-            display: flex;
-
-            .btn[class*="btn-"] {
-
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 1rem;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-
-        }
-
-    }
-
-    //Image
-    .banner-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 60%;
-        height: 100%;
-        background: var(--#{$prefix}banner-background-img);
-        background-size: cover;
-        background-position: center center;
-
-        //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle"
-        &--angle {
-            --#{$prefix}banner-angle: 20%; //(angle in degrees)
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--#{$prefix}banner-angle) 100%);
-        }
-    }
-
-    //Hide banner image below tablet
-    @include media-breakpoint-down(lg) {
-        .banner-image {
-            display: none;
-        }
-    }
-
-    //Stack buttons at very small viewports
-    @include media-breakpoint-down(sm) {
-        .banner-cta {
-            flex-direction: column;
-
-            .btn {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-        }
-    }
+.banner-inner>* {
+  border: 1px solid white;
 }
