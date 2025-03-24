@@ -23,19 +23,20 @@
   }
 }
 
-.back-to-top {  
-  --btn-background-colour: var(--#{$prefix}color-default-color-light-background-default-shade);
-  --btn-background-colour-hover: var(--#{$prefix}color-default-color-light-background-alt-shade);
-  --btn-font-colour: var(--#{$prefix}color-default-color-light-action-primary);
-  --btn-font-colour-hover: var(--#{$prefix}color-default-color-light-action-primary);
+a.back-to-top,
+a.btn.back-to-top {  
+  --qld-btn-color: var(--#{$prefix}light-action-primary);
+  --qld-btn-bg: var(--#{$prefix}light-background);
+  --qld-btn-hover-bg: var(--#{$prefix}light-background-shade);
   --btn-border: 0px;
-  --btn-border-colour: var(--btn-background-colour);
-
+  --btn-border-colour: var(--qld-btn-bg);
+  
   margin-block-start: 0.5rem;
   margin-inline-start: auto;
-  background-color: var(--btn-background-colour);
+  background-color: var(--qld-btn-bg);
   border: var(--btn-border) solid var(--btn-border-colour);
-  padding: calc(0.75rem - var(--btn-border));
+  padding-block: calc(0.75rem - var(--btn-border));
+  padding-inline: 1rem;
   border-radius: 0.25rem;
 
   .fa-arrow-up {
@@ -46,13 +47,15 @@
   &:hover, &:focus {
       box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
   }
+  &:visited {
+    color: var(--qld-btn-color);
+  }
   &:hover,
   &:focus,
   &:active {
     text-decoration: underline;
-    background-color: var(--btn-background-colour-hover);
-    color: var(--btn-font-colour-hover);
-    text-decoration-color: var(--btn-font-colour-hover);
+    background-color: var(--qld-btn-hover-bg);
+    text-decoration-color: var(--qld-btn-color);
     border-color: var(--btn-border-colour);
     .fa-arrow-up {
       color: var(--#{$prefix}color-default-color-light-action-secondary-hover);

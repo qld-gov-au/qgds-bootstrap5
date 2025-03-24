@@ -4,7 +4,7 @@
  * @module backToTop.stories
  */
 
-import { BackToTop } from './backToTop.js';
+import { BackToTop } from './BackToTop.js';
 import defaultdata from './backToTop.data.json';
 
 export default {

@@ -9,4 +9,4 @@ export class BackToTop {
     return new Component(template, data);
   }
 
-}
+} 
