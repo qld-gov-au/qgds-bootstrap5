@@ -10,4 +10,4 @@ dist/
 .idea
 *.iml
 docs/storybook-static
-
+prettier.json

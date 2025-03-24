@@ -381,3 +381,16 @@
   .no-print {
     @extend .d-print-none;
   }
+
+  @media only print {
+    .qld-cta-link {
+      color: #000 !important;
+  
+      .icon::after {
+        background-image: none !important;
+        content: " > " !important;
+        border: none !important;
+        transform: rotate(0deg) !important;
+      }
+    }
+  }
