@@ -10,13 +10,12 @@ import defaultdata from "./directionLinks.data.json";
 export default {
   tags: ["autodocs"],
   title: "3. Components/Direction Links",
-  args: defaultdata,
   render: (args) => {
     return `
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new DirectionLinks({...args, class: 'up', label: 'Up'}).html}
+          ${new DirectionLinks({...args}).html}
         </div>
         <div class="col">
           ${new DirectionLinks({...args, class: 'down', label: 'Down'}).html}
@@ -30,6 +29,21 @@ export default {
       </div>
     </div>
     `
+  },
+  args: defaultdata,
+  argTypes: {
+    class: {
+      control: { type: 'select' },
+      options: ['left', 'right', 'up', 'down'],
+    },
+    id: { control: 'text' },
+    href: { control: 'text' },
+    target: {
+      control: { type: 'select' },
+      options: ['_self', '_blank', '_parent', '_top'],
+    },
+    arialabel: { control: 'text', name: 'aria-label' },
+    label: { control: 'text' },
   },
   parameters: {
     design: {
