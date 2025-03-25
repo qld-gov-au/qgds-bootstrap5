@@ -1,11 +1,11 @@
 {
 	"variantClass": "dark",
   "title": "Heading 1",
-	"abstract": false,
-  "backgroundType": "none",
+	"abstract": "Renew your licence at a customer service centre, government office or police station.",
+  "backgroundType": "",
   "image": {
     "url": "assets/img/banner-example-3-to-2.jpg",
-		"classes": ["align-right", "align-grid", "align-fixed"],
+		"classes": [""],
 		"alt": "Alt text for the image"
 	},
   "callToAction": false

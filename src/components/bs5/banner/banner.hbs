@@ -25,18 +25,22 @@
         {{!-- CTA Buttons block. Pass an array of button data objects --}}
         {{#if buttons}}
         <div class="banner-cta" role="group" aria-label="Available options">
-          {{#each buttons}}
-          {{> button this }}
-          {{/each}}
+          <div class="cta-buttons">
+            {{#each buttons}}
+            {{> button this }}
+            {{/each}}
+          </div>
         </div>
         {{/if}}
 
         {{!-- CTA Cards block. Pass an array of card data objects --}}
         {{#if cards}}
         <div class="banner-cta" role="group" aria-label="Available options">
-          {{#each cards }}
-          {{> card this }}
-          {{/each }}
+          <div class="cta-cards">
+            {{#each cards }}
+            {{> card this }}
+            {{/each }}
+          </div>
         </div>
         {{/if}}
 

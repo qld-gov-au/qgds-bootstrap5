@@ -8,6 +8,7 @@
   --#{$prefix}banner-padding-top: 1rem;
   --#{$prefix}banner-padding-bottom: 2rem;
 
+
   //Text Color
   --#{$prefix}banner-title-color: var(--#{$prefix}light-text-heading);
   --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text-text);
@@ -15,26 +16,31 @@
   //Backgrounds
   --#{$prefix}banner-bg-color: var(--#{$prefix}default-background);
   --#{$prefix}banner-bg-texture: none;
-  --#{$prefix}banner-background-img: none;
+  --#{$prefix}banner-bg-image: none;
 
-  //Default texture
+  //Default texture and background image
   --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-default.png);
-
-  //Widths
-  --#{$prefix}banner-content-max-width: 80%;
-  --#{$prefix}banner-min-height: 0;
+  --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-default.jpg);
+  --#{$prefix}banner-bg-custom-color: #ebebeb;
 
 
   // Colour Palette changes 
   // based on parent class (light, light-alt, dark, dark-alt)
-  &.alt {
+  &.light {
+    --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text-text);
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light.png);
+    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-light.jpg);
+    --#{$prefix}banner-bg-custom-color: #e6edf5;
+
   }
 
   &.light-alt {
+    --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text-text);
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-alt-background);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light-alt.png);
+    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-light-alt.jpg);
+    --#{$prefix}banner-bg-custom-color: #dadada;
   }
 
   &.dark,
@@ -49,7 +55,7 @@
       --#{$prefix}banner-breadcrumb-color: var(--#{$prefix}core-default-color-neutral-white);
       --#{$prefix}banner-breadcrumb-divider-color: var(--#{$prefix}core-default-color-neutral-white);
       --#{$prefix}banner-breadcrumb-item-active-color: var(--#{$prefix}core-default-color-neutral-white);
-      --#{$prefix}banner-ink-color-rgb: var(--#{$prefix}core-default-color-neutral-white);
+      --#{$prefix}banner-link-color-rgb: var(--#{$prefix}core-default-color-neutral-white);
     }
   }
 
@@ -57,12 +63,16 @@
   &.dark {
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
+    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-dark.jpg);
+    --#{$prefix}banner-bg-custom-color: #09549f;
   }
 
   // .dark-alt only
   &.dark-alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark-alt.png);
+    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-dark-alt.jpg);
+    --#{$prefix}banner-bg-custom-color: #0c3b71;
   }
 
   //The "no-banner" variant contains only breadcrumbs
@@ -78,7 +88,6 @@
   @include media-breakpoint-up(md) {
     --#{$prefix}banner-padding-top: 1.5rem;
     --#{$prefix}banner-padding-bottom: 1.5rem;
-    --#{$prefix}banner-content-max-width: 60%;
 
     &.no-banner {
       //TODO This creates a specificity issue with lg and up breakpoint
@@ -106,12 +115,8 @@
 
 
 .qld-banner {
-
   position: relative;
   background-color: var(--#{$prefix}banner-bg-color);
-  min-height: var(--#{$prefix}banner-min-height);
-  padding-top: var(--#{$prefix}banner-padding-top);
-  padding-bottom: var(--#{$prefix}banner-padding-bottom);
 
   /* Banner Grid Layout:
       
@@ -124,7 +129,7 @@
   | .banner-content             | grid-row: 3 / 4
   |-----------------------------|
   
-  Desktop (768px and above):  
+  Desktop with image (768px and above):  
   |------------------------|---------------------|
   | .banner-breadcrumbs    |                     |
   | (grid-row 1 / 2)       |                     |
@@ -132,9 +137,23 @@
   | .banner-content        |  (grid-row: 1 / 3)  |
   | (grid-row: 2 / 3)      |                     |
   |------------------------|---------------------|
+
+    Desktop with image (768px and above):  
+  |------------------------|---------------------|
+  | .banner-breadcrumbs    |                     |
+  | (grid-row 1 / 2)       |                     |
+  |------------------------|  .banner-image      |
+  | .banner-content        |  (grid-row: 1 / 3)  |
+  | (grid-row: 2 / 3)      |                     |
+  |------------------------|---------------------|
+  
   */
 
   .banner-inner {
+
+    padding-top: var(--#{$prefix}banner-padding-top);
+    padding-bottom: var(--#{$prefix}banner-padding-bottom);
+
     display: grid;
     grid-template-columns: repeat(12, 1fr); // 12-column grid
     grid-template-rows: auto auto auto;
@@ -156,27 +175,87 @@
     }
 
     // Grid Layout - Medium and above (two columns)
-    @media screen and (min-width: 768px) {
+    @include media-breakpoint-up(md) {
 
+      //No banner image, so we span bredcrumbs and content more columns (9)  
       .banner-breadcrumbs {
-        grid-column: 1 / span 7; // Spans 7 columns (left side)
+        grid-column: 1 / span 8; // Spans 7 columns (left side)
       }
 
       .banner-content {
-        grid-column: 1 / span 7; // Spans 7 columns (left side)
+        grid-column: 1 / span 8; // Spans 7 columns (left side)
         grid-row: 2 / span 1; // Optional: Ensures it stays in the second row
       }
 
-      .banner-image {
-        grid-column: 8 / span 5; // Spans 5 columns (right side)
-        grid-row: 1 / span 2; // Spans rows 1 and 2
+      // If there is an image
+      &:has(.banner-image) {
+
+        .banner-breadcrumbs {
+          grid-column: 1 / span 7; // Spans 7 columns (left side)
+        }
+
+        .banner-content {
+          grid-column: 1 / span 7; // Spans 7 columns (left side)
+        }
+
+        .banner-image {
+          grid-column: 8 / span 5; // Spans 5 columns (right side)
+          grid-row: 1 / span 2; // Spans rows 1 and 2
+        }
       }
+
     }
   }
 
+  /* Banner Backgrounds (.with-texture, .with-bg-image) are patterns, and are distinct from Banner Images */
+  &.with-texture {
+    background-image: var(--#{$prefix}banner-bg-texture);
 
+    .banner-image {
+      display: none;
+      background-image: none;
+    }
+  }
+
+  &.with-bg-image {
+    background-image: var(--#{$prefix}banner-bg-image);
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .banner-image {
+      display: none;
+      background-image: none;
+    }
+
+    // On small viewports, the background image transitions into the dedicated banner image inner container, so that it can positon within the flow of the content
+    @include media-breakpoint-down(md) {
+      background-image: none;
+
+      .banner-image {
+        display: block;
+        background-image: var(--#{$prefix}banner-bg-image);
+        background-position: center right;
+        background-size: contain;
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+
+  }
+
+
+  /* Banner Images are distinct from Banner Backgrounds */
   .banner-image {
+
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
+    margin-bottom: calc(var(--#{$prefix}banner-padding-bottom) * -1);
+
     overflow: hidden;
 
     //Banner image classes: .banner-image.with-angle
@@ -199,39 +278,39 @@
     //Align to grid: .banner-image.align-grid 
     &.align-grid {
       .banner-image-inner {
-        margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
-        margin-bottom: calc(var(--#{$prefix}banner-padding-bottom) * -1);
+        height: 100%;
+        aspect-ratio: unset;
       }
     }
 
-    //Image grid
-    &.align-fixed-3-2 {
-      .banner-image-inner {
-        width: 100%;
-        height: 66.7%;
-      }
+    //Fixed aspect ratio: Default 3:2
+    .banner-image-inner {
+      aspect-ratio: 3 / 2;
+      width: 100%;
+      height: 100%;
+      background-image: var(--#{$prefix}banner-bg-image);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
-  }
 
-  .banner-image-inner {
-    height: 100%;
-    min-height: 100%;
-    background-image: var(--#{$prefix}banner-background-img);
-    background-color: var(--#{$prefix}banner-bg-color);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
+    //.banner-image on small viewports (mobile and tablet
+    @include media-breakpoint-down(md) {
 
+      //Overcome the left and right gutters
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: calc(var(--qld-gutter-x) * -1);
+      margin-right: calc(var(--qld-gutter-x) * -1);
 
+      //On tablets and mobile, the image is full width for all variants.
+      &.align-grid,
+      &.align-right {
+        .banner-image-inner {
+          aspect-ratio: 16 / 9;
+        }
+      }
 
-
-  &.with-texture {
-    background-image: var(--#{$prefix}banner-bg-texture);
-
-    .banner-image {
-      display: none;
-      background-image: none;
     }
   }
 
@@ -264,9 +343,12 @@
     color: var(--#{$prefix}banner-abstract-color);
   }
 
-  .breadcrumb {
-    color: var(--#{$prefix}banner-breadcrumb-color);
-    --#{$prefix}breadcrumb-padding-y: 0;
+  .banner-breadcrumbs {
+    .breadcrumb {
+      padding-top: 0;
+      padding-bottom: 0;
+      color: var(--#{$prefix}banner-breadcrumb-color);
+    }
   }
 
   .banner-extra {
@@ -278,90 +360,77 @@
   .banner-cta {
     margin-top: 1.5rem;
 
-    //Button group
-    .btn {
-      margin-right: 1rem;
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     //Cards
-    .card {
-      margin-top: 1rem;
-      max-width: 70%;
-    }
-
-    @include media-breakpoint-down(sm) {
-      flex-direction: column;
+    .cta-cards {
       display: flex;
-
-      .btn[class*="btn-"] {
-
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 1rem;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
+      flex-direction: column;
+      gap: 1rem;
     }
-
   }
 
-  //Image
-  // .banner-image {
-  //   // max-width: var(--#{$prefix}banner-image-max-width);
-  //   //Default position is to "float" passed the grid
-  //   // position: absolute;
-  //   background-size: cover;
-  //   background-position: center center;
-
-  //   // &.with-gradient:after {
-  //   //   content: "";
-  //   //   position: absolute;
-  //   //   top: 0;
-  //   //   right: 0;
-  //   //   bottom: 0;
-  //   //   left: 0;
-  //   //   background-image: linear-gradient(to right, var(--#{$prefix}banner-bg-color), transparent);
-  //   // }
-
-
-  //   //Optional - Add an angled edge to image, with ".banner-image .banner-image--angle"
-  //   // &--angle {
-  //   //   --#{$prefix}banner-angle: 20%; //(angle in degrees)
-  //   //   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, var(--#{$prefix}banner-angle) 100%);
-  //   // }
-
-  //   // @include media-breakpoint-down(md) {
-  //   //   --#{$prefix}banner-image-max-width: 100%;
-  //   // }
-
-  // }
-
+  //.qld-banner cont'd
   @include media-breakpoint-up(md) {
+
+    overflow: hidden;
+
     .banner-image {
-      // max-width: calc(100% + var(--qld-gutter-x));
-      // max-width: 200%;
-      // margin-left: calc(var(--qld-gutter-x)* -0.5);
+
+      // Removes relative positioning from this container. 
+      // This allows the image to break out of the grid and fallback to .qld-banner container's relative position
+      position: unset;
+
+      &.align-right {
+
+        .banner-image-inner {
+          aspect-ratio: unset;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+
+          left: 57.5%; // 7 columns * 8.3333% = 57.5%
+          right: 0;
+          width: auto;
+
+          // Image styling
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
     }
   }
 
   @include media-breakpoint-down(lg) {
-    .banner-cta .card {
+    .cta-cards .card {
       max-width: 100%;
     }
   }
 
+  @include media-breakpoint-down(md) {
+
+    .banner-breadcrumbs {
+      padding-bottom: 0.75rem;
+    }
+
+    .banner-content {
+      padding-right: 0;
+    }
+
+  }
+
   //Stack buttons at very small viewports
   @include media-breakpoint-down(sm) {
-    .banner-cta {
+    .cta-buttons {
       flex-direction: column;
 
       .btn {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 1rem;
+        flex-grow: 1;
       }
     }
   }

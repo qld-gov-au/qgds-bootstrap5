@@ -66,6 +66,7 @@ $qld-dark-grey : $core-default-color-neutral-darker;
 $qld-medium-grey : $core-default-color-neutral-dark;
 $qld-alt-grey : $core-default-color-neutral-light;
 $qld-light-link: $color-default-color-light-link-default;
+$qld-dark-link: $color-default-color-dark-link-default;
 
 //Should be core color rather than second hand reference (no match)
 $qld-soft-grey : $color-default-color-light-border-alt;
@@ -244,6 +245,9 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1312px
 );
+
+// Map merge to include custom breakpoints
+$breakpoints: map-merge($grid-breakpoints, ());
 
 // Default border radius
 $border-radius: 0.25rem;
