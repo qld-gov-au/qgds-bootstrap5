@@ -3,9 +3,25 @@
         <ul class="nav col-{{columns}}">
             {{#each data.items}}
                 <li class="nav-item{{#if ../has_all_link }}{{#if this.all_link }} all-link{{/if}}{{/if}}">
-                    <a class="nav-link" href="{{this.url}}">
-                        {{{this.value}}}
-                    </a>
+                    {{#if ../has_all_link }} 
+                        {{#if this.all_link }}
+                            {{> callToAction 
+                                label=this.value 
+                                href=this.url 
+                                target=this.target 
+                                class=this.class 
+                                arialabel=this.value 
+                                id=this.id}}
+                        {{else}}
+                            <a class="nav-link"{{#if this.id}}id="{{this.id}}"{{/if}}{{#if this.target}}target="{{target}}"{{/if}} href="{{this.url}}">
+                                {{{this.value}}}
+                            </a>
+                        {{/if}}
+                    {{else}}
+                        <a class="nav-link"{{#if this.id}}id="{{this.id}}"{{/if}}{{#if this.target}}target="{{target}}"{{/if}} href="{{this.url}}">
+                            {{{this.value}}}
+                        </a>
+                    {{/if}}
                 </li>
             {{/each}}
         </ul>

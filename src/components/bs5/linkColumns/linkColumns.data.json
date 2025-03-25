@@ -1,68 +1,87 @@
 {
     "has_all_link": true,
     "id": "link-column-1",
-    "theme": "light",
+    "theme": "",
     "columns": "3",
     "data": {
         "items": [
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 01"
+                "id": "",
+                "value": "List item 01",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 02"
+                "id": "",
+                "value": "List item 02",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 03"
+                "id": "",
+                "value": "List item 03",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 04"
+                "id": "",
+                "value": "List item 04",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 05"
+                "id": "",
+                "value": "List item 05",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 06"
+                "id": "",
+                "value": "List item 06",
+                "target": ""
             },{
-                "type": "link",
                 "url": "#",
-                "value": "List item 07"
+                "id": "",
+                "value": "List item 07",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 08"
+                "id": "",
+                "value": "List item 08",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 09"
+                "id": "",
+                "value": "List item 09",
+                "target": ""
             },{
-                "type": "link",
                 "url": "#",
-                "value": "List item 10"
+                "id": "",
+                "value": "List item 10",
+                "target": ""
             },
             {
-                "type": "link",
                 "url": "#",
-                "value": "List item 11"
+                "id": "",
+                "value": "List item 11",
+                "target": ""
             },
             {
                 "all_link":true,
                 "url": "#",
-                "value": "View all"
+                "id": "",
+                "value": "View all",
+	            "target": "_blank",
+                "class": [
+                    {"small": false}, 
+                    {"view-all": true}
+                ]
+
             }
         ]
     }
+    
 }
