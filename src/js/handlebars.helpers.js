@@ -181,6 +181,39 @@ export default function handlebarsHelpers(handlebars) {
     }
     return durationString;
   });
+
+  /**
+   * Used to get class names added to an element based on their boolean values in an array
+   * @param {string} names - Comma-separated list of class names to check for
+   * @param {array} array - Array of objects to check for true values
+   * @returns {string} - Space-separated list of class names that have true values
+   */
+  handlebars.registerHelper('getClassNames', function(names, array) {
+    // Split the comma-separated string of names into an array
+    let nameList = names.split(',').map(name => name.trim());
+
+    // Create an array to hold the names that have true values
+    let matchedItems = [];
+
+    for (let i = 0; i < nameList.length; i++) {
+      let name = nameList[i];
+      // Check if any item in the array matches the name and is true
+      for (let j = 0; j < array.length; j++) {
+        if (array[j][name] === true) {
+          matchedItems.push(name); // Add to matchedItems if found and true
+          break;
+        }
+      }
+    }
+
+    // If we found any matched items, return them as a space-separated string
+    if (matchedItems.length > 0) {
+      return matchedItems.join(' ');
+    } else {
+      return "";
+    }
+  });
+  
 }
 
 if(typeof(Handlebars) !== 'undefined') {

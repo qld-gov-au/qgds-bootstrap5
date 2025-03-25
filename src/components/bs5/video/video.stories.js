@@ -1,11 +1,11 @@
 // video.stories.js
-import { Video } from './Video.js';
-import defaultdata from './video.data.json';
+import { Video } from "./Video.js";
+import defaultdata from "./video.data.json";
 
 // include accordion for transcript
 import { Accordion } from "../accordion/Accordion.js";
 
-/** 
+/**
  * Set default arguments for the Video component,
  * which is based on YouTube arguments.
  */
@@ -50,9 +50,18 @@ export default {
         "Half page": "col-6",
       },
     },
-    urlParams: {
+
+    "urlParams.autoplay": {
+      name: "Autoplay",
       control: {
-        type: "object",
+        type: "boolean",
+      },
+    },
+
+    "urlParams.controls": {
+      name: "Video controls",
+      control: {
+        type: "boolean",
       },
     },
   },
@@ -92,7 +101,7 @@ export const Vimeo = {
 
 /**
  * Custom video
-*/
+ */
 export const Custom = {
   args: defaultdata.custom,
 };
@@ -103,10 +112,8 @@ export const Custom = {
 export const Light = {
   parameters: {
     backgrounds: {
-      default: 'Light',
-      values: [
-        { name: 'Light', value: 'var(--qld-light-background)' },
-      ],
+      default: "Light",
+      values: [{ name: "Light", value: "var(--qld-light-background)" }],
     },
   },
   decorators: [
@@ -126,10 +133,8 @@ export const Light = {
 export const Alternative = {
   parameters: {
     backgrounds: {
-      default: 'Alternative',
-      values: [
-        { name: 'Alternative', value: 'var(--qld-light-grey-alt)' },
-      ],
+      default: "Alternative",
+      values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
     },
   },
   decorators: [
@@ -149,10 +154,8 @@ export const Alternative = {
 export const Dark = {
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-brand-primary)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
     },
   },
   decorators: [
@@ -172,10 +175,8 @@ export const Dark = {
 export const DarkAlternative = {
   parameters: {
     backgrounds: {
-      default: 'Dark alternative',
-      values: [
-        { name: 'Dark alternative', value: 'var(--qld-dark-blue)' },
-      ],
+      default: "Dark alternative",
+      values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
     },
   },
   decorators: [
