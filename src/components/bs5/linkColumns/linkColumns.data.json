@@ -3,6 +3,16 @@
     "theme": "",
     "columns": "3",
     "data": {
+        "all_link": {
+            "url": "#",
+            "id": "",
+            "value": "View all",
+            "target": "_blank",
+            "class": [
+                {"small": false}, 
+                {"view-all": true}
+            ]
+        },
         "items": [
             {
                 "url": "#",
@@ -69,17 +79,6 @@
                 "id": "",
                 "value": "List item 11",
                 "target": ""
-            },
-            {
-                "all_link":true,
-                "url": "#",
-                "id": "",
-                "value": "View all",
-	            "target": "_blank",
-                "class": [
-                    {"small": false}, 
-                    {"view-all": true}
-                ]
             }
         ]
     }

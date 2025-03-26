@@ -2,30 +2,26 @@
     {{!-- The id and target attributes are place holders for the all link. This should build resilience into how these links work --}}
     <section class="link-column {{theme}}">
         <ul class="nav col-{{columns}}">
-            {{#each data.items}}
-                {{#unless this.all_link }}
-                    <li class="nav-item">
-                        <a class="nav-link"{{#if this.id}}id="{{this.id}}"{{/if}}{{#if this.target}}target="{{target}}"{{/if}} href="{{this.url}}">
-                            {{{this.value}}}
-                        </a>
-                    </li>
-                {{/unless}}                              
+            {{#each data.items}}  
+                <li class="nav-item">
+                    <a class="nav-link"{{#if this.id}}id="{{this.id}}"{{/if}}{{#if this.target}}target="{{target}}"{{/if}} href="{{this.url}}">
+                        {{{this.value}}}
+                    </a>
+                </li>             
             {{/each}}
 
-            {{#each data.items}} 
-                {{#if this.all_link }} 
-                    <li class="nav-item all-link">
+            {{#if data.all_link }} 
+                <li class="nav-item all-link">
                     {{!-- Inherits the CallToAction Component with default values if data is empty --}}
-                        {{> callToAction 
-                            label=(isdefined this.value "View All") 
-                            href=this.url 
-                            target=this.target 
-                            class=this.class 
-                            arialabel=this.value 
-                            id=this.id}}
-                    </li>
-                {{/if}}
-            {{/each}}
+                    {{> callToAction 
+                        label=(isdefined data.all_link.value "View all") 
+                        href=data.all_link.url 
+                        target=data.all_link.target 
+                        class=data.all_link.class 
+                        arialabel=data.all_link.value 
+                        id=data.all_link.id}}
+                </li>
+            {{/if}}
         </ul>
     </section>
 {{/if}}
