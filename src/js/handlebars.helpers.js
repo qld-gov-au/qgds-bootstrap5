@@ -183,7 +183,20 @@ export default function handlebarsHelpers(handlebars) {
   });
 
   /**
+   * Helper for extending components to set overridable data values
+   * If the value is not set in the component data.json, it will use the hds data value
+   * 
+   * @param {string} value - The value to check if it is defined
+   * @param {string} defaultValue - The default value to return if value is not defined
+   * @returns {string} - The value if it is defined, otherwise the default value
+   */
+  handlebars.registerHelper('isdefined', function (value, defaultValue) {
+    return value !== undefined && value !== "" ? value : defaultValue;
+  });
+
+  /**
    * Used to get class names added to an element based on their boolean values in an array
+   * 
    * @param {string} names - Comma-separated list of class names to check for
    * @param {array} array - Array of objects to check for true values
    * @returns {string} - Space-separated list of class names that have true values
@@ -212,6 +225,16 @@ export default function handlebarsHelpers(handlebars) {
     } else {
       return "";
     }
+  });
+
+  handlebars.registerHelper("join", function (theArray, separator) {
+    // Handle if a separator is not provided
+    if (!separator || typeof separator !== "string") {
+      separator = " ";
+    }
+    
+    // If theArray is not an array, return it as is, otherwise join it
+    return !Array.isArray(theArray) ? theArray : theArray.join(separator);
   });
   
 }

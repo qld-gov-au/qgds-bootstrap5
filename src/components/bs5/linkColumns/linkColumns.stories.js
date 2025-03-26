@@ -14,6 +14,18 @@ export default {
   
   render: (args) => new LinkColumns(args).html,
   args: defaultdata,
+  argTypes: {
+    columns: {
+      description: 'Number of coloumns of links to display',
+      control: { type: 'number', min: 1, max: 3, step: 1 },
+    },
+    id: { control: 'text' },
+    theme: {
+        description: 'The types of themes that this component supports',
+        control: "select",
+        options: ["default","light", "alt", "dark", "dark-alt"],
+    },
+  },
 
   /**
    * Additional parameters for the story.

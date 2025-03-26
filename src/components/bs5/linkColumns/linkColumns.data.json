@@ -1,5 +1,4 @@
 {
-    "has_all_link": true,
     "id": "link-column-1",
     "theme": "",
     "columns": "3",
@@ -40,7 +39,8 @@
                 "id": "",
                 "value": "List item 06",
                 "target": ""
-            },{
+            },
+            {
                 "url": "#",
                 "id": "",
                 "value": "List item 07",
@@ -57,7 +57,8 @@
                 "id": "",
                 "value": "List item 09",
                 "target": ""
-            },{
+            },
+            {
                 "url": "#",
                 "id": "",
                 "value": "List item 10",
@@ -79,7 +80,6 @@
                     {"small": false}, 
                     {"view-all": true}
                 ]
-
             }
         ]
     }

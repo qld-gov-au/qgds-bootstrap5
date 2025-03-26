@@ -1,28 +1,30 @@
 {{#if data.items}}
+    {{!-- The id and target attributes are place holders for the all link. This should build resilience into how these links work --}}
     <section class="link-column {{theme}}">
         <ul class="nav col-{{columns}}">
             {{#each data.items}}
-                <li class="nav-item{{#if ../has_all_link }}{{#if this.all_link }} all-link{{/if}}{{/if}}">
-                    {{#if ../has_all_link }} 
-                        {{#if this.all_link }}
-                            {{> callToAction 
-                                label=this.value 
-                                href=this.url 
-                                target=this.target 
-                                class=this.class 
-                                arialabel=this.value 
-                                id=this.id}}
-                        {{else}}
-                            <a class="nav-link"{{#if this.id}}id="{{this.id}}"{{/if}}{{#if this.target}}target="{{target}}"{{/if}} href="{{this.url}}">
-                                {{{this.value}}}
-                            </a>
-                        {{/if}}
-                    {{else}}
+                {{#unless this.all_link }}
+                    <li class="nav-item">
                         <a class="nav-link"{{#if this.id}}id="{{this.id}}"{{/if}}{{#if this.target}}target="{{target}}"{{/if}} href="{{this.url}}">
                             {{{this.value}}}
                         </a>
-                    {{/if}}
-                </li>
+                    </li>
+                {{/unless}}                              
+            {{/each}}
+
+            {{#each data.items}} 
+                {{#if this.all_link }} 
+                    <li class="nav-item all-link">
+                    {{!-- Inherits the CallToAction Component with default values if data is empty --}}
+                        {{> callToAction 
+                            label=(isdefined this.value "View All") 
+                            href=this.url 
+                            target=this.target 
+                            class=this.class 
+                            arialabel=this.value 
+                            id=this.id}}
+                    </li>
+                {{/if}}
             {{/each}}
         </ul>
     </section>
