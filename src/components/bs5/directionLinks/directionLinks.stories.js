@@ -1,6 +1,6 @@
 /**
  * @file directionLinks.stories.js
- * @description Storybook configuration file for the DirectionLinks component.
+ * @description Storybook configuration file for the Direction Links component.
  * @module directionLinks.stories
  */
 
@@ -12,38 +12,51 @@ export default {
   title: "3. Components/Direction Links",
   render: (args) => {
     return `
+    <!-- Grid container -->
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new DirectionLinks({...args}).html}
+          
+          <!-- Component HTML -->
+          ${new DirectionLinks({ ...args, class: "up", label: "Up" }).html}
+        
+          </div>
+        <div class="col">
+          
+          <!-- Component HTML -->
+          ${new DirectionLinks({ ...args, class: "down", label: "Down" }).html}
+        
         </div>
         <div class="col">
-          ${new DirectionLinks({...args, class: 'down', label: 'Down'}).html}
+          
+          <!-- Component HTML -->
+          ${new DirectionLinks({ ...args, class: "left", label: "Left" }).html}
+        
         </div>
         <div class="col">
-          ${new DirectionLinks({...args, class: 'left', label: 'Left'}).html}
-        </div>
-        <div class="col">
-          ${new DirectionLinks({...args, class: 'right', label: 'Right'}).html}
+          
+          <!-- Component HTML -->
+          ${new DirectionLinks({ ...args, class: "right", label: "Right" }).html}
+        
         </div>
       </div>
     </div>
-    `
+    `;
   },
   args: defaultdata,
   argTypes: {
     class: {
-      control: { type: 'select' },
-      options: ['left', 'right', 'up', 'down'],
+      control: { type: "select" },
+      options: ["left", "right", "up", "down"],
     },
-    id: { control: 'text' },
-    href: { control: 'text' },
+    id: { control: "text" },
+    href: { control: "text" },
     target: {
-      control: { type: 'select' },
-      options: ['_self', '_blank', '_parent', '_top'],
+      control: { type: "select" },
+      options: ["_self", "_blank", "_parent", "_top"],
     },
-    arialabel: { control: 'text', name: 'aria-label' },
-    label: { control: 'text' },
+    arialabel: { control: "text", name: "aria-label" },
+    label: { control: "text" },
   },
   parameters: {
     design: {
@@ -55,7 +68,7 @@ export default {
 };
 
 /**
- * Default Accordion story
+ * Default story
  */
 export const Default = {};
 
@@ -65,10 +78,8 @@ export const Default = {};
 export const Light = {
   parameters: {
     backgrounds: {
-      default: 'Light',
-      values: [
-        { name: 'Light', value: 'var(--qld-light-background)' },
-      ],
+      default: "Light",
+      values: [{ name: "Light", value: "var(--qld-light-background)" }],
     },
   },
   decorators: [
@@ -88,10 +99,8 @@ export const Light = {
 export const LightAlt = {
   parameters: {
     backgrounds: {
-      default: 'LightAlt',
-      values: [
-        { name: 'LightAlt', value: 'var(--qld-light-alt-background)' },
-      ],
+      default: "LightAlt",
+      values: [{ name: "LightAlt", value: "var(--qld-light-alt-background)" }],
     },
   },
   decorators: [
@@ -111,10 +120,8 @@ export const LightAlt = {
 export const Dark = {
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-dark-background)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
     },
   },
   decorators: [
@@ -128,17 +135,14 @@ export const Dark = {
   ],
 };
 
-
 /**
  * Direction Link - Dark-Alt
  * */
 export const DarkAlt = {
   parameters: {
     backgrounds: {
-      default: 'DarkAlt',
-      values: [
-        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
-      ],
+      default: "DarkAlt",
+      values: [{ name: "DarkAlt", value: "var(--qld-dark-alt-background)" }],
     },
   },
   decorators: [

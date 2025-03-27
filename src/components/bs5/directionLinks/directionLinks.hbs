@@ -1,9 +1,9 @@
 {{! valid class values are: up, down, left, right}}
-<a class="qld-dir-link  {{~#if class}} {{class}}{{/if}}" 
-    {{~#if id}}id="{{id}}"{{/if~}} 
+<a class="qld-dir-link {{class}}" 
+    {{~#if id}} id="{{id}}" {{/if~}} 
     href="{{href}}" 
     {{~#if target}} target="{{target}}"{{/if~}}
-    {{~#if arialabel}}aria-label="{{arialabel}}"{{/if~}}>
+    {{~#if arialabel}} aria-label="{{arialabel}}" {{/if~}}>
   {{{label}}}
   <span class="icon" aria-hidden="true"></span>
 </a>
