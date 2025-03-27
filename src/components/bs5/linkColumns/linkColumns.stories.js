@@ -14,7 +14,7 @@ export default {
   title: "3. Components/Link Columns",
   
   render: (args) => new LinkColumns(args).html,
-  args: defaultdata,
+//   args: defaultdata,
   argTypes: {
     columns: {
       description: 'Number of coloumns of links to display',
@@ -53,14 +53,18 @@ export default {
 /**
  * Default Link Columns story
  */
-export const Default = {};
-
-export const SimpleDataLight = {
+export const Default = {
     args: {
-        ...defaultdataSimple,
-        theme: "light",
+        ...defaultdata
     },
 };
+
+// export const SimpleDataLight = {
+//     args: {
+//         ...defaultdataSimple,
+//         theme: "light",
+//     },
+// };
 
 export const Light = {
     args: {

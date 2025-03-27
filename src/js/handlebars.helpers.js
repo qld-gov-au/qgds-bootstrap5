@@ -211,10 +211,12 @@ export default function handlebarsHelpers(handlebars) {
     for (let i = 0; i < nameList.length; i++) {
       let name = nameList[i];
       // Check if any item in the array matches the name and is true
-      for (let j = 0; j < array.length; j++) {
-        if (array[j][name] === true) {
-          matchedItems.push(name); // Add to matchedItems if found and true
-          break;
+      if(array){
+        for (let j = 0; j < array.length; j++) {
+          if (array[j][name] === true) {
+            matchedItems.push(name); // Add to matchedItems if found and true
+            break;
+          }
         }
       }
     }
