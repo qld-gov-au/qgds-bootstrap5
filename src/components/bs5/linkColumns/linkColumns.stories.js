@@ -25,6 +25,10 @@ export default {
         control: "select",
         options: ["default","light", "alt", "dark", "dark-alt"],
     },
+    data: {
+        description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
+        control: 'object'
+    }
   },
 
   /**
