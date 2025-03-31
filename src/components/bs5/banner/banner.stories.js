@@ -242,6 +242,18 @@ export const BannerBasic = {
     callToAction: { table: { disable: true } },
     image: { table: { disable: true } },
     "image.classes": { table: { disable: true } },
+    backgroundType: {
+      //Remove "with-hero-image" option
+      options: ["none", "with-texture", "with-bg-image"],
+      control: {
+        type: "radio",
+        labels: {
+          none: "None",
+          "with-texture": "With Texture",
+          "with-bg-image": "With Background Image",
+        },
+      },
+    },
   },
 };
 

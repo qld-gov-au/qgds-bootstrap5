@@ -28,8 +28,6 @@
   //Drop shadow for "block style" banner title
   --#{$prefix}title-box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.06);
 
-
-
   // Colour Palette changes 
   // based on parent class (.qld-banner.light, .light-alt, .dark, .dark-alt)
   &.light {
@@ -171,9 +169,6 @@
     }
   }
 }
-
-
-
 
 // 3. Define Banner Variants and Image Treatments
 // ==========================================================================
@@ -541,5 +536,4 @@
       }
     }
   }
-
 }
