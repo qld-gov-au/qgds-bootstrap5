@@ -1,6 +1,8 @@
 {
 	"variantClass": "dark",
   "title": "Heading 1",
+  "subtitle": "",
+  "titleClasses": [],
 	"abstract": "Renew your licence at a customer service centre, government office or police station.",
   "backgroundType": "",
   "image": {
@@ -8,5 +10,5 @@
 		"classes": [""],
 		"alt": "Alt text for the image"
 	},
-  "callToAction": false
+  "callToAction": ""
 }

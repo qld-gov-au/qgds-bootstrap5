@@ -17,34 +17,34 @@ export default function handlebarsHelpers(handlebars) {
   // ifCond - checks conditions
   handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
     switch (operator) {
-      case "==":
-        return v1 == v2 ? options.fn(this) : options.inverse(this);
-      case "===":
-        return v1 === v2 ? options.fn(this) : options.inverse(this);
-      case "!=":
-        return v1 != v2 ? options.fn(this) : options.inverse(this);
-      case "!==":
-        return v1 !== v2 ? options.fn(this) : options.inverse(this);
-      case "<":
-        return v1 < v2 ? options.fn(this) : options.inverse(this);
-      case "<=":
-        return v1 <= v2 ? options.fn(this) : options.inverse(this);
-      case ">":
-        return v1 > v2 ? options.fn(this) : options.inverse(this);
-      case ">=":
-        return v1 >= v2 ? options.fn(this) : options.inverse(this);
-      case "&&":
-        return v1 && v2 ? options.fn(this) : options.inverse(this);
-      case "||":
-        return v1 || v2 ? options.fn(this) : options.inverse(this);
-      case "contains":
-        if (typeof v1 == "string" && typeof v2 == "string") {
-          return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0
-            ? options.fn(this)
-            : options.inverse(this);
-        } else return options.inverse(this);
-      default:
-        return options.inverse(this);
+    case "==":
+      return v1 == v2 ? options.fn(this) : options.inverse(this);
+    case "===":
+      return v1 === v2 ? options.fn(this) : options.inverse(this);
+    case "!=":
+      return v1 != v2 ? options.fn(this) : options.inverse(this);
+    case "!==":
+      return v1 !== v2 ? options.fn(this) : options.inverse(this);
+    case "<":
+      return v1 < v2 ? options.fn(this) : options.inverse(this);
+    case "<=":
+      return v1 <= v2 ? options.fn(this) : options.inverse(this);
+    case ">":
+      return v1 > v2 ? options.fn(this) : options.inverse(this);
+    case ">=":
+      return v1 >= v2 ? options.fn(this) : options.inverse(this);
+    case "&&":
+      return v1 && v2 ? options.fn(this) : options.inverse(this);
+    case "||":
+      return v1 || v2 ? options.fn(this) : options.inverse(this);
+    case "contains":
+      if (typeof v1 == "string" && typeof v2 == "string") {
+        return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0
+          ? options.fn(this)
+          : options.inverse(this);
+      } else return options.inverse(this);
+    default:
+      return options.inverse(this);
     }
   });
   // isType - Checks is expected type
@@ -101,12 +101,12 @@ export default function handlebarsHelpers(handlebars) {
       var year = date.getFullYear();
       // Format date based on the format string
       switch (format) {
-        case "YYYY":
-          return `${year}`;
-        case "MMMM YYYY":
-          return `${month} ${year}`;
-        default:
-          return `${day} ${month} ${year}`;
+      case "YYYY":
+        return `${year}`;
+      case "MMMM YYYY":
+        return `${month} ${year}`;
+      default:
+        return `${day} ${month} ${year}`;
       }
     },
   );
