@@ -7,7 +7,6 @@
 
 import { LinkColumns } from "./linkColumns.js";
 import defaultdata from "./linkColumns.data.json";
-import defaultdataSimple from "./linkColumns_simple.data.json";
 
 export default {
   tags: ["autodocs"],
@@ -58,13 +57,6 @@ export const Default = {
         ...defaultdata
     },
 };
-
-// export const SimpleDataLight = {
-//     args: {
-//         ...defaultdataSimple,
-//         theme: "light",
-//     },
-// };
 
 export const Light = {
     args: {

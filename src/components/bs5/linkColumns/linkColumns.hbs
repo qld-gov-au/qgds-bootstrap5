@@ -1,7 +1,7 @@
 {{#if data}}
-    <section class="link-column {{theme}}">
+    <section class="link-column {{ theme}}">
         <ul class="nav col-{{columns}}">
-            {{> linckColBase data}}
+            {{> linkColBase data}}
         </ul>
     </section>
 {{else}}
@@ -11,7 +11,7 @@
 {{/if}}
 
 
-{{#*inline "linckColBase"}}              
+{{#*inline "linkColBase"}}              
     {{#each items}}
         {{> navItem}}
     {{/each}}
@@ -35,52 +35,3 @@
         </a>
     </li>
 {{/inline}}
-
-
-
-
-    
-    {{!-- <section class="link-column {{theme}}">
-        <ul class="nav col-{{columns}}">                
-            {{#each data.items}}
-                {{> navItem}}
-            {{/each}}
-            {{#if data.all_link}}
-                <li class="nav-item all-link">
-                    {{> callToAction 
-                        label=(isdefined data.all_link.value "View all")
-                        href=data.all_link.url 
-                        target=data.all_link.target 
-                        class=data.all_link.class 
-                        arialabel=data.all_link.value 
-                        id=data.all_link.id}}
-                </li>
-            {{/if}}
-        </ul>
-    </section>
-{{else}}
-    <section class="link-column {{theme}}">
-        <p class="nav-placeholder">No items available</p>
-    </section>
-{{/if}} --}}
-
-
-{{!-- {{#*inline "navItem"}}
-    <li class="nav-item">
-        <a class="nav-link"{{~#if id}} id="{{id}}"{{/if~}}{{~#if target}} target="{{target}}"{{/if~}} href="{{url}}">
-            {{~{value}~}}
-        </a>
-    </li>
-{{/inline}}
-
-{{#*inline "allLink"}}
-    <li class="nav-item all-link">
-        {{> callToAction 
-            label=(isdefined data.all_link.value "View all")
-            href=data.all_link.url 
-            target=data.all_link.target 
-            class=data.all_link.class 
-            arialabel=data.all_link.value 
-            id=data.all_link.id}}
-    </li>
-{{/inline}} --}}
