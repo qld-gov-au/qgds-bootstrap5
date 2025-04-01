@@ -1,4 +1,4 @@
-# Banner Grid Layout
+# Banner Grid Layout Dev Notes
 
 ## Mobile (default):
 
