@@ -13,7 +13,7 @@ export default {
   title: "3. Components/Link Columns",
   
   render: (args) => new LinkColumns(args).html,
-//   args: defaultdata,
+  //   args: defaultdata,
   argTypes: {
     columns: {
       description: 'Number of coloumns of links to display',
@@ -21,14 +21,14 @@ export default {
     },
     id: { control: 'text' },
     theme: {
-        description: 'The types of themes that this component supports',
-        control: "select",
-        options: ["default","light", "alt", "dark", "dark-alt"],
+      description: 'The types of themes that this component supports',
+      control: "select",
+      options: ["default","light", "alt", "dark", "dark-alt"],
     },
     data: {
-        description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
-        control: 'object'
-    }
+      description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
+      control: 'object',
+    },
   },
 
   /**
@@ -44,7 +44,7 @@ export default {
     design: {
       name: "QGDS Figma Reference",
       type: "figma",
-       url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563&t=RyMlGjeuzgl8p5Gx-0",
+      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563&t=RyMlGjeuzgl8p5Gx-0",
     },
   },
 };
@@ -53,35 +53,35 @@ export default {
  * Default Link Columns story
  */
 export const Default = {
-    args: {
-        ...defaultdata
-    },
+  args: {
+    ...defaultdata,
+  },
 };
 
 export const Light = {
-    args: {
-        ...defaultdata,
-        theme: "light",
-    },
+  args: {
+    ...defaultdata,
+    theme: "light",
+  },
 };
 
 export const Alternative = {
-    args: {
-        ...defaultdata,
-        theme: "alt",
-    },
+  args: {
+    ...defaultdata,
+    theme: "alt",
+  },
 };
 
 export const Dark = {
-    args: {
-        ...defaultdata,
-        theme: "dark",
-    },
+  args: {
+    ...defaultdata,
+    theme: "dark",
+  },
 };
 
 export const DarkAlternative = {
-    args: {
-        ...defaultdata,
-        theme: "dark-alt",
-    },
+  args: {
+    ...defaultdata,
+    theme: "dark-alt",
+  },
 };
