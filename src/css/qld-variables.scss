@@ -57,7 +57,7 @@ $qld-light-link: $color-default-color-light-link-default;
 //Should be core color rather than second hand reference (no match)
 $qld-soft-grey : $color-default-color-light-border-alt;
 
-$qld-dark-grey-muted : $color-default-color-light-text-lighter; 
+$qld-dark-grey-muted : $color-default-color-light-text-lighter;
 $qld-text-grey : $color-default-color-light-text-default;
 $qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $color-default-color-dark-text-lighter;
@@ -190,8 +190,8 @@ $project-colors: (
   "dark-hover" : $qld-dark-hover,
   "light-action-primary": $qld-light-action-primary,
   "light-action-primary-hover": $qld-light-action-primary-hover,
-  "light-action-secondary":  $qld-light-action-secondary,
-  "light-action-secondary-hover":  $qld-light-action-secondary-hover,
+  "light-action-secondary": $qld-light-action-secondary,
+  "light-action-secondary-hover": $qld-light-action-secondary-hover,
   "dark-action-primary": $qld-dark-action-primary,
   "dark-action-primary-hover": $qld-dark-action-primary-hover,
   "dark-action-text": $qld-dark-action-text,
@@ -217,6 +217,16 @@ $project-colors: (
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
+
+  //Neutrals
+  "neutral-black": $core-default-color-neutral-black,
+  "neutral-darkest": $core-default-color-neutral-darkest,
+  "neutral-darker": $core-default-color-neutral-darker,
+  "neutral-dark": $core-default-color-neutral-dark,
+  "neutral-light": $core-default-color-neutral-light,
+  "neutral-lighter": $core-default-color-neutral-lighter,
+  "neutral-lightest": $core-default-color-neutral-lightest,
+  "neutral-white": $core-default-color-neutral-white
 );
 
 // Merge maps

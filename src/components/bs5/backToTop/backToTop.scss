@@ -1,4 +1,3 @@
-
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Widgets
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -9,28 +8,37 @@
   flex-direction: row;
   position: relative;
   z-index: 1;
+
   &.fixed {
-      position: fixed;
-      bottom:0.75rem;
-      right: 0.75rem;
-      z-index: 10;
+    position: fixed;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    z-index: 10;
   }
 }
 
-.qld__widgets + .qld__footer {
+.qld__widgets+.qld__footer {
   @include media-breakpoint-up(xl) {
-      padding-block-end: 4rem;
+    padding-block-end: 4rem;
   }
 }
 
 a.back-to-top,
-a.btn.back-to-top {  
+a.btn.back-to-top {
   --qld-btn-color: var(--#{$prefix}light-action-primary);
-  --qld-btn-bg: var(--#{$prefix}light-background);
-  --qld-btn-hover-bg: var(--#{$prefix}light-background-shade);
+  --qld-btn-active-color: var(--#{$prefix}light-action-primary);
+  --qld-btn-bg: var(--#{$prefix}neutral-lightest);
+  --qld-btn-hover-bg: var(--#{$prefix}neutral-light);
   --btn-border: 0px;
   --btn-border-colour: var(--qld-btn-bg);
-  
+
+  text-decoration: underline;
+  text-decoration-color: transparent;
+
+  //Icon
+  --btn-icon-color: var(--#{$prefix}light-action-secondary);
+  --btn-icon: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0518 8.1205L6.63557 16.4361C6.44609 16.6153 6.22435 16.7076 5.97036 16.7128C5.71637 16.7183 5.49185 16.6234 5.2968 16.4282C5.1015 16.233 5.00259 16.0122 5.00006 15.7658C4.99728 15.5194 5.0948 15.2985 5.29263 15.1033L15.1755 5.35051C15.2995 5.22843 15.4286 5.13943 15.563 5.08351C15.6976 5.02784 15.8454 5 16.0066 5C16.168 5 16.3155 5.02784 16.449 5.08351C16.5826 5.13943 16.7114 5.22843 16.8353 5.35051L26.7183 15.1033C26.9012 15.2838 26.995 15.5003 26.9998 15.7527C27.0046 16.0053 26.9108 16.2305 26.7183 16.4282C26.5176 16.6234 26.2919 16.7211 26.0409 16.7211C25.7899 16.7211 25.5687 16.6234 25.3772 16.4282L16.9591 8.1205V26.0589C16.9591 26.3303 16.8687 26.555 16.6881 26.733C16.5077 26.911 16.2802 27 16.0054 27C15.7305 27 15.5028 26.911 15.3224 26.733C15.142 26.555 15.0518 26.3303 15.0518 26.0589V8.1205Z' fill='%23131212'/%3E%3C/svg%3E%0A");
+
   margin-block-start: 0.5rem;
   margin-inline-start: auto;
   background-color: var(--qld-btn-bg);
@@ -39,34 +47,45 @@ a.btn.back-to-top {
   padding-inline: 1rem;
   border-radius: 0.25rem;
 
-  .fa-arrow-up {
-    font-size: 1.3rem; 
-    color: var(--#{$prefix}color-default-color-light-action-secondary);
+  transition: all 0.15s ease-in-out;
+
+  .btn-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0;
+    background-color: var(--btn-icon-color);
+    mask-image: var(--btn-icon);
+    mask-size: contain;
+    mask-position: center;
   }
-  
-  &:hover, &:focus {
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, .2), 0px 1px 3px 1px rgba(0, 0, 0, .1);
+    --btn-icon-color: var(--#{$prefix}light-action-secondary-hover);
   }
+
   &:visited {
     color: var(--qld-btn-color);
   }
+
   &:hover,
   &:focus,
   &:active {
-    text-decoration: underline;
-    background-color: var(--qld-btn-hover-bg);
     text-decoration-color: var(--qld-btn-color);
+    background-color: var(--qld-btn-hover-bg);
     border-color: var(--btn-border-colour);
-    .fa-arrow-up {
-      color: var(--#{$prefix}color-default-color-light-action-secondary-hover);
-    }
   }
+
   &.hide {
     display: none;
     width: 0;
     height: 0;
   }
 }
+
 @media print {
   .qld__widgets {
     display: none !important;

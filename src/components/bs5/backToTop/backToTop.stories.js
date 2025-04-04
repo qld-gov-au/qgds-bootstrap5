@@ -4,15 +4,14 @@
  * @module backToTop.stories
  */
 
-import { BackToTop } from './backToTop.js';
-import defaultdata from './backToTop.data.json';
+import { BackToTop } from "./backToTop.js";
+import defaultdata from "./backToTop.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "3. Components/Widgets (Back to Top)",
+  title: "3. Components/Back to Top",
   render: (args) => new BackToTop(args).html,
   args: defaultdata,
-
 
   /**
    * Additional parameters for the story.

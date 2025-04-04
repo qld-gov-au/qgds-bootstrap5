@@ -3,6 +3,7 @@
     "min_page_height": 0,
     "button": {
         "label": "Back to top",
-        "islink": true 
+        "islink": true,
+        "iconClass": "btn-icon"
     }
 }
