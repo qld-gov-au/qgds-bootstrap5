@@ -1,13 +1,13 @@
+{{> globalAlert globalAlert}}
 {{> header header}}
 {{> navbar navbar}}
-{{> globalAlert globalAlert}}
 <main>
   {{#> breadcrumbsWrapper}}
     {{> breadcrumbs breadcrumbs}}
   {{/breadcrumbsWrapper}}
   <!-- Main content-->
-  <div class="container-fluid">
-    <div class="container qld-content">
+  <div class="container-full">
+    <div class="qld-content">
       <div class="row">
         <!-- Side Nav -->
         {{#> sidenavWrapper}}
@@ -16,7 +16,8 @@
         {{#> contentWrapper}}
         {{> @partial-block }}
         {{/contentWrapper}}
-      </div> <!-- end row -->
+      </div>
+      <!-- end row -->
     </div>
 
     {{#>contentFooterWrapper}}
