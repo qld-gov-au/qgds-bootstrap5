@@ -1,6 +1,6 @@
 <footer class="qld-footer {{ variantClass }}" role="contentinfo">
-  <!-- Footer content container -->
-    <div class="container">
+    <!-- Footer content container -->
+    <div class="container-full">
         <div class="row">
             <div class="col title">
                 <h2 class="footer-site-name">{{ sitename }}</h2>
@@ -83,9 +83,11 @@
                                     {{#if feedbackForm.btnTitle}}{{feedbackForm.btnTitle}}{{else}}Leave your feedback{{/if}}
                                 </a>
                                 <div id="qg-footer-feedback" class="qg-footer-feedback__v2 collapse">
-                                    {{#if feedbackForm.formAttr }}<div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if this}}{{@key}}="{{this}}"{{else}}{{@key}}{{/if}} {{/each}}>
+                                    {{#if feedbackForm.formAttr }}
+                                    <div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if this}}{{@key}}="{{this}}"{{else}}{{@key}}{{/if}} {{/each}}>
                                     {{else}}
-                                    {{!default if not set       }}<div id="feedbackFormIO" data-formio data-formio-project-name="oldkihhcwbdtwye" data-formio-form-name="footerfeedbackcontactus" data-formio-env-url="api.forms.platforms.qld.gov.au" data-formio-createform-options="formioCreateFormOptions" data-formio-createform-controller="formioCreateFormController">
+                                    {{!default if not set}}
+                                    <div id="feedbackFormIO" data-formio data-formio-project-name="oldkihhcwbdtwye" data-formio-form-name="footerfeedbackcontactus" data-formio-env-url="api.forms.platforms.qld.gov.au" data-formio-createform-options="formioCreateFormOptions" data-formio-createform-controller="formioCreateFormController">
                                     {{/if}}
                                         <div class="qg-spinner" role="status">
                                             <div class="spinner-border"></div>

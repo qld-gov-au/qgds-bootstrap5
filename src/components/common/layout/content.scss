@@ -1,6 +1,14 @@
 .qld-content {
-    padding: 4rem 1.25rem 4.5rem 1.25rem;
-    @include media-breakpoint-up(lg) {
-        padding: 4rem 0 4.5rem;
-    }
+  padding: 4rem 1.25rem 4.5rem 1.25rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 4rem 0 4.5rem;
+  }
+}
+
+// Mimic's .container-fluid, but is capped at...
+// QGDS maximum width of 1312px (+2rem +2rem padding)
+.container-full {
+  @include make-container(4rem);
+  max-width: 1376px;
 }
