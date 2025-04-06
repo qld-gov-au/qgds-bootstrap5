@@ -52,11 +52,11 @@ export default {
       },
       icon: "icon-dot-grid",
       cta: {
-          description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
+          description: 'The call to action objects for the promotional panel.',
           control: 'object'
       },
       btn: {
-        description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
+        description: 'The button objects for the promotional panel.',
         control: 'object'
     }
     },
