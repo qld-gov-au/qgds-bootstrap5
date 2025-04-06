@@ -1,31 +1,42 @@
+{{!-- Button icon partial --}}
+{{#*inline "buttonIcon"~}}
+<span class="btn-icon {{iconClass}} {{iconPosition}}"></span>
+{{~/inline}} 
+
 {{#unless islink}}
-    <button class="btn {{variantClass}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
-    {{#if iconClass}}
-        {{#ifCond iconPosition '==' 'leading'}}
-            <span class="btn-icon {{iconClass}}"></span>
-        {{/ifCond}}
-    {{/if}}
-    {{label}}
-    {{#if iconClass}}
-        {{#ifCond iconPosition '==' 'trailing'}}
-            <span class="btn-icon {{iconClass}}"></span>
-        {{/ifCond}}
-    {{/if}}
-    </button>
+
+  <button class="btn {{variantClass}} {{label}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
+  {{#if iconClass~}}
+    {{#ifCond iconPosition '==' 'leading'}}
+      {{~>buttonIcon~}}
+    {{/ifCond}}
+  {{/if}}
+  
+  {{~label~}}
+  
+  {{#if iconClass~}}
+    {{#ifCond iconPosition '==' 'trailing'}}
+      {{>buttonIcon~}}
+    {{/ifCond}}
+  {{/if}}
+  </button>
 
 {{else}}
 
-    <a class="btn {{variantClass}} {{#if isdisabled}} disabled {{/if}}" {{#if isdisabled}} aria-disabled="true" {{/if}} href="{{href}}" target="{{target}}" {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
-        {{#if iconClass}}
-            {{#ifCond iconPosition '==' 'leading'}}
-                <span class="btn-icon {{iconClass}}"></span>
-            {{~/ifCond~}}
-        {{~/if~}}
-        {{~label~}}
-        {{#if iconClass}}
-            {{#ifCond iconPosition '==' 'trailing'}}
-                <span class="btn-icon {{iconClass}}"></span>
-            {{/ifCond}}
-        {{/if}}
-    </a>
-{{/unless }}
+  <a class="btn {{variantClass}} {{#if isdisabled}} disabled {{/if}}" {{#if isdisabled}}aria-disabled="true"{{/if}} href="{{href}}" target="{{target}}" {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
+  {{#if iconClass~}}
+    {{#ifCond iconPosition '==' 'leading'}}
+      {{~> buttonIcon~}}
+    {{/ifCond}}
+  {{/if}}
+  
+  {{~label~}}
+
+  {{#if iconClass~}}
+    {{#ifCond iconPosition '==' 'trailing'}}
+      {{~> buttonIcon~}}
+    {{/ifCond}}
+  {{/if}}
+  </a>
+
+{{/unless}}

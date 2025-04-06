@@ -54,11 +54,19 @@ a.btn.back-to-top {
     height: 1.5rem;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 0;
     background-color: var(--btn-icon-color);
     mask-image: var(--btn-icon);
     mask-size: contain;
     mask-position: center;
+    margin: 0;
+
+    &.leading {
+      margin-right: 0.5rem;
+    }
+
+    &.trailing {
+      margin-left: 0.5rem;
+    }
   }
 
   &:hover,

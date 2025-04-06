@@ -4,6 +4,7 @@
     "button": {
         "label": "Back to top",
         "islink": true,
-        "iconClass": "btn-icon"
+        "iconClass": "btn-icon",
+        "iconPosition": "trailing"
     }
 }
