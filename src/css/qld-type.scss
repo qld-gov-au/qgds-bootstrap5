@@ -67,7 +67,6 @@ $link-visited-color: $qld-link-visited;
   --qld-selection-bg: var(--qld-brand-primary);
   --qld-focus-color: var(--qld-light-blue);
 }
-
 .dark,
 .dark-alt,
 :root[data-bs-theme="dark"] {
@@ -87,6 +86,13 @@ $link-visited-color: $qld-link-visited;
   --qld-selection-bg: var(--qld-white);
 
   --qld-focus-color: var(--qld-dark-focus);
+}
+
+.alt {
+  --qld-body-bg: #E8E8E8;
+}
+.dark-alt {
+  --qld-body-bg: #05325F;
 }
 
 //Content and links

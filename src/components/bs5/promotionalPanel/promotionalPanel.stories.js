@@ -14,6 +14,52 @@ export default {
   
   render: (args) => new PromotionalPanel(args).html,
     args: defaultdata,
+    argTypes: {
+      type: {
+          description: 'The types of layouts that this component supports',
+          control: "select",
+          options: ["promo", "contained", "indent-text", "indent-img"],
+      },
+      variantClass: {
+        description: 'The types of themes that this component supports',
+        control: "select",
+        options: ["light", "alt", "dark", "dark-alt"],
+      },  
+      promoImage: {
+        control: "text",
+        description: "The image to be displayed in the promotional panel.",
+        defaultValue:"./assets/img/banner-example-3-to-2.jpg",
+      },
+      contentAlignment: {
+        description: 'Position of the content in the panel within this component',
+        control: "select",
+        options: ["content-left","content-right"],
+      },
+      title: {
+        control: "text",
+        description: "The title of the promotional panel.",
+        defaultValue: "Title goes here and has a maximum of 65 character limit",
+      },
+      abstract: {
+        control: "text",
+        description: "The abstract of the promotional panel.",
+        defaultValue:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis.",
+      },
+      body: {
+        control: "text",
+        description: "The body of the promotional panel.",
+        defaultValue:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis. Vel suspendisse mi quisque consequat aliquet egestas.",
+      },
+      icon: "icon-dot-grid",
+      cta: {
+          description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
+          control: 'object'
+      },
+      btn: {
+        description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
+        control: 'object'
+    }
+    },
 
   /**
    * Additional parameters for the story.
@@ -36,9 +82,37 @@ export default {
 /**
  * Default Link Columns story
  */
-export const Default = {
+// export const Default = {
+//     args: {
+//         ...defaultdata
+//     },
+// };
+
+export const Light = {
     args: {
-        ...defaultdata
+        ...defaultdata,
+        variantClass: "light",
+    },
+};
+
+export const Alternative = {
+    args: {
+        ...defaultdata,
+        variantClass: "alt",
+    },
+};
+
+export const Dark = {
+    args: {
+        ...defaultdata,
+        variantClass: "dark",
+    },
+};
+
+export const DarkAlternative = {
+    args: {
+        ...defaultdata,
+        variantClass: "dark-alt",
     },
 };
 
