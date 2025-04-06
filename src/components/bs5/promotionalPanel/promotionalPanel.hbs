@@ -1,0 +1,137 @@
+{{!-- <section class="qld__body {{type}} qld__promo-panel {{bodyBackground}} {{imageAlignment}}"
+    id="{{#if id_field}}{{{id_field}}}{{else}}promo-panel-{{assetid}}{{/if}}">
+    <div class="container-fluid">
+        <div class="qld__promo-panel__container row" {{#ifCond type '==' 'qld__body--full-image'
+            }}style="background-image: url({{promoImage}}); background-repeat: no-repeat; background-size: cover;"
+            {{/ifCond}}>
+            <div class="qld__promo-panel__container-image">
+                <div class="qld__promo-panel__image" {{#ifCond type '==' 'qld__body--full-image'
+                    }}style="background: transparent" {{else}}style="background-image: url({{promoImage}})"
+                    {{/ifCond}}></div>
+            </div>
+            <div class="qld__promo-panel__container-content">
+                <div class="qld__promo-panel__container-inner">
+                    {{#if icon}}
+                    <div class="qld__promo-panel__container-icon">
+                        <i class="qld__promo-panel__icon {{icon}}"></i>
+                    </div>
+                    {{/if}}
+                    {{#if title}}
+                    <h2 class="qld__display-xl">{{title}}</h2>
+                    {{/if}}
+                    {{#if abstract}}
+                    <div class="qld__abstract">
+                        {{{abstract}}}
+                    </div>
+                    {{/if}}
+                    {{#if body}}
+
+                    {{{body}}}
+                    {{/if}}
+                    {{#ifCond linkType '==' 'cta'}}
+                    <div>
+                        {{#if ctaLink}}
+                        <a class="qld__cta-link" href="{{ctaLink}}">{{ctaLinkTitle}}</a>
+                        {{else}}
+                        <a class="qld__cta-link" href="{{ctaLinkURL}}">{{ctaLinkTitle}}</a>
+                        {{/if}}
+                    </div>
+                    {{/ifCond}}
+                    {{#ifCond linkType '==' 'button'}}
+                    {{#ifAny primaryLinkTitle secondaryLinkTitle}}
+                    <ul class="qld__promo-panel__container-btn qld__banner__content--cta qld__link-list">
+
+                        {{#if primaryLinkTitle}}
+                        <li>
+                            <a class="btn btn-primary " data-type="class"
+                                href="{{primaryLink}}">{{primaryLinkTitle}}</a>
+                        </li>
+
+                        {{/if}}
+
+                        {{#if secondaryLinkTitle}}
+                        <li>
+                            <a class="btn btn-outline-secondary" data-type="class"
+                                href="{{secondaryLink}}">{{secondaryLinkTitle}}</a>
+                        </li>
+
+                        {{/if}}
+                    </ul>
+                    {{/ifAny}}
+                    {{/ifCond}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section> --}}
+
+<section class="qld-promo-panel {{type}} {{bodyBackground}} {{imageAlignment}}">
+    <div class="container-fluid">
+        <div class="row" 
+            {{#ifCond type '==' 'qld__body--full-image'}}
+                style="background-image: url({{promoImage}}); background-repeat: no-repeat; background-size: cover;"
+            {{/ifCond}}>
+            <div class="promo-panel-image-container">
+                <div class="promo-panel-image" 
+                    {{#ifCond type '==' 'qld__body--full-image'}}
+                        style="background: transparent" 
+                    {{else}}
+                        style="background-image: url({{promoImage}})"
+                    {{/ifCond}}>
+                </div>
+            </div>
+            <div class="promo-content-panel__container">
+                <div class="qld__promo-panel__container-inner">
+                    {{#if icon}}
+                        <div class="qld__promo-panel__container-icon">
+                            <i class="qld__promo-panel__icon {{icon}}"></i>
+                        </div>
+                    {{/if}}
+
+                    {{#if title}}
+                        <h2 class="qld__display-xl">{{title}}</h2>
+                    {{/if}}
+
+                    {{#if abstract}}
+                        <div class="qld__abstract">
+                            {{~{abstract}~}}
+                        </div>
+                    {{/if}}
+
+                    {{#if body}}
+                        {{~{body}~}}
+                    {{/if}}
+                    
+                    {{#ifCond linkType '==' 'cta'}}
+                        <div>
+                            {{#if ctaLink}}
+                            <a class="qld__cta-link" href="{{ctaLink}}">{{ctaLinkTitle}}</a>
+                            {{else}}
+                            <a class="qld__cta-link" href="{{ctaLinkURL}}">{{ctaLinkTitle}}</a>
+                            {{/if}}
+                        </div>
+                    {{/ifCond}}
+
+                    {{#ifCond linkType '==' 'button'}}
+                        {{#ifAny primaryLinkTitle secondaryLinkTitle}}
+                            <ul class="qld__promo-panel__container-btn qld__banner__content--cta qld__link-list">
+
+                                {{#if primaryLinkTitle}}
+                                    <li>
+                                        <a class="btn btn-primary " data-type="class" href="{{primaryLink}}">{{primaryLinkTitle}}</a>
+                                    </li>
+                                {{/if}}
+
+                                {{#if secondaryLinkTitle}}
+                                    <li>
+                                        <a class="btn btn-outline-secondary" data-type="class"  href="{{secondaryLink}}">{{secondaryLinkTitle}}</a>
+                                    </li>
+                                {{/if}}
+                            </ul>
+                        {{/ifAny}}
+                    {{/ifCond}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

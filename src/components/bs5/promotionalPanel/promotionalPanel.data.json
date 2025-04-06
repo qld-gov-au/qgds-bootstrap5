@@ -1,0 +1,14 @@
+{
+    "type": "qld__body--full-image",
+    "bodyBackground": "",
+    "promoImage": "./assets/img/banner-example-3-to-2.jpg",
+    "imageAlignment": "left",
+    "title": "Promotional Panel Title",
+    "abstract": "",
+    "body": "",
+    "linkType": "",
+    "ctaLinkTitle": "CTA Link Title",
+    "ctaLink": "CTA Link",
+    "ctaLinkURL": "/cta-link-url",
+    "primaryLinkTitle": "Link Title"
+  }
