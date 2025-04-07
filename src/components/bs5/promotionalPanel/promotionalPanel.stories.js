@@ -35,6 +35,11 @@ export default {
         control: "select",
         options: ["content-left","content-right"],
       },
+      icon: {
+        control: "select",
+        description: "Current list of usable icons available in the icon component.",
+        options: ["icon-dot-grid", "icon-phone", "icon-email", "icon-search"],
+      },
       title: {
         control: "text",
         description: "The title of the promotional panel.",
@@ -50,7 +55,6 @@ export default {
         description: "The body of the promotional panel.",
         defaultValue:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis. Vel suspendisse mi quisque consequat aliquet egestas.",
       },
-      icon: "icon-dot-grid",
       cta: {
           description: 'The call to action objects for the promotional panel.',
           control: 'object'
@@ -58,7 +62,7 @@ export default {
       btn: {
         description: 'The button objects for the promotional panel.',
         control: 'object'
-    }
+      }
     },
 
   /**
@@ -80,13 +84,14 @@ export default {
 };
 
 /**
- * Default Link Columns story
+ * Default Promotion Panel story
  */
-// export const Default = {
-//     args: {
-//         ...defaultdata
-//     },
-// };
+
+export const Default = {
+    args: {
+        ...defaultdata
+    },
+};
 
 export const Light = {
     args: {
