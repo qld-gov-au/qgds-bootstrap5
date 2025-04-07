@@ -230,8 +230,6 @@
       }
       .content-panel {
         border-radius: 0 !important;
-        // padding-inline: 2rem;
-        // padding-block: 2.5rem;
       }
       &.content-right {
         .image-panel {
@@ -248,17 +246,13 @@
       gap: 1.5rem;
     }
     &.indent .row {
-      // .image-panel {
-      //   .promo-panel-image {
-      //     border-radius: 0 !important;
-      //   }
-      // }
       .content-panel {
         padding-inline: 2rem;
         padding-block: 2.5rem;
       }
     }
   }
+  
   // @include media-breakpoint-down(sm) {
   // This is done for iPhone Max screen width being 430px and
   // our current sm is set to 400px.
@@ -298,7 +292,7 @@
       .promo-panel-image {
         border-radius: 0.5rem;
         width: 100%;
-        height: 150px; // look @
+        height: 9.375rem;
       }
     }
     &.indent .row,
