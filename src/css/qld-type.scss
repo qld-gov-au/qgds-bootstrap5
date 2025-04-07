@@ -88,6 +88,13 @@ $link-visited-color: $qld-link-visited;
   --qld-focus-color: var(--qld-dark-focus);
 }
 
+.alt {
+  --qld-body-bg: #E8E8E8;
+}
+.dark-alt {
+  --qld-body-bg: #05325F;
+}
+
 //Content and links
 body {
   -webkit-font-smoothing: antialiased;
