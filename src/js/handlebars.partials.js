@@ -15,6 +15,7 @@ import contentFooterWrapper from "../components/bs5/contentFooterWrapper/content
 import contentWrapper from "../components/bs5/contentWrapper/contentWrapper.hbs?raw";
 import correctincorrect from "../components/bs5/correctincorrect/correctincorrect.hbs?raw";
 import dateinput from "../components/bs5/dateinput/dateinput.hbs?raw";
+import directionLinks from "../components/bs5/directionLinks/directionLinks.hbs?raw";
 import footer from "../components/bs5/footer/footer.hbs?raw";
 import footerForgov from "../components/bs5/footer/footerForgov.hbs?raw";
 import formcheck from "../components/bs5/formcheck/formcheck.hbs?raw";
@@ -65,6 +66,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("contentWrapper", contentWrapper);
   handlebars.registerPartial("correctincorrect", correctincorrect);
   handlebars.registerPartial("dateinput", dateinput);
+  handlebars.registerPartial("directionLinks", directionLinks);
   handlebars.registerPartial("footer", footer);
   handlebars.registerPartial("footerForgov", footerForgov);
   handlebars.registerPartial("formcheck", formcheck);

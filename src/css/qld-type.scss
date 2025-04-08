@@ -1,6 +1,5 @@
 //Typography
-$font-family-sans-serif:
-  "Noto Sans",
+$font-family-sans-serif: "Noto Sans",
   system-ui,
   -apple-system,
   "Segoe UI",
@@ -65,7 +64,7 @@ $link-visited-color: $qld-link-visited;
   --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
   --qld-selection-color: var(--qld-white);
   --qld-selection-bg: var(--qld-brand-primary);
-  --qld-focus-color: var(--qld-light-blue);
+  --qld-focus-color: var(--qld-light-focus);
 }
 
 .dark,
@@ -100,8 +99,10 @@ body {
     margin-bottom: 1.25rem;
   }
 
-  ul, ol, p {
-      line-height: 1.75;
+  ul,
+  ol,
+  p {
+    line-height: 1.75;
   }
 
   li {
@@ -111,8 +112,22 @@ body {
 }
 
 // Apply correct bold font-weight
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
-strong, b, th, dt {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+strong,
+b,
+th,
+dt {
   font-weight: $font-weight-bold;
 }
 
@@ -140,7 +155,12 @@ dl.qld-content-dates {
 
 // Light, Light alt
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--#{$prefix}color-default-color-light-text-heading);
 }
 
@@ -155,57 +175,65 @@ a.nav-link {
     text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default-hover);
   }
 
-    &:visited {
-        color: var(--#{$prefix}color-default-color-light-link-visited);
-        text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited);
-        &:hover {
-            text-decoration-thickness: var(--qld-link-underline-thickness-hover);
-            text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited-hover);
-        }
-    }
+  &:visited {
+    color: var(--#{$prefix}color-default-color-light-link-visited);
+    text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited);
 
-    &:focus {
-        outline: 2px solid var(--qld-focus-color);
-        outline-offset: 2px;
+    &:hover {
+      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+      text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited-hover);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid var(--qld-focus-color);
+    outline-offset: 2px;
   }
 }
 
 caption {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 // Dark, dark alt
 .dark,
 .dark-alt {
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: var(--#{$prefix}color-default-color-dark-text-heading);
   }
 
 
   body & {
-      color: var(--qld-body-color);
+    color: var(--qld-body-color);
   }
-        a, a.nav-link {
-          text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
 
-          &:visited {
-              color: var(--#{$prefix}color-default-color-dark-link-visited);
-              text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-visited);
+  a,
+  a.nav-link {
+    text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
 
-              &:hover {
-                text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
-              }
-          }
-        }
+    &:visited {
+      color: var(--#{$prefix}color-default-color-dark-link-visited);
+      text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-visited);
+
+      &:hover {
+        text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+      }
     }
+  }
+}
 
 caption {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
 
 }
 
@@ -229,4 +257,3 @@ a.nostyle {
   background: var(--qld-selection-bg);
   text-shadow: none;
 }
-
