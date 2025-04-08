@@ -50,7 +50,7 @@ export default {
 };
 
 /**
- * Default Link Columns story
+ * Default Link Columns story With Default Data
  */
 export const Default = {
   args: {
@@ -58,6 +58,22 @@ export const Default = {
   },
 };
 
+/**
+ * Link Columns with no all_link data.
+ */
+export const NoViewAllLink = {
+  args: {
+    ...defaultdata,
+    data: {
+      ...defaultdata.data,
+      all_link: null,
+    },
+  },
+};
+
+/**
+ * Link Columns in 'Light' colour theme.
+ */
 export const Light = {
   args: {
     ...defaultdata,
@@ -65,6 +81,9 @@ export const Light = {
   },
 };
 
+/**
+ * Link Columns in 'Alternative' colour theme.
+ */
 export const Alternative = {
   args: {
     ...defaultdata,
@@ -72,6 +91,9 @@ export const Alternative = {
   },
 };
 
+/**
+ * Link Columns in 'Dark' colour theme.
+ */
 export const Dark = {
   args: {
     ...defaultdata,
@@ -79,6 +101,9 @@ export const Dark = {
   },
 };
 
+/**
+ * Link Columns in 'Dark Alternative' colour theme.
+ */
 export const DarkAlternative = {
   args: {
     ...defaultdata,
