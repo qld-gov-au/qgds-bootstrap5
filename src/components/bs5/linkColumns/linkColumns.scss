@@ -61,7 +61,7 @@
     }
   }
   .nav-item {
-    box-shadow: 0 1px 0 var(--qld-border-color); // var(--#{$prefix}border-colour);
+    box-shadow: 0 1px 0 var(--qld-border-color); 
     max-width: 46rem;
     display: flex;
     gap: 1rem;
@@ -87,7 +87,7 @@
         mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='currentColor' d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
         mask-repeat: no-repeat;
         mask-position: right center;
-        background-color: var(--qld-icon-color); //var(--#{$prefix}link-icon-colour);
+        background-color: var(--qld-icon-color);
         transition: margin-inline-end 0.2s ease, width 0.2s ease;
         
         .ie8 &,
@@ -101,7 +101,7 @@
         text-decoration-thickness: 2px;
         transition: text-decoration-thickness 0.2s ease;
         &::after {
-          background-color: var(--qld-icon-hover-color); // var(--#{$prefix}link-icon-hover-colour);
+          background-color: var(--qld-icon-hover-color);
           margin-inline-end: 0rem;
           width: 2.5rem;
           transition: margin-inline-end 0.2s ease, width 0.2s ease;
