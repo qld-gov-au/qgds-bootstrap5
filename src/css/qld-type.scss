@@ -65,8 +65,8 @@ $link-visited-color: $qld-link-visited;
   --qld-selection-color: var(--qld-white);
   --qld-selection-bg: var(--qld-brand-primary);
   --qld-focus-color: var(--qld-light-focus);
-  --qld-icon-color: var(--qld-light-action-secondary);
-  --qld-icon-hover-color: var(--qld-light-action-secondary-hover);
+  --qld-action-icon-color: var(--qld-light-action-secondary);
+  --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
 }
 
 .dark,
@@ -83,8 +83,8 @@ $link-visited-color: $qld-link-visited;
   --qld-selection-color: var(--qld-brand-primary);
   --qld-selection-bg: var(--qld-white);
   --qld-focus-color: var(--qld-dark-focus);
-  --qld-icon-color: var(--qld-dark-action-secondary);
-  --qld-icon-hover-color: var(--qld-dark-action-secondary-hover);
+  --qld-action-icon-color: var(--qld-dark-action-secondary);
+  --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
 
 }
 
