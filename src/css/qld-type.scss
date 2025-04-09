@@ -65,6 +65,8 @@ $link-visited-color: $qld-link-visited;
   --qld-selection-color: var(--qld-white);
   --qld-selection-bg: var(--qld-brand-primary);
   --qld-focus-color: var(--qld-light-focus);
+  --qld-icon-color: var(--qld-light-action-secondary);
+  --qld-icon-hover-color: var(--qld-light-action-secondary-hover);
 }
 
 .dark,
@@ -73,21 +75,36 @@ $link-visited-color: $qld-link-visited;
   --qld-headings-color: #fff;
   --qld-body-color: #fff;
   --qld-body-bg: var(--qld-brand-primary);
-
   --qld-link-color: #fff;
   --qld-link-color-rgb: 255, 255, 255;
-
   --qld-link-hover-color: #fff;
   --qld-link-hover-color-rgb: 255, 255, 255;
-
   --qld-link-visited: var(--qld-link-visited-dark);
-
   --qld-selection-color: var(--qld-brand-primary);
   --qld-selection-bg: var(--qld-white);
-
   --qld-focus-color: var(--qld-dark-focus);
+  --qld-icon-color: var(--qld-dark-action-secondary);
+  --qld-icon-hover-color: var(--qld-dark-action-secondary-hover);
+
 }
 
+.default {
+  --qld-border-color: var(--qld-light-border);
+}
+.light {
+  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
+}
+.alt {
+  --qld-body-bg: #E8E8E8;
+  --qld-border-color: var(--qld-soft-grey);
+}
+.dark {
+  --qld-border-color: var(--qld-dark-border);
+}
+.dark-alt {
+  --qld-body-bg: #05325F;
+  --qld-border-color: var(--qld-dark-alt-border);
+}
 //Content and links
 body {
   -webkit-font-smoothing: antialiased;
