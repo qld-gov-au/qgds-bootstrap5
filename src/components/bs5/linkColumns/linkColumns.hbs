@@ -1,6 +1,17 @@
 {{#if data}}
-    <section class="link-column {{ theme}}">
-        <ul class="nav col-{{columns}}">
+    <section class="link-column {{theme}}">
+        <ul class="nav {{#if items_flow_vert}}col-v-{{columns}}{{else}}col-{{columns}}{{/if}}">
+            {{#ifCond items_flow '==' 'horizontal'}}
+                <li class="nav-item all-link">
+                    {{> callToAction 
+                        label=(isdefined all_link.value "View all")
+                        href=all_link.url 
+                        target=all_link.target 
+                        class=all_link.class 
+                        arialabel=all_link.value 
+                        id=all_link.id}}
+                </li>
+            {{/ifCond}}
             {{> linkColBase data}}
         </ul>
     </section>

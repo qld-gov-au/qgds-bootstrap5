@@ -2,6 +2,7 @@
     "id": "link-column-1",
     "theme": "",
     "columns": "3",
+    "items_flow_vert": true,
     "data": {
         "all_link": {
             "url": "#",
