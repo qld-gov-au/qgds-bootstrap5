@@ -182,6 +182,12 @@ export default function handlebarsHelpers(handlebars) {
     return durationString;
   });
 
+  // helper for extending components to set overridable data values
+  // if the value is not set in the component data.json, it will use the hds data value
+  handlebars.registerHelper('isdefined', function (value, defaultValue) {
+    return value !== undefined ? value : defaultValue;
+  });
+
   /**
    * Helper for extending components to set overridable data values
    * If the value is not set in the component data.json, it will use the hds data value
@@ -239,6 +245,7 @@ export default function handlebarsHelpers(handlebars) {
     return !Array.isArray(theArray) ? theArray : theArray.join(separator);
   });
   
+
 }
 
 if(typeof(Handlebars) !== 'undefined') {

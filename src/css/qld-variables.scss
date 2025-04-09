@@ -219,6 +219,16 @@ $project-colors: (
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
+
+  //Neutrals
+  "neutral-black": $core-default-color-neutral-black,
+  "neutral-darkest": $core-default-color-neutral-darkest,
+  "neutral-darker": $core-default-color-neutral-darker,
+  "neutral-dark": $core-default-color-neutral-dark,
+  "neutral-light": $core-default-color-neutral-light,
+  "neutral-lighter": $core-default-color-neutral-lighter,
+  "neutral-lightest": $core-default-color-neutral-lightest,
+  "neutral-white": $core-default-color-neutral-white
 );
 
 // Merge maps
