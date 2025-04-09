@@ -73,12 +73,12 @@
     }
   }
   
-  .col-v-1 {
+  .col-vert-1 {
     display: block;
     column-count: 1;
     column-gap: 1rem;
   }
-  .col-v-2 {
+  .col-vert-2 {
     display: block;
     column-count: 2;
     column-gap: 1rem;
@@ -86,7 +86,7 @@
       column-count: 1;
     }
   }
-  .col-v-3 {
+  .col-vert-3 {
     display: block;
     column-count: 3;
     column-gap: 1rem;
