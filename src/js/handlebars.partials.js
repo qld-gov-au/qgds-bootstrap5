@@ -2,6 +2,7 @@
 /** THIS IS A GENERATED FILE **/
 
 import accordion from "../components/bs5/accordion/accordion.hbs?raw";
+import backToTop from "../components/bs5/backToTop/backToTop.hbs?raw";
 import banner from "../components/bs5/banner/banner.hbs?raw";
 import blockquote from "../components/bs5/blockquote/blockquote.hbs?raw";
 import breadcrumbs from "../components/bs5/breadcrumbs/breadcrumbs.hbs?raw";
@@ -53,6 +54,7 @@ import video from "../components/bs5/video/video.hbs?raw";
  */
 export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("accordion", accordion);
+  handlebars.registerPartial("backToTop", backToTop);
   handlebars.registerPartial("banner", banner);
   handlebars.registerPartial("blockquote", blockquote);
   handlebars.registerPartial("breadcrumbs", breadcrumbs);
