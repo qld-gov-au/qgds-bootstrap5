@@ -102,14 +102,14 @@ $link-visited-color: $qld-link-visited;
   --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
 }
 .alt {
-  --qld-body-bg: #E8E8E8;
+  --qld-body-bg: var(--qld-light-alt-background);
   --qld-border-color: var(--qld-soft-grey);
 }
 .dark {
   --qld-border-color: var(--qld-dark-border);
 }
 .dark-alt {
-  --qld-body-bg: #05325F;
+  --qld-body-bg: var(--qld-dark-alt-background);
   --qld-border-color: var(--qld-dark-alt-border);
 }
 
