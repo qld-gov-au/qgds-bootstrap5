@@ -51,9 +51,6 @@ $link-visited-color: $qld-link-visited;
 .light,
 .alt,
 :root {
-  --qld-link-underline-offset: 0.3rem;
-  --qld-link-underline-thickness: 0.5px;
-  --qld-link-underline-thickness-hover: 2px;
   --qld-headings-color: #{$headings-color};
   --qld-body-color: #{$body-color};
   --qld-body-font-weight: #{$body-font-weight};
@@ -62,9 +59,18 @@ $link-visited-color: $qld-link-visited;
   --qld-link-color-rgb: #{to-rgb($link-color)};
   --qld-link-hover-color: var(--qld-link-color);
   --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
+  --qld-link-underline-offset: 0.3rem;
+  --qld-link-underline-thickness: 0.5px;
+  --qld-link-underline-thickness-hover: 2px;
+  --qld-link-underline: #{$color-default-color-light-underline-default};
+  --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
+  --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
+  --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
   --qld-selection-color: var(--qld-white);
   --qld-selection-bg: var(--qld-brand-primary);
   --qld-focus-color: var(--qld-light-focus);
+  --qld-action-icon-color: var(--qld-light-action-secondary);
+  --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
 }
 
 .dark,
@@ -73,19 +79,38 @@ $link-visited-color: $qld-link-visited;
   --qld-headings-color: #fff;
   --qld-body-color: #fff;
   --qld-body-bg: var(--qld-brand-primary);
-
   --qld-link-color: #fff;
   --qld-link-color-rgb: 255, 255, 255;
-
   --qld-link-hover-color: #fff;
   --qld-link-hover-color-rgb: 255, 255, 255;
-
   --qld-link-visited: var(--qld-link-visited-dark);
-
+  --qld-link-underline: #{$color-default-color-dark-underline-default};
+  --qld-link-underline-hover: #{$color-default-color-dark-underline-default-hover};
+  --qld-link-underline-visited: #{$color-default-color-dark-underline-visited};
+  --qld-link-underline-visited-hover: #{$color-default-color-dark-underline-visited-hover};
   --qld-selection-color: var(--qld-brand-primary);
   --qld-selection-bg: var(--qld-white);
-
   --qld-focus-color: var(--qld-dark-focus);
+  --qld-action-icon-color: var(--qld-dark-action-secondary);
+  --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
+}
+
+.default {
+  --qld-border-color: var(--qld-light-border);
+}
+.light {
+  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
+}
+.alt {
+  --qld-body-bg: #E8E8E8;
+  --qld-border-color: var(--qld-soft-grey);
+}
+.dark {
+  --qld-border-color: var(--qld-dark-border);
+}
+.dark-alt {
+  --qld-body-bg: #05325F;
+  --qld-border-color: var(--qld-dark-alt-border);
 }
 
 //Content and links
