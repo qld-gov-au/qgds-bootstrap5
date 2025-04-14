@@ -42,7 +42,7 @@
   ],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
-    "bootstrap": "^5.3.1",
+    "bootstrap": "^5.3.5",
     "material-symbols": "^0.29.3"
   },
   "devDependencies": {
