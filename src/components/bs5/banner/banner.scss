@@ -6,14 +6,9 @@
 // 4. Define Banner Text, Content, Cards and Calls to Action
 // ==========================================================================
 
-
 // 1. Define Banner CSS propeties
 // ==========================================================================
 .qld-banner {
-
-  //Padding and margins
-  --#{$prefix}banner-padding-top: 1rem;
-  --#{$prefix}banner-padding-bottom: 2rem;
 
   //Text Color
   --#{$prefix}banner-title-color: var(--#{$prefix}light-text-heading);
@@ -31,7 +26,6 @@
   // Colour Palette changes 
   // based on parent class (.qld-banner.light, .light-alt, .dark, .dark-alt)
   &.light {
-    --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text-text);
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light.png);
     --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-light.jpg);
@@ -39,7 +33,6 @@
   }
 
   &.light-alt {
-    --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text-text);
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-alt-background);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light-alt.png);
     --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-light-alt.jpg);
@@ -48,8 +41,6 @@
 
   // .dark only
   &.dark {
-    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text-heading);
-    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text-text);
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
     --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-dark.jpg);
@@ -58,8 +49,6 @@
 
   // .dark-alt only
   &.dark-alt {
-    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text-heading);
-    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text-text);
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
     --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark-alt.png);
     --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-dark-alt.jpg);
@@ -68,6 +57,10 @@
 
   &.dark,
   &.dark-alt {
+    // Dark and Dark Alt share the same text color
+    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text-heading);
+    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text-text);
+
     .breadcrumb {
       // Variables scoped in the .breadcrumbs.scss component
       // Re-scoping when breadcrumbs are nested inside a .banner-* parent class
@@ -79,23 +72,19 @@
   }
 
 
-  // Banner margins and padding change based on viewport
+  //Padding and margins
+  --#{$prefix}banner-padding-top: 1rem;
+  --#{$prefix}banner-padding-bottom: 2rem;
 
   &.no-banner {
-    // The "no-banner" variant contains only breadcrumbs
-    --#{$prefix}banner-padding-top: 1rem;
-    --#{$prefix}banner-padding-bottom: 1rem;
+    --#{$prefix}banner-padding-top: 2.25rem;
+    --#{$prefix}banner-padding-bottom: 2.25rem;
   }
 
   // Medium viewports and above
   @include media-breakpoint-up(md) {
     --#{$prefix}banner-padding-top: 1.5rem;
     --#{$prefix}banner-padding-bottom: 1.5rem;
-
-    &.no-banner {
-      --#{$prefix}banner-padding-top: 1.5rem;
-      --#{$prefix}banner-padding-bottom: 1.5rem;
-    }
   }
 
   // Large viewports and above
@@ -112,6 +101,7 @@
   @include media-breakpoint-up(xl) {
     --#{$prefix}banner-padding-bottom: 4rem;
   }
+
 }
 
 
@@ -123,8 +113,27 @@
   position: relative;
   background-color: var(--#{$prefix}banner-bg-color);
 
-  .banner-inner {
+  //Patch until .container-fluid updates are made globally in new feature branch
+  .container-fluid {
+    --container-fluid-max-width: 86rem;
+    --container-fluid-px: 1rem;
 
+    @include media-breakpoint-up(md) {
+      --container-fluid-px: 2rem;
+    }
+
+    max-width: var(--container-fluid-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-fluid-px);
+    padding-right: var(--container-fluid-px);
+
+  }
+
+  // End .container-fluid patch
+
+
+  .banner-inner {
     padding-top: var(--#{$prefix}banner-padding-top);
     padding-bottom: var(--#{$prefix}banner-padding-bottom);
 
@@ -165,23 +174,24 @@
         grid-column: 8 / span 5; // Spans 5 columns (right side)
         grid-row: 1 / span 2; // Spans rows 1 and 2
       }
-
     }
   }
 }
+
 
 // 3. Define Banner Variants and Image Treatments
 // ==========================================================================
 .qld-banner {
 
+  // Banner hero image is hidden by default 
+  .banner-image {
+    display: none;
+    background-image: none;
+  }
+
   /* Banner Backgrounds (.with-texture, .with-bg-image) are patterns */
   &.with-texture {
     background-image: var(--#{$prefix}banner-bg-texture);
-
-    .banner-image {
-      display: none;
-      background-image: none;
-    }
   }
 
   &.with-bg-image {
@@ -189,13 +199,6 @@
     background-position: 80% 50%; //right center
     background-repeat: no-repeat;
     background-size: cover;
-
-    // The .banner-image container holds static "hero" images. 
-    // We hide it when .with-bg-image is applied. .with-bg-image adds a background image to the container.
-    .banner-image {
-      display: none;
-      background-image: none;
-    }
 
     @include media-breakpoint-down(lg) {
       background-position-x: 70%;
@@ -216,8 +219,8 @@
           content: "";
           position: relative;
           display: block;
-          margin-left: calc(var(--qld-gutter-x) * -1);
-          margin-right: calc(var(--qld-gutter-x) * -1);
+          margin-left: calc(var(--container-fluid-px) * -1);
+          margin-right: calc(var(--container-fluid-px) * -1);
           height: 93px;
           background-image: var(--#{$prefix}banner-bg-image);
           background-position: center center;
@@ -227,7 +230,6 @@
     }
   }
 
-
   /* 
     Banner Images are static hero images that sit with the content.
 
@@ -236,18 +238,16 @@
     - .align-grid: Image is full width and aligns to the grid
     - .align-right: Image is full height and aligns to the right
     - .with-gradient: Image has a gradient overlay - applies to align-right only
-
   */
 
   &.with-hero-image {
-
     .banner-image {
       // Pins .banner-image frame to top and bottom rails of the banner
       margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
       margin-bottom: calc(var(--#{$prefix}banner-padding-bottom) * -1);
-      position: relative;
       display: flex;
-      align-items: center; //Vertically centers the image
+      position: relative;
+      align-items: center;
       justify-content: center;
       overflow: hidden;
 
@@ -256,9 +256,7 @@
         aspect-ratio: 3 / 2;
         width: 100%;
         height: auto;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
+        background: center center / cover no-repeat;
       }
 
       //Align to grid: .banner-image.align-grid 
@@ -269,62 +267,11 @@
         }
       }
 
-      @include media-breakpoint-up(md) {
-
-        overflow: hidden;
-
-        .banner-image {
-
-          // Removes relative positioning from this container. 
-          // This allows the image to break out of the grid and fallback to .qld-banner container's relative position
-          position: unset;
-
-          &.align-right {
-
-            .banner-image-inner {
-              aspect-ratio: unset;
-              position: absolute;
-              top: 0;
-              bottom: 0;
-
-              left: 57.5%; // 7 columns * 8.3333% = 57.5%
-              right: 0;
-              width: auto;
-
-              // Image styling
-              background-size: cover;
-              background-position: center;
-              background-repeat: no-repeat;
-            }
-
-            // Left (Solid) to right (transperent) gradient overlay, needs .align-right class on same container
-            // e.g: .banner-image.align-right.with-gradient
-
-            &.with-gradient {
-              .banner-image-inner:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-image: linear-gradient(to right, var(--#{$prefix}banner-bg-color), transparent);
-              }
-            }
-          }
-        }
-      }
-
-      // .banner-image on small viewports (mobile and tablet)
+      // On tablets and mobile, the hero-image is full width for all variants.
       @include media-breakpoint-down(md) {
+        //Overcome the left and right gutters      
+        margin: 0 calc(var(--container-fluid-px) * -1);
 
-        //Overcome the left and right gutters
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: calc(var(--qld-gutter-x) * -1);
-        margin-right: calc(var(--qld-gutter-x) * -1);
-
-        // On tablets and mobile, the image is full width for all variants.
         &.align-grid,
         &.align-right {
           .banner-image-inner {
@@ -340,7 +287,6 @@
       overflow: hidden;
 
       .banner-image {
-
         &.align-right {
 
           // Removes relative positioning from this container. 
@@ -358,9 +304,7 @@
             width: auto;
 
             // Align right image styling
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: center / cover no-repeat;
           }
 
           // Left (Solid) to right (transaperent) gradient overlay, needs .align-right class on same container
@@ -398,6 +342,11 @@
     &:has(.banner-abstract) {
       --#{$prefix}banner-padding-bottom: 3rem;
     }
+
+    @include media-breakpoint-down(md) {
+      padding-right: 0;
+    }
+
   }
 
   .banner-title-wrap {
@@ -481,6 +430,11 @@
       padding-bottom: 0;
       color: var(--#{$prefix}banner-breadcrumb-color);
     }
+
+    @include media-breakpoint-down(md) {
+      padding-bottom: 0.75rem;
+    }
+
   }
 
   .banner-extra {
@@ -492,10 +446,22 @@
   .banner-cta {
     margin-top: 1.5rem;
 
+    //CTA Buttons
     .cta-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+    }
+
+    //Stack buttons at very small viewports
+    @include media-breakpoint-down(sm) {
+      .cta-buttons {
+        flex-direction: column;
+
+        .btn {
+          flex-grow: 1;
+        }
+      }
     }
 
     //Cards
@@ -505,35 +471,13 @@
       gap: 1rem;
       max-width: 71%;
     }
-  }
 
-
-  @include media-breakpoint-down(lg) {
-    .cta-cards .card {
-      max-width: 100%;
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-
-    .banner-breadcrumbs {
-      padding-bottom: 0.75rem;
-    }
-
-    .banner-content {
-      padding-right: 0;
-    }
-
-  }
-
-  //Stack buttons at very small viewports
-  @include media-breakpoint-down(sm) {
-    .cta-buttons {
-      flex-direction: column;
-
-      .btn {
-        flex-grow: 1;
+    @include media-breakpoint-down(lg) {
+      .cta-cards .card {
+        max-width: 100%;
       }
     }
+
   }
+
 }

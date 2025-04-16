@@ -72,23 +72,16 @@ export default {
       }
 
       // Provide cards or buttons if callToAction is set to true
-      if (args.callToAction === "buttons") {
-        args.buttons = exampleButtonData;
-      }
-
-      if (args.callToAction === "cards") {
-        args.cards = exampleCardData;
-      }
-
+      args.cards = args.callToAction === "cards" ? exampleCardData : false;
+      args.buttons =
+        args.callToAction === "buttons" ? exampleButtonData : false;
       // Return the updated story
       return Story({ args: { ...args } });
     },
   ],
 
   argTypes: {
-    // Disable controls for multiple fields
-    // callToAction: { table: { disable: true } },
-    //image: { table: { disable: true } },
+    // Disable controls for these fields
     breadcrumbs: { table: { disable: true } },
     cards: { table: { disable: true } },
     buttons: { table: { disable: true } },
