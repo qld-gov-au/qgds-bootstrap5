@@ -236,7 +236,8 @@ $project-colors: (
 
   // Desing Tokens V1 dependent variables
   "light-accent": $color-default-color-light-accent-design-accent,
-  "dark-accent": $color-default-color-dark-accent-design-accent
+  "dark-accent": $color-default-color-dark-accent-design-accent,
+
   //Neutrals
   "neutral-black": $core-default-color-neutral-black,
   "neutral-darkest": $core-default-color-neutral-darkest,
@@ -245,7 +246,7 @@ $project-colors: (
   "neutral-light": $core-default-color-neutral-light,
   "neutral-lighter": $core-default-color-neutral-lighter,
   "neutral-lightest": $core-default-color-neutral-lightest,
-  "neutral-white": $core-default-color-neutral-white
+  "neutral-white": $core-default-color-neutral-white,
 );
 
 // Merge maps
