@@ -10,6 +10,7 @@ import { positionQuickExit, initQuickexit } from "./../components/bs5/quickexit/
 import { displayFeedbackForm } from "./../components/bs5/footer/footer.functions";
 import { toggleSearch } from "./../components/bs5/header/header.functions";
 import { showSuggestions, submitSearchForm } from "./../components/bs5/searchInput/search.functions";
+import { backToTop } from "./../components/bs5/backToTop/backToTop.functions";
 
 window.addEventListener("scroll", positionQuickExit, true);
 window.addEventListener("resize", positionQuickExit, true);
@@ -18,6 +19,7 @@ window.addEventListener("keydown", initQuickexit, true);
 
 window.addEventListener("DOMContentLoaded", () => {
   (() => {
+    backToTop();
     // Footer FormIO Action
     // Note: This is added here, as there is an issue with breadcrumbShorten() function.
     //       Will move this once that issue is fixed.

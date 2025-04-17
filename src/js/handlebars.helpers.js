@@ -198,6 +198,12 @@ export default function handlebarsHelpers(handlebars) {
     return durationString;
   });
 
+  // helper for extending components to set overridable data values
+  // if the value is not set in the component data.json, it will use the hds data value
+  handlebars.registerHelper('isdefined', function (value, defaultValue) {
+    return value !== undefined ? value : defaultValue;
+  });
+
   /**
    * Used to get class names added to an element based on their boolean values in an array
    * @param {string} names - Comma-separated list of class names to check for
@@ -240,6 +246,7 @@ export default function handlebarsHelpers(handlebars) {
     separator = typeof separator === "string" ? separator : " ";
     return arr.join(separator);
   });
+
 }
 
 if (typeof Handlebars !== "undefined") {
