@@ -16,8 +16,8 @@
 
   //Default Backgrounds, texture and background image
   --#{$prefix}banner-bg-color: var(--#{$prefix}default-background);
-  --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-default.png);
-  --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-default.jpg);
+  --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-default.png);
+  --#{$prefix}banner-bg-image: url(../img/banner-desktop-default.jpg);
   --#{$prefix}banner-bg-custom-color: #ebebeb;
 
   //Drop shadow for "block style" banner title
@@ -27,31 +27,31 @@
   // based on parent class (.qld-banner.light, .light-alt, .dark, .dark-alt)
   &.light {
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
-    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light.png);
-    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-light.jpg);
+    --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-light.png);
+    --#{$prefix}banner-bg-image: url(../img/banner-desktop-light.jpg);
     --#{$prefix}banner-bg-custom-color: #e6edf5;
   }
 
   &.light-alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-alt-background);
-    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-light-alt.png);
-    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-light-alt.jpg);
+    --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-light-alt.png);
+    --#{$prefix}banner-bg-image: url(../img/banner-desktop-light-alt.jpg);
     --#{$prefix}banner-bg-custom-color: #dadada;
   }
 
   // .dark only
   &.dark {
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
-    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark.png);
-    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-dark.jpg);
+    --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark.png);
+    --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark.jpg);
     --#{$prefix}banner-bg-custom-color: #09549f;
   }
 
   // .dark-alt only
   &.dark-alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
-    --#{$prefix}banner-bg-texture: url(../assets/img/banner-texture-tile-dark-alt.png);
-    --#{$prefix}banner-bg-image: url(../assets/img/banner-desktop-dark-alt.jpg);
+    --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark-alt.png);
+    --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark-alt.jpg);
     --#{$prefix}banner-bg-custom-color: #0c3b71;
   }
 
@@ -213,7 +213,7 @@
       //On mobile, create a gap at top of .banner-inner for the background image
       .banner-content {
         position: relative;
-        --#{$prefix}banner-bg-image: url(../assets/img/banner-mobile-pattern.png);
+        --#{$prefix}banner-bg-image: url(../img/banner-mobile-pattern.png);
 
         &:before {
           content: "";
