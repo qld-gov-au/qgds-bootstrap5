@@ -72,7 +72,7 @@
   }
 
 
-  //Padding and margins
+  //Padding and margins (mobile first)
   --#{$prefix}banner-padding-top: 1rem;
   --#{$prefix}banner-padding-bottom: 2rem;
 
@@ -83,8 +83,8 @@
 
   // Medium viewports and above
   @include media-breakpoint-up(md) {
-    --#{$prefix}banner-padding-top: 1.5rem;
-    --#{$prefix}banner-padding-bottom: 1.5rem;
+    --#{$prefix}banner-padding-top: 2rem;
+    --#{$prefix}banner-padding-bottom: 2rem;
   }
 
   // Large viewports and above

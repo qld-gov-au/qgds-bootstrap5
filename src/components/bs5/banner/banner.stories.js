@@ -177,17 +177,9 @@ export const Default = {
     title: "Heading 1",
     subtitle: "",
     titleClasses: [],
-    abstract:
-      "Renew your licence at a customer service centre, government office or police station.",
+    abstract: false,
     backgroundType: "",
     callToAction: false,
-  },
-
-  argTypes: {
-    // Remove default controls that aren't needed here
-    // callToAction: { table: { disable: true } },
-    // image: { table: { disable: true } },
-    // "image.classes": { table: { disable: true } },
   },
 };
 

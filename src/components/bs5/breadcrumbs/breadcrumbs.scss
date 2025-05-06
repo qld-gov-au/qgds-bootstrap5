@@ -1,40 +1,37 @@
-//Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
+// Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
 
-$breadcrumb-divider-color: $qld-brand-secondary-dark;
-$breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='#{$breadcrumb-divider-color}' d='M234.8 36.25c3.438 3.141 5.156 7.438 5.156 11.75c0 3.891-1.406 7.781-4.25 10.86L53.77 256l181.1 197.1c6 6.5 5.625 16.64-.9062 22.61c-6.5 6-16.59 5.594-22.59-.8906l-192-208c-5.688-6.156-5.688-15.56 0-21.72l192-208C218.2 30.66 228.3 30.25 234.8 36.25z'/%3E%3C/svg%3E");
-$breadcrumb-divider-flipped: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='#{$breadcrumb-divider-color}'><path d='M85.14 475.8c-3.438-3.141-5.156-7.438-5.156-11.75c0-3.891 1.406-7.781 4.25-10.86l181.1-197.1L84.23 58.86c-6-6.5-5.625-16.64 .9062-22.61c6.5-6 16.59-5.594 22.59 .8906l192 208c5.688 6.156 5.688 15.56 0 21.72l-192 208C101.7 481.3 91.64 481.8 85.14 475.8z'/></svg>");
+// Define shared variables
+$breadcrumb-divider: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.4147 8.00107L4.66274 2.42785C4.55278 2.32142 4.49854 2.19345 4.50003 2.04392C4.5014 1.89428 4.55706 1.76624 4.66703 1.65982C4.77687 1.55327 4.90902 1.5 5.06346 1.5C5.21779 1.5 5.34993 1.55327 5.4599 1.65982L11.1531 7.18013C11.2735 7.29679 11.3615 7.42687 11.4169 7.57037C11.4723 7.714 11.5 7.85756 11.5 8.00107C11.5 8.14457 11.4723 8.28814 11.4169 8.43177C11.3615 8.57527 11.2735 8.70535 11.1531 8.82201L5.45543 14.3423C5.34559 14.4489 5.21419 14.5014 5.06123 14.5C4.90827 14.4986 4.77687 14.4447 4.66703 14.3382C4.55706 14.2317 4.50208 14.1037 4.50208 13.9541C4.50208 13.8045 4.55706 13.6765 4.66703 13.57L10.4147 8.00107Z' fill='currentColor' /%3E%3C/svg%3E");
+$breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.86175 17.7C8.39275 17.7 7.993 17.5331 7.6625 17.1993C7.332 16.8653 7.16675 16.4639 7.16675 15.995C7.16675 15.5262 7.33366 15.1265 7.6675 14.7958C8.00133 14.4653 8.40275 14.3 8.87175 14.3C9.34058 14.3 9.74025 14.467 10.0707 14.8008C10.4014 15.1348 10.5667 15.5362 10.5667 16.005C10.5667 16.4739 10.3997 16.8736 10.0657 17.2043C9.73191 17.5348 9.33058 17.7 8.86175 17.7ZM15.995 17.7C15.5262 17.7 15.1264 17.5331 14.7957 17.1993C14.4652 16.8653 14.3 16.4639 14.3 15.995C14.3 15.5262 14.4669 15.1265 14.8007 14.7958C15.1347 14.4653 15.5362 14.3 16.005 14.3C16.4738 14.3 16.8736 14.467 17.2042 14.8008C17.5347 15.1348 17.7 15.5362 17.7 16.005C17.7 16.4739 17.5331 16.8736 17.1992 17.2043C16.8652 17.5348 16.4638 17.7 15.995 17.7ZM23.1282 17.7C22.6594 17.7 22.2597 17.5331 21.9292 17.1993C21.5986 16.8653 21.4332 16.4639 21.4332 15.995C21.4332 15.5262 21.6002 15.1265 21.9342 14.7958C22.2681 14.4653 22.6694 14.3 23.1382 14.3C23.6072 14.3 24.007 14.467 24.3375 14.8008C24.668 15.1348 24.8332 15.5362 24.8332 16.005C24.8332 16.4739 24.6663 16.8736 24.3325 17.2043C23.9987 17.5348 23.5972 17.7 23.1282 17.7Z' fill='white' /%3E%3C/svg%3E%0A");
 
-$breadcrumb-divider-dark-color: $qld-brand-accent;
-$breadcrumb-divider-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='#{$breadcrumb-divider-dark-color}' d='M234.8 36.25c3.438 3.141 5.156 7.438 5.156 11.75c0 3.891-1.406 7.781-4.25 10.86L53.77 256l181.1 197.1c6 6.5 5.625 16.64-.9062 22.61c-6.5 6-16.59 5.594-22.59-.8906l-192-208c-5.688-6.156-5.688-15.56 0-21.72l192-208C218.2 30.66 228.3 30.25 234.8 36.25z'/%3E%3C/svg%3E");
-$breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='#{$breadcrumb-divider-dark-color}'><path d='M85.14 475.8c-3.438-3.141-5.156-7.438-5.156-11.75c0-3.891 1.406-7.781 4.25-10.86l181.1-197.1L84.23 58.86c-6-6.5-5.625-16.64 .9062-22.61c6.5-6 16.59-5.594 22.59 .8906l192 208c5.688 6.156 5.688 15.56 0 21.72l-192 208C101.7 481.3 91.64 481.8 85.14 475.8z'/></svg>");
 
-//OR using custom CSS properties scoped to the component
+// Breadcrumb component styles
 .breadcrumb {
+
+  // Shared CSS custom properties
   --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
-  --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-flipped)};
+  --#{$prefix}breadcrumb-expander: #{escape-svg($breadcrumb-expander)};
   --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}dark-grey-muted);
+  --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}light-action-secondary);
+  --#{$prefix}breadcrumb-expander-color: var(--#{$prefix}light-action-secondary);
+  --#{$prefix}breadcrumb-item-padding-x: 0;
   --#{$prefix}breadcrumb-bg: transparent;
   --#{$prefix}breadcrumb-margin-bottom: 0;
-  --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
-  --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-light-link-default);
-  --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
-  --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-light-underline-default-hover);
 
+  --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
+  --#{$prefix}breadcrumb-link-color: var(--#{$prefix}color-default-color-light-link-default);
+  --#{$prefix}breadcrumb-link-text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
+  --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-light-underline-default-hover);
+
+  // Dark mode overrides
   .dark &,
   .dark-alt & {
     --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-text-lighter);
-    --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
-    --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
-    --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-dark-link-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-dark-underline-default-hover);
+    --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}dark-action-secondary);
+    --#{$prefix}breadcrumb-link-color: var(--#{$prefix}color-default-color-dark-link-default);
+    --#{$prefix}breadcrumb-link-text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
+    --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(--#{$prefix}color-default-color-dark-underline-default-hover);
   }
-}
-
-@include color-mode(dark) {}
-
-.breadcrumb {
-  font-size: 0.875rem;
 
   &.expanded {
     .breadcrumb-toggle {
@@ -43,37 +40,41 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
   }
 }
 
+// Breadcrumb items
 .breadcrumb-item {
-  display: none;
+  font-size: 0.875rem;
   line-height: 2rem;
+  display: none;
 
-  &:nth-last-child(2) {
-    display: list-item;
-
-    &:before {
-      content: var(--#{$prefix}breadcrumb-divider);
-      float: left;
-      padding-right: var(--qld-breadcrumb-item-padding-x);
-      width: 1rem;
-    }
+  // Override Bootstrap's default :before pseudo element
+  &:before {
+    display: none;
   }
 
+  // Divider
+  &:after {
+    content: "";
+    display: block;
+    width: 1.5rem;
+    mask-image: var(--#{$prefix}breadcrumb-divider);
+    mask-size: 1rem 1rem;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    background-color: var(--#{$prefix}breadcrumb-divider-color);
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+
+  // Breadcrumb link
   a {
-    display: inline-block;
+    color: var(--#{$prefix}breadcrumb-link-color);
+    text-decoration-color: var(--#{$prefix}breadcrumb-link-text-decoration-color);
 
-    :visited {
-      color: var(--#{$prefix}breadcrumb-visited-link-color);
-      text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color);
-
-      &:hover {
-        text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color-hover);
-      }
+    &:hover {
+      text-decoration-color: var(--#{$prefix}breadcrumb-link-text-decoration-color-hover);
     }
-
-    &:after {
-      content: none;
-    }
-
   }
 
   &.shortened {
@@ -84,65 +85,44 @@ $breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www
     padding: 0;
   }
 
-  .breadcrumb-toggle {
+  &.breadcrumb-toggle {
     border: 0;
     padding: 0;
     vertical-align: inherit;
+
+    a {
+      display: inline-block;
+      width: 32px;
+      line-height: 32px;
+      mask-image: var(--#{$prefix}breadcrumb-expander);
+      background-color: var(--#{$prefix}breadcrumb-link-color);
+      mask-size: 2rem 2rem;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+    }
   }
 
 }
 
-@include media-breakpoint-up(md) {
-  .breadcrumb {
-    --#{$prefix}breadcrumb-padding-y: 2.5rem 0 1.5rem;
-  }
-
+// Responsive styles
+@include media-breakpoint-down(lg) {
   .breadcrumb-item {
-    :after {
-      content: var(--#{$prefix}breadcrumb-divider-flipped);
-    }
+    &:nth-last-child(2) {
+      display: flex;
+      flex-direction: row-reverse;
 
-    &:last-child {
-      content: none;
+      // Rotate the back arrow 180 degrees
+      &:after {
+        transform: rotate(180deg);
+        transform-origin: center;
+      }
     }
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .breadcrumb {
-    --#{$prefix}breadcrumb-padding-y: 3rem 0 2rem;
-
-    font-size: 1rem;
-  }
-
   .breadcrumb-item {
-    display: list-item;
-    padding-left: 0;
-    padding-right: var(--qld-breadcrumb-item-padding-x);
-
-    &+.breadcrumb-item {
-      padding-left: 0;
-
-      &:before {
-        content: none;
-      }
-    }
-
-    &:nth-last-child(2):before {
-      content: none;
-    }
-
-    &.active {
-      &:before {
-        content: none;
-      }
-    }
-
-    a:after {
-      width: 1rem;
-      content: var(--#{$prefix}breadcrumb-divider-flipped);
-      float: right;
-      padding-left: var(--qld-breadcrumb-item-padding-x);
-    }
+    display: flex;
+    font-size: 1rem;
   }
 }
