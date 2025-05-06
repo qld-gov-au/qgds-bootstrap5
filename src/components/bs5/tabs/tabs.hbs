@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <section class="qld-tabs {{~#if type}} {{type}}{{/if~}} {{~#if variant}} {{variant}}{{else}} default{{/if~}}">        
+        <div class="tabs-area {{#ifCond type '==' 'section'}}{{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}{{/ifCond}}">
+            <ul class="nav nav-tabs {{#ifCond type '==' 'section'}}{{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}{{/ifCond}}"  role="tablist">
+                {{#each data.items }}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {{#if @first}}active{{/if}}" id="{{this.tab_text}}-tab" data-bs-toggle="tab" data-bs-target="#{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" type="button" role="tab" aria-controls="#{{this.tab_text}}-tab-pane" aria-selected="{{#if @first}}true{{else}}false{{/if}}" {{#if this.disabled}}disabled{{/if}}>
+                            <span {{#ifCond icon_position '==' 'trailing'}}class="reverse"{{/ifCond}}>
+                                {{#if this.icon}}
+                                    <i class="{{this.icon}}"></i>
+                                {{/if}}
+                                {{this.tab_text}}
+                            </span>
+                        </button>
+                    </li>
+                {{/each }}
+            </ul>
+            <button class="scroll scroll-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="scroll scroll-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="tab-content">
+            {{#each data.items }}
+                <article class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" role="tabpanel" aria-labelledby="{{this.tab_text}}-tab2" tabindex="0">
+                    <h3>{{this.title}}</h3>
+                    {{this.content}}
+                    {{#if this.cta}}
+                        {{> callToAction label=this.cta.value href=this.cta.url target=this.cta.target class=this.cta.class arialabel=this.cta.value id=this.cta.id }}                            
+                    {{/if}}
+                </article>
+            {{/each }}
+        </div>
+    </section>
+</div>
