@@ -28,11 +28,11 @@ export const Default = { args: defaultdata };
  * Dark themed Loading Spinner
  */
 export const Dark = {
-  args: { ...defaultdata },
+  args: defaultdata,
   parameters: {
     backgrounds: {
       default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
     },
   },
   decorators: [

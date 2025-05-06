@@ -2,6 +2,10 @@
 <div class="qld-spinner {{#if stacked}}align-center{{/if}}" role="status">
     <div class="spinner-border"></div>
     <span class="qld-spinner-label {{#if minimal}}sr-only{{/if}}">
-        {{ loadingText }}
+        {{#if loadingText }}
+            {{loadingText}}
+        {{else}}
+             Loading...
+        {{/if}}
     </span>
 </div>
