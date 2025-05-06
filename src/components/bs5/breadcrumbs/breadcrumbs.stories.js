@@ -91,7 +91,7 @@ export const WithExpanderDefault = {
 /**
  * Breadcrumbs with expander (Dark)
  * */
-export const WithExpenderDark = {
+export const WithExpanderDark = {
   args: {
     ...defaultdata.forGov,
     class: "dark",
