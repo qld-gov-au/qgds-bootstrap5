@@ -101,6 +101,7 @@
       background-repeat: no-repeat; 
       background-size: cover;
       border-radius: 1.25rem;
+      max-width: 65ch;
       width: 100%;
       height: 100%;
     }
@@ -254,10 +255,7 @@
     }
   }
   
-  // @include media-breakpoint-down(sm) {
-  // This is done for iPhone Max screen width being 430px and
-  // our current sm is set to 400px.
-  @media only screen and (max-width: 430px) {
+  @include media-breakpoint-down(md) {
     .row {
       padding-block: 2.5rem;
       padding-inline: 1rem;
