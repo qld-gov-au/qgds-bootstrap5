@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "description": "",
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "bootstrap": "^5.3.1",
-    "material-symbols": "^0.28.1"
+    "material-symbols": "^0.29.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -61,12 +61,12 @@
     "@storybook/test": "^8.4.2",
     "@storybook/theming": "^8.4.2",
     "@stylistic/eslint-plugin-js": "2.1.0",
-    "@vitejs/plugin-vue": "5.2.1",
+    "@vitejs/plugin-vue": "5.2.3",
     "autoprefixer": "^10.4.20",
     "chai": "^5.2.0",
     "chalk": "^5.3.0",
     "chromatic": "^11.5.5",
-    "esbuild": "0.25.0",
+    "esbuild": "0.25.2",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-eslint": "^0.3.7",
     "esbuild-plugin-handlebars": "1.0.3",
@@ -77,12 +77,12 @@
     "handlebars": "4.7.8",
     "http-server": "^14.1.1",
     "minimist": "^1.2.8",
-    "mocha": "^10.7.3",
-    "npm-run-all2": "^6.2.3",
+    "mocha": "^11.1.0",
+    "npm-run-all2": "^7.0.2",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.32",
     "postcss": "^8.4.47",
-    "prettier": "3.3.3",
+    "prettier": "3.5.3",
     "raw-loader": "^4.0.2",
     "rimraf": "^6.0.1",
     "run-parallel": "^1.2.0",
