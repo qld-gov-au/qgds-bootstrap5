@@ -1,5 +1,5 @@
 .qld-promo-panel {
-  padding: 0 !important;
+  padding: 0;
   .row {
     border-radius: 3rem;
     padding-block: 4rem;
@@ -28,18 +28,18 @@
   }
   .content-panel {
     --icon-bg-colour: var(--qld-default-background-shade);
-    --icon-colour: var(--qld-dark-green);
+    --icon-colour: var(--qld-light-action-secondary); //--qld-dark-action-secondary --qld-dark-green
     &.alt {
       --icon-bg-colour: var(--qld-light-alt-background-shade);
-      --icon-colour: var(--qld-dark-green);
+      --icon-colour: var(--qld-light-action-secondary); //--qld-dark-action-secondary --qld-dark-green
     }
     &.dark {
       --icon-bg-colour: var(--qld-dark-background-shade);
-      --icon-colour: var(--qld-golden-yellow);
+      --icon-colour: var(--qld-dark-action-secondary); //--qld-light-action-secondary --qld-golden-yellow
     }
     &.dark-alt {
       --icon-bg-colour: var(--qld-dark-alt-background-shade);
-      --icon-colour: var(--qld-golden-yellow);
+      --icon-colour: var(--qld-dark-action-secondary);
     }
     grid-area: content;
     background-color: var(--qld-body-bg);
@@ -56,16 +56,21 @@
     }
     .icon-body {
       background: var(--icon-bg-colour);
-      padding: .5rem;
+      // padding: .5rem;
       border-radius: 4rem;
       height: 4rem;
       width: 4rem;
-      text-align: left;
+      // text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .qld-icon {
       --#{$prefix}icon-color: var(--icon-colour);  
-      width: 3rem;
-      height: 3rem;
+      // width: 3rem;
+      // height: 3rem;
+      width: 2rem;
+      height: 2rem;
       mask-size: 100%;
     }
     .promo-abstract {
@@ -105,7 +110,8 @@
     }
   }
   &.contained {
-    @media only screen and (max-width: 430px) {
+    // @media only screen and (max-width: 430px) {
+    @include media-breakpoint-down(md) {
       grid-template-columns: 1fr;
       grid-template-areas: "graphic" "content";
       &.content-right {

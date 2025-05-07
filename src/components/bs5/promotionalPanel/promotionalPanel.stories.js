@@ -78,7 +78,7 @@ export default {
     design: {
       name: "QGDS Figma Reference",
       type: "figma",
-       url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563&t=RyMlGjeuzgl8p5Gx-0",
+       url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=oML8wlVSAg2496sB-0",
     },
   },
 };
