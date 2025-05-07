@@ -43,7 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "bootstrap": "^5.3.1",
-    "material-symbols": "^0.29.3"
+    "material-symbols": "^0.31.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -80,7 +80,7 @@
     "mocha": "^11.1.0",
     "npm-run-all2": "^7.0.2",
     "onchange": "^7.1.0",
-    "portfinder": "^1.0.32",
+    "portfinder": "^1.0.37",
     "postcss": "^8.4.47",
     "prettier": "3.5.3",
     "raw-loader": "^4.0.2",
