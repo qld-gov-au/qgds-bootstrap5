@@ -28,14 +28,14 @@
   }
   .content-panel {
     --icon-bg-colour: var(--qld-default-background-shade);
-    --icon-colour: var(--qld-light-action-secondary); //--qld-dark-action-secondary --qld-dark-green
+    --icon-colour: var(--qld-light-action-secondary);
     &.alt {
       --icon-bg-colour: var(--qld-light-alt-background-shade);
-      --icon-colour: var(--qld-light-action-secondary); //--qld-dark-action-secondary --qld-dark-green
+      --icon-colour: var(--qld-light-action-secondary);
     }
     &.dark {
       --icon-bg-colour: var(--qld-dark-background-shade);
-      --icon-colour: var(--qld-dark-action-secondary); //--qld-light-action-secondary --qld-golden-yellow
+      --icon-colour: var(--qld-dark-action-secondary);
     }
     &.dark-alt {
       --icon-bg-colour: var(--qld-dark-alt-background-shade);
@@ -56,19 +56,15 @@
     }
     .icon-body {
       background: var(--icon-bg-colour);
-      // padding: .5rem;
       border-radius: 4rem;
       height: 4rem;
       width: 4rem;
-      // text-align: left;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .qld-icon {
       --#{$prefix}icon-color: var(--icon-colour);  
-      // width: 3rem;
-      // height: 3rem;
       width: 2rem;
       height: 2rem;
       mask-size: 100%;
@@ -110,7 +106,6 @@
     }
   }
   &.contained {
-    // @media only screen and (max-width: 430px) {
     @include media-breakpoint-down(md) {
       grid-template-columns: 1fr;
       grid-template-areas: "graphic" "content";
