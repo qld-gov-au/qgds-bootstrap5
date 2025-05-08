@@ -11,15 +11,15 @@ export function initTabsScroll() {
             // Show or hide scroll buttons based on initial state
             const updateButtonVisibility = () => {
                 if (tabs.scrollLeft === 0) {
-                    scrollLeftBtn.classList.remove('show'); // Hide left button
+                    scrollLeftBtn.classList.remove('show');
                 } else {
-                    scrollLeftBtn.classList.add('show'); // Show left button
+                    scrollLeftBtn.classList.add('show');
                 }
 
                 if (tabs.scrollLeft + tabs.clientWidth >= tabsAreaWidth) {
-                    scrollRightBtn.classList.remove('show'); // Hide right button
+                    scrollRightBtn.classList.remove('show');
                 } else {
-                    scrollRightBtn.classList.add('show'); // Show right button
+                    scrollRightBtn.classList.add('show');
                 }
             };
 

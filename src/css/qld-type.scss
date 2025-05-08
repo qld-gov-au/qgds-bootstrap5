@@ -73,6 +73,12 @@ $link-visited-color: $qld-link-visited;
   --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
   --qld-action-icon-color: var(--qld-light-action-secondary);
   --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
+
+  --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
+  --qld-tab-icon-color: var(--qld-light-action-secondary);
+  --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
+  --qld-tab-text-colour-heading: var(--qld-light-text-heading);
+  --qld-tab-background-hover: var(--qld-light-action-primary-hover);
 }
 
 .dark,
@@ -96,26 +102,38 @@ $link-visited-color: $qld-link-visited;
   --qld-link-underline-visited-hover: #{$color-default-color-dark-underline-visited-hover};
   --qld-action-icon-color: var(--qld-dark-action-secondary);
   --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
+
+  --qld-tab-background-hover: var(--qld-dark-action-primary-hover);
+  --qld-tab-hover-text-color: var(--qld-text-darkest);
+  --qld-tab-icon-color: var(--qld-dark-action-secondary);
+  --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
+  --qld-tab-text-colour-heading: var(--qld-dark-text);
 }
 
 .default {
   --qld-body-bg: var(--qld-white);
   --qld-border-color: var(--qld-light-border);
+  --qld-tab-background:var(--qld-default-background-shade);
 }
 .light {
-  --qld-body-bg: #eff4f9 ;//var(--qld-white);
+  --qld-body-bg: #eff4f9;
   --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
+  --qld-tab-background: var(--qld-light-background-shade);
+  --qld-tab-background-hover: var(--qld-button-dark-blue);
 }
 .alt {
   --qld-body-bg: var(--qld-light-alt-background);
   --qld-border-color: var(--qld-soft-grey);
+  --qld-tab-background: vat(--qld-light-alt-background-shade);
 }
 .dark {
   --qld-border-color: var(--qld-dark-border);
+  --qld-tab-background:var(--qld-dark-hover);
 }
 .dark-alt {
   --qld-body-bg: var(--qld-dark-alt-background);
   --qld-border-color: var(--qld-dark-alt-border);
+  --qld-tab-background: var(--qld-dark-alt-background-shade);
 }
 
 //Content and links

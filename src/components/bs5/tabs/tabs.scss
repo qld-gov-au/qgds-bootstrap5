@@ -1,96 +1,51 @@
-.css-qa4clq {
-    max-width: 100% !important;
-}
-.css-xzp052 {
-    padding: 0 !important;
-
-    .innerZoomElementWrapper {
-        > div {
-            border: 0 !important;
-        }
-    }
-}
-/////////////////////
-///  Start of Tabs
-/////////////////////
-.default, .light, .alt {
-    --tab-hover-text-color: #fff;
-    --tab-icon-color: #008635;
-    --tab-disabled-colour: #636363;
-    --tab-text-colour-heading: var(--qld-light-text-heading);
-    --tab-background-hover: var(--qld-light-action-primary-hover);
-}
-.default {
-    --tab-background:#F5F5F5;
-}
-.light {
-    --tab-background: var(--qld-light-background-shade);
-    --tab-background-hover: var(--qld-button-dark-blue);
-}
-.alt {
-    --tab-background: #E0E0E0;
-}
-.dark, .dark-alt {
-    --tab-background-hover: var(--qld-dark-action-primary-hover);
-    --tab-hover-text-color: var(--qld-text-darkest);
-    --tab-icon-color: #ffe500;
-    --tab-disabled-colour: #deebf9;
-    --tab-text-colour-heading: var(--qld-dark-text);
-}
-.dark {
-    --tab-background:var(--qld-dark-hover);
-}
-.dark-alt {
-    --tab-background: #052C53;
-}
-
 .qld-tabs {
-    --accent-colour: #6BBE27;
-    --max-width: 1330px;
-    --border-radius: 0.25rem;
+    --accent-colour: var(--qld-light-green);
+    --max-width: 100%;
+    --border-radius: #{$border-radius};
+    --tab-scroll-icon-colour: var(--qld-light-action-secondary);
     // tabs colours
-
-    --default-bg-colour: #fff;
+    --default-bg-colour: var(--qld-default-background);
     --light-bg-colour: var(--qld-light-background);
     --alt-bg-colour: var(--qld-light-alt-background);
     --dark-bg-colour: var(--qld-dark-background);
     --dark-alt-bg-colour: var(--qld-dark-alt-background);
-    --light-border-colour: #7A7A7A;
+    --light-border-colour: var(--qld-soft-grey);
     --light-colour: var(--qld-light-text-heading);
     --dark-border-colour: var(--qld-dark-alt-border);
     --dark-colour: var(--qld-dark-text);
-    
-    //bootstrap variables
+    --icon-dropshadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    // bootstrap variables
     --#{$prefix}nav-tabs-border-radius: var(--border-radius);
-    --#{$prefix}nav-tabs-link-hover-border-color: var(--tab-background-hover);
-    --#{$prefix}nav-tabs-link-active-color: var(--tab-hover-text-color);
-    --#{$prefix}nav-tabs-link-active-bg: var(--tab-background);
+    --#{$prefix}nav-tabs-link-hover-border-color: var(--qld-tab-background-hover);
+    --#{$prefix}nav-tabs-link-active-color: var(--qld-tab-hover-text-color);
+    --#{$prefix}nav-tabs-link-active-bg: var(--qld-tab-background);
     --#{$prefix}nav-tabs-link-active-border-color: var(--qld-border-color);
+    // animation
+    --fade-time: 0.15s;
 
     position: relative;
-
     &.container {
         background-color: transparent !important;
-        padding-block-end: 5rem; // test
-        margin-block-start: 3rem; //test
+        padding-block-end: 5rem;
+        margin-block-start: 3rem;
         width: 100%;
         max-width: var(--max-width);
         margin-inline: auto;
         .nav-tabs {
             background-color: transparent;
             .nav-item .nav-link {
-                background-color: var(--tab-background);
+                background-color: var(--qld-tab-background);
                 &.active {
                     background-color: var(--qld-body-bg);
                 }
             }
         }
         .tabs-area .nav-tabs {
-            margin-block-end: -2px;
+            margin-block-end: -1px;
         }  
     }
     &.section {
-        margin-inline: calc(var(--qld-gutter-x) * -1);
+        margin-inline: -0.75rem;
         .nav-tabs {
             max-width: fit-content;
             margin-inline: 0;
@@ -102,21 +57,17 @@
         .tab-content {
             background-color: var(--qld-body-bg);
             border: 0;
-            border-block-start: 1px solid var(--qld-border-color);
+            border-block-start: 0;
             margin-block-start: -1px;
         }
     }
-
     .tabs-area {
         padding-inline: 2.5rem;
         position: relative;
         z-index: 10;
-        border-block-end: 1px solid var(--qld-border-color);
-
         &.default, &.dark-alt {
             background-color: var(--qld-body-bg);
         }
-
         .nav-tabs {
             margin-block-end: 0;
             background-color: transparent !important;
@@ -213,34 +164,29 @@
             }
         }
     }
-
     .scroll {
         position: absolute;
-        width: 48px;
+        width: 3rem;
         height: 100%;
         background-color: transparent;
         border: none;
         z-index: 20;
-
         i {
-            background-color: #fff;
-            border-radius: 30px;
-            width: 28px;
-            height: 28px;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
-            0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-            color: #008635;
+            background-color: var(--default-bg-colour);
+            border-radius: 1.875rem;
+            width: 1.75rem;
+            height: 1.75rem;
+            box-shadow: var(--icon-dropshadow);
+            color: var(--tab-scroll-icon-colour);
             line-height: 1.7;
         }
-
         &.scroll-left {
-            left: 12px;
-            top: 0;
+            left: 0.75rem;
+            inset-block-start: 0;
         }
-
         &.scroll-right {
-            right: 12px;
-            top: 0;
+            right: 0.75rem;
+            inset-block-start: 0;
         }
     }
     .nav-tabs {
@@ -275,7 +221,7 @@
                 padding-inline: 1.5rem;
                 padding-block-start: 0.5rem;
                 padding-block-end: 0;
-                background-color: var(--tab-background);
+                background-color: var(--qld-tab-background);
                 scroll-snap-align: start;
                 span {
                     white-space: nowrap;
@@ -284,19 +230,19 @@
                     color: var(--qld-link-color);
                     align-items: anchor-center;
                     i {
-                        color: var(--tab-icon-color);
+                        color: var(--qld-tab-icon-color);
                     }
                     &.reverse {
                         flex-direction: row-reverse;
                     }
                 }               
                 &:hover {
-                    background-color: var(--tab-background-hover);
+                    background-color: var(--qld-tab-background-hover);
                     span {
-                        color: var(--tab-hover-text-color);
+                        color: var(--qld-tab-hover-text-color);
                         text-decoration: underline;
                         i {
-                            color: var(--tab-icon-color);
+                            color: var(--qld-tab-icon-color);
                         }
                     }
                 }
@@ -311,8 +257,8 @@
                     &::after {
                         content: "";
                         border-radius: 0;
-                        border-start-end-radius: 0.25rem;
-                        border-start-start-radius: 0.25rem;
+                        border-start-end-radius: var(--border-radius);
+                        border-start-start-radius: var(--border-radius);
                         background-color: var(--accent-colour);
                         margin-block-end: 0.125rem;
                     }
@@ -325,12 +271,12 @@
                     span {
                         margin-block-start: 0.25rem;
                         font-weight: 600;
-                        color: var(--tab-text-colour-heading);
+                        color: var(--qld-tab-text-colour-heading);
                         &:hover{
-                            color: var(--tab-text-colour-heading);                            
+                            color: var(--qld-tab-text-colour-heading);                            
                         }
                         i {
-                            color: var(--tab-text-colour-heading);
+                            color: var(--qld-tab-text-colour-heading);
                         }
                     }  
                 }
@@ -339,9 +285,9 @@
                     background-color: transparent;
                     cursor: not-allowed;
                     span {
-                        color: var(--tab-disabled-colour);
+                        color: var(--qld-tab-disabled-colour);
                         i {
-                            color: var(--tab-disabled-colour);
+                            color: var(--qld-tab-disabled-colour);
                         }
                     }
                 }
@@ -355,12 +301,10 @@
         border: 1px solid var(--qld-border-color);
         padding-block: 4rem;
         padding-inline: 2.5rem;
-
         .qld-cta-link {
             margin-block-start: 2rem;
         }
     }
-
     .scroll {
         display: none;
     }
@@ -369,7 +313,7 @@
     }
     .fade {
         opacity: 0;
-        transition: opacity 0.15s linear;
+        transition: opacity var(--fade-time) linear;
         &.show {
             opacity: 1;
         }

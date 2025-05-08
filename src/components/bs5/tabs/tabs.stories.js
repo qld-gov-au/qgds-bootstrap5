@@ -36,18 +36,18 @@ export default {
       control: "select",
       options: ["default", "light", "alt", "dark", "dark-alt"],
     },
+    unique_id: {
+      description: 'Each tab system must have a unique id',
+      control: "text",
+      defaultValue: "12345",
+    },
   },
 
 };
 
 /**
  * 
- * For data tables with a small amount of rows use the default table:
- *  - Align text columns and corresponding data cells to the left
- *  - When comparing numbers in a column, align data cells and column headers to the right
- *  - For data tables with more rows, use the striped alternative
- * 
- * Example full table including headers, rows and footer, caption and subcaption
+ * For Tabs - Container
  */
 
 
