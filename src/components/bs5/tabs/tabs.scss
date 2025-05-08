@@ -25,7 +25,7 @@
 
     position: relative;
     &.container {
-        background-color: transparent !important;
+        background-color: transparent;
         padding-block-end: 5rem;
         margin-block-start: 3rem;
         width: 100%;
@@ -46,19 +46,22 @@
     }
     &.section {
         margin-inline: -0.75rem;
-        .nav-tabs {
-            max-width: fit-content;
-            margin-inline: 0;
-        }
-        .tab-content > article{
-            max-width: var(--max-width);
-            margin-inline: auto;
+        .tabs-area {
+            border-block-end: 1px solid;
+            .nav-tabs {
+                max-width: fit-content;
+                margin-inline: 0;
+            }
         }
         .tab-content {
             background-color: var(--qld-body-bg);
             border: 0;
             border-block-start: 0;
             margin-block-start: -1px;
+            > article{
+                max-width: var(--max-width);
+                margin-inline: auto;
+            }
         }
     }
     .tabs-area {
@@ -70,7 +73,7 @@
         }
         .nav-tabs {
             margin-block-end: 0;
-            background-color: transparent !important;
+            background-color: transparent;
             margin-block-end: -1px;
         }
     }
