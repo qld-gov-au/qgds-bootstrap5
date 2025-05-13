@@ -27,12 +27,12 @@ export default {
       options: ["container", "section"],
     },
     variant: {
-      description: 'Type varient for the tab system',
+      description: 'Type variant for the tab system',
       control: "select",
       options: ["default", "light", "alt", "dark", "dark-alt"],
     },
     tab_variant: {
-      description: 'Type varient for the tab system top tabs when in section layout',
+      description: 'The previous sibling variant value is used to set the tab system colour scheme in the tab section component.',
       control: "select",
       options: ["default", "light", "alt", "dark", "dark-alt"],
     },
@@ -47,10 +47,8 @@ export default {
 
 /**
  * 
- * For Tabs - Container
+ * Tabs
  */
-
-
 export const Default = {
   args: defaultdata,
 };
@@ -62,8 +60,11 @@ export const ContainerDefault = {
   args: {
     ...defaultdata,
     type: "container",
+    unique_id: "234566",
+    variant: "default",
   }
 };
+
 /**
  * Tabs - Container Light
  */
@@ -71,6 +72,7 @@ export const ContainerLight = {
   args: {
     ...defaultdata,
     type: "container",
+    unique_id: "345678",
     variant: "light",
   }
 };
@@ -82,6 +84,7 @@ export const ContainerAlt = {
   args: {
     ...defaultdata,
     type: "container",
+    unique_id: "456789",
     variant: "alt",
   }
 };
@@ -93,6 +96,7 @@ export const ContainerDark = {
   args: {
     ...defaultdata,
     type: "container",
+    unique_id: "567890",
     variant: "dark",
   }
 };
@@ -104,6 +108,7 @@ export const ContainerDarkAlt = {
   args: {
     ...defaultdata,
     type: "container",
+    unique_id: "123456",
     variant: "dark-alt",
   }
 };

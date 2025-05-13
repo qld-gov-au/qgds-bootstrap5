@@ -24,13 +24,22 @@
     --fade-time: 0.15s;
 
     position: relative;
+
+    &.default, &.light, &.alt {
+        --qld-border-color: var(--dark-alt-bg-colour);
+    }
+    &.dark, &.dark-alt {
+        --qld-border-color: var(--qld-dark-alt-border);
+    }
     &.container {
+        
         background-color: transparent;
         padding-block-end: 5rem;
         margin-block-start: 3rem;
         width: 100%;
         max-width: var(--max-width);
         margin-inline: auto;
+        
         .nav-tabs {
             background-color: transparent;
             .nav-item .nav-link {
@@ -40,13 +49,18 @@
                 }
             }
         }
-        .tabs-area .nav-tabs {
-            margin-block-end: -1px;
-        }  
-    }
-    &.section {
-        margin-inline: -0.75rem;
         .tabs-area {
+            --qld-gutter-x: 0;
+            .nav-tabs {
+                margin-block-end: -1px;
+            }  
+        }
+    }
+    &.section { //Add the .nav-item .active colour to here
+        // margin-inline: -0.75rem;
+        .tabs-area {
+            background-color: var(--default-bg-colour);
+            padding-inline: 2.5rem;
             border-block-end: 1px solid;
             .nav-tabs {
                 max-width: fit-content;
@@ -65,7 +79,6 @@
         }
     }
     .tabs-area {
-        padding-inline: 2.5rem;
         position: relative;
         z-index: 10;
         &.default, &.dark-alt {
@@ -78,10 +91,12 @@
         }
     }
     &.default .tabs-area, &.light .tabs-area, &.alt .tabs-area {
+        border-block-end-color: var(--light-border-colour);
         .nav-tabs {
             .nav-item {    
                 .nav-link {
                     &.active {
+                        border: 1px solid var(--light-border-colour);
                         span {
                             color: var(--light-colour);
                             &:hover{
@@ -96,10 +111,10 @@
             }
         }
     }
-    &.default .tabs-area {
+    &.default .tabs-area {        
         .nav-tabs {
             .nav-item {
-                .nav-link.active {
+                .nav-link.active {                    
                     background-color: var(--default-bg-colour);
                     border-block-end: 1px solid var(--default-bg-colour);
                 }
@@ -127,9 +142,12 @@
         }
     }
     &.dark .tabs-area, &.dark-alt .tabs-area {
+        border-block-end-color: var(--dark-border-colour);
         .nav-item {
             .nav-link {
                 &.active {
+                    border: 1px solid var(--dark-border-colour);
+                    border-block-end-color: transparent;
                     span {
                         color: var(--dark-colour);
                         &:hover{
@@ -266,7 +284,7 @@
                         margin-block-end: 0.125rem;
                     }
                     &:hover {
-                        border-color: var(--qld-border-color);
+                        border-color: var(--qld-border-color); //Look@
                         span {
                             text-decoration: none;
                         }
@@ -324,4 +342,35 @@
     .fade:not(.show) {
         display: none;
     }
+
+    &.section {
+        .default ~ & {
+            .tabs-area {
+                background-color: var(--default-bg-colour);
+            }
+        }
+        .light ~ & {
+            .tabs-area {
+                background-color: var(--light-bg-colour);
+            }
+        }
+        .alt ~ & {
+            .tabs-area {
+                background-color: var(--alt-bg-colour);
+            }
+        }
+        .dark ~ & {
+            .tabs-area {
+                background-color: var(--dark-bg-colour);
+            }
+        }
+        .dark-alt ~ & {
+            .tabs-area {
+                background-color: var(--dark-alt-bg-colour);
+            }
+        }
+    }
+    // *:has(+ &) {
+    //     margin-bottom: 0;
+    // }
 }

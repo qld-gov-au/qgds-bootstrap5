@@ -124,7 +124,7 @@ $link-visited-color: $qld-link-visited;
 .alt {
   --qld-body-bg: var(--qld-light-alt-background);
   --qld-border-color: var(--qld-soft-grey);
-  --qld-tab-background: vat(--qld-light-alt-background-shade);
+  --qld-tab-background: var(--qld-light-alt-background-shade);
 }
 .dark {
   --qld-border-color: var(--qld-dark-border);
@@ -262,7 +262,7 @@ caption {
   body & {
     color: var(--qld-body-color);
   }
-
+  background-color: var(--qld-body-bg);
   a,
   a.nav-link {
     text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
