@@ -28,6 +28,7 @@ $qld-dark-blue-shade : $color-default-color-dark-background-alt-shade;
 $qld-light-background: $core-default-color-status-info-lightest;
 $qld-light-background-shade: $color-default-color-light-background-light-shade;
 $qld-light-border: $color-default-color-light-border-default;
+$qld-light-border-alt: $color-default-color-light-border-alt;
 $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-light-focus: $color-default-color-light-focus-default;
 $qld-link-visited: $color-default-color-light-underline-visited;
@@ -70,7 +71,9 @@ $qld-light-link: $color-default-color-light-link-default;
 $qld-dark-link: $color-default-color-dark-link-default;
 
 //Should be core color rather than second hand reference (no match)
-$qld-soft-grey : $color-default-color-light-border-alt;
+$qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
+
+
 
 $qld-dark-grey-muted : $color-default-color-light-text-lighter;
 $qld-text-grey : $color-default-color-light-text-default;
@@ -226,6 +229,7 @@ $project-colors: (
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
   "light-border": $qld-light-border,
+  "light-border-alt": $qld-light-border-alt,
   "light-link": $qld-light-link,
 
   "light-alt-background": $qld-color-light-alt-background,

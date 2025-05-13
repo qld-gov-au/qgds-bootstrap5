@@ -60,7 +60,9 @@ const config = {
       ...config.server,
       fs: {
         allow: [
-          path.resolve(__dirname, "../src/assets"), // Allow access to assets
+          // Allow access to assets
+          path.resolve(__dirname, "../src/assets"),
+          path.resolve(__dirname, "../src/img"),
         ],
       },
     };

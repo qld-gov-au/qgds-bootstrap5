@@ -32,6 +32,30 @@ const exampleCardData = [
   },
 ];
 
+const exampleMixedCardData = [
+  {
+    title: "Banner link 1",
+    variantClass: "default",
+    action: "single",
+    link: "https://www.qld.gov.au",
+    arrow: true,
+  },
+  {
+    title: "Banner link 2",
+    variantClass: "dark",
+    action: "single",
+    link: "https://www.qld.gov.au",
+    arrow: true,
+  },
+  {
+    title: "Banner link 3",
+    variantClass: "dark-alt",
+    action: "single",
+    link: "https://www.qld.gov.au",
+    arrow: true,
+  },
+];
+
 const exampleButtonData = [
   {
     ...buttondata,
@@ -72,9 +96,26 @@ export default {
       }
 
       // Provide cards or buttons if callToAction is set to true
-      args.cards = args.callToAction === "cards" ? exampleCardData : false;
-      args.buttons =
-        args.callToAction === "buttons" ? exampleButtonData : false;
+      switch (args.callToAction) {
+        case "buttons":
+          args.buttons = exampleButtonData;
+          args.cards = false;
+          break;
+        case "cards":
+          args.cards = exampleCardData;
+          args.buttons = false;
+          break;
+        case "cardsMixed":
+          args.cards = exampleMixedCardData;
+          args.buttons = false;
+          break;
+        case "none":
+        default:
+          args.cards = false;
+          args.buttons = false;
+          break;
+      }
+
       // Return the updated story
       return Story({ args: { ...args } });
     },
@@ -160,9 +201,10 @@ export default {
           none: "None",
           buttons: "Buttons",
           cards: "Cards",
+          cardsMixed: "Cards (Mixed)",
         },
       },
-      options: ["none", "buttons", "cards"],
+      options: ["none", "buttons", "cards", "cardsMixed"],
     },
   },
 };
@@ -208,7 +250,7 @@ export const NoBanner = {
 };
 
 /**
- * Basic Banners
+ * Banner basic
  */
 
 export const BannerBasic = {
@@ -243,7 +285,7 @@ export const BannerBasic = {
 };
 
 /**
- * With Call To Action Buttons
+ * Banner basic with backgrounds
  */
 export const BannerBasicBackgrounds = {
   name: "Banner Basic (With Backgrounds)",

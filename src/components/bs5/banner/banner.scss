@@ -11,8 +11,8 @@
 .qld-banner {
 
   //Text Color
-  --#{$prefix}banner-title-color: var(--#{$prefix}light-text-heading);
-  --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text-text);
+  --#{$prefix}banner-title-color: var(--#{$prefix}light-text);
+  --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text);
 
   //Default Backgrounds, texture and background image
   --#{$prefix}banner-bg-color: var(--#{$prefix}default-background);
@@ -58,8 +58,8 @@
   &.dark,
   &.dark-alt {
     // Dark and Dark Alt share the same text color
-    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text-heading);
-    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text);
+    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text);
 
     .breadcrumb {
       // Variables scoped in the .breadcrumbs.scss component
@@ -353,17 +353,22 @@
     display: block;
     margin: 1.5rem 0 0 0;
     font-size: 2.5rem;
+    line-height: 3.25rem;
+
+    // Target xs - md viewports
+    @include media-breakpoint-down(lg) {
+      font-size: $h1-font-size-mobile;
+      line-height: $h1-line-height-mobile;
+    }
 
     //Spans inside the .banner-title-wrap H1
     .banner-title,
     .banner-subtitle {
       display: block;
-      color: var(--#{$prefix}--#{$prefix}banner-title-color);
-      line-height: 1.3;
+      color: var(--#{$prefix}banner-title-color);
     }
 
     &.as-block {
-
       padding: 0.5rem 1.25rem;
 
       //Both spans
@@ -419,9 +424,15 @@
   .banner-abstract {
     font-size: 1.5rem;
     line-height: 2rem;
-    margin: 1.5rem 1rem 0 0;
+    margin: 1.5rem 0 0 0;
     max-width: 50rem; //To make readable. Clips line length for very wide viewports. 
     color: var(--#{$prefix}banner-abstract-color);
+
+    @include media-breakpoint-down(lg) {
+      font-size: 1.25rem; //20
+      line-height: 1.75rem; //28
+      margin: 1rem 0 0 0;
+    }
   }
 
   .banner-breadcrumbs {
@@ -430,11 +441,6 @@
       padding-bottom: 0;
       color: var(--#{$prefix}banner-breadcrumb-color);
     }
-
-    @include media-breakpoint-down(md) {
-      padding-bottom: 0.75rem;
-    }
-
   }
 
   .banner-extra {
