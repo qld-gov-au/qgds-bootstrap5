@@ -115,26 +115,40 @@ $link-visited-color: $qld-link-visited;
   --qld-border-color: var(--qld-light-border);
   --qld-tab-background:var(--qld-default-background-shade);
 }
+.bg-default {  background-color: var(--qld-default-background); }
+.bg-default-shade {  background-color: var(--qld-default-background-shade); }
+
 .light {
   --qld-body-bg: #eff4f9;
   --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
   --qld-tab-background: var(--qld-light-background-shade);
   --qld-tab-background-hover: var(--qld-button-dark-blue);
 }
+.bg-light {  background-color: var(--qld-light-background); }
+.bg-light-shade {  background-color: var(--qld-light-background-shade); }
+
 .alt {
   --qld-body-bg: var(--qld-light-alt-background);
   --qld-border-color: var(--qld-soft-grey);
   --qld-tab-background: var(--qld-light-alt-background-shade);
 }
+.bg-light-alt {  background-color: var(--qld-light-alt-background); }
+.bg-light-alt-shade {  background-color: var(--qld-light-alt-background-shade); }
+
 .dark {
   --qld-border-color: var(--qld-dark-border);
   --qld-tab-background:var(--qld-dark-hover);
 }
+.bg-dark {  background-color: var(--qld-dark-background); }
+.bg-dark-shade {  background-color: var(--qld-dark-background-shade); }
+
 .dark-alt {
   --qld-body-bg: var(--qld-dark-alt-background);
   --qld-border-color: var(--qld-dark-alt-border);
   --qld-tab-background: var(--qld-dark-alt-background-shade);
 }
+.bg-dark-alt {  background-color: var(--qld-dark-alt-background); }
+.bg-dark-alt-shade {  background-color: var(--qld-dark-alt-background-shade); }
 
 //Content and links
 body {
