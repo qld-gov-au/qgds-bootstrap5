@@ -31,15 +31,13 @@
     &.dark, &.dark-alt {
         --qld-border-color: var(--qld-dark-alt-border);
     }
-    &.container {
-        
+    &.container {        
         background-color: transparent;
         padding-block-end: 5rem;
         margin-block-start: 3rem;
         width: 100%;
         max-width: var(--max-width);
-        margin-inline: auto;
-        
+        margin-inline: auto;        
         .nav-tabs {
             background-color: transparent;
             .nav-item .nav-link {
@@ -56,10 +54,9 @@
             }  
         }
     }
-    &.section { //Add the .nav-item .active colour to here
-        // margin-inline: -0.75rem;
+    &.section {
+        background-color: transparent;
         .tabs-area {
-            background-color: var(--default-bg-colour);
             padding-inline: 2.5rem;
             border-block-end: 1px solid;
             .nav-tabs {
@@ -81,9 +78,6 @@
     .tabs-area {
         position: relative;
         z-index: 10;
-        &.default, &.dark-alt {
-            background-color: var(--qld-body-bg);
-        }
         .nav-tabs {
             margin-block-end: 0;
             background-color: transparent;
@@ -232,7 +226,7 @@
             background-clip: border-box;
             .nav-link {
                 &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
-                    outline: 0.1875rem solid var(--focus-colour);
+                    outline: 0.1875rem solid var(--qld-focus-color);
                     outline-offset: -0.625rem;
                     box-shadow:none;
                 }
@@ -284,7 +278,7 @@
                         margin-block-end: 0.125rem;
                     }
                     &:hover {
-                        border-color: var(--qld-border-color); //Look@
+                        border-color: var(--qld-border-color);
                         span {
                             text-decoration: none;
                         }
@@ -342,7 +336,6 @@
     .fade:not(.show) {
         display: none;
     }
-
     &.section {
         .default ~ & {
             .tabs-area {
@@ -370,7 +363,4 @@
             }
         }
     }
-    // *:has(+ &) {
-    //     margin-bottom: 0;
-    // }
 }
