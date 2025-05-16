@@ -136,7 +136,6 @@
         }
         .global-alert-message {
             padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px, according to Health DS
-            max-width: 80%;// Added to prevent Label from collapsing
         }
         .global-alert-icon {
             // temporary change to align icon with content
@@ -146,6 +145,7 @@
             flex-direction: row !important;
         }
         .global-alert-action {
+            flex-shrink: 0; //  Prevent action link from shrinking/collapsing
             margin-left: 2rem;
         }
     }
