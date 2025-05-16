@@ -22,14 +22,18 @@
         .global-alert-content {
             padding: 0 1.25rem 0 1rem;
 
+            // Link styling placed outside the 'action link', to include all links within the content as well.
+            a, a:visited {
+                color: inherit;
+                text-decoration-color: inherit;
+            }
+
+            // Action link styling
             .global-alert-action a {
                 display: flex;
                 align-items: center;
 
-                &:visited {
-                    color: inherit;
-                    text-decoration-color: inherit;
-                }
+                // icon styling for action link
                 &:after {
                     content: "";
                     display: inline-block;
