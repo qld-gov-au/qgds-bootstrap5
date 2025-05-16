@@ -27,13 +27,14 @@ export default {
 
   decorators: [
     (Story, context) => {
-      // Map the "variant" control to the first alert item in the "alertItems" array.
-      // This ensures the selected variant is applied correctly to the first alert item.
+      // Each global alert story has an array of alertItems
+      // If the variant is set by user via SB Controls, we will use that variant for the first alert item, on the Default story only.
       const { args } = context;
-      const defaultVariant = "global-alert-critical";
+      let storyName = context?.story?.name || "Default";
 
-      // Update the first alert item's variant based on the "variant" control or fallback to the default.
-      args.alertItems[0].variant = args.variant || defaultVariant;
+      if (args.variant && storyName === "Default") {
+        args.alertItems[0].variant = args.variant || "global-alert-critical";
+      }
 
       // Render the story with the updated args.
       return Story({ args: { ...args } });

@@ -27,7 +27,6 @@
 		]
 	},
 	"multiple": {
-		"variant": "global-alert-multiple",
 		"alertItems": [
 			{
 				"variant": "global-alert-critical",
