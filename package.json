@@ -78,7 +78,7 @@
     "http-server": "^14.1.1",
     "minimist": "^1.2.8",
     "mocha": "^11.3.0",
-    "npm-run-all2": "^7.0.2",
+    "npm-run-all2": "^8.0.2",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.37",
     "postcss": "^8.4.47",
