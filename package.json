@@ -10,7 +10,7 @@
   "scripts": {
     "prepare": "npm run build",
     "start": "npm run build",
-    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
+    "lint": "eslint --fix  .",
     "build": "node esbuild.js",
     "test": "echo 'no unit tests built yet'",
     "test:integration": "npm-run-all --parallel --race serve:test test:testrunner",
@@ -33,7 +33,7 @@
     ".vscode",
     "dist",
     "src",
-    ".eslintrc.cjs",
+    "eslint.config.cjs",
     "esbuild.js",
     "jsconfig.json",
     "pom.xml",
@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
+    "@eslint/json": "^0.12.0",
     "@qld-gov-au/qgds-tokens": "^1.2.1",
     "@storybook/addon-a11y": "^8.6.14",
     "@storybook/addon-essentials": "^8.6.14",
@@ -73,6 +74,7 @@
     "esbuild-plugin-handlebars": "1.0.3",
     "esbuild-sass-plugin": "3.3.1",
     "eslint": "9.27.0",
+    "eslint-plugin-jsdoc": "^50.6.17",
     "eslint-plugin-json": "^4.0.1",
     "eslint-plugin-storybook": "^0.12.0",
     "handlebars": "4.7.8",
