@@ -5,6 +5,10 @@
  * @returns {void} Result of the helper operation
  */
 
+/**
+ *
+ * @param handlebars
+ */
 export default function handlebarsHelpers(handlebars) {
   // contains - if first object is in collection (second object) to return true
   handlebars.registerHelper("contains", function (needle, haystack, options) {
@@ -109,11 +113,9 @@ export default function handlebarsHelpers(handlebars) {
    * Supports two formats: "short" and "long".
    * - Short format: Display the duration in simplified format of "HH:MM:SS". It is the default format.
    * - Long format: Display the duration in descriptive format of "X hours Y minutes Z seconds".
-   *
-   * @param {Object | String} duration - Duration object with properties: 'hours', 'minutes', and 'seconds'. Duration string: "HH:MM:SS".
-   * @param {String} format - Option for format type 'short' or 'long'. If none provided, 'short' is the defaut value.
-   *
-   * @returns {String} Formatted duration
+   * @param {object | string} duration - Duration object with properties: 'hours', 'minutes', and 'seconds'. Duration string: "HH:MM:SS".
+   * @param {string} format - Option for format type 'short' or 'long'. If none provided, 'short' is the defaut value.
+   * @returns {string} Formatted duration
    * Examples:
    * - 03:00:00 - 3 hours
    * - 03:15:00 - 3 hours 15 minutes
@@ -191,7 +193,7 @@ export default function handlebarsHelpers(handlebars) {
   /**
    * Used to get class names added to an element based on their boolean values in an array
    * @param {string} names - Comma-separated list of class names to check for
-   * @param {array} array - Array of objects to check for true values
+   * @param {Array} array - Array of objects to check for true values
    * @returns {string} - Space-separated list of class names that have true values
    */
   handlebars.registerHelper('getClassNames', function(names, array) {

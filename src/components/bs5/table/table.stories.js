@@ -102,8 +102,8 @@ export const Striped = {
 
 export const Borderless = {
   args: { 
-	  ...defaultdata,
-	  ...{customClass: "qld-table--borderless"},
+    ...defaultdata,
+    ...{customClass: "qld-table--borderless"},
   },
 };
 
@@ -113,8 +113,8 @@ export const Borderless = {
  */
 export const WithHover = {
   args: { 
-	  ...defaultdata,
-	  ...{variantClass: "table-hover"},
+    ...defaultdata,
+    ...{variantClass: "table-hover"},
   },
 };
 
@@ -127,7 +127,7 @@ export const Dark = {
   args: {
     ...defaultdata,
     ...{variantClass: "table-dark"},
-  	},
+  },
 }
 
 
@@ -138,7 +138,7 @@ export const DarkWithHover = {
   args: {
     ...defaultdata,
     ...{ variantClass: ["table-dark","table-hover"] },
-  	},
+  },
 }
 
 
@@ -202,5 +202,5 @@ export const Responsive = {
       ],
     },
     ...{ variantClass: ["table-striped","table-hover"] },
-  	},
+  },
 }

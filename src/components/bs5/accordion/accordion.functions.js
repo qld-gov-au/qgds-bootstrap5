@@ -1,9 +1,7 @@
 /**
  * Toggle all accordion elements
- *
  * @memberof module:Accordion
- *
- * @param  {Object}  event - The event that triggered this function.
+ * @param  {object}  event - The event that triggered this function.
  * @returns {void}
  */
 export function accordionToggleAll(event) {
@@ -41,10 +39,8 @@ export function accordionToggleAll(event) {
 
 /**
  * Updates toggle all button if all panels are open/closed individually.
- *
  * @memberof module:Accordion
- *
- * @param {Object} event - The event that triggered this function.
+ * @param {object} event - The event that triggered this function.
  * @returns {void}
  */
 export function accordionToggleAllButtonState(event) {
@@ -78,10 +74,8 @@ export function accordionToggleAllButtonState(event) {
 
 /**
  * Open and scroll to an accordion panel specified via URL hash.
- *
  * @memberof module:Accordion
- *
- * @param {Object} event - (optional) The event that triggered this function.
+ * @param {object} event - (optional) The event that triggered this function.
  * @returns {void}
  */
 export function accordionHashLinks (event) {
@@ -128,8 +122,8 @@ export function accordionHashLinks (event) {
 /**
  * filterSpecialChar
  * @param {string} value - value to filter
- * @return {undefined}
- **/
+ * @returns {undefined}
+ */
 function filterSpecialChar(value) {
   return decodeURI(value.toLowerCase().replace(/[^a-zA-Z0-9/]/g, ''));
 }

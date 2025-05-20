@@ -99,7 +99,7 @@ export const Default = {};
 
 /**
  * Dark Button story
- * */
+ */
 export const Dark = {
   parameters: {
     backgrounds: {

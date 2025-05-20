@@ -1,9 +1,7 @@
 /**
  * Initialise the Breadcrumb component.
  * Shorten long breadcrumbs when required.
- *
  * @memberof module:Breadcrumb
- *
  * @returns {void} Returns early when breadcrumb does not exist or its length is within set maxLength. 
  */
 export function initBreadcrumb() {
@@ -27,9 +25,7 @@ export function initBreadcrumb() {
 
 /**
  * Shorten long breadcrumb lists
- *
  * @memberof module:Breadcrumb
- *
  * @param  {Element} breadcrumbList - Breadcrumb DOM element.
  * @param  {number} maxLength - Standard maximum length for breadcrumb.
  * @returns {void} Returns early when breadcrumb does not exist or its length is within set maxLength.
@@ -65,9 +61,7 @@ export function breadcrumbShorten(breadcrumbList, maxLength = 4) {
 
 /**
  * Expand shortened breadcrumb lists
- *
  * @memberof module:Breadcrumb
- *
  * @param  {Event} event - The event that triggered this function.
  * @returns {void} Returns early when the breadcrumb does not exist or is empty.
  */

@@ -67,8 +67,8 @@ export const Default = {
  */
 export const Dark = {
   args: { 
-	  ...defaultdata,
-	  ...{isDisabled: false},
+    ...defaultdata,
+    ...{isDisabled: false},
   },
   parameters: {
     backgrounds: {
@@ -94,8 +94,8 @@ export const Dark = {
  */
 export const Filled = {
   args: { 
-	  ...defaultdata,
-	  ...{customClass: "form-style-filled"},
+    ...defaultdata,
+    ...{customClass: "form-style-filled"},
   },
 };
 
@@ -105,8 +105,8 @@ export const Filled = {
  */
 export const Disabled = {
   args: { 
-	  ...defaultdata,
-	  ...{isDisabled: true},
+    ...defaultdata,
+    ...{isDisabled: true},
   },
 };
 
@@ -115,7 +115,7 @@ export const Disabled = {
  */
 export const Valid = {
   args: {
-	  ...defaultdata,
+    ...defaultdata,
     ...{customClass: "qld-input-success"},
   },
 };
@@ -125,7 +125,7 @@ export const Valid = {
  */
 export const Invalid = {
   args: {
-	  ...defaultdata,
+    ...defaultdata,
     ...{customClass: "qld-input-error"},
   },
 };

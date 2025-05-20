@@ -3,8 +3,8 @@ import template from "./inpageAlert.hbs?raw";
 
 /**
  * Creates a new instance of the Inpage Alert class.
- * @param {Object} data - The data object used to render the template. If no data is provided, the components example data file (component.data.json) will be used as a fallback.
- * @returns {Object} - An object containing the Handlebars template, data, and rendered HTML of the component.
+ * @param {object} data - The data object used to render the template. If no data is provided, the components example data file (component.data.json) will be used as a fallback.
+ * @returns {object} - An object containing the Handlebars template, data, and rendered HTML of the component.
  *
  * const MySuccessAlert = new InpageAlert({ heading: "Success!", content: "This is a success alert." });
  *

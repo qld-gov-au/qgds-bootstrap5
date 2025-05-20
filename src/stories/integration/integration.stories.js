@@ -16,7 +16,7 @@ import template from "./main.hbs?raw";
 import metaOpenGraphData from "../../components/bs5/metaOpenGraph/MetaOpenGraph.data.json";
 import { dcTerms } from '../../components/bs5/metaDcTerms/MetaDcTerms.data.json';
 
-/** sample data **/
+/** sample data */
 const defaultData = {
   template: template, // Adjust template path relative to this file
   cdn: ".", //for storybook it's ., for normal usage "PROD"

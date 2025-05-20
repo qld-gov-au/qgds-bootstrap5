@@ -1,6 +1,9 @@
 import fs from "fs";
 import log from "../helpers/logger.js";
 
+/**
+ *
+ */
 export default function cleanFoldersPlugin() {
   return {
     name: "qgds-clean-output-folders",

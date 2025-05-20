@@ -2,6 +2,10 @@
 import fs from "fs";
 import log from "../helpers/logger.js";
 
+/**
+ *
+ * @param showlog
+ */
 export default function rawLoaderPlugin(showlog = false) {
   return {
     name: "qgds-raw-loader",

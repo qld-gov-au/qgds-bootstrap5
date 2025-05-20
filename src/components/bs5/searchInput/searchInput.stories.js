@@ -51,8 +51,8 @@ export const FullWidth = {
 
 export const Dark = {
   args: { 
-	  ...defaultdata,
-	  variantClass: "dark",
+    ...defaultdata,
+    variantClass: "dark",
   },
   parameters: {
     backgrounds: {

@@ -1,9 +1,7 @@
 /**
  * Show and play the embedded video
- *
  * @memberof module:Video
- *
- * @param  {Object}  event - The event that triggered this function.
+ * @param  {object}  event - The event that triggered this function.
  * @returns {void}
  */
 export function videoEmbedPlay(event) {
@@ -28,10 +26,8 @@ export function videoEmbedPlay(event) {
 
 /**
  * Toggle the title of the video transcript accordion
- *
  * @memberof module:Video
- *
- * @param  {Object}  event - The event that triggered this function.
+ * @param  {object}  event - The event that triggered this function.
  * @returns {void}
  */
 export function videoTranscriptTitle(event) {

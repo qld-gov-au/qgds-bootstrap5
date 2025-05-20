@@ -1,3 +1,6 @@
+/**
+ *
+ */
 export function positionQuickExit() {
   let quickexitInstances = document.getElementsByClassName('qld-quick-exit');
   if (quickexitInstances.length > 0) {
@@ -15,6 +18,9 @@ export function positionQuickExit() {
   }
 }
 
+/**
+ *
+ */
 export function initQuickexit() {
   var quickExitElement = document.getElementsByClassName('qld-quick-exit');
   var quickExitButton = document.querySelector('.qld-quick-exit-button');
@@ -25,9 +31,9 @@ export function initQuickexit() {
   }
 }
 /**
-* onbtnClick -> clicking quick exit button a page
-* @return {undefined}
-**/
+ * onbtnClick -> clicking quick exit button a page
+ * @returns {undefined}
+ */
 function onbtnClick() {
   const escapeSite = 'https://www.google.com.au/';
   var quickExitButton = document.querySelector('.qld-quick-exit-button');
@@ -37,9 +43,9 @@ function onbtnClick() {
 }
 
 /**
-* onKeyDown -> escape keydown event
-* @return {undefined}
-**/
+ * onKeyDown -> escape keydown event
+ * @returns {undefined}
+ */
 function onKeyDown() {
   const escapeSite = 'https://www.google.com.au/';
   // add hotkey trigger
@@ -58,10 +64,10 @@ function onKeyDown() {
 }
 
 /**
-* quickExit function redirects a user on click and Esc key down
-* @param {string} site - site to replace on initiating the 'quick exit' ('Esc' key or clicking 'Close this site' button) function
-* @return {undefined}
-**/
+ * quickExit function redirects a user on click and Esc key down
+ * @param {string} site - site to replace on initiating the 'quick exit' ('Esc' key or clicking 'Close this site' button) function
+ * @returns {undefined}
+ */
 function quickExit(site) {
   // then redirect to a non-sensitive site
   window.open(site, '_blank');

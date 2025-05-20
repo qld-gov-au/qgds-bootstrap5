@@ -1,8 +1,6 @@
 /**
  * Init footer formio feedback form
- *
  * @memberof module:Footer
- *
  * @returns {void}
  */
 export function displayFeedbackForm() {
@@ -29,7 +27,10 @@ export function displayFeedbackForm() {
   }
 }
 
+/**
+ *
+ */
 export function runDisplayFeedbackFormIO() {
-  // eslint-disable-next-line no-undef
+   
   FormioScript.init();
 }

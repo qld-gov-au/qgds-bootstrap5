@@ -43,7 +43,7 @@ export const Default = {
 
 /**
  * Call To Action - Light
- * */
+ */
 export const Light = {
   parameters: {
     backgrounds: {
@@ -66,7 +66,7 @@ export const Light = {
 
 /**
  * Call To Action - Light-Alt
- * */
+ */
 export const LightAlt = {
   parameters: {
     backgrounds: {
@@ -89,7 +89,7 @@ export const LightAlt = {
 
 /**
  * Call To Action - Dark
- * */
+ */
 export const Dark = {
   parameters: {
     backgrounds: {
@@ -112,7 +112,7 @@ export const Dark = {
 
 /**
  * Call To Action - Dark-Alt
- * */
+ */
 export const DarkAlt = {
   parameters: {
     backgrounds: {

@@ -33,7 +33,7 @@ export const Default = {
  */
 export const Dark = {
   args: { 
-	  ...defaultdata,
+    ...defaultdata,
   },
   parameters: {
     backgrounds: {
@@ -59,8 +59,8 @@ export const Dark = {
  */
 export const Minimal = {
   args: {
-	  ...defaultdata,
-	  ...{minimal: true},
+    ...defaultdata,
+    ...{minimal: true},
   },
 };
 
@@ -69,8 +69,8 @@ export const Minimal = {
  */
 export const Stacked = {
   args: { 
-	  ...defaultdata,
-	  ...{stacked: true},
+    ...defaultdata,
+    ...{stacked: true},
   },
 };
 

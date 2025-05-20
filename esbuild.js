@@ -94,6 +94,9 @@ const buildNodeConfig = {
     handlebarsPlugin(),
   ],
 }
+/**
+ *
+ */
 async function StartBuild() {
   let ctx = await esbuild.context(buildConfig);
 

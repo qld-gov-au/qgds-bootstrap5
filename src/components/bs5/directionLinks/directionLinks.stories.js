@@ -74,7 +74,7 @@ export const Default = {};
 
 /**
  * Direction Link - Light
- * */
+ */
 export const Light = {
   parameters: {
     backgrounds: {
@@ -95,7 +95,7 @@ export const Light = {
 
 /**
  * Direction Link - Light-Alt
- * */
+ */
 export const LightAlt = {
   parameters: {
     backgrounds: {
@@ -116,7 +116,7 @@ export const LightAlt = {
 
 /**
  * Direction Link - Dark
- * */
+ */
 export const Dark = {
   parameters: {
     backgrounds: {
@@ -137,7 +137,7 @@ export const Dark = {
 
 /**
  * Direction Link - Dark-Alt
- * */
+ */
 export const DarkAlt = {
   parameters: {
     backgrounds: {

@@ -1,5 +1,5 @@
 /* global Handlebars */
-/** THIS IS A GENERATED FILE **/
+/** THIS IS A GENERATED FILE */
 
 import accordion from "../components/bs5/accordion/accordion.hbs?raw";
 import backToTop from "../components/bs5/backToTop/backToTop.hbs?raw";

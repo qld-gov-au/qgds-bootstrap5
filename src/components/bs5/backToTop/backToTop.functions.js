@@ -1,3 +1,6 @@
+/**
+ *
+ */
 export function backToTop() {
   let hasBackToTop = document.getElementsByClassName("back-to-top");
   

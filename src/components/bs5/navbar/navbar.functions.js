@@ -2,11 +2,10 @@ import { createPopper } from '@popperjs/core';
 
 /**
  * Initializes a Popper.js instance for dropdown elements.
- *
  * @memberof module:Navbar
  * @param {HTMLElement} referenceElement - The DOM element used as the reference.
  * @param {HTMLElement} popperElement - The DOM element used as the popper.
- * @returns {Object} The Popper instance created.
+ * @returns {object} The Popper instance created.
  */
 export function initializeDropdownPopper(referenceElement, popperElement) {
   const popperInstance = createPopper(referenceElement, popperElement, {
@@ -31,7 +30,6 @@ let activePoppers = [];
 
 /**
  * Initializes the navbar by setting up dropdown toggles and overlay interactions.
- *
  * @memberof module:Navbar
  * @returns {void}
  */
@@ -93,7 +91,7 @@ export function initializeNavbar() {
       if (openMenuButton) {
         openMenuButton.setAttribute('aria-label', 'Close menu');
       }
-  });
+    });
 
     // Once mobile nav has been hidden.
     // Change focus back to Open Menu button and unhide Header from screenreader.

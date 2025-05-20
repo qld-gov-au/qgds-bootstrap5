@@ -2,10 +2,9 @@ import { createPopper } from '@popperjs/core';
 
 /**
  * Fetches data from the provided URL.
- *
  * @param {string} url - The URL to fetch data from.
  * @param {string} type - The type of data to fetch (suggestions or services).
- * @returns {Promise<Object>} - A promise that resolves to the fetched data.
+ * @returns {Promise<object>} - A promise that resolves to the fetched data.
  */
 async function fetchData(url, type) {
   try {
@@ -23,7 +22,6 @@ async function fetchData(url, type) {
 
 /**
  * Sets the selected suggestion into the input field and submits the form.
- *
  * @param {string} value - The selected suggestion.
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}
@@ -63,12 +61,11 @@ export function selectSuggestion(value, form) {
 
 /**
  * Shows/hides suggestions based on the user's input.
- *
  * @param {string} value - The current input value.
  * @param {boolean} isDefault - Whether to show default suggestions or not.
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}
- **/
+ */
 export async function showSuggestions(value = '', isDefault = false, form) {
   const searchInput = form.querySelector('.qld-search-input input');
   const suggestions = form.querySelector('.suggestions');
@@ -112,9 +109,9 @@ export async function showSuggestions(value = '', isDefault = false, form) {
         <div class="suggestions-category mt-2">
           <strong class="suggestions-category-label">Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
-    const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-    return `<li><a href="#">${highlightedText}</a></li>`;
-  }).join('')}</ul>
+            const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
+            return `<li><a href="#">${highlightedText}</a></li>`;
+          }).join('')}</ul>
         </div>`;
       dynamicSuggestionsContainer.style.display = 'block';
       createPopper(searchInput, suggestions, {
@@ -162,7 +159,6 @@ export async function showSuggestions(value = '', isDefault = false, form) {
 
 /**
  * Submits the search form with proper parameters.
- *
  * @param {string} query - The search query.
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}

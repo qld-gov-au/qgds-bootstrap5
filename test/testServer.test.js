@@ -4,6 +4,9 @@ import { Builder } from "selenium-webdriver";
 let serverPort;
 let driver;
 
+/**
+ *
+ */
 export async function mochaGlobalTeardown() {
   console.log("Cleaning up server");
   if (driver) {
@@ -15,10 +18,16 @@ export async function mochaGlobalTeardown() {
   console.log("clean up done");
 }
 
+/**
+ *
+ */
 export async function mochaGlobalSetup() {
   serverPort = 8081;
 }
 
+/**
+ *
+ */
 export async function init() {
   let options = new chrome.Options();
   options.addArguments('--headless', '--disable-gpu', '--no-sandbox');
@@ -27,6 +36,9 @@ export async function init() {
   return { driver: driver, serverPort: serverPort }
 }
 
+/**
+ *
+ */
 export async function initAfter() {
   await driver.quit();
   console.log("browser closed");

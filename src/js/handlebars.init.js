@@ -11,6 +11,10 @@ let isHandlebarsHelpersAndPartialsRegistered = false;
  *
  * @param {Handlebars} handlebars
  */
+/**
+ *
+ * @param handlebars
+ */
 export default function init(handlebars) {
   if (typeof(handlebars) === 'undefined') {
     console.error("Handlebars.init requires HandleBars");

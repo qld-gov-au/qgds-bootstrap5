@@ -10,23 +10,20 @@ import defaultdata from "./inpageAlert.data.json";
 export default {
   /**
    * Automatically create documentation (overview) page.
-   *
    * @type {string[]}
    */
   tags: ["autodocs"],
 
   /**
    * Name of the story.
-   *
    * @type {string}
    */
   title: "3. Components/In-page Alert",
 
   /**
    * Function that renders the HTML snippet for the story.
-   *
    * @type {Function}
-   * @param {Object} args - Arguments for rendering the story, including data for the Handlebars template placeholders.
+   * @param {object} args - Arguments for rendering the story, including data for the Handlebars template placeholders.
    * @returns {string} - The rendered HTML snippet.
    */
   render: (args) => {

@@ -20,9 +20,8 @@ export default {
 
   /**
    * Additional parameters for the story.
-   *
-   * @type {Object}
-   * @property {Object} design - Configuration for the design parameter.
+   * @type {object}
+   * @property {object} design - Configuration for the design parameter.
    * @property {string} design.name - Name of the design parameter.
    * @property {string} design.type - Type of the design parameter.
    * @property {string} design.url - URL of the design parameter.

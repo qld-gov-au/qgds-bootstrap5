@@ -1,8 +1,6 @@
 /**
  * Toggles the class on a search div based on button click.
- *
  * @memberof module:Header
- *
  * @param {Event} event - The event that triggered this function.
  * @returns {void}
  */
