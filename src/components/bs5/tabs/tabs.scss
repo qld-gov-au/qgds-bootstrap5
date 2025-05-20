@@ -1,8 +1,6 @@
 .qld-tabs {
     --accent-colour: var(--qld-light-green);
-    --max-width: 100%;
     --border-radius: #{$border-radius};
-    --tab-scroll-icon-colour: var(--qld-light-action-secondary);
     // tabs colours
     --default-bg-colour: var(--qld-default-background);
     --light-bg-colour: var(--qld-light-background);
@@ -14,6 +12,9 @@
     --dark-border-colour: var(--qld-dark-alt-border);
     --dark-colour: var(--qld-dark-text);
     --icon-dropshadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --focus-default-colour: var(--qld-light-focus);
+    --focus-active-colour: var(--qld-dark-focus);
+    --nav-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill=''><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
     // bootstrap variables
     --#{$prefix}nav-tabs-border-radius: var(--border-radius);
     --#{$prefix}nav-tabs-link-hover-border-color: var(--qld-tab-background-hover);
@@ -26,10 +27,12 @@
     position: relative;
 
     &.default, &.light, &.alt {
-        --qld-border-color: var(--dark-alt-bg-colour);
+        --qld-border-color: var(--light-border-colour);
+        --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
     }
     &.dark, &.dark-alt {
         --qld-border-color: var(--qld-dark-alt-border);
+        --qld-tab-icon-color-hover:var(--qld-light-action-secondary);
     }
     &.container {        
         background-color: transparent;
@@ -82,6 +85,9 @@
             margin-block-end: 0;
             background-color: transparent;
             margin-block-end: -1px;
+        }
+        .show {
+            display: flex;
         }
     }
     &.default .tabs-area, &.light .tabs-area, &.alt .tabs-area {
@@ -186,22 +192,42 @@
         background-color: transparent;
         border: none;
         z-index: 20;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
         i {
             background-color: var(--default-bg-colour);
             border-radius: 1.875rem;
             width: 1.75rem;
             height: 1.75rem;
             box-shadow: var(--icon-dropshadow);
-            color: var(--tab-scroll-icon-colour);
             line-height: 1.7;
+            display: flex;
+            align-items: center;
+            &::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                mask: var(--nav-icon);
+                background-color: var(--qld-light-action-secondary);
+                mask-position: center;
+                mask-size: 18px;
+                mask-repeat: no-repeat;
+            }
         }
         &.scroll-left {
             left: 0.75rem;
             inset-block-start: 0;
+            transform: rotate(90deg);
+            justify-content: end;
         }
         &.scroll-right {
             right: 0.75rem;
             inset-block-start: 0;
+            transform: rotate(-90deg);
+            justify-content: start;
         }
     }
     .nav-tabs {
@@ -226,16 +252,16 @@
             background-clip: border-box;
             .nav-link {
                 &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
-                    outline: 0.1875rem solid var(--qld-focus-color);
-                    outline-offset: -0.625rem;
+                    outline: 0.1875rem solid var(--focus-default-colour);
+                    outline-offset: -0.75rem;
                     box-shadow:none;
                 }
                 display: flex;
                 flex-direction: column;
                 gap: 0.5rem;
-                padding-inline: 1.5rem;
-                padding-block-start: 0.5rem;
-                padding-block-end: 0;
+                padding-inline: 1.25rem;
+                padding-block-start: 0.75rem;
+                padding-block-end: 0.75rem;
                 background-color: var(--qld-tab-background);
                 scroll-snap-align: start;
                 span {
@@ -244,7 +270,9 @@
                     gap: 0.5rem;
                     color: var(--qld-link-color);
                     align-items: anchor-center;
+                    line-height: 1rem;
                     i {
+                        font-size: 1.125rem;
                         color: var(--qld-tab-icon-color);
                     }
                     &.reverse {
@@ -257,7 +285,7 @@
                         color: var(--qld-tab-hover-text-color);
                         text-decoration: underline;
                         i {
-                            color: var(--qld-tab-icon-color);
+                            color: var(--qld-tab-icon-color-hover);
                         }
                     }
                 }
@@ -265,8 +293,12 @@
                     content: "";
                     display: block;
                     height: 0.25rem;
+                    margin-block-end: calc(-0.75rem - 2px);
                 }
                 &.active {
+                    &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
+                        outline: 0.1875rem solid var(--focus-active-colour);
+                    }
                     background-color: var(--qld-body-bg);
                     border-block-end: 1px solid var(--qld-body-bg);
                     &::after {
@@ -275,7 +307,6 @@
                         border-start-end-radius: var(--border-radius);
                         border-start-start-radius: var(--border-radius);
                         background-color: var(--accent-colour);
-                        margin-block-end: 0.125rem;
                     }
                     &:hover {
                         border-color: var(--qld-border-color);
@@ -293,7 +324,10 @@
                         i {
                             color: var(--qld-tab-text-colour-heading);
                         }
-                    }  
+                    }
+                    &::after {
+                        margin-block-end: -0.75rem;
+                    }
                 }
                 &:disabled,
                 &[disabled] {
@@ -316,15 +350,18 @@
         border: 1px solid var(--qld-border-color);
         padding-block: 4rem;
         padding-inline: 2.5rem;
+        h2{
+            line-height: 40px;
+        }
         .qld-cta-link {
             margin-block-start: 2rem;
+        }
+        .show {
+            display: block;
         }
     }
     .scroll {
         display: none;
-    }
-    .show {
-        display: block;
     }
     .fade {
         opacity: 0;
@@ -338,26 +375,31 @@
     }
     &.section {
         .default ~ & {
+            --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
             .tabs-area {
                 background-color: var(--default-bg-colour);
             }
         }
         .light ~ & {
+            --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
             .tabs-area {
                 background-color: var(--light-bg-colour);
             }
         }
         .alt ~ & {
+            --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
             .tabs-area {
                 background-color: var(--alt-bg-colour);
             }
         }
         .dark ~ & {
+            --qld-tab-icon-color-hover:var(--qld-light-action-secondary);
             .tabs-area {
                 background-color: var(--dark-bg-colour);
             }
         }
         .dark-alt ~ & {
+            --qld-tab-icon-color-hover:var(--qld-light-action-secondary);
             .tabs-area {
                 background-color: var(--dark-alt-bg-colour);
             }
