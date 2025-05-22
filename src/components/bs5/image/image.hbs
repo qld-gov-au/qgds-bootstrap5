@@ -1,0 +1,29 @@
+{{!-- Image template --}}
+{{#*inline "imageTag"}}
+  <img 
+    class="{{ ratioClass }} {{ otherClass }} {{ positionX }} {{ positionY }} " 
+    src="{{ src }}" 
+    alt="{{ alt }}" 
+    {{!-- Accept lazy loading --}}
+    {{~#if lazy }}loading="lazy"{{/if}}
+    {{!-- Accept inline styles --}}
+    style="{{~#if width}}--component-width:{{ width }}{{/if}}"
+  />
+{{/inline}}
+
+{{!-- src is required  --}}
+{{#if src}}
+  
+  {{!-- Image with caption requires a figure element --}}
+  {{#if caption }}
+  <figure class="{{ figureClass }}" style="{{~#if width}}--component-width:{{ width }}{{/if}}">
+    {{> imageTag}}
+    <figcaption>{{ caption }}</figcaption>
+  </figure>
+
+  {{else}}
+    {{!-- Standar image --}}
+    {{> imageTag}}
+  {{/if}}
+
+{{/if}}

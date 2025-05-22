@@ -1,0 +1,10 @@
+{
+  "ratioClass": "image-ratio-3x2",
+  "otherClass": "img-fluid",
+  "figureClass": "",
+  "positionX": "position-x-center",
+  "positionY": "position-y-center",
+  "width": "350px",
+  "src": "assets/img/image-content-example.jpg",
+  "alt": "Two people are sitting in park, interacting with a tablet style mobile device."
+}

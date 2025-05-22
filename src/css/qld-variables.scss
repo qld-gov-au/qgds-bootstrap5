@@ -159,6 +159,8 @@ $project-colors: (
   "dark-underline": $qld-dark-underline,
   "maroon-traditional": $qld-maroon-traditional,
   "maroon-modern": $qld-maroon-modern,
+
+  // Syntax and warnings
   "notify-warning": $qld-notify-warning,
   "notify-information": $qld-notify-information,
   "notify-success": $qld-notify-success,
@@ -167,6 +169,8 @@ $project-colors: (
   "syntax-elements": $qld-syntax-elements,
   "syntax-properties": $qld-syntax-properties,
   "syntax-comments": $qld-syntax-comments,
+
+  //Legacy color based variables - to review
   "primary": $qld-sapphire-blue,
   "primary-dark": $qld-brand-primary-dark,
   "secondary": $qld-dark-green,
@@ -190,6 +194,8 @@ $project-colors: (
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
   "dark-hover" : $qld-dark-hover,
+
+  //Actions
   "light-action-primary": $qld-light-action-primary,
   "light-action-primary-hover": $qld-light-action-primary-hover,
   "light-action-secondary": $qld-light-action-secondary,
@@ -202,23 +208,34 @@ $project-colors: (
 
   //Define new BEM colour variables from Figma
   //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
+
+  //Backgrounds
   "default-background": $qld-color-background,
   "default-background-shade": $qld-color-background--shade,
-  "light-text-heading": $qld-text-headings,
-  "light-text-text": $qld-text-grey,
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
-  "light-border": $qld-light-border,
-  "light-link": $qld-light-link,
-
   "light-alt-background": $qld-color-light-alt-background,
   "light-alt-background-shade": $qld-color-light-alt-background--shade,
   "dark-background": $qld-color-dark-background,
   "dark-background-shade": $qld-color-dark-background--shade,
   "dark-alt-background": $qld-color-dark-alt-background,
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
+
+  //Links
+  "light-link": $qld-light-link,
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
+
+  //Text
+  "light-text-heading": $color-default-color-light-text-heading,
+  "light-text-text": $color-default-color-light-text-default,
+  "light-text-lighter": $color-default-color-light-text-lighter,
+  "dark-text-heading": $color-default-color-dark-text-heading,
+  "dark-text-text": $color-default-color-dark-text-default,
+  "dark-text-lighter": $color-default-color-dark-text-lighter,
+
+  //Borders
+  "light-border": $qld-light-border,
 
   //Neutrals
   "neutral-black": $core-default-color-neutral-black,

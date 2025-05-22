@@ -1,0 +1,89 @@
+// CSS utilities for fixed-ratio specific QGDS images
+
+// 1. All images with a fixed ratio, default to cover and center placement
+img[class*="image-ratio-"] {
+  --component-width: 100%;
+  width: var(--component-width);
+  object-fit: cover;
+  object-position: var(--position-x, center) var(--position-y, center);
+}
+
+figure {
+  --component-width: 100%;
+  width: var(--component-width);
+  background: var(--qld-neutral-lightest);
+  color: var(--qld-light-text-lighter);
+  display: inline-block;
+
+  &.light {
+    background: var(--qld-light-background-shade);
+    color: var(--qld-light-text-lighter);
+  }
+
+  &.light-alt {
+    background: var(--qld-light-alt-background-shade);
+    color: var(--qld-light-text-lighter);
+  }
+
+  &.dark {
+    background: var(--qld-dark-background-shade);
+    color: var(--qld-dark-text-text);
+  }
+
+  &.dark-alt {
+    background: var(--qld-dark-alt-background-shade);
+    color: var(--qld-dark-text-text);
+  }
+
+  figcaption {
+    padding: 0.5rem;
+  }
+}
+
+
+$qgds-image-ratios: (
+  "1x1": 1,
+  "3x2": 3 / 2,
+  "2x3": 2 / 3,
+  "4x3": 4 / 3,
+  "3x4": 3 / 4,
+  "16x9": 16 / 9
+);
+
+// Loop through the $qgds-image-ratios map, create a class for each ratio. .ikmage-ratio-1x1, .image-ratio-3x2, etc.
+// and set the aspect-ratio property
+@each $name, $value in $qgds-image-ratios {
+  .image-ratio-#{$name} {
+    aspect-ratio: #{$value};
+  }
+}
+
+// Horizontal placement: position-x-left, postition-x-30%, etc.
+// Vertical placement: position-y-top, position-y-60%, etc.
+@mixin position-class($axis, $position, $unit: '') {
+  .position-#{$axis}-#{$position} {
+    --position-#{$axis}: #{$position}#{$unit};
+  }
+}
+
+// 1. Named positions
+// Loop through the $named-positions map
+$named-positions: (
+  x: ('left', 'center', 'right'),
+  y: ('top', 'center', 'bottom')
+);
+
+// Build a class for each named position
+@each $axis, $positions-list in $named-positions {
+  @each $position in $positions-list {
+    @include position-class($axis, $position);
+  }
+}
+
+// 2. Numeric Positions (0, 10, 20, ..., 100 for both axes)
+// Build a class for each numeric position
+@for $i from 0 through 10 {
+  $value: $i * 10;
+  @include position-class(x, $value, '%');
+  @include position-class(y, $value, '%');
+}
