@@ -230,7 +230,10 @@ $project-colors: (
   "light-background-shade": $qld-light-background-shade,
   "light-border": $qld-light-border,
   "light-border-alt": $qld-light-border-alt,
-  "light-link": $qld-light-link,
+
+  //Links
+  "light-link": $color-default-color-light-link-default,
+  "dark-link": $color-default-color-dark-link-default,
 
   "light-alt-background": $qld-color-light-alt-background,
   "light-alt-background-shade": $qld-color-light-alt-background--shade,
