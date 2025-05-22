@@ -11,9 +11,9 @@
     --light-colour: var(--qld-light-text-heading);
     --dark-border-colour: var(--qld-dark-alt-border);
     --dark-colour: var(--qld-dark-text);
-    --icon-dropshadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --icon-dropshadow: 0px 1px 3px rgba(0, 0, 0, 0.10), 0px 1px 2px 0 rgba(0, 0, 0, 0.20);
     --focus-default-colour: var(--qld-light-focus);
-    --focus-active-colour: var(--qld-dark-focus);
+    // --focus-active-colour: var(--qld-dark-focus);
     --nav-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill=''><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
     // bootstrap variables
     --#{$prefix}nav-tabs-border-radius: var(--border-radius);
@@ -29,12 +29,23 @@
     &.default, &.light, &.alt {
         --qld-border-color: var(--light-border-colour);
         --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
+        --qld-tab-focus-colour: var(--qld-light-focus);
+        --qld-tab-active-focus-colour: var(--qld-light-focus);
+        --qld-scroll-bg-color: var(--default-bg-colour);
+        // --qld-scroll-area-bg-color: var(--default-bg-colour);
+        // --qld-scroll-area-bg-color:linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
     }
     &.dark, &.dark-alt {
         --qld-border-color: var(--qld-dark-alt-border);
-        --qld-tab-icon-color-hover:var(--qld-light-action-secondary);
+        --qld-tab-icon-color-hover: var(--qld-dark-action-text); // #121940; //var(--qld-light-action-secondary);
+        --qld-tab-focus-colour: var(--qld-dark-focus);
+        --qld-tab-active-focus-colour: var(--qld-dark-focus); // var(--qld-dark-focus);
+        --qld-scroll-bg-color: var(--default-bg-colour);
     }
-    &.container {        
+    &.tab-container {
+        --scroll-distance: 0;
+        --gradient-percentage: 80%;
+        --section-content-padding: 1.25rem;        
         background-color: transparent;
         padding-block-end: 5rem;
         margin-block-start: 3rem;
@@ -57,7 +68,10 @@
             }  
         }
     }
-    &.section {
+    &.tab-section {
+        --scroll-distance: 1.75rem;
+        --gradient-percentage: 50%;
+        --section-content-padding: 4rem;
         background-color: transparent;
         .tabs-area {
             padding-inline: 2.5rem;
@@ -111,41 +125,51 @@
             }
         }
     }
-    &.default .tabs-area {        
+    &.default {
+        --qld-scroll-area-bg-color:var(--default-bg-colour);
+        .tabs-area {        
         .nav-tabs {
             .nav-item {
                 .nav-link.active {                    
                     background-color: var(--default-bg-colour);
-                    border-block-end: 1px solid var(--default-bg-colour);
+                    border-block-end: 0 solid var(--default-bg-colour);
                 }
             }
         }        
-    }
-    &.light .tabs-area {
+    }}
+    &.light {
+        --qld-scroll-bg-color: var(--light-bg-colour);
+        --qld-scroll-area-bg-color:var(--light-bg-colour);
+        .tabs-area {
         .nav-tabs {
             .nav-item {
                 .nav-link.active {
                     background-color: var(--light-bg-colour);
-                    border-block-end: 1px solid var(--light-bg-colour);
+                    border-block-end: 0 solid var(--light-bg-colour);
                 }
             }
         }
-    }
-    &.alt .tabs-area {
+    }}
+    &.alt {
+        --qld-scroll-bg-color: var(--alt-bg-colour);
+        --qld-scroll-area-bg-color:var(--alt-bg-colour);
+        .tabs-area {
         .nav-tabs {
             .nav-item {
                 .nav-link.active {
                     background-color: var(--alt-bg-colour);
-                    border-block-end: 1px solid var(--alt-bg-colour);
+                    border-block-end: 0 solid var(--alt-bg-colour);
                 }
             }
         }
-    }
+    }}
     &.dark .tabs-area, &.dark-alt .tabs-area {
         border-block-end-color: var(--dark-border-colour);
         .nav-item {
             .nav-link {
                 &.active {
+                    --qld-tab-focus-colour: var(--qld-dark-focus);
+                    --qld-tab-active-focus-colour: var(--qld-dark-focus);
                     border: 1px solid var(--dark-border-colour);
                     border-block-end-color: transparent;
                     span {
@@ -161,43 +185,49 @@
             }
         }        
     }
-    &.dark .tabs-area {    
+    &.dark {
+        --qld-scroll-area-bg-color:var(--dark-bg-colour);
+        .tabs-area {    
         .nav-tabs {
             .nav-item {
                 .nav-link.active {
                     background-color: var(--dark-bg-colour);
-                    border-block-end: 1px solid var(--dark-bg-colour);
+                    border-block-end: 0 solid var(--dark-bg-colour);
                     &:hover {
                         border-color: var(--dark-border-colour);
                     } 
                 }
             }
         }
-    }
-    &.dark-alt .nav-tabs {            
+    }}
+    &.dark-alt {
+        --qld-scroll-area-bg-color:var(--dark-alt-bg-colour);
+        .nav-tabs {            
         .nav-item {
             .nav-link.active {
                 background-color: var(--dark-alt-bg-colour);
-                border-block-end: 1px solid var(--dark-alt-bg-colour);
+                border-block-end: 0 solid var(--dark-alt-bg-colour);
                 &:hover {
                     border-color: var(--dark-border-colour);
                 } 
             }
         }
-    }
+    }}
     .scroll {
         position: absolute;
-        width: 3rem;
-        height: 100%;
+        width: 47px; //calc(3rem - 1px);
+        height: 47px; // calc(100% - 1px);
         background-color: transparent;
         border: none;
         z-index: 20;
+        top: 5px;
 
         display: flex;
         align-items: center;
         justify-content: center;
+        
         i {
-            background-color: var(--default-bg-colour);
+            background-color: var(--qld-scroll-bg-color);
             border-radius: 1.875rem;
             width: 1.75rem;
             height: 1.75rem;
@@ -205,6 +235,7 @@
             line-height: 1.7;
             display: flex;
             align-items: center;
+            border: 1px solid #000;
             &::before {
                 content: '';
                 display: block;
@@ -218,16 +249,19 @@
             }
         }
         &.scroll-left {
-            left: 0.75rem;
+            left: var(--scroll-distance);
+            bottom: -1px;
             inset-block-start: 0;
             transform: rotate(90deg);
             justify-content: end;
+            background-image:linear-gradient(to bottom, transparent, var(--qld-scroll-area-bg-color) var(--gradient-percentage));
         }
         &.scroll-right {
-            right: 0.75rem;
+            right: var(--scroll-distance);
             inset-block-start: 0;
             transform: rotate(-90deg);
             justify-content: start;
+            background-image:linear-gradient(to bottom, rgba(255,0,0,0), var(--qld-scroll-area-bg-color) var(--gradient-percentage));
         }
     }
     .nav-tabs {
@@ -252,8 +286,8 @@
             background-clip: border-box;
             .nav-link {
                 &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
-                    outline: 0.1875rem solid var(--focus-default-colour);
-                    outline-offset: -0.75rem;
+                    outline: 0.1875rem solid var(--qld-tab-focus-colour);
+                    // outline-offset: -0.75rem;
                     box-shadow:none;
                 }
                 display: flex;
@@ -264,6 +298,9 @@
                 padding-block-end: 0.75rem;
                 background-color: var(--qld-tab-background);
                 scroll-snap-align: start;
+                outline-offset: -0.75rem;
+                border: 1px solid transparent;
+                margin-block-end: 1px;
                 span {
                     white-space: nowrap;
                     display: flex;
@@ -297,10 +334,10 @@
                 }
                 &.active {
                     &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
-                        outline: 0.1875rem solid var(--focus-active-colour);
+                        outline: 0.1875rem solid var(--qld-tab-active-focus-colour);
                     }
                     background-color: var(--qld-body-bg);
-                    border-block-end: 1px solid var(--qld-body-bg);
+                    margin-block-end: 0;
                     &::after {
                         content: "";
                         border-radius: 0;
@@ -348,16 +385,22 @@
         z-index: 5;
         background-color: var(--qld-body-bg);
         border: 1px solid var(--qld-border-color);
-        padding-block: 4rem;
+        padding-block: var(--section-content-padding); // 4rem;
         padding-inline: 2.5rem;
         h2{
             line-height: 40px;
+            font-size: 2rem;
         }
         .qld-cta-link {
             margin-block-start: 2rem;
         }
         .show {
             display: block;
+        }
+    }
+    @include media-breakpoint-down(md) {
+        .tab-content {
+            padding-block: 2.5rem;
         }
     }
     .scroll {
@@ -373,33 +416,51 @@
     .fade:not(.show) {
         display: none;
     }
-    &.section {
+    &.tab-section {
         .default ~ & {
+            --qld-tab-focus-colour: var(--qld-light-focus);
+            --qld-tab-active-focus-colour: var(--qld-light-focus);
+            --qld-scroll-bg-color: var(--default-bg-colour);
+            --qld-scroll-area-bg-color:var(--default-bg-colour);
             --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
             .tabs-area {
                 background-color: var(--default-bg-colour);
             }
         }
         .light ~ & {
+            --qld-tab-focus-colour: var(--qld-light-focus);
+            --qld-tab-active-focus-colour: var(--qld-light-focus);
+            --qld-scroll-bg-color: var(--light-bg-colour);
+            --qld-scroll-area-bg-color:var(--light-bg-colour);
             --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
             .tabs-area {
                 background-color: var(--light-bg-colour);
             }
         }
         .alt ~ & {
+            --qld-tab-focus-colour: var(--qld-light-focus);
+            --qld-tab-active-focus-colour: var(--qld-light-focus);
+            --qld-scroll-bg-color: var(--alt-bg-colour);
+            --qld-scroll-area-bg-color:var(--alt-bg-colour);
             --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
             .tabs-area {
                 background-color: var(--alt-bg-colour);
             }
         }
         .dark ~ & {
-            --qld-tab-icon-color-hover:var(--qld-light-action-secondary);
+            --qld-scroll-bg-color: var(--default-bg-colour);
+            --qld-scroll-area-bg-color:var(--dark-bg-colour);
+            --qld-tab-icon-color-hover:var(--qld-dark-action-text); //var(--qld-light-action-secondary);
+            // --qld-tab-active-focus-colour: var(--qld-dark-focus);
             .tabs-area {
                 background-color: var(--dark-bg-colour);
             }
         }
         .dark-alt ~ & {
-            --qld-tab-icon-color-hover:var(--qld-light-action-secondary);
+            --qld-scroll-bg-color: var(--default-bg-colour);
+            --qld-scroll-area-bg-color:var(--dark-alt-bg-colour);
+            --qld-tab-icon-color-hover:var(--qld-dark-action-text); // var(--qld-light-action-secondary);
+            // --qld-tab-active-focus-colour: var(--qld-dark-focus);
             .tabs-area {
                 background-color: var(--dark-alt-bg-colour);
             }
