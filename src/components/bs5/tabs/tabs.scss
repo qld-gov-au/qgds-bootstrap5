@@ -13,7 +13,6 @@
     --dark-colour: var(--qld-dark-text);
     --icon-dropshadow: 0px 1px 3px rgba(0, 0, 0, 0.10), 0px 1px 2px 0 rgba(0, 0, 0, 0.20);
     --focus-default-colour: var(--qld-light-focus);
-    // --focus-active-colour: var(--qld-dark-focus);
     --nav-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill=''><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
     // bootstrap variables
     --#{$prefix}nav-tabs-border-radius: var(--border-radius);
@@ -32,14 +31,12 @@
         --qld-tab-focus-colour: var(--qld-light-focus);
         --qld-tab-active-focus-colour: var(--qld-light-focus);
         --qld-scroll-bg-color: var(--default-bg-colour);
-        // --qld-scroll-area-bg-color: var(--default-bg-colour);
-        // --qld-scroll-area-bg-color:linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
     }
     &.dark, &.dark-alt {
         --qld-border-color: var(--qld-dark-alt-border);
-        --qld-tab-icon-color-hover: var(--qld-dark-action-text); // #121940; //var(--qld-light-action-secondary);
+        --qld-tab-icon-color-hover: var(--qld-dark-action-text);
         --qld-tab-focus-colour: var(--qld-dark-focus);
-        --qld-tab-active-focus-colour: var(--qld-dark-focus); // var(--qld-dark-focus);
+        --qld-tab-active-focus-colour: var(--qld-dark-focus);
         --qld-scroll-bg-color: var(--default-bg-colour);
     }
     &.tab-container {
@@ -215,8 +212,8 @@
     }}
     .scroll {
         position: absolute;
-        width: 47px; //calc(3rem - 1px);
-        height: 47px; // calc(100% - 1px);
+        width: 47px;
+        height: 47px;
         background-color: transparent;
         border: none;
         z-index: 20;
@@ -287,7 +284,6 @@
             .nav-link {
                 &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
                     outline: 0.1875rem solid var(--qld-tab-focus-colour);
-                    // outline-offset: -0.75rem;
                     box-shadow:none;
                 }
                 display: flex;
@@ -385,7 +381,7 @@
         z-index: 5;
         background-color: var(--qld-body-bg);
         border: 1px solid var(--qld-border-color);
-        padding-block: var(--section-content-padding); // 4rem;
+        padding-block: var(--section-content-padding);
         padding-inline: 2.5rem;
         h2{
             line-height: 40px;
@@ -450,8 +446,7 @@
         .dark ~ & {
             --qld-scroll-bg-color: var(--default-bg-colour);
             --qld-scroll-area-bg-color:var(--dark-bg-colour);
-            --qld-tab-icon-color-hover:var(--qld-dark-action-text); //var(--qld-light-action-secondary);
-            // --qld-tab-active-focus-colour: var(--qld-dark-focus);
+            --qld-tab-icon-color-hover:var(--qld-dark-action-text);
             .tabs-area {
                 background-color: var(--dark-bg-colour);
             }
@@ -459,8 +454,7 @@
         .dark-alt ~ & {
             --qld-scroll-bg-color: var(--default-bg-colour);
             --qld-scroll-area-bg-color:var(--dark-alt-bg-colour);
-            --qld-tab-icon-color-hover:var(--qld-dark-action-text); // var(--qld-light-action-secondary);
-            // --qld-tab-active-focus-colour: var(--qld-dark-focus);
+            --qld-tab-icon-color-hover:var(--qld-dark-action-text);
             .tabs-area {
                 background-color: var(--dark-alt-bg-colour);
             }
