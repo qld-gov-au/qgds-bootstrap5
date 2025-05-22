@@ -62,7 +62,45 @@ export const ContainerDefault = {
     type: "container",
     unique_id: "234566",
     variant: "default",
-  }
+    data: {
+      items: [
+        {   
+          tab_text: "Tab label 1",
+          title: "Section Heading (H2)",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
+          cta: false,
+        },
+        {
+          tab_text: "Tab label 2",
+          title: "Section Heading Item 2",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 3",
+          title: "Section Heading Item 3",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 4",
+          title: "Section Heading Item 4",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+          disabled: true,
+        },
+        {
+          tab_text: "Tab label 5",
+          title: "Section Heading Item 5",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 6",
+          title: "Section Heading Item 6",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+      ],
+    },
+  },
 };
 
 /**
@@ -74,7 +112,45 @@ export const ContainerLight = {
     type: "container",
     unique_id: "345678",
     variant: "light",
-  }
+    data: {
+      items: [
+        {   
+          tab_text: "Tab label 1",
+          title: "Section Heading (H2)",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
+          cta: false,
+        },
+        {
+          tab_text: "Tab label 2",
+          title: "Section Heading Item 2",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 3",
+          title: "Section Heading Item 3",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 4",
+          title: "Section Heading Item 4",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+          disabled: true,
+        },
+        {
+          tab_text: "Tab label 5",
+          title: "Section Heading Item 5",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 6",
+          title: "Section Heading Item 6",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+      ],
+    },
+  },
 };
 
 /**
@@ -86,7 +162,45 @@ export const ContainerAlt = {
     type: "container",
     unique_id: "456789",
     variant: "alt",
-  }
+    data: {
+      items: [
+        {   
+          tab_text: "Tab label 1",
+          title: "Section Heading (H2)",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
+          cta: false,
+        },
+        {
+          tab_text: "Tab label 2",
+          title: "Section Heading Item 2",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 3",
+          title: "Section Heading Item 3",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 4",
+          title: "Section Heading Item 4",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+          disabled: true,
+        },
+        {
+          tab_text: "Tab label 5",
+          title: "Section Heading Item 5",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 6",
+          title: "Section Heading Item 6",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+      ],
+    },
+  },
 };
 
 /**
@@ -98,7 +212,45 @@ export const ContainerDark = {
     type: "container",
     unique_id: "567890",
     variant: "dark",
-  }
+    data: {
+      items: [
+        {   
+          tab_text: "Tab label 1",
+          title: "Section Heading (H2)",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
+          cta: false,
+        },
+        {
+          tab_text: "Tab label 2",
+          title: "Section Heading Item 2",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 3",
+          title: "Section Heading Item 3",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 4",
+          title: "Section Heading Item 4",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+          disabled: true,
+        },
+        {
+          tab_text: "Tab label 5",
+          title: "Section Heading Item 5",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 6",
+          title: "Section Heading Item 6",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+      ],
+    },
+  },
 };
 
 /**
@@ -110,5 +262,43 @@ export const ContainerDarkAlt = {
     type: "container",
     unique_id: "123456",
     variant: "dark-alt",
-  }
+    data: {
+      items: [
+        {   
+          tab_text: "Tab label 1",
+          title: "Section Heading (H2)",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
+          cta: false,
+        },
+        {
+          tab_text: "Tab label 2",
+          title: "Section Heading Item 2",
+          icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 3",
+          title: "Section Heading Item 3",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 4",
+          title: "Section Heading Item 4",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+          disabled: true,
+        },
+        {
+          tab_text: "Tab label 5",
+          title: "Section Heading Item 5",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+        {
+          tab_text: "Tab label 6",
+          title: "Section Heading Item 6",
+          content: "Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.",
+        },
+      ],
+    },
+  },
 };
