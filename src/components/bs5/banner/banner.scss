@@ -357,6 +357,7 @@
 
     // Target xs - md viewports
     @include media-breakpoint-down(lg) {
+      margin: 1rem 0 0 0;
       font-size: $h1-font-size-mobile;
       line-height: $h1-line-height-mobile;
     }
