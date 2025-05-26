@@ -10,11 +10,11 @@ import template from "./image.hbs?raw";
 
 /**
  *
- * Images displayed in the Design System should use a standard aspect ratio. Guidance is available at <a href="https://www.designsystem.qld.gov.au/styles/images">https://www.designsystem.qld.gov.au/styles/images</a>.
+ * Images in the Design System should use a standard aspect ratio (below). More guidance is available at <a href="https://www.designsystem.qld.gov.au/styles/images">https://www.designsystem.qld.gov.au/styles/images</a>.
  *
- * This QGDS Bootstrap 5 library provides utility classes for fixed-ratio images and position adjustments.
+ * This library provides utility classes for aspect-ratio images and cropping position adjustments.
  *
- * ### Ratios
+ * ### Aspect Ratios
  * **Horizontal:**<br><code>.image-ratio-1x1</code>
  * <code>.image-ratio-3x2</code>
  * <code>.image-ratio-4x3</code>
@@ -28,6 +28,9 @@ import template from "./image.hbs?raw";
  * <code>.position-x-left</code> <code>.position-x-center</code> <code>.position-x-right</code><br>
  * <code>.position-y-top</code> <code>.position-y-center</code> <code>.position-y-bottom</code>
  *
+ * ... or expressed as a percentage (increments of 10):<br>
+ * <code>.position-x-10</code> <code>.position-x-20</code> <code>.position-x-30</code> ... <code>.position-x-100</code><br>
+ * <code>.position-y-10</code> <code>.position-y-20</code> <code>.position-y-30</code> ... <code>.position-y-100</code>
  */
 
 export default {
