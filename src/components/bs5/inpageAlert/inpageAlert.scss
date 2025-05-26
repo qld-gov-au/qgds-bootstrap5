@@ -50,9 +50,11 @@
 
     a {
         color: var(--qld-link-color);
+        text-decoration-color: var(--qld-link-color);
 
         &:visited {
             color: var(--qld-link-visited);
+            text-decoration-color: var(--qld-link-visited);
         }
     }
 
