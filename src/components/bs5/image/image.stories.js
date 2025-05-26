@@ -1,6 +1,6 @@
 /**
  *
- * Image utilities to create a responsive and fixed-ratio images.
+ * Image utilities to create responsive, fixed-ratio images.
  */
 
 import Handlebars from "handlebars";
@@ -10,26 +10,24 @@ import template from "./image.hbs?raw";
 
 /**
  *
- * Images displayed in the Design System should be presented with a standard aspect ratio. Guidance is available at <a href="https://www.designsystem.qld.gov.au/styles/images">https://www.designsystem.qld.gov.au/styles/images</a>.
+ * Images displayed in the Design System should use a standard aspect ratio. Guidance is available at <a href="https://www.designsystem.qld.gov.au/styles/images">https://www.designsystem.qld.gov.au/styles/images</a>.
  *
- * This QGDS Bootstrap 5 library provides the following utility classes for fixed-ratio images and position adjustments.
+ * This QGDS Bootstrap 5 library provides utility classes for fixed-ratio images and position adjustments.
  *
- * ###Ratios
- * **Horizontal**<br><code>.image-ratio-1x1</code>
+ * ### Ratios
+ * **Horizontal:**<br><code>.image-ratio-1x1</code>
  * <code>.image-ratio-3x2</code>
  * <code>.image-ratio-4x3</code>
  * <code>.image-ratio-16x9</code>
-
- * **Vertical**<br>
+ *
+ * **Vertical:**<br>
  * <code>.image-ratio-2x3</code>
  * <code>.image-ratio-3x4</code>
-
- * **Position adjustment**<br>
+ *
+ * **Position adjustment** (to help with cropping):<br>
  * <code>.position-x-left</code> <code>.position-x-center</code> <code>.position-x-right</code><br>
  * <code>.position-y-top</code> <code>.position-y-center</code> <code>.position-y-bottom</code>
  *
- * ###Responsive
- * Images will also accept the Bootstrap 5 responsive image utility class <code>.img-fluid</code>, which ensures they scale to the container they are rendered into.
  */
 
 export default {
@@ -43,7 +41,7 @@ export default {
   argTypes: {
     "ratioClass": {
       name: "Fixed image ratio",
-      description: `Settable ratio class for the Image component`,
+      description: "Set the ratio class for the image component.",
       control: {
         type: "radio",
         labels: {
@@ -55,7 +53,6 @@ export default {
           "image-ratio-16x9": "16:9 Ratio",
         },
       },
-      // The options for the ratio classes.
       options: [
         "image-ratio-1x1",
         "image-ratio-3x2",
@@ -68,7 +65,8 @@ export default {
 
     "positionX": {
       name: "Position X",
-      description: `Adjust the image placement within the fixed ratio crop (horizontal)`,
+      description:
+        "Adjust the image placement within the aspect ratio crop (horizontal).",
       control: {
         type: "radio",
         labels: {
@@ -77,13 +75,13 @@ export default {
           "position-x-right": "Right",
         },
       },
-      // The options for the position classes.
       options: ["position-x-left", "position-x-center", "position-x-right"],
     },
 
     "positionY": {
       name: "Position Y",
-      description: `Adjust the image placement within the fixed ratio crop (vertical)`,
+      description:
+        "Adjust the image placement within the aspect ratio crop (vertical).",
       control: {
         type: "radio",
         labels: {
@@ -92,22 +90,46 @@ export default {
           "position-y-bottom": "Bottom",
         },
       },
-      // The options for the position classes.
       options: ["position-y-top", "position-y-center", "position-y-bottom"],
     },
 
-    //Disbale controls for the image source and alt text, as they are not meant to be changed in the storybook.
+    "width": {
+      name: "Width",
+      description:
+        "Set the width of the image (e.g., '350', '100'). Use the unit fields to specify px or %.",
+      control: "text",
+    },
+
+    "widthUnit": {
+      name: "Width Unit",
+      description:
+        "Select the unit for the width of the image. Choose 'px' for pixels or '%' for percentage.",
+      control: { type: "select" },
+      options: ["px", "%"],
+    },
+
+    "height": {
+      name: "Height",
+      description:
+        "Set the height of the image (optional - note responsive images will scale their height). Use the unit field to specify px or %.",
+      control: "text",
+    },
+
+    "heightUnit": {
+      name: "Height Unit",
+      description:
+        "Select the unit for the height of the image. Choose 'px' for pixels or '%' for percentage.",
+      control: { type: "select" },
+      options: ["px", "%"],
+    },
+
+    // Disable controls for the image source and alt text, as they are not meant to be changed in Storybook.
     "src": {
       table: {
         disable: true,
       },
     },
     "alt": {
-      table: {
-        disable: true,
-      },
-    },
-    "style": {
       table: {
         disable: true,
       },
@@ -130,44 +152,41 @@ export default {
 };
 
 /**
- *  Fixed ratio image
- *
+ * Fixed ratio image
  */
-
 export const FixedRatio = {
   args: {
     ...imagedata,
+    widthUnit: "px", // <-- ensure this is set
     //Custom class for the storybook wrapper only
     storycolumn: "col-md-6",
   },
 };
 
 /**
- *
- * Image with caption (Figure)
- *
+ * Image with caption (figure)
  */
-
 export const FixedRatioWithCaption = {
   args: {
     ...imagedata,
-    caption: "This is a caption for the image.",
+    caption:
+      "This is a caption for the image. It can be long or short. Longer captions, like this one, should wrap to the next line.",
   },
 };
 
 /**
  * Floats
  *
- * Images can be floated to the left or right within a container using Bootstrap 5's float utilities. (https://getbootstrap.com/docs/5.0/utilities/float/#responsive)
+ * Images can be floated to the left or right within a container using Bootstrap 5's float utilities (<a href="https://getbootstrap.com/docs/5.0/utilities/float/#responsive">documentation</a>).
  * <code>.float-start</code>
  * <code>.float-end</code>
  * <code>.float-none</code>
  */
-
-export const FixedRatioFloat = {
+export const FloatedImage = {
   args: {
     ...imagedata,
-    caption: "This is a caption for the image.",
+    caption:
+      "This is a caption for the image. It's a longer caption, so it wraps to the next line.",
     figureClass: "",
   },
 
@@ -175,58 +194,26 @@ export const FixedRatioFloat = {
     let imageTag = Handlebars.compile(template)(args);
 
     let customTemplate = `
-      
-    <h2>Expand on the heading in the first paragraph</h2>
+    <h2>Example image with caption, right aligned</h2>
 
-    <!-- Image with fixed ratio, and floated on medium and above screens -->
-    <div class="float-md-end ms-md-32 mb-md-32">
-      ${imageTag}
-    </div>
-  
-    <p>
-      The first paragraph under a heading helps people decide if they've found the information they need. Search engines also use first paragraphs when analysing content.
-    </p>
+    <div class="float-md-end ms-md-32 mb-md-32">${imageTag}</div>
 
-    <p>
-      Use the first paragraph to make the purpose of your content easier to find in searches. It should include a topic sentence and summarise the following paragraphs.
-    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
 
-    <p>
-      You can use first paragraphs to improve long-form content, such as reports. First paragraphs can summarise the main points in each section.
-    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
 
-    <p>
-      Copy and paste all the first paragraphs together to compile a summary of your content. If you're missing any main points, rewrite some of your first paragraphs.
-    </p>
+    <h2>Example image with caption, left aligned</h2>
+    <div class="float-md-start me-md-32 mb-md-32">${imageTag}</div>
 
-    <h2>Structure each paragraph well</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    <p>
-      The first sentence in each paragraph should be a topic or transition sentence. A topic sentence tells people what the paragraph is about. A transition sentence explicitly connects the previous paragraph with the new.
-    </p>
+    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
 
-    <p>Each paragraph should contain sentences that are arranged logically and relate only to the topic.</p>
-
-    <p>A paragraph's concluding sentence usually summarises the topic or leads into the next paragraph.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
     `;
 
     return customTemplate;
-  },
-};
-
-/**
- * Image with caption
- *
- * Images can be wrapped in a <code>&lt;figure&gt;</code> element to provide a caption. The <code>&lt;figcaption&gt;</code> element is used to provide a caption for the image.
- *
- */
-
-export const Figure = {
-  args: {
-    ...imagedata,
-    caption: "This is a caption for the image.",
-    classes: {
-      ...imagedata.classes,
-    },
   },
 };

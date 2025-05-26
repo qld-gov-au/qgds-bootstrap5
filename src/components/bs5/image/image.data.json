@@ -4,7 +4,12 @@
   "figureClass": "",
   "positionX": "position-x-center",
   "positionY": "position-y-center",
-  "width": "350px",
+  "width": "350",
+  "widthUnit": "px",
+  "height": "",
+  "heightUnit": "",
   "src": "assets/img/image-content-example.jpg",
-  "alt": "Two people are sitting in park, interacting with a tablet style mobile device."
+  "alt": "Two people are sitting in a park, interacting with a tablet-style mobile device.",
+  "tabindex": "",
+  "role": ""
 }

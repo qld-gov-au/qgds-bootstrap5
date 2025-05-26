@@ -2,18 +2,23 @@
 
 // 1. All images with a fixed ratio, default to cover and center placement
 img[class*="image-ratio-"] {
-  --component-width: 100%;
-  width: var(--component-width);
   object-fit: cover;
   object-position: var(--position-x, center) var(--position-y, center);
+  max-width: 100%; // Ensure responsive images
+  height: auto;
 }
 
 figure {
-  --component-width: 100%;
-  width: var(--component-width);
   background: var(--qld-neutral-lightest);
   color: var(--qld-light-text-lighter);
   display: inline-block;
+  word-wrap: break-word;
+  white-space: normal;
+
+  >img {
+    display: block;
+  }
+
 
   &.light {
     background: var(--qld-light-background-shade);
@@ -50,7 +55,7 @@ $qgds-image-ratios: (
   "16x9": 16 / 9
 );
 
-// Loop through the $qgds-image-ratios map, create a class for each ratio. .ikmage-ratio-1x1, .image-ratio-3x2, etc.
+// Loop through the $qgds-image-ratios map, create a class for each ratio: .image-ratio-1x1, .image-ratio-3x2, etc.
 // and set the aspect-ratio property
 @each $name, $value in $qgds-image-ratios {
   .image-ratio-#{$name} {
