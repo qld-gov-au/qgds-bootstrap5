@@ -80,6 +80,7 @@
     }
     h2 {
       margin:0;
+      line-height: 1.25;
     }
     ul {
       list-style: none;
@@ -87,6 +88,8 @@
     .btn-container {
       display: flex;
       gap: 1rem;
+      flex-direction: row-reverse;
+      justify-content: start;
     }
     .cta-container {
       .qld-cta-link {
@@ -131,6 +134,8 @@
           border-radius: 0;
           border-start-end-radius: 2.5rem;
           border-end-end-radius: 2.5rem;
+          background-position: center;
+          background-size: cover;
         }
       }
       &.content-right {
@@ -201,7 +206,9 @@
         border-radius: 0;
         border-end-end-radius: 2.5rem ;
         padding-inline: 3rem;
-        padding-block: 4rem;
+        padding-block: 2.5rem;
+        gap: 1.5rem;
+        
       }
       .image-panel {
         .promo-panel-image {
