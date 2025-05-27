@@ -31,6 +31,17 @@ $qld-light-border: $color-default-color-light-border-default;
 $qld-light-border-alt: $color-default-color-light-border-alt;
 $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-light-focus: $color-default-color-light-focus-default;
+////
+$qld-link-underline: $color-default-color-light-underline-default;
+$qld-link-underline-hover: $color-default-color-light-underline-default-hover;
+$qld-link-underline-visited: $color-default-color-light-underline-visited;
+$qld-link-underline-visited-hover: $color-default-color-light-underline-visited-hover;
+
+$qld-link-underline-dark: $color-default-color-dark-underline-default;
+$qld-link-underline-hover-dark: $color-default-color-dark-underline-default-hover;
+$qld-link-underline-visited-dark: $color-default-color-dark-underline-visited;
+$qld-link-underline-visited-hover-dark: $color-default-color-dark-underline-visited-hover;
+/// 
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
 $qld-text-darkest : $color-default-color-dark-link-on-action;
@@ -234,6 +245,16 @@ $project-colors: (
   //Links
   "light-link": $color-default-color-light-link-default,
   "dark-link": $color-default-color-dark-link-default,
+
+  "link-underline": $qld-link-underline,
+  "link-underline-hover": $qld-link-underline-hover,
+  "link-underline-visited": $qld-link-underline-visited,
+  "link-underline-visited-hover": $qld-link-underline-visited-hover,
+
+  "dark-link-underline": $qld-link-underline-dark,
+  "dark-link-underline-hover": $qld-link-underline-hover-dark,
+  "dark-link-underline-visited": $qld-link-underline-visited-dark,
+  "dark-link-underline-visited-hover": $qld-link-underline-visited-hover-dark,
 
   "light-alt-background": $qld-color-light-alt-background,
   "light-alt-background-shade": $qld-color-light-alt-background--shade,
