@@ -43,7 +43,7 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
 // Breadcrumb items
 .breadcrumb-item {
   font-size: 0.875rem;
-  line-height: 2rem;
+  line-height: 1.25rem;
   display: none;
 
   // Override Bootstrap's default :before pseudo element
@@ -91,7 +91,7 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     a {
       display: inline-block;
       width: 32px;
-      line-height: 32px;
+      line-height: 1.5rem;
       mask-image: var(--#{$prefix}breadcrumb-expander);
       background-color: var(--#{$prefix}breadcrumb-link-color);
       mask-size: 2rem 2rem;
@@ -118,9 +118,11 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
   }
 }
 
+//Large and above
 @include media-breakpoint-up(lg) {
   .breadcrumb-item {
     display: flex;
     font-size: 1rem;
+    line-height: 1.5rem;
   }
 }

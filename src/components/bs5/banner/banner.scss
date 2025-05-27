@@ -77,14 +77,19 @@
   --#{$prefix}banner-padding-bottom: 2rem;
 
   &.no-banner {
-    --#{$prefix}banner-padding-top: 2.25rem;
-    --#{$prefix}banner-padding-bottom: 2.25rem;
+    --#{$prefix}banner-padding-top: 1rem;
+    --#{$prefix}banner-padding-bottom: 1rem;
   }
 
   // Medium viewports and above
   @include media-breakpoint-up(md) {
     --#{$prefix}banner-padding-top: 2rem;
     --#{$prefix}banner-padding-bottom: 2rem;
+
+    &.no-banner {
+      --#{$prefix}banner-padding-top: 1.5rem;
+      --#{$prefix}banner-padding-bottom: 1.5rem;
+    }
   }
 
   // Large viewports and above
@@ -93,8 +98,8 @@
     --#{$prefix}banner-padding-bottom: 3rem;
 
     &.no-banner {
-      --#{$prefix}banner-padding-top: 2.25rem;
-      --#{$prefix}banner-padding-bottom: 2.25rem;
+      --#{$prefix}banner-padding-top: 2rem;
+      --#{$prefix}banner-padding-bottom: 2rem;
     }
   }
 
@@ -210,6 +215,10 @@
 
       background-image: none;
 
+      .banner-image {
+        margin-top: 0.75rem;
+      }
+
       //On mobile, create a gap at top of .banner-inner for the background image
       .banner-content {
         position: relative;
@@ -245,6 +254,7 @@
       // Pins .banner-image frame to top and bottom rails of the banner
       margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
       margin-bottom: calc(var(--#{$prefix}banner-padding-bottom) * -1);
+      margin-left: 1rem;
       display: flex;
       position: relative;
       align-items: center;
@@ -300,7 +310,7 @@
             top: 0;
             bottom: 0;
             right: 0;
-            left: 57.5%; // 7 columns * 8.3333% = 57.5%
+            left: calc(57.5% + 1rem); // 7 columns * 8.3333% = 57.5%, 1rem gutter on lhs of image
             width: auto;
 
             // Align right image styling
@@ -437,6 +447,9 @@
   }
 
   .banner-breadcrumbs {
+
+    margin-bottom: 0.75rem;
+
     .breadcrumb {
       padding-top: 0;
       padding-bottom: 0;
@@ -476,15 +489,13 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 71%;
+      max-width: 100%;
     }
 
-    @include media-breakpoint-down(lg) {
-      .cta-cards .card {
-        max-width: 100%;
+    @include media-breakpoint-up(xl) {
+      .cta-cards {
+        max-width: 71%;
       }
     }
-
   }
-
 }
