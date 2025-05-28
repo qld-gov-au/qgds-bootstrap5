@@ -16,7 +16,7 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new CallToAction({...args, label: 'View All'}).html}
+          ${new CallToAction({...args,}).html}
         </div>
         <div class="col">
           ${new CallToAction({...args, label: 'Label', "class": [{"small": false}, {"view-all": false}]}).html}
@@ -39,6 +39,15 @@ export default {
  */
 export const Default = {
   args: defaultdata,
+  decorators: [
+    (Story) => {
+      return `
+      <div class="default">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 /**
