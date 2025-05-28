@@ -16,7 +16,7 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new CallToAction({...args,}).html}
+          ${new CallToAction({...args}).html}
         </div>
         <div class="col">
           ${new CallToAction({...args, label: 'Label', "class": [{"small": false}, {"view-all": false}]}).html}
