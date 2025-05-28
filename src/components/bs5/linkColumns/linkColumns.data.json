@@ -1,0 +1,87 @@
+{
+    "id": "link-column-1",
+    "theme": "",
+    "columns": "3",
+    "items_flow_vert": true,
+    "data": {
+        "all_link": {
+            "url": "#",
+            "id": "",
+            "value": "View all",
+            "target": "_blank",
+            "class": [
+                {"small": false}, 
+                {"view-all": true}
+            ]
+        },
+        "items": [
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 01",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 02",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 03",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 04",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 05",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 06",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 07",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 08",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 09",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 10",
+                "target": ""
+            },
+            {
+                "url": "#",
+                "id": "",
+                "value": "List item 11",
+                "target": ""
+            }
+        ]
+    }
+    
+}
