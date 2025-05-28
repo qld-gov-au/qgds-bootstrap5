@@ -65,20 +65,6 @@ $link-visited-color: $qld-link-visited;
   --qld-selection-color: var(--qld-white);
   --qld-selection-bg: var(--qld-brand-primary);
   --qld-focus-color: var(--qld-light-focus);
-  
-  --qld-link-underline-offset: 0.3rem;
-  --qld-link-underline: #{$color-default-color-light-underline-default};
-  --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
-  --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
-  --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
-  --qld-action-icon-color: var(--qld-light-action-secondary);
-  --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
-
-  --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
-  --qld-tab-icon-color: var(--qld-light-action-secondary);
-  --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
-  --qld-tab-text-colour-heading: var(--qld-light-text-heading);
-  --qld-tab-background-hover: var(--qld-light-action-primary-hover);
 }
 
 .dark,
@@ -95,59 +81,20 @@ $link-visited-color: $qld-link-visited;
   --qld-selection-color: var(--qld-brand-primary);
   --qld-selection-bg: var(--qld-white);
   --qld-focus-color: var(--qld-dark-focus);
-  
-
-  --qld-link-underline: #{$color-default-color-dark-underline-default};
-  --qld-link-underline-hover: #{$color-default-color-dark-underline-default-hover};
-  --qld-link-underline-visited: #{$color-default-color-dark-underline-visited};
-  --qld-link-underline-visited-hover: #{$color-default-color-dark-underline-visited-hover};
-  --qld-action-icon-color: var(--qld-dark-action-secondary);
-  --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
-
-  --qld-tab-background-hover: var(--qld-dark-action-primary-hover);
-  --qld-tab-hover-text-color: var(--qld-text-darkest);
-  --qld-tab-icon-color: var(--qld-dark-action-secondary);
-  --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
-  --qld-tab-text-colour-heading: var(--qld-dark-text);
 }
 
-.default {
-  --qld-body-bg: var(--qld-white);
-  --qld-border-color: var(--qld-light-border);
-  --qld-tab-background:var(--qld-default-background-shade);
-}
 .bg-default {  background-color: var(--qld-default-background); }
 .bg-default-shade {  background-color: var(--qld-default-background-shade); }
 
-.light {
-  --qld-body-bg: #eff4f9;
-  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
-  --qld-tab-background: var(--qld-light-background-shade);
-  --qld-tab-background-hover: var(--qld-button-dark-blue);
-}
 .bg-light {  background-color: var(--qld-light-background); }
 .bg-light-shade {  background-color: var(--qld-light-background-shade); }
 
-.alt {
-  --qld-body-bg: var(--qld-light-alt-background);
-  --qld-border-color: var(--qld-soft-grey);
-  --qld-tab-background: var(--qld-light-alt-background-shade);
-}
 .bg-light-alt {  background-color: var(--qld-light-alt-background); }
 .bg-light-alt-shade {  background-color: var(--qld-light-alt-background-shade); }
 
-.dark {
-  --qld-border-color: var(--qld-dark-border);
-  --qld-tab-background:var(--qld-dark-hover);
-}
 .bg-dark {  background-color: var(--qld-dark-background); }
 .bg-dark-shade {  background-color: var(--qld-dark-background-shade); }
 
-.dark-alt {
-  --qld-body-bg: var(--qld-dark-alt-background);
-  --qld-border-color: var(--qld-dark-alt-border);
-  --qld-tab-background: var(--qld-dark-alt-background-shade);
-}
 .bg-dark-alt {  background-color: var(--qld-dark-alt-background); }
 .bg-dark-alt-shade {  background-color: var(--qld-dark-alt-background-shade); }
 
@@ -254,12 +201,6 @@ a.nav-link {
   }
 }
 
-caption {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-}
-
 // Dark, dark alt
 .dark,
 .dark-alt {
@@ -272,12 +213,9 @@ caption {
   h6 {
     color: var(--#{$prefix}color-default-color-dark-text-heading);
   }
-
-
   body & {
     color: var(--qld-body-color);
   }
-  background-color: var(--qld-body-bg);
   a,
   a.nav-link {
     text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);

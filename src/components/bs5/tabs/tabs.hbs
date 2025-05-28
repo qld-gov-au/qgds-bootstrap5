@@ -2,8 +2,8 @@
 {{#ifCond type '==' 'section'}}
     <section class="container tab-content pb-5 pt-5 mb-0 {{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}">
         <div class="row" style="padding-inline: 2.5rem;">
-            <h2>Heading (H2)</h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>
+            <h2>{{sibiling_section_title}}</h2>
+            <p>{{{sibling_section_content}}}</p>
         </div>
     </section>
 {{/ifCond}}
@@ -26,25 +26,22 @@
             {{/each }}
         </ul>
         <button class="scroll scroll-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1">
-            <i class="fa-solid fa-chevron-left"></i>
+            <i></i>
         </button>
         <button class="scroll scroll-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1">
-            <i class="fa-solid fa-chevron-right"></i>
+            <i></i>
         </button>
     </div>
     <div class="tab-content container">
         {{#each data.items }}
-            <article class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" role="tabpanel" aria-labelledby="{{this.tab_text}}-tab2" tabindex="0">
+            <section class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" role="tabpanel" aria-labelledby="{{this.tab_text}}-tab" tabindex="0">
                 {{#ifCond ../type '==' 'section'}}
                     <h2>{{this.title}}</h2>
                 {{else}}
                     <h3>{{this.title}}</h3>
                 {{/ifCond}}
                 {{{this.content}}}
-                {{#if this.cta}}
-                    {{> callToAction label=this.cta.value href=this.cta.url target=this.cta.target class=this.cta.class arialabel=this.cta.value id=this.cta.id }}                            
-                {{/if}}
-            </article>
+            </section>
         {{/each }}
     </div>
 </section>
