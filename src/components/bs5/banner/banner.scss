@@ -168,6 +168,7 @@
       //No banner image, so we span breadcrumbs and content more columns (9)  
       .banner-breadcrumbs {
         grid-column: 1 / span 7; // Spans 7 columns (left side)
+        margin-bottom: 0;
       }
 
       .banner-content {
