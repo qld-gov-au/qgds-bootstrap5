@@ -1,6 +1,7 @@
 .qld-tabs {
     --accent-colour: var(--qld-brand-secondary);
     --border-radius: #{$border-radius};
+    --section-content-padding: 4rem;
     // tabs colours
     --default-bg-colour: var(--qld-default-background);
     --light-bg-colour: var(--qld-light-background);
@@ -76,8 +77,7 @@
     }
     &.tab-container {
         --scroll-distance: 0;
-        --gradient-percentage: 80%;
-        --section-content-padding: 1.25rem;        
+        --gradient-percentage: 80%;      
         background-color: transparent;
         padding-block-end: 5rem;
         margin-block-start: 3rem;
@@ -103,7 +103,6 @@
     &.tab-section {
         --scroll-distance: 1.75rem;
         --gradient-percentage: 50%;
-        --section-content-padding: 4rem;
         background-color: transparent;
         .tabs-area {
             padding-inline: 2.5rem;
@@ -418,7 +417,6 @@
         padding-inline: 2.5rem;
         h2{
             line-height: 40px;
-            font-size: 2rem;
         }
         .qld-cta-link {
             margin-block-start: 2rem;
@@ -428,9 +426,7 @@
         }
     }
     @include media-breakpoint-down(md) {
-        .tab-content {
-            padding-block: 2.5rem;
-        }
+        --section-content-padding:2.5rem;
     }
     .scroll {
         display: none;
@@ -524,4 +520,5 @@
             }
         }
     }
+
 }

@@ -56,7 +56,7 @@ export const ContainerDefault = {
       items: [
         {   
           tab_text: "Tab label 1",
-          title: "Section Heading (H2)",
+          title: "Section Heading (H3)",
           icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
           content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
         },
@@ -105,7 +105,7 @@ export const ContainerLight = {
       items: [
         {   
           tab_text: "Tab label 1",
-          title: "Section Heading (H2)",
+          title: "Section Heading (H3)",
           icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
           content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
         },
@@ -154,7 +154,7 @@ export const ContainerAlt = {
       items: [
         {   
           tab_text: "Tab label 1",
-          title: "Section Heading (H2)",
+          title: "Section Heading (H3)",
           icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
           content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
         },
@@ -203,7 +203,7 @@ export const ContainerDark = {
       items: [
         {   
           tab_text: "Tab label 1",
-          title: "Section Heading (H2)",
+          title: "Section Heading (H3)",
           icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
           content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
         },
@@ -252,7 +252,7 @@ export const ContainerDarkAlt = {
       items: [
         {   
           tab_text: "Tab label 1",
-          title: "Section Heading (H2)",
+          title: "Section Heading (H3)",
           icon: "btn-icon fa-solid fa-arrow-up-right-from-square",
           content: "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
         },
