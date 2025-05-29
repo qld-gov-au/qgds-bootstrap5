@@ -71,10 +71,13 @@
     }
   }
 
-
-  //Padding and margins (mobile first)
+  // Default padding and margins (mobile first)
   --#{$prefix}banner-padding-top: 1rem;
   --#{$prefix}banner-padding-bottom: 2rem;
+
+  // Same as defaults, placeholders for future banner variants
+  // &.banner-basic,
+  // &.banner-advanced {}
 
   &.no-banner {
     --#{$prefix}banner-padding-top: 1rem;
@@ -82,18 +85,31 @@
   }
 
   // Medium viewports and above
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-only(md) {
+
+    //Default Banner
     --#{$prefix}banner-padding-top: 2rem;
     --#{$prefix}banner-padding-bottom: 2rem;
 
+    //No banner
     &.no-banner {
       --#{$prefix}banner-padding-top: 1.5rem;
       --#{$prefix}banner-padding-bottom: 1.5rem;
     }
+
+    //Basic Banner padding (has abstract)
+    &.banner-basic,
+    &.banner-advanced {
+      --#{$prefix}banner-padding-top: 3rem;
+      --#{$prefix}banner-padding-bottom: 3rem;
+    }
+
   }
 
   // Large viewports and above
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-only(lg) {
+
+    //Default Banner padding
     --#{$prefix}banner-padding-top: 3rem;
     --#{$prefix}banner-padding-bottom: 3rem;
 
@@ -101,10 +117,37 @@
       --#{$prefix}banner-padding-top: 2rem;
       --#{$prefix}banner-padding-bottom: 2rem;
     }
+
+    &.banner-basic {
+      --#{$prefix}banner-padding-top: 3rem;
+      --#{$prefix}banner-padding-bottom: 3rem;
+    }
+
+    &.banner-advanced {
+      --#{$prefix}banner-padding-top: 4rem;
+      --#{$prefix}banner-padding-bottom: 4rem;
+    }
   }
 
-  @include media-breakpoint-up(xl) {
+  @include media-breakpoint-only(xl) {
+
+    //Default banner
+    --#{$prefix}banner-padding-top: 3rem;
     --#{$prefix}banner-padding-bottom: 4rem;
+
+
+    &.no-banner {
+      --#{$prefix}banner-padding-top: 2rem;
+      --#{$prefix}banner-padding-bottom: 2rem;
+    }
+
+    &.banner-basic {
+      --#{$prefix}banner-padding-top: 2rem;
+      --#{$prefix}banner-padding-bottom: 3rem;
+    }
+
+    // Same as default banner
+    // &.banner-advanced {}
   }
 
 }
@@ -368,7 +411,6 @@
 
     // Target xs - md viewports
     @include media-breakpoint-down(lg) {
-      margin: 1rem 0 0 0;
       font-size: $h1-font-size-mobile;
       line-height: $h1-line-height-mobile;
     }
@@ -448,8 +490,19 @@
   }
 
   .banner-breadcrumbs {
+    display: flex;
+    align-items: center;
+    min-height: 1.25rem;
 
-    margin-bottom: 0.75rem;
+    // lg
+    @include media-breakpoint-up(lg) {
+      min-height: 2rem;
+    }
+
+    // xl
+    @include media-breakpoint-up(xl) {
+      min-height: 2.25rem;
+    }
 
     .breadcrumb {
       padding-top: 0;
@@ -462,6 +515,13 @@
     margin: 1rem 0 0 0;
   }
 
+  @include media-breakpoint-down(md) {
+    &.banner-advanced:has(.banner-image) {
+      .banner-breadcrumbs {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
 
   // Nested Call to Action components within banners. (buttons and cards)
   .banner-cta {

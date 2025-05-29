@@ -109,11 +109,13 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
       display: flex;
       flex-direction: row-reverse;
 
-      // Rotate the back arrow 180 degrees
+      // Rotate the back arrow 180 degrees, shift left to align chevron with text 
       &:after {
         transform: rotate(180deg);
         transform-origin: center;
+        margin-left: -0.25rem;
       }
+
     }
   }
 }

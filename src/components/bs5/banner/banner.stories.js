@@ -206,6 +206,12 @@ export default {
       },
       options: ["none", "buttons", "cards", "cardsMixed"],
     },
+
+    //Disable bannerType control
+    bannerType: {
+      table: { disable: true },
+      control: { type: "hidden" }, // Hide the control in the Storybook UI
+    },
   },
 };
 
@@ -216,6 +222,8 @@ export default {
 export const Default = {
   args: {
     ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-default",
     title: "Heading 1",
     subtitle: "",
     titleClasses: [],
@@ -231,7 +239,8 @@ export const Default = {
 export const NoBanner = {
   args: {
     ...defaultdata,
-    variantClass: "no-banner dark-alt",
+    variantClass: "dark-alt",
+    bannerType: "no-banner",
     title: false,
     subtitle: false,
     abstract: false,
@@ -256,6 +265,8 @@ export const NoBanner = {
 export const BannerBasic = {
   args: {
     ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-basic ",
     title: "Heading 1",
     subtitle: false,
     image: false,
@@ -291,6 +302,8 @@ export const BannerBasicBackgrounds = {
   name: "Banner Basic (With Backgrounds)",
   args: {
     ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-basic",
     title: "Heading 1",
     subtitle: "",
     titleClasses: [],
@@ -325,6 +338,8 @@ export const BannerAdvancedButtons = {
   name: "Banner Advanced (With Buttons)",
   args: {
     ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-advanced",
     title: "Heading 1",
     subtitle: "",
     titleClasses: [],
@@ -361,6 +376,8 @@ export const BannerAdvancedCards = {
   name: "Banner Advanced (With Cards)",
   args: {
     ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-advanced",
     title: "Heading 1",
     backgroundType: "",
     abstract:
@@ -393,6 +410,8 @@ export const BannerAdvancedHeroImage = {
   name: "Banner Advanced (Hero Image)",
   args: {
     ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-advanced",
     title: "Heading 1",
     backgroundType: "with-hero-image",
     abstract:
@@ -424,6 +443,8 @@ export const BannerAdvancedBlockTitle = {
   name: "Banner Advanced (Block Title)",
   args: {
     ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-advanced",
     title: "Queensland Government",
     subtitle: "Design System",
     titleClasses: ["as-block"],
