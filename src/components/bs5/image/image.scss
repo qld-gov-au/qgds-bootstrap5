@@ -63,7 +63,7 @@ $qgds-image-ratios: (
   }
 }
 
-// Horizontal placement: position-x-left, postition-x-30%, etc.
+// Horizontal placement: position-x-left, position-x-30%, etc.
 // Vertical placement: position-y-top, position-y-60%, etc.
 @mixin position-class($axis, $position, $unit: '') {
   .position-#{$axis}-#{$position} {
