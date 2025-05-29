@@ -17,8 +17,7 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
   --#{$prefix}breadcrumb-item-padding-x: 0;
   --#{$prefix}breadcrumb-bg: transparent;
   --#{$prefix}breadcrumb-margin-bottom: 0;
-
-  --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
+  --#{$prefix}breadcrumb-padding-y: 2rem;
   --#{$prefix}breadcrumb-link-color: var(--#{$prefix}light-link);
   --#{$prefix}breadcrumb-link-text-decoration-color: var(--#{$prefix}light-link);
   --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(--#{$prefix}light-link);
@@ -104,6 +103,11 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
 
 // Responsive styles
 @include media-breakpoint-down(lg) {
+
+  .breadcrumb {
+    --#{$prefix}breadcrumb-padding-y: 1rem;
+  }
+
   .breadcrumb-item {
     &:nth-last-child(2) {
       display: flex;

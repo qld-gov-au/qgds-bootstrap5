@@ -505,8 +505,8 @@
     }
 
     .breadcrumb {
-      padding-top: 0;
-      padding-bottom: 0;
+      //Redefine the breadcrumb component variable
+      --#{$prefix}breadcrumb-padding-y: 0;
       color: var(--#{$prefix}banner-breadcrumb-color);
     }
   }
