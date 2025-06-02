@@ -245,6 +245,17 @@ export default function handlebarsHelpers(handlebars) {
     return !Array.isArray(theArray) ? theArray : theArray.join(separator);
   });
   
+  handlebars.registerHelper('toCamelCase', function (text) {
+    if (typeof text !== 'string') return text;
+
+    // Remove whitespace and convert to camelCase
+    return text
+      .toLowerCase()
+      .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) =>
+        index === 0 ? match.toLowerCase() : match.toUpperCase(),
+      )
+      .replace(/\s+/g, ''); // Remove all spaces
+  });
 
 }
 

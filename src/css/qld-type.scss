@@ -84,12 +84,6 @@ $link-visited-color: $qld-link-visited;
   --qld-link-hover-color: #fff;
   --qld-link-hover-color-rgb: 255, 255, 255;
   --qld-link-visited: var(--qld-link-visited-dark);
-
-  --qld-link-underline: #{$color-default-color-dark-underline-default};
-  --qld-link-underline-hover: #{$color-default-color-dark-underline-default-hover};
-  --qld-link-underline-visited: #{$color-default-color-dark-underline-visited};
-  --qld-link-underline-visited-hover: #{$color-default-color-dark-underline-visited-hover};
-
   --qld-selection-color: var(--qld-brand-primary);
   --qld-selection-bg: var(--qld-white);
   --qld-focus-color: var(--qld-dark-focus);
@@ -115,12 +109,6 @@ $link-visited-color: $qld-link-visited;
   --qld-border-color: var(--qld-dark-alt-border);
 }
 
-.alt {
-  --qld-body-bg: #E8E8E8;
-}
-.dark-alt {
-  --qld-body-bg: #05325F;
-}
 
 //Content and links
 body {
@@ -225,12 +213,6 @@ a.nav-link {
   }
 }
 
-caption {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-}
-
 // Dark, dark alt
 .dark,
 .dark-alt {
@@ -243,12 +225,9 @@ caption {
   h6 {
     color: var(--#{$prefix}color-default-color-dark-text-heading);
   }
-
-
   body & {
     color: var(--qld-body-color);
   }
-
   a,
   a.nav-link {
     text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
