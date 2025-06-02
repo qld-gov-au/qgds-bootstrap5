@@ -11,10 +11,10 @@ export default {
 
   //https://storybook.js.org/docs/api/arg-types
   argTypes: {
-    type: {
+    type_variant: {
       description: 'Type of tab system',
       control: "select",
-      options: ["container", "section"],
+      options: ["tab-container", "tab-section"],
     },
     variant: {
       description: 'Type variant for the tab system',
@@ -49,7 +49,7 @@ export const Default = {
 export const ContainerDefault = {
   args: {
     ...defaultdata,
-    type: "container",
+    type_variant: "tab-container",
     unique_id: "234566",
     variant: "default",
     data: {
@@ -98,7 +98,7 @@ export const ContainerDefault = {
 export const ContainerLight = {
   args: {
     ...defaultdata,
-    type: "container",
+    type_variant: "tab-container",
     unique_id: "345678",
     variant: "light",
     data: {
@@ -147,7 +147,7 @@ export const ContainerLight = {
 export const ContainerAlt = {
   args: {
     ...defaultdata,
-    type: "container",
+    type_variant: "tab-container",
     unique_id: "456789",
     variant: "alt",
     data: {
@@ -196,7 +196,7 @@ export const ContainerAlt = {
 export const ContainerDark = {
   args: {
     ...defaultdata,
-    type: "container",
+    type_variant: "tab-container",
     unique_id: "567890",
     variant: "dark",
     data: {
@@ -245,7 +245,7 @@ export const ContainerDark = {
 export const ContainerDarkAlt = {
   args: {
     ...defaultdata,
-    type: "container",
+    type_variant: "tab-container",
     unique_id: "123456",
     variant: "dark-alt",
     data: {

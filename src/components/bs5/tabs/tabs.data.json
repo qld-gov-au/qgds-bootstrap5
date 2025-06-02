@@ -1,5 +1,5 @@
 {
-    "type": "section",
+    "type_variant": "tab-section",
     "variant": "dark",
     "tab_variant": "alt",
     "unique_id": "1234",

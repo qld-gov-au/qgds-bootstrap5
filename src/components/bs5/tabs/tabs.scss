@@ -96,7 +96,7 @@
         .tabs-area {
             --qld-gutter-x: 0;
             .nav-tabs {
-                margin-block-end: -1px;
+                margin-block-end: -1.25px;
             }  
         }
     }
@@ -358,7 +358,7 @@
                     content: "";
                     display: block;
                     height: 0.25rem;
-                    margin-block-end: calc(-0.75rem - 2px);
+                    margin-block-end: calc(-0.8rem - 2px);
                 }
                 &.active {
                     &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
