@@ -1,0 +1,45 @@
+{
+    "type_variant": "tab-section",
+    "variant": "dark",
+    "tab_variant": "alt",
+    "unique_id": "1234",
+    "sibiling_section_title": "Heading (H2)",	
+    "sibling_section_content":"<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
+    "data": {
+        "items": [
+            {   
+                "tab_text": "Tab label 1",
+                "title": "Section Heading (H2)",
+                "icon": "btn-icon fa-solid fa-arrow-up-right-from-square",
+                "content": "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p><a class=\"qld-cta-link\" href=\"#\" target=\"_blank\" aria-label=\"Call to action\">Call to action<span class=\"icon\" aria-hidden=\"true\"></span></a>"
+            },
+            {
+                "tab_text": "Tab label 2",
+                "title": "Section Heading Item 2",
+                "icon": "btn-icon fa-solid fa-arrow-up-right-from-square",
+                "content": "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>"
+            },
+            {
+                "tab_text": "Tab label 3",
+                "title": "Section Heading Item 3",
+                "content": "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>"
+            },
+            {
+                "tab_text": "Tab label 4",
+                "title": "Section Heading Item 4",
+                "content": "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
+                "disabled": true
+            },
+            {
+                "tab_text": "Tab label 5",
+                "title": "Section Heading Item 5",
+                "content": "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>"
+            },
+            {
+                "tab_text": "Tab label 6",
+                "title": "Section Heading Item 6",
+                "content": "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>"
+            }
+        ]
+    }
+}		
