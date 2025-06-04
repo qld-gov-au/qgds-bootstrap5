@@ -38,7 +38,7 @@
         }
     }
     &:hover {
-        text-decoration-color: var(--qld-link-underline-hover);
+        text-decoration-color: inherit;
         .icon {
             &::after {
                 background-color: var(--qld-action-icon-hover-color);
