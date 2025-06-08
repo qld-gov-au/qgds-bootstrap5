@@ -141,3 +141,48 @@ export const DarkAlt = {
     },
   ],
 };
+
+/**
+ * Call To Action - Small
+ * */
+export const Small = {
+  args: {
+    ...defaultdata,
+    label: "View all",
+    class: [
+      {"small": true}, 
+      {"view-all": true}
+    ],
+  },
+  render: (args) => {
+    return `
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          ${new CallToAction({...args}).html}
+        </div>
+        <div class="col">
+          ${new CallToAction({...args, label: 'Label', "class": [{"small": true}, {"view-all": false}]}).html}
+        </div>
+      </div>
+    </div>
+    `
+  },
+  parameters: {
+    backgrounds: {
+      default: 'DarkAlt',
+      values: [
+        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark-alt">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
