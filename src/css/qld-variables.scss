@@ -16,7 +16,7 @@ $qld-dark-green : $core-default-color-brand-secondary-darkgreen;
 $qld-golden-yellow : $core-default-color-brand-secondary-golden-yellow;
 $qld-maroon-traditional : $core-default-color-brand-other-gov-maroon;
 $qld-maroon-modern : $core-default-color-brand-other-modern-maroon;
-$qld-dark-text: $core-default-color-neutral-white;
+$qld-dark-text: $color-default-color-dark-text-default;
 $qld-dark-border: $color-default-color-dark-border-default;
 $qld-dark-alt-border: $color-default-color-dark-border-alt;
 $qld-alt-button-hover: $color-default-color-light-action-secondary-hover;
@@ -28,6 +28,7 @@ $qld-dark-blue-shade : $color-default-color-dark-background-alt-shade;
 $qld-light-background: $core-default-color-status-info-lightest;
 $qld-light-background-shade: $color-default-color-light-background-light-shade;
 $qld-light-border: $color-default-color-light-border-default;
+$qld-light-border-alt: $color-default-color-light-border-alt;
 $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-light-focus: $color-default-color-light-focus-default;
 ////
@@ -43,13 +44,14 @@ $qld-link-underline-visited-hover-dark: $color-default-color-dark-underline-visi
 /// 
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
-$qld-text-light-blue-dark : $core-default-color-neutral-lighter;
+$qld-text-darkest : $color-default-color-dark-link-on-action;
+$qld-dark-hover : $color-default-color-dark-background-default-shade;
+
+$qld-text-light-blue-dark : $core-default-color-brand-primary-dark-blue;
 $qld-light-green-dark : $core-default-color-brand-primary-light-green;
 $qld-dark-green-dark : $color-default-color-dark-action-primary;
 $qld-light-yellow : $core-default-color-status-caution-lightest;
 $qld-button-dark-blue : $color-default-color-light-action-primary-hover;
-$qld-text-darkest : $color-default-color-dark-link-on-action;
-$qld-dark-hover : $color-default-color-dark-background-default-shade;
 
 //QGOV Brand Mapping - QLD.GOV.AU
 $qld-brand-primary-dark : $qld-dark-blue;
@@ -59,15 +61,30 @@ $qld-brand-secondary-dark : $qld-dark-green;
 $qld-brand-secondary : $qld-light-green;
 $qld-brand-accent : $qld-golden-yellow;
 
+// Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss). 
+// Nuetrals were dropped from _variables.scss, but retained in _map.scss.
+$core-default-color-neutral-black: #131212;
+$core-default-color-neutral-darkest: #222020;
+$core-default-color-neutral-darker: #595959;
+$core-default-color-neutral-dark: #78797e;
+$core-default-color-neutral-light: #e0e0e0;
+$core-default-color-neutral-lighter: #ebebeb;
+$core-default-color-neutral-lightest: #f5f5f5;
+$core-default-color-neutral-white: #ffffff;
+
+
 //Greys
 $qld-system-darkest : $core-default-color-neutral-darkest;
 $qld-dark-grey : $core-default-color-neutral-darker;
 $qld-medium-grey : $core-default-color-neutral-dark;
 $qld-alt-grey : $core-default-color-neutral-light;
 $qld-light-link: $color-default-color-light-link-default;
+$qld-dark-link: $color-default-color-dark-link-default;
 
 //Should be core color rather than second hand reference (no match)
-$qld-soft-grey : $color-default-color-light-border-alt;
+$qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
+
+
 
 $qld-dark-grey-muted : $color-default-color-light-text-lighter;
 $qld-text-grey : $color-default-color-light-text-default;
@@ -134,6 +151,9 @@ $qld-fluid-width-full: 100%;
 $qld-fluid-width-3-quarters: 75%;
 $qld-fluid-width-half: 48.5%;
 $qld-fluid-width-1-quarter: 25%;
+
+$color-default-color-dark-underline-default: #FFFFFF;
+$color-default-color-dark-underline-default-hover: #FFFFFF;
 
 // The Bootstrap map-merge will create custom CSS variables against the ::root node.
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
@@ -212,7 +232,7 @@ $project-colors: (
   "dark-action-secondary-hover": $qld-dark-action-secondary-hover,
 
   //Define new BEM colour variables from Figma
-  //These will become properties on ::root node that you can reference by e.g: background: var(--qld-light-text-text)
+  //These will become properties on ::root node that you can reference by e.g: color: var(--qld-light-text-text)
   "default-background": $qld-color-background,
   "default-background-shade": $qld-color-background--shade,
   "light-text-heading": $qld-text-headings,
@@ -220,7 +240,11 @@ $project-colors: (
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
   "light-border": $qld-light-border,
-  "light-link": $qld-light-link,
+  "light-border-alt": $qld-light-border-alt,
+
+  //Links
+  "light-link": $color-default-color-light-link-default,
+  "dark-link": $color-default-color-dark-link-default,
 
   "link-underline": $qld-link-underline,
   "link-underline-hover": $qld-link-underline-hover,
@@ -241,6 +265,10 @@ $project-colors: (
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
 
+  // Desing Tokens V1 dependent variables
+  "light-accent": $color-default-color-light-accent-design-accent,
+  "dark-accent": $color-default-color-dark-accent-design-accent,
+
   //Neutrals
   "neutral-black": $core-default-color-neutral-black,
   "neutral-darkest": $core-default-color-neutral-darkest,
@@ -249,7 +277,13 @@ $project-colors: (
   "neutral-light": $core-default-color-neutral-light,
   "neutral-lighter": $core-default-color-neutral-lighter,
   "neutral-lightest": $core-default-color-neutral-lightest,
-  "neutral-white": $core-default-color-neutral-white
+  "neutral-white": $core-default-color-neutral-white,
+
+  // Underlines
+  "light-underline-default": $color-default-color-light-underline-default,
+  "light-underline-default-hover": $color-default-color-light-underline-default-hover,
+  "dark-underline-default": $color-default-color-dark-underline-default,
+  "dark-underline-default-hover": $color-default-color-dark-underline-default-hover
 );
 
 // Merge maps
@@ -264,6 +298,9 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1312px
 );
+
+// Map merge to include custom breakpoints
+$breakpoints: map-merge($grid-breakpoints, ());
 
 // Default border radius
 $border-radius: 0.25rem;

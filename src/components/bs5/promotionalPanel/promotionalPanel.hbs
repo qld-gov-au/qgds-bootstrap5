@@ -1,0 +1,52 @@
+<section class="qld-promo-panel {{#ifCond type '==' 'indent-text'}}indent{{/ifCond}} {{#ifCond type '==' 'indent-img'}}indent{{/ifCond}} {{type}}">
+    <div class="row {{#ifCond type '==' 'promo'}}bg-img{{else}}{{variantClass}}{{/ifCond}} {{contentAlignment}}" 
+        {{#ifCond type '==' 'promo'}}
+            style="background-image: url({{promoImage}});"
+        {{/ifCond}}>
+        <div class="image-panel">
+            <div class="promo-panel-image" 
+                {{#ifCond type '!=' 'promo'}}
+                    style="background-image: url({{promoImage}})"
+                {{/ifCond}}>
+            </div>
+        </div>
+        <div class="content-panel {{variantClass}}">      
+            {{#if icon}}
+                <div class="icon-container">
+                    <div class="icon-body">
+                        <i class="qld-icon {{icon}}"></i>
+                    </div>
+                </div>
+            {{/if}}
+            <div class="main">
+                {{#if title}}
+                    <h2>{{~{title}~}}</h2>
+                {{/if}}
+                {{#if abstract}}
+                    <div class="promo-abstract">
+                        {{~{abstract}~}}
+                    </div>
+                {{/if}}
+                {{#if body}}
+                    {{~{body}~}}
+                {{/if}}
+            </div>
+            {{#if cta.items}}
+                <ul class="cta-container">                            
+                    {{#each cta.items}}
+                        <li>
+                            {{> callToAction label=value href=url target=target class=class arialabel=value id=id}}
+                        </li>
+                    {{/each}}                            
+                </ul>
+            {{/if}}
+            {{#if btn.items}}
+                <ul class="btn-container">
+                    {{#each btn.items}}
+                        <li>{{> button islink=islink variantClass=variantClass label=label href=href target=target dataatts="data-type='class'"}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+</section>
