@@ -8,7 +8,7 @@ import QGDSrawLoader from "./.esbuild/plugins/qgds-plugin-raw-loader.js";
 import QDGScleanFolders from "./.esbuild/plugins/qgds-plugin-clean-output-folders.js";
 import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
-import { QGDSgenerateIconVariablesPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-variables.js";
+import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { QGDSgenerateIconSpritePlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-sprite.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
 
@@ -60,7 +60,7 @@ const buildConfig = {
 
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
-    QGDSgenerateIconVariablesPlugin(),
+    QGDSgenerateIconAssetsPlugin(),
     QGDSgenerateIconSpritePlugin(),
     QDGScopy(),
     QGDSrawLoader(),

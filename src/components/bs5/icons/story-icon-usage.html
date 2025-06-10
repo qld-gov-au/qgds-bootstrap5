@@ -1,0 +1,89 @@
+<h1>Iconography</h1>
+<p>The icons in QGDS can be used in multiple ways depending on your needs and environment. This guide covers the three primary methods as well as the sizing utilities:</p>
+<ul>
+  <li><strong>Inline SVG</strong></li>
+  <li><strong>CSS utility class</strong></li>
+  <li><strong>CSS variables</strong></li>
+</ul>
+
+<h2>1. Inline SVG (HTML Embed)</h2>
+<p>
+  This method allows for full control over the icon's appearance, eg: colour, size, stroke, etc. Recommended for developers and content editors embedding icons directly in HTML.<br>
+  Place the Symbol ID on to the <code>&lt;use&gt;</code> element within an <code>&lt;svg&gt;</code> tag.<br>
+  Example:
+</p>
+
+<svg class="qld-icon-lg" aria-label="Cancel alert" role="img">
+  <use href="./assets/img/_icon-sprite.svg#qgds-icon-alert-cancel"></use>
+</svg>
+<svg class="qld-icon-lg" aria-label="Warning alert" role="img">
+  <use href="./assets/img/_icon-sprite.svg#qgds-icon-alert-warning"></use>
+</svg>
+<svg class="qld-icon-lg" aria-label="Success alert" role="img">
+  <use href="./assets/img/_icon-sprite.svg#qgds-icon-alert-success"></use>
+</svg>
+<pre>
+  <code class="language-html">
+    &lt;svg class="qld-icon-lg" aria-label="Cancel alert"&gt;
+      &lt;use href="./assets/img/_icon-sprite.svg#qgds-icon-alert-cancel"&gt;&lt;/use&gt;
+    &lt;/svg&gt;
+  </code>
+</pre>
+
+<h4>Accessibility</h4>
+<ul>
+  <li>Always include <code>role="img"</code> and <code>aria-label</code> attributes to provide context for screen readers.</li>
+  <li>Use <code>aria-hidden="true"</code> when the icon is decorative</li>
+</ul>
+
+<h2>2. CSS Utility Class</h2>
+<p>
+  This method is suitable for developers who want to apply icons in their stylesheets.<br>
+  Use the <code>qld-icon</code> + <code>qld-icon-{icon-name}</code> utility class to render icons as CSS masked elements.<br>
+  Example:
+</p>
+
+<div>
+  <span class="qld-icon qld-icon-lg qld-icon-home" style="background-color: green;" aria-hidden="true"></span>
+  <span class="qld-icon qld-icon-lg qld-icon-search" style="background-color: blue;" aria-hidden="true"></span>
+  <span class="qld-icon qld-icon-lg qld-icon-menu" style="background-color: red;" aria-hidden="true"></span>
+</div>
+<pre>
+  <code class="language-html">
+    &lt;span class="qld-icon qld-icon-lg qld-icon-alert-cancel" aria-hidden="true"&gt;&lt;/span&gt;
+  </code>
+</pre>
+<ul>
+  <li><code>qld-icon</code> is the base class for all icons</li>
+  <li><code>qld-icon-{icon-name}</code> is the specific icon class</li>
+  <li><code>qld-icon-{size}</code> is the size utility class (Optional, see below)</li>
+</ul>
+
+<h4>Accessibility</h4>
+<ul>
+  <li>This method is for decorative only. Use <code>aria-hidden="true"</code> to hide the icon from screen readers.</li>
+  <li>Ensure to use it alongside text or other elements that provide context for screen readers users.</li>
+</ul>
+
+<h2>3. CSS Variables</h2>
+<p>
+  This method allows developers to create custom styles with any CSS property that accepts a URL, such as <code>mask-image</code> and <code>background-image</code>.<br>
+  Example:
+</p>
+<pre>
+  <code class="language-css">
+    .mysite-icon-cancel-payment {
+      mask-image: var(--qgds-icon-alert-cancel);
+    }
+
+    .abc-icon-login {
+      background-image: var(--qgds-icon-identity);
+    }
+  </code>
+</pre>
+
+<h4>Accessibility</h4>
+<ul>
+  <li>This method is for decorative only. Use <code>aria-hidden="true"</code> to hide the icon from screen readers.</li>
+  <li>Ensure to use it alongside text or other elements that provide context for screen readers users.</li>
+</ul>

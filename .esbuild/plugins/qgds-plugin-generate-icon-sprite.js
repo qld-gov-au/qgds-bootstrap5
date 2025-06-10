@@ -9,12 +9,15 @@ import { parse } from "node-html-parser";
  * @param {string} outputFile - Output file for the generated icon sprite
  */
 export function QGDSgenerateIconSpritePlugin(inputDir = "./src/img/icons", outputFile = "./src/img/_icon-sprite.svg") {
+
   return {
     name: "qgds-generate-icon-sprite",
+
     setup(build) {
 
       const regenerate = () => {
 
+        const prefixIconQgds = 'qgds-icon-';
         log("yellow", "\n Start generating icon sprite... \n");
 
         if (!fs.existsSync(inputDir)) {
@@ -22,9 +25,7 @@ export function QGDSgenerateIconSpritePlugin(inputDir = "./src/img/icons", outpu
           return;
         }
 
-        const icons = fs
-          .readdirSync(inputDir)
-          .filter((file) => file.endsWith(".svg"));
+        const icons = fs.readdirSync(inputDir).filter((file) => file.endsWith(".svg"));
 
         if (icons.length === 0) {
           log("red", `SVG files not found in ${inputDir}`);
@@ -50,26 +51,21 @@ export function QGDSgenerateIconSpritePlugin(inputDir = "./src/img/icons", outpu
           const viewBox = svg.getAttribute("viewBox") || "0 0 32 32";
           const innerContent = svg.innerHTML.trim();
           
-          spriteContent += `  <symbol id="${name}" viewBox="${viewBox}">\n`;
+          spriteContent += `  <symbol id="${prefixIconQgds}${name}" viewBox="${viewBox}">\n`;
           spriteContent += `    ${innerContent}\n`;
           spriteContent += `  </symbol>\n\n`;
         }
         spriteContent += `</svg>\n`;
 
-        const outputDir = path.dirname(outputFile);
-        if (!fs.existsSync(outputDir)) {
-          fs.mkdirSync(outputDir, { recursive: true });
-          log("magenta", `Created output directory: ${outputDir}`);
-        }
-
         fs.writeFileSync(outputFile, spriteContent);
+        
         log("magenta", `End of generating SVG icon sprite to file: (${outputFile}) \n\n`);
-
       };
 
       build.onStart(() => {
         regenerate();
       });
+
     },
   };
 }

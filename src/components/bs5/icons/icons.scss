@@ -1,3 +1,4 @@
+/* @TODO: Remove lines in between once all the icons within the components have been synced with new icons.  */
 :root {
     //Define global icons as CSS variables
 	--icon-dot-grid: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.99999 17.999C5.58864 17.999 1.99902 14.4102 1.99902 9.99804C1.99902 5.58591 5.58786 1.99707 9.99999 1.99707C14.4121 1.99707 18.001 5.58591 18.001 9.99804C18.001 14.4102 14.411 17.999 9.99999 17.999ZM9.99999 3.00024C5.99371 3.00024 3 5.99098 3 9.99804C3 14.0051 5.99294 17.0002 9.99999 17.0002C14.007 17.0002 17 14.0051 17 9.99804C17 5.99098 14.0063 3.00024 9.99999 3.00024Z' /%3E%3Cpath d='M9.25586 7.08128C9.25586 7.49232 9.58907 7.82553 10.0001 7.82553C10.4111 7.82553 10.7443 7.49232 10.7443 7.08128C10.7443 6.67025 10.4111 6.33704 10.0001 6.33704C9.58907 6.33704 9.25586 6.67025 9.25586 7.08128Z' /%3E%3Cpath d='M6.33643 7.08128C6.33643 7.49232 6.66964 7.82553 7.08067 7.82553C7.4917 7.82553 7.82492 7.49232 7.82492 7.08128C7.82492 6.67025 7.4917 6.33704 7.08067 6.33704C6.66964 6.33704 6.33643 6.67025 6.33643 7.08128Z' /%3E%3Cpath d='M7.08101 9.25598C6.66998 9.25598 6.33677 9.58919 6.33677 10.0002C6.33677 10.4113 6.66998 10.7445 7.08101 10.7445C7.49205 10.7445 7.82526 10.4113 7.82526 10.0002C7.82526 9.58919 7.49205 9.25598 7.08101 9.25598Z' /%3E%3Cpath d='M7.08046 12.175C6.66943 12.175 6.33622 12.5083 6.33622 12.9193C6.33622 13.3303 6.66943 13.6635 7.08046 13.6635C7.4915 13.6635 7.82471 13.3303 7.82471 12.9193C7.82471 12.5083 7.4915 12.175 7.08046 12.175Z' /%3E%3Cpath d='M9.9999 9.25598C9.58886 9.25598 9.25565 9.58919 9.25565 10.0002C9.25565 10.4113 9.58886 10.7445 9.9999 10.7445C10.4109 10.7445 10.7441 10.4113 10.7441 10.0002C10.7441 9.58919 10.4109 9.25598 9.9999 9.25598Z' /%3E%3Cpath d='M9.99947 12.1749C9.58844 12.1749 9.25523 12.5081 9.25523 12.9192C9.25523 13.3302 9.58844 13.6634 9.99947 13.6634C10.4105 13.6634 10.7437 13.3302 10.7437 12.9192C10.7437 12.5081 10.4105 12.1749 9.99947 12.1749Z' /%3E%3Cpath d='M12.1743 7.08128C12.1743 7.49232 12.5075 7.82553 12.9186 7.82553C13.3296 7.82553 13.6628 7.49232 13.6628 7.08128C13.6628 6.67025 13.3296 6.33704 12.9186 6.33704C12.5075 6.33704 12.1743 6.67025 12.1743 7.08128Z' /%3E%3Cpath d='M12.9188 9.25598C12.5078 9.25598 12.1746 9.58919 12.1746 10.0002C12.1746 10.4113 12.5078 10.7445 12.9188 10.7445C13.3299 10.7445 13.6631 10.4113 13.6631 10.0002C13.6631 9.58919 13.3299 9.25598 12.9188 9.25598Z' /%3E%3Cpath d='M12.9188 12.1754C12.5078 12.1754 12.1746 12.5086 12.1746 12.9197C12.1746 13.3307 12.5078 13.6639 12.9188 13.6639C13.3299 13.6639 13.6631 13.3307 13.6631 12.9197C13.6631 12.5086 13.3299 12.1754 12.9188 12.1754Z' /%3E%3C/svg%3E");
@@ -40,4 +41,62 @@
 	}
 
 	/* ... etc */
+}
+/* @TODO: Remove all lines above once all the icons within the components have been synced with new icons.  */
+
+$prefixIcon: $prefix + 'icon-'; // Prefix for icon classes, based on global prefix in main.scss
+$prefixIconQgds: '--qgds-icon-';  // This QGDS variable could be moved to the token or tolkien repo.
+
+// List of icon sizes
+$icon-sizes: (
+	'xs': 1rem,
+	'sm': 1.25rem,
+	'md': 1.5rem,
+	'lg': 2rem,
+	'xl': 2.5rem,
+	'xxl': 3rem
+);
+
+// Loop through the icon names and create utility class for each
+.qld-icon {
+	display: inline-block;
+	width: 1.25rem;
+	height: 1.25rem;
+	background-position: center center;
+	background-repeat: no-repeat;
+	mask-position: center center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	// &:not([data-has-background="true"]) {   // background-color is only applied to icons without backgrounds to avoid issues
+		background-color: var(--#{$prefix}body-color); // Default icon color
+	// }
+
+	@each $icon in $icon-names {
+		&.#{$prefixIcon}#{$icon} {
+			// background-image: var(#{$prefixIconQgds}#{$icon});    // this works for SVG with multiple fill colour, but not working for line icons
+			mask-image: var(#{$prefixIconQgds}#{$icon});
+			-webkit-mask-image: var(#{$prefixIconQgds}#{$icon});
+		}
+	}
+
+	// Might need the size classes nested inside base class IF the css rules hierarchy is not working as expected
+	// @each $size, $value in $icon-sizes {
+	// 	&.#{$prefixIcon}#{$size} {
+	// 		width: $value;
+	// 		height: $value;
+	// 		mask-size: $value;
+	// 		background-size: $value;
+	// 	}
+	// }
+}
+
+// Loop through the icon sizes and create utility class for each size.
+// Independent from the base class to allow sizing on inline SVG icons as well as CSS icons.
+@each $size, $value in $icon-sizes {
+	.#{$prefixIcon}#{$size} {
+		width: $value;
+		height: $value;
+		mask-size: $value;
+		background-size: $value;
+	}
 }

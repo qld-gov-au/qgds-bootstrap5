@@ -1,0 +1,15 @@
+import { Canvas, Meta, Story, Title, Subtitle, Description, Heading, Source } from "@storybook/blocks";
+import * as IconsStories from "./icons.stories.js";
+
+<Meta of={IconsStories} />
+
+{/* Show Overview Story only - text returned by export default render function */}
+<Canvas>
+  <Story of={IconsStories.Overview} />
+</Canvas>
+
+
+## Design resources
+
+- [Icon library (Figma)](https://www.figma.com/design/0mkS2SvlrITvPC4JTnF7RS/QGDS-Icon-library)
+- [Design System website](https://www.designsystem.qld.gov.au/styles/iconography)
