@@ -82,7 +82,7 @@
     "npm-run-all2": "^8.0.2",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.37",
-    "postcss": "^8.4.47",
+    "postcss": "^8.5.4",
     "prettier": "3.5.3",
     "raw-loader": "^4.0.2",
     "rimraf": "^6.0.1",
