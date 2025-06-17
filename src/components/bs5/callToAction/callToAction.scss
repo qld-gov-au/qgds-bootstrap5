@@ -21,11 +21,10 @@
         line-height: 1rem;
         .icon{
             &::after{
-                width: 1.5rem;
-                height: 1.5rem;
-                zoom: .7;
-                mask-position: 0;
-                mask-size: 1.5rem;
+                width: 1.25rem;
+                height: 1.25rem;
+                mask-position: center;
+                mask-size: 1.25rem;
             }
         }
     }
@@ -45,7 +44,7 @@
         }
     }
     &:hover {
-        text-decoration-color: var(--qld-link-underline-hover);
+        text-decoration-color: inherit;
     }
     &:focus {
         outline: 3px solid var(--qld-focus-color);
