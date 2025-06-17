@@ -1,0 +1,48 @@
+{
+    "type": "indent-text",
+    "variantClass": "light",
+    "promoImage": "./assets/img/banner-example-3-to-2.jpg",
+    "contentAlignment": "content-left",
+    "icon": "icon-dot-grid",
+    "title": "Title goes here and has a maximum of 65 character limit",
+    "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis.",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis. Vel suspendisse mi quisque consequat aliquet egestas.",
+    "cta": {
+      "items": [
+        {
+          "url": "#",
+          "id": "https://www.wired.com",
+          "value": "Label",
+          "target": "_blank",
+          "class": [
+              {"small": false}, 
+              {"view-all": false}
+          ]
+        }
+      ]
+    },
+    "btn": {
+      "items": [
+        {
+          "variantClass": "btn-primary",
+          "islink": true,
+          "isdisabled": false,
+          "iconClass": "",
+          "iconPosition": "",
+          "label": "Primary",
+          "href": "https://google.com",
+          "target": "_self"
+        },
+        {
+          "variantClass": "btn-secondary",
+          "islink": true,
+          "isdisabled": false,
+          "iconClass": "",
+          "iconPosition": "",
+          "label": "Secondary",
+          "href": "https://google.com",
+          "target": "_self"
+        }
+      ]
+    }
+  }

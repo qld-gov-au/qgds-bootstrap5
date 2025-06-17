@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "1.1.27",
+  "version": "1.1.29",
   "description": "",
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "bootstrap": "^5.3.6",
-    "material-symbols": "^0.31.3"
+    "material-symbols": "^0.31.7"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -67,7 +67,7 @@
     "chai": "^5.2.0",
     "chalk": "^5.3.0",
     "chromatic": "^11.28.2",
-    "esbuild": "0.25.4",
+    "esbuild": "0.25.5",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-eslint": "^0.3.7",
     "esbuild-plugin-handlebars": "1.0.3",
@@ -78,16 +78,16 @@
     "handlebars": "4.7.8",
     "http-server": "^14.1.1",
     "minimist": "^1.2.8",
-    "mocha": "^11.4.0",
-    "npm-run-all2": "^8.0.2",
+    "mocha": "^11.6.0",
+    "npm-run-all2": "^8.0.4",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.37",
-    "postcss": "^8.4.47",
+    "postcss": "^8.5.4",
     "prettier": "3.5.3",
     "raw-loader": "^4.0.2",
     "rimraf": "^6.0.1",
     "run-parallel": "^1.2.0",
-    "sass": "^1.89.0",
+    "sass": "^1.89.2",
     "selenium-webdriver": "^4.32.0",
     "storybook": "^8.6.14",
     "storybook-addon-deep-controls": "^0.9.2",

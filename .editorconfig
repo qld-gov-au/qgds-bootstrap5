@@ -1,0 +1,42 @@
+# http://editorconfig.org
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+charset = utf-8
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
+# Disable line length check for Markdown
+# Allow trailing whitespace in Markdown
+[*.md]
+max_line_length = off      
+trim_trailing_whitespace = false 
+
+# Use 2 spaces for JSON for readability
+[*.json]
+indent_size = 2
+insert_final_newline = true            
+
+# Use 2 spaces for YAML files
+[*.yml, *.yaml]
+indent_size = 2            
+
+# Use 2 spaces for web files
+[*.css, *.scss, *.html]
+indent_size = 2
+
+[*.js, *.ts]
+indent_size = 2
+
+# Use 4 spaces for Python (PEP 8 standard)
+# Docstrings and comments use max_line_length = 79
+[*.py]
+indent_size = 4
+max_line_length = 79
