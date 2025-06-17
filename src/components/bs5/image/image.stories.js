@@ -14,7 +14,7 @@ import template from "./image.hbs?raw";
  *
  * This library provides utility classes for aspect-ratio images and cropping position adjustments.
  *
- * ### Aspect Ratios
+ * ### Utility Classes
  * **Horizontal:**<br><code>.image-ratio-1x1</code>
  * <code>.image-ratio-3x2</code>
  * <code>.image-ratio-4x3</code>
@@ -33,6 +33,7 @@ import template from "./image.hbs?raw";
  * <code>.position-y-10</code> <code>.position-y-20</code> <code>.position-y-30</code> ... <code>.position-y-100</code>
  */
 
+// Default Story
 export default {
   tags: ["autodocs"],
   title: "3. Components/Image",
@@ -66,10 +67,24 @@ export default {
       ],
     },
 
+    "otherClass": {
+      name: "Other Classes",
+      description:
+        "Optional. Any additional classes to apply to the image element for custom styling.",
+      control: "text",
+    },
+
+    "figureClass": {
+      name: "Figure Class",
+      description:
+        "Optional. Any custom class to pass to the figure element for additional styling.",
+      control: "text",
+    },
+
     "positionX": {
       name: "Position X",
       description:
-        "Adjust the image placement within the aspect ratio crop (horizontal).",
+        "Optional. Adjust the horizontal image placement within the aspect ratio crop.",
       control: {
         type: "radio",
         labels: {
@@ -84,7 +99,7 @@ export default {
     "positionY": {
       name: "Position Y",
       description:
-        "Adjust the image placement within the aspect ratio crop (vertical).",
+        "Optional. Adjust the vertical image placement within the aspect ratio crop.",
       control: {
         type: "radio",
         labels: {
@@ -99,7 +114,7 @@ export default {
     "width": {
       name: "Width",
       description:
-        "Set the width of the image (e.g., '350', '100'). Use the unit fields to specify px or %.",
+        "Optional. Set the width of the image (e.g., '350', '100'). Use the unit fields to specify px or %.",
       control: "text",
     },
 
@@ -114,28 +129,30 @@ export default {
     "height": {
       name: "Height",
       description:
-        "Set the height of the image (optional - note responsive images will scale their height). Use the unit field to specify px or %.",
+        "Optional. Set the height of the image (optional - note responsive images will scale their height). Use the unit field to specify px or %.",
       control: "text",
     },
 
     "heightUnit": {
       name: "Height Unit",
       description:
-        "Select the unit for the height of the image. Choose 'px' for pixels or '%' for percentage.",
+        "Optional. Select the unit for the height of the image. Choose 'px' for pixels or '%' for percentage.",
       control: { type: "select" },
       options: ["px", "%"],
     },
 
-    // Disable controls for the image source and alt text, as they are not meant to be changed in Storybook.
-    "src": {
-      table: {
-        disable: true,
-      },
+    // Disabled controls, not needed in Storybook UI
+    // "tabindex", "role", "storycolumn"
+    "tabindex": {
+      table: { disable: true },
     },
-    "alt": {
-      table: {
-        disable: true,
-      },
+
+    "role": {
+      table: { disable: true },
+    },
+
+    "storycolumn": {
+      table: { disable: true },
     },
   },
 
@@ -155,21 +172,78 @@ export default {
 };
 
 /**
- * Fixed ratio image
+ * Default Image
  */
-export const FixedRatio = {
+
+export const DefaultImage = {
   args: {
     ...imagedata,
-    widthUnit: "px", // <-- ensure this is set
-    //Custom class for the storybook wrapper only
-    storycolumn: "col-md-6",
+    ratioClass: "image-ratio-3x2",
   },
 };
 
 /**
- * Image with caption (figure)
+ * Fixed ratio images
  */
-export const FixedRatioWithCaption = {
+export const UtilityClasses = {
+  // Render several images, each with different ratios
+  args: {
+    image1x1: Handlebars.compile(template)({
+      ...imagedata,
+      ratioClass: "image-ratio-1x1",
+      positionX: "position-x-left",
+      positionY: "position-y-30",
+    }),
+    image3x2: Handlebars.compile(template)({
+      ...imagedata,
+      ratioClass: "image-ratio-3x2",
+    }),
+    image2x3: Handlebars.compile(template)({
+      ...imagedata,
+      ratioClass: "image-ratio-2x3",
+    }),
+    image4x3: Handlebars.compile(template)({
+      ...imagedata,
+      ratioClass: "image-ratio-4x3",
+    }),
+    image3x4: Handlebars.compile(template)({
+      ...imagedata,
+      ratioClass: "image-ratio-3x4",
+      positionX: "position-x-40",
+      positionY: "position-y-top",
+    }),
+    image16x9: Handlebars.compile(template)({
+      ...imagedata,
+      ratioClass: "image-ratio-16x9",
+    }),
+  },
+
+  render: (args) => {
+    return `
+      <h2>Fixed Ratio Images with utility classes</h2>
+      <div class="row">
+        <strong>Default</strong><br><br>
+        <div class="col-12 col-md-6 mb-4">${args.image3x2} <br><small>.image-ratio-3x2 (Default)</small></div>
+      </div>
+      <div class="row">
+        <strong>Horizontal</strong><br><br>
+        <div class="col-12 col-md-4 mb-4">${args.image1x1} <br><small>.image-ratio-1x1<br>.position-x-left<br>.position-y-30</small></div>
+        <div class="col-12 col-md-4 mb-4">${args.image4x3} <br><small>.image-ratio-4x3</small></div>
+        <div class="col-12 col-md-4 mb-4">${args.image16x9} <br><small>.image-ratio-16x9</small></div>
+      </div>
+      <div class="row">
+        <strong>Vertical</strong><br><br>
+        <div class="col-12 col-md-4 mb-4">${args.image2x3} <br><small>.image-ratio-2x3</small></div>
+        <div class="col-12 col-md-4 mb-4">${args.image3x4} <br><small>.image-ratio-3x4<br>.position-x-40<br>.position-y-top</small></div>
+      </div>
+    `;
+  },
+};
+
+/**
+ * Figure with Image and caption
+ */
+export const FigureWithImageCaption = {
   args: {
     ...imagedata,
     caption:
@@ -190,16 +264,22 @@ export const FloatedImage = {
     ...imagedata,
     caption:
       "This is a caption for the image. It's a longer caption, so it wraps to the next line.",
-    figureClass: "",
   },
 
   render: (args) => {
-    let imageTag = Handlebars.compile(template)(args);
+    
+    args.src = "assets/img/image-example-couple-beach-md.jpg";
+
+    let imageTag = Handlebars.compile(template)({ ...args, caption: null });
+    let imageTagWithCaption = Handlebars.compile(template)(args);
 
     let customTemplate = `
     <h2>Example image with caption, right aligned</h2>
 
-    <div class="float-md-end ms-md-32 mb-md-32">${imageTag}</div>
+    <!-- Bootstrap classes control layout -->
+    <div class="mb-32 float-md-end ms-md-32 w-md-50">
+      ${imageTagWithCaption}
+    </div>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     
@@ -207,8 +287,12 @@ export const FloatedImage = {
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
 
-    <h2>Example image with caption, left aligned</h2>
-    <div class="float-md-start me-md-32 mb-md-32">${imageTag}</div>
+    <h2>Example image without caption, left aligned</h2>
+    
+    <!-- Bootstrap classes control layout -->
+    <div class="mb-32 float-md-start me-md-32">
+      ${imageTag}
+    </div>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 

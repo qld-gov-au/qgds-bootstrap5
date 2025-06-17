@@ -25,6 +25,7 @@ $enable-dark-mode: true;
 
 // 2. QLD Design System variables (Bootstrap overrides)
 @import "./qld-variables";
+
 // @import "./scss/qld-variables-dark"; //future state
 
 // 3. Include remainder of bootstrap
@@ -33,6 +34,8 @@ $enable-dark-mode: true;
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/utilities";
 
+// 3.2 QLD Design System utilities (is dependent on maps, mixins and utilities being available)
+@import "./qld-utilities";
 
 // 3.2 Recommended, Resets and shared
 @import "../../node_modules/bootstrap/scss/root";
