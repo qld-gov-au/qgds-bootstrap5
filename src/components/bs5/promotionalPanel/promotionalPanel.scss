@@ -270,6 +270,10 @@
       }
     }
   }
+  // To add to the buttons component
+  a.btn,.btn {
+    white-space: normal;
+  }
   @include media-breakpoint-down(md) {
     .content-panel {
       gap: 1.5rem;
