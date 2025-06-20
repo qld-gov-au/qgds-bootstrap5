@@ -270,11 +270,6 @@
       }
     }
   }
-  // To add to the buttons component
-  .btn {
-    min-width: 160px;
-    white-space: normal;
-  }
   @include media-breakpoint-down(md) {
     .content-panel {
       gap: 1.5rem;
