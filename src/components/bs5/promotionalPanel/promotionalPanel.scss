@@ -1,3 +1,9 @@
+.css-qa4clq {
+  max-width:none !important;
+}
+.css-xzp052 {
+  padding-block: 7rem !important;
+}
 .qld-promo-panel {
   padding: 0;
   .row {
@@ -82,14 +88,12 @@
       margin:0;
       line-height: 1.25;
     }
-    ul {
-      list-style: none;
-    }
     .btn-container {
       display: flex;
       gap: 1rem;
-      flex-direction: row-reverse;
+      flex-direction: row;
       justify-content: start;
+      flex-wrap:wrap;
     }
     .cta-container {
       .qld-cta-link {
@@ -99,22 +103,31 @@
   }
   .image-panel {
     grid-area: graphic;
+    display: flex;
     .promo-panel-image {
-      background: transparent;
-      background-repeat: no-repeat; 
-      background-size: cover;
       border-radius: 1.25rem;
       max-width: 65ch;
       width: 100%;
       height: 100%;
+      margin-inline-end: auto;
+      object-fit: cover;
+    }
+  }
+  .content-right {
+    .image-panel {
+      .promo-panel-image {
+        margin-inline-start: auto;
+        margin-inline-end: 0;
+      }
     }
   }
   &.contained {
-    @include media-breakpoint-down(md) {
-      grid-template-columns: 1fr;
-      grid-template-areas: "graphic" "content";
-      &.content-right {
-        grid-template-areas: "graphic" "content";
+    .row {
+      border-radius: 3rem;
+    }
+    @include media-breakpoint-down(xl) {
+      .row {
+      border-radius: 0;
       }
     }
   }
@@ -125,27 +138,26 @@
       background-color: transparent;
       gap:0;
       .content-panel {
-        border-radius: 2.5rem;
+        border-radius: 3rem;
         border-start-end-radius: 0;
         padding: 4rem;
       }  
       .image-panel {
         .promo-panel-image {
           border-radius: 0;
-          border-start-end-radius: 2.5rem;
-          border-end-end-radius: 2.5rem;
+          border-start-end-radius: 3rem;
+          border-end-end-radius: 3rem;
           background-position: center;
-          background-size: cover;
         }
       }
       &.content-right {
         .content-panel {
-          border-start-end-radius: 2.5rem;
+          border-start-end-radius: 3rem;
           border-start-start-radius: 0;
         }
         .image-panel {
           .promo-panel-image {
-            border-radius: 2.5rem;
+            border-radius: 3rem;
             border-start-end-radius: 0;
             border-end-end-radius: 0;
           }
@@ -169,28 +181,27 @@
         margin-block-end: -4rem;
         .promo-panel-image {
           border-radius: 0;
-          border-start-end-radius: 2.5rem;
-          border-end-end-radius: 2.5rem;
-          border-end-start-radius: 2.5rem;
+          border-start-end-radius: 3rem;
+          border-end-end-radius: 3rem;
+          border-end-start-radius: 3rem;
         }
       }
       &.content-right {
         .content-panel {
           border-radius: 0;
-          border-start-end-radius: 2.5rem;        
-          border-end-end-radius: 2.5rem;
+          border-start-end-radius: 3rem;        
+          border-end-end-radius: 3rem;
         }
         .image-panel {
           .promo-panel-image {
-            border-radius: 2.5rem;
+            border-radius: 3rem;
             border-start-end-radius: 0;
           }
         }
-        
       }
     }
   }
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     .row {
       border-radius: 0;
       padding-block: 3rem;
@@ -204,55 +215,76 @@
     &.indent .row {
       .content-panel {
         border-radius: 0;
-        border-end-end-radius: 2.5rem ;
+        border-end-end-radius: 3rem ;
         padding-inline: 3rem;
         padding-block: 2.5rem;
         gap: 1.5rem;
-        
-      }
-      .image-panel {
-        .promo-panel-image {
-          border-radius: 0;
-        }
       }
       &.content-right {
         .content-panel {
           border-radius: 0 ;
-          border-end-start-radius: 2.5rem ;
+          border-end-start-radius: 3rem;
         }
         .image-panel {
           .promo-panel-image {
             border-radius: 0;
           }
+        }
+      }
+    }
+    &.indent-text .row {
+      .image-panel {
+        .promo-panel-image {
+          border-radius: 0;
         }
       }
     }
     &.indent-img .row {
       .image-panel {
         margin-block-end: -2.75rem;
-        .image-panel {
           .promo-panel-image {
             border-radius: 0;
             border-end-start-radius: 2.5rem;
           }
-        }
       }
       .content-panel {
-        border-radius: 0 !important;
+        border-radius: 0;
       }
       &.content-right {
         .image-panel {
           .promo-panel-image {
-            border-radius: 0 !important;
-            border-end-end-radius: 2.5rem !important;
+            border-radius: 0;
+            border-end-end-radius: 2.5rem;
+            margin-inline-start: auto;
           }
         }
       }
     }
   }
+  @include media-breakpoint-down(lg) {
+    &.contained {
+      .content-panel {
+        .btn-container {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+  // To add to the buttons component
+  .btn {
+    min-width: 160px;
+    white-space: normal;
+  }
   @include media-breakpoint-down(md) {
     .content-panel {
       gap: 1.5rem;
+      .btn-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        .btn {
+          width: 100%;
+        }
+      }
     }
     &.indent .row {
       .content-panel {
@@ -260,9 +292,6 @@
         padding-block: 2.5rem;
       }
     }
-  }
-  
-  @include media-breakpoint-down(md) {
     .row {
       padding-block: 2.5rem;
       padding-inline: 1rem;
@@ -282,23 +311,13 @@
         }
       }
     }
-    .content-panel {
-      border-radius: 0;
-      .btn-container {
-        flex-direction: column;
-        gap: 1.5rem;
-        li {
-          .btn {
-            width: 100%;
-          }
-        }
-      }
-    }
-    .image-panel {
+    &.indent .row .image-panel {
       .promo-panel-image {
         border-radius: 0.5rem;
         width: 100%;
-        height: 9.375rem;
+        height: 100%;
+        max-height: 13.125rem;
+        max-width: 100%;
       }
     }
     &.indent .row,
@@ -308,7 +327,7 @@
         margin-block-end: 0;
         .promo-panel-image {
           border-radius: 0;
-          border-end-end-radius: 2.5rem;
+          border-end-end-radius: 2.75rem;
         }
       }
       .content-panel {
