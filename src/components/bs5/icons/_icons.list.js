@@ -60,7 +60,6 @@ export default [
   "location",
   "lock-open",
   "lock",
-  "login-test",
   "login",
   "logout",
   "manage-accounts",
