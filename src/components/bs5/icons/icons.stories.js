@@ -22,10 +22,16 @@ const defaultdata = {
     "footer": "",
     "equalHeight": false
   };
-const iconSpritePath = './assets/img/_icon-sprite.svg';
-const prefixIconQgds = 'qgds-icon-';
-const stripPrefix = (name, prefix = 'qgds-icon-') =>
-  name.startsWith(prefix) ? name.slice(prefix.length) : name;
+const SPRITE_PATH = './assets/img/_icon-sprite.svg';
+const PREFIX_QGDS = 'qgds-icon-';
+
+// Helper function to remove the prefix from icon names
+function _removePrefixQGDS(name) {
+  if (name.startsWith(PREFIX_QGDS)) {
+    return name.slice(PREFIX_QGDS.length);
+  }
+  return name;
+}
 
 
 // Default export for Storybook
@@ -39,20 +45,19 @@ export default {
     layout: "padded",
     docs: {
     title: "Iconography in default",
-    // page: null, // Disable autodocs 
+    // page: null, // To disable autodocs 
     }
   },
 };
 
-// Exports "default" as Overview, to avoid another "Default" menu item in Storybook
+// Exports default as Overview, in order to avoid another "Default" menu in Storybook
 export const Overview = {};
 
-
-// @TODO: Test this with colour
+// Story for displaying all icons as SVGs
 export const SvgIcons = () => {
   return `
     <div class="container">
-    <div class="row row-cols-3 row-cols-sm-4 row-cols-lg-5 row-cols-xl-6 g-4">
+    <div class="row row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 g-4">
       ${iconNames
         .map(name => 
           {
@@ -61,11 +66,11 @@ export const SvgIcons = () => {
             title: ``,  // Overrides card title to empty string
             description: `
                 <div class="mb-4">
-                  <svg class="qld-icon--xl" aria-label="${stripPrefix(name)} icon" role="img" width="32" height="32" viewBox="0 0 32 32" focusable="false">
-                    <use href="${iconSpritePath}#${prefixIconQgds}${name}" />
+                  <svg class="qld-icon-xl" aria-label="${_removePrefixQGDS(name)} icon" role="img" width="32" height="32" viewBox="0 0 32 32" focusable="false">
+                    <use href="${SPRITE_PATH}#${PREFIX_QGDS}${name}" />
                   </svg>
                 </div>
-                <small>${stripPrefix(name)}</small><pre style="font-size: 0.75rem"> #qdgs-icon-${name}</pre>
+                <small>${_removePrefixQGDS(name)}</small><br><code style="font-size: 0.75rem"> #qdgs-icon-${name}</code>
                 `,
           }).html
         })
@@ -76,16 +81,22 @@ export const SvgIcons = () => {
 };
 SvgIcons.storyName = "SVG Icons";
 
+// Story for displaying all icons using CSS utility classes
 export const CssIcons = () => {
   return `
     <div class="container">
-    <div class="row row-cols-3 row-cols-sm-4 row-cols-lg-5 row-cols-xl-6 g-4">
+    <div class="row row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 g-4">
       ${iconNames
         .map(name => new Card({
             ...defaultdata,
             title: ``,  // Override card title to empty string
-            description: `<small>${stripPrefix(name)}</small><pre style="font-size: 0.75rem">qld-icon-${name}</pre>`,
-            iconClasses: `qld-icon qld-icon-xl qld-icon-${name}`,
+            description: `
+                <div class="mb-4">
+                  <span class="qld-icon qld-icon-xl qld-icon-${name}"></span>
+                </div>
+                <small>${_removePrefixQGDS(name)}</small><br><code style="font-size: 0.75rem">qld-icon-${name}</code>
+                `,
+            iconClasses: ``,
           }).html)
         .join('')}
     </div>
@@ -94,6 +105,7 @@ export const CssIcons = () => {
 };
 CssIcons.storyName = "CSS Icons";
 
+// Story for displaying icon sizing variations
 export const Sizes = () => {
   return iconSizingHtml;
 };

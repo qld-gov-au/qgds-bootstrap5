@@ -47,6 +47,13 @@
 $prefixIcon: $prefix + 'icon-'; // Prefix for icon classes, based on global prefix in main.scss
 $prefixIconQgds: '--qgds-icon-';  // This QGDS variable could be moved to the token or tolkien repo.
 
+// Ensure SVGs inherit the current text color
+// Comment out to use the "fill" attribute inside svg element instead
+/*
+svg {
+	fill: currentColor;
+} */
+
 // List of icon sizes
 $icon-sizes: (
 	'xs': 1rem,
@@ -55,6 +62,17 @@ $icon-sizes: (
 	'lg': 2rem,
 	'xl': 2.5rem,
 	'xxl': 3rem
+);
+
+// List of icons with multiple colours that use background-image instead of mask-image
+$icons-multicolour: (
+	status-cancel,
+	status-danger,
+	status-error,
+	status-information,
+	status-maintenance,
+	status-success,
+	status-warning,
 );
 
 // Loop through the icon names and create utility class for each
@@ -67,31 +85,29 @@ $icon-sizes: (
 	mask-position: center center;
 	mask-repeat: no-repeat;
 	mask-size: contain;
-	// &:not([data-has-background="true"]) {   // background-color is only applied to icons without backgrounds to avoid issues
-		background-color: var(--#{$prefix}body-color); // Default icon color
-	// }
+	background-color: var(--#{$prefix}body-color); // Default icon color
 
+	// Utility classes for icons
+	// Note: mask-image is the preferred method for icons that are single colour, as it allows for easy colour changes using CSS variables.
+	// The background-image method is used for SVG icons with multiple fill colours.
 	@each $icon in $icon-names {
-		&.#{$prefixIcon}#{$icon} {
-			// background-image: var(#{$prefixIconQgds}#{$icon});    // this works for SVG with multiple fill colour, but not working for line icons
-			mask-image: var(#{$prefixIconQgds}#{$icon});
-			-webkit-mask-image: var(#{$prefixIconQgds}#{$icon});
+		@if index($icons-multicolour, $icon) {
+			// Only use background-image for multi colours icons.
+			&.#{$prefixIcon}#{$icon} {
+				background-image: var(#{$prefixIconQgds}#{$icon});
+				background-color: transparent;;
+			}
+		} @else {
+			&.#{$prefixIcon}#{$icon} {
+				mask-image: var(#{$prefixIconQgds}#{$icon});
+				-webkit-mask-image: var(#{$prefixIconQgds}#{$icon});
+			}
 		}
 	}
-
-	// Might need the size classes nested inside base class IF the css rules hierarchy is not working as expected
-	// @each $size, $value in $icon-sizes {
-	// 	&.#{$prefixIcon}#{$size} {
-	// 		width: $value;
-	// 		height: $value;
-	// 		mask-size: $value;
-	// 		background-size: $value;
-	// 	}
-	// }
 }
 
 // Loop through the icon sizes and create utility class for each size.
-// Independent from the base class to allow sizing on inline SVG icons as well as CSS icons.
+// Independent from the icon base class to allow sizing on inline SVG icons as well as CSS icons.
 @each $size, $value in $icon-sizes {
 	.#{$prefixIcon}#{$size} {
 		width: $value;
