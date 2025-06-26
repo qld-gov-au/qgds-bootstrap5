@@ -1,13 +1,10 @@
 .link-column {
-  
   background-color: var(--qld-body-bg);
-  
   &:has(.col-1) {
     max-width: 46rem;
   }
-
   ul {
-    width: 100%;
+    width: 100%;  
     display: grid;
     gap: 0 1rem;
   }
@@ -35,7 +32,6 @@
         grid-template-columns: repeat(1, 1fr);
     }
   }
-  
   .col-vert-1 {
     display: block;
     column-count: 1;
@@ -109,16 +105,16 @@
       }
     }
   }
-
   .all-link{
     max-width: 100%;
     box-shadow: none;
     column-span: all;
     .qld-cta-link {
-      display: block;
-      width: 100%;
-      text-align: end;
-      padding-block: 1rem;
+      margin-block-start: 2rem;
+      margin-inline-start: auto;
+      @include media-breakpoint-down(lg) {
+        margin-block-start: 1.5rem;
+      }
     }
   }
 }
