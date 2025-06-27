@@ -70,7 +70,7 @@ export const SvgIcons = () => {
                     <use href="${SPRITE_PATH}#${PREFIX_QGDS}${name}" />
                   </svg>
                 </div>
-                <small>${_removePrefixQGDS(name)}</small><br><code style="font-size: 0.75rem"> #qdgs-icon-${name}</code>
+                <small>${_removePrefixQGDS(name)}</small><br><code style="font-size: 0.75rem"> #${PREFIX_QGDS}${name}</code>
                 `,
           }).html
         })
