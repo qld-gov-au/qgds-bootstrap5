@@ -1,4 +1,8 @@
 export default [
+  "spinner-step-1",
+  "spinner-step-2",
+  "spinner-step-3",
+  "spinner-step-4",
   "x",
   "youtube",
   "accessibility",
@@ -50,6 +54,7 @@ export default [
   "help",
   "hide",
   "home",
+  "identity-face",
   "identity",
   "image",
   "instagram",
