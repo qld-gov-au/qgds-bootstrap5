@@ -14,7 +14,7 @@ const PREFIX_QGDS = 'qgds-icon-';
  * @param {string} outputIconJs - Output JS file for the generated icon names - to be used in Storybook
  */
 export function QGDSgenerateIconAssetsPlugin(inputDir = "./src/img/icons", 
-  outputIconSprite = "./src/img/_icon-sprite.svg",
+  outputIconSprite = "./src/img/icons-sprite.svg",
   outputIconVars = "./src/components/bs5/icons/_icons.variables.scss", 
   outputIconNames = "./src/components/bs5/icons/_icons.list.scss", 
   outputIconJs = "./src/components/bs5/icons/_icons.list.js") {

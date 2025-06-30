@@ -22,7 +22,7 @@ const defaultdata = {
     "footer": "",
     "equalHeight": false
   };
-const SPRITE_PATH = './assets/img/_icon-sprite.svg';
+const SPRITE_PATH = './assets/img/icons-sprite.svg';
 const PREFIX_QGDS = 'qgds-icon-';
 
 // Helper function to remove the prefix from icon names

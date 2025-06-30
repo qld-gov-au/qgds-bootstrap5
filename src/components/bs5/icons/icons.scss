@@ -44,6 +44,10 @@
 }
 /* @TODO: Remove all lines above once all the icons within the components have been synced with new icons.  */
 
+@import "./_icons.variables";
+@import "./_icons.list";
+@import "./_icons-multicolours.list";
+
 $prefixIcon: $prefix + 'icon-'; // Prefix for icon classes, based on global prefix in main.scss
 $prefixIconQgds: '--qgds-icon-';  // This QGDS variable could be moved to the token or tolkien repo.
 
@@ -62,17 +66,6 @@ $icon-sizes: (
 	'lg': 2rem,
 	'xl': 2.5rem,
 	'xxl': 3rem
-);
-
-// List of icons with multiple colours that use background-image instead of mask-image
-$icons-multicolour: (
-	status-cancel,
-	status-danger,
-	status-error,
-	status-information,
-	status-maintenance,
-	status-success,
-	status-warning,
 );
 
 // Loop through the icon names and create utility class for each
