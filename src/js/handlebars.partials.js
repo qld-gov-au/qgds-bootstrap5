@@ -42,6 +42,7 @@ import sidenav from "../components/bs5/sidenav/sidenav.hbs?raw";
 import sidenavWrapper from "../components/bs5/sidenavWrapper/sidenavWrapper.hbs?raw";
 import spinner from "../components/bs5/spinner/spinner.hbs?raw";
 import table from "../components/bs5/table/table.hbs?raw";
+import tabs from "../components/bs5/tabs/tabs.hbs?raw";
 import tag from "../components/bs5/tag/tag.hbs?raw";
 import textarea from "../components/bs5/textarea/textarea.hbs?raw";
 import textbox from "../components/bs5/textbox/textbox.hbs?raw";
@@ -96,6 +97,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("sidenavWrapper", sidenavWrapper);
   handlebars.registerPartial("spinner", spinner);
   handlebars.registerPartial("table", table);
+  handlebars.registerPartial("tabs", tabs);
   handlebars.registerPartial("tag", tag);
   handlebars.registerPartial("textarea", textarea);
   handlebars.registerPartial("textbox", textbox);
