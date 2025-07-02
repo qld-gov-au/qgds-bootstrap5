@@ -127,7 +127,7 @@ div .accordion-body {
     font-size: inherit;
     position: relative;
     text-decoration: underline;
-    text-underline-offset: var(--#{$prefix}link-underline-offset);
+    text-underline-offset: 0.125rem;
     text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
     display: flex;
     align-items: center;
@@ -135,7 +135,7 @@ div .accordion-body {
     padding-inline: 0;
 
     &:hover {
-      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+      text-decoration: none;
     }
 
     &:after {
