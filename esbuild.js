@@ -12,6 +12,7 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
+import { createOverrideScssEntry } from "./.esbuild/helpers/scssOverride.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -107,21 +108,7 @@ async function StartBuild() {
     const cssDir = path.resolve("src/css");
     const mainScss = path.join(cssDir, "main.scss");
     const overrideVar = argv.override;
-    const overrideFile = path.join(cssDir, `variables-${overrideVar}.scss`);
-    tempEntry = path.join(cssDir, `main.${overrideVar}.scss`);
-
-    // Copy main.scss and inject override after qld-variables import
-    let mainContent = fs.readFileSync(mainScss, "utf8");
-    if (fs.existsSync(overrideFile)) {
-      const lines = mainContent.split("\n");
-      const qldVarsIndex = lines.findIndex(line => line.includes('@import "./qld-variables"'));
-      if (qldVarsIndex !== -1) {
-        lines.splice(qldVarsIndex + 1, 0, `@import './variables-${overrideVar}.scss';`);
-        mainContent = lines.join("\n");
-      }
-    }
-    fs.writeFileSync(tempEntry, mainContent);
-
+    tempEntry = createOverrideScssEntry({ cssDir, mainScss, overrideVar });
     // Add temp entry as override bundle
     config.entryPoints.push({
       in: `./src/css/main.${overrideVar}.scss`,
