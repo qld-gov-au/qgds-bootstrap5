@@ -10,6 +10,7 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
+import { scssOverridePlugin } from "./.esbuild/plugins/qgds-plugin-scss-override.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -18,7 +19,6 @@ import handlebarsPlugin from "esbuild-plugin-handlebars";
 //Command line arguments are available via argv object
 import minimist from "minimist";
 const argv = minimist(process.argv.slice(2));
-
 
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
@@ -59,7 +59,7 @@ const buildConfig = {
 
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
-    ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []),   // Generate icons assets when --icons flag is set
+    ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []), // Generate icons assets when --icons flag is set
     QDGScopy(),
     QGDSrawLoader(),
     versionPlugin(),
@@ -81,7 +81,7 @@ const buildNodeConfig = {
   external: buildConfig.external,
   platform: "node",
   target: ["node20"],
-  format: 'esm',
+  format: "esm",
   entryPoints: [
     {
       in: "./src/js/handlebars.init.cjs",
@@ -95,15 +95,24 @@ const buildNodeConfig = {
     versionPlugin(),
     handlebarsPlugin(),
   ],
-}
+};
 
 async function StartBuild() {
-  let ctx = await esbuild.context(buildConfig);
+  // Choose configuration based on override flag
+  let config = buildConfig;
+  if (argv.override) {
+    config.entryPoints.push({
+      in: "./src/css/main.scss",
+      out: `./assets/css/qld.bootstrap.${argv.override}`,
+    });
+    config.plugins.push(scssOverridePlugin(argv.override));
+  }
+  console.log("config", argv.override, config);
+  let ctx = await esbuild.context(config);
 
   if (argv.watch === true) {
     // "npm run watch"
     await ctx.watch();
-
   } else {
     // "npm run build" or "node build.js"
     await ctx.rebuild();
@@ -114,7 +123,6 @@ async function StartBuild() {
   let ctxNode = await esbuild.context(buildNodeConfig);
   await ctxNode.rebuild();
   await ctxNode.dispose();
-
 }
 
 //Initate the project build...

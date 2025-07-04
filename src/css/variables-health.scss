@@ -1,0 +1,70 @@
+// Variables Override File
+// This file allows you to override the default QLD variables defined in qld-variables.scss
+// Place this file in the same directory as main.scss to enable override functionality
+
+// Example: Override primary brand colors
+$qld-brand-primary: #ff6b35; // Custom orange instead of sapphire blue
+$qld-brand-primary-dark: #e55a2b; // Darker shade of custom orange
+$qld-brand-primary-light: #ff8a5c; // Lighter shade of custom orange
+
+// Example: Override secondary colors
+$qld-brand-secondary: #2ecc71; // Custom green instead of light green
+$qld-brand-secondary-dark: #27ae60; // Darker shade of custom green
+
+// Example: Override accent color
+$qld-brand-accent: #f39c12; // Custom yellow instead of golden yellow
+
+// Example: Override text colors
+$qld-text-grey: #34495e; // Custom dark grey for text
+$qld-dark-text: #2c3e50; // Custom darker text color
+
+// Example: Override background colors
+$qld-color-background: #f8f9fa; // Custom light background
+$qld-light-background: #e9ecef; // Custom lighter background
+
+// Example: Override border colors
+$qld-light-border: #dee2e6; // Custom border color
+$qld-light-border-alt: #ced4da; // Custom alternate border color
+
+// Example: Override button colors
+$qld-light-action-primary: $qld-brand-primary;
+$qld-light-action-primary-hover: $qld-brand-primary-dark;
+
+// Example: Override notification colors
+$qld-notify-success: #28a745; // Custom success green
+$qld-notify-warning: #ffc107; // Custom warning yellow
+$qld-notify-error: #dc3545; // Custom error red
+$qld-notify-information: #17a2b8; // Custom info blue
+
+// Example: Override spacing
+$qld-fluid-width-half: 50%; // Change fluid width from 48.5% to 50%
+
+// Example: Override border radius
+$border-radius: 0.5rem; // Increase border radius from 0.25rem to 0.5rem
+$border-radius-sm: 0.375rem;
+$border-radius-lg: 0.75rem;
+
+// Example: Override grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px, // Changed from 400px
+  md: 768px, // Changed from 700px
+  lg: 992px,
+  xl: 1200px // Changed from 1312px
+);
+
+// Example: Override custom spacers
+$qld-custom-spacers: (
+  16: $spacer,
+  20: ($spacer * 1.25),
+  24: ($spacer * 1.5),
+  32: ($spacer * 2),
+  40: ($spacer * 2.5),
+  48: ($spacer * 3.0),
+  56: ($spacer * 3.5),
+  64: ($spacer * 4),
+  72: ($spacer * 4.5),
+  80: ($spacer * 5),
+  96: ($spacer * 6), // Add new spacer
+  128: ($spacer * 8) // Add new spacer
+); 
