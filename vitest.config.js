@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  root: "./dist",
+  root: "./src",
   plugins: [
     {
       name: "html-transform",
@@ -17,4 +17,8 @@ export default defineConfig({
       },
     },
   ],
+  test: {
+    passWithNoTests: true, // Do not fail when no tests are found
+    reporters: ["verbose"], // Use the verbose reporter
+  },
 });
