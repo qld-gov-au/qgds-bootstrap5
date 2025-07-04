@@ -1,6 +1,8 @@
 /* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
+import fs from "fs";
+import path from "path";
 
 //Local ESBUILD PLUGINS
 import QGDSupdateHandlebarsPartialsPlugin from "./.esbuild/plugins/qgds-plugin-handlebar-partial-builder.js";
@@ -10,7 +12,6 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
-import { scssOverridePlugin } from "./.esbuild/plugins/qgds-plugin-scss-override.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -100,23 +101,44 @@ const buildNodeConfig = {
 async function StartBuild() {
   // Choose configuration based on override flag
   let config = buildConfig;
+  let tempEntry = null;
   if (argv.override) {
+    // Paths
+    const cssDir = path.resolve("src/css");
+    const mainScss = path.join(cssDir, "main.scss");
+    const overrideVar = argv.override;
+    const overrideFile = path.join(cssDir, `variables-${overrideVar}.scss`);
+    tempEntry = path.join(cssDir, `main.${overrideVar}.scss`);
+
+    // Copy main.scss and inject override after qld-variables import
+    let mainContent = fs.readFileSync(mainScss, "utf8");
+    if (fs.existsSync(overrideFile)) {
+      const lines = mainContent.split("\n");
+      const qldVarsIndex = lines.findIndex(line => line.includes('@import "./qld-variables"'));
+      if (qldVarsIndex !== -1) {
+        lines.splice(qldVarsIndex + 1, 0, `@import './variables-${overrideVar}.scss';`);
+        mainContent = lines.join("\n");
+      }
+    }
+    fs.writeFileSync(tempEntry, mainContent);
+
+    // Add temp entry as override bundle
     config.entryPoints.push({
-      in: "./src/css/main.scss",
-      out: `./assets/css/qld.bootstrap.${argv.override}`,
+      in: `./src/css/main.${overrideVar}.scss`,
+      out: `./assets/css/qld.bootstrap.${overrideVar}`,
     });
-    config.plugins.push(scssOverridePlugin(argv.override));
   }
-  console.log("config", argv.override, config);
   let ctx = await esbuild.context(config);
 
   if (argv.watch === true) {
-    // "npm run watch"
     await ctx.watch();
   } else {
-    // "npm run build" or "node build.js"
     await ctx.rebuild();
     await ctx.dispose();
+    // Clean up temp file
+    if (tempEntry && fs.existsSync(tempEntry)) {
+      fs.unlinkSync(tempEntry);
+    }
   }
 
   //node js module

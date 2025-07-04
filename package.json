@@ -13,6 +13,8 @@
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
     "build": "node esbuild.js",
     "build:icons": "node esbuild.js --icons",
+    "build:override": "node esbuild.js --override",
+    "build:override:icons": "node esbuild.js --override --icons",
     "test": "echo 'no unit tests built yet'",
     "test:integration": "npm-run-all --parallel --race serve:test test:testrunner",
     "test:testrunner": "sleep 2 && mocha --timeout 10000 --require ./test/testServer.test.js ",
