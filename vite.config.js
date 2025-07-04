@@ -17,4 +17,9 @@ export default defineConfig({
       },
     },
   ],
+  // assetsInclude: ["**/*.hbs", "**/*.hbs?raw"],
+  test: {
+    passWithNoTests: true, // Do not fail when no tests are found
+    reporters: ["verbose"], // Use the verbose reporter
+  },
 });
