@@ -6,7 +6,7 @@ import path from "path";
  * Returns the path to the temp file, or null if not created.
  */
 export function createOverrideScssEntry({ cssDir, mainScss, overrideVar }) {
-  const overrideFile = path.join(cssDir, `variables-${overrideVar}.scss`);
+  const overrideFile = path.join(cssDir, `qld-variables-${overrideVar}.scss`);
   const tempEntry = path.join(cssDir, `main.${overrideVar}.scss`);
 
   // Copy main.scss and inject override after qld-variables import
@@ -14,11 +14,21 @@ export function createOverrideScssEntry({ cssDir, mainScss, overrideVar }) {
   if (fs.existsSync(overrideFile)) {
     const lines = mainContent.split("\n");
     const qldVarsIndex = lines.findIndex(line => line.includes('@import "./qld-variables"'));
+
     if (qldVarsIndex !== -1) {
-      lines.splice(qldVarsIndex + 1, 0, `@import './variables-${overrideVar}.scss';`);
+      lines.splice(qldVarsIndex + 1, 0, `@import './qld-variables-${overrideVar}.scss';`);
       mainContent = lines.join("\n");
-    }
+    } else {
+        console.warn(
+          `[SCSS Override] Warning: Could not find '@import \"./qld-variables\";' to inject the override.`,
+        );
+      }
+  } else {
+    console.warn(
+      `[SCSS Override] Warning: Override file not found at ${overrideFile}`,
+    );
   }
+
   fs.writeFileSync(tempEntry, mainContent);
   return tempEntry;
 } 

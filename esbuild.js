@@ -112,7 +112,7 @@ async function StartBuild() {
     // Add temp entry as override bundle
     config.entryPoints.push({
       in: `./src/css/main.${overrideVar}.scss`,
-      out: `./assets/css/qld.bootstrap.${overrideVar}`,
+      out: `./assets/css/qld.${overrideVar}.bootstrap`,
     });
   }
   let ctx = await esbuild.context(config);
@@ -127,7 +127,7 @@ async function StartBuild() {
       fs.unlinkSync(tempEntry);
     }
   }
-
+   
   //node js module
   let ctxNode = await esbuild.context(buildNodeConfig);
   await ctxNode.rebuild();
