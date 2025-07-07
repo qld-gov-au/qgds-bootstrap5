@@ -1,7 +1,8 @@
 /* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
-import { createScssTransformer } from "./.esbuild/helpers/scssOverride.js";
+import fs from "fs";
+import path from "path";
 
 //Local ESBUILD PLUGINS
 import QGDSupdateHandlebarsPartialsPlugin from "./.esbuild/plugins/qgds-plugin-handlebar-partial-builder.js";
@@ -11,7 +12,7 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
-// import { createOverrideScssEntry } from "./.esbuild/helpers/scssOverride.js";
+import { createOverrideScssEntry } from "./.esbuild/helpers/scssOverride.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -99,34 +100,32 @@ const buildNodeConfig = {
 };
 
 async function StartBuild() {
-  const overrideVar = argv.override;
-  let sassPluginConfig = {};
-
-  if (overrideVar) {
-    // Use the in-memory transformer for SCSS overrides
-    sassPluginConfig = {
-      transform: createScssTransformer(overrideVar),
-    };
-    // Update the output file name to include the override theme name
-    const mainCssEntry = buildConfig.entryPoints.find(entry => entry.in.includes("main.scss"));
-    if (mainCssEntry) {
-      mainCssEntry.out = `./assets/css/qld.bootstrap.${overrideVar}`;
-    }
+  // Choose configuration based on override flag
+  let config = buildConfig;
+  let tempEntry = null;
+  if (argv.override) {
+    // Paths
+    const cssDir = path.resolve("src/css");
+    const mainScss = path.join(cssDir, "main.scss");
+    const overrideVar = argv.override;
+    tempEntry = createOverrideScssEntry({ cssDir, mainScss, overrideVar });
+    // Add temp entry as override bundle
+    config.entryPoints.push({
+      in: `./src/css/main.${overrideVar}.scss`,
+      out: `./assets/css/qld.bootstrap.${overrideVar}`,
+    });
   }
-
-  // Replace the default sassPlugin with the potentially modified one
-  const pluginIndex = buildConfig.plugins.findIndex(p => p.name === 'sass-plugin');
-  if (pluginIndex !== -1) {
-    buildConfig.plugins[pluginIndex] = sassPlugin(sassPluginConfig);
-  }
-
-  let ctx = await esbuild.context(buildConfig);
+  let ctx = await esbuild.context(config);
 
   if (argv.watch === true) {
     await ctx.watch();
   } else {
     await ctx.rebuild();
     await ctx.dispose();
+    // Clean up temp file
+    if (tempEntry && fs.existsSync(tempEntry)) {
+      fs.unlinkSync(tempEntry);
+    }
   }
 
   //node js module
