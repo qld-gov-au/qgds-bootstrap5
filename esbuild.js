@@ -102,30 +102,35 @@ const buildNodeConfig = {
 async function StartBuild() {
   // Choose configuration based on override flag
   let config = buildConfig;
-  let tempEntry = null;
+  const tempEntries = [];
   if (argv.override) {
-    // Paths
+    const overrides = Array.isArray(argv.override) ? argv.override : [argv.override];
     const cssDir = path.resolve("src/css");
     const mainScss = path.join(cssDir, "main.scss");
-    const overrideVar = argv.override;
-    tempEntry = createOverrideScssEntry({ cssDir, mainScss, overrideVar });
-    // Add temp entry as override bundle
-    config.entryPoints.push({
-      in: `./src/css/main.${overrideVar}.scss`,
-      out: `./assets/css/qld.${overrideVar}.bootstrap`,
+
+    overrides.forEach(overrideVar => {
+      const tempEntry = createOverrideScssEntry({ cssDir, mainScss, overrideVar });
+      tempEntries.push(tempEntry);
+      config.entryPoints.push({
+        in: tempEntry,
+        out: `./assets/css/qld.${overrideVar}.bootstrap`,
+      });
+      console.log(`Override SCSS entry created: ${tempEntry}`);
     });
   }
-  let ctx = await esbuild.context(config);
 
+  let ctx = await esbuild.context(config);
   if (argv.watch === true) {
     await ctx.watch();
   } else {
     await ctx.rebuild();
     await ctx.dispose();
-    // Clean up temp file
-    if (tempEntry && fs.existsSync(tempEntry)) {
-      fs.unlinkSync(tempEntry);
-    }
+    // Clean up temp files
+    tempEntries.forEach(tempEntry => {
+      if (tempEntry && fs.existsSync(tempEntry)) {
+        fs.unlinkSync(tempEntry);
+      }
+    });
   }
    
   //node js module

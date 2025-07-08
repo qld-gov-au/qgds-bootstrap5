@@ -92,6 +92,8 @@ mvn install
     
     ```bash
     npm run build:override --${ThemePaletteName}
+    
+    npm run build:override -- --override=${ThemePaletteA} --override=${ThemePaletteB}
     ```
 
 6.  Start Watch and Storybook for component development
