@@ -12,7 +12,7 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
-import { createOverrideFlagScssEntry } from "./.esbuild/helpers/scssOverrideFlag.js";
+import { createOverrideThemeScssEntry } from "./.esbuild/helpers/scssOverrideTheme.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -61,7 +61,7 @@ const buildConfig = {
 
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
-    ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []), // Generate icons assets when --icons flag is set
+    ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []), // Generate icons assets when --icons theme is set
     QDGScopy(),
     QGDSrawLoader(),
     versionPlugin(),
@@ -100,22 +100,22 @@ const buildNodeConfig = {
 };
 
 async function StartBuild() {
-  // Choose configuration based on flag flag
+  // Choose configuration based on theme
   let config = buildConfig;
   const tempEntries = [];
-  if (argv.flag) {
-    const flags = Array.isArray(argv.flag) ? argv.flag : [argv.flag];
+  if (argv.theme) {
+    const themes = Array.isArray(argv.theme) ? argv.theme : [argv.theme];
     const cssDir = path.resolve("src/css");
     const mainScss = path.join(cssDir, "main.scss");
 
-    flags.forEach(flagVar => {
-      const tempEntry = createOverrideFlagScssEntry({ cssDir, mainScss, flagVar });
+    themes.forEach(themeVar => {
+      const tempEntry = createOverrideThemeScssEntry({ cssDir, mainScss, themeVar });
       tempEntries.push(tempEntry);
       config.entryPoints.push({
         in: tempEntry,
-        out: `./assets/css/qld.${flagVar}.bootstrap`,
+        out: `./assets/css/qld.${themeVar}.bootstrap`,
       });
-      console.log(`flag SCSS entry created: ${tempEntry}`);
+      console.log(`theme SCSS entry created: ${tempEntry}`);
     });
   }
 

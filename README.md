@@ -87,13 +87,13 @@ mvn install
     npm run build
     ```
 
-5. Build the same command as above, but with `:flag` following by args `${ThemePaletteName}`
+5. Build the same command as above, but with `:theme` following by args `${ThemePaletteName}`
    This will generate a separate altertive CSS export named as `qld.${ThemePaletteName}.bootstrap.css`
     
     ```bash
-    npm run build:flag ${ThemePaletteName}
+    npm run build:theme ${ThemePaletteName}
     
-    npm run build:flag -- --flag=${ThemePaletteA} --flag=${ThemePaletteB}
+    npm run build:theme -- --theme=${ThemePaletteA} --theme=${ThemePaletteB}
     ```
 
 6.  Start Watch and Storybook for component development
