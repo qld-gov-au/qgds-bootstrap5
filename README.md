@@ -91,7 +91,7 @@ mvn install
    This will generate a separate altertive CSS export named as `qld.${ThemePaletteName}.bootstrap.css`
     
     ```bash
-    npm run build:flag --${ThemePaletteName}
+    npm run build:flag ${ThemePaletteName}
     
     npm run build:flag -- --flag=${ThemePaletteA} --flag=${ThemePaletteB}
     ```
