@@ -87,13 +87,13 @@ mvn install
     npm run build
     ```
 
-5. Build the same command as above, but with `:override` following by args `${ThemePaletteName}`
+5. Build the same command as above, but with `:flag` following by args `${ThemePaletteName}`
    This will generate a separate altertive CSS export named as `qld.${ThemePaletteName}.bootstrap.css`
     
     ```bash
-    npm run build:override --${ThemePaletteName}
+    npm run build:flag --${ThemePaletteName}
     
-    npm run build:override -- --override=${ThemePaletteA} --override=${ThemePaletteB}
+    npm run build:flag -- --flag=${ThemePaletteA} --flag=${ThemePaletteB}
     ```
 
 6.  Start Watch and Storybook for component development

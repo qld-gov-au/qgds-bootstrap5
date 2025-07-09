@@ -1,0 +1,13 @@
+// Variables Override File
+// This file allows you to override the default QLD variables defined in qld-variables.scss
+// Place this file in the same directory as main.scss to enable override functionality
+
+// Example: Override primary brand colors
+$qld-brand-primary: #ff6b35; // Custom orange instead of sapphire blue
+$qld-brand-primary-dark: #e55a2b; // Darker shade of custom orange
+$qld-brand-primary-light: #ff8a5c; // Lighter shade of custom orange
+
+// Example: Override secondary colors
+$qld-brand-secondary: #2ecc71; // Custom green instead of light green
+$qld-brand-secondary-dark: #27ae60; // Darker shade of custom green
+$qld-brand-secondary-light: #3ae374; // Lighter shade of custom green

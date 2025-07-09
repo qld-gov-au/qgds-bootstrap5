@@ -12,7 +12,7 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
-import { createOverrideScssEntry } from "./.esbuild/helpers/scssOverride.js";
+import { createOverrideFlagScssEntry } from "./.esbuild/helpers/scssOverrideFlag.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -100,22 +100,22 @@ const buildNodeConfig = {
 };
 
 async function StartBuild() {
-  // Choose configuration based on override flag
+  // Choose configuration based on flag flag
   let config = buildConfig;
   const tempEntries = [];
-  if (argv.override) {
-    const overrides = Array.isArray(argv.override) ? argv.override : [argv.override];
+  if (argv.flag) {
+    const flags = Array.isArray(argv.flag) ? argv.flag : [argv.flag];
     const cssDir = path.resolve("src/css");
     const mainScss = path.join(cssDir, "main.scss");
 
-    overrides.forEach(overrideVar => {
-      const tempEntry = createOverrideScssEntry({ cssDir, mainScss, overrideVar });
+    flags.forEach(flagVar => {
+      const tempEntry = createOverrideFlagScssEntry({ cssDir, mainScss, flagVar });
       tempEntries.push(tempEntry);
       config.entryPoints.push({
         in: tempEntry,
-        out: `./assets/css/qld.${overrideVar}.bootstrap`,
+        out: `./assets/css/qld.${flagVar}.bootstrap`,
       });
-      console.log(`Override SCSS entry created: ${tempEntry}`);
+      console.log(`flag SCSS entry created: ${tempEntry}`);
     });
   }
 
