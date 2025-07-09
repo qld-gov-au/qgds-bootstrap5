@@ -1,0 +1,103 @@
+import fs from "fs";
+import path from "path";
+import log from "../helpers/logger.js";
+import svgToMiniDataURI from "mini-svg-data-uri";
+import { parse } from "node-html-parser";
+
+const PREFIX_QGDS = 'qgds-icon-';
+
+/**
+ * Generate CSS variables of icons from SVG files.
+ * @param {string} inputDir - Directory containing SVG icon files
+ * @param {string} outputIconVars - Output SASS file for the generated CSS variables
+ * @param {string} outputIconNames - Output SASS file for the generated icon names - to build icon utility classes
+ * @param {string} outputIconJs - Output JS file for the generated icon names - to be used in Storybook
+ */
+export function QGDSgenerateIconAssetsPlugin(inputDir = "./src/img/icons", 
+  outputIconSprite = "./src/img/icons-sprite.svg",
+  outputIconVars = "./src/components/bs5/icons/_icons.variables.scss", 
+  outputIconNames = "./src/components/bs5/icons/_icons.list.scss", 
+  outputIconJs = "./src/components/bs5/icons/_icons.list.js") {
+
+  return {
+    name: "qgds-generate-icon-variables",
+
+    setup(build) {
+
+      const regenerate = () => {
+        
+        log("yellow", "\n Start generating icons assets... \n");
+
+        if (!fs.existsSync(inputDir)) {
+          console.error(`Input directory not found: ${inputDir}`);
+          return;
+        }
+
+        const icons = fs.readdirSync(inputDir).filter((file) => file.endsWith(".svg"));
+
+        if (icons.length === 0) {
+          log("red", `SVG files not found in ${inputDir}`);
+          return;
+        }
+
+        let spriteContent = `<svg xmlns="http://www.w3.org/2000/svg" role="img">\n`;
+        let cssVariables = `:root {\n`;
+        let sassVariables = `$icon-names: (\n`;
+        let jsVariables = [];
+
+        for (const file of icons) {
+          const name = path.basename(file, ".svg");
+          const fullPath = path.join(inputDir, file);
+          const svgContent = fs.readFileSync(fullPath, "utf8");
+          const root = parse(svgContent);
+          const svg = root.querySelector("svg");
+          const viewBox = svg.getAttribute("viewBox") || "0 0 32 32";
+          const innerContent = svg.innerHTML.trim();
+          const dataUri = svgToMiniDataURI(svgContent);
+
+          log("blue", `  Processing icon: ${name} (${fullPath})`);
+          if (!svg) {
+            log("red", `  Invalid SVG on file - ${file}`);
+            continue;
+          }
+
+          // Sanitise the name to avoid issues with special characters (and space) on filename
+          const sanitisedName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').toLowerCase();
+          if (sanitisedName !== name) {
+            log("yellow", `  Renaming icon: "${name}" to "${sanitisedName}"`);
+          }
+          spriteContent += `  <symbol id="${PREFIX_QGDS}${sanitisedName}" viewBox="${viewBox}">\n`;
+          spriteContent += `    ${innerContent}\n`;
+          spriteContent += `  </symbol>\n\n`;
+
+          cssVariables += `  --${PREFIX_QGDS}${sanitisedName}: url("${dataUri}");\n`;
+
+          sassVariables += `  ${sanitisedName},\n`;
+
+          jsVariables.push(sanitisedName);
+        }
+        spriteContent += `</svg>\n`;
+        cssVariables += `}\n`;
+        sassVariables += `);\n`;
+
+        fs.writeFileSync(outputIconSprite, spriteContent);
+        fs.writeFileSync(outputIconVars, cssVariables);
+        fs.writeFileSync(outputIconNames, sassVariables);
+        fs.writeFileSync(outputIconJs, `export default ${JSON.stringify(jsVariables, null, 2)};\n`);
+
+        log("magenta", `Successfully generated icons assets:
+                         - Sprite file   ${outputIconSprite}
+                         - CSS variables ${outputIconVars}
+                         - SASS names    ${outputIconNames}
+                         - JS names      ${outputIconJs}
+                         \n\n`);
+
+      };
+
+      build.onStart(() => {
+        regenerate();
+      });
+
+    },
+  };
+}

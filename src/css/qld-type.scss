@@ -47,7 +47,7 @@ $h6-font-size: $font-size-base * 0.875;
 $h1-font-size-mobile: $font-size-base * 2; // 32
 $h2-font-size-mobile: $font-size-base * 1.75; // 28
 $h1-line-height-mobile: 1.25; //40
-$h2-line-height-mobile: 1.28; //36
+$h2-line-height-mobile: 1.285; //36
 
 $headings-color: $qld-text-headings;
 $qld-heading-color: $core-default-color-brand-primary-light-green;
@@ -224,6 +224,12 @@ a.nav-link {
     outline: 2px solid var(--qld-focus-color);
     outline-offset: 2px;
   }
+}
+
+figure > figcaption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 // Dark, dark alt
