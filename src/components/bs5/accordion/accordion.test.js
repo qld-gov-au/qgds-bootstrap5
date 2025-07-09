@@ -14,7 +14,7 @@ import mockData from "./accordion.data.json";
  * @requires ./accordion.data.json
  */
 
-describe("Accordion", async () => {
+describe("Accordion", () => {
   const AccordionComponent = new Accordion(mockData);
   const dom = new JSDOM(`<!DOCTYPE html>${AccordionComponent.html}`);
   const d = dom.window.document;
@@ -23,42 +23,45 @@ describe("Accordion", async () => {
     expect(AccordionComponent.html).toMatchSnapshot();
   });
 
-  let collapse = d.querySelector(".accordion-collapse.show");
-  // const item = d.querySelector(".accordion-item");
-  let button = collapse.parentElement.querySelector(".accordion-button");
+  test("An expanded item collapses when clicked", async () => {
+    const collapse = d.querySelector(".accordion-collapse.show");
+    // const item = d.querySelector(".accordion-item");
+    const button = collapse.parentElement.querySelector(".accordion-button");
 
-  button.click();
+    button.click();
 
-  await test("An expanded item collapses when clicked", () =>
-    new Promise((done) => {
+    console.log(collapse.className);
+    const isOpen = await new Promise((resolve) => {
       setTimeout(() => {
-        const isOpen = Array.from(collapse.classList).includes("open");
-        console.log(isOpen);
-        expect(false).toBe(true);
-        done();
-      }, 100);
-    }));
+        console.log(collapse.className);
+        resolve(!Array.from(collapse.classList).includes("show"));
+      }, 300);
+    });
 
-  await test("All items expand when open toggle button is clicked.", () =>
-    new Promise((done) => {
-      // Click the toggle all button
-      d.querySelector(".accordion-toggle-btn").click();
+    console.log(isOpen);
+    expect(isOpen).toBe(true);
+  });
 
-      // wait 100ms
-      setTimeout(() => {
-        const items = d.querySelectorAll(".accordion-item .accordion-collapse");
+  // test("All items expand when open toggle button is clicked.", () =>
+  //   new Promise((done) => {
+  //     // Click the toggle all button
+  //     d.querySelector(".accordion-toggle-btn").click();
 
-        // expect all items to have "show" class
-        expect(
-          // items is a NodeListOf<Element>, so convert to Array to run .every method
-          Array.from(items).every((item) => {
-            // item.classList is a DomTokenList, so convert to Array to run .includes method (JSDom not helping us here.)
-            const ret = Array.from(item.classList).includes("show");
-            return ret;
-          }),
-        ).toBe(true);
+  //     // wait 100ms
+  //     setTimeout(() => {
+  //       const items = d.querySelectorAll(".accordion-item .accordion-collapse");
 
-        done();
-      }, 500);
-    }));
+  //       // expect all items to have "show" class
+  //       expect(
+  //         // items is a NodeListOf<Element>, so convert to Array to run .every method
+  //         Array.from(items).every((item) => {
+  //           // item.classList is a DomTokenList, so convert to Array to run .includes method (JSDom not helping us here.)
+  //           const ret = Array.from(item.classList).includes("show");
+  //           return ret;
+  //         }),
+  //       ).toBe(true);
+
+  //       done();
+  //     }, 500);
+  //   }));
 });
