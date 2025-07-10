@@ -302,8 +302,8 @@ $project-colors: (
 ) !default;
 
 // Merge maps
-$tokens: map-merge($theme-colors, $qld-tokens) !default;
-$theme-colors: map-merge($tokens, $project-colors) !default;
+$tokens: map-merge($theme-colors, $qld-tokens);
+$theme-colors: map-merge($tokens, $project-colors);
 
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (
@@ -315,7 +315,7 @@ $grid-breakpoints: (
 ) !default;
 
 // Map merge to include custom breakpoints
-$breakpoints: map-merge($grid-breakpoints, ()) !default;
+$breakpoints: map-merge($grid-breakpoints, ());
 
 // Default border radius
 $border-radius: 0.25rem !default;
@@ -344,4 +344,4 @@ $qld-custom-spacers: (
   80: ($spacer * 5)
 ) !default;
 
-$spacers: map-merge($spacers, $qld-custom-spacers) !default;
+$spacers: map-merge($spacers, $qld-custom-spacers);
