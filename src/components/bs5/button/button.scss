@@ -122,15 +122,17 @@
 // General styling rules.
 a.btn,
 .btn {
+    --qld-body-color: var(--#{$prefix}btn-color); 
     white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 10rem;
 
     span[class^=icon-],
     span[class^=fa-] {
         margin: 0 0.5rem;
-    }
-
-    .btn-icon {
-        margin: 0 0.5em;
     }
 
     &:hover,
@@ -161,7 +163,7 @@ a.btn,
 
     &:disabled,
     &.disabled {
-        color: var(--#{$prefix}btn-disabled-color);
+        --qld-body-color: var(--#{$prefix}btn-disabled-color);
     }
 
     //Primary button variant
@@ -170,7 +172,6 @@ a.btn,
 
         &:hover {
             box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
-
         }
 
         &:active {
@@ -193,38 +194,21 @@ a.btn,
     //Secondary button variant
     &-secondary,
     &-outline-secondary {
-        .btn-icon {
-            color: var(--#{$prefix}btn-border-color);
-        }
-
-        &:hover .btn-icon {
-            color: var(--#{$prefix}btn-hover-border-color);
+        --qld-body-color: var(--#{$prefix}btn-border-color);
+        &:hover {
+            --qld-body-color: var(--#{$prefix}btn-hover-border-color);
         }
 
         &:focus {
             text-decoration: underline;
             text-underline-offset: 0.3em;
             border-color: var(--#{$prefix}btn-focus-border-color);
-
-            .btn-icon {
-                color: var(--#{$prefix}btn-hover-border-color);
-            }
+            --qld-body-color: var(--#{$prefix}btn-hover-border-color);
         }
 
         &:active {
             text-decoration: none;
-
-            .btn-icon {
-                color: var(--#{$prefix}btn-active-color);
-            }
-        }
-
-        &:disabled,
-        &.disabled {
-            .btn-icon {
-                color: var(--#{$prefix}btn-disabled-color);
-
-            }
+            --qld-body-color: var(--#{$prefix}btn-active-color);
         }
     }
 
@@ -232,51 +216,40 @@ a.btn,
     &-tertiary {
         text-decoration: underline;
         text-underline-offset: 0.3em;
-
-        .btn-icon {
-            color: var(--#{$prefix}dark-green);
-        }
+        --qld-body-color: var(--#{$prefix}dark-green);
 
         &:hover {
-            .btn-icon {
-                color: var(--#{$prefix}color-default-color-light-action-secondary-hover);
-            }
+            --qld-body-color: var(--#{$prefix}color-default-color-light-action-secondary-hover);
         }
 
         &:focus {
             background-color: var(--#{$prefix}btn-hover-bg);
-
-            .btn-icon {
-                color: var(--#{$prefix}color-default-color-light-action-secondary-hover);
-            }
+            --qld-body-color: var(--#{$prefix}color-default-color-light-action-secondary-hover);
         }
 
         &:active {
             text-decoration: none;
             color: var(--#{$prefix}btn-active-color);
-
-            .btn-icon {
-                color: var(--#{$prefix}btn-active-color);
-            }
+            --qld-body-color: var(--#{$prefix}btn-active-color);
         }
 
         &:disabled,
         &.disabled {
             text-decoration: none;
-
-            .btn-icon {
-                color: var(--#{$prefix}btn-disabled-color);
-            }
         }
     }
-
 }
 
-//Dark mode button variants
+// Dark mode button variants
 .dark .btn,
 .dark a.btn,
 .dark-alt .btn,
 .dark-alt a.btn {
+
+    &:disabled,
+    &.disabled {
+        --qld-body-color: var(--#{$prefix}btn-disabled-color);
+    }
 
     &:focus {
         outline: var(--#{$prefix}dark-focus) solid 3px;
@@ -288,64 +261,35 @@ a.btn,
             background-color: var(--#{$prefix}btn-focus-bg);
             border-color: var(--#{$prefix}btn-focus-border-color);
         }
-
-        &:disabled,
-        &.disabled {
-            .btn-icon {
-                color: var(--#{$prefix}btn-disabled-color);
-            }
-        }
     }
 
     &-secondary,
     &-outline-secondary {
-        .btn-icon {
-            color: var(--#{$prefix}btn-border-color);
-        }
+        --qld-body-color: var(--#{$prefix}btn-border-color);
 
         &:hover {
             border: var(--#{$prefix}btn-border-width) solid var(--#{$prefix}btn-hover-border-color);
-
-            .btn-icon {
-                color: var(--#{$prefix}btn-hover-border-color);
-            }
+            --qld-body-color: var(--#{$prefix}btn-hover-border-color);
         }
 
         &:focus {
             border-color: var(--#{$prefix}btn-focus-border-color);
-
-            .btn-icon {
-                color: var(--#{$prefix}btn-focus-border-color);
-            }
+            --qld-body-color: var(--#{$prefix}btn-focus-border-color);
         }
 
         &:active {
             color: var(--#{$prefix}btn-active-color);
             background-color: var(--#{$prefix}btn-active-bg);
             border-color: var(--#{$prefix}btn-active-bg);
-
-            .btn-icon {
-                color: var(--#{$prefix}btn-active-color);
-            }
-        }
-
-        &:disabled,
-        &.disabled {
-            .btn-icon {
-                color: var(--#{$prefix}btn-disabled-color);
-            }
+            --qld-body-color: var(--#{$prefix}btn-active-color);
         }
     }
 
     &-tertiary {
-        .btn-icon {
-            color: var(--#{$prefix}golden-yellow);
-        }
+        --qld-body-color: var(--#{$prefix}golden-yellow);
 
         &:hover {
-            .btn-icon {
-                color: var(--#{$prefix}dark-action-secondary-hover);
-            }
+            --qld-body-color: var(--#{$prefix}dark-action-secondary-hover);
         }
 
         &:focus {
@@ -354,17 +298,7 @@ a.btn,
 
         &:active {
             text-decoration: none;
-
-            .btn-icon {
-                color: var(--#{$prefix}white);
-            }
-        }
-
-        &:disabled,
-        &.disabled {
-            .btn-icon {
-                color: var(--#{$prefix}btn-disabled-color);
-            }
+            --qld-body-color: var(--#{$prefix}white);
         }
     }
 }
