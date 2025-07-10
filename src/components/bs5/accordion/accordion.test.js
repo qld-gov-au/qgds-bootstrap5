@@ -51,9 +51,11 @@ describe("Accordion", () => {
 
     // There is a short animation before reaching the final state when class "show" is added.
     const isOpen = await new Promise((resolve) => {
-      setTimeout(() => {
+      collapse.addEventListener("hidden.bs.collapse", function handler() {
+        console.log("Collapse!");
         resolve(Array.from(collapse.classList).includes("show"));
-      }, 300);
+        collapse.removeEventListener("hidden.bs.collapse", handler);
+      });
     });
 
     expect(isOpen).toBe(false);
