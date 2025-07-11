@@ -299,7 +299,7 @@ $project-colors: (
   "light-underline-default-hover": $color-default-color-light-underline-default-hover,
   "dark-underline-default": $color-default-color-dark-underline-default,
   "dark-underline-default-hover": $color-default-color-dark-underline-default-hover
-) !default;
+);
 
 // Merge maps
 $tokens: map-merge($theme-colors, $qld-tokens);
@@ -312,7 +312,7 @@ $grid-breakpoints: (
   md: 700px,
   lg: 992px,
   xl: 1312px
-) !default;
+);
 
 // Map merge to include custom breakpoints
 $breakpoints: map-merge($grid-breakpoints, ());
@@ -342,6 +342,6 @@ $qld-custom-spacers: (
   64: ($spacer * 4),
   72: ($spacer * 4.5),
   80: ($spacer * 5)
-) !default;
+);
 
 $spacers: map-merge($spacers, $qld-custom-spacers);
