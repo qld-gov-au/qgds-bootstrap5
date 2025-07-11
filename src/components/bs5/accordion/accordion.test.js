@@ -5,6 +5,7 @@ import mockData from "./accordion.data.json";
 import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { waitForEventOn } from "../../../js/testingutils.js";
 
 /**
  *
@@ -50,12 +51,8 @@ describe("Accordion", () => {
     button.click();
 
     // There is a short animation before reaching the final state when class "show" is added.
-    const isOpen = await new Promise((resolve) => {
-      collapse.addEventListener("hidden.bs.collapse", function handler() {
-        console.log("Collapse!");
-        resolve(Array.from(collapse.classList).includes("show"));
-        collapse.removeEventListener("hidden.bs.collapse", handler);
-      });
+    const isOpen = await waitForEventOn(collapse, "hidden.bs.collapse", () => {
+      return Array.from(collapse.classList).includes("show");
     });
 
     expect(isOpen).toBe(false);
@@ -67,55 +64,55 @@ describe("Accordion", () => {
 
     button.click();
 
-    const isOpen = await new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(Array.from(collapse.classList).includes("show"));
-      }, 300);
-    });
+    const isOpen = await waitForEventOn(collapse, "shown.bs.collapse", () =>
+      Array.from(collapse.classList).includes("show"),
+    );
 
     expect(isOpen).toBe(true);
   });
 
   test("All items expand when open toggle button is clicked.", async () => {
     const button = d.querySelector(".accordion-toggle-btn");
+
+    // Once when the event has fired for all items, check all their classes.
+    // We need to exclude already-open items with :not(.show) because they will not fire the shown event.
+    const items = d.querySelectorAll(
+      ".accordion-item .accordion-collapse:not(.show)",
+    );
+
+    const promises = Array.from(items).map((item) => {
+      return waitForEventOn(item, "shown.bs.collapse", () => {
+        return Array.from(item.classList).includes("show");
+      });
+    });
+
     button.click();
 
-    // isAllOpen = true if every item includes the class "show";
-    const isAllOpen = await new Promise((resolve) => {
-      setTimeout(() => {
-        const items = d.querySelectorAll(".accordion-item .accordion-collapse");
+    const isOpenResults = await Promise.all(promises);
+    const isAllOpen = isOpenResults.every((result) => result === true);
 
-        resolve(
-          // items is a NodeListOf<Element>, so convert to Array to run .every method
-          Array.from(items).every((item) => {
-            // item.classList is a DomTokenList, so convert to Array to run .includes method (JSDom not helping us here.)
-            return Array.from(item.classList).includes("show");
-          }),
-        );
-      }, 300);
-    });
-    // expect all items to have "show" class
     expect(isAllOpen).toBe(true);
   });
 
   test("All items collapse when close toggle button is clicked.", async () => {
     // Click the toggle all button
+
+    // Select only the items with .show to as only these will fire the "hidden" event
+    const items = d.querySelectorAll(
+      ".accordion-item .accordion-collapse.show",
+    );
+
+    const promises = Array.from(items).map((item) => {
+      return waitForEventOn(item, "hidden.bs.collapse", (e) => {
+        console.log(e.target.className);
+        return !Array.from(item.classList).includes("show");
+      });
+    });
+
     d.querySelector(".accordion-toggle-btn").click();
 
-    // isAllClosed = true if no item includes class "show"
-    const isAllClosed = await new Promise((resolve) => {
-      setTimeout(() => {
-        const items = d.querySelectorAll(".accordion-item .accordion-collapse");
-
-        resolve(
-          // items is a NodeListOf<Element>, so convert to Array to run .every method
-          Array.from(items).every((item) => {
-            // item.classList is a DomTokenList, so convert to Array to run .includes method (JSDom not helping us here.)
-            return !Array.from(item.classList).includes("show");
-          }),
-        );
-      }, 300);
-    });
+    const isOpenResults = await Promise.all(promises);
+    const isAllClosed = isOpenResults.every((result) => result === true);
 
     expect(isAllClosed).toBe(true);
   });
