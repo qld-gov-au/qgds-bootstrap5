@@ -66,17 +66,21 @@ window.addEventListener("DOMContentLoaded", () => {
           }
         });
 
-        // Close suggestions when clicking outside
-        document.addEventListener('click', function(event) {
-          const suggestions = form.querySelector('.suggestions');
-          if (!suggestions) {
-            console.warn("Required suggestions elements not found.");
-            return;
-          }
-          if (!form.contains(event.target) && !suggestions.contains(event.target)) {
-            suggestions.style.display = 'none';
-          }
-        });
+        const suggestions = form.querySelector(".suggestions");
+        // If there is no suggestions renderred, do not add event listener to the document
+        if (suggestions) {
+          // Close suggestions when clicking outside
+          document.addEventListener("click", function (event) {
+            if (
+              !form.contains(event.target) &&
+              !suggestions.contains(event.target)
+            ) {
+              suggestions.style.display = "none";
+            }
+          });
+        } else {
+          console.warn("Required suggestions elements not found.");
+        }
 
         // Attach event listener to form submit
         form.addEventListener('submit', function (event) {
