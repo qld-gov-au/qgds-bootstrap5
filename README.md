@@ -46,13 +46,14 @@ This repo includes many workflows to reduce developer overheads. This includes b
 - CICD on all commit's and PR's
 - GitHub io static document deployment based on develop/main
 - Dependabot auto patching + storybook upgrade feature
-- One click npm versioning publish (patch, minor, major) \*\*
+- One click npm versioning publish (patch, minor, major) **
 - Auto generate release notes based on PR's created (On version Tag)
-- Npm js package publish (On version Tag) \*\*\*
-- GitHub package Publish (On version Tag) \*\*\*\*
+- Npm js package publish (On version Tag) ***
+- GitHub package Publish (On version Tag) ****
 
-** Must configure GitHub service account ssh private key loaded into GitHub actions secret `DEPLOY_KEY`<br/> \*** Must have npm js token loaded into GitHub actions secrets `NPM_TOKEN` to allow publishing.<br/>
-\*\*\*\* Switch's @qld-gov-au with forked username (lowercase) and publish to your account see .github/workflows/githubPackage.yml step `Update package scope, export package name`.
+** Must configure GitHub service account ssh private key loaded into GitHub actions secret `DEPLOY_KEY` <br>
+*** Must have npm js token loaded into GitHub actions secrets `NPM_TOKEN` to allow publishing. <br>
+**** Switch's @qld-gov-au with forked username (lowercase) and publish to your account see .github/workflows/githubPackage.yml step `Update package scope, export package name`.
 
 ### Quick build
 
