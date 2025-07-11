@@ -68,8 +68,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Close suggestions when clicking outside
         document.addEventListener('click', function(event) {
-          if (!form.contains(event.target) && !form.querySelector('.suggestions').contains(event.target)) {
-            form.querySelector('.suggestions').style.display = 'none';
+          const suggestions = form.querySelector('.suggestions');
+          if (!suggestions) {
+            console.warn("Required suggestions elements not found.");
+            return;
+          }
+          if (!form.contains(event.target) && !suggestions.contains(event.target)) {
+            suggestions.style.display = 'none';
           }
         });
 
