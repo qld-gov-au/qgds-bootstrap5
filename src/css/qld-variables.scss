@@ -31,22 +31,24 @@ $qld-light-border: $color-default-color-light-border-default !default;
 $qld-light-border-alt: $color-default-color-light-border-alt !default;
 $qld-dark-focus: $color-default-color-dark-focus-default !default;
 $qld-light-focus: $color-default-color-light-focus-default !default;
+
 ////
 $qld-link-underline: $color-default-color-light-underline-default !default;
 $qld-link-underline-hover: $color-default-color-light-underline-default-hover !default;
 $qld-link-underline-visited: $color-default-color-light-underline-visited !default;
 $qld-link-underline-visited-hover: $color-default-color-light-underline-visited-hover !default;
-
 $qld-link-underline-dark: $color-default-color-dark-underline-default !default;
 $qld-link-underline-hover-dark: $color-default-color-dark-underline-default-hover !default;
 $qld-link-underline-visited-dark: $color-default-color-dark-underline-visited !default;
 $qld-link-underline-visited-hover-dark: $color-default-color-dark-underline-visited-hover;
+
 /// 
 $qld-link-visited: $color-default-color-light-underline-visited !default;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited !default;
 $qld-text-darkest : $color-default-color-dark-link-on-action !default;
 $qld-dark-hover : $color-default-color-dark-background-default-shade !default;
 
+///
 $qld-text-light-blue-dark : $core-default-color-brand-primary-dark-blue !default;
 $qld-light-green-dark : $core-default-color-brand-primary-light-green !default;
 $qld-dark-green-dark : $color-default-color-dark-action-primary !default;
@@ -83,7 +85,6 @@ $qld-dark-link: $color-default-color-dark-link-default !default;
 
 //Should be core color rather than second hand reference (no match)
 $qld-soft-grey: $color-default-color-light-border-alt !default; //todo, replace soft-greys across the system with the below color
-
 
 
 $qld-dark-grey-muted : $color-default-color-light-text-lighter !default;
@@ -159,6 +160,7 @@ $color-default-color-dark-underline-default-hover: #FFFFFF !default;
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
 // The PREFIX is defined at the top of main.SCSS file (ie CSS entry point)
 
+// DO NOT override the variables inside the object
 $project-colors: (
   "brand-primary-dark": $qld-brand-primary-dark,
   "brand-primary": $qld-brand-primary,
@@ -305,6 +307,7 @@ $project-colors: (
 $tokens: map-merge($theme-colors, $qld-tokens);
 $theme-colors: map-merge($tokens, $project-colors);
 
+// DO NOT override the variables which is predefined in bootstrap;
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (
   xs: 0,
@@ -329,6 +332,7 @@ $qld-border-width-medium : 3px !default;
 $qld-border-width-thick : 4px !default;
 $qld-border-width-extra-thick : 8px !default;
 
+// DO NOT override the variables which is predefined in bootstrap;
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
 $qld-custom-spacers: (
