@@ -18,7 +18,6 @@ import handlebarsPlugin from "esbuild-plugin-handlebars";
 import minimist from "minimist";
 const argv = minimist(process.argv.slice(2));
 
-
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
   bundle: true,
@@ -63,7 +62,12 @@ const buildConfig = {
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
-    sassPlugin(),
+    sassPlugin({
+      //Hide sass deprecation warnings with a quiet flag...  npm run build -- --quiet
+      silenceDeprecations: argv.quiet
+        ? ["import", "global-builtin", "mixed-decls", "color-functions"]
+        : [],
+    }),
     QDGSbuildLog(),
   ],
 };
@@ -79,7 +83,7 @@ const buildNodeConfig = {
   external: buildConfig.external,
   platform: "node",
   target: ["node20"],
-  format: 'esm',
+  format: "esm",
   entryPoints: [
     {
       in: "./src/js/handlebars.init.cjs",
@@ -93,14 +97,14 @@ const buildNodeConfig = {
     versionPlugin(),
     handlebarsPlugin(),
   ],
-}
+};
+
 async function StartBuild() {
   let ctx = await esbuild.context(buildConfig);
 
   if (argv.watch === true) {
     // "npm run watch"
     await ctx.watch();
-
   } else {
     // "npm run build" or "node build.js"
     await ctx.rebuild();
@@ -111,7 +115,6 @@ async function StartBuild() {
   let ctxNode = await esbuild.context(buildNodeConfig);
   await ctxNode.rebuild();
   await ctxNode.dispose();
-
 }
 
 //Initate the project build...
