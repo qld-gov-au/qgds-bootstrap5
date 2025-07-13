@@ -321,9 +321,9 @@ $grid-breakpoints: (
 $breakpoints: map-merge($grid-breakpoints, ());
 
 // Default border radius
-$border-radius: 0.25rem !default;
-$border-radius-sm: 0.25rem !default;
-$border-radius-lg: 0.25rem !default;
+$border-radius: 0.25rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.25rem;
 
 // QGOV Borders
 $qld-border-width-thin : 1px !default;
