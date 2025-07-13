@@ -103,8 +103,7 @@ describe("Accordion", () => {
     );
 
     const promises = Array.from(items).map((item) => {
-      return waitForEventOn(item, "hidden.bs.collapse", (e) => {
-        console.log(e.target.className);
+      return waitForEventOn(item, "hidden.bs.collapse", () => {
         return !Array.from(item.classList).includes("show");
       });
     });
