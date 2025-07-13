@@ -76,7 +76,7 @@ export async function showSuggestions(value = '', isDefault = false, form) {
   const dynamicSuggestionsContainer = form.querySelector('.dynamic-suggestions');
 
   if (!suggestions || !searchInput) {
-    console.error("Required elements not found.");
+    console.warn("Required suggestions elements not found.");
     return;
   }
 
