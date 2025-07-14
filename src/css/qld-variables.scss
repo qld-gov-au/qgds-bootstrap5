@@ -65,14 +65,14 @@ $qld-brand-accent : $qld-golden-yellow !default;
 
 // Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss). 
 // Nuetrals were dropped from _variables.scss, but retained in _map.scss.
-$core-default-color-neutral-black: #131212 !default;
-$core-default-color-neutral-darkest: #222020 !default;
-$core-default-color-neutral-darker: #595959 !default;
-$core-default-color-neutral-dark: #78797e !default;
-$core-default-color-neutral-light: #e0e0e0 !default;
-$core-default-color-neutral-lighter: #ebebeb !default;
-$core-default-color-neutral-lightest: #f5f5f5 !default;
-$core-default-color-neutral-white: #ffffff !default;
+$core-default-color-neutral-black: #131212;
+$core-default-color-neutral-darkest: #222020;
+$core-default-color-neutral-darker: #595959;
+$core-default-color-neutral-dark: #78797e;
+$core-default-color-neutral-light: #e0e0e0;
+$core-default-color-neutral-lighter: #ebebeb;
+$core-default-color-neutral-lightest: #f5f5f5;
+$core-default-color-neutral-white: #ffffff;
 
 
 //Greys
@@ -138,23 +138,23 @@ $qld-dark-action-secondary: $core-default-color-brand-secondary-golden-yellow !d
 $qld-dark-action-secondary-hover: $color-default-color-dark-action-secondary-hover !default;
 $qld-dark-action-text: $color-default-color-dark-link-on-action !default;
 
-$primary : $qld-brand-primary !default;
-$primary-dark : $qld-brand-primary-dark !default;
-$secondary : $qld-dark-green !default;
-$success : $qld-notify-success !default;
-$info : $qld-notify-information !default;
-$warning : $qld-notify-alert !default;
-$danger : $qld-notify-warning !default;
-$light : $qld-extra-light-grey !default;
-$dark : $qld-dark-grey !default;
+$primary : $qld-brand-primary;
+$primary-dark : $qld-brand-primary-dark;
+$secondary : $qld-dark-green;
+$success : $qld-notify-success;
+$info : $qld-notify-information;
+$warning : $qld-notify-alert;
+$danger : $qld-notify-warning;
+$light : $qld-extra-light-grey;
+$dark : $qld-dark-grey;
 
 $qld-fluid-width-full: 100% !default;
 $qld-fluid-width-3-quarters: 75% !default;
 $qld-fluid-width-half: 48.5% !default;
 $qld-fluid-width-1-quarter: 25% !default;
 
-$color-default-color-dark-underline-default: #FFFFFF !default;
-$color-default-color-dark-underline-default-hover: #FFFFFF !default;
+$color-default-color-dark-underline-default: #FFFFFF;
+$color-default-color-dark-underline-default-hover: #FFFFFF;
 
 // The Bootstrap map-merge will create custom CSS variables against the ::root node.
 // These will be available to all components via the PREFIXED variable, for example: var(--qld-dark-green)
