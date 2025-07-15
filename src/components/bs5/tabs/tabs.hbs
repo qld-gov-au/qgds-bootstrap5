@@ -1,5 +1,5 @@
 
-{{#ifCond type_variant '==' 'tab-section'}}
+{{#ifCond type_variant '==' 'section-tabs'}}
     <section class="container tab-content pb-5 pt-5 mb-0 {{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}">
         <div class="row" style="padding-inline: 2.5rem;">
             <h2>{{sibiling_section_title}}</h2>
@@ -11,15 +11,14 @@
 <!-- QGDS Tabs -->    
 <section class="qld-tabs {{~#if type_variant}} {{type_variant}}{{/if~}} {{~#if variant}} {{variant}}{{else}} default{{/if~}}">        
     <div class="tabs-area container">
-        <ul class="nav nav-tabs {{#ifCond type_variant '==' 'tab-section'}}{{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}{{/ifCond}}"  role="tablist">
+        <ul class="nav nav-tabs {{#ifCond type_variant '==' 'section-tabs'}}{{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}{{/ifCond}}"  role="tablist">
             {{#each data.items }}
                 <li class="nav-item" role="presentation">
                     <button class="nav-link {{#if @first}}active{{/if}}" id="{{toCamelCase this.tab_text}}-tab" data-bs-toggle="tab" data-bs-target="#{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" type="button" role="tab" aria-controls="#{{this.tab_text}}-tab-pane" aria-selected="{{#if @first}}true{{else}}false{{/if}}" {{#if this.disabled}}disabled{{/if}}>
                         <span>
                             {{#if this.icon}}
                                 <i class="{{this.icon}}"></i>
-                            {{/if}}
-                            {{this.tab_text}}
+                            {{/if}}{{~this.tab_text~}}
                         </span>
                     </button>
                 </li>
@@ -35,7 +34,7 @@
     <div class="tab-content container">
         {{#each data.items }}
             <section class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" role="tabpanel" aria-labelledby="{{this.tab_text}}-tab" tabindex="0">
-                {{#ifCond ../type_variant '==' 'tab-section'}}
+                {{#ifCond ../type_variant '==' 'section-tabs'}}
                     <h2>{{this.title}}</h2>
                 {{else}}
                     <h3>{{this.title}}</h3>
