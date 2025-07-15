@@ -108,7 +108,7 @@ const preview = {
       switch (pageLayout) {
         case 'with-wrapper':
           return `
-            <div className="${wrapperClassName}">
+            <div class="${wrapperClassName}">
               ${Story()}	
             </div>
           `;
