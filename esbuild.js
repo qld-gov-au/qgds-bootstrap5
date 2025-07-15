@@ -8,6 +8,7 @@ import QGDSrawLoader from "./.esbuild/plugins/qgds-plugin-raw-loader.js";
 import QDGScleanFolders from "./.esbuild/plugins/qgds-plugin-clean-output-folders.js";
 import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
+import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
 
 //Open source ESBUILD PLUGINS
@@ -57,6 +58,7 @@ const buildConfig = {
 
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
+    ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []),   // Generate icons assets when --icons flag is set
     QDGScopy(),
     QGDSrawLoader(),
     versionPlugin(),
@@ -97,7 +99,7 @@ const buildNodeConfig = {
     versionPlugin(),
     handlebarsPlugin(),
   ],
-};
+}
 
 async function StartBuild() {
   let ctx = await esbuild.context(buildConfig);

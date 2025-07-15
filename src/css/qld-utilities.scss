@@ -1,0 +1,20 @@
+
+// QLD Customm Utilities, extends Bootstrap utilities
+
+// Responsive width classes (w-md-25, w-lg-50, etc.)
+$utilities: map-merge(
+  $utilities,
+  (
+    "width": (
+      property: width,
+      class: w,
+      responsive: true,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%
+      )
+    )
+  )
+);
