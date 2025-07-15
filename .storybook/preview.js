@@ -104,11 +104,11 @@ const preview = {
     }),
     (Story, { parameters }) => {      
       init(Handlebars);
-      const { pageLayout, wrapperClassName } = parameters;
+      const { pageLayout, wrapperClasses} = parameters;
       switch (pageLayout) {
         case 'with-wrapper':
           return `
-            <div class="${wrapperClassName}">
+            <div class="${wrapperClasses}">
               ${Story()}	
             </div>
           `;
