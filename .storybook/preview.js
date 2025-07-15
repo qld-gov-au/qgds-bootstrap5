@@ -102,13 +102,21 @@ const preview = {
       },
       defaultTheme: "None",
     }),
-    (Story) => {
+    (Story, { parameters }) => {      
       init(Handlebars);
-      return `
-			
-					${Story()}
-			
-      		`;
+      const { pageLayout, wrapperClassName } = parameters;
+      switch (pageLayout) {
+        case 'with-wrapper':
+          return `
+            <div className="${wrapperClassName}">
+              ${Story()}	
+            </div>
+          `;
+        default:
+          return `			
+              ${Story()}			
+              `;
+      }
     },
   ],
 
