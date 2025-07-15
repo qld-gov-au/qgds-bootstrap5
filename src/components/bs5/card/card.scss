@@ -26,11 +26,9 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 
 
 .card {
-
-  --#{$prefix}card-bg: var(--#{$prefix}default-background);
+  --#{$prefix}card-bg: var(--#{$prefix}default-background); // Is it this one Steve?
   --#{$prefix}card-color: var(--#{$prefix}text-grey);
   --#{$prefix}card-title-color: var(--#{$prefix}light-text-heading);
-
   --#{$prefix}card-spacer-x: #{$card-spacer-x};
   --#{$prefix}card-spacer-y: #{$card-spacer-y};
   --#{$prefix}card-title-spacer-y: #{$card-title-spacer-y};
@@ -51,12 +49,9 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
   --#{$prefix}card-height: #{$card-height};
   --#{$prefix}card-img-overlay-padding: #{$card-img-overlay-padding};
   --#{$prefix}card-group-margin: #{$card-group-margin};
-
   --#{$prefix}card-link-color: var(--#{$prefix}light-link);
-
   --#{$prefix}card-date-color: var(--#{$prefix}dark-grey-muted);
   --#{$prefix}card-footer-border: var(--#{$prefix}light-grey);
-
   --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
   --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
 
@@ -100,11 +95,43 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
   }
 
   &.card-no-action {
-    --#{$prefix}card-icon-color: var(--#{$prefix}card-title-color);
+    .qld-icon  {
+      background-color: var(--#{$prefix}card-title-color);
+    }
+    // &.light, &.alt {
+    //   .qld-icon  {
+    //     background-color: var(--#{$prefix}light-action-secondary);
+    //   }
+    //   --#{$prefix}card-icon-background-color: var(--#{$prefix}light-background-shade);
+    // }
+    // &.alt {
+    //   --#{$prefix}card-icon-background-color: var(--#{$prefix}neutral-light);
+    // }
+    // &.dark-alt, &.dark {
+    //   .qld-icon  {
+    //     background-color: var(--#{$prefix}dark-action-secondary);
+    //   }
+    // }
+  }
+
+  &.card-single-action{
+    .qld-icon  {
+      background-color: var(--#{$prefix}light-action-secondary);
+    }
+    &.card-dark, &.card-dark-alt {
+      .qld-icon {
+        background-color: var(--#{$prefix}dark-action-secondary);   
+      }
+    }
+  }
+
+  &.card-multi-action {
+    .qld-icon  {
+      background-color: var(--#{$prefix}light-action-secondary);
+    }
   }
 
   &.card-arrow {
-
     .card-body {
       display: flex;
       justify-content: space-between;
@@ -132,19 +159,20 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
   // Colour variants
   &-light,
   &-default {
-
     --#{$prefix}card-bg: var(--#{$prefix}light-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}light-background-shade);
     --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
-
-    //Reset
-
     &:hover {
       --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
     }
   }
-
+  &-default {
+    --#{$prefix}card-bg: var(--#{$prefix}default-background);   
+  }
+  &-light {
+    --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
+  }
   &-alt {
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
@@ -157,22 +185,17 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
     --#{$prefix}card-link-color: var(--#{$prefix}dark-text);
     --#{$prefix}card-date-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
     --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary);
     --#{$prefix}card-border-color: var(--#{$prefix}dark-border);
-
     &:hover {
       --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary-hover);
     }
-
     &:not(.card-no-action) {
       --#{$prefix}card-icon-color: var(--#{$prefix}dark-action-secondary);
     }
-
     .view-all {
       --#{$prefix}card-view-all-icon: #{escape-svg($view-all-icon-dark)};
     }
-
     .video-overlay {
       --#{$prefix}video-nav-bg: var(--#{$prefix}dark-action-primary);
       --#{$prefix}video-nav-bg-rgb: 120, 186, 0;
@@ -184,22 +207,57 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
       --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon-dark)};
     }
   }
-
   &-dark {
     --#{$prefix}card-bg: var(--#{$prefix}dark-background);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-background-shade);
+    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading); //
+    --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
   }
-
   &-dark-alt {
     --#{$prefix}card-bg: var(--#{$prefix}dark-blue);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-alt-background-shade);
+    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading); //
+    --#{$prefix}card-footer-border: var(--#{$prefix}dark-alt-border);
   }
 
-  // Common overrides for dark themes
-  .dark &,
-  .dark-alt & {
-
-    &.dark-alt {}
+  &.icon-top {
+    position: relative;;
+  }
+  &.icon-top .card-icon-background {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--qld-card-icon-background-color);
+    border-radius: 400px;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.icon-top .qld-icon-xxl {
+    width: 4rem;
+    height: 4rem;
+    mask-size: 4rem;
+    background-size: 4rem;
+    border-radius: 0;
+  }
+  &.icon-left .card-icon-background {
+    width: 4rem;
+    height: 4rem;
+    mask-size: 4rem;
+    background-size: 4rem;
+    background-color: var(--qld-card-icon-background-color);
+    margin-left: 1.25rem;
+    margin-block-start: -1rem;
+    border-radius: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.icon-left .qld-icon-lg {
+    border-radius: 0;
+  }
+  &.card-multi-action .card-icon-background {
+    --qld-card-icon-background-color: var(--#{$prefix}light-background-shade);
   }
 }
 
@@ -230,7 +288,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 
 // Component styles
 .card {
-
   font-size: var(--#{$prefix}card-font-size);
   line-height: var(--#{$prefix}card-line-height);
   overflow: hidden;
@@ -403,36 +460,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     }
   }
 
-  &-icon {
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    color: var(--#{$prefix}card-icon-color);
-    background-color: var(--#{$prefix}card-icon-background-color);
-    border-radius: 50%;
-    height: var(--#{$prefix}card-icon-height);
-    width: var(--#{$prefix}card-icon-width);
-    margin: 1.5rem 1.5rem 0;
-    font-size: var(--#{$prefix}card-icon-font-size);
-    line-height: var(--#{$prefix}card-icon-line-height);
-    text-align: center;
-    vertical-align: middle;
-
-    &.icon-left {
-      margin: 1.25rem 0 1.25rem 1.25rem;
-    }
-
-    &.icon-arrow {
-      background-color: var(--#{$prefix}card-arrow-color);
-      mask-image: var(--#{$prefix}card-arrow-icon);
-      mask-repeat: no-repeat;
-      height: var(--#{$prefix}card-arrow-font-size);
-      width: var(--#{$prefix}card-arrow-font-size);
-      margin: 1.25rem 1.25rem 1.25rem 0;
-      transition: transform .2s ease;
-    }
-  }
-
   &-body:not(:last-child) {
     padding-bottom: 0;
   }
@@ -461,6 +488,8 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
       margin: 0;
       padding: 0;
       gap: 1rem;
+      display: flex;
+      flex-wrap: wrap;
 
       .tag-item {
         margin: 0;
@@ -536,5 +565,16 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
         flex: 1;
       }
     }
+    &.card-multi-action.card-feature {
+      .card-body {
+        padding: 2rem;  
+        padding-block-end: 0;
+      }
+      .card-footer {
+        padding: 2rem;
+        padding-block-start: 0;
+      }
+    }
   }
 }
+
