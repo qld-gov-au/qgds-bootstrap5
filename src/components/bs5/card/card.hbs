@@ -24,7 +24,16 @@
         {{/if}}
 
         {{#if iconClasses}}
-        <div class="card-icon {{iconPosition}} {{iconClasses}}"></div>
+            {{#ifCond iconPosition '==' 'icon-top'}}
+                <div class="card-icon-background">
+                    <span class="qld-icon qld-icon-xxl {{iconClasses}} {{iconPosition}}" aria-hidden="true"></span>
+                </div>
+            {{/ifCond}}
+            {{#ifCond iconPosition '==' 'icon-left'}}
+                <div class="card-icon-background">
+                    <span class="qld-icon qld-icon-lg {{iconClasses}} {{iconPosition}}" aria-hidden="true"></span>
+                </div>
+            {{/ifCond}}
         {{/if}}
 
         {{#if feature}}<div class="card-inner">{{/if}}
