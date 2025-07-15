@@ -145,6 +145,10 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     }
   }
 
+  &-default {
+    --#{$prefix}card-bg: var(--#{$prefix}default-background);
+  }
+
   &-alt {
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
@@ -195,12 +199,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-alt-background-shade);
   }
 
-  // Common overrides for dark themes
-  .dark &,
-  .dark-alt & {
-
-    &.dark-alt {}
-  }
 }
 
 
