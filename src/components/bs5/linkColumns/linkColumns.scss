@@ -64,8 +64,7 @@
     align-items: center;
     align-content: center;
     // Required to reset styles from .qld-content-body li
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block: 0;
     .nav-link {
       text-decoration: none;
       text-decoration-thickness: 0.5px;
