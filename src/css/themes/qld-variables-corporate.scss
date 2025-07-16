@@ -12,6 +12,8 @@ $qld-brand-secondary: #2ecc71; // Custom green instead of light green
 $qld-brand-secondary-dark: #27ae60; // Darker shade of custom green
 $qld-brand-secondary-light: #3ae374; // Lighter shade of custom green
 
+$qld-light-action-primary: #ff6b35; // Sapphire blue
+
 // DO NOT override the variables inside the object in qld-variables.scss.
 // If needed, you need to create a whole new object and merge it with the existing one.
 // The variables in this object is not supposed to be configurable by customiszed overriding.

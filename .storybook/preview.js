@@ -2,7 +2,6 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/js/qld.bootstrap.js";
 // import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
-// import { withThemeByOverridedScss } from "./corporateThemeWrapper.js";
 import { withDynamicTheme, dynamicThemeGlobalTypes } from "./dynamicThemeDecorator.js";
 import { allBackgrounds } from "./modes.js";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
@@ -97,7 +96,6 @@ const preview = {
 
   decorators: [
     withDynamicTheme,
-    // withThemeByOverridedScss,
     // data-bs-theme="dark" won't be used
     withThemeByClassName({
       themes: {

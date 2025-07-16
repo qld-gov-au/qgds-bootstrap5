@@ -3,8 +3,8 @@ const themeStyleElements = new Map();
 let currentTheme = null;
 
 const themeModules = {
-  default: () => import("./themes/default.js"),
-  corporate: () => import("./themes/corporate.js"),
+  default: () => import("../src/css/main.scss"),
+  corporate: () => import("../src/css/themes/main.corporate.test.scss"),
 };
 
 const unloadTheme = (themeName) => {
@@ -14,7 +14,7 @@ const unloadTheme = (themeName) => {
     const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
     styleElements.forEach(element => {
       const viteId = element.getAttribute('data-vite-dev-id');
-      if (viteId && viteId.match(/.*\/src\/css\/main.*\.scss$/)) {
+      if (viteId && viteId.match(/.*\/src\/css\/*main.*\.scss$/)) {
         currentStyleElements.push(element.cloneNode(true));
         element.remove();
       }
@@ -60,22 +60,20 @@ const loadTheme = async (themeName) => {
     try {
       // Import the theme module to trigger SCSS loading
       const module = await themeModules[themeName]();
-      
+
       // Cache the newly created style elements
-      setTimeout(() => {
-        const newStyleElements = [];
-        const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
-        styleElements.forEach(element => {
-          const viteId = element.getAttribute('data-vite-dev-id');
-          if (viteId && viteId.match(/.*\/src\/css\/main.*\.scss$/)) {
-            newStyleElements.push(element.cloneNode(true));
-          }
-        });
-        if (newStyleElements.length > 0) {
-          themeStyleElements.set(themeName, newStyleElements);
+      const newStyleElements = [];
+      const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
+      styleElements.forEach(element => {
+        const viteId = element.getAttribute('data-vite-dev-id');
+        if (viteId && viteId.match(/.*\/src\/css\/main.*\.scss$/)) {
+          newStyleElements.push(element.cloneNode(true));
         }
-      }, 100);
-      
+      });
+      if (newStyleElements.length > 0) {
+        themeStyleElements.set(themeName, newStyleElements);
+      }
+
       // Store references
       loadedThemes.set(themeName, module);
       currentTheme = themeName;
