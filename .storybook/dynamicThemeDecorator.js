@@ -2,28 +2,31 @@ const loadedThemes = new Map();
 const themeStyleElements = new Map();
 let currentTheme = null;
 
-const themePattern = /main\.(corporate|default)\.test\.scss/;
-
 const themeModules = {
   default: () => import("../src/css/main.scss"),
   corporate: () => import("../src/css/themes/main.corporate.test.scss"),
+  maroon: () => import("../src/css/themes/main.maroon.test.scss"),
 };
 
-function mapStyleElementsByTheme(themePattern, callback) {
-  const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
+function mapStyleElementsByTheme(callback) {
+  // Handle both dev mode (style elements) and production mode (link elements)
+  const styleElements = document.querySelectorAll('style[type="text/css"]');
+  const linkElements = document.querySelectorAll('link[rel="stylesheet"]');
+  
   styleElements.forEach(element => {
-    const viteId = element.getAttribute('data-vite-dev-id');
-    if (viteId && viteId.match(themePattern)) {
-      callback(element);
-    }
-  })
+    callback(element);
+  });
+  
+  linkElements.forEach(element => {
+    callback(element);
+  });
 }
 
 const unloadTheme = (themeName) => {
   // Cache current theme's style elements before removing
   if (themeName && !themeStyleElements.has(themeName)) {
     const currentStyleElements = [];
-    mapStyleElementsByTheme(themePattern, (element) => {
+    mapStyleElementsByTheme((element) => {
       currentStyleElements.push(element.cloneNode(true));
       element.remove();
     });
@@ -32,7 +35,7 @@ const unloadTheme = (themeName) => {
     }
   } else {
     // Remove existing style elements for current theme
-    mapStyleElementsByTheme(themePattern, (element) => {
+    mapStyleElementsByTheme((element) => {
       element.remove();
     });
   }
@@ -68,7 +71,7 @@ const loadTheme = async (themeName) => {
       // Cache the newly created style elements
       const newStyleElements = [];
 
-      mapStyleElementsByTheme(themePattern, (element) => {
+      mapStyleElementsByTheme((element) => {
         newStyleElements.push(element.cloneNode(true));
       });
       if (newStyleElements.length > 0) {
@@ -105,6 +108,7 @@ export const dynamicThemeGlobalTypes = {
       items: [
         { value: "default", title: "Default" },
         { value: "corporate", title: "Corporate" },
+        { value: "maroon", title: "Maroon" },
       ],
       showName: true,
       dynamicTitle: true,
