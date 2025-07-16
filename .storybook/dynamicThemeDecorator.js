@@ -2,34 +2,38 @@ const loadedThemes = new Map();
 const themeStyleElements = new Map();
 let currentTheme = null;
 
+const themePattern = /main\.(corporate|default)\.test\.scss/;
+
 const themeModules = {
   default: () => import("../src/css/main.scss"),
   corporate: () => import("../src/css/themes/main.corporate.test.scss"),
 };
 
+function mapStyleElementsByTheme(themePattern, callback) {
+  const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
+  styleElements.forEach(element => {
+    const viteId = element.getAttribute('data-vite-dev-id');
+    if (viteId && viteId.match(themePattern)) {
+      callback(element);
+    }
+  })
+}
+
 const unloadTheme = (themeName) => {
   // Cache current theme's style elements before removing
-  if (currentTheme && !themeStyleElements.has(currentTheme)) {
+  if (themeName && !themeStyleElements.has(themeName)) {
     const currentStyleElements = [];
-    const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
-    styleElements.forEach(element => {
-      const viteId = element.getAttribute('data-vite-dev-id');
-      if (viteId && viteId.match(/.*\/src\/css\/*main.*\.scss$/)) {
-        currentStyleElements.push(element.cloneNode(true));
-        element.remove();
-      }
+    mapStyleElementsByTheme(themePattern, (element) => {
+      currentStyleElements.push(element.cloneNode(true));
+      element.remove();
     });
     if (currentStyleElements.length > 0) {
-      themeStyleElements.set(currentTheme, currentStyleElements);
+      themeStyleElements.set(themeName, currentStyleElements);
     }
   } else {
     // Remove existing style elements for current theme
-    const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
-    styleElements.forEach(element => {
-      const viteId = element.getAttribute('data-vite-dev-id');
-      if (viteId && viteId.match(/.*\/src\/css\/main.*\.scss$/)) {
-        element.remove();
-      }
+    mapStyleElementsByTheme(themePattern, (element) => {
+      element.remove();
     });
   }
 };
@@ -63,12 +67,9 @@ const loadTheme = async (themeName) => {
 
       // Cache the newly created style elements
       const newStyleElements = [];
-      const styleElements = document.querySelectorAll('style[data-vite-dev-id]');
-      styleElements.forEach(element => {
-        const viteId = element.getAttribute('data-vite-dev-id');
-        if (viteId && viteId.match(/.*\/src\/css\/main.*\.scss$/)) {
-          newStyleElements.push(element.cloneNode(true));
-        }
+
+      mapStyleElementsByTheme(themePattern, (element) => {
+        newStyleElements.push(element.cloneNode(true));
       });
       if (newStyleElements.length > 0) {
         themeStyleElements.set(themeName, newStyleElements);
