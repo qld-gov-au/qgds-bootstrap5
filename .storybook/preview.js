@@ -1,7 +1,9 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/js/qld.bootstrap.js";
-import "../src/css/main.scss";
+// import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
+// import { withThemeByOverridedScss } from "./corporateThemeWrapper.js";
+import { withDynamicTheme, dynamicThemeGlobalTypes } from "./dynamicThemeDecorator.js";
 import { allBackgrounds } from "./modes.js";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import init from "../src/js/handlebars.init.js";
@@ -9,6 +11,9 @@ import Handlebars from "handlebars";
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
+  globalTypes: {
+    ...dynamicThemeGlobalTypes,
+  },
   parameters: {
     //actions: { argTypesRegex: "^on[A-Z].*" },
     chromatic: {
@@ -91,6 +96,8 @@ const preview = {
   },
 
   decorators: [
+    withDynamicTheme,
+    // withThemeByOverridedScss,
     // data-bs-theme="dark" won't be used
     withThemeByClassName({
       themes: {
@@ -102,7 +109,7 @@ const preview = {
       },
       defaultTheme: "None",
     }),
-    (Story) => {
+    (Story, { parameters }) => {
       init(Handlebars);
       return `
 			
