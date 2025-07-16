@@ -14,6 +14,14 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 // CSS Scoped Variables
 //--#{$prefix}{component}-{property}
 
+.accordion-group {
+  --#{$prefix}focus: var(--#{$prefix}light-blue);
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}focus: var(--#{$prefix}dark-focus);
+  } 
+}
+
 .accordion {
   --#{$prefix}accordion-color: var(--#{$prefix}body-color);
   --#{$prefix}accordion-bg: var(--#{$prefix}body-bg);
@@ -132,10 +140,11 @@ div .accordion-body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding-inline: 0;
+    padding-inline: 2px;
 
     &:hover {
       text-decoration: none;
+
     }
 
     &:after {
@@ -143,13 +152,17 @@ div .accordion-body {
       transition: transform 0.25s ease-in;
       height: 1rem;
       aspect-ratio: 1 / 1;
+      margin-block: 1px;
 
       .dark &,
       .dark-alt & {
         content: #{escape-svg($accordion-button-icon-dark)};
       }
     }
-
+    &:focus {
+      outline: 2px solid var(--#{$prefix}focus);
+      border-radius: 1px;
+    }
     .dark &,
     .dark-alt & {
       color: var(--#{$prefix}white);
