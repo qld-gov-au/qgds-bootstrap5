@@ -15,7 +15,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 //--#{$prefix}{component}-{property}
 
 .accordion-group {
-  --#{$prefix}focus: var(--#{$prefix}light-blue);
+  --#{$prefix}focus: var(--#{$prefix}light-focus);
   .dark &,
   .dark-alt & {
     --#{$prefix}focus: var(--#{$prefix}dark-focus);
@@ -41,7 +41,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   --#{$prefix}accordion-btn-focus-box-shadow: none;
   --#{$prefix}accordion-active-bg: var(--#{$prefix}accordion-btn-bg);
   --#{$prefix}accordion-active-color: var(--#{$prefix}accordion-btn-color);
-  --#{$prefix}focus: var(--#{$prefix}light-blue);
+  --#{$prefix}focus: var(--#{$prefix}light-focus);
 
   .light & {
     --#{$prefix}accordion-bg: var(--#{$prefix}light-background);
