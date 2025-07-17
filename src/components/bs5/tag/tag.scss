@@ -203,6 +203,28 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
     }
   }
 
+  // This implementation assumes inline svg icon
+  .tag-clear-filter-button {
+    @include m.unset-button-styles();
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-left: 0.5rem;
+    line-height: 1;
+    vertical-align: middle;
+
+    // the <svg> element
+    &-icon {
+      height: 100%;
+      width: 100%;
+      vertical-align: top;
+      color: var(--#{$prefix}light-action-secondary);
+
+      &:hover {
+        color: var(--#{$prefix}light-action-secondary-hover);
+      }
+    }
+  }
+
   &.tag-status {
     .tag-item {
       &.tag-low {
@@ -305,6 +327,14 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
     .tag-info {
       background-color: var(--#{$prefix}color-dark-background--shade);
     }
+
+    .tag-clear-filter-button-icon {
+      color: var(--#{$prefix}dark-action-secondary);
+
+      &:hover {
+        color: var(--#{$prefix}dark-action-secondary-hover);
+      }
+    }
   }
 
   &.tag-alt {
@@ -357,60 +387,29 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         }
       }
     }
-  }
 
-  // This implementation assumes inline svg icon
-  .tag-filter-button {
-    @include m.unset-button-styles();
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-left: 0.5rem;
-    line-height: 1;
-    vertical-align: middle;
-
-    // the <svg> element
-    &-icon {
-      height: 100%;
-      width: 100%;
-      vertical-align: top;
-      color: var(--#{$prefix}light-action-secondary); // $qld-light-action-secondary;
-
-      --_use-default-display: block;
-      --_use-hover-display: none;
-
-      // <use> element for default icon
-      &-use-default {
-        display: var(--_use-default-display);
-      }
-
-      // <use> element for different icon on hover
-      &-use-hover {
-        display: var(--_use-hover-display);
-        --icon-color-override: currentColor; // The chosen hover icon already has default colors.
-      }
+    .tag-clear-filter-button-icon {
+      color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
-        --_use-default-display: none;
-        --_use-hover-display: block;
-        color: var(--#{$prefix}light-action-secondary-hover); // $qld-light-action-secondary;
+        color: var(--#{$prefix}dark-action-secondary-hover);
       }
     }
   }
 
   // this implementation uses svg as image via url. Prefer inline svg instead
   .close-icon {
-    mask-image: url($close-icon);
-    background-color: var(--#{$prefix}dark-green);
-    height: 1.25rem;
-    width: 1.25rem;
+    mask-image: var(--qgds-icon-alert-cancel);
+    background-color: var(--#{$prefix}light-action-secondary);
+    height: 1.5rem;
+    width: 1.5rem;
     vertical-align: middle;
     border: none;
     margin-left: 0.5rem;
     cursor: pointer;
 
     &:hover {
-      background-color: var(--#{$prefix}alt-button-hover);
-      mask-image: url($close-icon-hover);
+      background-color: var(--#{$prefix}light-action-secondary-hover);
     }
   }
 }
