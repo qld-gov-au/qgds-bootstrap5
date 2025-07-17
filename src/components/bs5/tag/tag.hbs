@@ -4,7 +4,13 @@
   {{#each tagItems}}
     <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
       {{{content}}}
+      {{#if applied-filter}}
+        <button class="close-icon" aria-label="Remove"></button>
+        <button class="tag-filter-button"><svg aria-label="Remove" class="tag-filter-button-icon">
+          <use class="tag-filter-button-icon-use-default" href="./assets/img/icons-sprite.svg#qgds-icon-alert-cancel" />
+          <use class="tag-filter-button-icon-use-hover" href="./assets/img/icons-sprite.svg#qgds-icon-status-cancel" />
+        </svg></button>
+      {{/if}}
     </li>
   {{/each }}
 </ul>
-
