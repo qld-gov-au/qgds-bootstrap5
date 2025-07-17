@@ -100,15 +100,15 @@ export const withDynamicTheme = (Story, context) => {
 
 export const dynamicThemeGlobalTypes = {
   themeName: {
-    name: "Theme Name",
-    description: "Dynamic theme selector",
+    name: "Theme Palette",
+    description: "Theme palette selector",
     defaultValue: "default",
     toolbar: {
-      icon: "paintbrush",
+      icon: "switchalt",
       items: [
-        { value: "default", title: "Default" },
-        { value: "corporate", title: "Corporate" },
-        { value: "maroon", title: "Maroon" },
+        { value: "default", title: "Default theme palette" },
+        { value: "corporate", title: "Corporate theme palette" },
+        { value: "maroon", title: "Maroon theme palette" },
       ],
       showName: true,
       dynamicTitle: true,
