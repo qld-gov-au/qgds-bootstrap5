@@ -2,6 +2,7 @@ const loadedThemes = new Map();
 const themeStyleElements = new Map();
 let currentTheme = null;
 
+// Dynamic theme modules import for lazy loading
 const themeModules = {
   default: () => import("../src/css/main.scss"),
   corporate: () => import("../src/css/themes/main.corporate.test.scss"),
@@ -12,11 +13,11 @@ function mapStyleElementsByTheme(callback) {
   // Handle both dev mode (style elements) and production mode (link elements)
   const styleElements = document.querySelectorAll('style[type="text/css"]');
   const linkElements = document.querySelectorAll('link[rel="stylesheet"]');
-  
+
   styleElements.forEach(element => {
     callback(element);
   });
-  
+
   linkElements.forEach(element => {
     callback(element);
   });
@@ -24,20 +25,18 @@ function mapStyleElementsByTheme(callback) {
 
 const unloadTheme = (themeName) => {
   // Cache current theme's style elements before removing
-  if (themeName && !themeStyleElements.has(themeName)) {
-    const currentStyleElements = [];
-    mapStyleElementsByTheme((element) => {
+  // Remove existing style elements for current theme
+  const currentStyleElements = [];
+  const themeNotExist = themeName && !themeStyleElements.has(themeName)
+  mapStyleElementsByTheme((element) => {
+    if (themeNotExist) {
       currentStyleElements.push(element.cloneNode(true));
-      element.remove();
-    });
-    if (currentStyleElements.length > 0) {
-      themeStyleElements.set(themeName, currentStyleElements);
     }
-  } else {
-    // Remove existing style elements for current theme
-    mapStyleElementsByTheme((element) => {
-      element.remove();
-    });
+    element.remove();
+  });
+
+  if (currentStyleElements.length > 0) {
+    themeStyleElements.set(themeName, currentStyleElements);
   }
 };
 
@@ -63,10 +62,11 @@ const loadTheme = async (themeName) => {
     return;
   }
 
-  if (themeModules[themeName]) {
+  const themeModuleImporter = themeModules[themeName];
+  if (themeModuleImporter) {
     try {
       // Import the theme module to trigger SCSS loading
-      const module = await themeModules[themeName]();
+      await themeModuleImporter();
 
       // Cache the newly created style elements
       const newStyleElements = [];
@@ -79,10 +79,9 @@ const loadTheme = async (themeName) => {
       }
 
       // Store references
-      loadedThemes.set(themeName, module);
+      loadedThemes.set(themeName, true);
       currentTheme = themeName;
 
-      return module;
     } catch (error) {
       console.warn(`Failed to load theme: ${themeName}`, error);
     }
