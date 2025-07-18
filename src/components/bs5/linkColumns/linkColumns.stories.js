@@ -46,6 +46,8 @@ export default {
       type: "figma",
       url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563&t=RyMlGjeuzgl8p5Gx-0",
     },
+    pageLayout: 'with-wrapper',
+    wrapperClasses:'qld-content-body'
   },
 };
 
