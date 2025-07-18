@@ -83,6 +83,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     .qld-icon  {
       background-color: var(--#{$prefix}card-title-color);
     }
+    
   }
   &.default {
     .card-icon-background {
@@ -102,6 +103,11 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   &.card-multi-action {
     .qld-icon  {
       background-color: var(--#{$prefix}light-action-secondary);
+    }
+    &.card-dark, &.card-dark-alt {
+      .qld-icon {
+        background-color: var(--#{$prefix}dark-action-secondary);   
+      }
     }
   }
   &.card-arrow {
@@ -219,11 +225,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   }
   &.icon-left .qld-icon-lg {
     border-radius: 0;
-  }
-  &.card-multi-action {
-    .card-icon-background {
-      --qld-card-icon-background-color: var(--#{$prefix}neutral-lightest);
-    }
   }
 }
 
