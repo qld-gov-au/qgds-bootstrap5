@@ -103,13 +103,13 @@
 		"tagItems": [
 			{
 				"id": "One",
-				"content": "Policies and procedures<button class='close-icon'><span class='visually-hidden'>Policies and procedures</span></button>",
+				"content": "Policies and procedures",
 				"classes": "tag-large",
 				"applied-filter": true
 			},
 			{
 				"id": "Two",
-				"content": "Publications<button class='close-icon'><span class='visually-hidden'>Publications</span></button>",
+				"content": "Publications",
 				"classes": "tag-large",
 				"applied-filter": true
 			}

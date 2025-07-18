@@ -1,0 +1,24 @@
+///
+/// Default focus styles for use in buttons etc. Resets :focus and uses :focus-visible instead which only appears on keyboard interaction.
+/// @param {Boolean} $offsetOutline [true] - Offset the focus ring by 2px.
+/// @param {Boolean} $isFocusWithin [false] - Optionally apply styles via :focus-within rather than :focus-visible
+/// @param {String} $prefix ["qld-"] The css var prefix. This is declared in main.scss but required here as a module because reimporting will emit the entire main css file.
+@mixin focusable($offsetOutline: true, $isFocusWithin: false, $prefix: "qld-") {
+  // outline styles without the pseudo state to allow for transition animations.
+  outline: 2px solid transparent;
+  outline-offset: 0;
+
+  // reset focus styles, because focus-visible is preferred.
+  &:focus {
+    outline: none;
+  }
+
+  $selector: if($isFocusWithin, ":focus-within", ":focus-visible");
+
+  &#{$selector} {
+    outline: 2px solid var(--#{$prefix}focus-color);
+    @if $offsetOutline {
+      outline-offset: 2px;
+    }
+  }
+}

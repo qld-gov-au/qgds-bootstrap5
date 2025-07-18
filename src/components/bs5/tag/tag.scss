@@ -1,4 +1,4 @@
-@use "../../../css/mixins/unset-button-styles" as m;
+@use "../../../css/mixins" as m;
 
 // QGDS QOL Tag
 
@@ -145,12 +145,6 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
     line-height: 1.5rem;
     text-align: center;
 
-    &:focus-within {
-      outline: 2px solid var(--#{$prefix}focus-color);
-      outline-offset: 2px;
-      border-radius: 16px;
-    }
-
     &.tag-large {
       margin: 0 1rem 1rem 0;
       line-height: 1.5;
@@ -170,6 +164,8 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
           outline: none;
         }
       }
+
+      @include m.focusable($isFocusWithin: true, $prefix: $prefix);
 
       &:hover,
       &:active,
@@ -206,11 +202,13 @@ $close-icon-hover: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
   // This implementation assumes inline svg icon
   .tag-clear-filter-button {
     @include m.unset-button-styles();
+    @include m.focusable($prefix: $prefix);
     height: 1.5rem;
     width: 1.5rem;
     margin-left: 0.5rem;
     line-height: 1;
     vertical-align: middle;
+    border-radius: 100%;
 
     // the <svg> element
     &-icon {
