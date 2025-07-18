@@ -1,0 +1,6 @@
+// Mixin to generate CSS custom properties for project colours
+@mixin generate-color-vars($colours, $prefix: "qld-") {
+  @each $name, $value in $colours {
+    --#{$prefix}#{$name}: #{$value};
+  }
+}
