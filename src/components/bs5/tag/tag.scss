@@ -117,6 +117,7 @@
     --_icon-size: 1rem;
     //
     display: inline-flex;
+    align-items: center;
     color: var(--#{$prefix}dark-grey-muted);
     margin-top: 0.5rem;
     gap: calc(var(--_padding-x) / 2);
@@ -126,7 +127,7 @@
     border-radius: 1rem;
     font-size: 0.875rem;
     line-height: 1.5;
-    text-align: center;
+
     height: var(--_height);
 
     &.tag-large {
