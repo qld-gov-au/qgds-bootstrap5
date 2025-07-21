@@ -110,23 +110,33 @@
   padding: 30px;
 
   .tag-item {
-    display: inline-block;
+    --_padding-y: 0;
+    --_padding-x: 0.5rem;
+    --_height: 1.5rem;
+    --_border-width: 1px;
+    --_icon-size: 1rem;
+    //
+    display: inline-flex;
     color: var(--#{$prefix}dark-grey-muted);
     margin-top: 0.5rem;
-    padding: 0 0.5rem;
+    gap: calc(var(--_padding-x) / 2);
+    padding: var(--_padding-y) var(--_padding-x);
     list-style-type: none;
-    border: 1px solid var(--#{$prefix}light-grey);
-    border-radius: 16px;
+    border: var(--_border-width) solid var(--#{$prefix}light-grey);
+    border-radius: 1rem;
     font-size: 0.875rem;
-    line-height: 1.5rem;
+    line-height: 1.5;
     text-align: center;
+    height: var(--_height);
 
     &.tag-large {
+      --_padding-y: 0.5rem;
+      --_padding-x: 1rem;
+      --_height: 2.5rem;
+      --_icon-size: 1.5rem;
       margin: 0 1rem 1rem 0;
-      line-height: 1.5;
       font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 32px;
+      border-radius: calc(var(--_height) / 2);
     }
 
     &.tag-link {
@@ -179,23 +189,26 @@
   .tag-clear-filter-button {
     @include m.unset-button-styles();
     @include m.focusable($prefix: $prefix);
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-left: 0.5rem;
+    --_size: calc(var(--_height) - (var(--_border-width) * 2));
+    height: var(--_size);
+    width: var(--_size);
+    margin-block: calc(var(--_padding-y) * -1);
+    margin-right: calc(var(--_padding-x) * -1);
     line-height: 1;
     vertical-align: middle;
-    border-radius: 100%;
+    border-radius: calc(var(--_size) / 2);
+
+    color: var(--#{$prefix}light-action-secondary);
 
     // the <svg> element
     &-icon {
-      height: 100%;
-      width: 100%;
-      vertical-align: top;
-      color: var(--#{$prefix}light-action-secondary);
+      height: var(--_icon-size);
+      width: var(--_icon-size);
+    }
 
-      &:hover {
-        color: var(--#{$prefix}light-action-secondary-hover);
-      }
+    &:hover {
+      background-color: var(--#{$prefix}extra-light-grey);
+      color: var(--#{$prefix}light-action-secondary-hover);
     }
   }
 
@@ -302,10 +315,11 @@
       background-color: var(--#{$prefix}color-dark-background--shade);
     }
 
-    .tag-clear-filter-button-icon {
+    .tag-clear-filter-button {
       color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
+        background-color: var(--#{$prefix}dark-background-shade);
         color: var(--#{$prefix}dark-action-secondary-hover);
       }
     }
@@ -328,6 +342,12 @@
     .tag-link {
       color: var(--#{$prefix}sapphire-blue);
       border-color: var(--#{$prefix}sapphire-blue);
+    }
+
+    .tag-clear-filter-button {
+      &:hover {
+        background-color: var(--#{$prefix}alt-grey);
+      }
     }
   }
 
@@ -362,28 +382,13 @@
       }
     }
 
-    .tag-clear-filter-button-icon {
+    .tag-clear-filter-button {
       color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
+        background-color: var(--#{$prefix}dark-alt-background-shade);
         color: var(--#{$prefix}dark-action-secondary-hover);
       }
-    }
-  }
-
-  // this implementation uses svg as image via url. Prefer inline svg instead
-  .close-icon {
-    mask-image: var(--qgds-icon-alert-cancel);
-    background-color: var(--#{$prefix}light-action-secondary);
-    height: 1.5rem;
-    width: 1.5rem;
-    vertical-align: middle;
-    border: none;
-    margin-left: 0.5rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--#{$prefix}light-action-secondary-hover);
     }
   }
 }
