@@ -85,22 +85,6 @@
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-color: var(--#{$prefix}core-default-color-neutral-white);
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-info-darker);
-
-  //Status - Big size (default)
-  $tag-size: "big";
-  --#{$prefix}tag-status-#{$tag-size}-padding: 0.5rem 1rem;
-  --#{$prefix}tag-status-#{$tag-size}-font-size: 16px;
-  --#{$prefix}tag-status-#{$tag-size}-line-height: 24px;
-  --#{$prefix}tag-status-#{$tag-size}-font-weight: 400;
-  --#{$prefix}tag-status-#{$tag-size}-border-radius: 40px;
-
-  //Status - Small size
-  $tag-size: "small";
-  --#{$prefix}tag-status-#{$tag-size}-padding: 0 0.5rem;
-  --#{$prefix}tag-status-#{$tag-size}-font-size: 14px;
-  --#{$prefix}tag-status-#{$tag-size}-line-height: 24px;
-  --#{$prefix}tag-status-#{$tag-size}-font-weight: 400;
-  --#{$prefix}tag-status-#{$tag-size}-border-radius: 20px;
 }
 
 // General styling rules.
@@ -266,19 +250,6 @@
           color: var(--#{$prefix}tag-status-high-information-color);
           background: var(--#{$prefix}tag-status-high-information-bg);
         }
-      }
-
-      &.tag-big {
-        border-radius: var(--#{$prefix}tag-status-big-border-radius);
-        font-size: var(--#{$prefix}tag-status-big-font-size);
-        line-height: var(--#{$prefix}tag-status-big-line-height);
-        padding: var(--#{$prefix}tag-status-big-padding);
-      }
-      &.tag-small {
-        border-radius: var(--#{$prefix}tag-status-small-border-radius);
-        font-size: var(--#{$prefix}tag-status-small-font-size);
-        line-height: var(--#{$prefix}tag-status-small-line-height);
-        padding: var(--#{$prefix}tag-status-small-padding);
       }
     }
   }
