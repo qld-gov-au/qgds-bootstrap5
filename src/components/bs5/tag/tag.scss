@@ -99,6 +99,7 @@
     --_height: 1.5rem;
     --_border-width: 1px;
     --_icon-size: 1rem;
+    --qld-focus-color: #{$qld-light-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color here.
     //
     display: inline-flex;
     align-items: center;
@@ -136,7 +137,7 @@
         }
       }
 
-      @include m.focusable($isFocusWithin: true, $prefix: $prefix);
+      @include m.focusable($isFocusWithin: true);
 
       &:hover,
       &:active,
@@ -173,7 +174,7 @@
   // This implementation assumes inline svg icon
   .tag-clear-filter-button {
     @include m.unset-button-styles();
-    @include m.focusable($prefix: $prefix);
+    @include m.focusable();
     --_size: calc(var(--_height) - (var(--_border-width) * 2));
     height: var(--_size);
     width: var(--_size);
@@ -258,6 +259,7 @@
     background-color: var(--#{$prefix}sapphire-blue);
 
     .tag-item {
+      --qld-focus-color: #{$qld-dark-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color correctly here.
       color: var(--#{$prefix}dark-text);
     }
 
@@ -327,6 +329,8 @@
     background-color: var(--#{$prefix}dark-blue);
 
     .tag-item {
+      --qld-focus-color: #{$qld-dark-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color correctly here.
+
       a {
         color: var(--#{$prefix}dark-text);
       }
