@@ -5,13 +5,7 @@
     <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
       {{{content}}}
       {{#if applied-filter}}
-        <button class="tag-clear-filter-button">
-          <span class="tag-clear-filter-button-icon-wrapper">
-            <svg aria-label="Remove" class="tag-clear-filter-button-icon">
-              <use href="./assets/img/icons-sprite.svg#qgds-icon-close" />
-            </svg>
-          </span>
-        </button>
+        <button class="tag-clear-filter-button" aria-label="Remove"></button>
       {{/if}}
     </li>
   {{/each }}

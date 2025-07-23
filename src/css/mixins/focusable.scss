@@ -5,8 +5,18 @@
 /// @param {String} $prefix ["qld-"] The css var prefix. This is declared in main.scss but required here as a module because reimporting will emit the entire main css file.
 @mixin focusable($offsetOutline: true, $isFocusWithin: false) {
   // outline styles without the pseudo state to allow for transition animations.
-  outline: 2px solid transparent;
-  outline-offset: 0;
+
+  $outline-width: 3px;
+  $initial-offset: 0 - $outline-width;
+
+  @if $offsetOutline == true {
+    $offsetOutline: 2px;
+  } @else if $offsetOutline == false {
+    $offsetOutline: $initial-offset;
+  }
+
+  outline: $outline-width solid transparent;
+  outline-offset: $initial-offset;
 
   // reset focus styles, because focus-visible is preferred.
   &:focus {
@@ -17,13 +27,13 @@
 
   &#{$selector} {
     outline: {
-      width: 2px;
+      width: $outline-width;
       style: solid;
       color: var(
         --qld-focus-color,
         #0085b3
       ); // --qld-focus-color defined in qld-type.scss
-      offset: if($offsetOutline, 2px, null);
+      offset: $offsetOutline;
     }
   }
 }
