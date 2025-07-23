@@ -144,6 +144,9 @@ jobs:
           #  public/**
           onlyChanged: true # 👈 Required option to enable TurboSnap
           storybookBuildDir: "storybook-static"
+          untraced:[
+           "./storybook/preview.js"
+          ]
       - name: Publish to Chromatic - Is Skipped
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
         run: |  
