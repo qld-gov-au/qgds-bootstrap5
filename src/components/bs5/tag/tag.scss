@@ -172,7 +172,6 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
   }
 
-  // This implementation assumes inline svg icon
   .tag-clear-filter-button {
     @include m.unset-button-styles();
     @include m.focusable($offsetOutline: -2px);
