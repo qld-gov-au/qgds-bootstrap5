@@ -126,3 +126,13 @@ We recommend using VSCode as the IDE for development with the following plugins:
 - Mustache JS or Handlebars JS template support
 
 Webstorm also works.
+
+### Accessibility
+ 
+We are committed to making this project accessible and inclusive for all users.
+ 
+This project is tested against the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA to ensure it meets a high standard of accessibility.
+ 
+We follow the Queensland Government’s digital accessibility requirements to provide equal access to information, services, and opportunities for everyone.
+ 
+If you encounter any accessibility issues or have suggestions for improvement, please feel free to raise an issue or contact the project team.
