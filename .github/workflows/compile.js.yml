@@ -4,8 +4,7 @@
 name: Build and Test
 
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
 
 concurrency:
   group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
