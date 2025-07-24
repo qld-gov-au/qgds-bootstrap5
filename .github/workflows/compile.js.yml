@@ -143,6 +143,13 @@ jobs:
           #  public/**
           onlyChanged: true # 👈 Required option to enable TurboSnap
           storybookBuildDir: "storybook-static"
+          fetch-depth: 0
+          # 👇 Tells the checkout which commit hash to reference
+          ref: ${{ github.event.pull_request.head.ref }}
+        env:
+          CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.ref }}
+          CHROMATIC_SLUG: ${{ github.repository }}
       - name: Publish to Chromatic - Is Skipped
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
         run: |  
