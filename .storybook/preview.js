@@ -84,7 +84,7 @@ const preview = {
       // Optional configuration for the a11y addon
       config: {},
       options: {
-        runOnly: ['wcag21aa'],
+        runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'],
         checks: { "color-contrast": { options: { noScroll: true } } },
         restoreScroll: true,
       },
