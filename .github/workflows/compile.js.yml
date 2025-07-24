@@ -5,6 +5,7 @@ name: Build and Test
 
 on:
   pull_request:
+  types: ["opened"]
 
 concurrency:
   group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
