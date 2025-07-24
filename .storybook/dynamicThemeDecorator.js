@@ -5,7 +5,6 @@ let currentTheme = null;
 // Dynamic theme modules import for lazy loading
 const themeModules = {
   default: () => import("../src/css/main.scss"),
-  corporate: () => import("../src/css/themes/main.corporate.test.scss"),
   maroon: () => import("../src/css/themes/main.maroon.test.scss"),
 };
 
@@ -106,7 +105,6 @@ export const dynamicThemeGlobalTypes = {
       icon: "switchalt",
       items: [
         { value: "default", title: "Default theme palette" },
-        { value: "corporate", title: "Corporate theme palette" },
         { value: "maroon", title: "Maroon theme palette" },
       ],
       showName: true,
