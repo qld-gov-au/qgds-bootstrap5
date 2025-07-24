@@ -9,11 +9,16 @@ export default {
     return `
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       ${new Card(args).html}
-      ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-left" }).html}
-      <div class="col" id="placeholder"></div>
       ${new Card({ ...args, footer: "Footer content" }).html}
+      <div class="col" id="placeholder"></div>
+      ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-left" }).html}
+      ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-left", footer: "Footer content" }).html}
+      <div class="col" id="placeholder"></div>
       ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-top" }).html}
+      ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-top", footer: "Footer content"}).html}
+      <div class="col" id="placeholder"></div>
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
+      ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", footer: "Footer content" }).html}
     </div>
     `;
   },
