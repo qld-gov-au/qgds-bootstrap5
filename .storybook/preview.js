@@ -3,6 +3,9 @@ import "../src/js/qld.bootstrap.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { withDynamicTheme, dynamicThemeGlobalTypes } from "./dynamicThemeDecorator.js";
+
+// Check if dynamic theme should be enabled via environment variable
+const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;
 import { allBackgrounds } from "./modes.js";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import init from "../src/js/handlebars.init.js";
@@ -11,7 +14,7 @@ import Handlebars from "handlebars";
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
   globalTypes: {
-    ...dynamicThemeGlobalTypes,
+    ...(ENABLE_DYNAMIC_THEME ? dynamicThemeGlobalTypes : {}),
   },
   parameters: {
     //actions: { argTypesRegex: "^on[A-Z].*" },
@@ -95,7 +98,7 @@ const preview = {
   },
 
   decorators: [
-    withDynamicTheme,
+    ...(ENABLE_DYNAMIC_THEME ? [withDynamicTheme] : []),
     // data-bs-theme="dark" won't be used
     withThemeByClassName({
       themes: {
