@@ -15,6 +15,7 @@ $video-play-icon-hover-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.o
 $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color-dark}'><path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z' /></svg>"); // Material Symbols 'Schedule'
 
 .card {
+  --arrow-icon: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0518 8.1205L6.63557 16.4361C6.44609 16.6153 6.22435 16.7076 5.97036 16.7128C5.71637 16.7183 5.49185 16.6234 5.2968 16.4282C5.1015 16.233 5.00259 16.0122 5.00006 15.7658C4.99728 15.5194 5.0948 15.2985 5.29263 15.1033L15.1755 5.35051C15.2995 5.22843 15.4286 5.13943 15.563 5.08351C15.6976 5.02784 15.8454 5 16.0066 5C16.168 5 16.3155 5.02784 16.449 5.08351C16.5826 5.13943 16.7114 5.22843 16.8353 5.35051L26.7183 15.1033C26.9012 15.2838 26.995 15.5003 26.9998 15.7527C27.0046 16.0053 26.9108 16.2305 26.7183 16.4282C26.5176 16.6234 26.2919 16.7211 26.0409 16.7211C25.7899 16.7211 25.5687 16.6234 25.3772 16.4282L16.9591 8.1205V26.0589C16.9591 26.3303 16.8687 26.555 16.6881 26.733C16.5077 26.911 16.2802 27 16.0054 27C15.7305 27 15.5028 26.911 15.3224 26.733C15.142 26.555 15.0518 26.3303 15.0518 26.0589V8.1205Z' fill='%23131212'/%3E%3C/svg%3E%0A");
   --#{$prefix}card-bg: var(--#{$prefix}default-background);
   --#{$prefix}card-color: var(--#{$prefix}text-grey);
   --#{$prefix}card-title-color: var(--#{$prefix}light-text-heading);
@@ -43,6 +44,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   --#{$prefix}card-footer-border: var(--#{$prefix}light-grey);
   --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
   --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
+  --#{$prefix}link-hover-colour: var(--#{$prefix}light-action-primary-hover);
+  --#{$prefix}link-hover-text-colour: var(--#{$prefix}dark-link);
 
   // Icon variables
   --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
@@ -80,6 +83,12 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     .qld-icon  {
       background-color: var(--#{$prefix}card-title-color);
     }
+    
+  }
+  &.default {
+    .card-icon-background {
+      background-color: var(--#{$prefix}neutral-lightest);
+    }
   }
   &.card-single-action{
     .qld-icon  {
@@ -94,6 +103,11 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   &.card-multi-action {
     .qld-icon  {
       background-color: var(--#{$prefix}light-action-secondary);
+    }
+    &.card-dark, &.card-dark-alt {
+      .qld-icon {
+        background-color: var(--#{$prefix}dark-action-secondary);   
+      }
     }
   }
   &.card-arrow {
@@ -122,7 +136,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
   }
   &-default {
-    --#{$prefix}card-bg: var(--#{$prefix}default-background);   
+    --#{$prefix}card-bg: var(--#{$prefix}default-background);
+    --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
   }
   &-light {
     --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
@@ -131,6 +146,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}light-alt-background-shade);
+    --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
+    &:hover {
+      --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
+    }
   }
   &-dark,
   &-dark-alt {
@@ -140,6 +159,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}card-date-color: var(--#{$prefix}dark-text);
     --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary);
     --#{$prefix}card-border-color: var(--#{$prefix}dark-border);
+    --#{$prefix}link-hover-colour: var(--#{$prefix}dark-action-primary-hover);
+    --#{$prefix}link-hover-text-colour: var(--#{$prefix}text-darkest);
     &:hover {
       --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary-hover);
     }
@@ -160,13 +181,13 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   &-dark {
     --#{$prefix}card-bg: var(--#{$prefix}dark-background);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-background-shade);
-    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading); //
+    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
     --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
   }
   &-dark-alt {
     --#{$prefix}card-bg: var(--#{$prefix}dark-blue);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-alt-background-shade);
-    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading); //
+    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
     --#{$prefix}card-footer-border: var(--#{$prefix}dark-alt-border);
   }
   &.icon-top {
@@ -204,9 +225,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   }
   &.icon-left .qld-icon-lg {
     border-radius: 0;
-  }
-  &.card-multi-action .card-icon-background {
-    --qld-card-icon-background-color: var(--#{$prefix}light-background-shade);
   }
 }
 
@@ -368,6 +386,34 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       }
     }
   }
+  &.card-arrow {
+    .card-body{
+      position: relative;
+      .card-title {
+        padding-right: 3rem;
+        a:before {
+          content: '';
+          position: absolute;
+          right: 1.5rem;
+          top: calc(50% - 16px);
+          transition: right .25s ease-in-out;
+          mask-image: var(--arrow-icon);
+          mask-size: contain;
+          mask-position: center;
+          width: 2rem;
+          height: 2rem;
+          background-color: var(--#{$prefix}card-arrow-color);
+          transform: rotate(90deg);
+        }
+      }
+      &:hover .card-title{
+        a:before {
+          right: 1.25rem;
+          transition: .25s ease-in-out;
+        }
+      }
+    }
+  }
   &.icon-top {
     align-items: center;
     .card-body {
@@ -405,6 +451,29 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       flex-wrap: wrap;
       .tag-item {
         margin: 0;
+      }
+    }
+  }
+  .card-footer {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--#{$prefix}card-title-color);
+    li {
+      font-size: 1rem;
+    }
+    .tag-list {
+      li.tag-link {
+        border-color: var(--#{$prefix}card-link-color);
+        font-size: 0.875rem;
+        font-weight: normal;
+        &:hover {
+          border-color: var(--#{$prefix}link-hover-colour);
+          background-color: var(--#{$prefix}link-hover-colour);
+          text-decoration: none;
+          a {
+            color: var(--#{$prefix}link-hover-text-colour);
+          }
+        }
       }
     }
   }
