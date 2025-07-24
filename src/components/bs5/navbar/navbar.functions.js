@@ -42,6 +42,8 @@ export function initializeNavbar() {
   const overlay = document.getElementById('overlay');
   const body = document.body;
   const headerEl = document.querySelector('header');
+  const mainEl = document.querySelector('main');
+  const footerEl = document.querySelector('footer');
   const closeMenuButton = document.querySelector('.navbar__toggle--close');
   const openMenuButton = document.querySelector('.qld__main-nav__toggle--open');
 
@@ -90,6 +92,12 @@ export function initializeNavbar() {
       if (headerEl) {
         headerEl.setAttribute('aria-hidden', true);
       }
+      if (mainEl) {
+        mainEl.setAttribute('aria-hidden', true);
+      }
+      if (footerEl) {
+        footerEl.setAttribute('aria-hidden', true);
+      }
       if (openMenuButton) {
         openMenuButton.setAttribute('aria-label', 'Close menu');
       }
@@ -104,6 +112,12 @@ export function initializeNavbar() {
       }
       if (headerEl) {
         headerEl.setAttribute('aria-hidden', false);
+      }
+      if (mainEl) {
+        mainEl.setAttribute('aria-hidden', false);
+      }
+      if (footerEl) {
+        footerEl.setAttribute('aria-hidden', false);
       }
     });
   }
