@@ -128,14 +128,11 @@ jobs:
       - name: Build Storybook 🔧
         run: | # build the Storybook files
           npm run build-storybook
-          echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
-          echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
-          echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
-          echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
+          echo ${{ github.event_name }}
 
       - name: Publish to Chromatic
         
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && github.event_name == 'pull_request')}}
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && github.event_name == 'pull_request'}}
         
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
