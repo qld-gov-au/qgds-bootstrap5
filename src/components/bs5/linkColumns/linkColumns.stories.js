@@ -71,7 +71,6 @@ export const NoViewAllLink = {
       all_link: null,
     },
   },
-  chromatic: { disable: true },
 };
 
 /**
@@ -82,7 +81,6 @@ export const Light = {
     ...defaultdata,
     theme: "light",
   },
-  chromatic: { disable: true },
 };
 
 /**
@@ -93,7 +91,6 @@ export const Alternative = {
     ...defaultdata,
     theme: "alt",
   },
-  chromatic: { disable: true },
 };
 
 /**
@@ -104,7 +101,6 @@ export const Dark = {
     ...defaultdata,
     theme: "dark",
   },
-  chromatic: { disable: true },
 };
 
 /**
@@ -115,5 +111,4 @@ export const DarkAlternative = {
     ...defaultdata,
     theme: "dark-alt",
   },
-  chromatic: { disable: true },
 };

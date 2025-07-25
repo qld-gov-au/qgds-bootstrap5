@@ -4,6 +4,7 @@
 name: Build and Test
 
 on:
+  push:
   pull_request:
 
 concurrency:
@@ -24,12 +25,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Run Echo
-        run: | # github.event.action can be one of opened, synchronize, reopened, closed
-          echo ${{ github.event_name }}
-          echo ${{ github.event.types }}
-          echo ${{ github.event.action }}
-
+      
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v4
@@ -152,12 +148,18 @@ jobs:
           onlyChanged: true # 👈 Required option to enable TurboSnap
           storybookBuildDir: "storybook-static"
       - name: Publish to Chromatic - Is Skipped
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' || github.event_name != 'pull_request' 
+          || (github.event_name == 'pull_request' && github.event.action != 'opened')}}
         run: |  
           echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
           echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
           echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
           echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
+          echo "### Chromatic is configured to run on pull requests that are in 'opened' status."
+          echo "This is done to reduce the snapshot count in Chromatic which often reaches the upper limit fast incuring cost."
+          echo "For git hub action of type, non pull requests as well as pull requests with status other than 'opened', will not be included for Chromatic build."
+          echo "If you want to change the rule, you may change the conditions under Publish to Chromatic step."
+
 
       - name: Package storybook files
         uses: actions/upload-artifact@v4 #provide nice artifact
