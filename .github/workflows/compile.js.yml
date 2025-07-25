@@ -152,13 +152,17 @@ jobs:
           onlyChanged: true # 👈 Required option to enable TurboSnap
           storybookBuildDir: "storybook-static"
       - name: Publish to Chromatic - Is Skipped
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' || (github.event_name == 'pull_request' && github.event.action == 'opened')}}
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' || github.event_name != 'pull_request' 
+          || (github.event_name == 'pull_request' && github.event.action != 'opened')}}
         run: |  
           echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
           echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
           echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
           echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
-          echo "### Chromatic is configured to run on pull requests that are in 'opened status'"
+          echo "### Chromatic is configured to run on pull requests that are in 'opened status'."
+          echo "For git hub action of type, non pull requests as well as pull requests with status other than 'opened' will not be included for Chromatic build"
+          echo "if you want to change the rule, you may change the conditions under Publish to Chromatic step"
+
 
       - name: Package storybook files
         uses: actions/upload-artifact@v4 #provide nice artifact
