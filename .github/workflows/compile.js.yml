@@ -128,6 +128,10 @@ jobs:
       - name: Build Storybook 🔧
         run: | # build the Storybook files
           npm run build-storybook
+          echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
+          echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
+          echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
+          echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
 
       - name: Publish to Chromatic
         
