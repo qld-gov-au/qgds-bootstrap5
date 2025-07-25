@@ -130,10 +130,11 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Chromatic
-        run: |  
-          echo ${{github.event_name}}
-          echo ${{github.event.types}}
+        
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && github.event_name == 'pull_request')}}
+        run: |  
+          echo ${{ github.event_name }}
+          echo ${{ github.event.types }}
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
         with:
