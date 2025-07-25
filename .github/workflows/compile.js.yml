@@ -160,6 +160,7 @@ jobs:
           echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
           echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
           echo "### Chromatic is configured to run on pull requests that are in 'opened' status."
+          echo "This is done to reduce the snapshot count in Chromatic which often reaches the upper limit fast incuring cost."
           echo "For git hub action of type, non pull requests as well as pull requests with status other than 'opened', will not be included for Chromatic build."
           echo "If you want to change the rule, you may change the conditions under Publish to Chromatic step."
 
