@@ -4,11 +4,8 @@
 name: Test
 
 on:
+  push:
   pull_request:
-
-concurrency:
-  group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
-  cancel-in-progress: true
 
 jobs:
   chromatic:
@@ -17,10 +14,7 @@ jobs:
     env:
       HAVE_CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN != '' }}
       IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
-    strategy:
-      matrix:
-        node: [ '20' ]
-        name: Test on Node ${{ matrix.node }}
+    
     steps:
       - name: Publish to Chromatic
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}

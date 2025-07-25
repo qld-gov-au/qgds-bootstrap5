@@ -134,3 +134,7 @@ jobs:
         with:
           name: Storybook
           path: storybook-static
+
+run-chromatic:
+  uses: ./.github/workflows/chromatic.yml
+  needs: build
