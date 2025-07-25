@@ -130,6 +130,7 @@ jobs:
           npm run build-storybook
           echo ${{ github.event_name }}
           echo ${{ github.event.types }}
+          echo ${{ github.event.action }}
 
       - name: Publish to Chromatic
         
