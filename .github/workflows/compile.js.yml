@@ -4,6 +4,7 @@
 name: Build
 
 on:
+  push:
   pull_request:
 
 concurrency:
@@ -22,9 +23,7 @@ jobs:
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
+        
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v4
@@ -140,7 +139,7 @@ name: Test
 on:
   push:
   pull_request:
-  
+
   jobs:
     chromatic:
         if: github.event.pull_request.draft == false
