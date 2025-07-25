@@ -135,6 +135,12 @@ jobs:
           name: Storybook
           path: storybook-static
 
+name: Test
+
+on:
+  push:
+  pull_request:
+  
   chromatic:
       if: github.event.pull_request.draft == false
       runs-on: ubuntu-latest
