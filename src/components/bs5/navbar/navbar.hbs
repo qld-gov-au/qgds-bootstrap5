@@ -7,7 +7,7 @@
 
             {{!-- Header for mobile navigation --}}
             <div class="navbar__header">
-                <h6 class="navbar__heading">Menu</h6>
+                <h3 class="navbar__heading">Menu</h3>
                 <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Close menu">
@@ -22,7 +22,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item nav-item-home">
                     <a class="nav-link {{#if metadata.options.home-active}}nav-link-home-active{{/if}}"
-                        href="{{metadata.target_url}}">
+                        href="{{metadata.target_url}}" {{#if metadata.options.home-active}}aria-label="Home"{{/if}}>
                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon">
                             <use
                                 href="{{#if metadata.options.icon-root}}{{metadata.options.icon-root}}#qld__icon__home{{/if}}">
