@@ -133,7 +133,7 @@ jobs:
         run: |  
           echo ${{github.event_name}}
           echo ${{github.event.types}}
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && github.event_name == 'pull_request' && contains(github.event.types, 'opened')}}
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && github.event_name == 'pull_request')}}
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
         with:
