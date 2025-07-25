@@ -24,6 +24,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Run Echo
+        run: | # github.event.action can be one of opened, synchronize, reopened, closed
+          echo ${{ github.event_name }}
+          echo ${{ github.event.types }}
+          echo ${{ github.event.action }}
 
       - name: Cache node modules
         id: cache-npm
@@ -130,7 +135,10 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Chromatic
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}
+        
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' 
+          && github.event_name == 'pull_request' && github.event.action == 'opened'}}
+        
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
         with:
