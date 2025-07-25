@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Echo
-        run: | # build the Storybook files
+        run: | # github.event.action can be one of opened, synchronize, reopened, closed
           echo ${{ github.event_name }}
           echo ${{ github.event.types }}
           echo ${{ github.event.action }}
