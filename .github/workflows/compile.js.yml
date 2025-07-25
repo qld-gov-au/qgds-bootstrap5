@@ -158,6 +158,10 @@ jobs:
           echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
           echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
           echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
+        
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+        run: |  
+          echo "### Chromatic is configured to run on pull requests that are in 'opened status'"
 
       - name: Package storybook files
         uses: actions/upload-artifact@v4 #provide nice artifact
