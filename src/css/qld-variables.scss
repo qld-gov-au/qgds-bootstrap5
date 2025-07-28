@@ -1,3 +1,4 @@
+@use "sass:meta";
 @use "mixins" as *;
 
 // GLOBALLY SCOPED VARIABLES
@@ -6,6 +7,7 @@
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.css,
 
 //QGDS tokens - masterbrand
+@use "./qld-tokens.scss";
 @import "./qld-tokens.scss";
 
 //QLD Names Colours
@@ -305,6 +307,8 @@ $project-base-colors: (
   "text-darkest": $qld-text-darkest,
   "dark-hover" : $qld-dark-hover,
 );
+
+$qld-tokens: meta.module-variables("qld-tokens");
 
 // Generate CSS custom properties for qld-tokens & project colours on :root to prevent utility class generation
 :root {
