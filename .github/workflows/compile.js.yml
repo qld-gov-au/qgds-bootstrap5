@@ -4,9 +4,15 @@
 name: Build and Test
 
 on:
+  workflow_dispatch:
   push:
-  pull_request:
-
+    branches:
+    # limiting the build to happen only for below branches. Also block cdn and binary repo updates
+      - master
+      - main
+      - develop
+      - 'release/**' #future release branches if the team wishes to go with release style flow for patches post release.
+      - 'v**' # tagging
 concurrency:
   group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
   cancel-in-progress: true
