@@ -8,13 +8,6 @@ on:
   #Click 'Run workflow' to trigger the workflow manually
   pull_request:
   push:
-    branches:
-      # limiting the build as well as cdn and binary repo updates to happen only for below branches
-        - master
-        - main
-        - develop
-        - 'release/**' #future release branches if the team wishes to go with release style flow for patches post release.
-        - 'v**' # tagging
 
 concurrency:
   group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
