@@ -133,7 +133,8 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Chromatic
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && github.event_name == 'workflow_dispatch'}}
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && 
+          (github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action == 'opened')) }}
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
         with:
@@ -156,9 +157,10 @@ jobs:
           echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
 
       - name: Publish to Chromatic - Is Skipped (due to github event not manual)
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' &&  github.event_name != 'workflow_dispatch' }}
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' &&  
+          (github.event_name != 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action == 'opened')) }}
         run: |  
-          echo "### Chromatic is executed only for manual trigger of workflow"
+          echo "### Chromatic is executed only for manual trigger of workflow or opened stage of pull requests"
           echo "See github -> Actions tab. Choose workflow name from left. Choose your branch name from dropdown on right side pane."
           echo "Click 'Run workflow' to trigger the workflow manually"
 
