@@ -4,16 +4,11 @@
 name: Build and Test
 
 on:
-  workflow_dispatch: #see github -> Actions tab. Choose workflow name from left. Choose your branch name from dropdown on right side pane.
+  workflow_dispatch: #See github -> Actions tab. Choose workflow name from left. Choose your branch name from dropdown on right side pane.
   #Click 'Run workflow' to trigger the workflow manually
+  pull_request:
   push:
-    branches:
-    # limiting the build to happen only for below branches. Also block cdn and binary repo updates
-      - master
-      - main
-      - develop
-      - 'release/**' #future release branches if the team wishes to go with release style flow for patches post release.
-      - 'v**' # tagging
+
 concurrency:
   group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
   cancel-in-progress: true
@@ -138,7 +133,7 @@ jobs:
           npm run build-storybook
 
       - name: Publish to Chromatic
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' && github.event_name == 'workflow_dispatch'}}
         uses: chromaui/action@latest
         # Options required to the GitHub Chromatic Action
         with:
@@ -151,13 +146,21 @@ jobs:
           #  public/**
           onlyChanged: true # 👈 Required option to enable TurboSnap
           storybookBuildDir: "storybook-static"
-      - name: Publish to Chromatic - Is Skipped
+          
+      - name: Publish to Chromatic - Is Skipped (due to token non existing)
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
         run: |  
           echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
           echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
           echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
           echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish to Chromatic - Is Skipped (due to github event not manual)
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false' &&  github.event_name != 'workflow_dispatch' }}
+        run: |  
+          echo "### Chromatic is executed only for manual trigger of workflow"
+          echo "See github -> Actions tab. Choose workflow name from left. Choose your branch name from dropdown on right side pane."
+          echo "Click 'Run workflow' to trigger the workflow manually"
 
       - name: Package storybook files
         uses: actions/upload-artifact@v4 #provide nice artifact

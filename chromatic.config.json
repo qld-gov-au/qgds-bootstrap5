@@ -1,5 +1,6 @@
 {
   "projectId": "Project:660e3e06af8da379e06be302",
   "zip": true,
-  "onlyChanged": true
+  "onlyChanged": true,
+  "autoAcceptChanges": "develop"
 }
