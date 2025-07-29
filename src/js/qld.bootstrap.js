@@ -78,6 +78,31 @@ window.addEventListener("DOMContentLoaded", () => {
               suggestions.style.display = "none";
             }
           });
+
+          // Helper function to determine if suggestions should be hidden on focus change
+          const shouldHideSuggestions = (newFocusTarget) => {
+            if (!newFocusTarget) return true;
+            
+            const isFocusInsideInput = searchInput.contains(newFocusTarget) || searchInput === newFocusTarget;
+            const isFocusInsideSuggestions = suggestions.contains(newFocusTarget);
+
+            return !isFocusInsideInput && !isFocusInsideSuggestions;
+          };
+
+          // Handle focusout event for keyboard accessibility
+          const handleFocusOut = (event) => {
+            const newFocusTarget = event.relatedTarget;
+
+            if (shouldHideSuggestions(newFocusTarget)) {
+              suggestions.style.display = "none";
+            }
+          };
+
+          // Attach focusout event listener to search input
+          searchInput.addEventListener('focusout', handleFocusOut);
+
+          // Attach focusout event listener to suggestions container
+          suggestions.addEventListener('focusout', handleFocusOut);
         } else {
           console.warn("Required suggestions elements not found.");
         }
