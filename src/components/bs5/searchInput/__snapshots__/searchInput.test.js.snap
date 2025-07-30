@@ -1,0 +1,46 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchInput > Renders as expected 1`] = `
+"<!-- 
+    QGDS Component: Search input 
+-->
+<div class="container ">
+    <div class="qld-search-input  d-flex">
+        <input id="search" name=" query" class="form-control" type="text" placeholder="Search website"
+            autocomplete="off" aria-label="Search website"  data-collection="qgov~sp-search"  data-profile="qld"  data-numranks="10"  data-tiers="off"  data-suggestions="https://discover.search.qld.gov.au/s/suggest.json"  data-results-url="https://discover.search.qld.gov.au/s/search.json"  />
+
+        <div class="suggestions suggestions__group">
+            <div class="default-suggestions">
+                <div class="suggestions-category mt-2">
+                    <strong class="suggestions-category-label">Popular services</strong>
+                    <ul class="mt-2">
+                            <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application">Apply for leave</a></li>
+                            <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level">Apply for higher duties or relieving at level</a></li>
+                            <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment/extending-my-job/extend-a-temporary-or-casual-employee">Extend a temporary or casual employee</a></li>
+                            <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment">Hire a staff member (recruitment)</a></li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="suggestions-category mt-2">
+                    <strong class="suggestions-category-label">Browse by category</strong>
+                    <ul class="mt-2">
+                            <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines">Search for directives, policies, circulars, and guidelines</a></li>
+                            <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits">Employee pay and benefits</a></li>
+                            <li><a href="https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services">Queensland Shared Services</a></li>
+                            <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development">Career development</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="dynamic-suggestions"></div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="search-button">
+            <span class="btn-icon"></span>
+            <span class="btn-label">Search</span>
+        </button>
+    </div>
+</div>
+"
+`;
