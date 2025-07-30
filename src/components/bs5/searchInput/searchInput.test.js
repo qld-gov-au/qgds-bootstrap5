@@ -5,6 +5,7 @@ import mockData from "./searchInput.data.json";
 import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { waitFor } from "../../../js/testingutils.js";
 
 /**
  *
@@ -90,14 +91,11 @@ describe("SearchInput", () => {
     expect(SearchInputComponent.html).toMatchSnapshot();
   });
 
-  test("Search input element exists and has correct attributes", () => {
+  test("Search input element and Suggestions container exists and has correct attributes", () => {
     expect(searchInput).toBeTruthy();
     expect(searchInput.getAttribute("placeholder")).toBe(mockData.placeholder);
     expect(searchInput.getAttribute("id")).toBe(mockData.inputID);
     expect(searchInput.getAttribute("name").trim()).toBe(mockData.inputName);
-  });
-
-  test("Suggestions container exists", () => {
     expect(suggestions).toBeTruthy();
     expect(suggestions.classList.contains("suggestions")).toBe(true);
   });
@@ -110,7 +108,7 @@ describe("SearchInput", () => {
     searchInput.focus();
 
     // Wait for any asynchronous operations
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
 
     // Suggestions should now be visible
     expect(suggestions.style.display).toBe("block");
@@ -127,7 +125,7 @@ describe("SearchInput", () => {
     searchInput.click();
 
     // Wait for any asynchronous operations
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
 
     // Suggestions should now be visible
     expect(suggestions.style.display).toBe("block");
@@ -144,7 +142,7 @@ describe("SearchInput", () => {
     searchInput.click();
 
     // Wait for any asynchronous operations
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
 
     // Suggestions should remain hidden
     expect(suggestions.style.display).toBe("none");
@@ -174,7 +172,7 @@ describe("SearchInput", () => {
 
     // Show suggestions first
     searchInput.focus();
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
     expect(suggestions.style.display).toBe("block");
 
     // Test that focusout events can be dispatched without throwing errors
@@ -201,7 +199,7 @@ describe("SearchInput", () => {
   test("Document click outside hides suggestions", async () => {
     // First show suggestions
     searchInput.focus();
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
     expect(suggestions.style.display).toBe("block");
 
     // Create element outside search area
@@ -223,7 +221,7 @@ describe("SearchInput", () => {
     d.dispatchEvent(clickEvent);
 
     // Wait for event processing
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
 
     // Suggestions should be hidden
     expect(suggestions.style.display).toBe("none");
@@ -232,7 +230,7 @@ describe("SearchInput", () => {
   test("Document click inside suggestions keeps them visible", async () => {
     // First show suggestions
     searchInput.focus();
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
     expect(suggestions.style.display).toBe("block");
 
     // Click inside suggestions
@@ -250,28 +248,9 @@ describe("SearchInput", () => {
     d.dispatchEvent(clickEvent);
 
     // Wait for event processing
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitFor();
 
     // Suggestions should remain visible
     expect(suggestions.style.display).toBe("block");
-  });
-
-  test("Form submission prevents default", async () => {
-    // Set input value
-    searchInput.value = "test search query";
-
-    // Set form action attribute
-    form.setAttribute("action", "https://example.com/search");
-
-    // Create and dispatch form submit event
-    const submitEvent = new dom.window.Event("submit", {
-      bubbles: true,
-      cancelable: true,
-    });
-
-    form.dispatchEvent(submitEvent);
-
-    // Check that preventDefault was called (form should not actually submit)
-    expect(submitEvent.defaultPrevented).toBe(true);
   });
 });

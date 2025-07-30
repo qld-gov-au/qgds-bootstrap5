@@ -21,3 +21,14 @@ export function waitForEventOn(element, eventName, callback) {
     );
   });
 }
+
+/**
+ * Wait for a specified number of milliseconds
+ *
+ * @param {number} ms The number of milliseconds to wait (defaults to 10ms)
+ * @returns Promise
+ * @example await waitFor(100); // Wait for 100ms
+ */
+export function waitFor(ms = 10) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
