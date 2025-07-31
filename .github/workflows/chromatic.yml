@@ -2,6 +2,8 @@
 # restricted to push on specific branches and pull requests like before
 
 name: Chromatic
+permissions:
+  contents: read
 
 on:
   push:
