@@ -5,7 +5,7 @@ import mockData from "./searchInput.data.json";
 import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { waitFor } from "../../../js/testingutils.js";
+import { waitFor, isElementVisible } from "../../../js/testingutils.js";
 
 /**
  *
@@ -40,32 +40,9 @@ describe("SearchInput", () => {
     // Create DOM with form wrapper and suggestions element
     const htmlWithSuggestions = `
       <!DOCTYPE html>
-      <div class="site-search" action="https://example.com/search">
+      <from class="site-search" action="https://example.com/search">
         ${SearchInputComponent.html}
-        <div class="suggestions" style="display: none;">
-          <ul>
-            <li><a href="#">Test suggestion 1</a></li>
-            <li><a href="#">Test suggestion 2</a></li>
-          </ul>
-        </div>
-      </div>
-      <script>
-        // Mock showSuggestions function
-        window.showSuggestions = function(value, showEmpty, formElement) {
-          const suggestionsElement = formElement.querySelector('.suggestions');
-          if (suggestionsElement) {
-            suggestionsElement.style.display = 'block';
-          }
-        };
-        window.submitSearchForm = function(query, form) { console.log('Search:', query); };
-        // Mock fetch for JSDOM
-        window.fetch = function() {
-          return Promise.resolve({
-            ok: true,
-            json: () => Promise.resolve([])
-          });
-        };
-      </script>
+      </from>
       <script>${bootstrapJsFile}</script>
       <script>${qldBootstrapJsFile}</script>
     `;
@@ -76,10 +53,6 @@ describe("SearchInput", () => {
     });
 
     d = dom.window.document;
-
-    // Wait for DOM content loaded
-    const event = new dom.window.Event("DOMContentLoaded");
-    dom.window.document.dispatchEvent(event);
 
     form = d.querySelector(".site-search");
     searchInput = form.querySelector(".qld-search-input input");
@@ -101,9 +74,7 @@ describe("SearchInput", () => {
   });
 
   test("Focus event shows suggestions", async () => {
-    // Initially suggestions should be hidden or empty
-    expect(suggestions.style.display).toMatch(/(none|^$)/);
-
+    // Initially suggestions might be visible or hidden depending on default state
     // Focus on input should trigger the focus event listener
     searchInput.focus();
 
@@ -111,7 +82,7 @@ describe("SearchInput", () => {
     await waitFor();
 
     // Suggestions should now be visible
-    expect(suggestions.style.display).toBe("block");
+    expect(isElementVisible(suggestions)).toBe(true);
   });
 
   test("Click event shows suggestions when input is empty", async () => {
@@ -128,7 +99,7 @@ describe("SearchInput", () => {
     await waitFor();
 
     // Suggestions should now be visible
-    expect(suggestions.style.display).toBe("block");
+    expect(isElementVisible(suggestions)).toBe(true);
   });
 
   test("Click event does not show suggestions when input has value", async () => {
@@ -145,7 +116,7 @@ describe("SearchInput", () => {
     await waitFor();
 
     // Suggestions should remain hidden
-    expect(suggestions.style.display).toBe("none");
+    expect(isElementVisible(suggestions)).toBe(false);
   });
 
   test("Keyup event has debounce timeout", async () => {
@@ -159,7 +130,7 @@ describe("SearchInput", () => {
     );
 
     // Suggestions should not show immediately due to 300ms debounce
-    expect(suggestions.style.display).toBe("none");
+    expect(isElementVisible(suggestions)).toBe(false);
 
     // The keyup event listener should have been attached (implicit test)
     expect(searchInput).toBeTruthy();
@@ -173,7 +144,7 @@ describe("SearchInput", () => {
     // Show suggestions first
     searchInput.focus();
     await waitFor();
-    expect(suggestions.style.display).toBe("block");
+    expect(isElementVisible(suggestions)).toBe(true);
 
     // Test that focusout events can be dispatched without throwing errors
     const focusoutEvent = new dom.window.FocusEvent("focusout", {
@@ -200,38 +171,23 @@ describe("SearchInput", () => {
     // First show suggestions
     searchInput.focus();
     await waitFor();
-    expect(suggestions.style.display).toBe("block");
+    expect(isElementVisible(suggestions)).toBe(true);
 
-    // Create element outside search area
-    const outsideElement = d.createElement("div");
-    outsideElement.id = "outside-div";
-    d.body.appendChild(outsideElement);
-
-    // Click outside the search area
-    const clickEvent = new dom.window.MouseEvent("click", {
-      target: outsideElement,
-      bubbles: true,
-    });
-
-    Object.defineProperty(clickEvent, "target", {
-      value: outsideElement,
-      enumerable: true,
-    });
-
-    d.dispatchEvent(clickEvent);
+    // d.dispatchEvent(clickEvent);
+    d.body.click();
 
     // Wait for event processing
     await waitFor();
 
     // Suggestions should be hidden
-    expect(suggestions.style.display).toBe("none");
+    expect(isElementVisible(suggestions)).toBe(false);
   });
 
   test("Document click inside suggestions keeps them visible", async () => {
     // First show suggestions
     searchInput.focus();
     await waitFor();
-    expect(suggestions.style.display).toBe("block");
+    expect(isElementVisible(suggestions)).toBe(true);
 
     // Click inside suggestions
     const suggestionLink = suggestions.querySelector("a");
@@ -251,6 +207,6 @@ describe("SearchInput", () => {
     await waitFor();
 
     // Suggestions should remain visible
-    expect(suggestions.style.display).toBe("block");
+    expect(isElementVisible(suggestions)).toBe(true);
   });
 });

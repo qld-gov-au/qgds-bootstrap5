@@ -45,39 +45,58 @@ window.addEventListener("DOMContentLoaded", () => {
 
       if (searchInput) {
         let timeout;
+        let cachedValue = '';
 
         // Add keyup event listener to the search input
         searchInput.addEventListener("keyup", function () {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
+            if (this.value.trim() === cachedValue) {
+              console.log("No change in input value, skipping suggestions update.");
+              return;
+            }
+            cachedValue = this.value.trim();
             showSuggestions(this.value, false, form);
           }, 300);
         });
 
         // Add focus event listener to the search input
         searchInput.addEventListener("focus", function () {
-          showSuggestions("", true, form);
+          const suggestions = form.querySelector(".suggestions");
+          console.log("Search input focused, showing suggestions", this.value);
+          if (this.value.trim() === "") {
+            console.log("Input is empty, showing default suggestions");
+            showSuggestions("", true, form);
+          } else if (suggestions) {
+            console.log("Input has value, showing dynamic suggestions");
+            // Just show existing suggestions without refetching
+            suggestions.style.display = "block";
+          }
         });
 
         // Add click event listener to the search input
-        searchInput.addEventListener("click", function () {
-          if (this.value === "") {
-            showSuggestions("", true, form);
-          }
-        });
+        // searchInput.addEventListener("click", function () {
+        //   const suggestions = form.querySelector(".suggestions");
+        //   if (this.value.trim() === "") {
+        //     showSuggestions("", true, form);
+        //   } else if (suggestions) {
+        //     // Just show existing suggestions without refetching
+        //     suggestions.style.display = "block";
+        //   }
+        // });
 
         const suggestions = form.querySelector(".suggestions");
         // If there is no suggestions renderred, do not add event listener to the document
         if (suggestions) {
           // Close suggestions when clicking outside
-          document.addEventListener("click", function (event) {
-            if (
-              !form.contains(event.target) &&
-              !suggestions.contains(event.target)
-            ) {
-              suggestions.style.display = "none";
-            }
-          });
+          // document.addEventListener("click", function (event) {
+          //   if (
+          //     !form.contains(event.target) &&
+          //     !suggestions.contains(event.target)
+          //   ) {
+          //     suggestions.style.display = "none";
+          //   }
+          // });
 
           // Helper function to determine if suggestions should be hidden on focus change
           const shouldHideSuggestions = (newFocusTarget) => {
