@@ -1,6 +1,11 @@
-<div class="alert {{variantClass}} {{customClass}}" role="alert">
+<div class="alert {{variantClass}} {{customClass}}" role="alert"
+    {{#if heading}}aria-label="{{heading}}"{{/if}}>
     {{#if heading}}
-    <div class="alert-heading" role="heading">{{{ heading }}}</div>
+        {{#if headingTag}}
+            <{{headingTag}} class="alert-heading" role="heading">{{{ heading }}}</{{headingTag}}>
+        {{else}}
+            <h2 class="alert-heading" role="heading">{{{ heading }}}</h2>
+        {{/if}}
     {{/if}}
     {{{ content }}}
 </div>
