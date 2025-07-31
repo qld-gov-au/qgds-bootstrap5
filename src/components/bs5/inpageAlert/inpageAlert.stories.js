@@ -53,6 +53,12 @@ export default {
         "alert-error",
       ],
     },
+    headingTag: {
+      name: "Heading Tag",
+      description: 'Heading tag for the In-page Alert component. Can be h2, h3, h4, or h5.',
+      control: "select",
+      options: ["h2", "h3", "h4", "h5"]
+    },
   },
 
 };
