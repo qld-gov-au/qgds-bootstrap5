@@ -2,34 +2,8 @@
 // Widgets
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__widgets {
-  display: flex;
-  align-items: baseline;
-  flex-direction: row;
-  position: relative;
-  z-index: 1;
-
-  &.fixed {
-    position: fixed;
-    bottom: 0.75rem;
-    right: 0.75rem;
-    z-index: 10;
-  }
-}
-
-.qld__widgets+.qld__footer {
+.qld__widgets + .qld__footer {
   @include media-breakpoint-up(xl) {
     padding-block-end: 4rem;
-  }
-}
-
-a.back-to-top { 
-  margin-block-start: 0.5rem;
-  margin-inline-start: auto; 
-}
-
-@media print {
-  .qld__widgets {
-    display: none !important;
   }
 }
