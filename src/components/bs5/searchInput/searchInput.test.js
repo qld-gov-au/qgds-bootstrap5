@@ -102,7 +102,7 @@ describe("SearchInput", () => {
     expect(isElementVisible(suggestions)).toBe(true);
   });
 
-  test("Click or Focus event does not show suggestions when input has value when there is Search API call", async () => {
+  test("Click or Focus event does not show suggestions when input has value when No Search API call", async () => {
     // Set input value
     searchInput.value = "test query";
 
