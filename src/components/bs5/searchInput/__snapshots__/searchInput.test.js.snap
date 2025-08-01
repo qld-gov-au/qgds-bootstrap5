@@ -9,7 +9,7 @@ exports[`SearchInput > Renders as expected 1`] = `
         <input id="search" name=" query" class="form-control" type="text" placeholder="Search website"
             autocomplete="off" aria-label="Search website"  data-collection="qgov~sp-search"  data-profile="qld"  data-numranks="10"  data-tiers="off"  data-suggestions="https://discover.search.qld.gov.au/s/suggest.json"  data-results-url="https://discover.search.qld.gov.au/s/search.json"  />
 
-        <div class="suggestions suggestions__group">
+        <div class="suggestions suggestions__group hidden">
             <div class="default-suggestions">
                 <div class="suggestions-category mt-2">
                     <strong class="suggestions-category-label">Popular services</strong>

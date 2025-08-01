@@ -70,33 +70,13 @@ window.addEventListener("DOMContentLoaded", () => {
           } else if (suggestions) {
             console.log("Input has value, showing dynamic suggestions");
             // Just show existing suggestions without refetching
-            suggestions.style.display = "block";
+            suggestions.classList.remove("hidden");
           }
         });
-
-        // Add click event listener to the search input
-        // searchInput.addEventListener("click", function () {
-        //   const suggestions = form.querySelector(".suggestions");
-        //   if (this.value.trim() === "") {
-        //     showSuggestions("", true, form);
-        //   } else if (suggestions) {
-        //     // Just show existing suggestions without refetching
-        //     suggestions.style.display = "block";
-        //   }
-        // });
 
         const suggestions = form.querySelector(".suggestions");
         // If there is no suggestions renderred, do not add event listener to the document
         if (suggestions) {
-          // Close suggestions when clicking outside
-          // document.addEventListener("click", function (event) {
-          //   if (
-          //     !form.contains(event.target) &&
-          //     !suggestions.contains(event.target)
-          //   ) {
-          //     suggestions.style.display = "none";
-          //   }
-          // });
 
           // Helper function to determine if suggestions should be hidden on focus change
           const shouldHideSuggestions = (newFocusTarget) => {
@@ -113,7 +93,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const newFocusTarget = event.relatedTarget;
 
             if (shouldHideSuggestions(newFocusTarget)) {
-              suggestions.style.display = "none";
+              suggestions.classList.add("hidden");
             }
           };
 

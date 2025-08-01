@@ -20,10 +20,13 @@
         min-width: 22.5rem;
     }
 
+    .hidden {
+        display: none;
+    }
+
     //Search dropdown
     .suggestions {
         position: absolute;
-        display: none;
         left: 0;
         top: 100%;
         width: 100%;
