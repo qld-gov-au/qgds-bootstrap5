@@ -63,15 +63,15 @@ window.addEventListener("DOMContentLoaded", () => {
         // Add focus event listener to the search input
         searchInput.addEventListener("focus", function () {
           const suggestions = form.querySelector(".suggestions");
-          console.log("Search input focused, showing suggestions", this.value);
+          const dynamicSuggestionsContainer = form.querySelector(".dynamic-suggestions");
+          
           if (this.value.trim() === "") {
-            console.log("Input is empty, showing default suggestions");
             showSuggestions("", true, form);
-          } else if (suggestions) {
-            console.log("Input has value, showing dynamic suggestions");
-            // Just show existing suggestions without refetching
+          } else if (suggestions && dynamicSuggestionsContainer && dynamicSuggestionsContainer.innerHTML.trim() !== "") {
+            // Only show existing suggestions if there are actual dynamic suggestions populated
             suggestions.classList.remove("hidden");
           }
+          // If input has value but no existing dynamic suggestions, do nothing (keep hidden)
         });
 
         const suggestions = form.querySelector(".suggestions");
