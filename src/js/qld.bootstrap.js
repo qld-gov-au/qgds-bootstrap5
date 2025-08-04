@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
             showSuggestions("", true, form);
           } else if (suggestions && dynamicSuggestionsContainer && dynamicSuggestionsContainer.innerHTML.trim() !== "") {
             // Only show existing suggestions if there are actual dynamic suggestions populated
-            suggestions.classList.remove("hidden");
+            suggestions.classList.remove("d-none");
           }
           // If input has value but no existing dynamic suggestions, do nothing (keep hidden)
         });
@@ -93,7 +93,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const newFocusTarget = event.relatedTarget;
 
             if (shouldHideSuggestions(newFocusTarget)) {
-              suggestions.classList.add("hidden");
+              suggestions.classList.add("d-none");
             }
           };
 

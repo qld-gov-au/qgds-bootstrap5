@@ -34,7 +34,7 @@ export function selectSuggestion(value, form) {
 
   if (searchInput && suggestions) {
     searchInput.value = value.trim();
-    suggestions.classList.add('hidden');
+    suggestions.classList.add('d-none');
 
     // Retrieve additional params
     const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
@@ -82,23 +82,23 @@ export async function showSuggestions(value = '', isDefault = false, form) {
 
   // Hide/show default suggestions
   if (isDefault) {
-    defaultSuggestionsContainer.classList.remove('hidden');
+    defaultSuggestionsContainer.classList.remove('d-none');
     dynamicSuggestionsContainer.innerHTML = '';
-    dynamicSuggestionsContainer.classList.add('hidden');
+    dynamicSuggestionsContainer.classList.add('d-none');
     createPopper(searchInput, suggestions, {
       placement: 'bottom-start',
     });
-    suggestions.classList.remove('hidden');
+    suggestions.classList.remove('d-none');
     return;
   }
 
   if (value.length === 0) {
     dynamicSuggestionsContainer.innerHTML = '';
-    dynamicSuggestionsContainer.classList.add('hidden');
+    dynamicSuggestionsContainer.classList.add('d-none');
     return;
   }
 
-  defaultSuggestionsContainer.classList.add('hidden');
+  defaultSuggestionsContainer.classList.add('d-none');
 
   // Fetch dynamic suggestions if available
   const suggestUrl = searchInput.getAttribute('data-suggestions');
@@ -116,11 +116,11 @@ export async function showSuggestions(value = '', isDefault = false, form) {
     return `<li><a href="#">${highlightedText}</a></li>`;
   }).join('')}</ul>
         </div>`;
-      dynamicSuggestionsContainer.classList.remove('hidden');
+      dynamicSuggestionsContainer.classList.remove('d-none');
       createPopper(searchInput, suggestions, {
         placement: 'bottom-start',
       });
-      suggestions.classList.remove('hidden');
+      suggestions.classList.remove('d-none');
 
       // Attach click event listeners to each suggestion item
       form.querySelectorAll('.suggestions li').forEach((item) => {
@@ -128,8 +128,8 @@ export async function showSuggestions(value = '', isDefault = false, form) {
       });
     } else {
       dynamicSuggestionsContainer.innerHTML = '';
-      dynamicSuggestionsContainer.classList.add('hidden');
-      suggestions.classList.add('hidden');
+      dynamicSuggestionsContainer.classList.add('d-none');
+      suggestions.classList.add('d-none');
     }
   }
 
@@ -145,11 +145,11 @@ export async function showSuggestions(value = '', isDefault = false, form) {
           <strong class="suggestions-category-label">Services</strong>
           <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
         </div>`;
-      dynamicSuggestionsContainer.classList.remove('hidden');
+      dynamicSuggestionsContainer.classList.remove('d-none');
       createPopper(searchInput, suggestions, {
         placement: 'bottom-start',
       });
-      suggestions.classList.remove('hidden');
+      suggestions.classList.remove('d-none');
 
       // Attach click event listeners to each suggestion item
       form.querySelectorAll('.suggestions li').forEach((item) => {
