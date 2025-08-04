@@ -11,14 +11,20 @@
     {{> navbar navbar}}
     {{> globalAlert globalAlert}}
     <main>
-        {{#> contentWrapper}}
-            <p>content goes here dd</p>
-            {{> table table}}
-        {{/contentWrapper}}
+        <div class="container-fluid">
+            <div class="container qld-content">
+                <div class="row">
+                    {{#> contentWrapper}}
+                        <p>content goes here dd</p>
+                        {{> table table}}
+                    {{/contentWrapper}}
 
-        {{#>contentFooterWrapper}}
-            {{> backToTop backToTop}}
-        {{/contentFooterWrapper}}
+                    {{#>contentFooterWrapper}}
+                        {{> backToTop backToTop}}
+                    {{/contentFooterWrapper}}
+                </div> <!-- end row -->
+            </div>
+        </div>
     </main>
     {{> footer footer}}
 </body>
