@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
             const value = e.target.value.trim();
-            showSuggestions(e.target.value, value === '', form);
+            showSuggestions(value, value === '', form);
           }, 300);
         });
 
