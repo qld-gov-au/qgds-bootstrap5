@@ -3,9 +3,23 @@
 <div class="global-alert-include">
   {{#each alertItems}}
   <section class="global-alert {{variant}}">
-    <div class="container-fluid">
       <div class="qld-global-alert-main">
-        <div class="global-alert-icon"></div>
+        <div class="global-alert-icon">
+            {{#ifCond variant '==' 'global-alert-critical'}}
+              <svg class="qld-icon-sm" aria-label="Critical alert">
+                <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-danger"></use>
+              </svg>
+            {{else ifCond variant '==' 'global-alert-info'}}
+              <svg class="qld-icon-sm" aria-label="Information alert">
+                <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-information"></use>
+              </svg>
+            {{else ifCond variant '==' 'global-alert-warning'}}
+              <svg class="qld-icon-sm" aria-label="Warning alert">
+                <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-warning"></use>
+              </svg>
+            {{/ifCond}}
+        </div>
+
         <div class="global-alert-content">
           <div class="global-alert-message">
             {{{content}}}
@@ -18,7 +32,6 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       </div>
-    </div>
   </section>
   {{/each }}
 </div>
