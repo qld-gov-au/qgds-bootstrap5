@@ -42,7 +42,7 @@ export const Default = {
     backToTop: {
       hide_back_to_top: false,
       min_page_height: 0,
-      is_fixed: true,
+      is_fixed: false,
 
       directionalLink: {
         id: "",
