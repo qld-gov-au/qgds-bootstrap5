@@ -6,7 +6,6 @@
         "id": "",
         "label": "Back to top",
         "href": "#",
-        "target": "_self",
         "class": "back-to-top up my-2 ms-auto"
     }
 }
