@@ -26,11 +26,14 @@
 .alert {
 
     padding-left: 4rem;
-    word-wrap: break-word;
+    overflow-wrap:break-word;
     // color: var(--text-color);
     // background: var(--alert-bg);
 
     .alert-heading {
+        line-height: 1.5;
+        font-size: 1.5rem;
+        font-weight: 600;
         margin: 0 0 1rem 0;
         padding: 0;
         color: var(--qld-color-default-color-light-text-heading);
