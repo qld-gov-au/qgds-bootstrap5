@@ -90,7 +90,7 @@ describe("SearchInput", () => {
     searchInput.value = "";
 
     // Initially suggestions should be hidden using the hidden class (consistent with our new approach)
-    suggestions.classList.add("hidden");
+    suggestions.classList.add("d-none");
 
     // Click on input should trigger the click event listener
     searchInput.focus();
@@ -99,7 +99,7 @@ describe("SearchInput", () => {
     await waitFor();
 
     // Suggestions should now be visible (hidden class should be removed)
-    expect(suggestions.classList.contains("hidden")).toBe(false);
+    expect(suggestions.classList.contains("d-none")).toBe(false)
     expect(isElementVisible(suggestions)).toBe(true);
   });
 
@@ -146,23 +146,23 @@ describe("SearchInput", () => {
           </ul>
         </div>
       `;
-      dynamicSuggestionsContainer.classList.remove('hidden');
+      dynamicSuggestionsContainer.classList.remove('d-none');
     }
-    suggestions.classList.remove('hidden');
+    suggestions.classList.remove('d-none');
     
     // Verify dynamic suggestions are shown
     expect(isElementVisible(suggestions)).toBe(true);
-    expect(suggestions.classList.contains('hidden')).toBe(false);
+    expect(suggestions.classList.contains('d-none')).toBe(false);
     if (dynamicSuggestionsContainer) {
-      expect(dynamicSuggestionsContainer.classList.contains('hidden')).toBe(false);
+      expect(dynamicSuggestionsContainer.classList.contains('d-none')).toBe(false);
     }
     
     // Step 3: Simulate blur (focus out) - manually hide suggestions 
     // (The JSDOM focusout event simulation might not work exactly like in browsers)
-    suggestions.classList.add('hidden');
+    suggestions.classList.add('d-none');
     
     // Verify suggestions are hidden after blur
-    expect(suggestions.classList.contains('hidden')).toBe(true);
+    expect(suggestions.classList.contains('d-none')).toBe(true);
     
     // Step 4: Focus back into input with existing text
     // This should trigger the focus event listener which checks if input has value
@@ -172,21 +172,21 @@ describe("SearchInput", () => {
     // Manually trigger what the focus event should do (since JSDOM event handling might differ)
     // According to our refactored logic: if input has value, just show existing suggestions
     if (searchInput.value.trim() !== "" && suggestions) {
-      suggestions.classList.remove("hidden");
+      suggestions.classList.remove("d-none");
     }
     
     // Verify that suggestions are shown again without refetching
     expect(searchInput.value).toBe("test query"); // Input still has the text
     
-    // The focus event should have removed the 'hidden' class since input has value
-    expect(suggestions.classList.contains('hidden')).toBe(false); 
+    // The focus event should have removed the 'd-none' class since input has value
+    expect(suggestions.classList.contains('d-none')).toBe(false); 
     expect(isElementVisible(suggestions)).toBe(true);
     
     // The key assertion: existing dynamic suggestions content should still be there
     // (not refetched, just made visible again)
     if (dynamicSuggestionsContainer) {
       expect(dynamicSuggestionsContainer.innerHTML).toContain("test <strong>query</strong> result 1");
-      expect(dynamicSuggestionsContainer.classList.contains('hidden')).toBe(false);
+      expect(dynamicSuggestionsContainer.classList.contains('d-none')).toBe(false);
     }
   });
 
@@ -246,12 +246,12 @@ describe("SearchInput", () => {
 
     // Simulate focusout event (manually hide suggestions since JSDOM event handling differs)
     // In real browsers, clicking outside would trigger focusout and hide suggestions
-    suggestions.classList.add("hidden");
+    suggestions.classList.add("d-none");
     // In test environment, explicitly set display to none since CSS might not be loaded
     suggestions.style.display = "none";
 
     // Suggestions should be hidden due to focusout behavior
-    expect(suggestions.classList.contains("hidden")).toBe(true);
+    expect(suggestions.classList.contains("d-none")).toBe(true);
     expect(isElementVisible(suggestions)).toBe(false);
   });
 
