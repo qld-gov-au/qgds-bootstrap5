@@ -45,18 +45,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
       if (searchInput) {
         let timeout;
-        let cachedValue = '';
 
         // Add keyup event listener to the search input
-        searchInput.addEventListener("keyup", function () {
+        searchInput.addEventListener("input", function (e) {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
-            if (this.value.trim() === cachedValue) {
-              console.log("No change in input value, skipping suggestions update.");
-              return;
-            }
-            cachedValue = this.value.trim();
-            showSuggestions(this.value, false, form);
+            const value = e.target.value.trim();
+            showSuggestions(e.target.value, value === '', form);
           }, 300);
         });
 
@@ -64,14 +59,13 @@ window.addEventListener("DOMContentLoaded", () => {
         searchInput.addEventListener("focus", function () {
           const suggestions = form.querySelector(".suggestions");
           const dynamicSuggestionsContainer = form.querySelector(".dynamic-suggestions");
-          
+
           if (this.value.trim() === "") {
             showSuggestions("", true, form);
           } else if (suggestions && dynamicSuggestionsContainer && dynamicSuggestionsContainer.innerHTML.trim() !== "") {
             // Only show existing suggestions if there are actual dynamic suggestions populated
             suggestions.classList.remove("d-none");
           }
-          // If input has value but no existing dynamic suggestions, do nothing (keep hidden)
         });
 
         const suggestions = form.querySelector(".suggestions");
@@ -81,7 +75,7 @@ window.addEventListener("DOMContentLoaded", () => {
           // Helper function to determine if suggestions should be hidden on focus change
           const shouldHideSuggestions = (newFocusTarget) => {
             if (!newFocusTarget) return true;
-            
+
             const isFocusInsideInput = searchInput.contains(newFocusTarget) || searchInput === newFocusTarget;
             const isFocusInsideSuggestions = suggestions.contains(newFocusTarget);
 
