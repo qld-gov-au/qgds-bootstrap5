@@ -33,7 +33,10 @@ export default {
  * 
  */
 export const Default = {
-  chromatic: { disableSnapshot: true },
+  parameters: {
+    // Disables Chromatic's snapshotting on a component level
+    chromatic: { disableSnapshot: true },
+  },
 };
 
 
