@@ -327,12 +327,6 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       color: var(--#{$prefix}sapphire-blue);
       border-color: var(--#{$prefix}sapphire-blue);
     }
-
-    .tag-clear-filter-button {
-      &:hover {
-        background-color: var(--#{$prefix}alt-grey);
-      }
-    }
   }
 
   &.tag-dark-alt {
