@@ -200,7 +200,6 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
 
     &:hover {
-      background-color: var(--#{$prefix}extra-light-grey);
       color: var(--#{$prefix}light-action-secondary-hover);
     }
 
@@ -305,7 +304,6 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
-        background-color: var(--#{$prefix}dark-background-shade);
         color: var(--#{$prefix}dark-action-secondary-hover);
       }
     }
@@ -374,7 +372,6 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
-        background-color: var(--#{$prefix}dark-alt-background-shade);
         color: var(--#{$prefix}dark-action-secondary-hover);
       }
     }
