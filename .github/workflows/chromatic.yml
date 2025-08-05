@@ -1,12 +1,18 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# This workflow will run chromatic build on specific branches. We separated out the chromatic job to make sure it run on manual trigger and 
+# restricted to push on specific branches and pull requests like before
 
-name: Build and Test
+name: Chromatic
+permissions:
+  contents: read
 
 on:
   push:
+    branches:
+     - main
+     - develop
+     - master
   pull_request:
-
+  workflow_dispatch:
 concurrency:
   group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
   cancel-in-progress: true
@@ -81,57 +87,28 @@ jobs:
         run: | # build the files
           npm run build
 
-      - uses: actions/upload-artifact@v4.3.1
-        with:
-          name: Package
-          path: ./dist
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
-        id: extract_branch
-
-      - name: display branch name
-        shell: bash
-        run: echo "${{ steps.extract_branch.outputs.branch }}"
-
-      - name: setup Publish with details for binary repo including package.json for reference
-        run: |
-          set -x
-          cp package.json ./dist
-          mkdir ./dist/.github
-          cp -r ./.binary-repo/* ./dist
-          cp -r ./.binary-repo/.github/* ./dist/.github
-
-      - name: Publish qgds-bootstrap5-release
-        uses: qld-gov-au/gha-publish-to-git@master
-        with:
-          repository: ${{ vars.TARGET_REPO }}
-          git_ref: '${{ github.ref }}'
-          branch: '${{ steps.extract_branch.outputs.branch }}'
-          github_token: '${{ secrets.GH_TOKEN }}'
-          github_pat: '${{ secrets.GH_PAT }}'
-          source_folder: dist
-          tag_branch: main
-        if: success()
-
-      - name: Publish to qld-gov-au/qgds-bootstrap5-cdn
-        uses: qld-gov-au/gha-cdn-version-tree-by-tag-builder@main
-        with:
-          repository: ${{ vars.TARGET_REPO_CDN }}
-          git_ref: '${{ github.ref }}'
-          branch: 'release'
-          github_token: '${{ secrets.GH_TOKEN }}'
-          github_pat: '${{ secrets.GH_PAT }}'
-          source_folder: dist
-        if: success()
-
       - name: Build Storybook 🔧
         run: | # build the Storybook files
           npm run build-storybook
 
-      - name: Package storybook files
-        uses: actions/upload-artifact@v4 #provide nice artifact
+      - name: Publish to Chromatic
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}
+        uses: chromaui/action@latest
+        # Options required to the GitHub Chromatic Action
         with:
-          name: Storybook
-          path: storybook-static
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          token: ${{ secrets.GH_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # 👇 tell Chromatic to rebuild the entire project when a file matching the pattern is changed https://www.chromatic.com/docs/github-actions/#enable-turbosnap
+          #externals: |
+          #  *.sass
+          #  public/**
+          onlyChanged: true # 👈 Required option to enable TurboSnap
+          storybookBuildDir: "storybook-static"
+      - name: Publish to Chromatic - Is Skipped
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
+        run: |  
+          echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
+          echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
+          echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
+          echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
