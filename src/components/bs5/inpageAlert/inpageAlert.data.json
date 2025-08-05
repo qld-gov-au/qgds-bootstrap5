@@ -1,6 +1,6 @@
 {
 	"variantClass": "alert-success",
-	"aria-label": "Alert level - ie danger, warning, information, success",
+	"alertType": "",
 	"heading": "Alert heading",
 	"headingTag": "h2",
 	"content": "<p>This is an alert notice with some important information. <a href='#'>Find out more</a>.</p>"
