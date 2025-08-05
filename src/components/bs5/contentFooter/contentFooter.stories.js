@@ -46,6 +46,9 @@ export const Default = {
 export const DefaultEmpty = {
   args: {
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators:[Story => {
     return `
           ${Story()}

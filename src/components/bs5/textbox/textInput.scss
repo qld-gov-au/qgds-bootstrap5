@@ -256,11 +256,10 @@ select.qld-select.qld-input-success:not(:focus) {
 }
 
 .dark {
-  background-color: $qld-sapphire-blue;
 
   .qld-text-input {
     border-color: $qld-dark-alt-border;
-    background-color: $qld-sapphire-blue;
+    background-color: var(--qld-dark-background);
     color: $qld-hint-text-color-muted;
 
     &:hover {

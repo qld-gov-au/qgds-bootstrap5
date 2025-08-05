@@ -49,12 +49,10 @@
         --qld-border-color: var(--qld-dark-alt-border);
         --qld-tab-background: var(--qld-dark-alt-background-shade);
     }
-    
     &.default, &.light, &.alt {
         --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
         --qld-tab-icon-color: var(--qld-light-action-secondary);
         --qld-tab-background-hover: var(--qld-light-action-primary-hover);
-        
         --qld-border-color: var(--light-border-colour);
         --qld-tab-icon-color-hover:var(--qld-dark-action-secondary);
         --qld-tab-focus-colour: var(--qld-light-focus);
@@ -67,15 +65,13 @@
         --qld-tab-icon-color: var(--qld-dark-action-secondary);
         --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
         --qld-tab-text-colour-heading: var(--qld-dark-text);
-        
         --qld-border-color: var(--qld-dark-alt-border);
         --qld-tab-icon-color-hover: var(--qld-dark-action-text);
         --qld-tab-focus-colour: var(--qld-dark-focus);
         --qld-tab-active-focus-colour: var(--qld-dark-focus);
         --qld-scroll-bg-color: var(--default-bg-colour);
-        
     }
-    &.tab-container {
+    &.container-tabs {
         --scroll-distance: 0;
         --gradient-percentage: 80%;      
         background-color: transparent;
@@ -86,8 +82,11 @@
         margin-inline: auto;        
         .nav-tabs {
             background-color: transparent;
+            align-items: end;
             .nav-item .nav-link {
                 background-color: var(--qld-tab-background);
+                padding-block-start: calc(0.75rem - 3px);
+                padding-block-end: calc(0.75rem - 1px);
                 &.active {
                     background-color: var(--qld-body-bg);
                 }
@@ -96,20 +95,46 @@
         .tabs-area {
             --qld-gutter-x: 0;
             .nav-tabs {
-                margin-block-end: -1.25px;
+                margin-block-end: -1px;
             }  
         }
+        .tab-content {
+            padding: 1.25rem;
+        }
     }
-    &.tab-section {
+    &.section-tabs {
         --scroll-distance: 1.75rem;
         --gradient-percentage: 50%;
         background-color: transparent;
         .tabs-area {
-            padding-inline: 2.5rem;
+            padding-inline: 4rem;
+            
+            
+            @include media-breakpoint-down(xl) {
+                padding-inline: 3rem;
+            }
+            @include media-breakpoint-down(lg) {
+                padding-inline: 2rem;
+            }
+            @include media-breakpoint-down(sm) {
+                padding-inline: 1rem;
+            }
             border-block-end: 1px solid;
             .nav-tabs {
                 max-width: fit-content;
                 margin-inline: 0;
+                .nav-item {
+                    display: flex;
+                    .nav-link {
+                        border-block-end: 0;
+                        padding-block-end: .65rem;
+                        padding-block-start: .7rem;
+                        &.active {
+                            padding-block-start: 0.7rem;
+                            padding-block-end: 0.75rem;
+                        }
+                    }
+                }
             }
         }
         .tab-content {
@@ -251,7 +276,7 @@
         background-color: transparent;
         border: none;
         z-index: 20;
-        top: 5px;
+        inset-block-start:5px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -277,15 +302,15 @@
             }
         }
         &.scroll-left {
-            left: var(--scroll-distance);
-            bottom: -1px;
+            inset-inline-start: var(--scroll-distance);
+            inset-block-end: -1px;
             inset-block-start: 0;
             transform: rotate(90deg);
             justify-content: end;
             background-image:linear-gradient(to bottom, transparent, var(--qld-scroll-area-bg-color) var(--gradient-percentage));
         }
         &.scroll-right {
-            right: var(--scroll-distance);
+            inset-inline-end: var(--scroll-distance);
             inset-block-start: 0;
             transform: rotate(-90deg);
             justify-content: start;
@@ -294,6 +319,7 @@
     }
     .nav-tabs {
         overflow-x: scroll;
+        overflow-y: clip;
         position: relative;
         margin-block-end: -1px;
         z-index: 10;
@@ -306,11 +332,11 @@
         align-items: baseline;
         border-block-end: 0;
         flex-wrap: nowrap;
+        align-items: end;
         .nav-item {
             align-items: baseline;
             appearance: auto;
             background-attachment: scroll;
-            padding-block-start: 0.125rem;
             background-clip: border-box;
             .nav-link {
                 &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
@@ -321,40 +347,38 @@
                 flex-direction: column;
                 gap: 0.5rem;
                 padding-inline: 1.25rem;
-                padding-block-start: 0.75rem;
-                padding-block-end: 0.75rem;
                 background-color: var(--qld-tab-background);
                 scroll-snap-align: start;
                 outline-offset: -0.625rem;
-                border: 1px solid transparent;
                 margin-block-end: 1px;
                 span {
                     white-space: nowrap;
-                    display: flex;
-                    gap: 0.5rem;
                     color: var(--qld-link-color);
                     align-items: anchor-center;
-                    line-height: 1rem;
                     i {
                         font-size: 1.125rem;
                         color: var(--qld-tab-icon-color);
+                        margin-inline-end: 0.5rem;
                     }
                     &.reverse {
                         flex-direction: row-reverse;
                     }
                 }               
                 &:hover {
+                    border: 1px solid transparent;
                     background-color: var(--qld-tab-background-hover);
                     span {
                         color: var(--qld-tab-hover-text-color);
                         text-decoration: underline;
+                        text-underline-offset: 4.8px;
+                        text-decoration-thickness: 2px;
                         i {
                             color: var(--qld-tab-icon-color-hover);
                         }
                     }
                 }
                 &::after {
-                    content: "";
+                    content: '';
                     display: block;
                     height: 0.25rem;
                     margin-block-end: calc(-0.8rem - 2px);
@@ -363,10 +387,14 @@
                     &[tabindex="0"]:focus, &[tabindex="-1"]:focus, &:focus-visible {
                         outline: 0.1875rem solid var(--qld-tab-active-focus-colour);
                     }
+                    pointer-events: none;
+                    cursor: default;
                     background-color: var(--qld-body-bg);
                     margin-block-end: 0;
+                    margin-block-start: 1px;
+                    padding-block-start: 0.75rem;
                     &::after {
-                        content: "";
+                        content: '';
                         border-radius: 0;
                         border-start-end-radius: var(--border-radius);
                         border-start-start-radius: var(--border-radius);
@@ -379,7 +407,6 @@
                         }
                     }
                     span {
-                        margin-block-start: 0.25rem;
                         font-weight: 600;
                         color: var(--qld-tab-text-colour-heading);
                         &:hover{
@@ -440,14 +467,13 @@
     .fade:not(.show) {
         display: none;
     }
-    &.tab-section {
+    &.section-tabs {
         .default ~ & {
             --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
             --qld-tab-icon-color: var(--qld-light-action-secondary);
             --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
             --qld-tab-text-colour-heading: var(--qld-light-text-heading);
             --qld-tab-background-hover: var(--qld-light-action-primary-hover);
-
             --qld-tab-focus-colour: var(--qld-light-focus);
             --qld-tab-active-focus-colour: var(--qld-light-focus);
             --qld-scroll-bg-color: var(--default-bg-colour);
@@ -463,7 +489,6 @@
             --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
             --qld-tab-text-colour-heading: var(--qld-light-text-heading);
             --qld-tab-background-hover: var(--qld-light-action-primary-hover);
-
             --qld-tab-focus-colour: var(--qld-light-focus);
             --qld-tab-active-focus-colour: var(--qld-light-focus);
             --qld-scroll-bg-color: var(--light-bg-colour);
@@ -479,7 +504,6 @@
             --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
             --qld-tab-text-colour-heading: var(--qld-light-text-heading);
             --qld-tab-background-hover: var(--qld-light-action-primary-hover);
-    
             --qld-tab-focus-colour: var(--qld-light-focus);
             --qld-tab-active-focus-colour: var(--qld-light-focus);
             --qld-scroll-bg-color: var(--alt-bg-colour);
@@ -495,7 +519,6 @@
             --qld-tab-icon-color: var(--qld-dark-action-secondary);
             --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
             --qld-tab-text-colour-heading: var(--qld-dark-text);
-
             --qld-scroll-bg-color: var(--default-bg-colour);
             --qld-scroll-area-bg-color:var(--dark-bg-colour);
             --qld-tab-icon-color-hover:var(--qld-dark-action-text);
@@ -509,7 +532,6 @@
             --qld-tab-icon-color: var(--qld-dark-action-secondary);
             --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
             --qld-tab-text-colour-heading: var(--qld-dark-text);
-
             --qld-scroll-bg-color: var(--default-bg-colour);
             --qld-tab-icon-color-hover:var(--qld-dark-action-text);
             color: var(--qld-body-color);
@@ -519,5 +541,4 @@
             }
         }
     }
-
 }
