@@ -14,7 +14,7 @@ export default {
     type_variant: {
       description: 'Type of tab system',
       control: "select",
-      options: ["tab-container", "tab-section"],
+      options: ["container-tabs", "section-tabs"],
     },
     variant: {
       description: 'Type variant for the tab system',
@@ -37,19 +37,19 @@ export default {
 
 /**
  * 
- * Tabs
+ * Tabs - Section Tabs Default Dark
  */
-export const Default = {
+export const SectionTabsDefaultDark = {
   args: defaultdata,
 };
 
 /**
- * Tabs - Container Default
+ * Tabs - Container Tabs Default
  */
-export const ContainerDefault = {
+export const ContainerTabsDefault = {
   args: {
     ...defaultdata,
-    type_variant: "tab-container",
+    type_variant: "container-tabs",
     unique_id: "234566",
     variant: "default",
     data: {
@@ -93,12 +93,12 @@ export const ContainerDefault = {
 };
 
 /**
- * Tabs - Container Light
+ * Tabs - Container Tabs Light
  */
-export const ContainerLight = {
+export const ContainerTabsLight = {
   args: {
     ...defaultdata,
-    type_variant: "tab-container",
+    type_variant: "container-tabs",
     unique_id: "345678",
     variant: "light",
     data: {
@@ -142,12 +142,12 @@ export const ContainerLight = {
 };
 
 /**
- * Tabs - Container Alt
+ * Tabs - Container Tabs Alt
  */
-export const ContainerAlt = {
+export const ContainerTabsAlt = {
   args: {
     ...defaultdata,
-    type_variant: "tab-container",
+    type_variant: "container-tabs",
     unique_id: "456789",
     variant: "alt",
     data: {
@@ -191,12 +191,12 @@ export const ContainerAlt = {
 };
 
 /**
- * Tabs - Container Dark
+ * Tabs - Container Tabs Dark
  */
-export const ContainerDark = {
+export const ContainerTabsDark = {
   args: {
     ...defaultdata,
-    type_variant: "tab-container",
+    type_variant: "container-tabs",
     unique_id: "567890",
     variant: "dark",
     data: {
@@ -240,12 +240,12 @@ export const ContainerDark = {
 };
 
 /**
- * Tabs - Container Dark-Alt
+ * Tabs - Container Tabs Dark-Alt
  */
-export const ContainerDarkAlt = {
+export const ContainerTabsDarkAlt = {
   args: {
     ...defaultdata,
-    type_variant: "tab-container",
+    type_variant: "container-tabs",
     unique_id: "123456",
     variant: "dark-alt",
     data: {

@@ -3,10 +3,6 @@
 
 // Source CSS variables: var(--variable-name)  /node_modules/bootstrap/css/components/_card.css
 
-// Arrow card icons
-$card-arrow-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
-$card-arrow-icon-dark-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
-
 // Video overlay icons
 $video-icon-color: $qld-dark-text;
 $video-play-icon: url("data:image/svg+xml,<svg width='32' height='21' viewBox='0 0 32 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M30.7656 1.96875C30.2188 1.69531 29.5078 1.69531 28.9609 2.07812L23.3281 6.01562C22.9453 6.28906 22.8359 6.83594 23.1094 7.27344C23.3828 7.65625 23.9297 7.71094 24.3672 7.4375L30 3.5V17.5L24.3672 13.5625C23.9297 13.2891 23.3828 13.3984 23.1094 13.7812C22.8359 14.2188 22.9453 14.7656 23.3281 15.0391L28.9609 18.9766C29.2891 19.1953 29.6172 19.25 30 19.25C30.2734 19.25 30.5469 19.1953 30.7656 19.0859C31.3672 18.7578 31.75 18.1562 31.75 17.5V3.5C31.75 2.84375 31.3672 2.29688 30.7656 1.96875ZM17.75 0H3.75C1.78125 0 0.25 1.58594 0.25 3.5V17.5C0.25 19.4688 1.78125 21 3.75 21H17.75C19.6641 21 21.25 19.4688 21.25 17.5V3.5C21.25 1.58594 19.6641 0 17.75 0ZM19.5 17.5C19.5 18.4844 18.6797 19.25 17.75 19.25H3.75C2.76562 19.25 2 18.4844 2 17.5V3.5C2 2.57031 2.76562 1.75 3.75 1.75H17.75C18.6797 1.75 19.5 2.57031 19.5 3.5V17.5Z' fill='#{$video-icon-color}' /></svg>");
@@ -18,19 +14,11 @@ $video-play-icon-dark: url("data:image/svg+xml,<svg width='32' height='21' viewB
 $video-play-icon-hover-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path fill='#{$video-icon-color-dark}' d='M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z'/></svg>");
 $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color-dark}'><path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z' /></svg>"); // Material Symbols 'Schedule'
 
-$view-all-icon-color: $qld-light-action-secondary;
-$view-all-icon: url("data:image/svg+xml,<svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.3867 6.32031C11.1523 6.08594 10.7227 6.08594 10.4883 6.32031C10.2539 6.55469 10.2539 6.98437 10.4883 7.21875L13.1836 9.875L5.95703 9.875C5.60547 9.875 5.33203 10.1875 5.33203 10.5C5.33203 10.8516 5.60547 11.125 5.95703 11.125L13.1836 11.125L10.4883 13.8203C10.2539 14.0547 10.2539 14.4844 10.4883 14.7187C10.7227 14.9531 11.1523 14.9531 11.3867 14.7187L15.1367 10.9687C15.2539 10.8516 15.332 10.6953 15.332 10.5C15.332 10.3437 15.2539 10.1875 15.1367 10.0703L11.3867 6.32031ZM10.332 0.5C4.78516 0.5 0.332031 4.99219 0.332031 10.5C0.332031 16.0469 4.78516 20.5 10.332 20.5C15.8398 20.5 20.332 16.0469 20.332 10.5C20.332 4.99219 15.8398 0.5 10.332 0.5ZM10.332 19.25C5.48828 19.25 1.58203 15.3438 1.58203 10.5C1.58203 5.69531 5.48828 1.75 10.332 1.75C15.1367 1.75 19.082 5.69531 19.082 10.5C19.082 15.3437 15.1367 19.25 10.332 19.25Z' fill='#{$view-all-icon-color}' /></svg>");
-
-$view-all-icon-dark-color: $qld-dark-action-secondary;
-$view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.3867 6.32031C11.1523 6.08594 10.7227 6.08594 10.4883 6.32031C10.2539 6.55469 10.2539 6.98437 10.4883 7.21875L13.1836 9.875L5.95703 9.875C5.60547 9.875 5.33203 10.1875 5.33203 10.5C5.33203 10.8516 5.60547 11.125 5.95703 11.125L13.1836 11.125L10.4883 13.8203C10.2539 14.0547 10.2539 14.4844 10.4883 14.7187C10.7227 14.9531 11.1523 14.9531 11.3867 14.7187L15.1367 10.9687C15.2539 10.8516 15.332 10.6953 15.332 10.5C15.332 10.3437 15.2539 10.1875 15.1367 10.0703L11.3867 6.32031ZM10.332 0.5C4.78516 0.5 0.332031 4.99219 0.332031 10.5C0.332031 16.0469 4.78516 20.5 10.332 20.5C15.8398 20.5 20.332 16.0469 20.332 10.5C20.332 4.99219 15.8398 0.5 10.332 0.5ZM10.332 19.25C5.48828 19.25 1.58203 15.3438 1.58203 10.5C1.58203 5.69531 5.48828 1.75 10.332 1.75C15.1367 1.75 19.082 5.69531 19.082 10.5C19.082 15.3437 15.1367 19.25 10.332 19.25Z' fill='#{$view-all-icon-dark-color}' /></svg>");
-
-
 .card {
-
+  --arrow-icon: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0518 8.1205L6.63557 16.4361C6.44609 16.6153 6.22435 16.7076 5.97036 16.7128C5.71637 16.7183 5.49185 16.6234 5.2968 16.4282C5.1015 16.233 5.00259 16.0122 5.00006 15.7658C4.99728 15.5194 5.0948 15.2985 5.29263 15.1033L15.1755 5.35051C15.2995 5.22843 15.4286 5.13943 15.563 5.08351C15.6976 5.02784 15.8454 5 16.0066 5C16.168 5 16.3155 5.02784 16.449 5.08351C16.5826 5.13943 16.7114 5.22843 16.8353 5.35051L26.7183 15.1033C26.9012 15.2838 26.995 15.5003 26.9998 15.7527C27.0046 16.0053 26.9108 16.2305 26.7183 16.4282C26.5176 16.6234 26.2919 16.7211 26.0409 16.7211C25.7899 16.7211 25.5687 16.6234 25.3772 16.4282L16.9591 8.1205V26.0589C16.9591 26.3303 16.8687 26.555 16.6881 26.733C16.5077 26.911 16.2802 27 16.0054 27C15.7305 27 15.5028 26.911 15.3224 26.733C15.142 26.555 15.0518 26.3303 15.0518 26.0589V8.1205Z' fill='%23131212'/%3E%3C/svg%3E%0A");
   --#{$prefix}card-bg: var(--#{$prefix}default-background);
   --#{$prefix}card-color: var(--#{$prefix}text-grey);
   --#{$prefix}card-title-color: var(--#{$prefix}light-text-heading);
-
   --#{$prefix}card-spacer-x: #{$card-spacer-x};
   --#{$prefix}card-spacer-y: #{$card-spacer-y};
   --#{$prefix}card-title-spacer-y: #{$card-title-spacer-y};
@@ -51,24 +39,18 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
   --#{$prefix}card-height: #{$card-height};
   --#{$prefix}card-img-overlay-padding: #{$card-img-overlay-padding};
   --#{$prefix}card-group-margin: #{$card-group-margin};
-
   --#{$prefix}card-link-color: var(--#{$prefix}light-link);
-
   --#{$prefix}card-date-color: var(--#{$prefix}dark-grey-muted);
   --#{$prefix}card-footer-border: var(--#{$prefix}light-grey);
-
   --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
   --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
+  --#{$prefix}link-hover-colour: var(--#{$prefix}light-action-primary-hover);
+  --#{$prefix}link-hover-text-colour: var(--#{$prefix}dark-link);
 
   // Icon variables
   --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
   --#{$prefix}card-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
   --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
-
-  //Arrow icon defaults
-  --#{$prefix}card-arrow-icon: #{escape-svg($card-arrow-icon-url)};
-  --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
-  --#{$prefix}card-arrow-font-size: 1.5rem;
 
   // Side positioned icon as default
   --#{$prefix}card-icon-height: 4rem;
@@ -91,88 +73,100 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon)};
     --#{$prefix}video-clock-icon-size: 1.25rem;
   }
-
   .icon-top {
     --#{$prefix}card-icon-height: 8rem;
     --#{$prefix}card-icon-width: 8rem;
     --#{$prefix}card-icon-font-size: 3.75rem;
     --#{$prefix}card-icon-line-height: 8rem;
   }
-
   &.card-no-action {
-    --#{$prefix}card-icon-color: var(--#{$prefix}card-title-color);
+    .qld-icon  {
+      background-color: var(--#{$prefix}card-title-color);
+    }
+    
   }
-
+  &.default {
+    .card-icon-background {
+      background-color: var(--#{$prefix}neutral-lightest);
+    }
+  }
+  &.card-single-action{
+    .qld-icon  {
+      background-color: var(--#{$prefix}light-action-secondary);
+    }
+    &.card-dark, &.card-dark-alt {
+      .qld-icon {
+        background-color: var(--#{$prefix}dark-action-secondary);   
+      }
+    }
+  }
+  &.card-multi-action {
+    .qld-icon  {
+      background-color: var(--#{$prefix}light-action-secondary);
+    }
+    &.card-dark, &.card-dark-alt {
+      .qld-icon {
+        background-color: var(--#{$prefix}dark-action-secondary);   
+      }
+    }
+  }
   &.card-arrow {
-
     .card-body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       .card-title {
         margin-bottom: 0;
       }
-
       .icon-arrow {
         margin: 0;
       }
     }
   }
 
-  .view-all {
-    --#{$prefix}card-view-all-icon: #{escape-svg($view-all-icon)};
-
-    a {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-  }
-
   // Colour variants
   &-light,
   &-default {
-
     --#{$prefix}card-bg: var(--#{$prefix}light-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}light-background-shade);
     --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
-
-    //Reset
-
     &:hover {
       --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
     }
   }
-
+  &-default {
+    --#{$prefix}card-bg: var(--#{$prefix}default-background);
+    --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
+  }
+  &-light {
+    --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
+  }
   &-alt {
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}light-alt-background-shade);
+    --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
+    &:hover {
+      --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
+    }
   }
-
   &-dark,
   &-dark-alt {
     --#{$prefix}card-color: var(--#{$prefix}dark-text);
     --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
     --#{$prefix}card-link-color: var(--#{$prefix}dark-text);
     --#{$prefix}card-date-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
     --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary);
     --#{$prefix}card-border-color: var(--#{$prefix}dark-border);
-
+    --#{$prefix}link-hover-colour: var(--#{$prefix}dark-action-primary-hover);
+    --#{$prefix}link-hover-text-colour: var(--#{$prefix}text-darkest);
     &:hover {
       --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary-hover);
     }
-
     &:not(.card-no-action) {
       --#{$prefix}card-icon-color: var(--#{$prefix}dark-action-secondary);
     }
-
-    .view-all {
-      --#{$prefix}card-view-all-icon: #{escape-svg($view-all-icon-dark)};
-    }
-
     .video-overlay {
       --#{$prefix}video-nav-bg: var(--#{$prefix}dark-action-primary);
       --#{$prefix}video-nav-bg-rgb: 120, 186, 0;
@@ -184,25 +178,55 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
       --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon-dark)};
     }
   }
-
   &-dark {
     --#{$prefix}card-bg: var(--#{$prefix}dark-background);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-background-shade);
+    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
+    --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
   }
-
   &-dark-alt {
     --#{$prefix}card-bg: var(--#{$prefix}dark-blue);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-alt-background-shade);
+    --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
+    --#{$prefix}card-footer-border: var(--#{$prefix}dark-alt-border);
   }
-
-  // Common overrides for dark themes
-  .dark &,
-  .dark-alt & {
-
-    &.dark-alt {}
+  &.icon-top {
+    position: relative;;
+  }
+  &.icon-top .card-icon-background {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--qld-card-icon-background-color);
+    border-radius: 400px;
+    margin-block-start: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.icon-top .qld-icon-xxl {
+    width: 4rem;
+    height: 4rem;
+    mask-size: 4rem;
+    background-size: 4rem;
+    border-radius: 0;
+  }
+  &.icon-left .card-icon-background {
+    width: 4rem;
+    height: 4rem;
+    mask-size: 4rem;
+    background-size: 4rem;
+    background-color: var(--qld-card-icon-background-color);
+    margin-left: 1.25rem;
+    margin-block-start: -1rem;
+    border-radius: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.icon-left .qld-icon-lg {
+    border-radius: 0;
   }
 }
-
 
 @include media-breakpoint-up(md) {
   .card {
@@ -220,7 +244,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     --#{$prefix}card-title-font-size: 1.5rem;
     --#{$prefix}card-title-line-height: 2rem;
     --#{$prefix}card-box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1); // Level 4 shadow
-
     &-feature {
       --#{$prefix}card-title-font-size: 2rem;
       --#{$prefix}card-title-line-height: 2.5rem;
@@ -230,105 +253,84 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 
 // Component styles
 .card {
-
   font-size: var(--#{$prefix}card-font-size);
   line-height: var(--#{$prefix}card-line-height);
   overflow: hidden;
-
   &-date {
     color: var(--#{$prefix}card-date-color);
     font-size: 0.875rem;
     line-height: 1.25rem;
     margin-bottom: 1rem;
   }
-
   .card-title {
     font-size: var(--#{$prefix}card-title-font-size);
     line-height: var(--#{$prefix}card-title-line-height);
     color: var(--#{$prefix}card-title-color);
     margin-top: 0;
     margin-bottom: 0.75rem;
-
     &:last-child {
       margin-bottom: 0;
     }
-
     a {
       font-weight: 600;
     }
   }
-
   .card-body li {
     margin-top: 0.5rem;
   }
-
   .card-text> :last-child {
     margin-bottom: 0;
   }
-
   &-single-action,
   &-multi-action {
     box-shadow: var(--#{$prefix}card-box-shadow);
   }
-
   &-single-action {
-
     &:hover,
     &:focus {
       box-shadow: none;
     }
-
     &:hover,
     &:focus-within {
       .card-img:after {
         opacity: 0.1;
       }
-
       .video-nav {
         background-color: rgba(var(--#{$prefix}video-nav-bg-hover-rgb), var(--#{$prefix}video-nav-bg-opacity));
-
         .video-watch {
           background-color: var(--#{$prefix}video-nav-bg-hover);
           text-decoration: underline;
           text-underline-offset: var(--qld-link-underline-offset);
           text-decoration-thickness: var(--qld-link-underline-thickness);
-
           .icon {
             background-image: var(--#{$prefix}video-play-icon-hover);
           }
         }
       }
-
       .icon-arrow {
         margin-left: 0.25rem;
         margin-right: 1rem;
       }
     }
-
     &:focus-within {
       outline: var(--#{$prefix}focus-color) solid 3px;
       outline-offset: 2px;
     }
-
     a {
-
       color: var(--#{$prefix}card-link-color);
       text-decoration-color: var(--#{$prefix}card-link-color);
-
       &:visited,
       &:hover,
       &:visited:hover {
         color: var(--#{$prefix}card-link-color);
         text-decoration-color: var(--#{$prefix}card-link-color);
       }
-
       &:focus {
         outline-style: none;
         text-decoration-color: var(--#{$prefix}card-link-color);
       }
     }
   }
-
   &-img {
     &:after {
       content: "";
@@ -337,7 +339,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
       background-color: var(--#{$prefix}card-img-overlay-color);
       opacity: 0;
     }
-
     [class^=card-img] {
       background-image: var(--card-image);
       background-position: center center;
@@ -346,7 +347,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
       width: 100%;
       display: block;
       border-radius: var(--#{$prefix}card-img-border-radius);
-
       &:before {
         content: "";
         position: absolute;
@@ -355,88 +355,74 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
         border-radius: var(--#{$prefix}card-img-border-radius);
       }
     }
-
     .video-overlay {
       z-index: 1;
-
       .video-nav,
       .video-watch {
         transition: none;
       }
-
       .icon {
         background-position: center;
       }
     }
   }
-
   &.icon-left,
   &.card-arrow {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-
     .card-body {
       width: calc(100% - var(--#{$prefix}card-icon-width) - (2 * var(--#{$prefix}card-spacer-x)));
-
       &:not(:last-child) {
         padding-bottom: var(--#{$prefix}card-spacer-y);
       }
     }
-
     .card-title {
       padding-right: 1rem;
     }
-
     &:hover {
       .icon-arrow {
         transform: translateX(0.25rem);
       }
     }
   }
-
+  &.card-arrow {
+    .card-body{
+      position: relative;
+      .card-title {
+        padding-right: 3rem;
+        a:before {
+          content: '';
+          position: absolute;
+          right: 1.5rem;
+          top: calc(50% - 16px);
+          transition: right .25s ease-in-out;
+          mask-image: var(--arrow-icon);
+          mask-size: contain;
+          mask-position: center;
+          width: 2rem;
+          height: 2rem;
+          background-color: var(--#{$prefix}card-arrow-color);
+          transform: rotate(90deg);
+        }
+      }
+      &:hover .card-title{
+        a:before {
+          right: 1.25rem;
+          transition: .25s ease-in-out;
+        }
+      }
+    }
+  }
   &.icon-top {
     align-items: center;
-
     .card-body {
       text-align: center;
     }
   }
-
-  &-icon {
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    color: var(--#{$prefix}card-icon-color);
-    background-color: var(--#{$prefix}card-icon-background-color);
-    border-radius: 50%;
-    height: var(--#{$prefix}card-icon-height);
-    width: var(--#{$prefix}card-icon-width);
-    margin: 1.5rem 1.5rem 0;
-    font-size: var(--#{$prefix}card-icon-font-size);
-    line-height: var(--#{$prefix}card-icon-line-height);
-    text-align: center;
-    vertical-align: middle;
-
-    &.icon-left {
-      margin: 1.25rem 0 1.25rem 1.25rem;
-    }
-
-    &.icon-arrow {
-      background-color: var(--#{$prefix}card-arrow-color);
-      mask-image: var(--#{$prefix}card-arrow-icon);
-      mask-repeat: no-repeat;
-      height: var(--#{$prefix}card-arrow-font-size);
-      width: var(--#{$prefix}card-arrow-font-size);
-      margin: 1.25rem 1.25rem 1.25rem 0;
-      transition: transform .2s ease;
-    }
-  }
-
   &-body:not(:last-child) {
     padding-bottom: 0;
   }
-
   &-footer {
     color: var(--#{$prefix}card-color);
     line-height: 1.5;
@@ -446,7 +432,6 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
     padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
     width: 100%;
     flex: 0 1 auto;
-
     &:before {
       content: "";
       display: block;
@@ -456,33 +441,38 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
       background: var(--#{$prefix}card-footer-border);
     }
 
+    /////////////////////////////////////////////
     // Override default spacing on tag component
     .tag-list {
       margin: 0;
       padding: 0;
       gap: 1rem;
-
+      display: flex;
+      flex-wrap: wrap;
       .tag-item {
         margin: 0;
       }
     }
-
-    .view-all {
-      text-align-last: end;
-
-      a {
-        padding: 0.25rem 0.25rem 0.5rem;
-
-        &:after {
-          content: '';
-          background-image: var(--#{$prefix}card-view-all-icon);
-          background-size: cover;
-          display: inline-block;
-          height: 2rem;
-          width: 2rem;
-          vertical-align: middle;
-          margin-left: 0.5rem;
-          color: var(--#{$prefix}color-default-color-light-action-secondary);
+  }
+  .card-footer {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--#{$prefix}card-title-color);
+    li {
+      font-size: 1rem;
+    }
+    .tag-list {
+      li.tag-link {
+        border-color: var(--#{$prefix}card-link-color);
+        font-size: 0.875rem;
+        font-weight: normal;
+        &:hover {
+          border-color: var(--#{$prefix}link-hover-colour);
+          background-color: var(--#{$prefix}link-hover-colour);
+          text-decoration: none;
+          a {
+            color: var(--#{$prefix}link-hover-text-colour);
+          }
         }
       }
     }
@@ -495,15 +485,12 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
       flex-direction: row;
       flex: 0 1 100%;
       min-height: 300px;
-
       .card-img,
       .card-inner {
         flex: 1;
       }
-
       &.card-feature-right {
         flex-direction: row-reverse;
-
         .card-img-right,
         .card-img-right:before {
           border-radius: 0;
@@ -516,24 +503,29 @@ $view-all-icon-dark: url("data:image/svg+xml,<svg width='21' height='21' viewBox
 @include media-breakpoint-up(lg) {
   .card {
     box-shadow: none;
-
     &-single-action {
-
       &:hover,
       &:focus {
         box-shadow: var(--#{$prefix}card-box-shadow);
       }
     }
-
     &-feature {
       min-height: 440px;
-
       .card-img {
         flex: 2;
       }
-
       .card-inner {
         flex: 1;
+      }
+    }
+    &.card-multi-action.card-feature {
+      .card-body {
+        padding: 2rem;  
+        padding-block-end: 0;
+      }
+      .card-footer {
+        padding: 2rem;
+        padding-block-start: 0;
       }
     }
   }

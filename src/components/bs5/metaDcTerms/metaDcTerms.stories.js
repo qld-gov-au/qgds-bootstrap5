@@ -32,7 +32,12 @@ export default {
  * Default head metadata
  * 
  */
-export const Default = {};
+export const Default = {
+  parameters: {
+    // Disables Chromatic's snapshotting on a component level
+    chromatic: { disableSnapshot: true },
+  },
+};
 
 
 
