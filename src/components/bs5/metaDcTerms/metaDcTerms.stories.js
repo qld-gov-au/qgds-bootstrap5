@@ -32,7 +32,9 @@ export default {
  * Default head metadata
  * 
  */
-export const Default = {};
+export const Default = {
+  chromatic: { disableSnapshot: true },
+};
 
 
 
