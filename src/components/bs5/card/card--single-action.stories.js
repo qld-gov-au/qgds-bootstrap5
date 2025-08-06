@@ -58,26 +58,26 @@ export const Light = {
   args: {
     ...defaultdata,
     variantClass: "light",
-  }
+  },
 };
 export const Alt = {
   name: "Alt theme",
   args: {
     ...defaultdata,
     variantClass: "alt",
-  }
+  },
 };
 export const Dark = {
   name: "Dark theme",
   args: {
     ...defaultdata,
     variantClass: "dark",
-  }
+  },
 };
 export const DarkAlt = {
   name: "Dark-alt theme",
   args: {
     ...defaultdata,
     variantClass: "dark-alt",
-  }
+  },
 };
