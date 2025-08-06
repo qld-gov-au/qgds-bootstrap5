@@ -1,9 +1,9 @@
 {{#unless hide_back_to_top}}
-  <div class="qld__widgets d-flex align-items-baseline d-print-none{{#if is_fixed}} fixed-bottom mb-3 fixed{{else}} position-relative z-1 {{/if}}" data-min-page-height="{{isdefined min_page_height 0}}">
+  <div class="back-to-top d-print-none z-1">
     {{> directionLinks  
         label= (isdefined directionalLink.label "Back to top")
         href= (isdefined directionalLink.href "#")
-        class= "back-to-top up my-2 ms-auto" 
+        class= "up ms-md-auto" 
     }}
   </div>
 {{/unless}}

@@ -2,8 +2,8 @@
 // Widgets
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__widgets + .qld__footer {
-  @include media-breakpoint-up(xl) {
-    padding-block-end: 4rem;
-  }
+.back-to-top {
+  --margin-block: 0.5rem;
+  --qld-gutter-y: 0.5rem;
+  margin-block: var(--margin-block);
 }
