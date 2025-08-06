@@ -6,6 +6,7 @@ import globalAlertData from "../globalAlert/globalAlert.data.json";
 import tableData from "../table/table.data.json";
 import backToTopData from "../backToTop/backToTop.data.json";
 import footerData from "../footer/footer.data.json";
+import contentFooterData from "../contentFooter/contentFooter.data.json";
 
 const defaultData = {
   cdn: ".", //for storybook it's ., for normal usage "PROD"
@@ -13,9 +14,10 @@ const defaultData = {
   backToTop: backToTopData,
   header: masterbrand_variant,
   navbar: menu_state,
-  table: tableData,  
+  table: tableData,
   globalAlert: globalAlertData.critical,
   footer: footerData,
+  contentFooter: contentFooterData,
 };
 
 export default {

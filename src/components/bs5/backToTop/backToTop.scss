@@ -4,6 +4,6 @@
 
 .back-to-top {
   --margin-block: 0.5rem;
-  --qld-gutter-y: 0.5rem;
   margin-block: var(--margin-block);
+  width: fit-content;
 }
