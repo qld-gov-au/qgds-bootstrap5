@@ -1,11 +1,13 @@
 // ----------------------------------------------------------------------------------------------------------------------
 // Header - palettes and second hand variables:
-@use "./colours";
+@use "./colours" with (
+  $prefix: $prefix
+);
 @import "./icons";
 // ----------------------------------------------------------------------------------------------------------------------
 
 .qld-header {
-  @extend %header;
+  @extend %header-variables;
   color: var(--#{$prefix}header_color);
   background: var(--#{$prefix}header_bg);
   font-size: 1rem;
