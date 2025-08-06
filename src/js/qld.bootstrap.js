@@ -12,6 +12,7 @@ import { toggleSearch } from "./../components/bs5/header/header.functions";
 import { showSuggestions, submitSearchForm } from "./../components/bs5/searchInput/search.functions";
 import { backToTop } from "./../components/bs5/backToTop/backToTop.functions";
 import { initTabsScroll } from "./../components/bs5/tabs/tabs.functions";
+import { initGlobalAlerts } from "./../components/bs5/globalAlert/globalAlert.function";
 
 window.addEventListener("scroll", positionQuickExit, true);
 window.addEventListener("resize", positionQuickExit, true);
@@ -23,6 +24,9 @@ window.addEventListener("DOMContentLoaded", () => {
     backToTop();
 
     initTabsScroll();
+
+    initGlobalAlerts();
+
     // Footer FormIO Action
     // Note: This is added here, as there is an issue with breadcrumbShorten() function.
     //       Will move this once that issue is fixed.
