@@ -2,7 +2,7 @@
 
 <div class="global-alert-include">
   {{#each alertItems}}
-  <section class="global-alert {{variant}}" data-variant="{{variant}}">
+  <section class="global-alert {{variant}}" data-variant="{{variant}}"{{#if expiry}} data-expiry="{{expiry}}"{{/if}}>
       <div class="qld-global-alert-main">
         <div class="global-alert-icon">
             {{#ifCond variant '==' 'global-alert-critical'}}

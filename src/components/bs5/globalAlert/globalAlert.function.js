@@ -13,7 +13,10 @@ export function initGlobalAlerts() {
     alert.querySelector(".qld-global-alert-main").classList.add("container");
 
     alert.addEventListener("btn-closed", () => {
-      setLocalStorageWithExpiry(`forgovDismissedAlert-${variant}`, true, 14);
+      const expiry = parseInt(alert.getAttribute("data-expiry"), 10);
+      if (expiry && expiry > 0) {
+        setLocalStorageWithExpiry(`forgovDismissedAlert-${variant}`, true, expiry);
+      }
       alert.classList.add("d-none");
     });
   });
