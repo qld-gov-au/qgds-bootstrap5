@@ -6,17 +6,11 @@
       <div class="qld-global-alert-main">
         <div class="global-alert-icon">
             {{#ifCond variant '==' 'global-alert-critical'}}
-              <svg class="qld-icon-sm" aria-label="Critical alert">
-                <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-danger"></use>
-              </svg>
+              {{> icon size="sm" ariaLabel="Critical alert" iconId="alert-danger"}}
             {{else ifCond variant '==' 'global-alert-info'}}
-              <svg class="qld-icon-sm" aria-label="Information alert">
-                <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-information"></use>
-              </svg>
+              {{> icon size="sm" ariaLabel="Information alert" iconId="alert-information"}}
             {{else ifCond variant '==' 'global-alert-warning'}}
-              <svg class="qld-icon-sm" aria-label="Warning alert">
-                <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-warning"></use>
-              </svg>
+              {{> icon size="sm" ariaLabel="Warning alert" iconId="alert-warning"}}
             {{/ifCond}}
         </div>
 
