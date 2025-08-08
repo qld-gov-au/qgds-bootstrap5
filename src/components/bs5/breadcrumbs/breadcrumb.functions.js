@@ -1,6 +1,6 @@
 /**
  * Initialise the Breadcrumb component.
- * Shorten long breadcrumbs when required.
+ * Collapse long breadcrumbs when required.
  *
  * @memberof module:Breadcrumb
  *
@@ -21,12 +21,12 @@ export function initBreadcrumb() {
   if (!breadcrumbList || !breadcrumbList.length) {
     return;
   }
-  // Shorten breadcrumb.
-  breadcrumbShorten(breadcrumbList, maxLength);
+  // Collapse breadcrumb.
+  breadcrumbCollapse(breadcrumbList, maxLength);
 }
 
 /**
- * Shorten long breadcrumb lists
+ * Collapse long breadcrumb lists
  *
  * @memberof module:Breadcrumb
  *
@@ -34,16 +34,19 @@ export function initBreadcrumb() {
  * @param  {number} maxLength - Standard maximum length for breadcrumb.
  * @returns {void} Returns early when breadcrumb does not exist or its length is within set maxLength.
  */
-export function breadcrumbShorten(breadcrumbList, maxLength = 4) {
+export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
   // No shortening is required when breadcrumb does not exist or its length is within the maximum range.
   if (!breadcrumbList || breadcrumbList.length <= maxLength) {
     return;
   }
 
+  const newList = document.createElement("ol");
+  newList.classList.add("breadcrumb-vertical");
+
   breadcrumbList.forEach((crumb, index) => {
     if (index > 1 && index < breadcrumbList.length - 2) {
-      crumb.classList.add("shortened");
-      crumb.querySelector("a").setAttribute("tabindex", -1);
+      crumb.querySelector("a").setAttribute("tabindex", 0);
+      newList.appendChild(crumb);
     }
 
     if (index === 1) {
@@ -51,45 +54,37 @@ export function breadcrumbShorten(breadcrumbList, maxLength = 4) {
         expandButton = document.createElement("a");
 
       expandCrumb.classList.add("breadcrumb-item", "breadcrumb-toggle");
-
       expandButton.setAttribute("href", "javascript:void(0)");
       expandButton.setAttribute("aria-label", "Expand the breadcrumbs");
-      //expandButton.textContent = '[...]'
-      expandButton.addEventListener("click", breadcrumbExpand);
 
+      expandButton.addEventListener("click", breadcrumbToggle);
+      //document.addEventListener("click", breadcrumbToggle);
       expandCrumb.appendChild(expandButton);
       crumb.after(expandCrumb);
+    }
+
+    if (index === breadcrumbList.length - 1) {
+      const expandCrumb = document.querySelector(".breadcrumb-toggle");
+      if (expandCrumb) {
+        expandCrumb.append(newList);
+      }
     }
   });
 }
 
 /**
- * Expand shortened breadcrumb lists
+ * Expand collapsed breadcrumb lists
  *
  * @memberof module:Breadcrumb
  *
  * @param  {Event} event - The event that triggered this function.
  * @returns {void} Returns early when the breadcrumb does not exist or is empty.
  */
-export function breadcrumbExpand(event) {
+export function breadcrumbToggle(event) {
   const breadcrumb = event.target.closest(".breadcrumb");
-  if (!breadcrumb) {
-    console.log("breadcrumbExpand: Breadcrumb does not exist.");
-    return;
+  if (breadcrumb.classList.contains("expanded")) {
+    breadcrumb.classList.remove("expanded");
+  } else {
+    breadcrumb.classList.add("expanded");
   }
-  const breadcrumbList = breadcrumb.querySelectorAll(".breadcrumb-item");
-
-  if (!breadcrumbList || !breadcrumbList.length) {
-    console.log("breadcrumbExpand: Breadcrumb does not exist or is empty.");
-    return;
-  }
-
-  breadcrumbList[0].parentElement.classList.add("expanded");
-
-  breadcrumbList.forEach((crumb, index) => {
-    if (index > 1 && index < breadcrumbList.length - 2) {
-      crumb.classList.remove("shortened");
-      crumb.querySelector("a").setAttribute("tabindex", 0);
-    }
-  });
 }
