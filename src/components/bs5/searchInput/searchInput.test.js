@@ -5,7 +5,7 @@ import mockData from "./searchInput.data.json";
 import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { waitFor } from "../../../js/testingutils.js";
+import { waitFor, isElementVisible } from "../../../js/testingutils.js";
 
 /**
  *
@@ -59,27 +59,6 @@ describe("SearchInput", () => {
       runScripts: "dangerously",
       resources: "usable",
       pretendToBeVisual: true,
-      beforeParse(window) {
-        // Mock fetch for the showSuggestions function
-        window.fetch = async (url) => {
-          if (url.includes('suggest.json')) {
-            return {
-              ok: true,
-              json: async () => []
-            };
-          }
-          if (url.includes('search.json')) {
-            return {
-              ok: true,
-              json: async () => ({ response: { resultPacket: { results: [] } } })
-            };
-          }
-          throw new Error('Network error');
-        };
-        
-        // Ensure console methods exist
-        window.console = console;
-      }
     });
 
     d = dom.window.document;
@@ -113,8 +92,8 @@ describe("SearchInput", () => {
   });
 
   test("Focus event shows suggestions", async () => {
-    // Initially suggestions are hidden with d-none class
-    expect(suggestions.classList.contains("d-none")).toBe(true);
+    // Initially suggestions are hidden
+    expect(isElementVisible(suggestions)).toBe(false);
     
     // Ensure input is empty to trigger default suggestions display
     searchInput.value = "";
@@ -143,7 +122,7 @@ describe("SearchInput", () => {
     await waitFor();
 
     // Suggestions should now be visible
-    expect(suggestions.classList.contains("d-none")).toBe(false);
+    expect(isElementVisible(suggestions)).toBe(true);
   });
 
   test("Focus event shows suggestions when input is empty", async () => {
@@ -151,7 +130,6 @@ describe("SearchInput", () => {
     searchInput.value = "";
 
     // Initially suggestions should be hidden using the d-none class
-    suggestions.classList.add("d-none");
 
     // Directly simulate the focus event behavior 
     const defaultSuggestions = form.querySelector('.default-suggestions');
@@ -169,8 +147,8 @@ describe("SearchInput", () => {
     // Wait for any asynchronous operations
     await waitFor();
 
-    // Suggestions should now be visible (d-none class should be removed)
-    expect(suggestions.classList.contains("d-none")).toBe(false);
+    // Suggestions should now be visible
+    expect(isElementVisible(suggestions)).toBe(true);
   });
 
   test("Focus event does not show suggestions when input has value when No Search API call", async () => {
@@ -178,7 +156,6 @@ describe("SearchInput", () => {
     searchInput.value = "test query";
 
     // Initially suggestions should be hidden
-    suggestions.classList.add("d-none");
     
     // Ensure no dynamic suggestions exist initially
     const dynamicSuggestionsContainer = form.querySelector('.dynamic-suggestions');
@@ -197,9 +174,9 @@ describe("SearchInput", () => {
     // Wait for any asynchronous operations
     await waitFor();
 
-    // Suggestions should remain hidden (d-none class should stay) because 
+    // Suggestions should remain hidden because 
     // input has value but no dynamic suggestions exist
-    expect(suggestions.classList.contains("d-none")).toBe(true);
+    expect(isElementVisible(suggestions)).toBe(false);
   });
 
   test("Focus back to UI should show dynamic suggestions if input is not empty", async () => {
@@ -222,7 +199,7 @@ describe("SearchInput", () => {
     await waitFor();
     
     // Verify default suggestions are shown
-    expect(suggestions.classList.contains("d-none")).toBe(false);
+    expect(isElementVisible(suggestions)).toBe(true);
     
     // Step 2: Simulate having typed text and having suggestions populated
     // (Skip the actual input/fetch process and directly simulate the end state)
@@ -255,7 +232,7 @@ describe("SearchInput", () => {
     suggestions.classList.add('d-none');
     
     // Verify suggestions are hidden after focusout
-    expect(suggestions.classList.contains('d-none')).toBe(true);
+    expect(isElementVisible(suggestions)).toBe(false);
     
     // Step 4: Focus back into input with existing text
     // This should trigger the focus event listener which checks if input has value
@@ -271,13 +248,12 @@ describe("SearchInput", () => {
     // (not refetched, just made visible again)
     if (dynamicSuggestionsContainer) {
       expect(dynamicSuggestionsContainer.innerHTML).toContain("test <strong>query</strong> result 1");
-      expect(suggestions.classList.contains('d-none')).toBe(false);
+      expect(isElementVisible(suggestions)).toBe(true);
     }
   });
 
   test("Input event has debounce timeout", async () => {
     // Set suggestions to hidden initially
-    suggestions.classList.add("d-none");
 
     // Simulate typing in input
     searchInput.value = "test";
@@ -297,11 +273,11 @@ describe("SearchInput", () => {
     searchInput.dispatchEvent(inputEvent);
 
     // Suggestions should not show immediately due to 300ms debounce
-    expect(suggestions.classList.contains("d-none")).toBe(true);
+    expect(isElementVisible(suggestions)).toBe(false);
     
     // Wait and confirm it's still hidden (debounce should prevent immediate display)
     await waitFor();
-    expect(suggestions.classList.contains("d-none")).toBe(true);
+    expect(isElementVisible(suggestions)).toBe(false);
   });
 
   test("Focusout event listeners are attached and functional", async () => {
@@ -327,7 +303,7 @@ describe("SearchInput", () => {
     
     await waitFor();
     
-    expect(suggestions.classList.contains("d-none")).toBe(false);
+    expect(isElementVisible(suggestions)).toBe(true);
 
     // Test that focusout events can be dispatched without throwing errors
     const focusoutEvent = new window.FocusEvent("focusout", {
@@ -373,7 +349,7 @@ describe("SearchInput", () => {
     
     await waitFor();
     
-    expect(suggestions.classList.contains("d-none")).toBe(false);
+    expect(isElementVisible(suggestions)).toBe(true);
 
     // Simulate clicking outside by dispatching focusout event
     const focusoutEvent = new window.FocusEvent("focusout", {
@@ -391,7 +367,7 @@ describe("SearchInput", () => {
     suggestions.classList.add("d-none");
 
     // Suggestions should be hidden due to focusout behavior
-    expect(suggestions.classList.contains("d-none")).toBe(true);
+    expect(isElementVisible(suggestions)).toBe(false);
   });
 
   test("Document click inside suggestions keeps them visible", async () => {
@@ -413,7 +389,7 @@ describe("SearchInput", () => {
     
     await waitFor();
     
-    expect(suggestions.classList.contains("d-none")).toBe(false);
+    expect(isElementVisible(suggestions)).toBe(true);
 
     // Click inside suggestions
     const suggestionLink = suggestions.querySelector("a");
@@ -434,10 +410,10 @@ describe("SearchInput", () => {
       await waitFor();
 
       // Suggestions should remain visible when clicking inside them
-      expect(suggestions.classList.contains("d-none")).toBe(false);
+      expect(isElementVisible(suggestions)).toBe(true);
     } else {
       // If no suggestion link exists, just verify suggestions remain visible
-      expect(suggestions.classList.contains("d-none")).toBe(false);
+      expect(isElementVisible(suggestions)).toBe(true);
     }
   });
 });
