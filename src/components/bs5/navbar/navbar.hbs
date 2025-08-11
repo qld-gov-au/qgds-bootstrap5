@@ -48,14 +48,11 @@
                                         {{#if dropdown_options}}
                                             <div class="col-12">
                                                 <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                                    {{!-- <span class=""> --}}
                                                         {{dropdown_options.feature_link_value}}
-                                                    {{!-- </span> --}}
                                                 </a>
                                                 {{#if dropdown_options.feature_link_description}}
                                                     <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
                                                 {{/if}}
-                                                {{!-- <hr> --}}
                                             </div>
                                         {{/if}}
                                         
@@ -63,10 +60,8 @@
                                         {{!-- START --}}
                                         {{#each navigation_items}}                        
                                             <li class="col-lg-4 col-sm-12">
-                                                <a href="{{target_url}}" class="dropdown-item">
-                                                    {{!-- <span class="dropdown-item__text"> --}} 
-                                                        {{title}} 
-                                                    {{!-- </span> --}}                    
+                                                <a href="{{target_url}}" class="dropdown-item"> 
+                                                    {{title}}
                                                 </a>
                                                 {{#if description}}
                                                     <p class="dropdown-item__description">{{description}}</p>
@@ -75,11 +70,8 @@
                                         {{/each }}
                                         {{#if dropdown_options.view_value}}
                                             <li class="col-12 text-end">
-                                                {{!-- <hr> --}}
                                                 <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
-                                                    {{!-- <span> --}}
-                                                        {{dropdown_options.view_value}}                                              
-                                                    {{!-- </span> --}}
+                                                    {{dropdown_options.view_value}}
                                                 </a>
                                             </li>
                                         {{/if}}
@@ -112,7 +104,7 @@
                                     {{#if dropdown_options.dropdown_config.groups}}
                                         <div class="col-12">
                                             <a class="dropdown-menu__featured" href="{{dropdown_options.view_more_url}}">
-                                                <span class="">{{dropdown_options.view_more_label}}</span>                                                
+                                                {{dropdown_options.view_more_label}}
                                             </a>
                                             <hr>
                                         </div>
@@ -136,9 +128,7 @@
                                             <a class="dropdown-menu__view_all"
                                                 href="{{dropdown_options.dropdown_config.view_more_options.url}}"
                                                 target="{{dropdown_options.dropdown_config.view_more_options.target}}">
-                                                {{!-- <span> --}}
-                                                    {{dropdown_options.dropdown_config.view_more_options.label}}
-                                                {{!-- </span> --}}
+                                                {{dropdown_options.dropdown_config.view_more_options.label}}
                                             </a>
                                         </li>
                                         {{/if}}
@@ -146,7 +136,6 @@
                                 </div>
                             </ul>
                             {{/if}}
-                        {{!-- </div> --}}
                     </li>
                 {{~/each}}
             </ul>
