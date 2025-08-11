@@ -52,6 +52,9 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
   &.expanded {
     .breadcrumb-vertical {
       display: block;
+      opacity: 1;
+      max-height: 200px; /* Or a suitable height to reveal content */
+      pointer-events: all;
     }
   }
 
@@ -86,7 +89,7 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     --qld-light-grey: #f5f5f5;
     --#{$prefix}dropdown-box-shadow:
       0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
-    display: none;
+    //display: none;
     position: absolute;
     margin-top: 2rem;
     padding: 0;
@@ -94,6 +97,17 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     border-bottom: 4px solid #6bbe27;
     border-radius: 4px;
     box-shadow: var(--#{$prefix}dropdown-box-shadow);
+    //height: 0;
+    //transition: transform 0.25s ease-out;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    /* Transition properties */
+    transition:
+      opacity 0.25s ease-out,
+      max-height 0.25s ease-out;
   }
 }
 
@@ -164,6 +178,11 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
       mask-size: 2rem 2rem;
       mask-repeat: no-repeat;
       mask-position: center center;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--qld-light-grey);
     }
   }
 }
