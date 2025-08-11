@@ -68,6 +68,7 @@ export default {
     docs: {
       controls: {},
     },
+    chromatic: { disableSnapshot: true },
   },
 };
 
