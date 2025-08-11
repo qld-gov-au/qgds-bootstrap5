@@ -4,7 +4,7 @@ export function initGlobalAlerts() {
   globalAlerts.forEach((alert) => {
     const variant = alert.getAttribute("data-variant") || "default";
     const dismissedAlert = getLocalStorageWithExpiry(
-      `forgovDismissedAlert-${variant}`,
+      `dismissedAlert-${variant}`,
     );
 
     if (dismissedAlert) {
@@ -17,11 +17,7 @@ export function initGlobalAlerts() {
     alert.addEventListener("btn-closed", () => {
       const expiry = parseInt(alert.getAttribute("data-expiry"), 10);
       if (expiry && expiry > 0) {
-        setLocalStorageWithExpiry(
-          `forgovDismissedAlert-${variant}`,
-          true,
-          expiry,
-        );
+        setLocalStorageWithExpiry(`dismissedAlert-${variant}`, true, expiry);
       }
       alert.classList.add("d-none");
     });
