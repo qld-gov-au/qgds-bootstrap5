@@ -7,6 +7,16 @@ import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
 
+Handlebars.registerHelper("or", function () {
+  // Remove the last argument (Handlebars options object)
+  return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+});
+
+Handlebars.registerHelper("and", function () {
+  // Remove the last argument (Handlebars options object)
+  return Array.prototype.slice.call(arguments, 0, -1).every(Boolean);
+});
+
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
   parameters: {
@@ -84,7 +94,7 @@ const preview = {
       // Optional configuration for the a11y addon
       config: {},
       options: {
-        runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'],
+        runOnly: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
         checks: { "color-contrast": { options: { noScroll: true } } },
         restoreScroll: true,
       },
@@ -103,11 +113,11 @@ const preview = {
       },
       defaultTheme: "None",
     }),
-    (Story, { parameters }) => {      
+    (Story, { parameters }) => {
       init(Handlebars);
-      const { pageLayout, wrapperClasses} = parameters;
+      const { pageLayout, wrapperClasses } = parameters;
       switch (pageLayout) {
-        case 'with-wrapper':
+        case "with-wrapper":
           return `
             <div class="${wrapperClasses}">
               ${Story()}	
