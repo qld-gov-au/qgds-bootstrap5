@@ -44,6 +44,9 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(
       --#{$prefix}dark-link
     );
+    .breadcrumb-vertical > li > a {
+      --#{$prefix}breadcrumb-link-color: var(--#{$prefix}light-link);
+    }
   }
 
   &.expanded {
@@ -54,6 +57,7 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
 
   .breadcrumb-vertical > li {
     list-style: none;
+    width: 100%;
     &:after {
       display: none;
     }
@@ -62,10 +66,14 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
       text-decoration: none;
       padding: 0.75rem 1rem;
       display: block;
-
+      width: 100%;
       &:hover {
+        --#{$prefix}breadcrumb-vertical-item-hover-color: #ebebeb;
         text-decoration: underline;
-        text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
+        background-color: var(--#{$prefix}breadcrumb-vertical-item-hover-color);
       }
 
       &:focus {
