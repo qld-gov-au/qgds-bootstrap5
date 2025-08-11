@@ -1,50 +1,50 @@
 {
-	"default": {
-		"breadcrumbs": [
-			{
-				"link": "#",
-				"linktext": "Home"
-			},
-			{
-				"link": "#",
-				"linktext": "Level 2"
-			},
+  "default": {
+    "breadcrumbs": [
       {
-				"link": "#",
-				"linktext": "Level 3"
-			},
-			{
-				"link": "#",
-				"linktext": "Current page"
-			}
-		]
-	},
-	"forGov": {
-		"breadcrumbs": [
-			{
-				"link": "#",
-				"linktext": "For government"
-			},
-			{
-        "link": "https://www.forgov.qld.gov.au/information-technology",
-				"linktext": "Information and communication technology"
-			},
-			{
-				"link": "#",
-				"linktext": "Communication and publishing"
-			},
-			{
-				"link": "#",
-				"linktext": "Website and digital publishing"
-			},
-			{
-				"link": "#",
-				"linktext": "Website standards, guidelines and templates"
-			},
-			{
-				"link": "#",
-				"linktext": "Single Website Experience"
-			}
-		]
-	}
+        "link": "#",
+        "linktext": "Home"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 2"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 3"
+      },
+      {
+        "link": "#",
+        "linktext": "Current page"
+      }
+    ]
+  },
+  "forGov": {
+    "breadcrumbs": [
+      {
+        "link": "#",
+        "linktext": "For government"
+      },
+      {
+        "link": "#",
+        "linktext": "Information and communication technology"
+      },
+      {
+        "link": "#",
+        "linktext": "Communication and publishing"
+      },
+      {
+        "link": "#",
+        "linktext": "Website and digital publishing"
+      },
+      {
+        "link": "#",
+        "linktext": "Website standards, guidelines and templates"
+      },
+      {
+        "link": "#",
+        "linktext": "Single Website Experience"
+      }
+    ]
+  }
 }

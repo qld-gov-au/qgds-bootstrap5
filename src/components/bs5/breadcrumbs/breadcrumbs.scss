@@ -133,20 +133,29 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     transition: max-width 0s;
     padding: 0;
   }
+}
 
-  &.breadcrumb-toggle {
-    border: 0;
-    padding: 0;
-    vertical-align: inherit;
+.breadcrumb-toggle {
+  border: 0;
+  padding: 0;
+  vertical-align: inherit;
 
-    > a {
-      display: inline-block;
-      width: 32px;
-      line-height: 1.5rem;
-      background-image: var(--#{$prefix}breadcrumb-expander);
-      background-size: 2rem 2rem;
-      background-repeat: no-repeat;
-      background-position: center center;
+  > a {
+    display: inline-block;
+    width: 32px;
+    line-height: 1.5rem;
+
+    &:after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      mask-size: 100%;
+      content: " ";
+      mask-image: var(--#{$prefix}breadcrumb-expander);
+      background-color: var(--#{$prefix}breadcrumb-link-color);
+      mask-size: 2rem 2rem;
+      mask-repeat: no-repeat;
+      mask-position: center center;
     }
   }
 }

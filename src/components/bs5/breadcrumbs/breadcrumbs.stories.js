@@ -92,6 +92,12 @@ export const WithExpanderDefault = {
  * Breadcrumbs with expander (Dark)
  * */
 export const WithExpanderDark = {
+  parameters: {
+    backgrounds: {
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+    },
+  },
   args: {
     ...defaultdata.forGov,
     class: "dark",
