@@ -1,5 +1,6 @@
 import Handlebars from "handlebars";
 import template from "./containerLayout.hbs?raw";
+import gridExample from "./_gridExample.hbs?raw";
 
 //Mockup Data for each component
 import masterbrand_variant from "../header/header.variant.masterBrand.data.json";
@@ -76,6 +77,22 @@ export default {
  * Default story
  *
  */
-export const Default = {
+export const ExamplePageLayout = {
   args: {},
+};
+
+/**
+ * Bootstrap Containers Example
+ *
+ */
+export const ExampleContainers = {
+  args: {},
+  title: "6. Templates/Container Widths",
+  render: (args) => {
+    return new Handlebars.compile(gridExample)(args);
+  },
+  parameters: {
+    layout: "fullscreen",
+    chromatic: { disableSnapshot: true },
+  },
 };

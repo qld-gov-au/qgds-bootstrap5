@@ -24,3 +24,10 @@
     padding-right: var(--qld-container-padding-x-md);
   }
 }
+
+// Responsive containers
+@each $breakpoint, $container-max-width in $container-max-widths {
+  .container-#{$breakpoint} {
+    max-width: var(--qld-container-max-width);
+  }
+}
