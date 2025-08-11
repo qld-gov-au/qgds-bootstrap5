@@ -64,16 +64,15 @@ $form-check-input-checked-color-dark: #fff;
 $form-check-input-border-dark: 0.15em solid var(--#{$prefix}dark-alt-border);
 
 // RADIO CHECKED LIGHT
-$form-radio-bg-image: url("data:image/svg+xml,<svg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'><circle r='1.8' fill='#{$form-check-input-checked-color}'/></svg>");
-
+$form-radio-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'>  <path d='M16 1C24.2843 1 31 7.71573 31 16C31 24.2843 24.2843 31 16 31C7.71573 31 1 24.2843 1 16C1 7.71573 7.71573 1 16 1Z' stroke='#414141' stroke-width='2'/>  <circle cx='16' cy='16' r='11' fill='#{$form-check-input-checked-color}'/></svg>");
 // RADIO CHECKED DARK
-$form-radio-bg-image-dark: url("data:image/svg+xml,<svg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'><circle r='1.8' fill='#{$form-check-input-checked-color-dark}'/></svg>");
+$form-radio-bg-image-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'>  <g clip-path='url(#clip0_104873_276178)'>    <circle cx='16' cy='16' r='11' fill='white'/>    <circle cx='16' cy='16' r='15' stroke='white' stroke-width='2'/>  </g>  <path d='M16 1C24.2843 1 31 7.71573 31 16C31 24.2843 24.2843 31 16 31C7.71573 31 1 24.2843 1 16C1 7.71573 7.71573 1 16 1Z' stroke='#{$form-check-input-checked-color-dark}' stroke-width='2'/>  <defs>    <clipPath id='clip0_104873_276178'>      <path d='M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z' fill='#{$form-check-input-checked-color-dark}'/>    </clipPath>  </defs></svg>");
 
 // CHECKBOX CHECKED LIGHT
-$form-check-bg-image: url("data:image/svg+xml,<svg width='18' height='13' viewBox='0 0 18 13' fill='#{$form-check-input-checked-color}' xmlns='http://www.w3.org/2000/svg'><path d='M17.5547 0.445312C17.7891 0.679688 17.7891 1.10938 17.5547 1.34375L6.92969 11.9688C6.69531 12.2031 6.26562 12.2031 6.03125 11.9688L0.40625 6.34375C0.171875 6.10938 0.171875 5.67969 0.40625 5.44531C0.640625 5.21094 1.07031 5.21094 1.30469 5.44531L6.5 10.6406L16.6562 0.445312C16.8906 0.210938 17.3203 0.210938 17.5547 0.445312Z' /></svg>");
+$form-check-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='14' viewBox='0 0 18 14' fill='none'><path d='M6.5498 13.8L0.0498047 7.30002L2.2998 5.05002L6.5498 9.30002L15.6998 0.150024L17.9498 2.40002L6.5498 13.8Z' fill='#{$form-check-input-checked-color}'/></svg>");
 
 // CHECKBOX CHECKED DARK
-$form-check-bg-image-dark: url("data:image/svg+xml,<svg width='18' height='13' viewBox='0 0 18 13' fill='#{$form-check-input-checked-color-dark}' xmlns='http://www.w3.org/2000/svg'><path d='M17.5547 0.445312C17.7891 0.679688 17.7891 1.10938 17.5547 1.34375L6.92969 11.9688C6.69531 12.2031 6.26562 12.2031 6.03125 11.9688L0.40625 6.34375C0.171875 6.10938 0.171875 5.67969 0.40625 5.44531C0.640625 5.21094 1.07031 5.21094 1.30469 5.44531L6.5 10.6406L16.6562 0.445312C16.8906 0.210938 17.3203 0.210938 17.5547 0.445312Z' /></svg>");
+$form-check-bg-image-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='14' viewBox='0 0 18 14' fill='none'><path d='M6.5498 13.8L0.0498047 7.30002L2.2998 5.05002L6.5498 9.30002L15.6998 0.150024L17.9498 2.40002L6.5498 13.8Z' fill='#{$form-check-input-checked-color-dark}'/></svg>");
 
 // ESCAPE SVGs FOR ICONS
 $form-radio-button: #{escape-svg($form-radio-bg-image)};
@@ -101,7 +100,7 @@ $form-check-inline-margin-end: 1rem;
     &[type="radio"] {
       border-width: #{$form-check-input-border-width-small};
       &:checked {
-        background-size: 14px 14px;
+        background-size: 22px 22px;
       }
     }
   }
@@ -177,7 +176,7 @@ $form-check-inline-margin-end: 1rem;
     &:checked {
       background-color: transparent;
       background-image: #{$form-radio-button};
-      background-size: calc(2rem - 8px);
+      background-size: 2rem;
     }
   }
 
@@ -255,7 +254,7 @@ $form-check-inline-margin-end: 1rem;
       .form-check-input[type="radio"] {
         &:checked {
           background-color: transparent;
-          background-size: 14px 14px;
+          background-size: 22px 22px;
         }
       }
     }
