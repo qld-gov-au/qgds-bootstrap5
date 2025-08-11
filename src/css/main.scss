@@ -1,8 +1,22 @@
 // Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
 
 // External fonts
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600;900&display=swap');
-$font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600;900&display=swap");
+$font-family-sans-serif:
+  "Noto Sans",
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji" !default;
 $font-family-sitename: "Fira Sans";
 
 //Icons
@@ -10,13 +24,11 @@ $font-family-sitename: "Fira Sans";
 //TODO: should we pull from ../../node_modules/@fortawesome/fontawesome-free/css/all.css instead of cdn
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
-
 //Prefix to namespace design-system classes
 $prefix: "qld-";
 $enable-cssgrid: true;
 $color-mode-type: data;
 $enable-dark-mode: true;
-
 
 // 1. Include bootstraps functions and variables first (so they can be referenced by proceeding files)
 @import "../../node_modules/bootstrap/scss/functions";
@@ -116,9 +128,9 @@ $enable-dark-mode: true;
 @import "../components/bs5/typography/typography";
 @import "../components/bs5/video/video";
 
-
 // Common Layout Blocks, under review
 @import "../components/common/layout/content";
+@import "../components/common/layout/grid";
 
 // Themes
 @import "qld-theme";

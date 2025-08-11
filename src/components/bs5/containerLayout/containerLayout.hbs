@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  {{> head }}
+
+</head>
+
+<body>
+
+  <div class="{{wrapperClasses}} {{join debugClasses }}">
+
+    {{> globalAlert globalAlert }}
+    {{> header header}}
+    {{> navbar navbar}}
+    
+    <main id="content">
+
+        <!-- breadcrumbs-->
+        {{#if breadcrumbsData }}
+        <div class="container-fluid alt px-0">
+            <div class="container">
+              {{> breadcrumbs breadcrumbsData }}        
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Content Wrapper -->
+        <div class="container mt-40 mt-lg-64">
+          <div class="row">
+          
+          <!-- Side Navigation -->
+          {{#if sidenavData }}
+          <div class="col-12 col-lg-3 order-last order-lg-first mt-5 mt-lg-0">
+          {{> sidenav sidenavData }}
+          </div>
+          {{/if}}
+
+
+          <!-- Content body -->
+          <div class="col-12 col-lg-8">
+
+            <!-- Content has an additional 2rem padding-x -->  
+            <div class="qld-content-body px-32">
+
+              {{!-- Main content area --}}
+              <h1>{{title}}</h1>
+
+              {{#if abstract}}
+              <div class="qld-abstract">
+                {{{ abstract }}}
+              </div>
+              {{/if}}
+
+              {{> inpagenav inpageNavData }}
+
+              <h2 id="section-one">Section heading</h2>
+              <p>This is the main content inside the wrapper.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repudiandae nulla recusandae soluta officia possimus, nostrum nisi fuga laboriosam provident, est molestiae alias blanditiis explicabo consequuntur ullam expedita! Ab.</p>
+
+
+              <h3>Content heading</h3>
+              <p>This is the main content inside the wrapper.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>
+
+
+              <h2 id="section-two">Section heading</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>  
+
+
+              <section class="emphasis light">
+                <h2>Section heading (h2)</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>
+              </section>
+
+            </div><!-- // content-body -->
+          </div><!-- // content-body-column -->
+
+          </div>
+        </div>
+
+        <div class="container qld-content-footer">
+            {{> backToTop backToTop}}
+        </div>
+        
+    {{> footer footer}}
+
+  </div>
+
+  <style>
+
+  /* DEBUGGING helpers for storybook */
+  .debug-container .container,
+  .debug-container .container-fluid { 
+    background: rgba(255, 37, 37, 0.2) !important;
+  }
+
+  .debug-row .row { 
+    background: rgba(60, 180, 255, 0.2) !important; 
+  }
+
+  .debug-col .row > [class^="col"],
+  .debug-col .row > [class*=" col-"] {
+    background: rgba(12, 255, 20, 0.2) !important;
+    position: relative;
+  }
+
+  .debug-col .row > [class^="col"]:before,
+  .debug-col .row > [class*=" col-"]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    /* Simulates Bootstrap column padding */
+    width: calc(var(--qld-gutter-x) * 0.5);
+    background: #80808010;
+  }
+
+  .debug-col .row > [class^="col"]:after,
+  .debug-col .row > [class*=" col-"]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* Simulates Bootstrap column padding */
+    width: calc(var(--qld-gutter-x) * 0.5);
+    background: #80808010;
+  }
+
+  </style>
+
+</body>
+</html>
