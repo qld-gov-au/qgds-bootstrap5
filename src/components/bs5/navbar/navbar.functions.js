@@ -189,13 +189,26 @@ export function initializeNavbar() {
       document.querySelectorAll('.navbar .dropdown-menu').forEach(menu => {
         menu.classList.remove('show');
       });
-      document.querySelectorAll('.navbar .first-element').forEach(elem => {
-        elem.classList.remove('show');
-      });
+      // document.querySelectorAll('.navbar .first-element').forEach(elem => {
+      //   elem.classList.remove('show');
+      // });
       // Destroy all active Popper instances
+      // alert('Resetting navbar state');
+      document.querySelectorAll('.navbar a.dropdown-toggle').forEach(menu => {
+        menu.classList.add('no-dropdown-toggle');
+        menu.classList.remove('dropdown-toggle');        
+        menu.removeAttribute('data-bs-toggle');
+      });
       activePoppers.forEach(popperInstance => popperInstance.destroy());
       activePoppers = [];
       body.style.overflow = ''; // Reset body positioning
+    } else {
+      document.querySelectorAll('.navbar a.no-dropdown-toggle').forEach(menu => {
+        menu.classList.add('dropdown-toggle');
+        menu.classList.remove('no-dropdown-toggle');
+        menu.setAttribute('data-bs-toggle', 'dropdown');  
+        // menu.addAttribute('data-bs-toggle');
+      });
     }
   }
 

@@ -1,12 +1,16 @@
 <!-- QGDS Partial: Primary navigation -->
+{{#*inline "toggleButton"}}
+    <button class="dropdown-toggle second-element" role="button" aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
+        <span class="visually-hidden">Expand</span>
+    </button>
+{{/inline}}
 
 <!-- Primary Navigation / Desktop -->
-<nav id="main-nav" class="navbar navbar-expand-lg" aria-label="Website navigation" role="navigation">
+<nav id="main-nav" class="navbar navbar-expand-lg dark2" aria-label="Website navigation" role="navigation">
     <div class="container navbar-contain">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             {{!-- Header for mobile navigation --}}
-            <div class="navbar__header">
+            <div class="navbar__header dark22">
                 <h3 class="navbar__heading">Menu</h3>
                 <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -16,10 +20,8 @@
                 </button>
             </div>
             {{!-- End: Header for mobile navigation --}}
-
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item nav-item-home">
-
                     <a class="nav-link {{#if metadata.options.home-active}}nav-link-home-active{{/if}}" href="{{metadata.target_url}}">
                         <span class="qld-icon qld-icon-md qld-icon-home" aria-hidden="true"></span>
                         {{#if metadata.options.showHomeTitleSmallDevices}}
@@ -33,123 +35,58 @@
                     {{#if dropdown_enabled}}
                         <li class="nav-item dropdown">
                             <!-- Desktop primary dropdown style and behaviour -->
-                            <a class="nav-link dropdown-toggle {{!--desktop-only--}}" href="{{target_url}}" id="menuDropdown"
+                            <a class="nav-link dropdown-toggle" href="{{target_url}}"
                                 role="button" aria-controls="" data-bs-toggle="dropdown" aria-expanded="false"
                                 aria-label="Toggle navigation">
                                 {{title}}
-                                
-                                {{!-- add only for mobile --}}
-                                <button class="dropdown-toggle second-element" {{!-- remove or dynamic this -> </button>id="menuDropdown" --}} role="button" aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">
-                                    {{!-- change this span to a after --}}
-                                    <svg class="toggle_icon">
-                                        <use href="./?a=498603:assets/img/svg-icons.svg#qld__icon__chevron-down"></use>
-                                    </svg>
-                                    <span class="visually-hidden">Expand</span>
-                                </button>
-                                {{!-- end change --}}
-                                
-                                {{!-- change this span to a after --}}
-                                <span class="toggle_icon qld-icon qld-icon-xs qld-icon-chevron-down" aria-hidden="true"></span>
                             </a>
+                            {{> toggleButton}}
+
                             {{#if navigation_items}}
-                            <ul id="dropdown-menu" class="dropdown-menu" role="menu"
-                                data-bs-popper="none">
-                                <div class="row dropdown-menu__inner">
-                                    {{#if dropdown_options}}
-                                    <div class="col-12">
-                                        <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                            <span class="">{{dropdown_options.feature_link_value}}</span>
-                                            <span class="qld-icon qld-icon-md qld-icon-arrow-right" aria-hidden="true"></span>                                            
-                                        </a>
-                                        {{#if dropdown_options.feature_link_description}}
-                                        <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
-                                        {{/if}}
-                                        <hr>
-                                    </div>
-                                    {{/if}}
-                                    {{#each navigation_items}}
-                                    <li class="col-lg-4 col-sm-12">
-                                        <a href="{{target_url}}" class="dropdown-item">
-                                            <span class="dropdown-item__text">{{title}}</span>
-                                            <span class="qld-icon qld-icon-md qld-icon-arrow-right" aria-hidden="true"></span>
-                                        </a>
-                                        {{#if description}}
-                                        <p class="dropdown-item__description">{{description}}</p>
-                                        {{/if}}
-                                    </li>
-                                    {{/each }}
-                                    {{#if dropdown_options.view_value}}
-                                    <li class="col-12 text-end">
-                                        <hr>
-                                        <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
-                                            <span>
-                                                {{dropdown_options.view_value}}
-                                                <span class="qld-icon qld-icon-md qld-icon-arrow-right" aria-hidden="true"></span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    {{/if}}
-                                </div>
-                            </ul>
-                            {{/if}}
-                            <!-- Mobile only -->
-                            {{!-- <div class="nav-item-group mobile-only">
-
-                                <!-- Primary dropdown style and behaviour -->
-                                <a class="nav-link first-element" href="{{target_url}}">
-                                    {{title}}
-                                </a>
-
-                                <button class="dropdown-toggle second-element" id="menuDropdown" role="button" aria-controls=""
-                                    data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false"
-                                    aria-label="Toggle navigation">
-                                    <span class="toggle_icon qld-icon qld-icon-xs qld-icon-chevron-down" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Expand</span>
-                                </button>
-
-                                {{#if navigation_items}}
-                                <ul id="dropdown-menu" class="dropdown-menu" role="menu"
-                                    data-bs-popper="none">
+                                <ul id="dropdown-menu" class="dropdown-menu" role="menu" data-bs-popper="none">
                                     <div class="row dropdown-menu__inner">
                                         {{#if dropdown_options}}
-                                        <div class="col-12">
-                                            <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                                <span class="">{{dropdown_options.feature_link_value}}</span>
-                                                <span class="qld-icon qld-icon-md qld-icon-arrow-right" aria-hidden="true"></span>
-                                            </a>
-                                            {{#if dropdown_options.feature_link_description}}
-                                            <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}
-                                            </p>
-                                            {{/if}}
-                                            <hr>
-                                        </div>
+                                            <div class="col-12">
+                                                <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
+                                                    {{!-- <span class=""> --}}
+                                                        {{dropdown_options.feature_link_value}}
+                                                    {{!-- </span> --}}
+                                                </a>
+                                                {{#if dropdown_options.feature_link_description}}
+                                                    <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
+                                                {{/if}}
+                                                {{!-- <hr> --}}
+                                            </div>
                                         {{/if}}
-                                        {{#each navigation_items}}
-                                        <li class="col-lg-4 col-sm-12">
-                                            <a href="{{target_url}}" class="dropdown-item">
-                                                {{title}}
-                                                <span class="qld-icon qld-icon-md qld-icon-arrow-right" aria-hidden="true"></span>
-                                            </a>
-                                            {{#if description}}
-                                            <p class="dropdown-item__description">{{description}}</p>
-                                            {{/if}}
-                                        </li>
+                                        
+                                        {{!-- Add the Link Columns here --}}
+                                        {{!-- START --}}
+                                        {{#each navigation_items}}                        
+                                            <li class="col-lg-4 col-sm-12">
+                                                <a href="{{target_url}}" class="dropdown-item">
+                                                    {{!-- <span class="dropdown-item__text"> --}} 
+                                                        {{title}} 
+                                                    {{!-- </span> --}}                    
+                                                </a>
+                                                {{#if description}}
+                                                    <p class="dropdown-item__description">{{description}}</p>
+                                                {{/if}}
+                                            </li>
                                         {{/each }}
                                         {{#if dropdown_options.view_value}}
-                                        <li class="col-12 text-end">
-                                            <hr>
-                                            <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
-                                                <span>
-                                                    {{dropdown_options.view_value}}
-                                                    <span class="qld-icon qld-icon-md qld-icon-arrow-right" aria-hidden="true"></span>
-                                                </span>
-                                            </a>
-                                        </li>
+                                            <li class="col-12 text-end">
+                                                {{!-- <hr> --}}
+                                                <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
+                                                    {{!-- <span> --}}
+                                                        {{dropdown_options.view_value}}                                              
+                                                    {{!-- </span> --}}
+                                                </a>
+                                            </li>
                                         {{/if}}
+                                        {{!-- END --}}
                                     </div>
                                 </ul>
-                                {{/if}}
-                            </div> --}}
+                            {{/if}}
                         </li>
                     {{else}}
                         <li class="nav-item">
@@ -157,22 +94,16 @@
                         </li>
                     {{/if}}
                 {{/each }}
-                {{#each CTA}}
-                    <li class="nav-item dropdown CTA_feature">
-                        <!-- Mobile only -->
-                        <div class="nav-item-group mobile-only">
+                {{#each CTA ~}}
+                    
 
+                    <li class="nav-item dropdown CTA_feature"> <!--CTA_feature -->
+                        {{!-- <div class="nav-item-group"> --}}
                             <!-- Primary dropdown style and behaviour -->
-                            <a class="nav-link first-element" href="{{target_url}}">
+                            <a class="nav-link dropdown-toggle2" href="{{target_url}}">
                                 {{{label}}}
                             </a>
-
-                            <button class="dropdown-toggle second-element" id="menuDropdown-{{id}}" role="button"
-                                aria-controls="" data-bs-toggle="dropdown" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span class="toggle_icon qld-icon qld-icon-xs qld-icon-chevron-down"></span>
-                                <span class="visually-hidden">Expand</span>
-                            </button>
+                            {{> toggleButton}}
 
                             {{#if dropdown_enabled}}
                             <ul id="dropdown-menu-{{id}}" class="dropdown-menu"
@@ -181,11 +112,7 @@
                                     {{#if dropdown_options.dropdown_config.groups}}
                                         <div class="col-12">
                                             <a class="dropdown-menu__featured" href="{{dropdown_options.view_more_url}}">
-                                                <span class="">{{dropdown_options.view_more_label}}</span>
-                                                <svg class="chevron__icon">
-                                                    <use href="{{@root.icon-root}}#qld__icon__arrow-right">
-                                                    </use>
-                                                </svg>
+                                                <span class="">{{dropdown_options.view_more_label}}</span>                                                
                                             </a>
                                             <hr>
                                         </div>
@@ -194,10 +121,6 @@
                                                 <li class="col-lg-4 col-sm-12">
                                                     <a href="{{url}}" class="dropdown-item" target="{{action}}">
                                                         {{label}}
-                                                        <svg class="chevron__icon">
-                                                            <use href="{{@root.icon-root}}#qld__icon__arrow-right">
-                                                            </use>
-                                                        </svg>
                                                     </a>
                                                 </li>
                                             {{/isType}}
@@ -213,13 +136,9 @@
                                             <a class="dropdown-menu__view_all"
                                                 href="{{dropdown_options.dropdown_config.view_more_options.url}}"
                                                 target="{{dropdown_options.dropdown_config.view_more_options.target}}">
-                                                <span>
+                                                {{!-- <span> --}}
                                                     {{dropdown_options.dropdown_config.view_more_options.label}}
-                                                    <svg class="chevron__icon">
-                                                        <use href="{{@root.icon-root}}#qld__icon__arrow-right">
-                                                        </use>
-                                                    </svg>
-                                                </span>
+                                                {{!-- </span> --}}
                                             </a>
                                         </li>
                                         {{/if}}
@@ -227,9 +146,9 @@
                                 </div>
                             </ul>
                             {{/if}}
-                        </div>
+                        {{!-- </div> --}}
                     </li>
-                {{/each}}
+                {{~/each}}
             </ul>
         </div>
         <div id="overlay" class="navbar__overlay" aria-controls="main-nav"></div>
