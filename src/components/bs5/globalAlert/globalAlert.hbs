@@ -2,8 +2,8 @@
 
 <div class="global-alert-include">
   {{#each alertItems}}
-  <section class="global-alert {{variant}}" data-variant="{{variant}}"{{#if expiry}} data-expiry="{{expiry}}"{{/if}}>
-      <div class="qld-global-alert-main">
+  <section class="global-alert d-none {{variant}}" data-variant="{{variant}}"{{#if id}} data-id="{{id}}"{{/if}}{{#if expiry}} data-expiry="{{expiry}}"{{/if}}>
+      <div class="qld-global-alert-main container-full">
         <div class="global-alert-icon">
             {{#ifCond variant '==' 'global-alert-critical'}}
               {{> icon size="sm" ariaLabel="Critical alert" iconId="alert-danger"}}

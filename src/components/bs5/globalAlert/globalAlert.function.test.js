@@ -36,26 +36,36 @@ handlebarsInit(Handlebars);
 describe("initGlobalAlerts", () => {
   let dom, d, window, localStorage;
 
-  // Create test data with expiry attributes for testing
+  // Create test data with ID and expiry attributes for testing
   const testMockData = {
     alertItems: [
       {
         ...mockData.info.alertItems[0],
+        id: "test-alert-with-expiry",
         expiry: "7",
       },
       {
         ...mockData.warning.alertItems[0],
+        id: "test-warning-alert",
         expiry: "30",
       },
       {
         ...mockData.info.alertItems[0],
+        id: "test-no-expiry-alert",
         content: "No expiry alert",
         expiry: "0",
       },
       {
         ...mockData.info.alertItems[0],
+        id: "test-default-alert",
         content: "Default alert",
         // No expiry attribute
+      },
+      {
+        ...mockData.info.alertItems[0],
+        content: "Alert without ID - should not use localStorage",
+        expiry: "7",
+        // No ID attribute - should not save to localStorage
       },
     ],
   };
@@ -168,10 +178,10 @@ describe("initGlobalAlerts", () => {
     expect(alertWithoutVariant.classList.contains("d-none")).toBe(false);
   });
 
-  test("Alert is hidden if previously dismissed and stored in localStorage", () => {
+  test("Alert is hidden if previously dismissed and stored in localStorage using ID", () => {
     const expiry = new Date().getTime() + 24 * 60 * 60 * 1000;
     localStorage.setItem(
-      "dismissedAlert-global-alert-info",
+      "dismissedAlert-test-alert-with-expiry",
       JSON.stringify({
         value: true,
         expiry: expiry,
@@ -180,14 +190,14 @@ describe("initGlobalAlerts", () => {
 
     initGlobalAlerts();
 
-    const infoAlert = d.querySelector('[data-variant="global-alert-info"]');
+    const infoAlert = d.querySelector('[data-id="test-alert-with-expiry"]');
     expect(infoAlert.classList.contains("d-none")).toBe(true);
   });
 
   test("Alert shows if localStorage entry has expired", () => {
     const expiry = new Date().getTime() - 1000;
     localStorage.setItem(
-      "dismissedAlert-global-alert-info",
+      "dismissedAlert-test-alert-with-expiry",
       JSON.stringify({
         value: true,
         expiry: expiry,
@@ -196,28 +206,28 @@ describe("initGlobalAlerts", () => {
 
     initGlobalAlerts();
 
-    const infoAlert = d.querySelector('[data-variant="global-alert-info"]');
+    const infoAlert = d.querySelector('[data-id="test-alert-with-expiry"]');
     expect(infoAlert.classList.contains("d-none")).toBe(false);
-    expect(localStorage.getItem("dismissedAlert-global-alert-info")).toBeNull();
+    expect(localStorage.getItem("dismissedAlert-test-alert-with-expiry")).toBeNull();
   });
 
   test("Handles corrupted localStorage data gracefully", () => {
     localStorage.setItem(
-      "dismissedAlert-global-alert-info",
+      "dismissedAlert-test-alert-with-expiry",
       "corrupted-json-data",
     );
 
     initGlobalAlerts();
 
-    const infoAlert = d.querySelector('[data-variant="global-alert-info"]');
+    const infoAlert = d.querySelector('[data-id="test-alert-with-expiry"]');
     expect(infoAlert.classList.contains("d-none")).toBe(false);
-    expect(localStorage.getItem("dismissedAlert-global-alert-info")).toBeNull();
+    expect(localStorage.getItem("dismissedAlert-test-alert-with-expiry")).toBeNull();
   });
 
-  test("Alert hides and saves to localStorage when btn-closed event is fired", () => {
+  test("Alert hides and saves to localStorage when btn-closed event is fired with ID", () => {
     initGlobalAlerts();
 
-    const infoAlert = d.querySelector('[data-variant="global-alert-info"]');
+    const infoAlert = d.querySelector('[data-id="test-alert-with-expiry"]');
     const event = new window.CustomEvent("btn-closed");
 
     infoAlert.dispatchEvent(event);
@@ -225,7 +235,7 @@ describe("initGlobalAlerts", () => {
     expect(infoAlert.classList.contains("d-none")).toBe(true);
 
     const storedData = JSON.parse(
-      localStorage.getItem("dismissedAlert-global-alert-info"),
+      localStorage.getItem("dismissedAlert-test-alert-with-expiry"),
     );
     expect(storedData).toBeTruthy();
     expect(storedData.value).toBe(true);
@@ -235,32 +245,32 @@ describe("initGlobalAlerts", () => {
   test("Alert does not save to localStorage when expiry is 0", () => {
     initGlobalAlerts();
 
-    const noExpiryAlert = d.querySelector('[data-expiry="0"]');
+    const noExpiryAlert = d.querySelector('[data-id="test-no-expiry-alert"]');
     const event = new window.CustomEvent("btn-closed");
 
     noExpiryAlert.dispatchEvent(event);
 
     expect(noExpiryAlert.classList.contains("d-none")).toBe(true);
-    expect(localStorage.getItem("dismissedAlert-global-alert-info")).toBeNull();
+    expect(localStorage.getItem("dismissedAlert-test-no-expiry-alert")).toBeNull();
   });
 
   test("Alert does not save to localStorage when expiry is missing", () => {
     initGlobalAlerts();
 
-    const defaultAlert = d.querySelector(".global-alert:not([data-expiry])");
+    const defaultAlert = d.querySelector('[data-id="test-default-alert"]');
     const event = new window.CustomEvent("btn-closed");
 
     defaultAlert.dispatchEvent(event);
 
     expect(defaultAlert.classList.contains("d-none")).toBe(true);
-    expect(localStorage.getItem("dismissedAlert-global-alert-info")).toBeNull();
+    expect(localStorage.getItem("dismissedAlert-test-default-alert")).toBeNull();
   });
 
   test("Alert calculates correct expiry time based on data-expiry attribute", () => {
     initGlobalAlerts();
 
     const warningAlert = d.querySelector(
-      '[data-variant="global-alert-warning"]',
+      '[data-id="test-warning-alert"]',
     );
     const beforeTime = new Date().getTime();
 
@@ -269,7 +279,7 @@ describe("initGlobalAlerts", () => {
 
     const afterTime = new Date().getTime();
     const storedData = JSON.parse(
-      localStorage.getItem("dismissedAlert-global-alert-warning"),
+      localStorage.getItem("dismissedAlert-test-warning-alert"),
     );
 
     const expectedExpiry = 30 * 24 * 60 * 60 * 1000;
@@ -291,7 +301,7 @@ describe("initGlobalAlerts", () => {
 
   test("Handles localStorage without expiry property", () => {
     localStorage.setItem(
-      "dismissedAlert-global-alert-info",
+      "dismissedAlert-test-alert-with-expiry",
       JSON.stringify({
         value: true,
       }),
@@ -299,13 +309,13 @@ describe("initGlobalAlerts", () => {
 
     initGlobalAlerts();
 
-    const infoAlert = d.querySelector('[data-variant="global-alert-info"]');
+    const infoAlert = d.querySelector('[data-id="test-alert-with-expiry"]');
     // Alert will be hidden because the current function treats localStorage entries without expiry as valid
     // This is actually a bug in the function - it should check if expiry exists
     expect(infoAlert.classList.contains("d-none")).toBe(true);
     // localStorage entry will remain because the function doesn't validate expiry properly
     expect(
-      localStorage.getItem("dismissedAlert-global-alert-info"),
+      localStorage.getItem("dismissedAlert-test-alert-with-expiry"),
     ).not.toBeNull();
   });
 
@@ -313,6 +323,7 @@ describe("initGlobalAlerts", () => {
     const invalidExpiryAlert = d.createElement("div");
     invalidExpiryAlert.className = "global-alert";
     invalidExpiryAlert.setAttribute("data-variant", "invalid");
+    invalidExpiryAlert.setAttribute("data-id", "invalid-expiry-test");
     invalidExpiryAlert.setAttribute("data-expiry", "not-a-number");
     invalidExpiryAlert.innerHTML =
       '<div class="qld-global-alert-main">Invalid expiry</div>';
@@ -324,6 +335,25 @@ describe("initGlobalAlerts", () => {
     invalidExpiryAlert.dispatchEvent(event);
 
     expect(invalidExpiryAlert.classList.contains("d-none")).toBe(true);
-    expect(localStorage.getItem("dismissedAlert-invalid")).toBeNull();
+    expect(localStorage.getItem("dismissedAlert-invalid-expiry-test")).toBeNull();
+  });
+
+  test("Alert without ID does not save to localStorage even with valid expiry", () => {
+    // Create a test alert without ID
+    const testAlert = d.createElement("div");
+    testAlert.className = "global-alert";
+    testAlert.setAttribute("data-variant", "global-alert-info");
+    testAlert.setAttribute("data-expiry", "7");
+    testAlert.innerHTML = '<div class="qld-global-alert-main">Alert without ID</div>';
+    d.body.appendChild(testAlert);
+    
+    initGlobalAlerts();
+    
+    const event = new window.CustomEvent("btn-closed");
+    testAlert.dispatchEvent(event);
+
+    expect(testAlert.classList.contains("d-none")).toBe(true);
+    // Should not save to localStorage because there's no ID
+    expect(localStorage.length).toBe(0);
   });
 });

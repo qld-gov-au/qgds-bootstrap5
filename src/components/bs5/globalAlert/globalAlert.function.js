@@ -2,23 +2,26 @@ export function initGlobalAlerts() {
   const globalAlerts = document.querySelectorAll(".global-alert");
 
   globalAlerts.forEach((alert) => {
-    const variant = alert.getAttribute("data-variant") || "default";
-    const dismissedAlert = getLocalStorageWithExpiry(
-      `dismissedAlert-${variant}`,
-    );
+    const id = alert.getAttribute("data-id");
 
-    if (dismissedAlert) {
-      alert.classList.add("d-none");
+    // Only check localStorage if there's an ID
+    if (id) {
+      const dismissedAlert = getLocalStorageWithExpiry(`dismissedAlert-${id}`);
+      if (!dismissedAlert) {
+        alert.classList.remove("d-none");
+      }
+    } else {
+      alert.classList.remove("d-none");
     }
-
-    alert.classList.add("alert");
-    alert.querySelector(".qld-global-alert-main").classList.add("container");
 
     alert.addEventListener("btn-closed", () => {
       const expiry = parseInt(alert.getAttribute("data-expiry"), 10);
-      if (expiry && expiry > 0) {
-        setLocalStorageWithExpiry(`dismissedAlert-${variant}`, true, expiry);
+
+      // Only save to localStorage if both ID and valid expiry exist
+      if (id && expiry && expiry > 0) {
+        setLocalStorageWithExpiry(`dismissedAlert-${id}`, true, expiry);
       }
+
       alert.classList.add("d-none");
     });
   });

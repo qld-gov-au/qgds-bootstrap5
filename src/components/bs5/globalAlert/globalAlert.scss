@@ -1,187 +1,187 @@
 .global-alert {
-    line-height: 1.25rem;
+  line-height: 1.25rem;
 
-    .qld-global-alert-main {
-        display: flex;
-        column-gap: 1rem;
-        align-items: center;
-        padding: 1.375rem 2rem 1.375rem 4rem;
-        width: 100%;
-        margin-inline: auto;
-        box-sizing: border-box;
+  .qld-global-alert-main {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    padding: 1.375rem 2rem 1.375rem 4rem;
+    width: 100%;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  .global-alert-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .global-alert-content {
+    column-gap: 1rem;
+    flex-grow: 1;
+
+    // Link styling placed outside the 'action link', to include all links within the content as well.
+    a,
+    a:visited {
+      color: inherit;
+      text-decoration-color: inherit;
+      text-underline-offset: 0.15rem;
     }
 
-    .global-alert-icon {
+    // Action link styling
+    .global-alert-action a {
+      display: flex;
+      column-gap: 0.5rem;
+      align-items: center;
+      font-weight: 600;
+      text-wrap: nowrap;
+
+      // icon styling for action link
+      &:after {
+        content: "";
+        display: inline-block;
+        flex-shrink: 0;
+        background-color: var(--#{$prefix}body-color);
         width: 1.25rem;
         height: 1.25rem;
+        mask-image: var(--qgds-icon-arrow-right);
+        mask-position: center center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+      }
+    }
+  }
+
+  .global-alert-close {
+    display: inline-flex;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    align-items: center;
+
+    .btn-close {
+      background-color: rgba(19, 18, 18, 0.1);
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      background-image: none; // Overriding default Bootstrap close icon
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      padding: 0;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 1.25rem;
+        height: 1.25rem;
+        background-color: white;
+        mask-image: var(--qgds-icon-close);
+        -webkit-mask-image: var(--qgds-icon-close);
+        mask-position: center center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+      }
+    }
+  }
+
+  &.global-alert-critical {
+    background-color: $qld-notify-warning;
+    color: var(--#{$prefix}white);
+    font-size: 0.875em;
+
+    .global-alert-action a {
+      color: var(--#{$prefix}white);
+      text-decoration-color: var(--#{$prefix}white);
+
+      &:after {
+        background-color: var(--#{$prefix}white);
+      }
+    }
+    & + & {
+      border-top: 1px solid $qld-red-border;
+    }
+  }
+  &.global-alert-warning {
+    background-color: $qld-notify-alert;
+    color: var(--#{$prefix}body-color);
+    font-size: 0.875em;
+
+    .global-alert-action a {
+      color: var(--#{$prefix}body-color);
+      text-decoration-color: var(--#{$prefix}body-color);
+    }
+    & + & {
+      border-top: 1px solid $qld-yellow-border;
+    }
+  }
+  &.global-alert-info {
+    background-color: $qld-general-info-alert;
+    color: var(--#{$prefix}body-color);
+    font-size: 0.875em;
+
+    .global-alert-action a {
+      color: var(--#{$prefix}body-color);
+      text-decoration-color: var(--#{$prefix}body-color);
+    }
+    & + & {
+      border-top: 1px solid $qld-blue-border;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .global-alert {
+    .global-alert-content {
+      display: flex;
+      align-items: center;
     }
 
-    .global-alert-content {
-        column-gap: 1rem;
-        flex-grow: 1;
+    &.global-alert-message {
+      padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px, according to Health DS
+    }
 
-        // Link styling placed outside the 'action link', to include all links within the content as well.
-        a, a:visited {
-            color: inherit;
-            text-decoration-color: inherit;
-            text-underline-offset: 0.15rem;
-        }
+    &.global-alert-action {
+      flex-shrink: 0; //  Prevent action link from shrinking/collapsing
+      margin-left: 2rem;
+    }
+  }
+}
 
-        // Action link styling
-        .global-alert-action a {
-            display: flex;
-            column-gap: 0.5rem;
-            align-items: center;
-            font-weight: 600;
-            text-wrap: nowrap;
-
-            // icon styling for action link
-            &:after {
-                content: "";
-                display: inline-block;
-                flex-shrink: 0;
-                background-color: var(--#{$prefix}body-color);
-                width: 1.25rem;
-                height: 1.25rem;
-                mask-image: var(--qgds-icon-arrow-right);
-                mask-position: center center;
-                mask-repeat: no-repeat;
-                mask-size: contain;
-            }
-        }
+@include media-breakpoint-up(lg) {
+  .global-alert {
+    .qld-global-alert-main {
+      // Padding requires 64px in space between alert icon and left border; minus (24px(1.5rem) gutter + 16px padding) = 24px (1.5rem)
+      // padding-left: 1.5rem;
+      padding: 1.375rem 2.188rem 1.375rem 4rem;
     }
 
     .global-alert-close {
-        display: inline-flex;
-        justify-content: center;
-        flex-shrink: 0;
-        box-sizing: border-box;
-        align-items: center;
+      .btn-close {
+        width: 2.5rem;
+        height: 2.5rem;
 
-        .btn-close {
-            background-color: rgba(19, 18, 18, 0.1);
-            border-radius: 50%;
-            width: 2rem;
-            height: 2rem;
-            background-image: none;   // Overriding default Bootstrap close icon
-            display: flex;        
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            padding: 0;
-
-            &::before {
-                content: "";
-                display: block;
-                width: 1.25rem;
-                height: 1.25rem;
-                background-color: white;
-                mask-image: var(--qgds-icon-close);
-                -webkit-mask-image: var(--qgds-icon-close);
-                mask-position: center center;
-                mask-repeat: no-repeat;
-                mask-size: contain;
-            }
+        &::before {
+          width: 1.5rem;
+          height: 1.5rem;
         }
+      }
     }
-    
 
     &.global-alert-critical {
-        background-color: $qld-notify-warning;
-        color: var(--#{$prefix}white);
-        font-size: 0.875em;
-
-        .global-alert-action a {
-            color: var(--#{$prefix}white);
-            text-decoration-color: var(--#{$prefix}white);
-
-            &:after {
-                background-color: var(--#{$prefix}white);
-            }
-        }
-        & + & {
-            border-top: 1px solid $qld-red-border;
-        }
+      border-top: 1px solid
+        var(--#{$prefix}core-default-color-status-error-darker);
     }
+
     &.global-alert-warning {
-        background-color: $qld-notify-alert;
-        color: var(--#{$prefix}body-color);
-        font-size: 0.875em;
-
-        .global-alert-action a {
-            color: var(--#{$prefix}body-color);
-            text-decoration-color: var(--#{$prefix}body-color);
-        }
-        & + & {
-            border-top: 1px solid $qld-yellow-border;
-        }
+      border-top: 1px solid
+        var(--#{$prefix}core-default-color-status-caution-darker);
     }
+
     &.global-alert-info {
-        background-color: $qld-general-info-alert;
-        color: var(--#{$prefix}body-color);
-        font-size: 0.875em;
-
-        .global-alert-action a {
-            color: var(--#{$prefix}body-color);
-            text-decoration-color: var(--#{$prefix}body-color);
-        }
-        & + & {
-            border-top: 1px solid $qld-blue-border;
-        }
+      border-top: 1px solid
+        var(--#{$prefix}core-default-color-status-info-darker);
     }
-}
-
-
-@include media-breakpoint-up(md) {    
-    .global-alert {
-        .global-alert-content {
-            display: flex;
-            align-items: center;
-        }
-
-        &.global-alert-message {
-            padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px, according to Health DS
-        }
-
-        &.global-alert-action {
-            flex-shrink: 0; //  Prevent action link from shrinking/collapsing
-            margin-left: 2rem;
-        }
-    }
-}
-
-
-@include media-breakpoint-up(lg) {
-    .global-alert {
-        .qld-global-alert-main {
-            // Padding requires 64px in space between alert icon and left border; minus (24px(1.5rem) gutter + 16px padding) = 24px (1.5rem)
-            // padding-left: 1.5rem;
-            padding: 1.375rem 2.188rem 1.375rem 4rem;
-        }
-
-        .global-alert-close {
-            .btn-close {
-                width: 2.5rem;
-                height: 2.5rem;
-
-                &::before {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                }
-            }
-        }
-
-        &.global-alert-critical {
-            border-top: 1px solid var(--#{$prefix}core-default-color-status-error-darker);
-        }
-
-        &.global-alert-warning {
-            border-top: 1px solid var(--#{$prefix}core-default-color-status-caution-darker);
-        }
-
-        &.global-alert-info {
-            border-top: 1px solid var(--#{$prefix}core-default-color-status-info-darker);
-        }
-
-    }
+  }
 }
