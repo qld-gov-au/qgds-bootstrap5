@@ -3,29 +3,29 @@
 <div class="global-alert-include">
   {{#each alertItems}}
   <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"{{#if id}} data-id="{{id}}"{{/if}}{{#if expiryDays}} data-expiry-days="{{expiryDays}}"{{/if}}{{#ifCond variant '==' 'global-alert-critical'}} aria-label="Critical"{{else ifCond variant '==' 'global-alert-warning'}} aria-label="Warning"{{else ifCond variant '==' 'global-alert-info'}} aria-label="Information"{{/ifCond}}>
-      <div class="qld-global-alert-main">
-        <div class="global-alert-icon">
-            {{#ifCond variant '==' 'global-alert-critical'}}
-              {{> icon size="sm" ariaHidden="true" iconId="alert-danger"}}
-            {{else ifCond variant '==' 'global-alert-info'}}
-              {{> icon size="sm" ariaHidden="true" iconId="alert-information"}}
-            {{else ifCond variant '==' 'global-alert-warning'}}
-              {{> icon size="sm" ariaHidden="true" iconId="alert-warning"}}
-            {{/ifCond}}
-        </div>
+    <div class="qld-global-alert-main">
+      <div class="global-alert-icon">
+        {{#ifCond variant '==' 'global-alert-critical'}}
+          {{> icon size="sm" ariaHidden="true" iconId="alert-danger"}}
+        {{else ifCond variant '==' 'global-alert-info'}}
+          {{> icon size="sm" ariaHidden="true" iconId="alert-information"}}
+        {{else ifCond variant '==' 'global-alert-warning'}}
+          {{> icon size="sm" ariaHidden="true" iconId="alert-warning"}}
+        {{/ifCond}}
+      </div>
 
-        <div class="global-alert-content">
-          <div class="global-alert-message">
-            {{{content}}}
-          </div>
-          <div class="global-alert-action">
-            {{{action}}}
-          </div>
+      <div class="global-alert-content">
+        <div class="global-alert-message">
+          {{{content}}}
         </div>
-        <div class="global-alert-close">
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="global-alert-action">
+          {{{action}}}
         </div>
       </div>
+      <div class="global-alert-close">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
   </section>
   {{/each }}
 </div>
