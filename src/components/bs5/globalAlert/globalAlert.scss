@@ -59,6 +59,9 @@
     align-items: center;
 
     .btn-close {
+      position: relative;
+      top: 0;
+      right: 0;
       background-color: rgba(19, 18, 18, 0.1);
       border-radius: 50%;
       width: 2rem;
@@ -150,12 +153,6 @@
 
 @include media-breakpoint-up(lg) {
   .global-alert {
-    .qld-global-alert-main {
-      // Padding requires 64px in space between alert icon and left border; minus (24px(1.5rem) gutter + 16px padding) = 24px (1.5rem)
-      // padding-left: 1.5rem;
-      padding: 1.375rem 2.188rem 1.375rem 4rem;
-    }
-
     .global-alert-close {
       .btn-close {
         width: 2.5rem;
