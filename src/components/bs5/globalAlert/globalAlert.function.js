@@ -14,7 +14,8 @@ export function initGlobalAlerts() {
       alert.classList.remove("d-none");
     }
 
-    alert.addEventListener("btn-closed", () => {
+    // Handle both Bootstrap alert close event and custom btn-closed event
+    const handleAlertClose = () => {
       const expiryDays = parseInt(alert.getAttribute("data-expiry-days"), 10);
 
       // Only save to localStorage if both ID and valid expiry exist
@@ -23,7 +24,13 @@ export function initGlobalAlerts() {
       }
 
       alert.classList.add("d-none");
-    });
+    };
+
+    // Listen for Bootstrap's close event (for Storybook compatibility)
+    alert.addEventListener("closed.bs.alert", handleAlertClose);
+
+    // Listen for custom btn-closed event (for existing functionality)
+    alert.addEventListener("btn-closed", handleAlertClose);
   });
 
   // basic set local storage function
