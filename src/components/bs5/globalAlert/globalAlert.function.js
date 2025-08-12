@@ -15,11 +15,11 @@ export function initGlobalAlerts() {
     }
 
     alert.addEventListener("btn-closed", () => {
-      const expiry = parseInt(alert.getAttribute("data-expiry"), 10);
+      const expiryDays = parseInt(alert.getAttribute("data-expiry-days"), 10);
 
       // Only save to localStorage if both ID and valid expiry exist
-      if (id && expiry && expiry > 0) {
-        setLocalStorageWithExpiry(`dismissedAlert-${id}`, true, expiry);
+      if (id && expiryDays && expiryDays > 0) {
+        setLocalStorageWithExpiry(`dismissedAlert-${id}`, true, expiryDays);
       }
 
       alert.classList.add("d-none");
@@ -27,9 +27,9 @@ export function initGlobalAlerts() {
   });
 
   // basic set local storage function
-  function setLocalStorageWithExpiry(key, value, exdays) {
+  function setLocalStorageWithExpiry(key, value, expiryDays) {
     const d = new Date();
-    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+    d.setTime(d.getTime() + expiryDays * 24 * 60 * 60 * 1000);
     const item = {
       value: value,
       expiry: d.getTime(),

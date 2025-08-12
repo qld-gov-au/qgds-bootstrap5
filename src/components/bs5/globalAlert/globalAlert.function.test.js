@@ -36,35 +36,36 @@ handlebarsInit(Handlebars);
 describe("initGlobalAlerts", () => {
   let dom, d, window, localStorage;
 
-  // Create test data with ID and expiry attributes for testing
+  // Create test data with ID and expiryDays attributes for testing
   const testMockData = {
     alertItems: [
       {
         ...mockData.info.alertItems[0],
         id: "test-alert-with-expiry",
-        expiry: "7",
+        expiryDays: "7",
       },
       {
         ...mockData.warning.alertItems[0],
         id: "test-warning-alert",
-        expiry: "30",
+        expiryDays: "30",
       },
       {
         ...mockData.info.alertItems[0],
         id: "test-no-expiry-alert",
         content: "No expiry alert",
-        expiry: "0",
+        expiryDays: "0",
       },
       {
-        ...mockData.info.alertItems[0],
+        variant: mockData.info.alertItems[0].variant,
         id: "test-default-alert",
         content: "Default alert",
-        // No expiry attribute
+        action: mockData.info.alertItems[0].action,
+        // No expiryDays attribute
       },
       {
         ...mockData.info.alertItems[0],
         content: "Alert without ID - should not use localStorage",
-        expiry: "7",
+        expiryDays: "7",
         // No ID attribute - should not save to localStorage
       },
     ],
@@ -242,7 +243,7 @@ describe("initGlobalAlerts", () => {
     expect(storedData.expiry).toBeGreaterThan(new Date().getTime());
   });
 
-  test("Alert does not save to localStorage when expiry is 0", () => {
+  test("Alert does not save to localStorage when expiryDays is 0", () => {
     initGlobalAlerts();
 
     const noExpiryAlert = d.querySelector('[data-id="test-no-expiry-alert"]');
@@ -254,7 +255,7 @@ describe("initGlobalAlerts", () => {
     expect(localStorage.getItem("dismissedAlert-test-no-expiry-alert")).toBeNull();
   });
 
-  test("Alert does not save to localStorage when expiry is missing", () => {
+  test("Alert does not save to localStorage when expiryDays is missing", () => {
     initGlobalAlerts();
 
     const defaultAlert = d.querySelector('[data-id="test-default-alert"]');
@@ -266,7 +267,7 @@ describe("initGlobalAlerts", () => {
     expect(localStorage.getItem("dismissedAlert-test-default-alert")).toBeNull();
   });
 
-  test("Alert calculates correct expiry time based on data-expiry attribute", () => {
+  test("Alert calculates correct expiry time based on data-expiry-days attribute", () => {
     initGlobalAlerts();
 
     const warningAlert = d.querySelector(
@@ -319,12 +320,12 @@ describe("initGlobalAlerts", () => {
     ).not.toBeNull();
   });
 
-  test("Handles non-numeric expiry values", () => {
+  test("Handles non-numeric expiryDays values", () => {
     const invalidExpiryAlert = d.createElement("div");
     invalidExpiryAlert.className = "global-alert";
     invalidExpiryAlert.setAttribute("data-variant", "invalid");
     invalidExpiryAlert.setAttribute("data-id", "invalid-expiry-test");
-    invalidExpiryAlert.setAttribute("data-expiry", "not-a-number");
+    invalidExpiryAlert.setAttribute("data-expiry-days", "not-a-number");
     invalidExpiryAlert.innerHTML =
       '<div class="qld-global-alert-main">Invalid expiry</div>';
     d.body.appendChild(invalidExpiryAlert);
@@ -338,12 +339,12 @@ describe("initGlobalAlerts", () => {
     expect(localStorage.getItem("dismissedAlert-invalid-expiry-test")).toBeNull();
   });
 
-  test("Alert without ID does not save to localStorage even with valid expiry", () => {
+  test("Alert without ID does not save to localStorage even with valid expiryDays", () => {
     // Create a test alert without ID
     const testAlert = d.createElement("div");
     testAlert.className = "global-alert";
     testAlert.setAttribute("data-variant", "global-alert-info");
-    testAlert.setAttribute("data-expiry", "7");
+    testAlert.setAttribute("data-expiry-days", "7");
     testAlert.innerHTML = '<div class="qld-global-alert-main">Alert without ID</div>';
     d.body.appendChild(testAlert);
     
