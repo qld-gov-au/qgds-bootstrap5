@@ -2,15 +2,15 @@
 
 <div class="global-alert-include">
   {{#each alertItems}}
-  <section class="global-alert alert d-none {{variant}}" data-variant="{{variant}}"{{#if id}} data-id="{{id}}"{{/if}}{{#if expiryDays}} data-expiry-days="{{expiryDays}}"{{/if}}>
-      <div class="qld-global-alert-main container-full">
+  <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"{{#if id}} data-id="{{id}}"{{/if}}{{#if expiryDays}} data-expiry-days="{{expiryDays}}"{{/if}}{{#ifCond variant '==' 'global-alert-critical'}} aria-label="Critical"{{else ifCond variant '==' 'global-alert-warning'}} aria-label="Warning"{{else ifCond variant '==' 'global-alert-info'}} aria-label="Information"{{/ifCond}}>
+      <div class="qld-global-alert-main">
         <div class="global-alert-icon">
             {{#ifCond variant '==' 'global-alert-critical'}}
-              {{> icon size="sm" ariaLabel="Critical alert" iconId="alert-danger"}}
+              {{> icon size="sm" ariaHidden="true" iconId="alert-danger"}}
             {{else ifCond variant '==' 'global-alert-info'}}
-              {{> icon size="sm" ariaLabel="Information alert" iconId="alert-information"}}
+              {{> icon size="sm" ariaHidden="true" iconId="alert-information"}}
             {{else ifCond variant '==' 'global-alert-warning'}}
-              {{> icon size="sm" ariaLabel="Warning alert" iconId="alert-warning"}}
+              {{> icon size="sm" ariaHidden="true" iconId="alert-warning"}}
             {{/ifCond}}
         </div>
 
