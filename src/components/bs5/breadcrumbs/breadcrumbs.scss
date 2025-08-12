@@ -49,11 +49,11 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     }
   }
 
-  &.expanded {
-    .breadcrumb-vertical {
-      display: block;
-      opacity: 1;
-      max-height: 200px; /* Or a suitable height to reveal content */
+  .breadcrumb-toggle:focus-within,
+  .breadcrumb-toggle:focus {
+    .breadcrumb-wrapper {
+      --#{$prefix}breadcrumb-vertical-max-height: 1000px;
+      max-height: var(--#{$prefix}breadcrumb-vertical-max-height);
       pointer-events: all;
     }
   }
@@ -71,12 +71,11 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
       display: block;
       width: 100%;
       &:hover {
-        --#{$prefix}breadcrumb-vertical-item-hover-color: #ebebeb;
         text-decoration: underline;
         text-decoration-thickness: var(
           --#{$prefix}link-underline-thickness-hover
         );
-        background-color: var(--#{$prefix}breadcrumb-vertical-item-hover-color);
+        background-color: $core-default-color-neutral-lighter;
       }
 
       &:focus {
@@ -85,29 +84,25 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
       }
     }
   }
-  .breadcrumb-vertical {
-    --qld-light-grey: #f5f5f5;
-    --#{$prefix}dropdown-box-shadow:
-      0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
-    //display: none;
+  .breadcrumb-wrapper {
     position: absolute;
     margin-top: 2rem;
-    padding: 0;
-    background-color: var(--qld-light-grey);
-    border-bottom: 4px solid #6bbe27;
-    border-radius: 4px;
-    box-shadow: var(--#{$prefix}dropdown-box-shadow);
-    //height: 0;
-    //transition: transform 0.25s ease-out;
-    opacity: 0;
     max-height: 0;
     overflow: hidden;
     pointer-events: none;
 
     /* Transition properties */
-    transition:
-      opacity 0.25s ease-out,
-      max-height 0.25s ease-out;
+    transition: max-height 0.25s ease-out;
+  }
+  .breadcrumb-vertical {
+    --#{$prefix}dropdown-box-shadow:
+      0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
+    border-radius: 4px;
+    box-shadow: var(--#{$prefix}dropdown-box-shadow);
+    padding: 0;
+    background-color: $core-default-color-neutral-lightest;
+    border-bottom: 4px solid $qld-brand-secondary;
+    margin: 0.25rem;
   }
 }
 

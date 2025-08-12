@@ -57,8 +57,6 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
       expandButton.setAttribute("href", "javascript:void(0)");
       expandButton.setAttribute("aria-label", "Expand the breadcrumbs");
 
-      expandButton.addEventListener("click", breadcrumbToggle);
-      //document.addEventListener("click", breadcrumbToggle);
       expandCrumb.appendChild(expandButton);
       crumb.after(expandCrumb);
     }
@@ -66,25 +64,11 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
     if (index === breadcrumbList.length - 1) {
       const expandCrumb = document.querySelector(".breadcrumb-toggle");
       if (expandCrumb) {
-        expandCrumb.append(newList);
+        const wrapperDiv = document.createElement("div");
+        wrapperDiv.classList.add("breadcrumb-wrapper");
+        wrapperDiv.appendChild(newList);
+        expandCrumb.append(wrapperDiv);
       }
     }
   });
-}
-
-/**
- * Expand collapsed breadcrumb lists
- *
- * @memberof module:Breadcrumb
- *
- * @param  {Event} event - The event that triggered this function.
- * @returns {void} Returns early when the breadcrumb does not exist or is empty.
- */
-export function breadcrumbToggle(event) {
-  const breadcrumb = event.target.closest(".breadcrumb");
-  if (breadcrumb.classList.contains("expanded")) {
-    breadcrumb.classList.remove("expanded");
-  } else {
-    breadcrumb.classList.add("expanded");
-  }
 }
