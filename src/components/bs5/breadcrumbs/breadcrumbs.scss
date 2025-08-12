@@ -52,9 +52,9 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
   .breadcrumb-toggle:focus-within,
   .breadcrumb-toggle:focus {
     .breadcrumb-wrapper {
-      --#{$prefix}breadcrumb-vertical-max-height: 1000px;
-      max-height: var(--#{$prefix}breadcrumb-vertical-max-height);
+      max-height: 100%;
       pointer-events: all;
+      transition: max-height 0.4s ease-in;
     }
   }
 
@@ -92,7 +92,7 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     pointer-events: none;
 
     /* Transition properties */
-    transition: max-height 0.25s ease-out;
+    transition: max-height 0.4s ease-out;
   }
   .breadcrumb-vertical {
     --#{$prefix}dropdown-box-shadow:
