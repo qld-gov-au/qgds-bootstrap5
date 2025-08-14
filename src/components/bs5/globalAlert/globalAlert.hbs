@@ -22,9 +22,17 @@
           {{{action}}}
         </div>
       </div>
+      {{#if dismissable}}
       <div class="global-alert-close">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
+      {{else}}
+        {{#unless dismissable}}
+        <div class="global-alert-close">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/unless}}
+      {{/if}}
     </div>
   </section>
   {{/each }}
