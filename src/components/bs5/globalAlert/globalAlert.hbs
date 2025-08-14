@@ -2,7 +2,7 @@
 
 <div class="global-alert-include">
   {{#each alertItems}}
-  <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"{{#if id}} data-id="{{id}}"{{/if}}{{#if expiryDays}} data-expiry-days="{{expiryDays}}"{{/if}}{{#ifCond variant '==' 'global-alert-critical'}} aria-label="Critical"{{else ifCond variant '==' 'global-alert-warning'}} aria-label="Warning"{{else ifCond variant '==' 'global-alert-info'}} aria-label="Information"{{/ifCond}}>
+  <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"{{#if id}} data-id="{{id}}"{{/if}}{{#if dismissedExpiryDays}} data-expiry-days="{{dismissedExpiryDays}}"{{/if}}{{#ifCond variant '==' 'global-alert-critical'}} aria-label="Critical"{{else ifCond variant '==' 'global-alert-warning'}} aria-label="Warning"{{else ifCond variant '==' 'global-alert-info'}} aria-label="Information"{{/ifCond}}>
     <div class="qld-global-alert-main">
       <div class="global-alert-icon">
         {{#ifCond variant '==' 'global-alert-critical'}}

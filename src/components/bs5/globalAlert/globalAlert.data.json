@@ -4,7 +4,7 @@
       {
         "id": "cyclone-xyz-warning",
         "variant": "global-alert-critical",
-        "expiryDays": 0,
+        "dismissedExpiryDays": 0,
         "content": "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare <a href='#'>your home and businesses</a> or check for <a href='#'>available support</a>.",
         "action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
       }

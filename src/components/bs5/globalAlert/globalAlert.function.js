@@ -16,11 +16,11 @@ export function initGlobalAlerts() {
 
     // Handle both Bootstrap alert close event and custom btn-closed event
     const handleAlertClose = () => {
-      const expiryDays = parseInt(alert.getAttribute("data-expiry-days"), 10);
+      const dismissedExpiryDays = parseInt(alert.getAttribute("data-expiry-days"), 10);
 
       // Only save to localStorage if both ID and valid expiry exist
-      if (id && expiryDays && expiryDays > 0) {
-        setLocalStorageWithExpiry(`dismissedAlert-${id}`, true, expiryDays);
+      if (id && dismissedExpiryDays && dismissedExpiryDays > 0) {
+        setLocalStorageWithExpiry(`dismissedAlert-${id}`, true, dismissedExpiryDays);
       }
 
       alert.classList.add("d-none");
@@ -34,9 +34,9 @@ export function initGlobalAlerts() {
   });
 
   // basic set local storage function
-  function setLocalStorageWithExpiry(key, value, expiryDays) {
+  function setLocalStorageWithExpiry(key, value, dismissedExpiryDays) {
     const d = new Date();
-    d.setTime(d.getTime() + expiryDays * 24 * 60 * 60 * 1000);
+    d.setTime(d.getTime() + dismissedExpiryDays * 24 * 60 * 60 * 1000);
     const item = {
       value: value,
       expiry: d.getTime(),
