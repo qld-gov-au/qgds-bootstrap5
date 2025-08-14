@@ -1,12 +1,19 @@
 import { SkipLinks } from "./SkipLinks";
+import defaultData from "./skipLinks.data.json";
 
 export default {
   // tags: ["autodocs"],
   title: "3. Components/SkipLinks",
-  render: () => new SkipLinks().html,
+  render: (args) => new SkipLinks(args).html,
 };
 
 export const Default = {
+  args: {
+    skipLinks: [
+      ...defaultData.skipLinks,
+      { targetId: "i-dont-exist", label: "Skip to nowhere" },
+    ],
+  },
   decorators: [
     (Story) => {
       return `

@@ -1,28 +1,4 @@
-%_qld-skip-link-variables {
-  // Skip links
-  --#{$prefix}header_skip-link_color: var(
-    --#{$prefix}color-default-color-dark-link-default
-  );
-  --#{$prefix}header_skip-link_focus_outline_color: var(
-    --#{$prefix}color-default-color-dark-focus-default
-  );
-  --#{$prefix}header_skip-link_focus_text_color: var(
-    --#{$prefix}color-default-color-dark-link-default
-  );
-  --#{$prefix}header_skip-link_focus_bg_color: var(
-    --#{$prefix}color-default-color-dark-background-default-shade
-  );
-
-  // .dark &,
-  // .dark-alt & {
-  // No actual changes here
-  //   --color-outline-focus: $color-default-color-dark-focus-default;
-  // }
-}
-
 .qld-skip-links {
-  @extend %_qld-skip-link-variables;
-
   line-height: 1;
 
   &__item {
@@ -38,7 +14,7 @@
     &,
     &:visited,
     &:visited:hover {
-      color: var(--#{$prefix}header_skip-link_color);
+      color: var(--#{$prefix}color-default-color-dark-link-default);
       text-decoration-color: var(
         --qld-color-default-color-light-underline-default
       );
@@ -54,9 +30,11 @@
       overflow: visible;
       position: absolute;
       width: auto;
-      color: var(--#{$prefix}header_skip-link_focus_text_color);
-      background-color: var(--#{$prefix}header_skip-link_focus_bg_color);
-      outline: 3px solid var(--#{$prefix}header_skip-link_focus_outline_color);
+      color: var(--#{$prefix}color-default-color-dark-link-default);
+      background-color: var(
+        --#{$prefix}color-default-color-dark-background-default-shade
+      );
+      outline: 3px solid var(--#{$prefix}color-default-color-dark-focus-default);
       z-index: 999;
     }
   }
