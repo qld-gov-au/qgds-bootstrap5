@@ -51,11 +51,12 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
 
     if (index === 1) {
       let expandCrumb = document.createElement("li"),
-        expandButton = document.createElement("a");
+        expandButton = document.createElement("button");
 
       expandCrumb.classList.add("breadcrumb-item", "breadcrumb-toggle");
-      expandButton.setAttribute("href", "javascript:void(0)");
+      //expandButton.setAttribute("href", "javascript:void(0)");
       expandButton.setAttribute("aria-label", "Expand the breadcrumbs");
+      expandButton.classList.add("breadcrumb-toggle-link");
 
       expandCrumb.appendChild(expandButton);
       crumb.after(expandCrumb);
