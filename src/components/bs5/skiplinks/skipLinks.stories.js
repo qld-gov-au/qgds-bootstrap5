@@ -2,7 +2,7 @@ import { SkipLinks } from "./SkipLinks";
 import defaultData from "./skipLinks.data.json";
 
 export default {
-  // tags: ["autodocs"],
+  tags: ["autodocs"],
   title: "3. Components/SkipLinks",
   render: (args) => new SkipLinks(args).html,
 };
@@ -17,9 +17,12 @@ export const Default = {
   decorators: [
     (Story) => {
       return `
+      <p>click on this text then hit tab button see skiplinks in action. Use Enter to skip to the listed item.</p>
         ${Story()}
-      <div style="height: 100vh">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-       <main id="content">Here is the main content.</main>
+      <div style="height: 100vh"></div>
+       <main id="content"><p>Here is the main content.</p>
+       
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></main>
       <nav id="main-nav"><ul><li>Here</li><li> is</li><li> the</li> <li>main</li> <li>nav</li></nav>`;
     },
   ],
