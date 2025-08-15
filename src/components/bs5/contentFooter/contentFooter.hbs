@@ -1,4 +1,15 @@
-<dl class="qld-content-dates">
-  <dt>Last updated:</dt>
-  <dd>{{formatDateOrToday lastUpdated }}</dd>
-</dl>
+<div class="container">
+  <div class="row">
+    {{#if lastUpdated}}
+    <dl class="qld-content-dates col-12 col-md-6 my-3 align-items-center">
+      <dt class="my-0">Last updated:</dt>
+      <dd class="my-0">{{formatDateOrToday lastUpdated }}</dd>
+    </dl>
+    {{/if}} 
+    {{#if backToTop}}
+      <div class="col-12 col-md-6 ms-md-auto">                        
+        {{> backToTop backToTop}}
+      </div>
+    {{/if}}  
+  </div>
+</div>
