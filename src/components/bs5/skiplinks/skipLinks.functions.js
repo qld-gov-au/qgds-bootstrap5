@@ -1,12 +1,5 @@
 /**
  *
- * @param {string} str The href of the skip link - should be a URI fragment ie "#some-element-id".
- * @returns {string} the same string stripped of the leading "#".
- */
-const getId = (str) => str.replace(/^#/, "");
-
-/**
- *
  * Check whether an element is able to receive focus
  * @param {HTMLElement} element The HTML Element to check
  * @returns {boolean} true if element is able to receive focus, or false if not
