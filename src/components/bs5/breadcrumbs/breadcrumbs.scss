@@ -1,16 +1,13 @@
 // Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
-
+@use "../../../css/mixins" as m;
 // Define shared variables
 $expander-icon-color: $qld-light-link;
-
-$breadcrumb-divider: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.4147 8.00107L4.66274 2.42785C4.55278 2.32142 4.49854 2.19345 4.50003 2.04392C4.5014 1.89428 4.55706 1.76624 4.66703 1.65982C4.77687 1.55327 4.90902 1.5 5.06346 1.5C5.21779 1.5 5.34993 1.55327 5.4599 1.65982L11.1531 7.18013C11.2735 7.29679 11.3615 7.42687 11.4169 7.57037C11.4723 7.714 11.5 7.85756 11.5 8.00107C11.5 8.14457 11.4723 8.28814 11.4169 8.43177C11.3615 8.57527 11.2735 8.70535 11.1531 8.82201L5.45543 14.3423C5.34559 14.4489 5.21419 14.5014 5.06123 14.5C4.90827 14.4986 4.77687 14.4447 4.66703 14.3382C4.55706 14.2317 4.50208 14.1037 4.50208 13.9541C4.50208 13.8045 4.55706 13.6765 4.66703 13.57L10.4147 8.00107Z' fill='currentColor' /%3E%3C/svg%3E");
-$breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.86175 17.7C8.39275 17.7 7.993 17.5331 7.6625 17.1993C7.332 16.8653 7.16675 16.4639 7.16675 15.995C7.16675 15.5262 7.33366 15.1265 7.6675 14.7958C8.00133 14.4653 8.40275 14.3 8.87175 14.3C9.34058 14.3 9.74025 14.467 10.0707 14.8008C10.4014 15.1348 10.5667 15.5362 10.5667 16.005C10.5667 16.4739 10.3997 16.8736 10.0657 17.2043C9.73191 17.5348 9.33058 17.7 8.86175 17.7ZM15.995 17.7C15.5262 17.7 15.1264 17.5331 14.7957 17.1993C14.4652 16.8653 14.3 16.4639 14.3 15.995C14.3 15.5262 14.4669 15.1265 14.8007 14.7958C15.1347 14.4653 15.5362 14.3 16.005 14.3C16.4738 14.3 16.8736 14.467 17.2042 14.8008C17.5347 15.1348 17.7 15.5362 17.7 16.005C17.7 16.4739 17.5331 16.8736 17.1992 17.2043C16.8652 17.5348 16.4638 17.7 15.995 17.7ZM23.1282 17.7C22.6594 17.7 22.2597 17.5331 21.9292 17.1993C21.5986 16.8653 21.4332 16.4639 21.4332 15.995C21.4332 15.5262 21.6002 15.1265 21.9342 14.7958C22.2681 14.4653 22.6694 14.3 23.1382 14.3C23.6072 14.3 24.007 14.467 24.3375 14.8008C24.668 15.1348 24.8332 15.5362 24.8332 16.005C24.8332 16.4739 24.6663 16.8736 24.3325 17.2043C23.9987 17.5348 23.5972 17.7 23.1282 17.7Z' fill='#{$expander-icon-color}' /%3E%3C/svg%3E%0A");
 
 // Breadcrumb component styles
 .breadcrumb {
   // Shared CSS custom properties
-  --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
-  --#{$prefix}breadcrumb-expander: #{escape-svg($breadcrumb-expander)};
+  --#{$prefix}breadcrumb-divider: var(--qgds-icon-chevron-right);
+  --#{$prefix}breadcrumb-expander: var(--qgds-icon-more-horizontal);
   --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}dark-grey-muted);
   --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}light-action-secondary);
   --#{$prefix}breadcrumb-expander-color: var(
@@ -153,16 +150,11 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
 }
 
 .breadcrumb-toggle {
-  border: 0;
-
-  padding: 0;
-  vertical-align: inherit;
-  border: none;
-  background: none;
-
+  @include m.unset-button-styles();
   > button {
     display: inline-block;
     width: 32px;
+    height: 32px;
     line-height: 1.5rem;
     outline: none;
     border: 0;
@@ -171,11 +163,10 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
       display: block;
       width: 100%;
       height: 100%;
-      mask-size: 100%;
       content: " ";
       mask-image: var(--#{$prefix}breadcrumb-expander);
       background-color: var(--#{$prefix}breadcrumb-link-color);
-      mask-size: 2rem 2rem;
+      mask-size: 1.5rem 1.5rem;
       mask-repeat: no-repeat;
       mask-position: center center;
     }
@@ -186,9 +177,7 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
     }
 
     &:focus {
-      outline: 2px solid var(--qld-focus-color);
-      outline-offset: 2px;
-      background-color: var(--qld-light-grey);
+      @include m.focusable($offsetOutline: 2px);
     }
   }
 }
