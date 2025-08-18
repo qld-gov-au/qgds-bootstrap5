@@ -4,6 +4,11 @@
   border-top-style: solid;
   border-top-width: 0;
 
+  &:focus {
+    outline: 2px solid;
+    outline-offset: 0;
+  }
+
   &:first-child {
     border-top-width: 1px;
   }
@@ -116,6 +121,10 @@
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
 
+    &:focus {
+      outline-color: #666;
+    }
+
     .global-alert-action a {
       color: var(--#{$prefix}white);
       text-decoration-color: var(--#{$prefix}white);
@@ -136,6 +145,10 @@
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-caution-darker);
 
+    &:focus {
+      outline-color: #000000;
+    }
+
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
       text-decoration-color: var(--#{$prefix}body-color);
@@ -147,6 +160,10 @@
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-info-darker);
+
+    &:focus {
+      outline-color: #000000;
+    }
 
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
