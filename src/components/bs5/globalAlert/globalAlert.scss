@@ -3,15 +3,19 @@
   border-radius: 0;
   border-top-style: solid;
   border-top-width: 0;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  margin-bottom: 0;
 
   &:first-child {
     border-top-width: 1px;
   }
   & + & {
     border-top-width: 1px;
+  }
+
+  &.alert {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 2rem;
+    margin-bottom: 0;
   }
 
   .qld-global-alert-main {
