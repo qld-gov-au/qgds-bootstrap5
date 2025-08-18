@@ -14,7 +14,11 @@ export function waitForEventOn(element, eventName, callback) {
     element.addEventListener(
       eventName,
       (e) => {
-        resolve(callback(e));
+        if (callback) {
+          resolve(callback(e));
+        } else {
+          resolve();
+        }
       },
       { once: true },
     );
