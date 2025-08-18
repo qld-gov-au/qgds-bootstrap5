@@ -10,7 +10,7 @@
     <div class="container navbar-contain">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{!-- Header for mobile navigation --}}
-            <div class="navbar__header dark22">
+            <div class="navbar__header">
                 <h3 class="navbar__heading">Menu</h3>
                 <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -89,24 +89,21 @@
                 {{#each CTA ~}}
                     
 
-                    <li class="nav-item dropdown CTA_feature"> <!--CTA_feature -->
-                        {{!-- <div class="nav-item-group"> --}}
+                    <li class="nav-item dropdown CTA_feature">
                             <!-- Primary dropdown style and behaviour -->
-                            <a class="nav-link dropdown-toggle2" href="{{target_url}}">
+                            <a class="nav-link dropdown-toggle" href="{{target_url}}">
                                 {{{label}}}
                             </a>
                             {{> toggleButton}}
 
                             {{#if dropdown_enabled}}
-                            <ul id="dropdown-menu-{{id}}" class="dropdown-menu"
-                                role="menu" data-bs-popper="none">
+                            <ul id="dropdown-menu-{{id}}" class="dropdown-menu" role="menu" data-bs-popper="none">
                                 <div class="row dropdown-menu__inner">
                                     {{#if dropdown_options.dropdown_config.groups}}
                                         <div class="col-12">
                                             <a class="dropdown-menu__featured" href="{{dropdown_options.view_more_url}}">
                                                 {{dropdown_options.view_more_label}}
                                             </a>
-                                            <hr>
                                         </div>
                                         {{#each dropdown_options.dropdown_config.groups}}
                                             {{#isType ../dropdown_options.dropdown_type "list"}}
@@ -123,8 +120,7 @@
                                             {{/isType}}
                                         {{/each }}
                                         {{#if dropdown_options.dropdown_config.view_more}}
-                                        <li class="col-12 text-end">
-                                            <hr>
+                                        <li class="col-12 text-end">                        
                                             <a class="dropdown-menu__view_all"
                                                 href="{{dropdown_options.dropdown_config.view_more_options.url}}"
                                                 target="{{dropdown_options.dropdown_config.view_more_options.target}}">
