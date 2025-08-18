@@ -139,14 +139,6 @@ $expander-icon-color: $qld-light-link;
       --#{$prefix}breadcrumb-link-text-decoration-color
     );
   }
-
-  &.shortened {
-    height: 0;
-    overflow: hidden;
-    max-width: 0;
-    transition: max-width 0s;
-    padding: 0;
-  }
 }
 
 .breadcrumb-toggle {
