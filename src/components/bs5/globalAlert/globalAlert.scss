@@ -78,12 +78,24 @@
         display: block;
         width: 1.25rem;
         height: 1.25rem;
-        background-color: white;
+        background-color: #000000;
         mask-image: var(--qgds-icon-close);
         -webkit-mask-image: var(--qgds-icon-close);
         mask-position: center center;
         mask-repeat: no-repeat;
         mask-size: contain;
+      }
+
+      &:focus {
+        outline: 3px solid;
+        outline-offset: 0;
+      }
+
+      @include media-breakpoint-down(lg) {
+        &:hover {
+          transform: scale(1.25);
+          transition: transform 0.2s ease;
+        }
       }
     }
   }
@@ -103,6 +115,10 @@
     }
     & + & {
       border-top: 1px solid $qld-red-border;
+    }
+
+    .global-alert-close .btn-close::before {
+      background-color: #ffffff;
     }
   }
   &.global-alert-warning {
@@ -161,6 +177,11 @@
         &::before {
           width: 1.5rem;
           height: 1.5rem;
+        }
+
+        &:hover {
+          transform: scale(1.2);
+          transition: transform 0.2s ease;
         }
       }
     }
