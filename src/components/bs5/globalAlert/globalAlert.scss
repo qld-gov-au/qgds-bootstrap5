@@ -1,5 +1,15 @@
 .global-alert {
   line-height: 1.25rem;
+  border-radius: 0;
+  border-top-style: solid;
+  border-top-width: 0;
+
+  &:first-child {
+    border-top-width: 1px;
+  }
+  & + & {
+    border-top-width: 1px;
+  }
 
   .qld-global-alert-main {
     display: flex;
@@ -104,6 +114,7 @@
     background-color: $qld-notify-warning;
     color: var(--#{$prefix}white);
     font-size: 0.875em;
+    border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
 
     .global-alert-action a {
       color: var(--#{$prefix}white);
@@ -113,38 +124,33 @@
         background-color: var(--#{$prefix}white);
       }
     }
-    & + & {
-      border-top: 1px solid $qld-red-border;
-    }
 
     .global-alert-close .btn-close::before {
       background-color: #ffffff;
     }
   }
+
   &.global-alert-warning {
     background-color: $qld-notify-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
+    border-top-color: var(--#{$prefix}core-default-color-status-caution-darker);
 
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
       text-decoration-color: var(--#{$prefix}body-color);
     }
-    & + & {
-      border-top: 1px solid $qld-yellow-border;
-    }
   }
+
   &.global-alert-info {
     background-color: $qld-general-info-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
+    border-top-color: var(--#{$prefix}core-default-color-status-info-darker);
 
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
       text-decoration-color: var(--#{$prefix}body-color);
-    }
-    & + & {
-      border-top: 1px solid $qld-blue-border;
     }
   }
 }
@@ -184,21 +190,6 @@
           transition: transform 0.2s ease;
         }
       }
-    }
-
-    &.global-alert-critical {
-      border-top: 1px solid
-        var(--#{$prefix}core-default-color-status-error-darker);
-    }
-
-    &.global-alert-warning {
-      border-top: 1px solid
-        var(--#{$prefix}core-default-color-status-caution-darker);
-    }
-
-    &.global-alert-info {
-      border-top: 1px solid
-        var(--#{$prefix}core-default-color-status-info-darker);
     }
   }
 }
