@@ -5,11 +5,7 @@
   border-top-width: 0;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-
-  &:focus {
-    outline: 2px solid;
-    outline-offset: 0;
-  }
+  margin-bottom: 0;
 
   &:first-child {
     border-top-width: 1px;
@@ -124,7 +120,7 @@
     border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
 
     &:focus {
-      outline-color: #666;
+      outline-color: #fff;
     }
 
     .global-alert-action a {
@@ -136,8 +132,13 @@
       }
     }
 
-    .global-alert-close .btn-close::before {
-      background-color: #ffffff;
+    .global-alert-close .btn-close {
+      &:focus {
+        outline-color: #ffffff;
+      }
+      &::before {
+        background-color: #ffffff;
+      }
     }
   }
 
@@ -146,10 +147,6 @@
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-caution-darker);
-
-    &:focus {
-      outline-color: #000000;
-    }
 
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
@@ -162,10 +159,6 @@
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-info-darker);
-
-    &:focus {
-      outline-color: #000000;
-    }
 
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
