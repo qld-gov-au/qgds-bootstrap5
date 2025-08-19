@@ -14,13 +14,18 @@
         <div class="container-fluid">
             <div class="container qld-content">
                 <div class="row">
+                    <!-- Side Nav -->
+                    {{#> sidenavWrapper}}
+                    {{> sidenav sidenav}}
+                    {{/sidenavWrapper}}
                     {{#> contentWrapper}}
                         <p>content goes here dd</p>
-                        {{> table table}}
-                        
+                        {{> table table}}                        
                     {{/contentWrapper}}
-                </div>
-                    {{> contentFooter contentFooter }}
+                </div>                    
+            </div>
+            <div class="container">
+                {{> contentFooter contentFooter }}
             </div>
         </div>
     </main>
