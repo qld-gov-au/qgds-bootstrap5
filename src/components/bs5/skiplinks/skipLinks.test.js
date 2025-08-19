@@ -1,4 +1,4 @@
-import { expect, it, describe, test, beforeEach } from "vitest";
+import { expect, describe, test } from "vitest";
 import { JSDOM, VirtualConsole } from "jsdom";
 import { SkipLinks } from "./SkipLinks.js";
 import defaultData from "./skipLinks.data.json";
@@ -16,15 +16,10 @@ import { waitForEventOn } from "../../../js/testingutils.js";
  * @requires vitest
  * @requires ./SkipLinks.js
  * @requires ./skiplinks.data.json
- * @requires /dist/assets/js/bootstrap.min.js
  * @requires /dist/assets/js/qld.bootstrap.min.js
  */
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// const bootstrapJsFile = fs.readFileSync(
-//   `${__dirname}/../../../../dist/assets/js/bootstrap.min.js`,
-//   "utf-8",
-// );
 const qldBootstrapJsFile = fs.readFileSync(
   `${__dirname}/../../../../dist/assets/js/qld.bootstrap.min.js`,
   "utf-8",
@@ -38,7 +33,7 @@ describe("Skip Links", () => {
     expect(skipLinks.html).toMatchSnapshot();
   });
 
-  test("Skip link interactions", async () => {
+  test("Skip links log incorrectly assigned links as errors.", async () => {
     skipLinks = new SkipLinks({
       skipLinks: [
         ...defaultData.skipLinks,
@@ -67,8 +62,7 @@ describe("Skip Links", () => {
       },
     );
 
-    const window = dom.window;
-    const d = window.document;
+    const { window } = dom;
 
     const resolvedMessages = await waitForEventOn(
       window,
@@ -81,24 +75,6 @@ describe("Skip Links", () => {
       'A skip link with label "Skip to unfocusable" is targeting a non-focusable element with id "unfocusable". Make sure the element is natively focusable, or assign a tab index of -1.',
     ]);
 
-    const contentLink = d.querySelector(
-      '.qld-skip-links__item[href="#content"]',
-    );
-
-    console.log(contentLink.href);
-    const contentLinkTarget = d.getElementById("content");
-
-    const unfocusableLink = d.querySelector(
-      '.qld-skip-inks__item[href="#unfocusable"]',
-    );
-
-    contentLink.click();
-
-    console.log(window.location.hash);
-    // expect(d.activeElement).toBe(contentLinkTarget);
-
-    // unfocusableLink.click();
-
-    // expect(d.activeElement).toBe(d.body);
+    // JSDOM does not implement navigation so must manual test for main functionality
   });
 });
