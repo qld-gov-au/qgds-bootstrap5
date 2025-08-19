@@ -7,7 +7,7 @@
             autocomplete="off" aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
 
         {{#if suggestions}}
-        <div class="suggestions suggestions__group">
+        <div class="suggestions suggestions__group d-none">
             <div class="default-suggestions">
                 <div class="suggestions-category mt-2">
                     <strong class="suggestions-category-label">Popular services</strong>
