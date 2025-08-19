@@ -1,5 +1,5 @@
 /**
- * All focusable tag names.
+ * All native focusable tag names.
  */
 export const focusableTags = [
   "A",
@@ -36,17 +36,6 @@ export function isFocusable(element) {
     element.getAttribute("contenteditable") !== "false"
   )
     return true;
-  // Native focusable elements
-  const focusableTags = [
-    "A",
-    "INPUT",
-    "BUTTON",
-    "SELECT",
-    "TEXTAREA",
-    "IFRAME",
-    "OBJECT",
-    "DETAILS",
-  ];
   if (focusableTags.includes(element.tagName)) {
     if (element.tagName === "A") {
       return !!element.getAttribute("href");
