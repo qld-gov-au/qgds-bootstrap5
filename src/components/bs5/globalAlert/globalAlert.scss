@@ -51,25 +51,8 @@
 
     // Action link styling
     .global-alert-action a {
-      display: flex;
-      column-gap: 0.5rem;
-      align-items: center;
       font-weight: 600;
       text-wrap: nowrap;
-
-      // icon styling for action link
-      &:after {
-        content: "";
-        display: inline-block;
-        flex-shrink: 0;
-        background-color: var(--#{$prefix}body-color);
-        width: 1.25rem;
-        height: 1.25rem;
-        mask-image: var(--qgds-icon-arrow-right);
-        mask-position: center center;
-        mask-repeat: no-repeat;
-        mask-size: contain;
-      }
     }
   }
 

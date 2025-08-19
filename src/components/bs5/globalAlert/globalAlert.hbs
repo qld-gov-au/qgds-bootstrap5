@@ -18,9 +18,11 @@
         <div class="global-alert-message">
           {{{content}}}
         </div>
+        {{#if action}}
         <div class="global-alert-action">
-          {{{action}}}
+          {{> callToAction action}}
         </div>
+        {{/if}}
       </div>
       {{#if dismissable}}
       <div class="global-alert-close">

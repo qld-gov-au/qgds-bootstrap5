@@ -16,14 +16,14 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new CallToAction({...args}).html}
+          ${new CallToAction({ ...args }).html}
         </div>
         <div class="col">
-          ${new CallToAction({...args, label: 'Label', "class": [{"small": false}, {"view-all": false}]}).html}
+          ${new CallToAction({ ...args, label: "Label", class: [{ small: false }, { "view-all": false }] }).html}
         </div>
       </div>
     </div>
-    `
+    `;
   },
   parameters: {
     design: {
@@ -56,10 +56,8 @@ export const Default = {
 export const Light = {
   parameters: {
     backgrounds: {
-      default: 'Light',
-      values: [
-        { name: 'Light', value: 'var(--qld-light-background)' },
-      ],
+      default: "Light",
+      values: [{ name: "Light", value: "var(--qld-light-background)" }],
     },
   },
   decorators: [
@@ -79,10 +77,8 @@ export const Light = {
 export const LightAlt = {
   parameters: {
     backgrounds: {
-      default: 'LightAlt',
-      values: [
-        { name: 'LightAlt', value: 'var(--qld-light-alt-background)' },
-      ],
+      default: "LightAlt",
+      values: [{ name: "LightAlt", value: "var(--qld-light-alt-background)" }],
     },
   },
   decorators: [
@@ -102,10 +98,8 @@ export const LightAlt = {
 export const Dark = {
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-dark-background)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
     },
   },
   decorators: [
@@ -125,10 +119,8 @@ export const Dark = {
 export const DarkAlt = {
   parameters: {
     backgrounds: {
-      default: 'DarkAlt',
-      values: [
-        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
-      ],
+      default: "DarkAlt",
+      values: [{ name: "DarkAlt", value: "var(--qld-dark-alt-background)" }],
     },
   },
   decorators: [
@@ -149,31 +141,26 @@ export const Small = {
   args: {
     ...defaultdata,
     label: "View all",
-    class: [
-      {"small": true}, 
-      {"view-all": true},
-    ],
+    class: [{ small: true }, { "view-all": true }],
   },
   render: (args) => {
     return `
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new CallToAction({...args}).html}
+          ${new CallToAction({ ...args }).html}
         </div>
         <div class="col">
-          ${new CallToAction({...args, label: 'Label', "class": [{"small": true}, {"view-all": false}]}).html}
+          ${new CallToAction({ ...args, label: "Label", class: [{ small: true }, { "view-all": false }] }).html}
         </div>
       </div>
     </div>
-    `
+    `;
   },
   parameters: {
     backgrounds: {
-      default: 'DarkAlt',
-      values: [
-        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
-      ],
+      default: "DarkAlt",
+      values: [{ name: "DarkAlt", value: "var(--qld-dark-alt-background)" }],
     },
   },
   decorators: [
