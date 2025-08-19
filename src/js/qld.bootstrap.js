@@ -61,37 +61,55 @@ window.addEventListener("DOMContentLoaded", () => {
         let timeout;
 
         // Add keyup event listener to the search input
-        searchInput.addEventListener("keyup", function () {
+        searchInput.addEventListener("input", function (e) {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
-            showSuggestions(this.value, false, form);
+            const value = e.target.value.trim();
+            showSuggestions(value, value === '', form);
           }, 300);
         });
 
         // Add focus event listener to the search input
         searchInput.addEventListener("focus", function () {
-          showSuggestions("", true, form);
-        });
+          const suggestions = form.querySelector(".suggestions");
+          const dynamicSuggestionsContainer = form.querySelector(".dynamic-suggestions");
 
-        // Add click event listener to the search input
-        searchInput.addEventListener("click", function () {
-          if (this.value === "") {
+          if (this.value.trim() === "") {
             showSuggestions("", true, form);
+          } else if (suggestions && dynamicSuggestionsContainer && dynamicSuggestionsContainer.innerHTML.trim() !== "") {
+            // Only show existing suggestions if there are actual dynamic suggestions populated
+            suggestions.classList.remove("d-none");
           }
         });
 
         const suggestions = form.querySelector(".suggestions");
         // If there is no suggestions renderred, do not add event listener to the document
         if (suggestions) {
-          // Close suggestions when clicking outside
-          document.addEventListener("click", function (event) {
-            if (
-              !form.contains(event.target) &&
-              !suggestions.contains(event.target)
-            ) {
-              suggestions.style.display = "none";
+
+          // Helper function to determine if suggestions should be hidden on focus change
+          const shouldHideSuggestions = (newFocusTarget) => {
+            if (!newFocusTarget) return true;
+
+            const isFocusInsideInput = searchInput.contains(newFocusTarget) || searchInput === newFocusTarget;
+            const isFocusInsideSuggestions = suggestions.contains(newFocusTarget);
+
+            return !isFocusInsideInput && !isFocusInsideSuggestions;
+          };
+
+          // Handle focusout event for keyboard accessibility
+          const handleFocusOut = (event) => {
+            const newFocusTarget = event.relatedTarget;
+
+            if (shouldHideSuggestions(newFocusTarget)) {
+              suggestions.classList.add("d-none");
             }
-          });
+          };
+
+          // Attach focusout event listener to search input
+          searchInput.addEventListener('focusout', handleFocusOut);
+
+          // Attach focusout event listener to suggestions container
+          suggestions.addEventListener('focusout', handleFocusOut);
         } else {
           console.warn("Required suggestions elements not found.");
         }
