@@ -44,12 +44,12 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
   newList.classList.add("breadcrumb-vertical");
 
   breadcrumbList.forEach((crumb, index) => {
-    if (index > 1 && index < breadcrumbList.length - 2) {
+    if (index > 0 && index < breadcrumbList.length - 2) {
       crumb.querySelector("a").setAttribute("tabindex", 0);
       newList.appendChild(crumb);
     }
 
-    if (index === 1) {
+    if (index === 0) {
       let expandCrumb = document.createElement("li"),
         expandButton = document.createElement("button");
 

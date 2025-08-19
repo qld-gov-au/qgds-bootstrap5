@@ -50,6 +50,9 @@ $expander-icon-color: $qld-light-link;
   .breadcrumb-toggle:focus {
     .breadcrumb-wrapper {
       max-height: 100%;
+      --#{$prefix}dropdown-box-shadow:
+        0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
+      box-shadow: var(--#{$prefix}dropdown-box-shadow);
       pointer-events: all;
       transition: max-height 0.25s ease-in;
     }
@@ -67,8 +70,13 @@ $expander-icon-color: $qld-light-link;
       padding: 0.75rem 1rem;
       display: block;
       width: 100%;
+      color: $qld-text-grey;
+      white-space: nowrap; /* Prevents text from wrapping to the next line */
+      overflow: hidden; /* Hides any content that overflows the element's box */
+      text-overflow: ellipsis;
       &:hover {
         text-decoration: underline;
+        color: $qld-light-link;
         text-decoration-thickness: var(
           --#{$prefix}link-underline-thickness-hover
         );
@@ -83,23 +91,19 @@ $expander-icon-color: $qld-light-link;
   }
   .breadcrumb-wrapper {
     position: absolute;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     max-height: 0;
     overflow: hidden;
     pointer-events: none;
-
+    width: 360px;
+    border-radius: 4px;
     /* Transition properties */
     transition: max-height 0.25s ease-out;
   }
   .breadcrumb-vertical {
-    --#{$prefix}dropdown-box-shadow:
-      0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
-    border-radius: 4px;
-    box-shadow: var(--#{$prefix}dropdown-box-shadow);
     padding: 0;
     background-color: $core-default-color-neutral-lightest;
     border-bottom: 4px solid $qld-brand-secondary;
-    margin: 0.25rem;
   }
 }
 
@@ -143,6 +147,7 @@ $expander-icon-color: $qld-light-link;
 
 .breadcrumb-toggle {
   @include m.unset-button-styles();
+
   > button {
     display: inline-block;
     width: 32px;
@@ -151,6 +156,8 @@ $expander-icon-color: $qld-light-link;
     outline: none;
     border: 0;
     background-color: transparent;
+    border-radius: 4px;
+
     &:after {
       display: block;
       width: 100%;
@@ -165,12 +172,10 @@ $expander-icon-color: $qld-light-link;
 
     &:hover,
     &:focus {
-      background-color: var(--qld-light-grey);
+      background-color: rgba($core-default-color-neutral-black, 0.1);
     }
 
-    &:focus {
-      @include m.focusable($offsetOutline: 2px);
-    }
+    @include m.focusable($offsetOutline: 2px);
   }
 }
 
