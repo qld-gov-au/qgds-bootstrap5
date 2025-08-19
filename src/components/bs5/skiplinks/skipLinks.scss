@@ -18,7 +18,7 @@
     &:visited:hover {
       color: var(--#{$prefix}color-default-color-dark-link-default);
       text-decoration-color: var(
-        --qld-color-default-color-light-underline-default
+        --#{$prefix}-color-default-color-light-underline-default
       );
     }
 
