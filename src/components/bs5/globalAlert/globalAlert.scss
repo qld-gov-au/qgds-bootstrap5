@@ -2,11 +2,12 @@
   line-height: 1.25rem;
   border-radius: 0;
   border-top-style: solid;
-  border-top-width: 0;
+  border-width: 0;
 
-  &:first-child {
+  &:first-child:not(:only-child) {
     border-top-width: 1px;
   }
+
   & + & {
     border-top-width: 1px;
   }
@@ -30,11 +31,13 @@
   .global-alert-icon {
     width: 1.25rem;
     height: 1.25rem;
+    padding: 0.5rem 0;
   }
 
   .global-alert-content {
     column-gap: 1rem;
     flex-grow: 1;
+    padding: 0.5rem 0;
 
     // Link styling placed outside the 'action link', to include all links within the content as well.
     a,
@@ -89,6 +92,7 @@
       justify-content: center;
       opacity: 1;
       padding: 0;
+      transition: transform 0.2s ease;
 
       &::before {
         content: "";
@@ -111,9 +115,14 @@
       @include media-breakpoint-down(lg) {
         &:hover {
           transform: scale(1.25);
-          transition: transform 0.2s ease;
         }
       }
+    }
+  }
+
+  a {
+    &:focus {
+      outline-color: #000;
     }
   }
 
@@ -123,8 +132,10 @@
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
 
-    &:focus {
-      outline-color: #fff;
+    a {
+      &:focus {
+        outline-color: #fff;
+      }
     }
 
     .global-alert-action a {
@@ -175,7 +186,7 @@
   .global-alert {
     .global-alert-content {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
     }
 
     &.global-alert-message {
