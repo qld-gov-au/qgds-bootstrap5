@@ -57,6 +57,7 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
       //expandButton.setAttribute("href", "javascript:void(0)");
       expandButton.setAttribute("aria-label", "Expand the breadcrumbs");
       expandButton.classList.add("breadcrumb-toggle-link");
+      expandButton.addEventListener("click", breadcrumbExpand);
 
       expandCrumb.appendChild(expandButton);
       crumb.after(expandCrumb);
@@ -69,7 +70,68 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
         wrapperDiv.classList.add("breadcrumb-wrapper");
         wrapperDiv.appendChild(newList);
         expandCrumb.append(wrapperDiv);
+        wrapperDiv.addEventListener("focusout", (event) => {
+          // Check if the element receiving focus is outside the dropdown container
+          if (
+            !event.relatedTarget ||
+            !wrapperDiv.contains(event.relatedTarget)
+          ) {
+            console.log(
+              "breadcrumbExpand: Focusout event on wrapperDiv to close expanded breadcrumb.",
+            );
+            wrapperDiv.parentElement.classList.remove("expanded");
+          }
+        });
       }
     }
   });
+}
+
+/**
+ * Expand shortened breadcrumb lists
+ *
+ * @memberof module:Breadcrumb
+ *
+ * @param  {Event} event - The event that triggered this function.
+ * @returns {void} Returns early when the breadcrumb does not exist or is empty.
+ */
+export function breadcrumbExpand(event) {
+  const breadcrumb = event.target.closest(".breadcrumb");
+  if (!breadcrumb) {
+    console.log("breadcrumbExpand: Breadcrumb does not exist.");
+    return;
+  }
+  const breadcrumbList = breadcrumb.querySelectorAll(".breadcrumb-item");
+
+  if (!breadcrumbList || !breadcrumbList.length) {
+    console.log("breadcrumbExpand: Breadcrumb does not exist or is empty.");
+    return;
+  }
+
+  event.target.parentElement.classList.toggle("expanded");
+  const expandButton = document.querySelector(".breadcrumb-toggle-link");
+  expandButton && document.addEventListener("click", collapseMenu);
+}
+/**
+ * event listener for document click event used to collapse menu on clicking elsewhere
+ * and also remove the event listener to prevent multiple listeners from being attached
+ * @memberof module:Breadcrumb
+ *
+ * @param  {Event} event - The event that triggered this function.
+ */
+function collapseMenu(event) {
+  event.stopPropagation();
+  event.preventDefault();
+  console.log(
+    "breadcrumbExpand: Click event on document to close expanded breadcrumb.",
+  );
+  const expandButton = document.querySelector(".breadcrumb-toggle-link");
+  const expandMenu = document.querySelector(".breadcrumb-wrapper");
+  if (
+    !expandMenu.contains(event.target) &&
+    !expandButton.contains(event.target)
+  ) {
+    expandMenu.parentElement.classList.remove("expanded");
+    document.removeEventListener("click", collapseMenu);
+  }
 }

@@ -46,8 +46,7 @@ $expander-icon-color: $qld-light-link;
     }
   }
 
-  .breadcrumb-toggle:focus-within,
-  .breadcrumb-toggle:focus {
+  .expanded {
     .breadcrumb-wrapper {
       max-height: 100%;
       --#{$prefix}dropdown-box-shadow:
@@ -82,10 +81,9 @@ $expander-icon-color: $qld-light-link;
         );
         background-color: $core-default-color-neutral-lighter;
       }
-
+      @include m.focusable($offsetOutline: 3px);
       &:focus {
-        outline: 3px solid (--#{$prefix}focus);
-        outline-offset: -3px !important;
+        outline-offset: -3px;
       }
     }
   }
@@ -143,6 +141,10 @@ $expander-icon-color: $qld-light-link;
       --#{$prefix}breadcrumb-link-text-decoration-color
     );
   }
+
+  a {
+    @include m.focusable($offsetOutline: 3px);
+  }
 }
 
 .breadcrumb-toggle {
@@ -175,7 +177,7 @@ $expander-icon-color: $qld-light-link;
       background-color: rgba($core-default-color-neutral-black, 0.1);
     }
 
-    @include m.focusable($offsetOutline: 2px);
+    @include m.focusable($offsetOutline: 3px);
   }
 }
 
