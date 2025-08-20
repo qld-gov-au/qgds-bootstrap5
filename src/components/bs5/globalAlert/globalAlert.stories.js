@@ -1,6 +1,5 @@
 // Tag.stories.js
 import { GlobalAlert } from "./GlobalAlert.js";
-import defaultdata from "./globalAlert.data.json";
 
 export default {
   tags: ["autodocs"],
@@ -42,22 +41,5 @@ export default {
   ],
 };
 
-// Critical global alert story
-export const Critical = {
-  args: defaultdata.critical,
-};
-
-// Warning global alert story
-export const Warning = {
-  args: defaultdata.warning,
-};
-
-// Global information alert story
-export const Info = {
-  args: defaultdata.info,
-};
-
-// Multiple global alert story
-export const Multiple = {
-  args: defaultdata.multiple,
-};
+// Use the exported story configurations from the data file
+export { Critical, Warning, Info, Multiple } from "./globalAlert.data.js";
