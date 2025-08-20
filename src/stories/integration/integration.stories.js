@@ -1,20 +1,19 @@
-
-import { MainIntegration } from './MainIntegration';
+import { MainIntegration } from "./MainIntegration";
 //Data
-import headerData from './header.data.json';
-import navbarData from './navigation.data.json';
-import breadcrumbsData from './breadcrumb.data.json';
-import searchData from './search.data.json';
-import globalAlertData from './globalAlert.data.json';
-import inpagenavData from './inpagenav.data.json';
-import sidenavData from './sidenav.data.json';
-import contentFooterData from './contentFooter.data.json';
-import footerData from './footer.data.json';
+import headerData from "./header.data.json";
+import navbarData from "./navigation.data.json";
+import breadcrumbsData from "./breadcrumb.data.json";
+import searchData from "./search.data.json";
+import globalAlertData from "./globalAlert.data.js";
+import inpagenavData from "./inpagenav.data.json";
+import sidenavData from "./sidenav.data.json";
+import contentFooterData from "./contentFooter.data.json";
+import footerData from "./footer.data.json";
 //Content Data
-import contentData from './content.data.json';
+import contentData from "./content.data.json";
 import template from "./main.hbs?raw";
 import metaOpenGraphData from "../../components/bs5/metaOpenGraph/MetaOpenGraph.data.json";
-import { dcTerms } from '../../components/bs5/metaDcTerms/MetaDcTerms.data.json';
+import { dcTerms } from "../../components/bs5/metaDcTerms/MetaDcTerms.data.json";
 
 /** sample data **/
 const defaultData = {
@@ -41,7 +40,7 @@ const defaultData = {
 };
 
 export default {
-  title: '5. Integration/Main Integration Template',
+  title: "5. Integration/Main Integration Template",
   render: (args) => {
     return new MainIntegration(args).html;
   },
@@ -50,16 +49,14 @@ export default {
     data: { ...defaultData },
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 };
-
 
 /**
  * Default Integration story
  */
 export const Default = {};
-
 
 // /**
 //  * Integration in 'Light' colour theme.
@@ -141,7 +138,3 @@ export const Default = {};
 //     },
 //
 // };
-
-
-
-

@@ -9,7 +9,8 @@ const defaultData = {
         variant: "global-alert-critical",
         dismissedExpiryDays: 0,
         dismissable: false,
-        content: "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare <a href='#'>your home and businesses</a> or check for <a href='#'>available support</a>.",
+        content:
+          "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare <a href='#'>your home and businesses</a> or check for <a href='#'>available support</a>.",
         action: {
           ...callToActionData,
           label: "Read more",
@@ -25,7 +26,8 @@ const defaultData = {
       {
         id: "service-delay-weather",
         variant: "global-alert-warning",
-        content: "<strong>Service Delay:</strong> Various <a href='#'>services</a> are experiencing delays due to the weather event.",
+        content:
+          "<strong>Service Delay:</strong> Various <a href='#'>services</a> are experiencing delays due to the weather event.",
         action: {
           ...callToActionData,
           label: "Learn more",
@@ -41,7 +43,8 @@ const defaultData = {
       {
         id: "caretaker-period-2024",
         variant: "global-alert-info",
-        content: "<strong>Caretaker period:</strong> The Queensland Government is in a <a href='#'>caretaker period</a> until after the <a href='#'>state election</a>. Minimal updates will be made to this site until after the election results are declared.",
+        content:
+          "<strong>Caretaker period:</strong> The Queensland Government is in a <a href='#'>caretaker period</a> until after the <a href='#'>state election</a>. Minimal updates will be made to this site until after the election results are declared.",
         action: {
           ...callToActionData,
           label: "Learn more",
@@ -57,7 +60,8 @@ const defaultData = {
       {
         id: "cyclone-xyz-critical",
         variant: "global-alert-critical",
-        content: "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare <a href='#'>your home and businesses</a> or check for <a href='#'>available support</a>.",
+        content:
+          "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare <a href='#'>your home and businesses</a> or check for <a href='#'>available support</a>.",
         action: {
           ...callToActionData,
           label: "Learn more",
@@ -69,7 +73,8 @@ const defaultData = {
       {
         id: "flood-warning-southeast",
         variant: "global-alert-critical",
-        content: "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare <a href='#'>your home and businesses</a> or check for <a href='#'>available support</a>.",
+        content:
+          "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare <a href='#'>your home and businesses</a> or check for <a href='#'>available support</a>.",
         action: {
           ...callToActionData,
           label: "Learn more",
@@ -81,7 +86,8 @@ const defaultData = {
       {
         id: "transport-delays-brisbane",
         variant: "global-alert-warning",
-        content: "<strong>Service Delay:</strong> Various <a href='#'>services</a> are experiencing delays due to the weather event.",
+        content:
+          "<strong>Service Delay:</strong> Various <a href='#'>services</a> are experiencing delays due to the weather event.",
         action: {
           ...callToActionData,
           label: "Read more",
@@ -93,7 +99,8 @@ const defaultData = {
       {
         id: "health-services-disruption",
         variant: "global-alert-warning",
-        content: "<strong>Service Delay:</strong> Various <a href='#'>services</a> are experiencing delays due to the weather event.",
+        content:
+          "<strong>Service Delay:</strong> Various <a href='#'>services</a> are experiencing delays due to the weather event.",
         action: {
           ...callToActionData,
           label: "Read more",
@@ -105,7 +112,8 @@ const defaultData = {
       {
         id: "election-caretaker-info",
         variant: "global-alert-info",
-        content: "<strong>Caretaker period:</strong> The Queensland Government is in a <a href='#'>caretaker period</a> until after the <a href='#'>state election</a>. Minimal updates will be made to this site until after the election results are declared.",
+        content:
+          "<strong>Caretaker period:</strong> The Queensland Government is in a <a href='#'>caretaker period</a> until after the <a href='#'>state election</a>. Minimal updates will be made to this site until after the election results are declared.",
         action: {
           ...callToActionData,
           label: "Learn more",
@@ -116,7 +124,8 @@ const defaultData = {
       },
       {
         variant: "global-alert-info",
-        content: "<strong>Caretaker period:</strong> The Queensland Government is in a <a href='#'>caretaker period</a> until after the <a href='#'>state election</a>. Minimal updates will be made to this site until after the election results are declared.",
+        content:
+          "<strong>Caretaker period:</strong> The Queensland Government is in a <a href='#'>caretaker period</a> until after the <a href='#'>state election</a>. Minimal updates will be made to this site until after the election results are declared.",
         action: {
           ...callToActionData,
           label: "Learn more",
@@ -126,43 +135,6 @@ const defaultData = {
         },
       },
     ],
-  },
-};
-
-// Critical global alert story
-export const Critical = {
-  args: {
-    ...defaultData.critical,
-    action: {
-      ...callToActionData,
-      label: "Find out more",
-      href: "https://example.com",
-      class: [
-        { small: true },
-        { "view-all": false },
-      ],
-    },
-  },
-};
-
-// Warning global alert story
-export const Warning = {
-  args: {
-    ...defaultData.warning,
-  },
-};
-
-// Info global alert story
-export const Info = {
-  args: {
-    ...defaultData.info,
-  },
-};
-
-// Multiple global alerts story
-export const Multiple = {
-  args: {
-    ...defaultData.multiple,
   },
 };
 

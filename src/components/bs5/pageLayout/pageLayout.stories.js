@@ -2,7 +2,7 @@ import { PageLayout } from "./pageLayout.js";
 //Data
 import masterbrand_variant from "../header/header.variant.masterBrand.data.json";
 import menu_state from "../navbar/navbar.variant.menuState.data.json";
-import globalAlertData from "../globalAlert/globalAlert.data.json";
+import globalAlertData from "../globalAlert/globalAlert.data.js";
 import tableData from "../table/table.data.json";
 import backToTopData from "../backToTop/backToTop.data.json";
 import footerData from "../footer/footer.data.json";

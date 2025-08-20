@@ -1,11 +1,11 @@
 import { FullPageTest } from "./fullPage.test.js";
-import { dcTerms } from '../metaDcTerms/MetaDcTerms.data.json';
-import metaOpenGraphData from '../metaOpenGraph/MetaOpenGraph.data.json';
-import masterbrand_variant from '../header/header.variant.masterBrand.data.json';
-import menu_state  from "../navbar/navbar.variant.menuState.data.json";
+import { dcTerms } from "../metaDcTerms/MetaDcTerms.data.json";
+import metaOpenGraphData from "../metaOpenGraph/MetaOpenGraph.data.json";
+import masterbrand_variant from "../header/header.variant.masterBrand.data.json";
+import menu_state from "../navbar/navbar.variant.menuState.data.json";
 import breadcrumbsData from "../breadcrumbs/breadcrumbs.data.json";
 import searchData from "../searchInput/searchInput.data.json";
-import globalAlertData from "../globalAlert/globalAlert.data.json";
+import globalAlertData from "../globalAlert/globalAlert.data.js";
 import sidenavData from "../sidenav/sidenav.data.json";
 import contentFooterData from "../contentFooter/contentFooter.data.json";
 import footerData from "../footer/footer.data.json";
@@ -36,14 +36,11 @@ export default {
     return new FullPageTest(args).html;
   },
   args: defaultData,
-  argTypes: {
-  },
+  argTypes: {},
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
-      controls: {
-
-      },
+      controls: {},
     },
   },
   decorators: [
@@ -57,7 +54,6 @@ export default {
 
 /**
  * Default
- * 
+ *
  */
 export const Default = {};
-
