@@ -235,6 +235,26 @@ $form-check-inline-margin-end: 1rem;
     }
   }
 
+  // DEFAULT VALID & INVALID
+  .valid &,
+  .invalid & {
+    &:focus + label::before {
+      outline: $form-check-input-outline;
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+  }
+  .valid & {
+    + label::before {
+      outline: $form-check-valid-color solid 2px;
+    }
+  }
+  .invalid & {
+    + label::before {
+      outline: $form-check-invalid-color solid 2px;
+    }
+  }
+
   .small & {
     &:checked + label::before {
       background-size: 22px 22px;
@@ -263,125 +283,35 @@ $form-check-inline-margin-end: 1rem;
       mask-image: $form-radio-button-small;
     }
   }
+
+  .dark &,
+  .dark-alt & {
+    &:hover + label {
+      --_background-color: $form-check-hover;
+    }
+    &:hover + label::after {
+      background-color: $form-check-hover;
+    }
+    + label::before,
+    + label::after {
+      border-color: $form-check-input-border-dark;
+    }
+    &:checked {
+      & + label::after {
+        background-color: $form-check-input-checked-color-dark;
+      }
+    }
+    :focus {
+      outline: $form-check-input-outline-dark;
+    }
+  }
 }
 
 .form-check {
   display: flex;
   align-items: center;
   margin-bottom: $form-check-margin-bottom;
-
-  // DEFAULT VALID
-  .valid & {
-    .form-check-input[type="radio"],
-    .form-check-input[type="checkbox"] {
-      & + label::before {
-        outline: $form-check-valid-color solid 2px;
-      }
-
-      &:focus + label::before {
-        outline: $form-check-input-outline;
-        outline-offset: 2px;
-        box-shadow: none;
-      }
-      &:checked:focus + label::before {
-        outline: $form-check-input-outline;
-      }
-    }
-  }
-  // DEFAULT INVALID
-  .invalid & {
-    .form-check-input[type="radio"],
-    .form-check-input[type="checkbox"] {
-      & + label::before {
-        outline: $form-check-invalid-color solid 2px;
-      }
-      &:focus + label::before {
-        outline: form-check-input-outline;
-        outline-offset: 2px;
-        box-shadow: none;
-      }
-      &:checked:focus + label::before {
-        outline: $form-check-input-outline;
-      }
-    }
-  }
-  // DARK
-  .dark &,
-  .dark-alt & {
-    .form-check-input {
-      &:hover + label::after {
-        background-color: $form-check-hover;
-      }
-      + label::before,
-      + label::after {
-        border-color: $form-check-input-border-dark;
-      }
-      &:checked {
-        & + label::after {
-          mask-image: $form-check-bg-image;
-          mask-size: 1.125rem;
-          mask-repeat: no-repeat;
-          mask-position: center;
-          background-color: $form-check-input-checked-color-dark;
-        }
-      }
-    }
-
-    .form-check-input[type="radio"]:checked {
-      & + label::after {
-        mask-image: $form-radio-bg-image;
-        mask-size: 1.313rem;
-        mask-repeat: no-repeat;
-        mask-position: center;
-        background-color: $form-check-input-checked-color-dark;
-      }
-    }
-    .form-check-input:focus {
-      outline: $form-check-input-outline-dark;
-    }
-
-    // DARK VALID
-    .valid & {
-      .form-check-input[type="radio"],
-      .form-check-input[type="checkbox"] {
-        outline: $form-check-valid-color solid 2px;
-        &:focus {
-          outline: $form-check-input-outline-dark;
-          outline-offset: 2px;
-          box-shadow: none;
-        }
-        &:checked:focus {
-          outline: $form-check-input-outline-dark;
-        }
-      }
-    }
-    // DARK INVALID
-    .invalid & {
-      .form-check-input[type="radio"],
-      .form-check-input[type="checkbox"] {
-        outline: $form-check-invalid-color solid 2px;
-        &:focus {
-          outline: $form-check-input-outline-dark;
-          outline-offset: 2px;
-          box-shadow: none;
-        }
-        &:checked:focus {
-          outline: $form-check-input-outline-dark;
-        }
-      }
-    }
-  }
   &-label {
     margin-left: 0.5rem;
-  }
-}
-
-// DARK SMALL FORM CONTROLS - Separate block for higher specificity
-.dark .small .form-check,
-.dark-alt .small .form-check {
-  .form-check-input[type="radio"]:checked {
-    & + label::after {
-      mask-size: 0.875rem;
-    }
   }
 }
