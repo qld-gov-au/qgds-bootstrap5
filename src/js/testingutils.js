@@ -3,18 +3,23 @@
  *
  * @param {HTMLElement} element The element which listens for the event
  * @param {string} eventName The name of the event
- * @param {function} callback a callback which returns the value you want. Receives the event object 
- * @returns {Promise<T>} A promise that resolves to the value returned by the callback
- * @example const isOpen = await waitForEventOn(collapse, "hidden.bs.collapse", (e) => {
-    return Array.from(e.target.classList).includes("show");
-  });
-  */
+ * @param {function} callback a callback which returns the value you want. Receives the event object
+ * @returns {Promise} A promise that resolves to the value returned by the callback
+ * @example
+ * const isOpen = await waitForEventOn(collapse, "hidden.bs.collapse", (e) => {
+ *  return Array.from(e.target.classList).includes("show");
+ * });
+ */
 export function waitForEventOn(element, eventName, callback) {
   return new Promise((resolve) => {
     element.addEventListener(
       eventName,
       (e) => {
-        resolve(callback(e));
+        if (callback) {
+          resolve(callback(e));
+        } else {
+          resolve();
+        }
       },
       { once: true },
     );
