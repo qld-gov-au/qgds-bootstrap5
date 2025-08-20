@@ -3,15 +3,25 @@ import {
   accordionToggleAllButtonState,
   accordionHashLinks,
 } from "./../components/bs5/accordion/accordion.functions";
-import { videoEmbedPlay, videoTranscriptTitle } from "./../components/bs5/video/video.functions";
+import {
+  videoEmbedPlay,
+  videoTranscriptTitle,
+} from "./../components/bs5/video/video.functions";
 import { initializeNavbar } from "./../components/bs5/navbar/navbar.functions";
 import { initBreadcrumb } from "./../components/bs5/breadcrumbs/breadcrumb.functions";
-import { positionQuickExit, initQuickexit } from "./../components/bs5/quickexit/quickexit.functions";
+import {
+  positionQuickExit,
+  initQuickexit,
+} from "./../components/bs5/quickexit/quickexit.functions";
 import { displayFeedbackForm } from "./../components/bs5/footer/footer.functions";
 import { toggleSearch } from "./../components/bs5/header/header.functions";
-import { showSuggestions, submitSearchForm } from "./../components/bs5/searchInput/search.functions";
+import {
+  showSuggestions,
+  submitSearchForm,
+} from "./../components/bs5/searchInput/search.functions";
 import { backToTop } from "./../components/bs5/backToTop/backToTop.functions";
 import { initTabsScroll } from "./../components/bs5/tabs/tabs.functions";
+import { validateSkipLinks } from "./../components/bs5/skiplinks/skipLinks.functions";
 
 window.addEventListener("scroll", positionQuickExit, true);
 window.addEventListener("resize", positionQuickExit, true);
@@ -32,16 +42,20 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     //Header search
-    let headerSearchButton = document.querySelector(".qld__main-nav__toggle-search");
+    let headerSearchButton = document.querySelector(
+      ".qld__main-nav__toggle-search",
+    );
     if (headerSearchButton) {
-      document.querySelector(".qld__main-nav__toggle-search").addEventListener("click", toggleSearch);
+      document
+        .querySelector(".qld__main-nav__toggle-search")
+        .addEventListener("click", toggleSearch);
     }
 
     // Get all forms with the class 'site-search'
     let forms = document.querySelectorAll(".site-search");
     forms.forEach((form) => {
       // Get the search input within the current form
-      let searchInput = form.querySelector('.qld-search-input input');
+      let searchInput = form.querySelector(".qld-search-input input");
 
       if (searchInput) {
         let timeout;
@@ -101,7 +115,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         // Attach event listener to form submit
-        form.addEventListener('submit', function (event) {
+        form.addEventListener("submit", function (event) {
           event.preventDefault();
           const query = searchInput.value.trim();
           submitSearchForm(query, form);
@@ -134,12 +148,16 @@ window.addEventListener("DOMContentLoaded", () => {
     positionQuickExit();
 
     // Accordion
-    let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
+    let accordionToggleButton = document.querySelectorAll(
+      ".accordion-toggle-btn",
+    );
 
     accordionToggleButton.forEach(function (toggleButton) {
       toggleButton.addEventListener("click", accordionToggleAll);
 
-      let accordionButtons = toggleButton.closest(".accordion-group").querySelectorAll(".accordion-button");
+      let accordionButtons = toggleButton
+        .closest(".accordion-group")
+        .querySelectorAll(".accordion-button");
 
       accordionButtons.forEach(function (button) {
         button.addEventListener("click", accordionToggleAllButtonState);
@@ -161,10 +179,15 @@ window.addEventListener("DOMContentLoaded", () => {
       thumbnail.addEventListener("click", videoEmbedPlay);
     });
 
-    let videoTranscripts = document.querySelectorAll(".video .accordion .accordion-button");
+    let videoTranscripts = document.querySelectorAll(
+      ".video .accordion .accordion-button",
+    );
 
     videoTranscripts.forEach(function (transcript) {
       transcript.addEventListener("click", videoTranscriptTitle);
     });
+
+    // Skip Links
+    validateSkipLinks();
   })();
 });
