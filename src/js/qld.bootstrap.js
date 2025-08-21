@@ -8,7 +8,7 @@ import {
   videoTranscriptTitle,
 } from "./../components/bs5/video/video.functions";
 import { initializeNavbar } from "./../components/bs5/navbar/navbar.functions";
-import { initBreadcrumb } from "../components/bs5/breadcrumbs/breadcrumbs.functions";
+import { initBreadcrumb } from "./../components/bs5/breadcrumbs/breadcrumb.functions";
 import {
   positionQuickExit,
   initQuickexit,
@@ -21,6 +21,7 @@ import {
 } from "./../components/bs5/searchInput/search.functions";
 import { backToTop } from "./../components/bs5/backToTop/backToTop.functions";
 import { initTabsScroll } from "./../components/bs5/tabs/tabs.functions";
+import { validateSkipLinks } from "./../components/bs5/skiplinks/skipLinks.functions";
 
 window.addEventListener("scroll", positionQuickExit, true);
 window.addEventListener("resize", positionQuickExit, true);
@@ -64,18 +65,24 @@ window.addEventListener("DOMContentLoaded", () => {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
             const value = e.target.value.trim();
-            showSuggestions(value, value === '', form);
+            showSuggestions(value, value === "", form);
           }, 300);
         });
 
         // Add focus event listener to the search input
         searchInput.addEventListener("focus", function () {
           const suggestions = form.querySelector(".suggestions");
-          const dynamicSuggestionsContainer = form.querySelector(".dynamic-suggestions");
+          const dynamicSuggestionsContainer = form.querySelector(
+            ".dynamic-suggestions",
+          );
 
           if (this.value.trim() === "") {
             showSuggestions("", true, form);
-          } else if (suggestions && dynamicSuggestionsContainer && dynamicSuggestionsContainer.innerHTML.trim() !== "") {
+          } else if (
+            suggestions &&
+            dynamicSuggestionsContainer &&
+            dynamicSuggestionsContainer.innerHTML.trim() !== ""
+          ) {
             // Only show existing suggestions if there are actual dynamic suggestions populated
             suggestions.classList.remove("d-none");
           }
@@ -84,13 +91,15 @@ window.addEventListener("DOMContentLoaded", () => {
         const suggestions = form.querySelector(".suggestions");
         // If there is no suggestions renderred, do not add event listener to the document
         if (suggestions) {
-
           // Helper function to determine if suggestions should be hidden on focus change
           const shouldHideSuggestions = (newFocusTarget) => {
             if (!newFocusTarget) return true;
 
-            const isFocusInsideInput = searchInput.contains(newFocusTarget) || searchInput === newFocusTarget;
-            const isFocusInsideSuggestions = suggestions.contains(newFocusTarget);
+            const isFocusInsideInput =
+              searchInput.contains(newFocusTarget) ||
+              searchInput === newFocusTarget;
+            const isFocusInsideSuggestions =
+              suggestions.contains(newFocusTarget);
 
             return !isFocusInsideInput && !isFocusInsideSuggestions;
           };
@@ -105,10 +114,10 @@ window.addEventListener("DOMContentLoaded", () => {
           };
 
           // Attach focusout event listener to search input
-          searchInput.addEventListener('focusout', handleFocusOut);
+          searchInput.addEventListener("focusout", handleFocusOut);
 
           // Attach focusout event listener to suggestions container
-          suggestions.addEventListener('focusout', handleFocusOut);
+          suggestions.addEventListener("focusout", handleFocusOut);
         } else {
           console.warn("Required suggestions elements not found.");
         }
@@ -185,5 +194,8 @@ window.addEventListener("DOMContentLoaded", () => {
     videoTranscripts.forEach(function (transcript) {
       transcript.addEventListener("click", videoTranscriptTitle);
     });
+
+    // Skip Links
+    validateSkipLinks();
   })();
 });
