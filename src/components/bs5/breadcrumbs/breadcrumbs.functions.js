@@ -69,11 +69,11 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
         wrapperDiv.classList.add("breadcrumb-wrapper");
         wrapperDiv.appendChild(newList);
         expandCrumb.append(wrapperDiv);
-        wrapperDiv.addEventListener("focusout", (event) => {
+        expandCrumb.addEventListener("focusout", (event) => {
           // Check if the element receiving focus is outside the dropdown container
           if (
             !event.relatedTarget ||
-            !wrapperDiv.contains(event.relatedTarget)
+            !expandCrumb.contains(event.relatedTarget)
           ) {
             wrapperDiv.parentElement.classList.remove("expanded");
           }
@@ -126,9 +126,6 @@ export function breadcrumbExpand(event) {
 function collapseMenu(event) {
   event.stopPropagation();
   event.preventDefault();
-  console.log(
-    "breadcrumbExpand: Click event on document to close expanded breadcrumb.",
-  );
   const expandButton = document.querySelector(".breadcrumb-toggle-link");
   const expandMenu = document.querySelector(".breadcrumb-wrapper");
   if (
