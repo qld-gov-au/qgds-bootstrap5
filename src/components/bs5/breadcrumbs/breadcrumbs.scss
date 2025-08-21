@@ -24,7 +24,12 @@ $expander-icon-color: $qld-light-link;
   --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(
     --#{$prefix}light-link
   );
-
+  overflow: hidden;
+  display: inline-flex;
+  width: 100%;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  text-overflow: ellipsis;
   // Dark mode overrides
   .dark &,
   .dark-alt & {
@@ -208,5 +213,12 @@ $expander-icon-color: $qld-light-link;
     display: flex;
     font-size: 1rem;
     line-height: 1.5rem;
+
+    &.active {
+      white-space: nowrap; /* Prevents text from wrapping to the next line */
+      overflow: hidden; /* Hides any content that overflows the element's box */
+      text-overflow: ellipsis;
+      display: inline-block;
+    }
   }
 }

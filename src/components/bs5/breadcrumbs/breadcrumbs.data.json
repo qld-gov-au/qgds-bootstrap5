@@ -7,15 +7,15 @@
       },
       {
         "link": "#",
-        "linktext": "Level 2"
+        "linktext": "Level 2 with a very long name that is longer than the others"
       },
       {
         "link": "#",
-        "linktext": "Level 3"
+        "linktext": "Level 3 with a very long name that is longer than the others"
       },
       {
         "link": "#",
-        "linktext": "Current page"
+        "linktext": "Current page is having a very long name that is longer than the others"
       }
     ]
   },
@@ -23,11 +23,11 @@
     "breadcrumbs": [
       {
         "link": "#",
-        "linktext": "Home"
+        "linktext": "Home page"
       },
       {
         "link": "#",
-        "linktext": "Page 1"
+        "linktext": "Page 1 is having a very long name that is longer than the others"
       },
       {
         "link": "#",
@@ -47,11 +47,11 @@
       },
       {
         "link": "#",
-        "linktext": "Parent page"
+        "linktext": "Parent page is having a very long name that is longer than the others, a very long name that is longer than the others"
       },
       {
         "link": "#",
-        "linktext": "Current page"
+        "linktext": "Current page is having a very long name that is longer than the others which is very long name that is longer than the teena teena which is very long name that is longer than the others"
       }
     ]
   }
