@@ -3,13 +3,8 @@
     {
       "variant": "global-alert-critical",
       "content": "<strong>Testing:</strong> This website is currently undergoing testing",
-      "expiryDays": 14,
-      "action": {
-        "label": "Read more",
-        "href": "https://www.qld.gov.au/",
-        "target": "",
-        "class": [{ "small": true }, { "view-all": false }]
-      }
+      "action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>",
+      "expiryDays": 14
     }
   ]
 }

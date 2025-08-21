@@ -4,7 +4,7 @@ import headerData from "./header.data.json";
 import navbarData from "./navigation.data.json";
 import breadcrumbsData from "./breadcrumb.data.json";
 import searchData from "./search.data.json";
-import globalAlertData from "./globalAlert.data.json";
+import globalAlertData from "./globalAlert.data.js";
 import inpagenavData from "./inpagenav.data.json";
 import sidenavData from "./sidenav.data.json";
 import contentFooterData from "./contentFooter.data.json";
