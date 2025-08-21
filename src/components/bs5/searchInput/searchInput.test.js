@@ -261,13 +261,13 @@ describe("SearchInput", () => {
     const inputEvent = new window.InputEvent("input", { 
       data: "t",
       bubbles: true,
-      cancelable: true, 
+      cancelable: true 
     });
     
     // Set the target property correctly for the event
     Object.defineProperty(inputEvent, 'target', {
       value: searchInput,
-      enumerable: true,
+      enumerable: true
     });
     
     searchInput.dispatchEvent(inputEvent);

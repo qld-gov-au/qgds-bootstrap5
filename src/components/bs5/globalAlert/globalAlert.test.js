@@ -2,7 +2,7 @@ import { expect, it, describe, test, beforeEach } from "vitest";
 import { JSDOM } from "jsdom";
 import { GlobalAlert } from "./GlobalAlert.js";
 import { initGlobalAlerts } from "./globalAlert.function.js";
-import mockData from "./globalAlert.data.js";
+import mockData from "./globalAlert.data.json";
 import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
