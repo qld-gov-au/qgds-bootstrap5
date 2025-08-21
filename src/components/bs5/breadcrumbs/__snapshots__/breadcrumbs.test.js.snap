@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumbs > Initialises the Breadcrumb component with a max length of 4 1`] = `
+"<ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Home</a>
+            </li><li class="breadcrumb-item breadcrumb-toggle"><button aria-label="Expand the breadcrumbs" class="breadcrumb-toggle-link"></button><div class="breadcrumb-wrapper"><ol class="breadcrumb-vertical"><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 1</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 2</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 3</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 4</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 5</a>
+            </li></ol></div></li>
+            
+            
+            
+            
+            
+            <li class="breadcrumb-item">
+                <a href="#">Parent page</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" data-href="#">Current page</li>
+    </ol>"
+`;
+
+exports[`Breadcrumbs > Initialises the Breadcrumb component with a max length of 4 with a sub menu vertical 1`] = `
+"<ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Home</a>
+            </li><li class="breadcrumb-item breadcrumb-toggle"><button aria-label="Expand the breadcrumbs" class="breadcrumb-toggle-link"></button><div class="breadcrumb-wrapper"><ol class="breadcrumb-vertical"><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 1</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 2</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 3</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 4</a>
+            </li><li class="breadcrumb-item">
+                <a href="#" tabindex="0">Page 5</a>
+            </li></ol></div></li>
+            
+            
+            
+            
+            
+            <li class="breadcrumb-item">
+                <a href="#">Parent page</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" data-href="#">Current page</li>
+    </ol>"
+`;
+
+exports[`Breadcrumbs > Renders as expected 1`] = `
+"<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Page 1</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Page 2</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Page 3</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Page 4</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Page 5</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Parent page</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" data-href="#">Current page</li>
+    </ol>
+</nav>
+"
+`;

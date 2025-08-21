@@ -54,7 +54,6 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
         expandButton = document.createElement("button");
 
       expandCrumb.classList.add("breadcrumb-item", "breadcrumb-toggle");
-      //expandButton.setAttribute("href", "javascript:void(0)");
       expandButton.setAttribute("aria-label", "Expand the breadcrumbs");
       expandButton.classList.add("breadcrumb-toggle-link");
       expandButton.addEventListener("click", breadcrumbExpand);
@@ -76,9 +75,6 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
             !event.relatedTarget ||
             !wrapperDiv.contains(event.relatedTarget)
           ) {
-            console.log(
-              "breadcrumbExpand: Focusout event on wrapperDiv to close expanded breadcrumb.",
-            );
             wrapperDiv.parentElement.classList.remove("expanded");
           }
         });
@@ -109,6 +105,14 @@ export function breadcrumbExpand(event) {
   }
 
   event.target.parentElement.classList.toggle("expanded");
+  if (event.target.parentElement.classList.contains("expanded")) {
+    // Focus the first focusable element inside
+    const expandMenu = document.querySelector(".breadcrumb-wrapper");
+    const firstItem = expandMenu.querySelector("a");
+    if (firstItem) {
+      firstItem.focus();
+    }
+  }
   const expandButton = document.querySelector(".breadcrumb-toggle-link");
   expandButton && document.addEventListener("click", collapseMenu);
 }
