@@ -67,7 +67,7 @@ export const Dark = {
   },
 
   args: {
-    ...defaultdata.default,
+    ...defaultdata.defaultLong,
     class: "dark",
   },
 

@@ -8,10 +8,11 @@
  */
 export function initBreadcrumb() {
   // Set the standard breadcrumb length.
-  const maxLength = 4;
+  let maxLength = 5;
 
   // Get the breadcrumb DOM element.
   const breadcrumb = document.querySelector(".breadcrumb");
+  const breadcrumbParent = breadcrumb?.parentElement;
   if (!breadcrumb) {
     return;
   }
@@ -21,7 +22,10 @@ export function initBreadcrumb() {
   if (!breadcrumbList || !breadcrumbList.length) {
     return;
   }
-  // Collapse breadcrumb.
+  // Collapse breadcrumb when width of breadcrumb overflows the container.
+  if (breadcrumb.clientWidth >= breadcrumbParent.clientWidth) {
+    maxLength = 3;
+  }
   breadcrumbCollapse(breadcrumbList, maxLength);
 }
 

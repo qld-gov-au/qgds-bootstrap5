@@ -7,11 +7,39 @@
       },
       {
         "link": "#",
+        "linktext": "Level 2"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 3"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 4"
+      },
+      {
+        "link": "#",
+        "linktext": "Current page is having a very long name that is longer than the others"
+      }
+    ]
+  },
+  "defaultLong": {
+    "breadcrumbs": [
+      {
+        "link": "#",
+        "linktext": "Home"
+      },
+      {
+        "link": "#",
         "linktext": "Level 2 with a very long name that is longer than the others"
       },
       {
         "link": "#",
         "linktext": "Level 3 with a very long name that is longer than the others"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 4 with a very long name that is longer than the others"
       },
       {
         "link": "#",

@@ -59,7 +59,7 @@ describe("Breadcrumbs", async () => {
     expect(breadcrumb.querySelector(".breadcrumb-toggle-link")).toBeDefined();
   });
 
-  it("Initialises the Breadcrumb component with a max length of 4 with a sub menu vertical", () => {
+  it("Initialises the Breadcrumb component with a max length of 5 with a sub menu vertical", () => {
     const breadcrumb = d.querySelector(".breadcrumb");
     const breadcrumbList = breadcrumb.querySelectorAll(".breadcrumb-item");
     expect(breadcrumbList.length).toBeGreaterThan(4);
