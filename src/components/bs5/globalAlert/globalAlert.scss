@@ -123,6 +123,10 @@
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
 
+    .qld-icon {
+      background-color: var(--#{$prefix}white);
+    }
+
     a {
       &:focus {
         outline-color: #fff;

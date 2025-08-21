@@ -8,11 +8,11 @@
     <div class="qld-global-alert-main">
       <div class="global-alert-icon">
         {{#ifCond variant '==' 'global-alert-critical'}}
-        {{> icon size="sm" ariaHidden="true" iconId="alert-danger"}}
+        <span class="qld-icon qld-icon-sm qld-icon-alert-danger" aria-hidden="true"></span>
         {{else ifCond variant '==' 'global-alert-info'}}
-        {{> icon size="sm" ariaHidden="true" iconId="alert-information"}}
+        <span class="qld-icon qld-icon-sm qld-icon-alert-information" aria-hidden="true"></span>
         {{else ifCond variant '==' 'global-alert-warning'}}
-        {{> icon size="sm" ariaHidden="true" iconId="alert-warning"}}
+        <span class="qld-icon qld-icon-sm qld-icon-alert-warning" aria-hidden="true"></span>
         {{/ifCond}}
       </div>
 
@@ -22,7 +22,7 @@
         </div>
         <div class="global-alert-action">
           {{{action}}}
-          {{> icon size="sm" ariaHidden="true" iconId="arrow-right"}}
+          <span class="qld-icon qld-icon-sm qld-icon-arrow-right" aria-hidden="true"></span>
         </div>
       </div>
       {{#if dismissable}}
