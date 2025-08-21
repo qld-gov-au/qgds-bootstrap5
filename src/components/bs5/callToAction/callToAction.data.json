@@ -1,7 +1,10 @@
 {
-  "id": "",
-  "label": "View all",
-  "href": "#123",
-  "target": "_blank",
-  "class": [{ "small": false }, { "view-all": true }]
+	"id": "",
+	"label": "View all",
+	"href": "#123",
+	"target": "_blank",
+	"class": [
+		{"small": false}, 
+		{"view-all": true}
+	]
 }
