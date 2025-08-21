@@ -1,8 +1,4 @@
 <header class="qld-header" role="banner">
-    <nav class="qld-header__skip-link" aria-label="skip links" tabindex="-1">
-        <a class="qld-header__skip-link-item" href="#content">Skip to main content</a>
-        <a class="qld-header__skip-link-item" href="#main-nav">Skip to main navigation</a>
-    </nav>
     <div class="qld-header__pre-header">
         <div class="container-fluid">
             <a href="{{#if sitePreHeader.url.value}}{{sitePreHeader.url.value}}{{else}}https://qld.gov.au{{/if}}">
@@ -245,8 +241,7 @@
             </div>
         </div>
     </div>
-    <div
-        class="qld-header__main {{#if siteHeader.config.masterbrand_enabled}}qld-header__main--masterbrand--{{siteHeader.config.masterbrand_enabled}}{{/if}}">
+    <div class="qld-header__main {{#if siteHeader.config.masterbrand_enabled}}qld-header__main--masterbrand--{{siteHeader.config.masterbrand_enabled}}{{/if}}">
         <div class="container-fluid">
             {{#if siteHeader.config.masterbrand_enabled}}
                 <div class="qld-header__brand">
