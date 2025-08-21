@@ -19,11 +19,6 @@
     margin-bottom: 0;
   }
 
-  .qld-cta-link {
-    --qld-action-icon-color: #000;
-    --qld-action-icon-hover-color: #000;
-  }
-
   .qld-global-alert-main {
     display: flex;
     column-gap: 1rem;
@@ -137,11 +132,6 @@
     color: var(--#{$prefix}white);
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
-
-    .qld-cta-link {
-      --qld-action-icon-color: #fff;
-      --qld-action-icon-hover-color: #fff;
-    }
 
     a {
       &:focus {
