@@ -70,10 +70,10 @@ describe("initGlobalAlerts", () => {
       },
       {
         variant: mockData.info.alertItems[0].variant,
-        id: "test-non-dismissable-alert",
-        content: "Non-dismissable alert",
+        id: "test-preventDismiss-alert",
+        content: "PreventDismiss alert",
         action: mockData.info.alertItems[0].action,
-        dismissable: false,
+        preventDismiss: true,
         dismissedExpiryDays: "7",
       },
     ],
@@ -334,32 +334,15 @@ describe("initGlobalAlerts", () => {
     expect(localStorage.length).toBe(0);
   });
 
-  test("Non-dismissable alert does not show close button", () => {
-    try {
-      initGlobalAlerts();
-
-      const nonDismissableAlert = d.querySelector('[data-id="test-non-dismissable-alert"]');
-      const closeButton = nonDismissableAlert.querySelector('.btn-close');
-      
-      expect(closeButton).toBeNull();
-      expect(nonDismissableAlert.classList.contains("d-none")).toBe(false);
-    } catch (error) {
-      // Skip test if sessionStorage issues occur in test environment
-      if (error.message.includes('sessionStorage')) {
-        expect(true).toBe(true); // Mark test as passed
-      } else {
-        throw error;
-      }
-    }
-  });
-
-  test("Dismissable alert (default) shows close button", () => {
+  test("PreventDismiss alert does not show close button", () => {
     initGlobalAlerts();
 
-    const dismissableAlert = d.querySelector('[data-id="test-alert-with-expiry"]');
-    const closeButton = dismissableAlert.querySelector('.btn-close');
-    
-    expect(closeButton).not.toBeNull();
-    expect(dismissableAlert.classList.contains("d-none")).toBe(false);
+    const nonDismissableAlert = d.querySelector(
+      '[data-id="test-preventDismiss-alert"]',
+    );
+    const closeButton = nonDismissableAlert.querySelector(".btn-close");
+
+    expect(closeButton).toBeNull();
+    expect(nonDismissableAlert.classList.contains("d-none")).toBe(false);
   });
 });

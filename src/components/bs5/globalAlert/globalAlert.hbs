@@ -3,7 +3,7 @@
 <div class="global-alert-include">
   {{#each alertItems}}
   <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"
-    aria-label="{{variant}}" {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
+    aria-label="{{ariaLabel}}" {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
     data-expiry-days="{{dismissedExpiryDays}}" {{/if}}>
     <div class="qld-global-alert-main">
       <div class="global-alert-icon">
@@ -25,17 +25,11 @@
           <span class="qld-icon qld-icon-sm qld-icon-arrow-right" aria-hidden="true"></span>
         </div>
       </div>
-      {{#if dismissable}}
-      <div class="global-alert-close">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {{else}}
-      {{#unless dismissable}}
+      {{#unless preventDismiss}}
       <div class="global-alert-close">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       {{/unless}}
-      {{/if}}
     </div>
   </section>
   {{/each }}
