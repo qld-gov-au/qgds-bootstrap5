@@ -88,7 +88,7 @@ $icon-sizes: (
 			// Only use background-image for multi colours icons.
 			&.#{$prefixIcon}#{$icon} {
 				background-image: var(#{$prefixIconQgds}#{$icon});
-				background-color: transparent;;
+				background-color: transparent;
 			}
 		} @else {
 			&.#{$prefixIcon}#{$icon} {
