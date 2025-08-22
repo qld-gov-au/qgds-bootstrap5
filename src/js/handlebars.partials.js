@@ -44,6 +44,7 @@ import searchInput from "../components/bs5/searchInput/searchInput.hbs?raw";
 import select from "../components/bs5/select/select.hbs?raw";
 import sidenav from "../components/bs5/sidenav/sidenav.hbs?raw";
 import sidenavWrapper from "../components/bs5/sidenavWrapper/sidenavWrapper.hbs?raw";
+import skipLinks from "../components/bs5/skiplinks/skipLinks.hbs?raw";
 import spinner from "../components/bs5/spinner/spinner.hbs?raw";
 import table from "../components/bs5/table/table.hbs?raw";
 import tabs from "../components/bs5/tabs/tabs.hbs?raw";
@@ -103,6 +104,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("select", select);
   handlebars.registerPartial("sidenav", sidenav);
   handlebars.registerPartial("sidenavWrapper", sidenavWrapper);
+  handlebars.registerPartial("skipLinks", skipLinks);
   handlebars.registerPartial("spinner", spinner);
   handlebars.registerPartial("table", table);
   handlebars.registerPartial("tabs", tabs);
