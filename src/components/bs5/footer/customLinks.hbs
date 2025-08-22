@@ -1,0 +1,7 @@
+{{#if customLinks }}
+    <nav class="nav footer-link-list flex-column">
+        {{#each customLinks.list }}
+        <a class="nav-link" href="{{ this.link }}" {{#if this.new_window }} target="_blank" {{/if}}>{{{ @key }}}</a>
+        {{/each }}
+    </nav>
+{{/if}}

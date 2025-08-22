@@ -102,6 +102,11 @@ export default {
       description: "Follow links section details",
       control: { type: "object" },
     },
+    customlinks: {
+      name: "Custom Links",
+      description: "Custom links section details",
+      control: { type: "object" },
+    },
   },
 };
 

@@ -4,8 +4,6 @@
   "contactHasContactListDisabled": false,
   "footerHasCrestDisabled": false,
   "footerHasStateOfQld": true,
-  "feedbackFormDisabled": false,
-  "followlinksDisabled": false,
   "copyrightHasYearFrom": false,
   "copyrightOrganisationName": "Organisation",
   "contact": {
@@ -14,12 +12,12 @@
     "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
     "list": {
       "phone": {
-        "icon": "icon-phone",
-        "label": "<b>Phone:</b> 13 QGOV (13 74 68)"
+        "icon": "qld-icon-phone",
+        "label": "<b>Phone:</b> <a href='tel:137468' rel='noopener'>13 QGOV (13 74 68)</a>"
       },
       "email": {
-        "icon": "icon-email",
-        "label": "<b>Email:</b> <span class='user-select-all'>email@qld.gov.au</span>"
+        "icon": "qld-icon-email",
+        "label": "<b>Email:</b> <span class='user-select-all'><a href='mailto:email@qld.gov.au' rel='noopener'>email@qld.gov.au</a></span>"
       }
     },
     "buttonLabel": "Contact us",
@@ -62,7 +60,6 @@
     }
   },
   "feedbackForm": {
-    "hasBorderColumnDisabled": false,
     "title": "Website feedback",
     "content": "Help us improve the content on our website or tell us what is working well.",
     "btnTitle": "Leave your feedback",
@@ -77,7 +74,6 @@
     "formioResource": "https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"
   },
   "followlinks": {
-    "hasBorderColumn": false,
     "title": "Follow us",
     "list": [
       {
@@ -113,18 +109,31 @@
       }
     ]
   },
+  "customLinks": {
+    "list": {
+      "Link 1": { "link": "https://www.example.com" },
+      "Link 2": { "link": "https://www.example.com", "new_window": true },
+      "Link 3": { "link": "https://www.example.com" },
+      "Link 4": { "link": "https://www.example.com" },
+      "Link 5": { "link": "https://www.example.com" },
+      "Link 6": { "link": "https://www.example.com" },
+      "Link 7": { "link": "https://www.example.com" }
+    }
+  },
   "optionalColumn1": {
     "hasBorderColumn": true,
     "title": "Optional Column 1",
     "content": "",
     "displayFeedbackForm": false,
-    "displayFollowLinks": false
+    "displayFollowLinks": false,
+    "displayCustomLinks": false
   },
   "optionalColumn2": {
     "hasBorderColumn": true,
     "title": "Optional Column 2",
     "content": "",
     "displayFeedbackForm": false,
-    "displayFollowLinks": false
+    "displayFollowLinks": false,
+    "displayCustomLinks": true
   }
 }
