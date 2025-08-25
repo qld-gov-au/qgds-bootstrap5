@@ -88,7 +88,7 @@ describe("Breadcrumbs", async () => {
     expect(toggleButton.getAttribute("aria-label")).toBe(
       "Expand the breadcrumbs",
     );
-    const verticalMenu = d.querySelector(".breadcrumb-wrapper");
+    const verticalMenu = d.querySelector(".breadcrumb-collapse-wrapper");
     expect(verticalMenu).toBeDefined();
     expect(toggleButton.parentElement.classList.contains("expanded")).toBe(
       false,

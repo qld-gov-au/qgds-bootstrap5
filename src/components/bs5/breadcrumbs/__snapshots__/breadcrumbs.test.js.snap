@@ -4,16 +4,16 @@ exports[`Breadcrumbs > Initialises the Breadcrumb component with a max length of
 "<ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="#">Home page</a>
-            </li><li class="breadcrumb-item breadcrumb-toggle"><button aria-label="Expand the breadcrumbs" class="breadcrumb-toggle-link"></button><div class="breadcrumb-wrapper"><ol class="breadcrumb-vertical"><li class="breadcrumb-item">
-                <a href="#" tabindex="0">Page 1 is having a very long name that is longer than the others</a>
+            </li><li class="breadcrumb-item breadcrumb-toggle"><button aria-label="Expand the breadcrumbs" type="button" class="breadcrumb-toggle-link"></button><div class="breadcrumb-collapse-wrapper"><ol class="breadcrumb-vertical"><li class="breadcrumb-item">
+                <a href="#" tabindex="-1">Page 1 is having a very long name that is longer than the others</a>
             </li><li class="breadcrumb-item">
-                <a href="#" tabindex="0">Page 2</a>
+                <a href="#" tabindex="-1">Page 2</a>
             </li><li class="breadcrumb-item">
-                <a href="#" tabindex="0">Page 3</a>
+                <a href="#" tabindex="-1">Page 3</a>
             </li><li class="breadcrumb-item">
-                <a href="#" tabindex="0">Page 4</a>
+                <a href="#" tabindex="-1">Page 4</a>
             </li><li class="breadcrumb-item">
-                <a href="#" tabindex="0">Page 5</a>
+                <a href="#" tabindex="-1">Page 5</a>
             </li></ol></div></li>
             
             

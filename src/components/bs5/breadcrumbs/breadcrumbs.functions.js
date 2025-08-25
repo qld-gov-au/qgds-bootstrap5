@@ -12,7 +12,7 @@ export function initBreadcrumb() {
 
   // Get the breadcrumb DOM element.
   const breadcrumb = document.querySelector(".breadcrumb");
-  const breadcrumbParent = breadcrumb?.parentElement;
+
   if (!breadcrumb) {
     return;
   }
@@ -22,6 +22,12 @@ export function initBreadcrumb() {
   if (!breadcrumbList || !breadcrumbList.length) {
     return;
   }
+
+  const breadcrumbParent = breadcrumb.parentElement;
+  if (!breadcrumbParent) {
+    return;
+  }
+
   // Collapse breadcrumb when width of breadcrumb overflows the container.
   if (breadcrumb.clientWidth >= breadcrumbParent.clientWidth) {
     maxLength = 3;
@@ -38,7 +44,7 @@ export function initBreadcrumb() {
  * @param  {number} maxLength - Standard maximum length for breadcrumb.
  * @returns {void} Returns early when breadcrumb does not exist or its length is within set maxLength.
  */
-export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
+export function breadcrumbCollapse(breadcrumbList, maxLength = 5) {
   // No shortening is required when breadcrumb does not exist or its length is within the maximum range.
   if (!breadcrumbList || breadcrumbList.length <= maxLength) {
     return;
@@ -49,7 +55,7 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
 
   breadcrumbList.forEach((crumb, index) => {
     if (index > 0 && index < breadcrumbList.length - 2) {
-      crumb.querySelector("a").setAttribute("tabindex", 0);
+      crumb.querySelector("a")?.setAttribute("tabindex", -1);
       newList.appendChild(crumb);
     }
 
@@ -59,8 +65,9 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
 
       expandCrumb.classList.add("breadcrumb-item", "breadcrumb-toggle");
       expandButton.setAttribute("aria-label", "Expand the breadcrumbs");
+      expandButton.type = "button";
       expandButton.classList.add("breadcrumb-toggle-link");
-      expandButton.addEventListener("click", breadcrumbExpand);
+      expandButton.addEventListener("click", expandMenu);
 
       expandCrumb.appendChild(expandButton);
       crumb.after(expandCrumb);
@@ -70,7 +77,7 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
       const expandCrumb = document.querySelector(".breadcrumb-toggle");
       if (expandCrumb) {
         const wrapperDiv = document.createElement("div");
-        wrapperDiv.classList.add("breadcrumb-wrapper");
+        wrapperDiv.classList.add("breadcrumb-collapse-wrapper");
         wrapperDiv.appendChild(newList);
         expandCrumb.append(wrapperDiv);
         expandCrumb.addEventListener("focusout", (event) => {
@@ -95,23 +102,24 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 4) {
  * @param  {Event} event - The event that triggered this function.
  * @returns {void} Returns early when the breadcrumb does not exist or is empty.
  */
-export function breadcrumbExpand(event) {
+export function expandMenu(event) {
   const breadcrumb = event.target.closest(".breadcrumb");
   if (!breadcrumb) {
-    console.log("breadcrumbExpand: Breadcrumb does not exist.");
+    console.log("expandMenu: Breadcrumb does not exist.");
     return;
   }
   const breadcrumbList = breadcrumb.querySelectorAll(".breadcrumb-item");
 
   if (!breadcrumbList || !breadcrumbList.length) {
-    console.log("breadcrumbExpand: Breadcrumb does not exist or is empty.");
+    console.log("expandMenu: Breadcrumb does not exist or is empty.");
     return;
   }
 
   event.target.parentElement.classList.toggle("expanded");
   if (event.target.parentElement.classList.contains("expanded")) {
     // Focus the first focusable element inside
-    const expandMenu = document.querySelector(".breadcrumb-wrapper");
+    const expandMenu = document.querySelector(".breadcrumb-collapse-wrapper");
+    resetTabIndex(0);
     const firstItem = expandMenu.querySelector("a");
     if (firstItem) {
       firstItem.focus();
@@ -131,12 +139,25 @@ function collapseMenu(event) {
   event.stopPropagation();
   event.preventDefault();
   const expandButton = document.querySelector(".breadcrumb-toggle-link");
-  const expandMenu = document.querySelector(".breadcrumb-wrapper");
+  const expandMenu = document.querySelector(".breadcrumb-collapse-wrapper");
   if (
     !expandMenu.contains(event.target) &&
     !expandButton.contains(event.target)
   ) {
     expandMenu.parentElement.classList.remove("expanded");
     document.removeEventListener("click", collapseMenu);
+    resetTabIndex(-1);
   }
+}
+
+function resetTabIndex(tabindex) {
+  const breadcrumbListExpanded = document.querySelectorAll(
+    ".breadcrumb-collapse-wrapper li",
+  );
+  if (!breadcrumbListExpanded) {
+    return;
+  }
+  breadcrumbListExpanded.forEach((crumb) => {
+    crumb.querySelector("a")?.setAttribute("tabindex", tabindex);
+  });
 }
