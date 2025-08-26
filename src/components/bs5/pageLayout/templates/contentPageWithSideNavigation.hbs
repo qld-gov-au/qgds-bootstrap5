@@ -7,8 +7,11 @@
   {{> head }}
 </head>
 <body>
+    <!-- Global ALert -->
     {{> globalAlert globalAlert}}
+    <!-- Header -->
     {{> header header}}
+    <!-- Navbar -->
     {{> navbar navbar}}
     
     {{#if banner}}
@@ -21,24 +24,30 @@
                 {{#if breadcrumbs}}
                 <div class="row">
                     <div class="col-12">
+                        <!-- breadcrumbs -->
                         {{> breadcrumbs breadcrumbs}}
                     </div>
                 </div>
                 {{/if}}
                 
+                <!-- Main Grid Layout: Side navigation and content -->
                 <div class="row">
                     {{#if sidenav}}
+                    <!-- Side navigation Col -->
                     <div class="col-lg-3 col-md-4">
                         {{> sidenav sidenav}}
                     </div>
+                    <!-- Content Col -->
                     <div class="col-lg-8 col-md-7 gx-5">
                     {{else}}
                     <div class="col-12">
                     {{/if}}
                         
+                        <!-- Main Content Sections -->
                         <div class="content-section px-4">
                             
                             {{#if inpagenav}}
+                            <!-- inpagenav Section -->
                             {{> inpagenav inpagenav}}
                             {{/if}}
 
@@ -57,35 +66,41 @@
                         </div>
                         
                         {{#if image}}
+                        <!-- image Section -->
                         <div class="my-4 px-4">
                             {{> image image}}
                         </div>
                         {{/if}}
                         
                         {{#if table}}
+                        <!-- table Section -->
                         <div class="my-4 px-4">
                             {{> table table}}
                         </div>
                         {{/if}}
                         
                         {{#if video}}
+                        <!-- video Section -->
                         <div class="my-4 px-4">
                             {{> video video}}
                         </div>
                         {{/if}}
                         
+                        <!-- Content Footer -->
                         {{> contentFooter contentFooter}}
                     </div>
                 </div>
                 
                 <div class="row">
-                    <div class="col-12">                        
+                    <div class="col-12">
+                        <!-- Back to Top -->                     
                         {{> backToTop backToTop}}
                     </div>
                 </div>                                        
             </div>
         </div>
     </main>
+    <!-- Footer -->
     {{> footer footer}}
 </body>
 </html>
