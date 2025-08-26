@@ -16,6 +16,11 @@ export function initBreadcrumb() {
   if (!breadcrumb) {
     return;
   }
+  const expandCrumb = breadcrumb.querySelector(".breadcrumb-toggle");
+  if (expandCrumb) {
+    // Breadcrumb has already been initialised.
+    return;
+  }
   const breadcrumbList = breadcrumb.querySelectorAll(".breadcrumb-item");
 
   // Return when breadcrumb does not exist.
@@ -137,7 +142,6 @@ export function expandMenu(event) {
  */
 function collapseMenu(event) {
   event.stopPropagation();
-  event.preventDefault();
   const expandButton = document.querySelector(".breadcrumb-toggle-link");
   const expandMenu = document.querySelector(".breadcrumb-collapse-wrapper");
   if (
