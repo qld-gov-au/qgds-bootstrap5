@@ -24,13 +24,10 @@ $expander-icon-color: $qld-light-link;
   --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(
     --#{$prefix}light-link
   );
-  overflow: hidden;
   display: inline-flex;
   width: auto;
   max-width: 100%;
-  white-space: nowrap;
   flex-wrap: nowrap;
-  text-overflow: ellipsis;
   // Dark mode overrides
   .dark &,
   .dark-alt & {
@@ -95,7 +92,7 @@ $expander-icon-color: $qld-light-link;
   }
   .breadcrumb-collapse-wrapper {
     position: absolute;
-    margin-top: 2.5rem;
+    margin-top: 1rem;
     max-height: 0;
     overflow: hidden;
     pointer-events: none;
@@ -116,6 +113,20 @@ $expander-icon-color: $qld-light-link;
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: none;
+
+  &:nth-last-child(2) {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    &:focus {
+      overflow: initial;
+    }
+  }
+
+  &:first-child {
+    flex-shrink: 0;
+  }
+
   a {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -129,13 +140,16 @@ $expander-icon-color: $qld-light-link;
   // Divider
   &:after {
     content: "";
-    display: block;
+    display: inline-block;
     width: 1.5rem;
+    height: 1.5rem;
     mask-image: var(--#{$prefix}breadcrumb-divider);
     mask-size: 1rem 1rem;
     mask-repeat: no-repeat;
     mask-position: center center;
     background-color: var(--#{$prefix}breadcrumb-divider-color);
+    position: relative;
+    top: 7px;
   }
 
   &:last-child:after {
@@ -159,6 +173,7 @@ $expander-icon-color: $qld-light-link;
 
 .breadcrumb-toggle {
   @include m.unset-button-styles();
+  flex-shrink: 0;
 
   > button {
     display: inline-block;
@@ -189,6 +204,10 @@ $expander-icon-color: $qld-light-link;
 
     @include m.focusable($offsetOutline: 3px);
   }
+
+  &:after {
+    top: 0px;
+  }
 }
 
 // Responsive styles
@@ -202,12 +221,14 @@ $expander-icon-color: $qld-light-link;
     &:nth-last-child(2) {
       display: flex;
       flex-direction: row-reverse;
-
+      min-width: 0;
       // Rotate the back arrow 180 degrees, shift left to align chevron with text
       &:after {
         transform: rotate(180deg);
         transform-origin: center;
         margin-left: -0.25rem;
+        top: 0;
+        min-width: 1.5rem;
       }
     }
   }
@@ -216,7 +237,7 @@ $expander-icon-color: $qld-light-link;
 //Large and above
 @include media-breakpoint-up(lg) {
   .breadcrumb-item {
-    display: flex;
+    display: inline;
     font-size: 1rem;
     line-height: 1.5rem;
 
@@ -225,6 +246,8 @@ $expander-icon-color: $qld-light-link;
       overflow: hidden; /* Hides any content that overflows the element's box */
       text-overflow: ellipsis;
       display: inline-block;
+      flex-shrink: 999999;
+      line-height: 2rem;
     }
   }
 }
