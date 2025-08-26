@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}}</title>
-  {{> head }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    {{> head }}
 </head>
+
 <body>
     {{> header header}}
     {{> navbar navbar}}
     {{> globalAlert globalAlert}}
-    
+
     {{#if banner}}
     {{> banner banner}}
     {{/if}}
-    
+
     <main>
         <div class="container-fluid">
             <div class="container qld-content">
@@ -25,31 +27,31 @@
                     </div>
                 </div>
                 {{/if}}
-                
+
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="content-section">
                             {{{content}}}
                         </div>
-                        
+
                         {{#if form}}
                         <form class="qld-form">
                             {{#each form.fields}}
                             <div class="form-group mb-3">
-                                {{#if (eq type "textbox")}}
+                                {{#ifCond type '==' 'textbox'}}
                                 {{> textbox this}}
-                                {{else if (eq type "textarea")}}
+                                {{else ifCond type '==' 'textarea'}}
                                 {{> textarea this}}
-                                {{else if (eq type "select")}}
+                                {{else ifCond type '==' 'select'}}
                                 {{> select this}}
-                                {{else if (eq type "dateinput")}}
+                                {{else ifCond type '==' 'dateinput'}}
                                 {{> dateinput this}}
-                                {{else if (eq type "formcheck")}}
+                                {{else ifCond type '==' 'formcheck'}}
                                 {{> formcheck this}}
-                                {{/if}}
+                                {{/ifCond}}
                             </div>
                             {{/each}}
-                            
+
                             {{#if form.buttons}}
                             <div class="form-actions mt-4">
                                 {{#each form.buttons}}
@@ -59,19 +61,20 @@
                             {{/if}}
                         </form>
                         {{/if}}
-                        
+
                         {{> contentFooter contentFooter}}
                     </div>
                 </div>
-                
+
                 <div class="row">
-                    <div class="col-12">                        
+                    <div class="col-12">
                         {{> backToTop backToTop}}
                     </div>
-                </div>                                        
+                </div>
             </div>
         </div>
     </main>
     {{> footer footer}}
 </body>
+
 </html>
