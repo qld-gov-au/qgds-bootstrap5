@@ -2,57 +2,60 @@
 
 exports[`Breadcrumbs > Initialises the Breadcrumb component with a max length of 5 with a sub menu vertical 1`] = `
 "<ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">Home page</a>
-            </li><li class="breadcrumb-item breadcrumb-toggle"><button aria-label="Expand the breadcrumbs" type="button" class="breadcrumb-toggle-link"></button><div class="breadcrumb-collapse-wrapper"><ol class="breadcrumb-vertical"><li class="breadcrumb-item">
-                <a href="#" tabindex="-1">Page 1 is having a very long name that is longer than the others</a>
-            </li><li class="breadcrumb-item">
-                <a href="#" tabindex="-1">Page 2</a>
-            </li><li class="breadcrumb-item">
-                <a href="#" tabindex="-1">Page 3</a>
-            </li><li class="breadcrumb-item">
-                <a href="#" tabindex="-1">Page 4</a>
-            </li><li class="breadcrumb-item">
-                <a href="#" tabindex="-1">Page 5</a>
-            </li></ol></div></li>
-            
-            
-            
-            
-            
-            <li class="breadcrumb-item">
-                <a href="#">Parent page is having a very long name that is longer than the others, a very long name that is longer than the others</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page" data-href="#">Current page is having a very long name that is longer than the others which is very long name that is longer than the teena teena which is very long name that is longer than the others</li>
-    </ol>"
+        <li class="breadcrumb-item">
+          <a href="#">Home page</a>
+        </li><li class="breadcrumb-item breadcrumb-toggle"><button aria-label="Expand the breadcrumbs" type="button" class="breadcrumb-toggle-link"></button><div class="breadcrumb-collapse-wrapper"><ol class="breadcrumb-vertical"><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Page 1 is having a very long name that is longer than the others</a>
+        </li><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Page 2</a>
+        </li><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Page 3</a>
+        </li><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Page 4</a>
+        </li><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Page 5</a>
+        </li></ol></div></li>
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item">
+          <a href="#">Parent page is having a very long name that is longer than the others, a very long name that is longer than the others</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page" data-href="#">Current page is having a very long name that is longer than the others which is very long name that is longer than the teena teena which is very long name that is longer than the others</li>
+  </ol>"
 `;
 
 exports[`Breadcrumbs > Renders as expected 1`] = `
 "<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">Home page</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="#">Page 1 is having a very long name that is longer than the others</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="#">Page 2</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="#">Page 3</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="#">Page 4</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="#">Page 5</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="#">Parent page is having a very long name that is longer than the others, a very long name that is longer than the others</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page" data-href="#">Current page is having a very long name that is longer than the others which is very long name that is longer than the teena teena which is very long name that is longer than the others</li>
-    </ol>
-</nav>
-"
+  <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Home page</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Page 1 is having a very long name that is longer than the others</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Page 2</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Page 3</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Page 4</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Page 5</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Parent page is having a very long name that is longer than the others, a very long name that is longer than the others</a>
+        </li>
+        <li
+          class="breadcrumb-item active"
+          aria-current="page"
+          data-href="#"
+        >Current page is having a very long name that is longer than the others which is very long name that is longer than the teena teena which is very long name that is longer than the others</li>
+  </ol>
+</nav>"
 `;
