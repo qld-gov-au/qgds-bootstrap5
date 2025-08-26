@@ -24,6 +24,7 @@ import fullPage from "../components/bs5/fullPageWrapper/fullPage.hbs?raw";
 import globalAlert from "../components/bs5/globalAlert/globalAlert.hbs?raw";
 import head from "../components/bs5/head/head.hbs?raw";
 import header from "../components/bs5/header/header.hbs?raw";
+import icon from "../components/bs5/icons/icon.hbs?raw";
 import image from "../components/bs5/image/image.hbs?raw";
 import inpageAlert from "../components/bs5/inpageAlert/inpageAlert.hbs?raw";
 import inpagenav from "../components/bs5/inpagenav/inpagenav.hbs?raw";
@@ -54,7 +55,6 @@ import textbox from "../components/bs5/textbox/textbox.hbs?raw";
 import typography from "../components/bs5/typography/typography.hbs?raw";
 import video from "../components/bs5/video/video.hbs?raw";
 
-
 /**
  * Registers Handlebars Partials
  * @param {Handlebars} handlebars Templating engine
@@ -84,6 +84,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("globalAlert", globalAlert);
   handlebars.registerPartial("head", head);
   handlebars.registerPartial("header", header);
+  handlebars.registerPartial("icon", icon);
   handlebars.registerPartial("image", image);
   handlebars.registerPartial("inpageAlert", inpageAlert);
   handlebars.registerPartial("inpagenav", inpagenav);
@@ -113,8 +114,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("textbox", textbox);
   handlebars.registerPartial("typography", typography);
   handlebars.registerPartial("video", video);
-
 }
-if(typeof(Handlebars) !== 'undefined') {
+if (typeof Handlebars !== "undefined") {
   handlebarsPartials(Handlebars);
 }
