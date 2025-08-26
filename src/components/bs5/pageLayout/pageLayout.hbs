@@ -7,24 +7,25 @@
   {{> head }}
 </head>
 <body>
-    {{> header header}}
-    {{> navbar navbar}}
     {{> globalAlert globalAlert}}
+    {{> header header}}
+    {{> navbar navbar}}    
     <main>
         <div class="container-fluid">
             <div class="container qld-content">
                 <div class="row">
+                    <!-- Side Nav -->
+                    {{#> sidenavWrapper}}
+                    {{> sidenav sidenav}}
+                    {{/sidenavWrapper}}
                     {{#> contentWrapper}}
                         <p>content goes here dd</p>
-                        {{> table table}}
-                        {{> contentFooter contentFooter }}
+                        {{> table table}}                        
                     {{/contentWrapper}}
-                </div>
-                <div class="row">
-                    <div class="col-12">                        
-                        {{> backToTop backToTop}}
-                    </div>
-                </div>                                        
+                </div>                    
+            </div>
+            <div class="container">
+                {{> contentFooter contentFooter }}
             </div>
         </div>
     </main>

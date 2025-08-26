@@ -34,6 +34,7 @@ const defaultData = {
   globalAlert: globalAlertData.critical,
   footer: footerData,
   contentFooter: contentFooterData,
+  sidenav: sidenavData,
 };
 
 export default {
