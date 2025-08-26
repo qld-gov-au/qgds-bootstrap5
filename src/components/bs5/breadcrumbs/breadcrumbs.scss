@@ -184,6 +184,7 @@ $expander-icon-color: $qld-light-link;
     border: 0;
     background-color: transparent;
     border-radius: 4px;
+    margin-top: 2px;
 
     &:after {
       display: block;
@@ -206,7 +207,7 @@ $expander-icon-color: $qld-light-link;
   }
 
   &:after {
-    top: 0px;
+    top: -3px;
   }
 }
 
