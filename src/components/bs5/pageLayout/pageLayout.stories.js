@@ -127,7 +127,8 @@ export const ContentPageWithSideNav = {
     banner: {
       ...bannerData,
       title: "Vehicle Registration",
-      abstract: "Everything you need to know about registering your vehicle in Queensland.",
+      abstract:
+        "Everything you need to know about registering your vehicle in Queensland.",
     },
     breadcrumbs: breadcrumbsData,
     sidenav: sidenavData,
@@ -149,7 +150,7 @@ export const ContentPageWithSideNav = {
       <p>Links to related government services.</p>
     `,
     image: imageData,
-    video: videoData,
+    video: videoData.youtube,
   },
 };
 

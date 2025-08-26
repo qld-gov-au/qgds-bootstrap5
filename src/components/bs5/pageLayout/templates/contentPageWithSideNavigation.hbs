@@ -7,9 +7,9 @@
   {{> head }}
 </head>
 <body>
+    {{> globalAlert globalAlert}}
     {{> header header}}
     {{> navbar navbar}}
-    {{> globalAlert globalAlert}}
     
     {{#if banner}}
     {{> banner banner}}
@@ -31,32 +31,45 @@
                     <div class="col-lg-3 col-md-4">
                         {{> sidenav sidenav}}
                     </div>
-                    <div class="col-lg-9 col-md-8">
+                    <div class="col-lg-8 col-md-7 gx-5">
                     {{else}}
                     <div class="col-12">
                     {{/if}}
-                        {{#if inpagenav}}
-                        {{> inpagenav inpagenav}}
-                        {{/if}}
                         
-                        <div class="content-section">
-                            {{{content}}}
+                        <div class="content-section px-4">
+                            
+                            {{#if inpagenav}}
+                            {{> inpagenav inpagenav}}
+                            {{/if}}
+
+                            <h1 id="section-heading">Section heading (H1)</h1>
+                            <p>This is the main content area. It contains detailed information about the topic.</p>
+
+                            <h2 id="content-heading">Content heading (H2)</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            
+                            <h3 id="inspection">Pre-registration inspection (H3)</h3>
+                            <p>Information about pre-registration inspection requirements.</p>
+                            
+                            <h4 id="fees-and-charges">Fees and charges (H4)</h4>
+                            <p>Details about fees and charges for vehicle registration.</p>
+
                         </div>
                         
                         {{#if image}}
-                        <div class="my-4">
+                        <div class="my-4 px-4">
                             {{> image image}}
                         </div>
                         {{/if}}
                         
                         {{#if table}}
-                        <div class="my-4">
+                        <div class="my-4 px-4">
                             {{> table table}}
                         </div>
                         {{/if}}
                         
                         {{#if video}}
-                        <div class="my-4">
+                        <div class="my-4 px-4">
                             {{> video video}}
                         </div>
                         {{/if}}
