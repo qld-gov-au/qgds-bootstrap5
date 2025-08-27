@@ -12,45 +12,12 @@
     font-size: 1.25rem;
   }
 
-  .container-fluid {
-    margin-left: auto;
-    margin-right: auto;
+  &-container {
+    @include make-container();
     max-width: 86rem; //1376px;
   }
 
-  &__skip-link {
-    line-height: 1;
-  }
-
-  &__skip-link-item {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-    color: var(--#{$prefix}header_skip-link_color);
-
-    &:focus {
-      top: 1rem;
-      left: 1rem;
-      padding: 1.5rem;
-      clip: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      position: absolute;
-      width: auto;
-      color: var(--#{$prefix}header_skip-link_focus_text_color);
-      background-color: var(--#{$prefix}header_skip-link_focus_bg_color);
-      outline: 3px solid var(--#{$prefix}header_skip-link_focus_outline_color);
-      z-index: 999;
-    }
-  }
-
-  &__pre-header {
+  &-pre-header {
     color: var(--#{$prefix}header__pre-header_text_color);
     background-color: var(--#{$prefix}header__pre-header_bg_color);
     box-shadow: var(--#{$prefix}header__pre-header_boxshadow);
@@ -108,10 +75,6 @@
           -webkit-text-decoration: none;
         }
       }
-    }
-
-    .container-fluid {
-      display: flex;
     }
 
     &-brand-image {
@@ -395,9 +358,42 @@
     }
   }
 
-  &__pre-header-url {
+  &-link {
+    color: inherit;
     font-size: 0.875rem;
+    line-height: 1;
+    text-decoration: none;
+    text-decoration-color: var(
+      --#{$prefix}header__pre-header__anchor_text_decoration_color
+    );
+    text-decoration-thickness: var(
+      --#{$prefix}header__pre-header__anchor_text_decoration_thickness
+    );
+    text-underline-offset: var(
+      --#{$prefix}header__pre-header__anchor_text_decoration_offset
+    );
+    text-decoration-skip-ink: auto;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: var(
+        --#{$prefix}header__pre-header__anchor__focus_text_decoration_color
+      );
+      text-decoration-thickness: var(
+        --#{$prefix}header__pre-header__anchor__focus_text_decoration_thickness
+      );
+    }
+
+    &:disabled,
+    a[disabled] {
+      text-decoration: none;
+    }
   }
+
+  // &__pre-header-url {
+  //   font-size: 0.875rem;
+  // }
 
   &__main {
     position: relative;

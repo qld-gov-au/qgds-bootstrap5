@@ -6,12 +6,11 @@
     "close-icon": "qld__icon__close",
     "chevron_down": "qld__icon__chevron-down"
   },
-  "sitePreHeader": {
-    "url": {
-      "value": "https://qld.gov.au"
-    },
-    "text": {
-      "value": "www.qld.gov.au"
+
+  "preHeader": {
+    "globalLink": {
+      "text": "www.qld.gov.au",
+      "url": "https://qld.gov.au"
     },
     "CTA": [
       {
