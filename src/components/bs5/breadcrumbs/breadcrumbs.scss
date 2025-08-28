@@ -56,7 +56,7 @@ $expander-icon-color: $qld-light-link;
         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
       box-shadow: var(--#{$prefix}dropdown-box-shadow);
       pointer-events: all;
-      transition: max-height 0.25s ease-in;
+      transition: max-height 0.5s ease-in;
     }
   }
 
@@ -76,6 +76,7 @@ $expander-icon-color: $qld-light-link;
       white-space: nowrap; /* Prevents text from wrapping to the next line */
       overflow: hidden; /* Hides any content that overflows the element's box */
       text-overflow: ellipsis;
+      margin: 0;
       &:hover {
         text-decoration: underline;
         color: $qld-light-link;
@@ -99,7 +100,7 @@ $expander-icon-color: $qld-light-link;
     width: 360px;
     border-radius: 4px;
     /* Transition properties */
-    transition: max-height 0.25s ease-out;
+    transition: max-height 0.5s ease-out;
   }
   .breadcrumb-vertical {
     padding: 0;
@@ -111,9 +112,13 @@ $expander-icon-color: $qld-light-link;
 // Breadcrumb items
 .breadcrumb-item {
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 2rem;
   display: none;
   white-space: nowrap;
+
+  &:not(:first-child) a {
+    margin-left: 5px;
+  }
 
   &:nth-last-child(2) {
     text-overflow: ellipsis;
@@ -142,15 +147,15 @@ $expander-icon-color: $qld-light-link;
   &:after {
     content: "";
     display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
     mask-image: var(--#{$prefix}breadcrumb-divider);
     mask-size: 1rem 1rem;
     mask-repeat: no-repeat;
     mask-position: center center;
     background-color: var(--#{$prefix}breadcrumb-divider-color);
     position: relative;
-    top: 7px;
+    top: 4px;
   }
 
   &:last-child:after {
@@ -178,15 +183,15 @@ $expander-icon-color: $qld-light-link;
 
   > button {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     line-height: 1.5rem;
     outline: none;
     border: 0;
     background-color: transparent;
     border-radius: 4px;
-    margin-top: 2px;
-
+    padding: 0;
+    vertical-align: middle;
     &:after {
       display: block;
       width: 100%;
@@ -205,10 +210,6 @@ $expander-icon-color: $qld-light-link;
     }
 
     @include m.focusable($offsetOutline: 3px);
-  }
-
-  &:after {
-    top: -3px;
   }
 }
 
@@ -229,7 +230,7 @@ $expander-icon-color: $qld-light-link;
         transform: rotate(180deg);
         transform-origin: center;
         margin-left: -0.25rem;
-        top: 0;
+        top: 2px;
         min-width: 1.5rem;
       }
     }
@@ -241,7 +242,6 @@ $expander-icon-color: $qld-light-link;
   .breadcrumb-item {
     display: inline;
     font-size: 1rem;
-    line-height: 1.5rem;
 
     &.active {
       white-space: nowrap; /* Prevents text from wrapping to the next line */
@@ -249,7 +249,7 @@ $expander-icon-color: $qld-light-link;
       text-overflow: ellipsis;
       display: inline-block;
       flex-shrink: 999999;
-      line-height: 2.3rem;
+      margin-left: 4px;
     }
   }
 }
