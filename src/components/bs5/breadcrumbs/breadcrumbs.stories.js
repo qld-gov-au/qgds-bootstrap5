@@ -67,7 +67,7 @@ export const Dark = {
   },
 
   args: {
-    ...defaultdata.defaultLong,
+    ...defaultdata.default,
     class: "dark",
   },
 
@@ -85,7 +85,7 @@ export const Dark = {
  * Breadcrumbs with expander (Default)
  * */
 export const WithExpanderDefault = {
-  args: defaultdata.forGov,
+  args: defaultdata.expanderSample,
 };
 
 /**
@@ -99,7 +99,15 @@ export const WithExpanderDark = {
     },
   },
   args: {
-    ...defaultdata.forGov,
+    ...defaultdata.expanderSample,
     class: "dark",
   },
+};
+
+export const LongBreadcrumbs = {
+  args: defaultdata.defaultLong,
+};
+
+export const ForGov = {
+  args: defaultdata.forGov,
 };
