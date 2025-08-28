@@ -1,10 +1,16 @@
 // Modifies BS5's default container behaviours at different viewports
 // Spec from QGDS UI-Kit spacing variables
+
+$container-max-width: 86rem;
+
 :root {
-  --qld-container-padding-x-sm: 1rem;
-  --qld-container-padding-x-md: 2rem;
+  --qld-container-padding-x: 1rem;
   --qld-container-max-width: 86rem;
   --qld-gap: 2rem;
+
+  @include media-breakpoint-up(md) {
+    --qld-container-padding-x: 2rem;
+  }
 }
 
 .row,
@@ -15,18 +21,18 @@
 .container {
   width: 100%;
   max-width: var(--qld-container-max-width);
-  padding-left: var(--qld-container-padding-x-sm);
-  padding-right: var(--qld-container-padding-x-sm);
+  padding-left: var(--qld-container-padding-x);
+  padding-right: var(--qld-container-padding-x);
+}
 
-  @include media-breakpoint-up(md) {
-    padding-left: var(--qld-container-padding-x-md);
-    padding-right: var(--qld-container-padding-x-md);
-  }
+.container-lg,
+.container-xl {
+  max-width: var(--qld-container-max-width);
 }
 
 // Responsive containers
-@each $breakpoint, $container-max-width in $container-max-widths {
-  .container-#{$breakpoint} {
-    max-width: var(--qld-container-max-width);
-  }
-}
+
+// @each $breakpoint, $container-max-width in $container-max-widths {
+//   .container-#{$breakpoint} {
+//     max-width: var(--qld-container-max-width);
+//   }
