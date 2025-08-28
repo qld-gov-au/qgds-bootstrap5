@@ -4,7 +4,7 @@
 // QGDS specific button variables.
 .btn {
     --#{$prefix}btn-padding-x: 1.5rem;
-    --#{$prefix}btn-padding-y: 0.75rem;
+    --#{$prefix}btn-padding-y: 0.5rem;
     --#{$prefix}btn-font-family: #{$font-family-sans-serif};
     --#{$prefix}btn-border-width: 3px;
     --#{$prefix}btn-active-border-color: transparent;
@@ -123,12 +123,14 @@
 a.btn,
 .btn {
     --qld-body-color: var(--#{$prefix}btn-color); 
-    white-space: nowrap;
-    display: flex;
+    white-space: normal;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
     min-width: 10rem;
+    min-height: 3.25rem;
+    text-align: center;
 
     span[class^=icon-],
     span[class^=fa-] {
@@ -164,6 +166,13 @@ a.btn,
     &:disabled,
     &.disabled {
         --qld-body-color: var(--#{$prefix}btn-disabled-color);
+        
+        &:focus {
+            background-color: var(--#{$prefix}btn-disabled-bg) !important;
+            border-color: var(--#{$prefix}btn-disabled-border-color) !important;
+            box-shadow: none !important;
+            text-decoration: none !important;
+        }
     }
 
     //Primary button variant
@@ -249,6 +258,13 @@ a.btn,
     &:disabled,
     &.disabled {
         --qld-body-color: var(--#{$prefix}btn-disabled-color);
+        
+        &:focus {
+            background-color: var(--#{$prefix}btn-disabled-bg) !important;
+            border-color: var(--#{$prefix}btn-disabled-border-color) !important;
+            box-shadow: none !important;
+            text-decoration: none !important;
+        }
     }
 
     &:focus {

@@ -37,7 +37,7 @@ function buttonVariantsMarkup() {
 
     return `<div class="d-grid mb-4">
               <div class="fw-bold">${variantLabel}</div>
-              <div class="btn-toolbar">
+              <div>
                 ${variantButtons}
               </div>
             </div>`;
@@ -50,9 +50,9 @@ export default {
   args: defaultdata,
   render: (args) => {
     return `
-    <div class="btn-toolbar">
+    <div>
       ${new Button(args).html}
-      ${new Button({...args, isdisabled: true}).html}
+      ${new Button({ ...args, isdisabled: true }).html}
     </div>
     `//expand arguments, specifically turn isdisabled into true
   },
@@ -125,7 +125,7 @@ export const Dark = {
  * This Story can be used to help in troubleshooting.
  */
 export const AllVariantsInDefaultMode = {
-  render:() => {
+  render: () => {
     return buttonVariantsMarkup();
   },
   parameters: {
@@ -140,7 +140,7 @@ export const AllVariantsInDefaultMode = {
  * This Story can be used to help in troubleshooting.
  */
 export const AllVariantsInDarkMode = {
-  render:() => {
+  render: () => {
     return buttonVariantsMarkup();
   },
   parameters: {
