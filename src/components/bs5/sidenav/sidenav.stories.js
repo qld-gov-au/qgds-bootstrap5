@@ -6,11 +6,10 @@ export default {
   tags: ["autodocs"],
   title: "2. Layout/Side navigation",
   render: (args) => {
-    return new Sidenav(args).html;  
+    return new Sidenav(args).html;
   },
 
-  argTypes: {
-  },
+  argTypes: {},
 
   parameters: {
     docs: {
@@ -23,7 +22,7 @@ export default {
 
 /**
  * Default side navigation
- * 
+ *
  */
 export const Default = {
   args: defaultdata,
@@ -32,9 +31,9 @@ export const Default = {
       return `
       <div class="container-fluid">
         <div class="row">
-        <div class="col-lg-4 col-md-5">
-          ${Story()}
-        </div>
+          <div class="col-lg-4 col-md-5">
+            ${Story()}
+          </div>
         </div>
       </div>
       `;
@@ -42,23 +41,26 @@ export const Default = {
   ],
 };
 
-
 /**
  * Dark side navigation
- * 
+ *
  */
 export const Dark = {
+  parameters: {
+    backgrounds: {
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+    },
+  },
   args: defaultdata,
   decorators: [
     (Story) => {
       return `
-      <div class="container-fluid">
+      <div class="container-fluid dark">
         <div class="row">
-        <div class="col-lg-4 col-md-5">
-        <div class="dark">
-          ${Story()}
-        </div>
-        </div>
+          <div class="col-lg-4 col-md-5">
+            ${Story()}
+          </div>
         </div>
       </div>
       `;
