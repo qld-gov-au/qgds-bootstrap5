@@ -7,7 +7,6 @@ import masterbrand_variant from "../header/header.variant.masterBrand.data.json"
 import menu_state from "../navbar/navbar.variant.menuState.data.json";
 import globalAlertData from "../globalAlert/globalAlert.data.json";
 import tableData from "../table/table.data.json";
-import backToTopData from "../backToTop/backToTop.data.json";
 import footerData from "../footer/footer.data.json";
 import contentFooterData from "../contentFooter/contentFooter.data.json";
 import bannerData from "../banner/banner.data.json";
@@ -21,14 +20,18 @@ import imageData from "../image/image.data.json";
 import videoData from "../video/video.data.json";
 import textboxData from "../textbox/textbox.data.json";
 import textareaData from "../textarea/textarea.data.json";
+import searchData from "../searchInput/searchInput.data.json";
 import selectData from "../select/select.data.json";
 import buttonData from "../button/button.data.json";
+import { SearchInput } from "../searchInput/SearchInput.js";
 
 const defaultData = {
   cdn: ".", //for storybook it's ., for normal usage "PROD"
   title: "title goes here",
-  backToTop: backToTopData,
-  header: masterbrand_variant,
+  header: {
+    ...masterbrand_variant,
+    searchInput: new SearchInput(searchData).html,
+  },
   navbar: menu_state,
   table: tableData,
   globalAlert: globalAlertData.critical,
@@ -129,26 +132,10 @@ export const ContentPageWithSideNav = {
       title: "Vehicle Registration",
       abstract:
         "Everything you need to know about registering your vehicle in Queensland.",
+      breadcrumbs: breadcrumbsData.default,
     },
-    breadcrumbs: breadcrumbsData,
     sidenav: sidenavData,
     inpagenav: inpagenavData,
-    content: `
-      <h1 id="section-heading">Section heading</h1>
-      <p>This is the main content area. It contains detailed information about the topic.</p>
-      
-      <h2 id="content-heading">Content heading</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      
-      <h2 id="inspection">Pre-registration inspection</h2>
-      <p>Information about pre-registration inspection requirements.</p>
-      
-      <h2 id="fees-and-charges">Fees and charges</h2>
-      <p>Details about fees and charges for vehicle registration.</p>
-      
-      <h2 id="related-services">Related services</h2>
-      <p>Links to related government services.</p>
-    `,
     image: imageData,
     video: videoData.youtube,
   },
@@ -168,8 +155,8 @@ export const ContentPageWithFormExample = {
       ...bannerData,
       title: "Contact Us",
       abstract: "Get in touch with us using the form below.",
+      breadcrumbs: breadcrumbsData.default,
     },
-    breadcrumbs: breadcrumbsData,
     content: `
       <h1>Contact Form</h1>
       <p>Please fill out the form below and we'll get back to you as soon as possible.</p>
