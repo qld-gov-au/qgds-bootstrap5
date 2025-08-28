@@ -35,7 +35,7 @@
                         </div>
 
                         {{#if form}}
-                        <form class="qld-form">
+                        <form class="qld-form mb-5">
                             {{#each form.fields}}
                             <div class="form-group mb-3">
                                 {{#ifCond type '==' 'textbox'}}
@@ -48,12 +48,16 @@
                                 {{> dateinput this}}
                                 {{else ifCond type '==' 'formcheck'}}
                                 {{> formcheck this}}
+                                {{else ifCond type '==' 'checkbox'}}
+                                {{> formcheck this}}
+                                {{else ifCond type '==' 'radio'}}
+                                {{> formcheck this}}
                                 {{/ifCond}}
                             </div>
                             {{/each}}
 
                             {{#if form.buttons}}
-                            <div class="form-actions mt-4">
+                            <div class="form-actions d-flex mt-5 gap-4">
                                 {{#each form.buttons}}
                                 {{> button this}}
                                 {{/each}}

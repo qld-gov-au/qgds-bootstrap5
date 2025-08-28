@@ -23,6 +23,8 @@ import textareaData from "../textarea/textarea.data.json";
 import searchData from "../searchInput/searchInput.data.json";
 import selectData from "../select/select.data.json";
 import buttonData from "../button/button.data.json";
+import checkboxData from "../formcheck/stories/checkbox/checkbox.data.json";
+import radioData from "../formcheck/stories/radio/radio.data.json";
 import { SearchInput } from "../searchInput/SearchInput.js";
 
 const defaultData = {
@@ -197,6 +199,68 @@ export const ContentPageWithFormExample = {
           label: "Message",
           id: "message",
           required: true,
+        },
+        {
+          ...checkboxData,
+          type: "checkbox",
+          questionLabel: "Services Required",
+          listitems: [
+            {
+              type: "checkbox",
+              id: "service1",
+              name: "services",
+              label: "Website Development",
+              value: "website",
+              isDisabled: false
+            },
+            {
+              type: "checkbox",
+              id: "service2",
+              name: "services",
+              label: "Mobile App Development",
+              value: "mobile",
+              isDisabled: false
+            },
+            {
+              type: "checkbox",
+              id: "service3",
+              name: "services",
+              label: "Consulting",
+              value: "consulting",
+              isDisabled: false
+            }
+          ]
+        },
+        {
+          ...radioData,
+          type: "radio",
+          questionLabel: "Preferred Contact Method",
+          listitems: [
+            {
+              type: "radio",
+              id: "contact1",
+              name: "contactMethod",
+              label: "Email",
+              value: "email",
+              isDisabled: false
+            },
+            {
+              type: "radio",
+              id: "contact2",
+              name: "contactMethod",
+              label: "Phone",
+              value: "phone",
+              isDisabled: false
+            },
+            {
+              type: "radio",
+              id: "contact3",
+              name: "contactMethod",
+              label: "SMS",
+              value: "sms",
+              isDisabled: false
+            }
+          ]
         },
       ],
       buttons: [
