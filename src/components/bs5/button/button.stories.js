@@ -41,7 +41,7 @@ function buttonVariantsMarkup() {
 
       return `<div class="d-grid mb-4">
               <div class="fw-bold">${variantLabel}</div>
-              <div>
+              <div class="d-flex gap-3">
                 ${variantButtons}
               </div>
             </div>`;
@@ -55,7 +55,7 @@ export default {
   args: defaultdata,
   render: (args) => {
     return `
-    <div>
+    <div class="d-flex gap-3">
       ${new Button(args).html}
       ${new Button({ ...args, isdisabled: true }).html}
     </div>
