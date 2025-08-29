@@ -1,50 +1,114 @@
 {
-	"default": {
-		"breadcrumbs": [
-			{
-				"link": "#",
-				"linktext": "Home"
-			},
-			{
-				"link": "#",
-				"linktext": "Level 2"
-			},
+  "default": {
+    "breadcrumbs": [
       {
-				"link": "#",
-				"linktext": "Level 3"
-			},
-			{
-				"link": "#",
-				"linktext": "Current page"
-			}
-		]
-	},
-	"forGov": {
-		"breadcrumbs": [
-			{
-				"link": "#",
-				"linktext": "For government"
-			},
-			{
-				"link": "#",
-				"linktext": "Information and communication technology"
-			},
-			{
-				"link": "#",
-				"linktext": "Communication and publishing"
-			},
-			{
-				"link": "#",
-				"linktext": "Website and digital publishing"
-			},
-			{
-				"link": "#",
-				"linktext": "Website standards, guidelines and templates"
-			},
-			{
-				"link": "#",
-				"linktext": "Single Website Experience"
-			}
-		]
-	}
+        "link": "#",
+        "linktext": "Home"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 2"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 3"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 4"
+      },
+      {
+        "link": "#",
+        "linktext": "Current page is having a very long name that is longer than the others"
+      }
+    ]
+  },
+  "defaultLong": {
+    "breadcrumbs": [
+      {
+        "link": "#",
+        "linktext": "Home"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 2 with a very long name that is longer than the others"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 3 with a very long name that is longer than the others"
+      },
+      {
+        "link": "#",
+        "linktext": "Level 4 with a very long name that is longer than the others"
+      },
+      {
+        "link": "#",
+        "linktext": "Current page is having a very long name that is longer than the others"
+      }
+    ]
+  },
+  "expanderSample": {
+    "breadcrumbs": [
+      {
+        "link": "#",
+        "linktext": "Home page"
+      },
+      {
+        "link": "#",
+        "linktext": "Page 1 is having a very long name that is longer than the others"
+      },
+      {
+        "link": "#",
+        "linktext": "Page 2"
+      },
+      {
+        "link": "#",
+        "linktext": "Page 3"
+      },
+      {
+        "link": "#",
+        "linktext": "Page 4"
+      },
+      {
+        "link": "#",
+        "linktext": "Page 5"
+      },
+      {
+        "link": "#",
+        "linktext": "Parent page is having a very long name that is longer than the others, a very long name that is longer than the others"
+      },
+      {
+        "link": "#",
+        "linktext": "Current page is having a very long name that is longer than the others which is very long name that is longer than the others"
+      }
+    ]
+  },
+  "forGov": {
+    "breadcrumbs": [
+      {
+        "link": "#",
+        "linktext": "For government"
+      },
+      {
+        "link": "#",
+        "linktext": "Information and communication technology"
+      },
+      {
+        "link": "#",
+        "linktext": "Communication and publishing"
+      },
+      {
+        "link": "#",
+        "linktext": "Website and digital publishing"
+      },
+      {
+        "link": "#",
+        "linktext": "Website standards, guidelines and templates"
+      },
+      {
+        "link": "#",
+        "linktext": "Single Website Experience"
+      }
+    ]
+  }
 }
