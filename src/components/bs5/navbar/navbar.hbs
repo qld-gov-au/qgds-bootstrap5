@@ -1,142 +1,79 @@
 <!-- QGDS Partial: Primary navigation -->
-{{#*inline "toggleButton"}}
-    <button class="dropdown-toggle second-element" role="button" aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
-        <span class="visually-hidden">Expand</span>
-    </button>
-{{/inline}}
 
-<!-- Primary Navigation / Desktop -->
-<nav id="main-nav" class="navbar navbar-expand-lg dark2" aria-label="Website navigation" role="navigation">
-    <div class="container navbar-contain">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            {{!-- Header for mobile navigation --}}
-            <div class="navbar__header">
-                <h3 class="navbar__heading">Menu</h3>
-                <button aria-controls="main-nav" class="navbar__toggle navbar__toggle--close" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Close menu">
-                    <span class="qld-icon qld-icon-lg qld-icon-close" aria-hidden="true"></span>
-                    <span class="navbar__toggle-text">Close</span>
-                </button>
+<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.altColour}} dark{{/if}}{{#if metadata.vertOrientation}} vertical{{/if}}" aria-label="Website navigation" role="navigation">
+    <div id="navbarNav" class="container">
+            <div class="nav-header">
+                <span class="navbar-brand" href="#">{{#if metadata.navbarBrandName}}{{metadata.navbarBrandName}}{{/if}}</span>
+                <button id="burgerCloseBtn" type="button" class="navbar-btn btn-close" data-bs-toggle="collapse"
+                    aria-label="Close" data-bs-target="#main-nav" aria-expanded="false"
+                    aria-controls="collapseExample">Close</button>
             </div>
-            {{!-- End: Header for mobile navigation --}}
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item nav-item-home">
-                    <a class="nav-link {{#if metadata.options.home-active}}nav-link-home-active{{/if}}" href="{{metadata.target_url}}">
-                        <span class="qld-icon qld-icon-md qld-icon-home" aria-hidden="true"></span>
-                        {{#if metadata.options.showHomeTitleSmallDevices}}
-                            <span class="home-label">Home</span>
-                        {{else}}
-                            <span class="visually-hidden">Home</span>
-                        {{/if}}
-                    </a>
-                </li>
-                {{#each navigation}}
-                    {{#if dropdown_enabled}}
-                        <li class="nav-item dropdown">
-                            <!-- Desktop primary dropdown style and behaviour -->
-                            <a class="nav-link dropdown-toggle" href="{{target_url}}"
-                                role="button" aria-controls="" data-bs-toggle="dropdown" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                {{title}}
-                            </a>
-                            {{> toggleButton}}
-
-                            {{#if navigation_items}}
-                                <ul id="dropdown-menu" class="dropdown-menu" role="menu" data-bs-popper="none">
-                                    <div class="row dropdown-menu__inner">
-                                        {{#if dropdown_options}}
-                                            <div class="col-12">
-                                                <a class="dropdown-menu__featured" href="{{dropdown_options.feature_link_href}}">
-                                                        {{dropdown_options.feature_link_value}}
-                                                </a>
-                                                {{#if dropdown_options.feature_link_description}}
-                                                    <p class="dropdown-menu__description">{{dropdown_options.feature_link_description}}</p>
-                                                {{/if}}
-                                            </div>
+            <div class="navbar-collapse">
+                
+                <ul class="navbar-nav">
+                    {{#each navigation}}
+                        {{#if navigationItems}}
+                            <li class="nav-item dropdown{{#if @first}} active{{/if}}{{#if altColour}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"> 
+                                <a class="nav-link{{#unless ../metadata.vertOrientation}} dropdown-toggle{{/unless}}" aria-current="page" href="{{url}}"{{#if target}}target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                                {{#if iconName}}
+                                    <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
+                                {{/if}}
+                                {{#if hideLabel}}
+                                    <span class="visually-hidden">{{text}}</span>
+                                {{else}}
+                                    {{text}}
+                                {{/if}}
+                                </a>
+                                <button class="nav-link dropdown-toggle" aria-current="page" aria-controls="" data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
+                                    <span class="visually-hidden">Expand</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item parent-link" role="button" aria-controls aria-current="page" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.altText}}{{dropdownOptions.altText}}{{else}}{{title}}{{/if}}</a>
+                                        {{#if dropdownOptions.description}}
+                                            <p>{{dropdownOptions.description}}</p>
                                         {{/if}}
-                                        
-                                        {{!-- Add the Link Columns here --}}
-                                        {{!-- START --}}
-                                        {{#each navigation_items}}                        
-                                            <li class="col-lg-4 col-sm-12">
-                                                <a href="{{target_url}}" class="dropdown-item"> 
-                                                    {{title}}
-                                                </a>
-                                                {{#if description}}
-                                                    <p class="dropdown-item__description">{{description}}</p>
-                                                {{/if}}
-                                            </li>
-                                        {{/each }}
-                                        {{#if dropdown_options.view_value}}
-                                            <li class="col-12 text-end">
-                                                <a class="dropdown-menu__view_all" href="{{dropdown_options.view_href}}">
-                                                    {{dropdown_options.view_value}}
-                                                </a>
-                                            </li>
-                                        {{/if}}
-                                        {{!-- END --}}
-                                    </div>
-                                </ul>
-                            {{/if}}
-                        </li>
-                    {{else}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{target_url}}">{{title}}</a>
-                        </li>
-                    {{/if}}
-                {{/each }}
-                {{#each CTA ~}}
-                    
-
-                    <li class="nav-item dropdown CTA_feature">
-                            <!-- Primary dropdown style and behaviour -->
-                            <a class="nav-link dropdown-toggle" href="{{target_url}}">
-                                {{{label}}}
-                            </a>
-                            {{> toggleButton}}
-
-                            {{#if dropdown_enabled}}
-                            <ul id="dropdown-menu-{{id}}" class="dropdown-menu" role="menu" data-bs-popper="none">
-                                <div class="row dropdown-menu__inner">
-                                    {{#if dropdown_options.dropdown_config.groups}}
-                                        <div class="col-12">
-                                            <a class="dropdown-menu__featured" href="{{dropdown_options.view_more_url}}">
-                                                {{dropdown_options.view_more_label}}
-                                            </a>
-                                        </div>
-                                        {{#each dropdown_options.dropdown_config.groups}}
-                                            {{#isType ../dropdown_options.dropdown_type "list"}}
-                                                <li class="col-lg-4 col-sm-12">
-                                                    <a href="{{url}}" class="dropdown-item" target="{{action}}">
-                                                        {{label}}
-                                                    </a>
-                                                </li>
-                                            {{/isType}}
-                                            {{#isType ../dropdown_options.dropdown_type "form"}}
-                                                {{#if content}}
-                                                    {{{content}}}
-                                                {{/if}}
-                                            {{/isType}}
-                                        {{/each }}
-                                        {{#if dropdown_options.dropdown_config.view_more}}
-                                        <li class="col-12 text-end">                        
-                                            <a class="dropdown-menu__view_all"
-                                                href="{{dropdown_options.dropdown_config.view_more_options.url}}"
-                                                target="{{dropdown_options.dropdown_config.view_more_options.target}}">
-                                                {{dropdown_options.dropdown_config.view_more_options.label}}
-                                            </a>
+                                    </li>
+                                    {{#each navigationItems}}
+                                        <li{{#if mobileOnly}} class="mobile-only"{{/if}}>
+                                            <a class="dropdown-item" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
+                                            {{#if description}}
+                                                <p>{{description}}</p>
+                                            {{/if}}
                                         </li>
-                                        {{/if}}
+                                    {{/each}}
+                                    {{#if dropdownOptions.viewAllHref}}
+                                        <li>
+                                            <a class="dropdown-item view-all" href="{{dropdownOptions.viewAllHref}}">View all</a>
+                                        </li>
                                     {{/if}}
-                                </div>
-                            </ul>
-                            {{/if}}
-                    </li>
-                {{~/each}}
-            </ul>
+                                </ul>
+                            </li>
+                        {{else}}
+                            <li class="nav-item{{#if @first}} active{{/if}}{{#if altColour}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}">
+                                <a class="nav-link" aria-current="page" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>
+                                {{#if iconName}}
+                                    <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
+                                {{/if}}
+                                {{#if hideLabel}}
+                                    <span class="visually-hidden">{{text}}</span>
+                                {{else}}
+                                    {{text}}
+                                {{/if}}
+                                </a>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-        <div id="overlay" class="navbar__overlay" aria-controls="main-nav"></div>
-    </div>
+        <div id="overlay"></div>
 </nav>
-<!-- MAIN NAVIGATION END -->
+
+<div id="btn-control">
+    <button id="burgerBtn" class="btn btn-primary" type="button" data-bs-toggle="collapse"
+        data-bs-target="#main-nav" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-bs-target
+    </button>
+</div>
