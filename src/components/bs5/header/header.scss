@@ -216,11 +216,6 @@
     }
   }
 
-  // &-global-link {
-  //   display: flex;
-  //   align-items: center;
-  // }
-
   &-logo {
     display: block;
     height: 1.75rem;
@@ -241,9 +236,6 @@
   }
 
   &-actions {
-    // display: none;
-    // margin-left: auto;
-
     // Preheader CTA dropdown - custom functionality:
     .dropdown {
       line-height: 1.5;
@@ -358,10 +350,6 @@
       }
     }
 
-    // @include media-breakpoint-up(lg) {
-    //   display: flex;
-    // }
-
     .qld-header__cta-link {
       font-size: 0.875rem;
       line-height: 1.42;
@@ -386,10 +374,6 @@
       }
     }
   }
-
-  // &__pre-header-url {
-  //   font-size: 0.875rem;
-  // }
 
   &__main {
     position: relative;
