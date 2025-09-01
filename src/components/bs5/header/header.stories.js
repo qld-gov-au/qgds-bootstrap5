@@ -167,6 +167,9 @@ export default {
   argTypes: {},
   parameters: {
     layout: "fullscreen",
+    docs: {
+      story: { height: "400px" },
+    },
   },
 };
 
