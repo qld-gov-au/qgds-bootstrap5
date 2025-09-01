@@ -39,64 +39,9 @@
     @include media-breakpoint-up(lg) {
       padding-bottom: 0.5rem;
       padding-top: 0.5rem;
-
-      // a {
-      //   font-size: 0.875rem;
-      //   line-height: 1;
-      //   text-decoration: none;
-      //   text-decoration-color: var(
-      //     --#{$prefix}header-pre-header-color-link-decoration
-      //   );
-      //   text-decoration-thickness: 0.5px;
-      //   text-underline-offset: 0.3em;
-      //   text-decoration-skip-ink: auto;
-
-      //   &:focus,
-      //   &:hover {
-      //     text-decoration: underline;
-      //     text-decoration-color: var(
-      //       --#{$prefix}header-pre-header-color-link-decoration-focus
-      //     );
-      //     text-decoration-thickness: 2px;
-      //   }
-
-      //   &:disabled,
-      //   a[disabled] {
-      //     text-decoration: none;
-      //   }
-      // }
     }
 
     &-brand-image {
-    }
-
-    &-url {
-      display: none;
-      color: var(--#{$prefix}header-pre-header__url_text_color);
-
-      @include media-breakpoint-up(lg) {
-        display: inline-block;
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-    }
-
-    a {
-      // display: flex;
-
-      // svg {
-      //   color: var(--#{$prefix}header-pre-header-anchor-color-text);
-      // }
-
-      // &:focus {
-      //   outline: 3px solid
-      //     var(--#{$prefix}header-pre-header-color-outline-focus);
-      //   outline-offset: 2px;
-      // }
-
-      // &::-moz-focus-inner {
-      //   border: 0;
-      // }
     }
 
     .qld-header__main-nav-controls {
@@ -191,11 +136,11 @@
 
     &,
     &:visited {
-      color: inherit;
+      color: var(--qld-header-pre-header-color-link) !important;
       text-decoration: none;
       text-decoration-color: var(
         --#{$prefix}header-pre-header-color-link-decoration
-      );
+      ) !important;
       text-decoration-thickness: 0.5px;
       text-underline-offset: 0.3em;
       text-decoration-skip-ink: auto;
@@ -213,6 +158,13 @@
     &:disabled,
     a[disabled] {
       text-decoration: none;
+    }
+
+    &.has-no-underline {
+      &:focus,
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
@@ -235,143 +187,112 @@
     }
   }
 
-  &-actions {
-    // Preheader CTA dropdown - custom functionality:
-    .dropdown {
-      line-height: 1.5;
-      .dropdown-menu.show {
-        width: 20.25rem;
-        min-height: 1rem;
-        padding: 0rem 2rem 1.75rem;
-        border-radius: 0 0 0.75rem 0.75rem;
-        border: 0;
-        background-color: var(
-          --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
-        );
-        box-shadow: var(--#{$prefix}header-pre-header_boxshadow);
-        margin-top: 0.8rem !important; // Overrides the default bs-popper margin
+  // Preheader CTA dropdown - custom functionality:
+  .dropdown {
+    line-height: 1.5;
+  }
 
-        hr {
-          margin: 1.5rem 0;
-          color: var(--#{$prefix}header__CTA_border_color);
-          border-color: var(--#{$prefix}header__CTA_border_color);
-          opacity: 1;
-        }
+  .dropdown-menu {
+    // Bootstrap defined custom properties
+    --#{$prefix}dropdown-link-hover-bg: transparent;
+    --#{$prefix}dropdown-link-active-bg: transparent;
+    //
+    width: 20.25rem;
+    min-height: 1rem;
+    padding: 0rem 2rem 1.75rem;
+    border-radius: 0 0 0.75rem 0.75rem;
+    border: 0;
+    background-color: var(
+      --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
+    );
+    box-shadow: var(--#{$prefix}header-pre-header-boxshadow);
+    margin-top: 0.8rem !important; // Overrides the default bs-popper margin
 
-        p {
-          font-size: 0.875rem;
-          line-height: 1.5;
-        }
-
-        a.btn-primary {
-          margin: 1.25rem 0 0.5rem 0;
-          text-decoration-color: inherit;
-          text-decoration-thickness: inherit;
-        }
-
-        .group {
-          a {
-            font-weight: 600;
-            color: var(--#{$prefix}header__CTA_text_color);
-            text-decoration: underline var(--#{$prefix}header__CTA_text_color);
-
-            &:visited {
-              color: var(--#{$prefix}header__CTA_text_color);
-            }
-          }
-        }
-
-        li.qld-header__cta-list {
-          a {
-            font-weight: 400;
-            position: relative;
-            border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
-            padding: 1rem 1.75rem 1rem 0;
-            line-height: 1.5;
-            align-items: center;
-
-            &:visited {
-              color: var(--#{$prefix}header__CTA_text_color);
-            }
-
-            span,
-            svg {
-              vertical-align: middle;
-            }
-
-            svg.viewMoreCTA {
-              margin-left: 0.5rem;
-            }
-
-            svg.cta_arrow {
-              position: absolute;
-              right: 0;
-            }
-          }
-
-          a.view-all {
-            text-decoration: underline;
-            text-underline-offset: var(--qld-link-underline-offset);
-            text-decoration-thickness: var(--qld-link-underline-thickness);
-            padding-right: 0;
-
-            &:focus,
-            &:hover {
-              text-decoration: underline;
-              text-decoration-color: var(
-                --#{$prefix}header-pre-header-color-link-decoration-focus
-              );
-              text-decoration-thickness: 0.5px;
-            }
-
-            &:disabled,
-            a[disabled] {
-              text-decoration: none;
-            }
-          }
-        }
-      }
-
-      ul.dropdown-menu.show:has(> li) {
-        padding-bottom: 1.25rem;
-      }
-
-      .dropdown-menu::before {
-        position: absolute;
-        content: " ";
-        height: 6px;
-        top: -6px;
-        left: 0;
-        right: 0px;
-        background-color: var(
-          --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
-        );
-        pointer-events: none; // so that pseudo-element isn't clickable
-      }
+    &::before {
+      position: absolute;
+      content: " ";
+      height: 6px;
+      top: -6px;
+      left: 0;
+      right: 0px;
+      background-color: var(
+        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
+      );
+      pointer-events: none; // so that pseudo-element isn't clickable
     }
 
-    .qld-header__cta-link {
+    hr {
+      margin: 1.5rem 0;
+      color: var(--#{$prefix}header__CTA_border_color);
+      border-color: var(--#{$prefix}header__CTA_border_color);
+      opacity: 1;
+    }
+
+    p {
       font-size: 0.875rem;
-      line-height: 1.42;
-      padding-left: 0.75rem;
-      margin: 0 0.5rem;
-      align-items: center;
-      color: var(--#{$prefix}header__cta-wrapper__cta-link_text_color);
+      line-height: 1.5;
     }
 
-    .qld-header__cta-link-icon {
-      height: 1rem;
-      width: 1rem;
-      margin-left: 0.5rem;
-      text-align: center;
-      display: inline-block;
-      color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
+    a.btn-primary {
+      margin: 1.25rem 0 0.5rem 0;
+      text-decoration-color: inherit;
+      text-decoration-thickness: inherit;
+    }
 
-      svg,
-      i {
-        height: 100%;
-        width: 100%;
+    .group {
+      a {
+        font-weight: 600;
+        color: var(--#{$prefix}header__CTA_text_color);
+        text-decoration: underline var(--#{$prefix}header__CTA_text_color);
+
+        &:visited {
+          color: var(--#{$prefix}header__CTA_text_color);
+        }
       }
+    }
+  }
+
+  ul.dropdown-menu.show:has(> li) {
+    padding-bottom: 1.25rem;
+  }
+
+  .dropdown-item {
+    position: relative;
+    border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+    padding: 1rem 1.75rem 1rem 0;
+    line-height: 1.5;
+
+    &:visited {
+      color: var(--#{$prefix}header__CTA_text_color);
+    }
+
+    span,
+    svg {
+      vertical-align: middle;
+    }
+
+    svg.viewMoreCTA {
+      margin-left: 0.5rem;
+    }
+
+    svg.cta_arrow {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .qld-header__cta-link-icon {
+    height: 1rem;
+    width: 1rem;
+    margin-left: 0.5rem;
+    text-align: center;
+    display: inline-block;
+    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
+
+    svg,
+    i {
+      height: 100%;
+      width: 100%;
     }
   }
 

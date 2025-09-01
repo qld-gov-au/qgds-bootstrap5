@@ -43,7 +43,7 @@ $prefix: "qld" !default;
       -icon_hover_color: var(
           --#{$prefix}color-default-color-dark-action-secondary-hover
         ),
-      -dropdown_bg_color: var(
+      _dropdown_bg_color: var(
           --#{$prefix}color-default-color-dark-background-default
         ),
     )
