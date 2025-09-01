@@ -1,8 +1,22 @@
 // Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
 
 // External fonts
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600;900&display=swap');
-$font-family-sans-serif: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600;900&display=swap");
+$font-family-sans-serif:
+  "Noto Sans",
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji" !default;
 $font-family-sitename: "Fira Sans";
 
 //Icons
@@ -10,13 +24,11 @@ $font-family-sitename: "Fira Sans";
 //TODO: should we pull from ../../node_modules/@fortawesome/fontawesome-free/css/all.css instead of cdn
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
-
 //Prefix to namespace design-system classes
 $prefix: "qld-";
 $enable-cssgrid: true;
 $color-mode-type: data;
 $enable-dark-mode: true;
-
 
 // 1. Include bootstraps functions and variables first (so they can be referenced by proceeding files)
 @import "../../node_modules/bootstrap/scss/functions";
@@ -81,7 +93,6 @@ $enable-dark-mode: true;
 
 // 9. QLD Design System components (bootstrap overrides and custom). Please maintain naming consistency.
 @import "../components/bs5/accordion/accordion";
-@import "../components/bs5/backToTop/backToTop";
 @import "../components/bs5/banner/banner";
 @import "../components/bs5/blockquote/blockquote";
 @import "../components/bs5/breadcrumbs/breadcrumbs";
@@ -108,6 +119,7 @@ $enable-dark-mode: true;
 @import "../components/bs5/quickexit/quickexit";
 @import "../components/bs5/sidenav/sidenav";
 @import "../components/bs5/searchInput/searchInput";
+@import "../components/bs5/skiplinks/skipLinks";
 @import "../components/bs5/spinner/spinner";
 @import "../components/bs5/table/table";
 @import "../components/bs5/tabs/tabs";
@@ -115,7 +127,6 @@ $enable-dark-mode: true;
 @import "../components/bs5/textbox/textInput";
 @import "../components/bs5/typography/typography";
 @import "../components/bs5/video/video";
-
 
 // Common Layout Blocks, under review
 @import "../components/common/layout/content";

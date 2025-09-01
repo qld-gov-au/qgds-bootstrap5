@@ -18,12 +18,7 @@
   outline: $outline-width solid transparent;
   outline-offset: $initial-offset;
 
-  // reset focus styles, because focus-visible is preferred.
-  &:focus {
-    outline: none;
-  }
-
-  $selector: if($isFocusWithin, ":focus-within", ":focus-visible");
+  $selector: if($isFocusWithin, ":focus-within", ":focus");
 
   &#{$selector} {
     outline: {
