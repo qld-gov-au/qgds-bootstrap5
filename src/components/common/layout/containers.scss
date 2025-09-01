@@ -1,0 +1,28 @@
+// Customisations to Bootstrap 5's default grid system to align with the QGDS UI Kit specifications.
+
+:root {
+  // Maximum width for all containers, 86rem (or 1376px)
+  --qld-container-max-width: 86rem;
+
+  // Default horizontal padding for containers.
+  --qld-container-padding-x: 1rem;
+
+  // Increase horizontal padding for medium and larger viewports.
+  @include media-breakpoint-up(md) {
+    --qld-container-padding-x: 2rem;
+  }
+}
+
+.container {
+  width: 100%;
+  //Apply custom variables
+  max-width: var(--qld-container-max-width);
+  padding-left: var(--qld-container-padding-x);
+  padding-right: var(--qld-container-padding-x);
+}
+
+// QGDS-specific gutter spacing between columns.
+.row,
+.row-fluid {
+  --qld-gutter-x: 2rem;
+}
