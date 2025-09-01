@@ -33,6 +33,9 @@ exports[`SearchInput > Renders as expected 1`] = `
                     </ul>
                 </div>
 
+                    <div class="suggestions-category mt-4 mb-4">
+                        <a class="mx-16" href="/queenslanders">Browse all categories</a>
+                    </div>
             </div>
             <div class="dynamic-suggestions"></div>
         </div>
