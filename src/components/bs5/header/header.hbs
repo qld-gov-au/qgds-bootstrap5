@@ -1,10 +1,10 @@
 <header class="qld-header" role="banner">
     <div class="qld-header-pre-header">
         <div class="qld-header-container">
-            <div class="d-flex justify-content-between">
-                <a href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
-                    <span class="qld-header__pre-header-url">{{preHeader.globalLink.text}}</span>
-                    {{>logo className="qld-header__pre-header-brand-image" fill="currentColor"}}
+            <div class="d-flex justify-content-between align-items-center">
+                <a class="qld-header-link" href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
+                    <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
+                    {{>logo className="qld-header-logo" fill="currentColor"}}
                 </a>
 
                 <div class="qld-header__cta-wrapper">
@@ -12,8 +12,8 @@
                     {{#each preHeader.CTA}}
                     <span {{#if dropdown_enabled}} class="dropdown dropdownCTA" {{/if}}>
                         <a {{#if dropdown_enabled}} id="dropdown{{id}}" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" class="qld-header__cta-link" href="#" {{else}} href="{{url.value}}"
-                            class="qld-header__cta-link" {{/if}}>
+                            aria-expanded="false" class="qld-header-link qld-header__cta-link" href="#" {{else}} href="{{url.value}}"
+                             {{/if}}>
                             <span class="qld-header__cta-link-text">{{{text.value}}}</span>
                             {{#if dropdown_enabled}}
                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@
                             {{#if dropdown_options.dropdown_config}}
                             {{#each dropdown_options.dropdown_config.groups}}
                             <li class="qld-header__cta-list">
-                                <a href="{{url}}" {{#if action}} target="{{action}}" {{/if}}>
+                                <a class="qld-header-link" href="{{url}}" {{#if action}} target="{{action}}" {{/if}}>
                                     {{label}}
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
@@ -42,7 +42,7 @@
                             {{#if dropdown_options.view_more}}
                             <li class="qld-header__cta-list">
                                 <a href="{{dropdown_options.url}}" target="{{dropdown_options.target}}"
-                                    class="view-all border-bottom-0">
+                                    class="qld-header-link view-all border-bottom-0">
                                     {{dropdown_options.label}}
                                 </a>
                             </li>
@@ -92,7 +92,7 @@
         </div>
     </div>
     <div
-        class="qld-header__main {{#if siteHeader.config.masterbrand_enabled}}qld-header__main--masterbrand--{{siteHeader.config.masterbrand_enabled}}{{/if}}">
+        class="qld-header-main {{#if siteHeader.config.masterbrand_enabled}}qld-header__main--masterbrand--{{siteHeader.config.masterbrand_enabled}}{{/if}}">
         <div class="container-fluid">
             {{#if siteHeader.config.masterbrand_enabled}}
             <div class="qld-header__brand">

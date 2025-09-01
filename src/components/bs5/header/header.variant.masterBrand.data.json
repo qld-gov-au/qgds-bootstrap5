@@ -12,6 +12,12 @@
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
     },
+    "actions": [
+      {
+        "id": "CTAone",
+        "type": "dropdown"
+      }
+    ],
     "CTA": [
       {
         "id": "CTAone",
