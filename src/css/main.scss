@@ -130,7 +130,7 @@ $enable-dark-mode: true;
 
 // Common Layout Blocks, under review
 @import "../components/common/layout/content";
-@import "../components/common/layout/grid";
+@import "../components/common/layout/containers";
 
 // Themes
 @import "qld-theme";

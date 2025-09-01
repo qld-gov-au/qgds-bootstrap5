@@ -20,9 +20,3 @@
   padding-left: var(--qld-container-padding-x);
   padding-right: var(--qld-container-padding-x);
 }
-
-// QGDS-specific gutter spacing between columns.
-.row,
-.row-fluid {
-  --qld-gutter-x: 2rem;
-}
