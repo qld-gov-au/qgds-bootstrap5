@@ -11,7 +11,7 @@ export default {
   //   controls: {include: []},
   // },
   argTypes: {
-    "feedbackForm.formAttr.data-formio-project-name": {
+    /*     "feedbackForm.formAttr.data-formio-project-name": {
       //data-formio-project-name
       name: "Form.io Project, edit feedbackForm to change",
       description: `Footer Feedback project's for reference edit feedbackForm formAttr.data-formio-project-name to update`,
@@ -30,7 +30,7 @@ export default {
         "staging-oldkihhcwbdtwye",
         "oldkihhcwbdtwye",
       ],
-    },
+    }, */
     sitename: {
       name: "Site Name",
       description: "Name of the site",
@@ -51,16 +51,16 @@ export default {
       description: "Whether the footer shows State of Qld",
       control: { type: "boolean" },
     },
-    feedbackFormDisabled: {
+    /*     feedbackFormDisabled: {
       name: "Feedback Form Disabled",
       description: "Whether the feedback form is visible",
       control: { type: "boolean" },
-    },
-    followlinksEnabled: {
+    }, */
+    /*     followlinksEnabled: {
       name: "Follow Links Enabled",
       description: "Whether the follow links are enabled",
       control: { type: "boolean" },
-    },
+    }, */
     copyrightHasYearFrom: {
       name: "Copyright Has Year From",
       description: "Whether the copyright section has a year from",
@@ -96,16 +96,10 @@ export default {
       description: "Footer links section details",
       control: { type: "object" },
     },
-
-    followlinks: {
-      name: "Follow Links",
-      description: "Follow links section details",
-      control: { type: "object" },
-    },
     customlinks: {
       name: "Custom Links",
       description: "Custom links section details",
-      control: { type: "object" },
+      control: { type: "array" },
     },
   },
 };

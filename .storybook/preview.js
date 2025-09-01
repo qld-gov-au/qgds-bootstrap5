@@ -7,16 +7,6 @@ import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
 
-Handlebars.registerHelper("or", function () {
-  // Remove the last argument (Handlebars options object)
-  return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
-});
-
-Handlebars.registerHelper("and", function () {
-  // Remove the last argument (Handlebars options object)
-  return Array.prototype.slice.call(arguments, 0, -1).every(Boolean);
-});
-
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
   parameters: {

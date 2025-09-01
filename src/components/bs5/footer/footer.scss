@@ -1,19 +1,135 @@
 // ----------------------------------------------------------------------------------------------------------------------
 // Footer Area
-
-@import "./colours";
-@import "./measurements";
-@import "./footer_formio";
-
+// ----------------------------------------------------------------------------------------------------------------------
+// @import "./footer_formio";
 .qld-footer {
-  /*--internal-gutter: calc(var(--#{$prefix}footer-column-spacing) * 0.5);*/
-  --internal-gutter: var(--#{$prefix}footer-column-spacing);
-}
+  // ------------------------------------------------------------------------------------------------------------------
+  //  1. Palette colours
+  // ------------------------------------------------------------------------------------------------------------------
+  // Default palette
+  --#{$prefix}footer-color-crest-fill: var(
+    --#{$prefix}color-default-color-light-crest-fill
+  );
+  --#{$prefix}footer-color-border: var(
+    --#{$prefix}color-default-color-light-border-default
+  );
+  --#{$prefix}footer-color-border-alt: var(
+    --#{$prefix}color-default-color-light-border-alt
+  );
+  --#{$prefix}footer-color-title: var(
+    --#{$prefix}color-default-color-light-site-title
+  );
+  --#{$prefix}footer-color-designAccent: var(
+    --#{$prefix}color-default-color-light-accent-design-accent
+  );
+  --#{$prefix}footer-color-text: var(
+    --#{$prefix}color-default-color-light-text-default
+  );
+  --#{$prefix}footer-color-text__muted: var(
+    --#{$prefix}color-default-color-light-text-lighter
+  );
+  --#{$prefix}footer-color-link: var(
+    --#{$prefix}color-default-color-light-link-default
+  );
+  --#{$prefix}footer-color-focus: var(
+    --#{$prefix}color-default-color-light-focus-default
+  );
+  --#{$prefix}footer-color-background: var(
+    --#{$prefix}color-default-color-light-background-default
+  );
+  --#{$prefix}footer-color-alt-button: var(
+    --#{$prefix}core-default-color-brand-secondary-darkgreen
+  );
+  --#{$prefix}footer-color-alt-button__hover: var(
+    --#{$prefix}core-default-color-brand-primary-light-green
+  );
 
-.qld-footer {
+  // ------------------------------------------------------------------------------------------------------------------
+  // 2. Colours
+  // ------------------------------------------------------------------------------------------------------------------
+  --qld-footer-column-border-color: var(--#{$prefix}footer-color-border);
+  @include media-breakpoint-down(lg) {
+    --qld-footer-column-border-color: transparent;
+  }
+
+  // ------------------------------------------------------------------------------------------------------------------
+  // Dark palette & Forgov
+  // ------------------------------------------------------------------------------------------------------------------
+  &.dark,
+  &.dark-alt {
+    --#{$prefix}footer-color-crest-fill: var(
+      --#{$prefix}color-default-color-dark-crest-fill
+    );
+    --#{$prefix}footer-color-text: var(
+      --#{$prefix}color-default-color-dark-text-default
+    );
+    --#{$prefix}footer-color-border: var(
+      --#{$prefix}color-default-color-dark-border-default
+    );
+    --#{$prefix}footer-color-border-alt: var(
+      --#{$prefix}color-default-color-dark-border-alt
+    );
+    --#{$prefix}footer-color-title: var(
+      --#{$prefix}color-default-color-dark-text-heading
+    );
+    --#{$prefix}footer-color-designAccent: var(
+      --#{$prefix}color-default-color-dark-accent-design-accent
+    );
+    --#{$prefix}footer-color-alt-button: var(
+      --#{$prefix}color-default-color-dark-action-secondary
+    );
+    --#{$prefix}footer-color-alt-button__hover: var(
+      --#{$prefix}color-default-color-dark-action-secondary-hover
+    );
+    --#{$prefix}footer-color-link: var(
+      --#{$prefix}color-default-color-dark-link-default
+    );
+    --#{$prefix}footer-color-focus: var(
+      --#{$prefix}color-default-color-dark-underline-default
+    );
+  }
+  &.dark-alt {
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-alt
+    );
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-alt
+    );
+  }
+  &.dark {
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-default
+    );
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-default
+    );
+  }
+
+  // Measurements
+  // -text
+  --#{$prefix}footer-font-size: 0.875rem;
+  --#{$prefix}footer-title-font-size: 1.25rem;
+  --#{$prefix}footer-text-underline-offset: 0.3em;
+
+  // -spacing
+  --#{$prefix}footer-gap: 0.75rem;
+  --#{$prefix}footer-column-spacing: 2rem;
+  --#{$prefix}footer-spacing: 1rem;
+  --#{$prefix}footer-padding-y: 4rem;
+  // -boarders
+  --#{$prefix}footer-top-border-width: 0.25rem;
+  --#{$prefix}footer-special-border-default-width: 0.13rem;
+  --#{$prefix}footer-special-border-thin-width: 0.06rem;
+
+  // Icons and Crest
+  --#{$prefix}footer-social-icon-size-width: 1.5rem;
+  --#{$prefix}footer-social-icon-size-height: 1.25rem;
+  --#{$prefix}footer-crest-max-width: 15.72rem;
+
+  //--internal-gutter: var(--#{$prefix}footer-column-spacing);
   padding-block: var(--#{$prefix}footer-padding-y);
   border-top: solid;
-  border-top-width: calc(var(--#{$prefix}footer-special-border-width) + 1px);
+  border-top-width: var(--#{$prefix}footer-top-border-width);
   border-top-color: var(--#{$prefix}footer-color-designAccent);
   background: var(--#{$prefix}footer-color-background);
   color: var(--#{$prefix}footer-color-text);
@@ -21,12 +137,12 @@
 
   a:not(.btn),
   a.nav-link {
-    --qld-link-color-rgb: var(--#{$prefix}footer-color-link);
+    --qld-link-color: var(--#{$prefix}footer-color-link);
     text-decoration: underline;
     text-decoration-color: var(--#{$prefix}footer-color-link);
     text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
     text-underline-offset: var(--#{$prefix}link-underline-offset);
-    color: var(--qld-link-color-rgb);
+    color: var(--qld-link-color);
 
     &:hover {
       text-decoration-thickness: var(
@@ -41,19 +157,15 @@
       text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
     }
   }
-  .a .footer-site-name {
-    font-size: var(--#{$prefix}footer-title-font-size);
-    line-height: 1.5;
-    font-weight: 600;
-    margin-block-end: calc(var(--#{$prefix}footer-spacing) * 2);
-    display: block;
-    color: var(--#{$prefix}footer-color-title);
-  }
 
   .footer-column {
     position: relative;
     margin-block-end: var(--#{$prefix}footer-spacing);
     margin-inline-end: 0;
+
+    & .d-lg-none {
+      margin-block-end: var(--qld-footer-spacing);
+    }
   }
 
   @include media-breakpoint-down(lg) {
@@ -69,7 +181,7 @@
     &:after {
       position: absolute;
       content: "";
-      width: calc(var(--#{$prefix}footer-special-border-width) - 1px);
+      width: var(--#{$prefix}footer-special-border-default-width);
       background: var(--#{$prefix}footer-column-border-color);
       top: 0;
       bottom: 0;
@@ -120,10 +232,6 @@
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * 1.5);
       margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.5);
     }
-
-    svg {
-      width: 100%;
-    }
   }
 
   .nav {
@@ -151,12 +259,12 @@
       &--social .nav-link {
         display: flex;
         margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.2);
+        text-underline-offset: auto;
+        text-underline-position: from-font;
 
-        svg {
-          fill: var(--#{$prefix}footer-color-crest-fill);
-          width: var(--#{$prefix}footer-social-icon-size-width);
-          max-height: var(--#{$prefix}footer-social-icon-size-height);
+        .qld-icon {
           margin-inline-end: calc(var(--#{$prefix}footer-spacing) * 0.75);
+          max-height: var(--#{$prefix}footer-social-icon-size-height);
         }
 
         &:hover {
@@ -184,13 +292,14 @@
 
   .footer-contact {
     .btn {
+      min-width: 10rem;
       width: fit-content;
       margin-block-start: var(--#{$prefix}footer-spacing);
     }
   }
 
   .container > .row > div {
-    padding-inline: var(--internal-gutter);
+    padding-inline: var(--#{$prefix}footer-column-spacing);
   }
 
   .btn-global-secondary {
@@ -218,8 +327,8 @@
 
         > .col-12 {
           --qld-gutter-x: calc(var(--#{$prefix}footer-spacing) * 2);
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px)
-            solid var(--#{$prefix}footer-color-border);
+          border-top: var(--#{$prefix}footer-special-border-thin-width) solid
+            var(--#{$prefix}footer-color-border);
 
           padding-inline: 0;
           margin-inline-start: var(--qld-gutter-x);
@@ -246,16 +355,14 @@
         }
 
         > .title {
-          border-bottom: calc(
-              var(--#{$prefix}footer-special-border-width) - 2px
-            )
-            solid var(--#{$prefix}footer-color-border-alt);
+          border-bottom: var(--#{$prefix}footer-special-border-thin-width) solid
+            var(--#{$prefix}footer-color-border-alt);
           padding-inline: var(--qld-gutter-x);
         }
 
         > .crest {
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px)
-            solid var(--#{$prefix}footer-color-border-alt);
+          border-top: var(--#{$prefix}footer-special-border-thin-width) solid
+            var(--#{$prefix}footer-color-border-alt);
           padding-inline: var(--qld-gutter-x);
           margin-inline: 0;
           width: 100%;
@@ -290,6 +397,38 @@
         margin-block-end: calc(
           var(--#{$prefix}footer-font-size) * 0.5
         ) !important;
+      }
+    }
+    .footer-link-list--custom {
+      column-count: 2;
+      width: 100%;
+    }
+    .footer-column {
+      &:has(.footer-link-list--social) {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--#{$prefix}footer-spacing);
+
+        .footer-heading {
+          margin-block-end: 0;
+        }
+        .footer-link-list--social {
+          display: flex;
+          align-items: center;
+          flex-direction: row !important;
+
+          & a.nav-link {
+            margin-block-end: 0 !important;
+
+            .qld-icon {
+              max-height: unset;
+              margin-block-end: 0;
+            }
+            .nav-link-label {
+              display: none;
+            }
+          }
+        }
       }
     }
   }
@@ -335,107 +474,44 @@
       font-size: calc(var(--#{$prefix}footer-title-font-size) - 0.25rem);
     }
   }
-}
-
-/* Feedback form */
-#qg-feedback-toggle {
-  --qld-dark-alt-border: var(--#{$prefix}formIO-input-border);
-  color: var(--#{$prefix}formIO-formio-colour);
-  width: 100%;
-
-  #btn-footer-feedback {
-    color: var(--#{$prefix}footer-color-text);
-    border: var(--#{$prefix}footer-special-border-width) solid
-      var(--#{$prefix}footer-color-alt-button);
-    width: 100%;
-    font-weight: normal;
-    margin-block-start: var(--#{$prefix}footer-spacing);
-
-    &:active {
-      color: var(--#{$prefix}formIO-formio-colour);
+  @include media-breakpoint-only(lg) {
+    .col.crest {
+      min-width: 0;
     }
   }
+  @include media-breakpoint-only(md) {
+    .footer-column {
+      &:has(.footer-link-list--custom) {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--#{$prefix}footer-spacing);
 
-  #btn-footer-feedback:not(.collapsed) {
-    font-weight: var(--#{$prefix}formIO-feeback-font-weight);
-    border-color: var(--#{$prefix}formIO-bg-colour);
-    border-radius: var(--#{$prefix}footer-border-radius);
-    border-end-end-radius: 0;
-    border-end-start-radius: 0;
-    outline: none !important;
-    width: 100%;
-    text-align: start;
-    background-color: var(--#{$prefix}formIO-bg-colour);
-    color: var(--#{$prefix}light-text-heading);
-    font-weight: 700;
-  }
+        .footer-link-list--custom {
+          margin-top: calc(var(--#{$prefix}nav-link-padding-y) * -0.5);
 
-  .btn.qg-feedback-toggle {
-    font-weight: bold;
-  }
-
-  &:has(#feedbackFormIO .formio-component-html1) {
-    #btn-footer-feedback {
-      display: none;
-      visibility: hidden;
-    }
-
-    #qg-footer-feedback {
-      padding-block-start: calc(var(--#{$prefix}footer-spacing) - 4px);
-      border-start-start-radius: var(--#{$prefix}footer-border-radius);
-      border-start-end-radius: var(--#{$prefix}footer-border-radius);
+          & a.nav-link {
+            padding: calc(var(--qld-nav-link-padding-y) - 2px)
+              var(--qld-nav-link-padding-x);
+          }
+        }
+      }
+      .footer-link-list--custom {
+        column-count: 2;
+        display: block;
+      }
+      .footer-crest svg {
+        width: 14.5rem;
+      }
     }
   }
-}
-
-#qg-footer-feedback {
-  --qld-footer-bootstrap-default-padding: 1.5rem;
-
-  background-color: var(--#{$prefix}formIO-bg-colour);
-
-  a {
-    color: var(--#{$prefix}formIO-link-colour);
-    text-decoration-color: var(--#{$prefix}formIO-link-colour);
-
-    &:hover {
-      text-decoration-thickness: var(
-        --#{$prefix}link-underline-thickness-hover
-      ) !important;
-    }
-
-    &:hover,
-    &:visited {
-      color: var(--#{$prefix}formIO-link-colour);
-    }
-  }
-
-  border-radius: var(--#{$prefix}footer-border-radius);
-  border-start-start-radius: 0;
-  border-start-end-radius: 0;
-  padding-inline: var(--#{$prefix}footer-bootstrap-default-padding);
-  padding-block-end: var(--#{$prefix}footer-bootstrap-default-padding);
-
-  .qg-footer-feedback-footer {
-    border-block-start: var(--#{$prefix}footer-border-width) solid
-      var(--#{$prefix}formIO-hr-colour);
-    padding-block-start: calc(var(--#{$prefix}footer-spacing) + 4px);
-
-    a.qg-footer-feedback__close {
-      border: var(--#{$prefix}footer-special-border-width) solid
-        var(--#{$prefix}formIO-btn-close-colour);
-      width: 100%;
-      display: block;
-      border-radius: var(--#{$prefix}footer-border-radius);
-      padding: 9px 24px;
-      text-align: center;
-      text-decoration: none;
-
-      &:hover {
-        border-color: var(--#{$prefix}formIO-btn-close-colour__hover);
-        text-decoration: underline;
-        text-decoration-thickness: var(
-          --#{$prefix}footer-font-underline-boarder
-        );
+  @include media-breakpoint-only(sm) {
+    .footer-column {
+      .footer-link-list--custom {
+        column-count: 2;
+        display: block;
+      }
+      .footer-crest svg {
+        width: 10.15rem;
       }
     }
   }
