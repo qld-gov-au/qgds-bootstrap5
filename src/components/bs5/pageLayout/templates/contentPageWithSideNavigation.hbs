@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    {{> head }}
+</head>
+
+<body>
+    <!-- Global ALert -->
+    {{> globalAlert globalAlert}}
+    <!-- Header -->
+    {{> header header}}
+    <!-- Navbar -->
+    {{> navbar navbar}}
+
+    {{#if banner}}
+    {{> banner banner}}
+    {{/if}}
+
+    <main>
+        <div class="container-fluid">
+            <div class="container qld-content">
+                {{#if breadcrumbs}}
+                <div class="row">
+                    <div class="col-12">
+                        <!-- breadcrumbs -->
+                        {{> breadcrumbs breadcrumbs}}
+                    </div>
+                </div>
+                {{/if}}
+
+                <!-- Main Grid Layout: Side navigation and content -->
+                <div class="row">
+                    {{#if sidenav}}
+                    <!-- Side navigation Col -->
+                    <div class="col-lg-3 col-md-4 px-0">
+                        {{> sidenav sidenav}}
+                    </div>
+                    <!-- Content Col -->
+                    <div class="col-lg-8 col-md-7 ps-32">
+                        {{else}}
+                        <div class="col-12">
+                            {{/if}}
+
+                            <!-- Main Content Sections -->
+                            <div class="content-section ps-32">
+
+                                {{#if inpagenav}}
+                                <!-- inpagenav Section -->
+                                {{> inpagenav inpagenav}}
+                                {{/if}}
+
+                                <h1 id="section-heading">Section heading (H1)</h1>
+                                <p>This is the main content area. It contains detailed information about the topic.</p>
+
+                                <h2 id="content-heading">Content heading (H2)</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.</p>
+
+                                <h3 id="inspection">Pre-registration inspection (H3)</h3>
+                                <p>Information about pre-registration inspection requirements.</p>
+
+                                <h4 id="fees-and-charges">Fees and charges (H4)</h4>
+                                <p>Details about fees and charges for vehicle registration.</p>
+
+                            </div>
+
+                            {{#if image}}
+                            <!-- image Section -->
+                            <div class="my-4 ps-32">
+                                {{> image image}}
+                            </div>
+                            {{/if}}
+
+                            {{#if table}}
+                            <!-- table Section -->
+                            <div class="my-4 ps-32">
+                                {{> table table}}
+                            </div>
+                            {{/if}}
+
+                            {{#if video}}
+                            <!-- video Section -->
+                            <div class="my-4 ps-32">
+                                {{> video video}}
+                            </div>
+                            {{/if}}
+
+                            <!-- Content Footer -->
+                            {{> contentFooter contentFooter}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <!-- Footer -->
+    {{> footer footer}}
+</body>
+
+</html>

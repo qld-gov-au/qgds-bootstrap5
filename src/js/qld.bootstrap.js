@@ -8,7 +8,7 @@ import {
   videoTranscriptTitle,
 } from "./../components/bs5/video/video.functions";
 import { initializeNavbar } from "./../components/bs5/navbar/navbar.functions";
-import { initBreadcrumb } from "./../components/bs5/breadcrumbs/breadcrumb.functions";
+import { initBreadcrumb } from "./../components/bs5/breadcrumbs/breadcrumbs.functions";
 import {
   positionQuickExit,
   initQuickexit,

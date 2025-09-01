@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumbs > Initialises the Breadcrumb component with a max length of 5 with a sub menu vertical 1`] = `
+"<ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">For government</a>
+        </li><li class="breadcrumb-item breadcrumb-toggle"><button aria-label="Expand the breadcrumbs" type="button" class="breadcrumb-toggle-link"></button><div class="breadcrumb-collapse-wrapper"><ol class="breadcrumb-vertical"><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Information and communication technology</a>
+        </li><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Communication and publishing</a>
+        </li><li class="breadcrumb-item">
+          <a href="#" tabindex="-1">Website and digital publishing</a>
+        </li></ol></div></li>
+        
+        
+        
+        <li class="breadcrumb-item">
+          <a href="#">Website standards, guidelines and templates</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page" data-href="#">Single Website Experience</li>
+  </ol>"
+`;
+
+exports[`Breadcrumbs > Renders as expected 1`] = `
+"<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">For government</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Information and communication technology</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Communication and publishing</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Website and digital publishing</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Website standards, guidelines and templates</a>
+        </li>
+        <li
+          class="breadcrumb-item active"
+          aria-current="page"
+          data-href="#"
+        >Single Website Experience</li>
+  </ol>
+</nav>"
+`;
