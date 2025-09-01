@@ -9,6 +9,7 @@ import tableData from "../table/table.data.json";
 import inpageNavData from "../inpagenav/inpagenav.data.json";
 import breadcrumbsData from "../breadcrumbs/breadcrumbs.data.json";
 import sidenavData from "../sidenav/sidenav.data.json";
+import contentFooterData from "../contentFooter/contentFooter.data.json";
 import backToTopData from "../backToTop/backToTop.data.json";
 import footerData from "../footer/footer.data.json";
 
@@ -25,6 +26,7 @@ const defaultData = {
   sidenavData: sidenavData,
   inpageNavData: inpageNavData,
   globalAlert: globalAlertData.warning,
+  contentFooterData: contentFooterData,
   footer: footerData,
 
   //Add optional wrapper classes on template (direct child of body)
