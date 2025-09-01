@@ -1,5 +1,5 @@
 // footer.stories.js
-import { Footer, FooterForgov } from "./Footer.js";
+import { Footer } from "./Footer.js";
 
 import defaultdata from "./footer.data.json";
 
@@ -142,23 +142,4 @@ export const DarkAlt = {
   parameters: {
     controls: { include: [] },
   },
-};
-
-/**
- * Forgov footer
- */
-
-export const Forgov = {
-  args: {
-    ...defaultdata,
-    sitename: "For government",
-    variantClass: "dark",
-    contactHasContactList: true,
-    footerHasCrest: false,
-    footerHasStateOfQld: true,
-    feedbackFormEnabled: true,
-    followlinksEnabled: true,
-    copyrightHasYearFrom: true,
-  },
-  render: (args) => new FooterForgov(args).html,
 };

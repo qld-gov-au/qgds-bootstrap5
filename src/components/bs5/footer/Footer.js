@@ -9,8 +9,8 @@ export class Footer {
   }
 }
 
-export class FooterForgov {
+/* export class FooterForgov {
   constructor(data = {}) {
     return new Component(templateForgov, data);
   }
-}
+} */
