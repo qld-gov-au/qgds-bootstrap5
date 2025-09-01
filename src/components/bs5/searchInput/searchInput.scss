@@ -154,6 +154,8 @@
 
   .btn {
     box-shadow: none;
+    min-width: auto;
+    min-height: unset;
   }
 
   .form-control {
