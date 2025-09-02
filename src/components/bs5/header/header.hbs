@@ -17,8 +17,9 @@
                              {{/if}}>
                             {{{text.value}}}
                             {{#if dropdown_enabled}}
+                            {{!-- <span class="qld-header-dropdown-icon qld-icon qld-icon-chevron-down qld-icon-xs align-middle ml-2"></span> --}}
                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
-                                class="qld-header__cta-link-icon">
+                                class="qld-header-dropdown-icon ">
                                 <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}" aria-hidden="true"></use>
                             </svg>
                             {{/if}}
