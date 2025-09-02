@@ -21,11 +21,9 @@ exports[`SearchInput > Renders as expected 1`] = `
                     </ul>
                 </div>
 
-                <hr>
-
-                <div class="suggestions-category mt-2">
+                <div class="suggestions-category mt-16">
                     <strong class="suggestions-category-label">Browse by category</strong>
-                    <ul class="mt-2">
+                    <ul class="mt-12 mb-0">
                             <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines">Search for directives, policies, circulars, and guidelines</a></li>
                             <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits">Employee pay and benefits</a></li>
                             <li><a href="https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services">Queensland Shared Services</a></li>
@@ -33,8 +31,8 @@ exports[`SearchInput > Renders as expected 1`] = `
                     </ul>
                 </div>
 
-                    <div class="suggestions-category mt-4 mb-4">
-                        <a class="mx-16" href="/queenslanders">Browse all categories</a>
+                    <div class="suggestions-category">
+                        <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more" href="/queenslanders">Browse all categories</a>
                     </div>
             </div>
             <div class="dynamic-suggestions"></div>
