@@ -1,6 +1,7 @@
 {
   "customClass": "",
   "variantClass": "",
+  "placeholder": "",
   "inputID": "search",
   "inputName": "query",
   "buttonID": "search-button",
