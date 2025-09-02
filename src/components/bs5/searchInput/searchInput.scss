@@ -45,6 +45,7 @@
     .suggestions-category {
       &-view-more {
         text-decoration: underline;
+        text-decoration-thickness: 0.5px;
 
         &:hover {
           background-color: var(--#{$prefix}site-search-suggestions-hover);
