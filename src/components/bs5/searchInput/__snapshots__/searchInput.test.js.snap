@@ -6,7 +6,7 @@ exports[`SearchInput > Renders as expected 1`] = `
 -->
 <div class="container ">
     <div class="qld-search-input  d-flex">
-        <input id="search" name=" query" class="form-control" type="text" placeholder=""
+        <input id="search" name=" query" class="form-control" type="text"
             autocomplete="off" aria-label="Search website"  data-collection="qgov~sp-search"  data-profile="qld"  data-numranks="10"  data-tiers="off"  data-suggestions="https://discover.search.qld.gov.au/s/suggest.json"  data-results-url="https://discover.search.qld.gov.au/s/search.json"  />
 
         <div class="suggestions suggestions__group d-none">
