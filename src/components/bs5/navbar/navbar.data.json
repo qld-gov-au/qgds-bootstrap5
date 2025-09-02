@@ -15,15 +15,15 @@
         "target": ""
     },
     {
-      "text": "Mega menu",
-      "iconName": "qld-icon-calendar",
-      "url": "wired.html",
+      "text": "Simple list",
+      "iconName": "",
+      "url": "index.html",
       "altColour": true,
       "mobileOnly": false,
       "hideLabel": false,
       "target": "_blank",
       "dropdownOptions": {
-        "altText": "Mega menu alt title",
+        "altText": "Patients and visitors",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "viewAllHref": "wired.com"
       },
@@ -80,15 +80,15 @@
       ]
     },
     {
-      "text": "Simple list",
-      "iconName": "",
-      "url": "index.html",
+      "text": "Mega menu",
+      "iconName": "qld-icon-calendar",
+      "url": "https://www.wired.html",
       "altColour": true,
-      "mobileOnly": true,
+      "mobileOnly": false,
       "hideLabel": false,
       "target": "",
       "dropdownOptions": {
-        "altText": "Patients and visitors",
+        "altText": "Mega menu alt title",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "viewAllHref": "index.html"
       },
@@ -152,16 +152,25 @@
       ]
     },
     {
-      "text": "Contact us",
+      "text": "Full screen view",
       "iconName": "",
-      "url": "index.html",
+      "url": "/iframe.html?viewMode=story&id=3-components-navbar--default",
       "altColour": false,
       "mobileOnly": false,
       "hideLabel": false,
       "target": ""
     },
     {
-      "text": "Contact us 2",
+      "text": "Overview view",
+      "iconName": "",
+      "url": "/?path=/docs/3-components-navbar--overview",
+      "altColour": false,
+      "mobileOnly": false,
+      "hideLabel": false,
+      "target": ""
+    },
+    {
+      "text": "mobile item",
       "iconName": "",
       "url": "index.html",
       "altColour": false,
@@ -170,7 +179,7 @@
       "target": ""
     },
     {
-      "text": "Contact us 3",
+      "text": "mobile item with icon",
       "iconName": "qld-icon-chart",
       "url": "index.html",
       "altColour": false,

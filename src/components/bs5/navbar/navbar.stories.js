@@ -485,6 +485,8 @@ export const Default = {
       // Add CSS with UNIQUE class names and higher specificity
       const styles = `
         <style>
+        .css-sx1422 { height: auto !important; }
+        .sb-show-main.sb-main-padded { padding: 0 !important; }
         #storybook-only-header {
           position: relative;
           z-index: 11;
