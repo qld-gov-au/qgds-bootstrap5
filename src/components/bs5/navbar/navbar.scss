@@ -5,11 +5,12 @@
     padding: 0 !important;
 }
 
-#btn-control {
-    position: absolute;
-    z-index: 10;
-    display: none;
-}
+// #btn-control {
+//     position: absolute;
+//     z-index: 10;
+//     display: none;
+// }
+
 // END
 ////////////////////////////
 
@@ -262,7 +263,16 @@
         transform: translateX(100%);
     }
 }
-
+#burgerBtn {
+    min-width: auto;
+    flex-direction: column; 
+    gap: 0;
+    svg {
+        margin: 0;
+        width: 2rem;
+        height: 2rem;
+    }
+}
 /* Sidebar styles */
 .navbar {
     --vert-background-colour: var(--#{$prefix}dark-background);
@@ -705,7 +715,7 @@
             #overlay {
                 position: fixed;
                 inset: 0;
-                background-color: rgba(16, 226, 107, 0.5);
+                background-color: rgba(9, 84, 159, 0.6);
                 z-index: -1;
             }
         }
