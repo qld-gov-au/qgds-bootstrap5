@@ -18,11 +18,9 @@
                     </ul>
                 </div>
 
-                <hr>
-
-                <div class="suggestions-category mt-2">
+                <div class="suggestions-category mt-16">
                     <strong class="suggestions-category-label">Browse by category</strong>
-                    <ul class="mt-2">
+                    <ul class="mt-12 mb-0">
                         {{#each default_suggestions.categories}}
                             <li><a href="{{link}}">{{title}}</a></li>
                         {{/each}}
@@ -30,8 +28,8 @@
                 </div>
 
                 {{#if default_suggestions.options.view_more}}
-                    <div class="suggestions-category mt-4 mb-4">
-                        <a class="mx-16" href="{{default_suggestions.options.href}}">{{default_suggestions.options.label}}</a>
+                    <div class="suggestions-category">
+                        <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more" href="{{default_suggestions.options.href}}">{{default_suggestions.options.label}}</a>
                     </div>
                 {{/if}}
             </div>

@@ -1,6 +1,7 @@
 // ----------------------------------------------------------------------------------------------------------------------
 // Search input - palettes and second hand variables:
 @import "./colours";
+
 // ----------------------------------------------------------------------------------------------------------------------
 .qld-search-input {
   //Default state - unfocused, unhovered
@@ -30,17 +31,26 @@
     border-radius: 0.5rem;
     background: var(--#{$prefix}site-search-suggestions-bg);
     box-shadow: var(--#{$prefix}site-search_boxshadow);
-    border-bottom: solid 0.25rem
-      var(--#{$prefix}site-search-suggestions-hover__border_color);
+    border-bottom: solid 0.25rem var(--#{$prefix}site-search-suggestions-hover__border_color);
 
     .suggestions-category {
+      &-view-more {
+        text-decoration: underline;
+
+        &:hover {
+          background-color: var(--#{$prefix}site-search-suggestions-hover);
+          text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+        }
+      }
+
       &-label {
         padding: 0 1rem;
       }
+
       ul {
         li {
           a {
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1rem;
             display: inline-block;
             width: 100%;
           }
@@ -63,9 +73,7 @@
       ul {
         li {
           &:hover {
-            background-color: var(
-              --#{$prefix}site-search-suggestions-feature_hover
-            );
+            background-color: var(--#{$prefix}site-search-suggestions-feature_hover);
           }
 
           a {
@@ -118,6 +126,7 @@
 
             a {
               text-decoration: underline;
+              text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
             }
           }
         }
@@ -155,7 +164,6 @@
   .btn {
     box-shadow: none;
     min-width: auto;
-    min-height: unset;
   }
 
   .form-control {
@@ -191,6 +199,7 @@
       outline-offset: 0.125rem;
     }
   }
+
   button {
     position: absolute;
     top: 0;
@@ -221,12 +230,14 @@
       span.btn-label {
         display: block;
       }
+
       span.btn-icon {
         display: none;
       }
     }
   }
 }
+
 //Adjustments for 991px and below
 // Apply styles for medium screens and down
 @include media-breakpoint-down(md) {
@@ -241,6 +252,7 @@
         display: block;
       }
     }
+
     .form-control {
       padding-left: 1rem;
     }
