@@ -3,6 +3,6 @@ import template from "./navbar.hbs?raw";
 
 export class Navbar {
   constructor(data = {}) {
-      return new Component(template, data);
-    }
+    return new Component(template, data);
+  }
 }
