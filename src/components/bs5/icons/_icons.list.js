@@ -110,5 +110,5 @@ export default [
   "video",
   "view-all",
   "wheelchair",
-  "zoom"
+  "zoom",
 ];

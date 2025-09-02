@@ -2,22 +2,34 @@
 
 <div class="global-alert-include">
   {{#each alertItems}}
-  <section class="global-alert {{variant}}">
-    <div class="container-fluid">
-      <div class="qld-global-alert-main">
-        <div class="global-alert-icon"></div>
-        <div class="global-alert-content">
-          <div class="global-alert-message">
-            {{{content}}}
-          </div>
-          <div class="global-alert-action">
-            {{{action}}}
-          </div>
+  <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"
+    aria-label="{{ariaLabel}}" {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
+    data-expiry-days="{{dismissedExpiryDays}}" {{/if}}>
+    <div class="qld-global-alert-main">
+      <div class="global-alert-icon">
+        {{#ifCond variant '==' 'global-alert-critical'}}
+        <span class="qld-icon qld-icon-sm qld-icon-alert-danger" aria-hidden="true"></span>
+        {{else ifCond variant '==' 'global-alert-info'}}
+        <span class="qld-icon qld-icon-sm qld-icon-alert-information" aria-hidden="true"></span>
+        {{else ifCond variant '==' 'global-alert-warning'}}
+        <span class="qld-icon qld-icon-sm qld-icon-alert-warning" aria-hidden="true"></span>
+        {{/ifCond}}
+      </div>
+
+      <div class="global-alert-content">
+        <div class="global-alert-message">
+          {{{content}}}
         </div>
-        <div class="global-alert-close">
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="global-alert-action">
+          {{{action}}}
+          <span class="qld-icon qld-icon-sm qld-icon-arrow-right" aria-hidden="true"></span>
         </div>
       </div>
+      {{#unless preventDismiss}}
+      <div class="global-alert-close">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/unless}}
     </div>
   </section>
   {{/each }}

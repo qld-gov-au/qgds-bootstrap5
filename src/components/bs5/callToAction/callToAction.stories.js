@@ -151,7 +151,7 @@ export const Small = {
     label: "View all",
     class: [
       {"small": true}, 
-      {"view-all": true}
+      {"view-all": true},
     ],
   },
   render: (args) => {

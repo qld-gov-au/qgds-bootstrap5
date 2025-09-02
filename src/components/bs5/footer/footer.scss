@@ -14,7 +14,8 @@
   color: var(--#{$prefix}footer-color-text);
   font-size: var(--#{$prefix}footer-font-size);
 
-  a:not(.btn), a.nav-link {
+  a:not(.btn),
+  a.nav-link {
     --qld-link-color-rgb: var(--#{$prefix}footer-color-link);
     text-decoration: underline;
     text-decoration-color: var(--#{$prefix}footer-color-link);
@@ -22,7 +23,9 @@
     text-underline-offset: var(--#{$prefix}link-underline-offset);
 
     &:hover {
-      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+      text-decoration-thickness: var(
+        --#{$prefix}link-underline-thickness-hover
+      );
     }
 
     &:visited {
@@ -110,7 +113,7 @@
 
     @include media-breakpoint-up(md) {
       margin-block-start: calc(var(--#{$prefix}footer-spacing) * 1.5);
-      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.5);  
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.5);
     }
 
     svg {
@@ -164,7 +167,9 @@
 
   .btn {
     --#{$prefix}btn-border-color: var(--#{$prefix}footer-color-alt-button);
-    --#{$prefix}btn-hover-border-color: var(--#{$prefix}footer-color-alt-button);
+    --#{$prefix}btn-hover-border-color: var(
+      --#{$prefix}footer-color-alt-button
+    );
     --qld-brand-accent: var(--#{$prefix}footer-color-alt-button);
 
     &:hover {
@@ -179,7 +184,7 @@
     }
   }
 
-  .container>.row>div {
+  .container > .row > div {
     padding-inline: var(--#{$prefix}footer-column-spacing);
   }
 
@@ -198,17 +203,18 @@
     }
 
     .container {
-      >.row {
+      > .row {
         margin-inline: calc(var(--#{$prefix}footer-gap) * -1);
         --qld-gutter-x: calc(var(--#{$prefix}footer-spacing) * 2);
 
-        &>* {
+        & > * {
           padding-inline: 0;
         }
 
-        >.col-md-12 {
+        > .col-md-12 {
           --qld-gutter-x: calc(var(--#{$prefix}footer-spacing) * 2);
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid var(--#{$prefix}footer-color-border);
+          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px)
+            solid var(--#{$prefix}footer-color-border);
 
           padding-inline: 0;
           margin-inline-start: var(--qld-gutter-x);
@@ -230,17 +236,21 @@
           }
         }
 
-        >.col-md-12:first-of-type {
+        > .col-md-12:first-of-type {
           border-top: none;
         }
 
-        >.title {
-          border-bottom: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid var(--#{$prefix}footer-color-border);
+        > .title {
+          border-bottom: calc(
+              var(--#{$prefix}footer-special-border-width) - 2px
+            )
+            solid var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
         }
 
-        >.crest {
-          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px) solid var(--#{$prefix}footer-color-border);
+        > .crest {
+          border-top: calc(var(--#{$prefix}footer-special-border-width) - 2px)
+            solid var(--#{$prefix}footer-color-border);
           padding-inline: var(--qld-gutter-x);
           margin-inline: 0;
           width: 100%;
@@ -268,21 +278,23 @@
       a.nav-link,
       a.nav-link:first-child {
         margin: 0 !important;
-        margin-block-end: calc(var(--#{$prefix}footer-font-size) * 0.5) !important;
+        margin-block-end: calc(
+          var(--#{$prefix}footer-font-size) * 0.5
+        ) !important;
       }
     }
   }
 
   @include media-breakpoint-down(md) {
     .container {
-      >.row {
-        >.col-md-12 {
+      > .row {
+        > .col-md-12 {
           margin-inline-start: var(--#{$prefix}footer-spacing);
           width: calc(100% - calc(var(--#{$prefix}footer-spacing) * 2));
         }
 
-        >.title,
-        >.crest {
+        > .title,
+        > .crest {
           padding-inline: var(--qld-footer-spacing);
           margin-inline: 0;
           width: 100%;
@@ -318,7 +330,8 @@
 
   #btn-footer-feedback {
     color: var(--#{$prefix}footer-color-text);
-    border: var(--#{$prefix}footer-special-border-width) solid var(--#{$prefix}footer-color-alt-button);
+    border: var(--#{$prefix}footer-special-border-width) solid
+      var(--#{$prefix}footer-color-alt-button);
     width: 100%;
     font-weight: normal;
     margin-block-start: var(--#{$prefix}footer-spacing);
@@ -370,7 +383,9 @@
     text-decoration-color: var(--#{$prefix}formIO-link-colour);
 
     &:hover {
-      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover) !important;
+      text-decoration-thickness: var(
+        --#{$prefix}link-underline-thickness-hover
+      ) !important;
     }
 
     &:hover,
@@ -386,11 +401,13 @@
   padding-block-end: var(--#{$prefix}footer-bootstrap-default-padding);
 
   .qg-footer-feedback-footer {
-    border-block-start: var(--#{$prefix}footer-border-width) solid var(--#{$prefix}formIO-hr-colour);
+    border-block-start: var(--#{$prefix}footer-border-width) solid
+      var(--#{$prefix}formIO-hr-colour);
     padding-block-start: calc(var(--#{$prefix}footer-spacing) + 4px);
 
     a.qg-footer-feedback__close {
-      border: var(--#{$prefix}footer-special-border-width) solid var(--#{$prefix}formIO-btn-close-colour);
+      border: var(--#{$prefix}footer-special-border-width) solid
+        var(--#{$prefix}formIO-btn-close-colour);
       width: 100%;
       display: block;
       border-radius: var(--#{$prefix}footer-border-radius);
@@ -401,7 +418,9 @@
       &:hover {
         border-color: var(--#{$prefix}formIO-btn-close-colour__hover);
         text-decoration: underline;
-        text-decoration-thickness: var(--#{$prefix}footer-font-underline-boarder);
+        text-decoration-thickness: var(
+          --#{$prefix}footer-font-underline-boarder
+        );
       }
     }
   }
