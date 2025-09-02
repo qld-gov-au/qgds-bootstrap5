@@ -143,6 +143,7 @@
     text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
     text-underline-offset: var(--#{$prefix}link-underline-offset);
     color: var(--qld-link-color);
+    padding-left: 0;
 
     &:hover {
       text-decoration-thickness: var(

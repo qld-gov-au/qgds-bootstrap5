@@ -1,15 +1,11 @@
 {
   "sitename": "Site name, Namestyle or Name Identifier",
   "variantClass": "",
-  "contactHasContactListDisabled": false,
-  "footerHasCrestDisabled": false,
-  "footerHasStateOfQld": true,
-  "copyrightHasYearFrom": false,
-  "copyrightOrganisationName": "Organisation",
   "contact": {
     "hasBorderColumn": false,
     "title": "Contact us",
     "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
+    "showList": true,
     "list": {
       "phone": {
         "icon": "qld-icon-phone",
@@ -23,28 +19,7 @@
     "buttonLabel": "Contact us",
     "buttonLink": "https://www.qld.gov.au/contact-us"
   },
-  "lookup": {
-    "link": {
-      "URL": "https://www.qld.gov.au",
-      "text": "Queensland Government"
-    }
-  },
-  "acknowledgements": [
-    {
-      "title": "Acknowledgement of Country",
-      "content": "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
-    }
-  ],
-  "copyright": {
-    "hasBorderColumnDisabled": false,
-    "content": "&copy; The State of Queensland",
-    "yearFrom": "1995"
-  },
-  "footerCustomLogo": {
-    "src": "",
-    "alt": "Queensland Government"
-  },
-  "footerlinks": {
+  "footerLinks": {
     "hasBorderColumn": false,
     "title": "",
     "list": {
@@ -63,7 +38,28 @@
       "Other languages": { "link": "https://www.qld.gov.au/help/languages" }
     }
   },
-  "followlinks": [
+  "acknowledgements": [
+    {
+      "title": "Acknowledgement of Country",
+      "content": "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
+    }
+  ],
+  "footerLogo": {
+    "show": true,
+    "src": "",
+    "alt": "Queensland Government"
+  },
+  "copyright": {
+    "content": "&copy; The State of Queensland (Organisation)",
+    "showYearFrom": false,
+    "yearFrom": "1995"
+  },
+  "organisationLink": {
+    "show": true,
+    "URL": "https://www.qld.gov.au",
+    "text": "Queensland Government"
+  },
+  "followLinks": [
     {
       "name": "Facebook",
       "enabled": true,
@@ -137,14 +133,14 @@
     "hasBorderColumn": true,
     "title": "Optional Column 1",
     "content": "",
-    "displayFollowLinks": false,
-    "displayCustomLinks": false
+    "showFollowLinks": false,
+    "showCustomLinks": false
   },
   "optionalColumn2": {
     "hasBorderColumn": true,
     "title": "Optional Column 2",
     "content": "",
-    "displayFollowLinks": true,
-    "displayCustomLinks": false
+    "showFollowLinks": true,
+    "showCustomLinks": false
   }
 }

@@ -27,23 +27,23 @@
                                 <div class="d-none d-lg-block">
                                     {{#if contact.content}}{{{ contact.content }}}{{else}}<p>Get in touch for enquiries, feedback, complaints and compliments.</p>{{/if}}
                                  </div>
-                                {{#unless contactHasContactListDisabled}}
-                                {{#if contact.list }}
-                                    {{#each contact.list }}
-                                        <div class="footer-contact-item footer-contact-{{@key}}">
-                                            <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
+                                {{#if contact.showList }}
+                                    {{#if contact.list }}
+                                        {{#each contact.list }}
+                                            <div class="footer-contact-item footer-contact-{{@key}}">
+                                                <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
+                                            </div>
+                                        {{/each}}
+                                    {{else}}
+                                        {{!default contact list }}
+                                        <div class="footer-contact-item footer-contact-phone">
+                                            <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468" rel="noopener">13 QGOV (13 74 68)</a>
                                         </div>
-                                    {{/each}}
-                                {{else}}
-                                    {{!default contact list }}
-                                    <div class="footer-contact-item footer-contact-phone">
-                                        <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468" rel="noopener">13 QGOV (13 74 68)</a>
-                                    </div>
-                                    <div class="footer-contact-item footer-contact-email">
-                                        <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</a></span>
-                                    </div>
+                                        <div class="footer-contact-item footer-contact-email">
+                                            <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</a></span>
+                                        </div>
+                                    {{/if}}
                                 {{/if}}
-                                {{/unless}}
                             </div>
                         
                         <!-- For desktop view only -->
@@ -55,22 +55,18 @@
             </div>
 
             
-           {{#ifAny optionalColumn1.content optionalColumn1.displayFollowLinks optionalColumn1.displayCustomLinks }}
+           {{#ifAny optionalColumn1.content optionalColumn1.showFollowLinks optionalColumn1.showCustomLinks }}
                 <!-- Optional Column 1 -->
                 <div class="col-12 col-lg-2"  aria-label="{{#if optionalColumn1.title}}{{optionalColumn1.title}}{{else}}Footer links{{/if}}">
                 <div class="footer-column {{#if optionalColumn1.hasBorderColumn}}border-column{{/if}} optional-column-1">
                     {{#if optionalColumn1.title}}<h3 class="footer-heading">{{optionalColumn1.title}}</h3>{{/if}}
                     <div class="footer-content">
                         {{#if optionalColumn1.content}}{{{ optionalColumn1.content }}}{{/if}}
-                        {{#if optionalColumn1.displayFollowLinks}}
-                            <div class="row">
+                        {{#if optionalColumn1.showFollowLinks}}
                                 {{> followLinks }}
-                            </div>
                         {{/if}}
-                        {{#if optionalColumn1.displayCustomLinks}}
-                            <div class="row">
+                        {{#if optionalColumn1.showCustomLinks}}
                                 {{> customLinks }}
-                            </div>
                         {{/if}}
                     </div>
                 </div>
@@ -80,12 +76,12 @@
 
             <!-- WoG links -->
             <div class="col-12 col-lg-2" aria-label="footer-navigation">
-                {{#if footerlinks}}
-                <div class="footer-column {{#if footerlinks.hasBorderColumn}}border-column{{/if}}">
-                    {{#if footerlinks.title}}<h3 class="footer-heading">{{footerlinks.title}}</h3>{{/if}}
+                {{#if footerLinks}}
+                <div class="footer-column {{#if footerLinks.hasBorderColumn}}border-column{{/if}}">
+                    {{#if footerLinks.title}}<h3 class="footer-heading">{{footerLinks.title}}</h3>{{/if}}
                     {{!-- <nav class="nav footer-link-list flex-column"> --}}
                         <ul class="nav footer-link-list flex-column">
-                        {{#each footerlinks.list }}
+                        {{#each footerLinks.list }}
                             <li><a class="nav-link" href="{{ this.link }}" {{#if this.new_window }} target="_blank" {{/if}}>{{{ @key }}}</a></li>
                         {{/each }}
                         </ul>
@@ -109,22 +105,18 @@
             </div>
 
             
-            {{#ifAny optionalColumn2.content optionalColumn2.displayFollowLinks optionalColumn2.displayCustomLinks }}
+            {{#ifAny optionalColumn2.content optionalColumn2.showFollowLinks optionalColumn2.showCustomLinks }}
                 <!-- Optional Column 2 -->
                 <div class="col-12 col-lg-2" aria-label="{{#if optionalColumn2.title}}{{optionalColumn2.title}}{{else}}Footer links{{/if}}">
                     <div class="footer-column {{#if optionalColumn2.hasBorderColumn}}border-column{{/if}} optional-column-2">
                         {{#if optionalColumn2.title}}<h3 class="footer-heading">{{optionalColumn2.title}}</h3>{{/if}}
                         <div class="footer-content">
                             {{#if optionalColumn2.content}}{{{ optionalColumn2.content }}}{{/if}}
-                            {{#if optionalColumn2.displayFollowLinks}}
-                                
+                            {{#if optionalColumn2.showFollowLinks}}
                                     {{> followLinks }}
-                             
                             {{/if}}
-                            {{#if optionalColumn2.displayCustomLinks}}
-                            
+                            {{#if optionalColumn2.showCustomLinks}}
                                 {{> customLinks }}
-                        
                         {{/if}}
                         </div>
                     </div>
@@ -133,7 +125,7 @@
 
             <!-- Acknowledgement of Country -->
             <div class="col crest">
-                <div class="footer-column {{#unless copyright.hasBorderColumnDisabled}}border-column{{/unless}}">
+                <div class="footer-column border-column">
                     <div class="footer-content">
                         <div class="footer-acknowledgements">
                             {{#if acknowledgements }}
@@ -150,31 +142,30 @@
                                 <p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>
                             {{/if}}
                         </div>
-                        {{#if footerCustomLogo.src}}
+                        {{#if footerLogo.src}}
                             <div class="footer-logo">
-                                <img src="{{ footerCustomLogo.src }}" alt="{{ footerCustomLogo.alt }}" class="img-fluid" />
+                                <img src="{{ footerLogo.src }}" alt="{{ footerLogo.alt }}" class="img-fluid" />
                             </div>
                         {{else}}
-                            {{#unless footerHasCrestDisabled}}
+                            {{#if footerLogo.show}}
                                 <div class="footer-crest">
                                     {{> logoCOALandscape }}
                                 </div>
-                            {{/unless}}
+                            {{/if}}
                         {{/if}}
                         {{#if copyright }}
                             <p class="copyright">
                                 {{{copyright.content}}}
-                                {{#if copyrightOrganisationName}} ({{copyrightOrganisationName}}) {{/if}} 
-                                {{#if copyrightHasYearFrom}}{{copyright.yearFrom}} - {{/if}} {{formatDateOrToday "" "YYYY" }}
+                                {{#if copyright.showYearFrom}}{{copyright.yearFrom}} - {{/if}} {{formatDateOrToday "" "YYYY" }}
                             </p>
                         {{else}}
                             {{!default }}
                             <p class="copyright">© The State of Queensland {{formatDateOrToday "" "YYYY" }}</p>
                         {{/if}}
 
-                        {{#unless footerHasStateOfQldDisabled}}
-                            <p><a class="fw-semibold" href="{{#if lookup.link.URL}}{{lookup.link.URL }}{{else}}https://www.qld.gov.au{{/if}}" rel="external">{{#if lookup.link.text}}{{lookup.link.text}}{{else}}Queensland Government{{/if}}</a></p>
-                        {{/unless}}
+                        {{#if organisationLink.show }}
+                            <p><a class="fw-semibold" href="{{#if organisationLink.URL}}{{organisationLink.URL }}{{else}}https://www.qld.gov.au{{/if}}" rel="external">{{#if organisationLink.text}}{{organisationLink.text}}{{else}}Queensland Government{{/if}}</a></p>
+                        {{/if}}
                     </div>
 
                 </div>      

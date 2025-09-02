@@ -7,68 +7,10 @@ export default {
   tags: ["autodocs"],
   title: "2. Layout/Footer",
   render: (args) => new Footer(args).html,
-  // parameters: {
-  //   controls: {include: []},
-  // },
   argTypes: {
-    /*     "feedbackForm.formAttr.data-formio-project-name": {
-      //data-formio-project-name
-      name: "Form.io Project, edit feedbackForm to change",
-      description: `Footer Feedback project's for reference edit feedbackForm formAttr.data-formio-project-name to update`,
-      control: {
-        type: "radio",
-        labels: {
-          "dev-oldkihhcwbdtwye": "TEST (dev-oldkihhcwbdtwye)",
-          "staging-oldkihhcwbdtwye": "STAGING (staging-oldkihhcwbdtwye)",
-          "uat-oldkihhcwbdtwye": "UAT (uat-oldkihhcwbdtwye)",
-          oldkihhcwbdtwye: "PROD (oldkihhcwbdtwye)",
-        },
-      },
-      options: [
-        "dev-oldkihhcwbdtwye",
-        "uat-oldkihhcwbdtwye",
-        "staging-oldkihhcwbdtwye",
-        "oldkihhcwbdtwye",
-      ],
-    }, */
     sitename: {
       name: "Site Name",
       description: "Name of the site",
-      control: { type: "text" },
-    },
-    contactHasContactList: {
-      name: "Contact Has Contact List",
-      description: "Whether the contact list is enabled",
-      control: { type: "boolean" },
-    },
-    footerHasCrestDisabled: {
-      name: "Footer Has Crest",
-      description: "Whether the footer has a crest",
-      control: { type: "boolean" },
-    },
-    footerHasStateOfQldDisabled: {
-      name: "Footer Has State of Qld",
-      description: "Whether the footer shows State of Qld",
-      control: { type: "boolean" },
-    },
-    /*     feedbackFormDisabled: {
-      name: "Feedback Form Disabled",
-      description: "Whether the feedback form is visible",
-      control: { type: "boolean" },
-    }, */
-    /*     followlinksEnabled: {
-      name: "Follow Links Enabled",
-      description: "Whether the follow links are enabled",
-      control: { type: "boolean" },
-    }, */
-    copyrightHasYearFrom: {
-      name: "Copyright Has Year From",
-      description: "Whether the copyright section has a year from",
-      control: { type: "boolean" },
-    },
-    copyrightOrganisationName: {
-      name: "Copyright Organisation Name",
-      description: "Name of the copyright organisation",
       control: { type: "text" },
     },
     contact: {
@@ -76,9 +18,9 @@ export default {
       description: "Contact section details",
       control: { type: "object" },
     },
-    lookup: {
-      name: "Lookup",
-      description: "Lookup section details",
+    organisationLink: {
+      name: "Organisation link",
+      description: "organisation section details",
       control: { type: "object" },
     },
     acknowledgements: {
@@ -90,16 +32,6 @@ export default {
       name: "Copyright",
       description: "Copyright section details",
       control: { type: "object" },
-    },
-    footerlinks: {
-      name: "Footer Links",
-      description: "Footer links section details",
-      control: { type: "object" },
-    },
-    customlinks: {
-      name: "Custom Links",
-      description: "Custom links section details",
-      control: { type: "array" },
     },
   },
 };
