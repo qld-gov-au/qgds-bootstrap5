@@ -94,49 +94,7 @@
 
   </div>
 
-  <style>
 
-  /* DEBUGGING helpers for storybook */
-  .debug-container .container,
-  .debug-container .container-fluid { 
-    background: rgba(255, 37, 37, 0.2) !important;
-  }
-
-  .debug-row .row { 
-    background: rgba(60, 180, 255, 0.2) !important; 
-  }
-
-  .debug-col .row > [class^="col"],
-  .debug-col .row > [class*=" col-"] {
-    background: rgba(12, 255, 20, 0.2) !important;
-    position: relative;
-  }
-
-  .debug-col .row > [class^="col"]:before,
-  .debug-col .row > [class*=" col-"]:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    /* Simulates Bootstrap column padding */
-    width: calc(var(--qld-gutter-x) * 0.5);
-    background: #80808010;
-  }
-
-  .debug-col .row > [class^="col"]:after,
-  .debug-col .row > [class*=" col-"]:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    /* Simulates Bootstrap column padding */
-    width: calc(var(--qld-gutter-x) * 0.5);
-    background: #80808010;
-  }
-
-  </style>
 
 </body>
 </html>
