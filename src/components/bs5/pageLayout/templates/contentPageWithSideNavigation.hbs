@@ -21,7 +21,7 @@
     {{/if}}
 
     <main>
-        <div class="container-fluid">
+        <div class="container-fluid p-0">
             <div class="container qld-content">
                 {{#if breadcrumbs}}
                 <div class="row">
@@ -40,13 +40,13 @@
                         {{> sidenav sidenav}}
                     </div>
                     <!-- Content Col -->
-                    <div class="col-lg-8 col-md-7 ps-32">
+                    <div class="col-lg-8 col-md-7 ps-1 ps-md-4">
                         {{else}}
                         <div class="col-12">
                             {{/if}}
 
                             <!-- Main Content Sections -->
-                            <div class="content-section ps-32">
+                            <div class="content-section ps-1 ps-md-4">
 
                                 {{#if inpagenav}}
                                 <!-- inpagenav Section -->
@@ -70,21 +70,21 @@
 
                             {{#if image}}
                             <!-- image Section -->
-                            <div class="my-4 ps-32">
+                            <div class="my-4 ps-1 ps-md-4">
                                 {{> image image}}
                             </div>
                             {{/if}}
 
                             {{#if table}}
                             <!-- table Section -->
-                            <div class="my-4 ps-32">
+                            <div class="my-4 ps-1 ps-md-4">
                                 {{> table table}}
                             </div>
                             {{/if}}
 
                             {{#if video}}
                             <!-- video Section -->
-                            <div class="my-4 ps-32">
+                            <div class="my-4 ps-1 ps-md-4">
                                 {{> video video}}
                             </div>
                             {{/if}}

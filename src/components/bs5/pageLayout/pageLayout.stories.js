@@ -9,6 +9,7 @@ import globalAlertData from "../globalAlert/globalAlert.data.json";
 import tableData from "../table/table.data.json";
 import footerData from "../footer/footer.data.json";
 import contentFooterData from "../contentFooter/contentFooter.data.json";
+import callToActionData from "../callToAction/callToAction.data.json";
 import bannerData from "../banner/banner.data.json";
 import cardData from "../card/card.data.json";
 import linkColumnsData from "../linkColumns/linkColumns.data.json";
@@ -25,6 +26,8 @@ import selectData from "../select/select.data.json";
 import buttonData from "../button/button.data.json";
 import checkboxData from "../formcheck/stories/checkbox/checkbox.data.json";
 import radioData from "../formcheck/stories/radio/radio.data.json";
+import buttondata from "../button/button.data.json";
+
 import { SearchInput } from "../searchInput/SearchInput.js";
 
 const defaultData = {
@@ -91,6 +94,21 @@ export const FullWidthLanding = {
       ...bannerData,
       title: "Welcome to Queensland Government",
       abstract: "Your gateway to government services and information.",
+      bannerType: "banner-advanced",
+      backgroundType: "with-hero-image",
+      "image.classes": "align-grid",
+      callToAction: "buttons",
+      buttons: [
+        {
+          ...buttondata,
+          iconClass: false,
+        },
+        {
+          ...buttondata,
+          classes: ["btn-secondary"],
+          variantClass: "btn-secondary",
+        },
+      ],
     },
     cardGrid: {
       cards: [
@@ -99,23 +117,33 @@ export const FullWidthLanding = {
           title: "Services",
           description: "Access government services online",
           link: "#services",
+          iconClasses: "qld-icon-design",
+          iconPosition: "icon-top",
         },
         {
           ...cardData.singleAction,
           title: "Information",
           description: "Find important information and resources",
           link: "#information",
+          iconClasses: "qld-icon-design",
+          iconPosition: "icon-top",
         },
         {
           ...cardData.singleAction,
           title: "Support",
           description: "Get help when you need it",
           link: "#support",
+          iconClasses: "qld-icon-design",
+          iconPosition: "icon-top",
         },
       ],
     },
     linkColumns: linkColumnsData,
-    promotionalPanel: promotionalPanelData,
+    callToAction: callToActionData,
+    promotionalPanel: {
+      ...promotionalPanelData,
+      variantClass: "dark",
+    },
   },
 };
 
