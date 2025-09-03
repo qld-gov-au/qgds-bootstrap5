@@ -276,11 +276,15 @@
       .video-nav {
         .video-watch {
           background-color: rgb(var(--#{$prefix}video-nav-bg-hover-rgb));
-          text-decoration: underline !important;
-          text-underline-offset: var(--qld-link-underline-offset);
-          text-decoration-thickness: var(--qld-link-underline-thickness);
+          span{
+            text-decoration: underline !important;
+            text-underline-offset: var(--qld-link-underline-offset);
+            text-decoration-thickness: var(--qld-link-underline-thickness);
+            text-shadow: 0.6px 0 0 currentColor;
+          }
         }
         .video-duration {
+          text-shadow: 0.6px 0 0 currentColor;
           background-color: rgba(var(--#{$prefix}video-nav-bg-hover-rgb), var(--#{$prefix}video-nav-bg-opacity));
         }
       }
