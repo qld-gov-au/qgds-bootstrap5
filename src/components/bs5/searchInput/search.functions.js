@@ -119,7 +119,7 @@ export async function showSuggestions(value = "", isDefault = false, form) {
     if (fetchedSuggestions.length > 0) {
       dynamicSuggestionsContainer.innerHTML = `
         <div class="suggestions-category mt-16">
-          <strong class="suggestions-category-label">Suggestions</strong>
+          <strong class="suggestions-category-label d-block">Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions
             .slice(0, 4)
             .map((item) => {
@@ -166,7 +166,7 @@ export async function showSuggestions(value = "", isDefault = false, form) {
     ) {
       dynamicSuggestionsContainer.innerHTML += `
         <div class="suggestions-category feature pt-16">
-          <strong class="suggestions-category-label">Services</strong>
+          <strong class="suggestions-category-label d-block">Services</strong>
           <ul class="mt-2">${fetchedServices.response.resultPacket.results
             .slice(0, 4)
             .map(

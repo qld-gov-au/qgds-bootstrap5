@@ -45,10 +45,16 @@
       &-view-more {
         text-decoration: underline;
         text-decoration-thickness: 0.5px;
-        text-decoration-color: rgba($site-search-input-color, 0.5);
+        text-decoration-color: rgba(
+          $color-default-color-light-text-default,
+          0.5
+        );
         &:hover {
           background-color: var(--#{$prefix}site-search-suggestions-hover);
-          text-decoration-color: rgba($site-search-input-color, 1);
+          text-decoration-color: rgba(
+            $color-default-color-light-text-default,
+            1
+          );
           text-decoration-thickness: var(
             --#{$prefix}link-underline-thickness-hover
           );
@@ -116,7 +122,6 @@
       strong {
         font-weight: 600;
         color: var(--#{$prefix}color-default-color-light-text-heading);
-        display: block;
       }
 
       ul {
@@ -187,7 +192,7 @@
   }
 
   .form-control {
-    padding: 0.75rem 1rem 0.75rem 3rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
     border-radius: 0.25rem;
     border: 0.125rem solid var(--border-color);
     background: var(--background-color);
