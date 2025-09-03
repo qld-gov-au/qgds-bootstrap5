@@ -12,7 +12,7 @@ exports[`SearchInput > Renders as expected 1`] = `
         <div class="suggestions suggestions__group d-none">
             <div class="default-suggestions">
                 <div class="suggestions-category mt-16">
-                    <strong class="suggestions-category-label">Popular services</strong>
+                    <strong class="suggestions-category-label d-block">Popular services</strong>
                     <ul class="mt-2">
                             <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application">Apply for leave</a></li>
                             <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level">Apply for higher duties or relieving at level</a></li>
@@ -22,7 +22,7 @@ exports[`SearchInput > Renders as expected 1`] = `
                 </div>
 
                 <div class="suggestions-category mt-16">
-                    <strong class="suggestions-category-label">Browse by category</strong>
+                    <strong class="suggestions-category-label d-block">Browse by category</strong>
                     <ul class="mt-12 mb-0">
                             <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines">Search for directives, policies, circulars, and guidelines</a></li>
                             <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits">Employee pay and benefits</a></li>
