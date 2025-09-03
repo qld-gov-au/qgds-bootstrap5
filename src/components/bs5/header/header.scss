@@ -370,7 +370,7 @@
         display: block;
       }
 
-      &_subtype {
+      &.is-subtype {
         border-right: 2px solid
           var(--#{$prefix}header__brand-image__subtype__border_color);
         color: var(--#{$prefix}header__brand-image__subtype__text_color);
@@ -431,7 +431,7 @@
   }
 
   //Reduce size of whitebar on masterbrand
-  &__main--masterbrand--true {
+  &.is-masterbrand {
     @include media-breakpoint-down(lg) {
       height: 0;
     }
