@@ -221,9 +221,11 @@ $project-colors: (
   "light-background-shade": $qld-light-background-shade,
 
   //Borders
-  "light-border": $qld-light-border,
+  //"light-border": $qld-light-border,
+  "default-border": $qld-light-border,
+  "light-border": $color-default-color-light-border-light,
   "light-border-alt": $qld-light-border-alt,
-
+  
   //Links
   "light-link": $color-default-color-light-link-default,
   "dark-link": $color-default-color-dark-link-default,

@@ -3,19 +3,7 @@
 
 // Source CSS variables: var(--variable-name)  /node_modules/bootstrap/css/components/_card.css
 
-// Video overlay icons
-$video-icon-color: $qld-dark-text;
-$video-play-icon: url("data:image/svg+xml,<svg width='32' height='21' viewBox='0 0 32 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M30.7656 1.96875C30.2188 1.69531 29.5078 1.69531 28.9609 2.07812L23.3281 6.01562C22.9453 6.28906 22.8359 6.83594 23.1094 7.27344C23.3828 7.65625 23.9297 7.71094 24.3672 7.4375L30 3.5V17.5L24.3672 13.5625C23.9297 13.2891 23.3828 13.3984 23.1094 13.7812C22.8359 14.2188 22.9453 14.7656 23.3281 15.0391L28.9609 18.9766C29.2891 19.1953 29.6172 19.25 30 19.25C30.2734 19.25 30.5469 19.1953 30.7656 19.0859C31.3672 18.7578 31.75 18.1562 31.75 17.5V3.5C31.75 2.84375 31.3672 2.29688 30.7656 1.96875ZM17.75 0H3.75C1.78125 0 0.25 1.58594 0.25 3.5V17.5C0.25 19.4688 1.78125 21 3.75 21H17.75C19.6641 21 21.25 19.4688 21.25 17.5V3.5C21.25 1.58594 19.6641 0 17.75 0ZM19.5 17.5C19.5 18.4844 18.6797 19.25 17.75 19.25H3.75C2.76562 19.25 2 18.4844 2 17.5V3.5C2 2.57031 2.76562 1.75 3.75 1.75H17.75C18.6797 1.75 19.5 2.57031 19.5 3.5V17.5Z' fill='#{$video-icon-color}' /></svg>");
-$video-play-icon-hover: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path fill='#{$video-icon-color}' d='M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z'/></svg>");
-$video-clock-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color}'><path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z' /></svg>"); // Material Symbols 'Schedule'
-
-$video-icon-color-dark: $qld-dark-action-text;
-$video-play-icon-dark: url("data:image/svg+xml,<svg width='32' height='21' viewBox='0 0 32 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M30.7656 1.96875C30.2188 1.69531 29.5078 1.69531 28.9609 2.07812L23.3281 6.01562C22.9453 6.28906 22.8359 6.83594 23.1094 7.27344C23.3828 7.65625 23.9297 7.71094 24.3672 7.4375L30 3.5V17.5L24.3672 13.5625C23.9297 13.2891 23.3828 13.3984 23.1094 13.7812C22.8359 14.2188 22.9453 14.7656 23.3281 15.0391L28.9609 18.9766C29.2891 19.1953 29.6172 19.25 30 19.25C30.2734 19.25 30.5469 19.1953 30.7656 19.0859C31.3672 18.7578 31.75 18.1562 31.75 17.5V3.5C31.75 2.84375 31.3672 2.29688 30.7656 1.96875ZM17.75 0H3.75C1.78125 0 0.25 1.58594 0.25 3.5V17.5C0.25 19.4688 1.78125 21 3.75 21H17.75C19.6641 21 21.25 19.4688 21.25 17.5V3.5C21.25 1.58594 19.6641 0 17.75 0ZM19.5 17.5C19.5 18.4844 18.6797 19.25 17.75 19.25H3.75C2.76562 19.25 2 18.4844 2 17.5V3.5C2 2.57031 2.76562 1.75 3.75 1.75H17.75C18.6797 1.75 19.5 2.57031 19.5 3.5V17.5Z' fill='#{$video-icon-color-dark}' /></svg>");
-$video-play-icon-hover-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path fill='#{$video-icon-color-dark}' d='M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z'/></svg>");
-$video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color-dark}'><path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z' /></svg>"); // Material Symbols 'Schedule'
-
 .card {
-  --arrow-icon: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0518 8.1205L6.63557 16.4361C6.44609 16.6153 6.22435 16.7076 5.97036 16.7128C5.71637 16.7183 5.49185 16.6234 5.2968 16.4282C5.1015 16.233 5.00259 16.0122 5.00006 15.7658C4.99728 15.5194 5.0948 15.2985 5.29263 15.1033L15.1755 5.35051C15.2995 5.22843 15.4286 5.13943 15.563 5.08351C15.6976 5.02784 15.8454 5 16.0066 5C16.168 5 16.3155 5.02784 16.449 5.08351C16.5826 5.13943 16.7114 5.22843 16.8353 5.35051L26.7183 15.1033C26.9012 15.2838 26.995 15.5003 26.9998 15.7527C27.0046 16.0053 26.9108 16.2305 26.7183 16.4282C26.5176 16.6234 26.2919 16.7211 26.0409 16.7211C25.7899 16.7211 25.5687 16.6234 25.3772 16.4282L16.9591 8.1205V26.0589C16.9591 26.3303 16.8687 26.555 16.6881 26.733C16.5077 26.911 16.2802 27 16.0054 27C15.7305 27 15.5028 26.911 15.3224 26.733C15.142 26.555 15.0518 26.3303 15.0518 26.0589V8.1205Z' fill='%23131212'/%3E%3C/svg%3E%0A");
   --#{$prefix}card-bg: var(--#{$prefix}default-background);
   --#{$prefix}card-color: var(--#{$prefix}text-grey);
   --#{$prefix}card-title-color: var(--#{$prefix}light-text-heading);
@@ -46,18 +34,15 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
   --#{$prefix}link-hover-colour: var(--#{$prefix}light-action-primary-hover);
   --#{$prefix}link-hover-text-colour: var(--#{$prefix}dark-link);
-
   // Icon variables
   --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
   --#{$prefix}card-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
   --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
-
   // Side positioned icon as default
   --#{$prefix}card-icon-height: 4rem;
   --#{$prefix}card-icon-width: 4rem;
   --#{$prefix}card-icon-font-size: 2.25rem;
   --#{$prefix}card-icon-line-height: 4rem;
-
   // Video styled card
   .video-overlay {
     --#{$prefix}video-nav-bg: var(--#{$prefix}light-action-primary);
@@ -66,12 +51,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 125;
     --#{$prefix}video-nav-bg-opacity: .9;
     --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
-    --#{$prefix}video-play-icon: #{escape-svg($video-play-icon)};
-    --#{$prefix}video-play-icon-hover: #{escape-svg($video-play-icon-hover)};
-    --#{$prefix}video-play-icon-size: 2rem;
-    --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
-    --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon)};
     --#{$prefix}video-clock-icon-size: 1.25rem;
+    --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-text);
   }
   .icon-top {
     --#{$prefix}card-icon-height: 8rem;
@@ -118,17 +99,19 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       .card-title {
         margin-bottom: 0;
       }
-      .icon-arrow {
+      .qld-icon {
         margin: 0;
+        mask-size: 2rem;
+        transform: translateX(0rem);
+        transition: transform 0.25s ease-in-out;
       }
     }
   }
-
   // Colour variants
   &-light,
   &-default {
     --#{$prefix}card-bg: var(--#{$prefix}light-background);
-    --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
+    --#{$prefix}card-footer-border: var(--#{$prefix}default-border);
     --#{$prefix}card-icon-background-color: var(--#{$prefix}light-background-shade);
     --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
     &:hover {
@@ -173,9 +156,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       --#{$prefix}video-nav-bg-hover: var(--#{$prefix}dark-action-primary-hover);
       --#{$prefix}video-nav-bg-hover-rgb: 173, 211, 63;
       --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
-      --#{$prefix}video-play-icon: #{escape-svg($video-play-icon-dark)};
-      --#{$prefix}video-play-icon-hover: #{escape-svg($video-play-icon-hover-dark)};
-      --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon-dark)};
+      --#{$prefix}video-play-icon-color: var(--#{$prefix}text-darkest);
     }
   }
   &-dark {
@@ -227,7 +208,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     border-radius: 0;
   }
 }
-
 @include media-breakpoint-up(md) {
   .card {
     --#{$prefix}card-spacer-x: 1.25rem;
@@ -236,7 +216,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}card-line-height: 1.5rem;
   }
 }
-
 @include media-breakpoint-up(lg) {
   .card {
     --#{$prefix}card-spacer-x: 1.5rem;
@@ -250,7 +229,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
   }
 }
-
 // Component styles
 .card {
   font-size: var(--#{$prefix}card-font-size);
@@ -296,15 +274,14 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         opacity: 0.1;
       }
       .video-nav {
-        background-color: rgba(var(--#{$prefix}video-nav-bg-hover-rgb), var(--#{$prefix}video-nav-bg-opacity));
         .video-watch {
-          background-color: var(--#{$prefix}video-nav-bg-hover);
-          text-decoration: underline;
+          background-color: rgb(var(--#{$prefix}video-nav-bg-hover-rgb));
+          text-decoration: underline !important;
           text-underline-offset: var(--qld-link-underline-offset);
           text-decoration-thickness: var(--qld-link-underline-thickness);
-          .icon {
-            background-image: var(--#{$prefix}video-play-icon-hover);
-          }
+        }
+        .video-duration {
+          background-color: rgba(var(--#{$prefix}video-nav-bg-hover-rgb), var(--#{$prefix}video-nav-bg-opacity));
         }
       }
       .icon-arrow {
@@ -356,13 +333,28 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       }
     }
     .video-overlay {
+      background-color: transparent;
       z-index: 1;
       .video-nav,
       .video-watch {
         transition: none;
       }
-      .icon {
-        background-position: center;
+      .video-watch {
+        background-color: rgb(var(--#{$prefix}video-nav-bg-rgb));
+      }
+      .video-duration {
+        background-color: rgba(var(--#{$prefix}video-nav-bg-rgb), 0.5);
+      }
+      .video-duration,
+      .video-watch {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        height: 100%;
+        .qld-icon {
+          background-color: var(--#{$prefix}video-play-icon-color);
+        }
       }
     }
   }
@@ -380,37 +372,12 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     .card-title {
       padding-right: 1rem;
     }
-    &:hover {
-      .icon-arrow {
-        transform: translateX(0.25rem);
-      }
-    }
   }
   &.card-arrow {
-    .card-body{
-      position: relative;
-      .card-title {
-        padding-right: 3rem;
-        a:before {
-          content: '';
-          position: absolute;
-          right: 1.5rem;
-          top: calc(50% - 16px);
-          transition: right .25s ease-in-out;
-          mask-image: var(--arrow-icon);
-          mask-size: contain;
-          mask-position: center;
-          width: 2rem;
-          height: 2rem;
-          background-color: var(--#{$prefix}card-arrow-color);
-          transform: rotate(90deg);
-        }
-      }
-      &:hover .card-title{
-        a:before {
-          right: 1.25rem;
-          transition: .25s ease-in-out;
-        }
+    &:hover {
+      .qld-icon {
+        transform: translateX(0.25rem);
+        transition: transform 0.25s ease-in-out;
       }
     }
   }
@@ -440,7 +407,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       height: 1px;
       background: var(--#{$prefix}card-footer-border);
     }
-
     /////////////////////////////////////////////
     // Override default spacing on tag component
     .tag-list {
@@ -478,7 +444,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
   }
 }
-
 @include media-breakpoint-up(md) {
   .card {
     &-feature {
@@ -499,7 +464,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
   }
 }
-
 @include media-breakpoint-up(lg) {
   .card {
     box-shadow: none;
