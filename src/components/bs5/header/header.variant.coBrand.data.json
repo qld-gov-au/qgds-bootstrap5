@@ -23,7 +23,8 @@
       }
     ]
   },
-  "siteHeader": {
+  "mainHeader": {
+    "variant": { "cobrand": true },
     "config": {
       "masterbrand_enabled": false,
       "subbrand_enabled": true,

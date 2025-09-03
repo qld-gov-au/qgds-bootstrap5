@@ -18,9 +18,9 @@
           "value": "#"
         },
         "text": {
-          "value": "For Queenslanders"
+          "value": "Contact Information"
         },
-        "dropdown_enabled": true,
+        "dropdown_enabled": false,
         "dropdown_options": {
           "dropdown_type": "list",
           "view_more": true,
@@ -131,6 +131,22 @@
         }
       }
     ]
+  },
+  "mainHeader": {
+    "variant": { "subbrand": true },
+    "url": "https://qld.gov.au",
+    "logo": {},
+    "secondaryType": {
+      "logo": {
+        "value": ""
+      },
+      "siteTitle": {
+        "value": "For government"
+      },
+      "subline": {
+        "value": ""
+      }
+    }
   },
   "siteHeader": {
     "config": {

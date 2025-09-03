@@ -132,7 +132,8 @@
       }
     ]
   },
-  "siteHeader": {
+  "mainHeader": {
+    "variant": { "standalone": true },
     "config": {
       "masterbrand_enabled": false,
       "subbrand_enabled": false,

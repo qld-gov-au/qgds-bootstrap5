@@ -1,23 +1,25 @@
 <header class="qld-header" role="banner">
     <div class="qld-header-pre-header dark">
         <div class="qld-header-container">
-            <div class="d-flex justify-content-between align-items-center">
-
-                <a class="qld-header-link" href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <a class="qld-header-link"
+                    href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
                     <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
                     {{>logo className="qld-header-logo" fill="currentColor"}}
                 </a>
-
-                <div class="d-none d-lg-flex gap-20">
+                <div class="d-none d-lg-flex gap-20 align-items-baseline">
                     {{#if preHeader.CTA}}
                     {{#each preHeader.CTA}}
-                    <span {{#if dropdown_enabled}} class="dropdown" {{/if}}>
+                    {{#if dropdown_enabled}}
+                    <div {{#if dropdown_enabled}} class="dropdown" {{/if}}>
                         <a {{#if dropdown_enabled}} id="dropdown{{id}}" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false" class="qld-header-link" href="#" {{else}} href="{{url.value}}"
-                             {{/if}}>
+                            {{/if}}>
                             {{{text.value}}}
                             {{#if dropdown_enabled}}
-                            {{!-- <span class="qld-header-dropdown-icon qld-icon qld-icon-chevron-down qld-icon-xs align-middle ml-2"></span> --}}
+                            {{!-- <span
+                                class="qld-header-dropdown-icon qld-icon qld-icon-chevron-down qld-icon-xs align-middle ml-2"></span>
+                            --}}
                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                                 class="qld-header-dropdown-icon ">
                                 <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}" aria-hidden="true"></use>
@@ -30,7 +32,8 @@
                             {{#if dropdown_options.dropdown_config}}
                             {{#each dropdown_options.dropdown_config.groups}}
                             <li>
-                                <a class="qld-header-link dropdown-item" href="{{url}}" {{#if action}} target="{{action}}" {{/if}}>
+                                <a class="qld-header-link dropdown-item" href="{{url}}" {{#if action}}
+                                    target="{{action}}" {{/if}}>
                                     {{label}}
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
@@ -42,7 +45,7 @@
                             </li>
                             {{/each}}
                             {{#if dropdown_options.view_more}}
-                            <li >
+                            <li>
                                 <a href="{{dropdown_options.url}}" target="{{dropdown_options.target}}"
                                     class="qld-header-link dropdown-item border-bottom-0">
                                     {{dropdown_options.label}}
@@ -58,7 +61,11 @@
                             {{/isType}}
                         </ul>
                         {{/if}}
-                    </span>
+                    </div>
+                    {{else}}
+                    <a class ="qld-header-link" href="{{url.value}}">{{{text.value}}}</a>
+                    {{/if}}
+
                     {{/each}}
                     {{/if}}
                 </div>
@@ -90,14 +97,14 @@
         </div>
     </div>
     <div
-        class="qld-header-main {{#if siteHeader.config.masterbrand_enabled}}qld-header__main--masterbrand--{{siteHeader.config.masterbrand_enabled}}{{/if}}">
+        class="qld-header-main {{#if mainHeader.config.masterbrand_enabled}}qld-header__main--masterbrand--{{mainHeader.config.masterbrand_enabled}}{{/if}}">
         <div class="container-fluid">
-            {{#if siteHeader.config.masterbrand_enabled}}
+            {{#if mainHeader.variant.masterbrand }}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
+                <a href="{{mainHeader.url.value}}">
                     <div class="qld-header__brand-image">
-                        {{#if siteHeader.logo.value}}
-                        <img src="{{siteHeader.logo.value}}" width="329.57" height="56" alt="Queensland Government" />
+                        {{#if mainHeader.logo.value}}
+                        <img src="{{mainHeader.logo.value}}" width="329.57" height="56" alt="Queensland Government" />
                         {{else}}
                         {{>logo width="330" height="56" fill="currentColor"}}
                         {{/if}}
@@ -105,24 +112,24 @@
                 </a>
             </div>
             {{/if}}
-            {{#ifAny siteHeader.config.subbrand_enabled siteHeader.config.cobrand_enabled}}
+            {{#ifAny mainHeader.variant.subbrand mainHeader.variant.cobrand }}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
+                <a href="{{mainHeader.url.value}}">
                     <div class="qld-header__brand-image qld-header__brand-image_subtype">
-                        {{#if siteHeader.logo.value}}
-                        <img src="{{siteHeader.logo.value}}" width="170" height="56" alt="Queensland Government" />
+                        {{#if mainHeader.logo.value}}
+                        <img src="{{mainHeader.logo.value}}" width="170" height="56" alt="Queensland Government" />
                         {{else}}
                         {{>logo logo="coa-landscape-2lines" width="170" height="56" fill="currentColor" }}
                         {{/if}}
                     </div>
-                    {{#if siteHeader.secondaryType}}
+                    {{#if mainHeader.secondaryType}}
                     <div class="qld-header__site-name">
                         <span class="qld-header__heading">
-                            {{siteHeader.secondaryType.siteTitle.value}}
+                            {{mainHeader.secondaryType.siteTitle.value}}
                         </span>
-                        {{#if siteHeader.secondaryType.subline.value}}
+                        {{#if mainHeader.secondaryType.subline.value}}
                         <span class="qld-header__subline">
-                            {{siteHeader.secondaryType.subline.value}}
+                            {{mainHeader.secondaryType.subline.value}}
                         </span>
                         {{/if}}
                     </div>
@@ -130,25 +137,25 @@
                 </a>
             </div>
             {{/ifAny}}
-            {{#if siteHeader.config.endorsed_enabled}}
+            {{#if mainHeader.variant.endorsed}}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
+                <a href="{{mainHeader.url.value}}">
                     <div class="qld-header__brand-image qld-header__brand-image_subtype">
-                        {{#if siteHeader.secondaryType.logo.value}}
+                        {{#if mainHeader.secondaryType.logo.value}}
                         <div class="qld-header__site-name">
-                            <img class="qld-header__secondary-image" alt="{{siteHeader.secondaryType.siteTitle.value}}"
-                                src="{{siteHeader.secondaryType.logo.value}}" />
+                            <img class="qld-header__secondary-image" alt="{{mainHeader.secondaryType.siteTitle.value}}"
+                                src="{{mainHeader.secondaryType.logo.value}}" />
                         </div>
                         {{/if}}
                     </div>
-                    {{#if siteHeader.secondaryType.logo.value}}
+                    {{#if mainHeader.secondaryType.logo.value}}
                     <div class="qld-header__site-name">
                         <span class="qld-header__heading">
-                            {{siteHeader.secondaryType.siteTitle.value}}
+                            {{mainHeader.secondaryType.siteTitle.value}}
                         </span>
-                        {{#if siteHeader.secondaryType.subline.value}}
+                        {{#if mainHeader.secondaryType.subline.value}}
                         <span class="qld-header__subline">
-                            {{siteHeader.secondaryType.subline.value}}
+                            {{mainHeader.secondaryType.subline.value}}
                         </span>
                         {{/if}}
                     </div>
@@ -156,27 +163,27 @@
                 </a>
             </div>
             {{/if}}
-            {{#if siteHeader.config.standalone_enabled}}
+            {{#if mainHeader.variant.standalone}}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
+                <a href="{{mainHeader.url.value}}">
                     <div class="qld-header__brand-image">
-                        {{#if siteHeader.logo.value}}
-                        <img src="{{siteHeader.logo.value}}" width="170" height="56" alt="Queensland Government" />
+                        {{#if mainHeader.logo.value}}
+                        <img src="{{mainHeader.logo.value}}" width="170" height="56" alt="Queensland Government" />
                         {{/if}}
                     </div>
-                    {{#if siteHeader.secondaryType.logo.value}}
+                    {{#if mainHeader.secondaryType.logo.value}}
                     <div class="qld-header__site-name">
-                        <img class="qld-header__secondary-image" alt="{{siteHeader.secondaryType.siteTitle.value}}"
-                            src="{{siteHeader.secondaryType.logo.value}}" />
+                        <img class="qld-header__secondary-image" alt="{{mainHeader.secondaryType.siteTitle.value}}"
+                            src="{{mainHeader.secondaryType.logo.value}}" />
                     </div>
                     {{else}}
                     <div class="qld-header__site-name">
                         <span class="qld-header__heading">
-                            {{siteHeader.secondaryType.siteTitle.value}}
+                            {{mainHeader.secondaryType.siteTitle.value}}
                         </span>
-                        {{#if siteHeader.secondaryType.subline.value}}
+                        {{#if mainHeader.secondaryType.subline.value}}
                         <span class="qld-header__subline">
-                            {{siteHeader.secondaryType.subline.value}}
+                            {{mainHeader.secondaryType.subline.value}}
                         </span>
                         {{/if}}
                     </div>

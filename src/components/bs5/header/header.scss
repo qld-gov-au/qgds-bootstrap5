@@ -23,6 +23,7 @@
   }
 
   &-pre-header {
+    font-size: 0.875rem; // set here so whitespace doesn't add extra height.
     color: var(--#{$prefix}header-pre-header-color-text);
     background-color: var(--#{$prefix}header-pre-header-color-bg);
     box-shadow: var(--#{$prefix}header-pre-header-boxshadow);

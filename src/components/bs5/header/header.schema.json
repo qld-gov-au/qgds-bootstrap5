@@ -32,25 +32,16 @@
     "sitePreHeader": {
       "type": "object",
       "properties": {
-        "url": {
+        "globalLink": {
           "type": "object",
           "properties": {
-            "value": {
-              "type": "string",
-              "minLength": 1
+            "text": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
             }
-          },
-          "required": ["value"]
-        },
-        "text": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "minLength": 1
-            }
-          },
-          "required": ["value"]
+          }
         },
         "CTA": {
           "type": "array",
