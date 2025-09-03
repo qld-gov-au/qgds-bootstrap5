@@ -210,14 +210,14 @@ export const LongLabelsWrapping = {
         <div style="max-width: 200px;">
           <h5 class="mb-3">Even Narrower Container (200px)</h5>
           ${
-            new Button({
-              ...defaultdata,
-              iconClass: "", // no icon for this demo
-              variantClass: "btn-primary",
-              label: "Long button text in a narrow container",
-              isdisabled: false,
-            }).html
-          }
+  new Button({
+    ...defaultdata,
+    iconClass: "", // no icon for this demo
+    variantClass: "btn-primary",
+    label: "Long button text in a narrow container",
+    isdisabled: false,
+  }).html
+}
         </div>
       </div>
     `;
