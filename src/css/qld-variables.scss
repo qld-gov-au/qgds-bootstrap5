@@ -153,7 +153,7 @@ $qld-fluid-width-1-quarter: 25%;
 
 $color-default-color-dark-underline-default: #ffffff;
 $color-default-color-dark-underline-default-hover: #ffffff;
-
+$site-search-input-color: #414141;
 // Project-specific colors map for generating CSS custom properties only
 // These will NOT create utility classes, only CSS variables on :root
 // Available as var(--qld-[color-name])
@@ -268,9 +268,11 @@ $project-colors: (
 
   // Underlines
   "light-underline-default": $color-default-color-light-underline-default,
-  "light-underline-default-hover": $color-default-color-light-underline-default-hover,
+  "light-underline-default-hover":
+    $color-default-color-light-underline-default-hover,
   "dark-underline-default": $color-default-color-dark-underline-default,
-  "dark-underline-default-hover": $color-default-color-dark-underline-default-hover,
+  "dark-underline-default-hover":
+    $color-default-color-dark-underline-default-hover,
 );
 
 $project-base-colors: (
@@ -335,26 +337,36 @@ $qld-border-width-extra-thick: 8px;
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
 $qld-custom-spacers: (
-  12: ($spacer * 0.75,
+  12: (
+    $spacer * 0.75,
   ),
   16: $spacer,
-  20: ($spacer * 1.25,
+  20: (
+    $spacer * 1.25,
   ),
-  24: ($spacer * 1.5,
+  24: (
+    $spacer * 1.5,
   ),
-  32: ($spacer * 2,
+  32: (
+    $spacer * 2,
   ),
-  40: ($spacer * 2.5,
+  40: (
+    $spacer * 2.5,
   ),
-  48: ($spacer * 3,
+  48: (
+    $spacer * 3,
   ),
-  56: ($spacer * 3.5,
+  56: (
+    $spacer * 3.5,
   ),
-  64: ($spacer * 4,
+  64: (
+    $spacer * 4,
   ),
-  72: ($spacer * 4.5,
+  72: (
+    $spacer * 4.5,
   ),
-  80: ($spacer * 5,
+  80: (
+    $spacer * 5,
   ),
 );
 
