@@ -1,6 +1,7 @@
 {
   "isMasterBrand": true,
   "preHeader": {
+    "palette": "dark",
     "globalLink": {
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
@@ -133,9 +134,10 @@
     ]
   },
   "mainContent": {
+    "palette": "default",
     "url": "https://qld.gov.au",
-    "logoPath": "",
-    "secondaryLogoPath": "",
+    "logo": null,
+    "secondaryLogo": null,
     "siteTitle": "",
     "subline": ""
   },

@@ -1,5 +1,5 @@
 <header class="qld-header" role="banner">
-    <div class="qld-header-pre-header dark">
+    <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{/ifCond}}{{#ifCond preHeader.palette "===" "light"}}light{{/ifCond}}{{#ifCond preHeader.palette "===" "dark-alt"}}dark-alt{{/ifCond}}">
         <div class="qld-header-container">
             <div class="d-flex justify-content-between align-items-baseline">
                 <a class="qld-header-link"
@@ -100,98 +100,21 @@
     <div
         class="qld-header-main {{#if isMasterBrand}}is-masterbrand{{/if}}">
         <div class="container-fluid">
-            {{#if isMasterBrand }}
-            <div class="qld-header__brand">
-                <a href="{{mainContent.url}}">
-                    <div class="qld-header__brand-image">
-                        {{#if mainContent.logoPath}}
-                        <img src="{{mainContent.logoPath}}" width="330" height="56" alt="Queensland Government" />
-                        {{else}}
-                        {{>logo width="330" height="56" fill="currentColor"}}
-                        {{/if}}
-                    </div>
-                </a>
-            </div>
-            {{/if}}
-            {{#ifAny isSubBrand isCoBrand }}
-            <div class="qld-header__brand">
-                <a href="{{mainContent.url}}">
-                    <div class="qld-header__brand-image is-subtype">
-                        {{#if mainContent.logoPath}}
-                        <img src="{{mainContent.logoPath}}" width="170" height="56" alt="Queensland Government" />
-                        {{else}}
-                        {{>logo logo="coa-landscape-2lines" width="170" height="56" fill="currentColor" }}
-                        {{/if}}
-                    </div>
-                    {{#if mainContent.siteTitle}}
-                    <div class="qld-header__site-name">
-                        <span class="qld-header__heading">
-                            {{mainContent.siteTitle}}
-                        </span>
-                        {{#if mainContent.subline}}
-                        <span class="qld-header__subline">
-                            {{mainContent.subline}}
-                        </span>
-                        {{/if}}
-                    </div>
-                    {{/if}}
-                </a>
-            </div>
+            {{#ifAny isMasterBrand isSubBrand isCoBrand}}
+            {{>headerBrand 
+                url=mainContent.url 
+                logo=mainContent.logo
+                siteTitle=mainContent.siteTitle
+                subline=mainContent.subline }}
             {{/ifAny}}
-            {{#if isEndorsedBrand}}
-            <div class="qld-header__brand">
-                <a href="{{mainContent.url}}">
-                    <div class="qld-header__brand-image qld-header__brand-image_subtype">
-                        {{#if mainContent.logoPath}}
-                        <div class="qld-header__site-name">
-                            <img class="qld-header__secondary-image" alt="{{mainContent.siteTitle}} {{mainContent.subline}}"
-                                src="{{mainContent.logoPath}}" />
-                        </div>
-                        {{/if}}
-                    </div>
-                    {{#if mainContent.siteTitle}}
-                    <div class="qld-header__site-name">
-                        <span class="qld-header__heading">
-                            {{mainContent.siteTitle}}
-                        </span>
-                        {{#if mainContent.subline}}
-                        <span class="qld-header__subline">
-                            {{mainContent.subline}}
-                        </span>
-                        {{/if}}
-                    </div>
-                    {{/if}}
-                </a>
-            </div>
-            {{/if}}
-            {{#if isStandaloneBrand}}
-            <div class="qld-header__brand">
-                <a href="{{mainContent.url}}">
-                    <div class="qld-header__brand-image">
-                        {{#if mainContent.logoPath}}
-                        <img src="{{mainContent.logoPath}}" width="170" height="56" alt="Queensland Government" />
-                        {{/if}}
-                    </div>
-                    {{#if mainContent.secondaryLogoPath}}
-                    <div class="qld-header__site-name">
-                        <img class="qld-header__secondary-image" alt="{{mainContent.siteTitle}}"
-                            src="{{mainContent.secondaryLogoPath}}" />
-                    </div>
-                    {{else}}
-                    <div class="qld-header__site-name">
-                        <span class="qld-header__heading">
-                            {{mainContent.siteTitle}}
-                        </span>
-                        {{#if mainContent.subline}}
-                        <span class="qld-header__subline">
-                            {{mainContent.subline}}
-                        </span>
-                        {{/if}}
-                    </div>
-                    {{/if}}
-                </a>
-            </div>
-            {{/if}}
+            {{#ifAny isEndorsedBrand isStandaloneBrand }}
+            {{>headerBrand 
+                url=mainContent.url 
+                logo=mainContent.logo
+                siteTitle=mainContent.siteTitle
+                secondaryLogo=mainContent.secondaryLogo
+                subline=mainContent.subline }}
+            {{/ifAny}}
             {{#if assets.siteSearch.value}}
             <div id="qld-header-search" class="qld-header__site-search qld-header__site-search--closed">
                 <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}

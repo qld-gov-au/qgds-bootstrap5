@@ -24,6 +24,7 @@ import fullPage from "../components/bs5/fullPageWrapper/fullPage.hbs?raw";
 import globalAlert from "../components/bs5/globalAlert/globalAlert.hbs?raw";
 import head from "../components/bs5/head/head.hbs?raw";
 import header from "../components/bs5/header/header.hbs?raw";
+import headerBrand from "../components/bs5/header/headerBrand.hbs?raw";
 import icon from "../components/bs5/icons/icon.hbs?raw";
 import image from "../components/bs5/image/image.hbs?raw";
 import inpageAlert from "../components/bs5/inpageAlert/inpageAlert.hbs?raw";
@@ -85,6 +86,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("globalAlert", globalAlert);
   handlebars.registerPartial("head", head);
   handlebars.registerPartial("header", header);
+  handlebars.registerPartial("headerBrand", headerBrand);
   handlebars.registerPartial("icon", icon);
   handlebars.registerPartial("image", image);
   handlebars.registerPartial("inpageAlert", inpageAlert);

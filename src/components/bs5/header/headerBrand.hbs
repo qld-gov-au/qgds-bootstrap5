@@ -1,0 +1,30 @@
+<div class="qld-header__brand">
+    <a href="{{url}}">
+        <div class="qld-header__brand-image {{#ifAny isSubBrand isCoBrand isEndorsedBrand}}is-subtype{{/ifAny}}">
+            {{#if logo}}
+            <img src="{{logo.src}}" width="330" height="56" alt="{{#if logo.altText}}{{logo.altText}}{{else}}Queensland government{{/if}}" />
+            {{else}}
+            {{>logo width="330" height="56" fill="currentColor"}}
+            {{/if}}
+        </div>
+        {{#if secondaryLogo}}
+            <div class="qld-header__site-name">
+                <img class="qld-header__secondary-image" alt="{{#if secondaryLogo.altText}}{{secondaryLogo.altText}}{{else}}{{siteTitle}}{{#if subline}}{{subline}}{{/if}}{{/if}}"
+                    src="{{secondaryLogo.src}}" />
+            </div>
+        {{else}}
+        {{#if siteTitle}}
+        <div class="qld-header__site-name">
+            <span class="qld-header__heading">
+                {{siteTitle}}
+            </span>
+            {{#if subline}}
+            <span class="qld-header__subline">
+                {{subline}}
+            </span>
+            {{/if}}
+        </div>
+        {{/if}}
+        {{/if}}
+    </a>
+</div>

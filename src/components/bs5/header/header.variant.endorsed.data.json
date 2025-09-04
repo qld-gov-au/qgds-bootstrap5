@@ -128,8 +128,14 @@
   },
   "mainContent": {
     "url": "https://qld.gov.au",
-    "logoPath": "assets/img/endorsed.svg",
-    "secondaryLogoPath": "assets/img/endorsed.svg",
+    "logo": {
+      "src": "assets/img/endorsed.svg",
+      "altText": "Primary logo Endorsed brand alt text"
+    },
+    "secondaryLogo": {
+      "src": "assets/img/endorsed.svg",
+      "altText": "Secondary logo Endorsed brand alt text"
+    },
     "siteTitle": "Endorsed brand example",
     "subline": ""
   },

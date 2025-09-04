@@ -19,8 +19,8 @@
   },
   "mainContent": {
     "url": "https://qld.gov.au",
-    "logoPath": "",
-    "secondaryLogoPath": "",
+    "logo": null,
+    "secondaryLogo": null,
     "siteTitle": "Vaping Exposed",
     "subline": ""
   },

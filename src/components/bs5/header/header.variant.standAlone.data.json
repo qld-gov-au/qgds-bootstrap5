@@ -130,8 +130,14 @@
     "url": "https://qld.gov.au",
     "siteTitle": "Standalone example",
     "subLine": "",
-    "logoPath": "assets/img/endorsed.svg",
-    "secondaryLogoPath": "assets/img/endorsed.svg"
+    "logo": {
+      "src": "assets/img/endorsed.svg",
+      "altText": "Standalone example logo description."
+    },
+    "secondaryLogo": {
+      "src": "assets/img/endorsed.svg",
+      "altText": ""
+    }
   },
   "assets": {
     "SVGSpritePath": "./assets/img/svg-icons.svg",
