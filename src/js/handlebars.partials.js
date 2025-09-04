@@ -11,6 +11,7 @@ import button from "../components/bs5/button/button.hbs?raw";
 import callToAction from "../components/bs5/callToAction/callToAction.hbs?raw";
 import callout from "../components/bs5/callout/callout.hbs?raw";
 import card from "../components/bs5/card/card.hbs?raw";
+import containerLayout from "../components/bs5/containerLayout/containerLayout.hbs?raw";
 import contentFooter from "../components/bs5/contentFooter/contentFooter.hbs?raw";
 import contentFooterWrapper from "../components/bs5/contentFooterWrapper/contentFooterWrapper.hbs?raw";
 import contentWrapper from "../components/bs5/contentWrapper/contentWrapper.hbs?raw";
@@ -75,6 +76,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("callToAction", callToAction);
   handlebars.registerPartial("callout", callout);
   handlebars.registerPartial("card", card);
+  handlebars.registerPartial("containerLayout", containerLayout);
   handlebars.registerPartial("contentFooter", contentFooter);
   handlebars.registerPartial("contentFooterWrapper", contentFooterWrapper);
   handlebars.registerPartial("contentWrapper", contentWrapper);
