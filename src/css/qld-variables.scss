@@ -340,6 +340,9 @@ $qld-border-width-extra-thick: 8px;
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
 $qld-custom-spacers: (
+  12: (
+    $spacer * 0.75,
+  ),
   16: $spacer,
   20: (
     $spacer * 1.25,
