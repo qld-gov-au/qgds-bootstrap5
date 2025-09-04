@@ -46,7 +46,7 @@
                             {{/if}}
 
                             <!-- Main Content Sections -->
-                            <div class="content-section ps-1 ps-md-4">
+                            <div class="content-section my-5 ps-1 ps-md-4">
 
                                 <h1 id="section-heading">Section heading (H1)</h1>
                                 <p>This is the main content area. It contains detailed information about the topic.</p>
@@ -68,23 +68,30 @@
 
                             </div>
 
+                            {{#if accordionItems}}
+                            <!-- accordion Section -->
+                            <div class="my-5 ps-1 ps-md-4">
+                                {{> accordion accordionItems}}
+                            </div>
+                            {{/if}} 
+
                             {{#if image}}
                             <!-- image Section -->
-                            <div class="my-4 ps-1 ps-md-4">
+                            <div class="my-5 ps-1 ps-md-4">
                                 {{> image image}}
                             </div>
                             {{/if}}
 
                             {{#if table}}
                             <!-- table Section -->
-                            <div class="my-4 ps-1 ps-md-4">
+                            <div class="my-5 ps-1 ps-md-4">
                                 {{> table table}}
                             </div>
                             {{/if}}
 
                             {{#if video}}
                             <!-- video Section -->
-                            <div class="my-4 ps-1 ps-md-4">
+                            <div class="my-5 ps-1 ps-md-4">
                                 {{> video video}}
                             </div>
                             {{/if}}

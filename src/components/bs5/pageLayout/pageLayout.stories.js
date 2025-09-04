@@ -27,6 +27,7 @@ import buttonData from "../button/button.data.json";
 import checkboxData from "../formcheck/stories/checkbox/checkbox.data.json";
 import radioData from "../formcheck/stories/radio/radio.data.json";
 import buttondata from "../button/button.data.json";
+import accordionData from "../accordion/accordion.data.json";
 
 import { SearchInput } from "../searchInput/SearchInput.js";
 
@@ -40,7 +41,10 @@ const defaultData = {
   navbar: menu_state,
   table: tableData,
   globalAlert: globalAlertData.critical,
-  footer: footerData,
+  footer: {
+    ...footerData,
+    variantClass: "dark",
+  },
   contentFooter: contentFooterData,
   sidenav: sidenavData,
 };
@@ -138,6 +142,34 @@ export const Home = {
         },
       ],
     },
+    cardGridBottom: {
+      cards: [
+        {
+          ...cardData.singleAction,
+          title: "Services",
+          description: "Access government services online",
+          link: "#services",
+          image: "./assets/img/image-placeholder.png",
+          imageAlt: "A grey placeholder image with an icon in the centre.",
+        },
+        {
+          ...cardData.singleAction,
+          title: "Information",
+          description: "Find important information and resources",
+          link: "#information",
+          image: "./assets/img/image-placeholder.png",
+          imageAlt: "A grey placeholder image with an icon in the centre.",
+        },
+        {
+          ...cardData.singleAction,
+          title: "Support",
+          description: "Get help when you need it",
+          link: "#support",
+          image: "./assets/img/image-placeholder.png",
+          imageAlt: "A grey placeholder image with an icon in the centre.",
+        },
+      ],
+    },
     linkColumns: linkColumnsData,
     callToAction: callToActionData,
     promotionalPanel: {
@@ -157,6 +189,7 @@ export const ContentPageWithSideNav = {
   args: {
     ...defaultData,
     title: "Content Page with Side Navigation",
+    accordionItems: accordionData,
     banner: {
       ...bannerData,
       title: "Vehicle Registration",
