@@ -1,5 +1,5 @@
 import { PageLayout } from "./pageLayout.js";
-import { FullWidthLandingPage } from "./FullWidthLandingPage.js";
+import { HomePage } from "./HomePage.js";
 import { ContentPageWithSideNavigation } from "./ContentPageWithSideNavigation.js";
 import { ContentPageWithForm } from "./ContentPageWithForm.js";
 //Data
@@ -83,9 +83,9 @@ export const Default = {
 /**
  * Full Width Landing Page
  */
-export const FullWidthLanding = {
+export const Home = {
   render: (args) => {
-    return new FullWidthLandingPage(args).html;
+    return new HomePage(args).html;
   },
   args: {
     ...defaultData,

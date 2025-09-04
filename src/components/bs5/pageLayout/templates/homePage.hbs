@@ -32,6 +32,16 @@
                 </div>
             </section>
             {{/if}}
+
+            {{#if linkColumns}}
+
+            <section class="py-5">
+                <div class="container">
+                    {{> linkColumns linkColumns}}
+                </div>
+            </section>
+            {{/if}}
+            
             <section class="py-5 bg-light">
                 <div class="container">
                     <h2 id="content-heading">Section heading (H2)</h2>
@@ -77,15 +87,6 @@
             <section class="py-5">
                 <div class="container">
                     {{> promotionalPanel promotionalPanel}}
-                </div>
-            </section>
-            {{/if}}
-
-            {{#if linkColumns}}
-
-            <section class="py-5">
-                <div class="container">
-                    {{> linkColumns linkColumns}}
                 </div>
             </section>
             {{/if}}
