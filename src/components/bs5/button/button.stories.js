@@ -17,8 +17,14 @@ const buttonVariants = {
  * Define different status of button
  */
 const statuses = [
-  { isdisabled: false, label: "Enabled" },
-  { isdisabled: true, label: "Disabled" },
+  { isdisabled: false, isprogress: false, label: "Enabled" },
+  { isdisabled: true, isprogress: false, label: "Disabled" },
+  {
+    isdisabled: false,
+    isprogress: true,
+    progressLabel: "Loading",
+    label: "Progress",
+  },
 ];
 
 /**
@@ -58,6 +64,7 @@ export default {
     <div class="d-flex gap-3">
       ${new Button(args).html}
       ${new Button({ ...args, isdisabled: true }).html}
+      ${new Button({ ...args, isprogress: true, iconClass: "", label: "Loading button", progressLabel: "Loading...", islink: false, dataatts: 'data-loading-btn="true"' }).html}
     </div>
     `; //expand arguments, specifically turn isdisabled into true
   },
@@ -67,6 +74,18 @@ export default {
       table: {
         disable: true,
       },
+    },
+    isprogress: {
+      name: "Progress State",
+      description: "Show loading spinner and progress label",
+      control: "boolean",
+    },
+    progressLabel: {
+      name: "Progress Label",
+      description:
+        "Text to show when in progress state (e.g., 'Loading', 'Saving', 'Please wait')",
+      control: "text",
+      if: { arg: "isprogress", truthy: true },
     },
     variantClass: {
       name: "Variants",
