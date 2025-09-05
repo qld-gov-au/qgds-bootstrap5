@@ -17,9 +17,11 @@
                             aria-expanded="false">
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
-                                {{/if}}
-                                {{#if hideLabel}}
-                                    <span class="visually-hidden">{{text}}</span>
+                                    {{#if hideLabel}}
+                                        <span class="visually-hidden">{{text}}</span>
+                                    {{else}}
+                                        {{text}}
+                                    {{/if}}
                                 {{else}}
                                     {{text}}
                                 {{/if}}
@@ -54,9 +56,11 @@
                                 <a class="nav-link" aria-current="page" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
-                                {{/if}}
-                                {{#if hideLabel}}
-                                    <span class="visually-hidden">{{text}}</span>
+                                    {{#if hideLabel}}
+                                        <span class="visually-hidden">{{text}}</span>
+                                    {{else}}
+                                        {{text}}
+                                    {{/if}}
                                 {{else}}
                                     {{text}}
                                 {{/if}}
@@ -69,12 +73,3 @@
         </div>
         <div id="overlay"></div>
 </nav>
-
-
-<!-- 
-<button id="burgerBtn" class="btn btn-primary" type="button" data-bs-toggle="collapse"
-    data-bs-target="#main-nav" aria-expanded="false" aria-controls="collapseExample">
-    <span class="qld-icon qld-icon-xl qld-icon-menu"></span>
-    Menu
-</button> 
--->
