@@ -66,7 +66,11 @@
                         
                     </div>
                     {{else}}
-                    <a class="qld-header-link" href="{{url}}">{{{text}}}</a>
+                    <a class="qld-header-link" href="{{url}}">
+                        {{#if icon}}
+                        <svg class="qld-header-link-icon">
+                            <use href="{{@root.assets.SVGSpritePath}}#{{icon}}" aria-hidden="true"></use>
+                        </svg>{{/if}}{{{text}}}</a>
                     {{/if}}
                     {{/each}}
                 </div>

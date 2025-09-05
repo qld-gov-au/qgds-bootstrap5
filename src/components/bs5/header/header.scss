@@ -166,6 +166,15 @@
     }
   }
 
+  &-link-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: center;
+    display: inline-block;
+    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
+  }
+
   &-logo {
     display: block;
     height: 1.75rem;
@@ -276,21 +285,6 @@
     svg.cta_arrow {
       position: absolute;
       right: 0;
-    }
-  }
-
-  .qld-header__cta-link-icon {
-    height: 1rem;
-    width: 1rem;
-    margin-left: 0.5rem;
-    vertical-align: center;
-    display: inline-block;
-    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
-
-    svg,
-    i {
-      height: 100%;
-      width: 100%;
     }
   }
 
