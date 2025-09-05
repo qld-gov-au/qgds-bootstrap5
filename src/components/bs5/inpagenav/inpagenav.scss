@@ -3,53 +3,53 @@
 
 // QGDS specific In-page Navigation variables.
 .qld-inpage-nav {
-    --#{$prefix}inpage-nav-padding-left: 1.5rem;
-    --#{$prefix}inpage-nav-title-padding-left: $nav-link-padding-x;
-    --#{$prefix}inpage-nav-link-padding-left: $nav-link-padding-x;
-    --#{$prefix}inpage-nav-link-padding-y: 0.25rem;
-    --#{$prefix}inpage-nav-border-color: var(--#{$prefix}brand-primary);
+  --#{$prefix}inpage-nav-padding-left: 1.5rem;
+  --#{$prefix}inpage-nav-title-padding-left: $nav-link-padding-x;
+  --#{$prefix}inpage-nav-link-padding-left: $nav-link-padding-x;
+  --#{$prefix}inpage-nav-link-padding-y: 0.25rem;
+  --#{$prefix}inpage-nav-border-color: var(--#{$prefix}brand-primary);
 }
 
 .dark .qld-inpage-nav,
 .dark-alt .qld-inpage-nav {
-    --#{$prefix}inpage-nav-border-color: var(--#{$prefix}dark-action-primary);
+  --#{$prefix}inpage-nav-border-color: var(--#{$prefix}dark-action-primary);
 
-    .nav {
-        --#{$prefix}nav-link-color: var(--#{$prefix}white);
-        --#{$prefix}nav-link-hover-color: var(--#{$prefix}brand-accent);
-    }
+  .nav {
+    --#{$prefix}nav-link-color: var(--#{$prefix}white);
+    --#{$prefix}nav-link-hover-color: var(--#{$prefix}brand-accent);
+  }
 }
 
 // General styling rules.
 .qld-inpage-nav {
-    border-left: 4px solid var(--#{$prefix}inpage-nav-border-color);
-    padding-left: var(--#{$prefix}inpage-nav-padding-left);
+  border-left: 4px solid var(--#{$prefix}inpage-nav-border-color);
+  padding-left: var(--#{$prefix}inpage-nav-padding-left);
 
-    ul.nav {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0;
-		margin-top: 1rem;
+  ul.nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-top: 0.75rem;
+  }
+
+  .nav-title {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 0;
+    padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
+  }
+
+  .nav-item {
+    margin-top: 0;
+    .nav-link {
+      padding-top: var(--#{$prefix}inpage-nav-link-padding-y);
+      padding-bottom: var(--#{$prefix}inpage-nav-link-padding-y);
+      padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
+      color: var(--#{$prefix}nav-link-color);
     }
 
-    .nav-title {
-        font-size: 1rem;
-        line-height: 1.25;
-        margin-bottom: 0;
-        padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
+    &:first-child .nav-link {
+      padding-top: 0;
     }
-
-    .nav-item {
-        margin-top: 0;
-        .nav-link {
-            padding-top: var(--#{$prefix}inpage-nav-link-padding-y);
-            padding-bottom: var(--#{$prefix}inpage-nav-link-padding-y);
-            padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
-            color: var(--#{$prefix}nav-link-color);
-        }
-
-        &:first-child .nav-link {
-            padding-top: 0;
-        }
-    }
+  }
 }

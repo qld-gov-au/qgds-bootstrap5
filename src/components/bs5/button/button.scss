@@ -11,6 +11,7 @@
   --#{$prefix}btn-border-radius: 0.25rem;
   --#{$prefix}btn-focus-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   --#{$prefix}btn-disabled-opacity: 0.5;
+  --#{$prefix}btn-spinner-icon-size__md: 1.5rem;
 
   //Primary button variant
   &-primary {
@@ -196,6 +197,10 @@ a.btn,
   &.disabled {
     --qld-body-color: var(--#{$prefix}btn-disabled-color);
 
+    &:visited {
+      color: var(--#{$prefix}btn-disabled-color);
+    }
+
     &:focus {
       background-color: var(--#{$prefix}btn-disabled-bg) !important;
       border-color: var(--#{$prefix}btn-disabled-border-color) !important;
@@ -203,6 +208,46 @@ a.btn,
       box-shadow: none !important;
       text-decoration: none !important;
     }
+  }
+
+  // Progress state styles
+  &.btn-progress {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .spinner-border {
+      width: var(--#{$prefix}btn-spinner-icon-size__md);
+      height: var(--#{$prefix}btn-spinner-icon-size__md);
+      --qld-spinner-border-width: 0.094rem;
+    }
+
+    .btn-label-default {
+      display: none;
+    }
+
+    .btn-label-progress {
+      display: inline;
+    }
+
+    // Maintain focus styles for screen readers
+    &:focus {
+      outline: var(--#{$prefix}light-blue) solid 3px;
+      outline-offset: 2px;
+    }
+
+    // Remove hover effects
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Default state - hide progress label
+  .btn-label-progress {
+    display: none;
+  }
+
+  .btn-label-default {
+    display: inline;
   }
 
   //Primary button variant
@@ -315,6 +360,12 @@ a.btn,
     outline-offset: 2px;
   }
 
+  // Progress state focus for dark mode
+  &.btn-progress:focus {
+    outline: var(--#{$prefix}dark-focus) solid 3px;
+    outline-offset: 2px;
+  }
+
   &-primary {
     &:focus {
       background-color: var(--#{$prefix}btn-focus-bg);
@@ -360,5 +411,15 @@ a.btn,
       text-decoration: none;
       --qld-body-color: var(--#{$prefix}white);
     }
+  }
+}
+
+// Spinner animation
+@keyframes btn-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
