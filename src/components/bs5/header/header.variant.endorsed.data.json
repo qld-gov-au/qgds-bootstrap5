@@ -101,7 +101,7 @@
         "url": "#",
         "text": "Login",
         "dropdown": {
-          "type": "form",
+          "type": "html",
           "HTMLContent": "<div></div>"
         }
       }
