@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "target_url": "metadata-index.html",
+    "options": {
+      "showHomeTitleSmallDevices": true,
+      "icon-root": "./assets/img/svg-icons.svg",
+      "home-active": true
+    }
+  },
+  "navigation": [
+    {
+      "title": "Link 1",
+      "icon": "",
+      "target_url": "index.html"
+    },
+    {
+      "title": "Link 2",
+      "icon": "",
+      "target_url": "index.html"
+    }
+  ]
+}
