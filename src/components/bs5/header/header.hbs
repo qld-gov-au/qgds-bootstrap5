@@ -19,9 +19,7 @@
                         <a id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                             class="qld-header-link" href="#">
                             {{{text}}}
-                            {{!-- <span
-                                class="qld-header-dropdown-icon qld-icon qld-icon-chevron-down qld-icon-xs align-middle ml-2"></span>
-                            --}}
+    
                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                                 class="qld-header-dropdown-icon ">
                                 <use href="{{@root.assets.SVGSpritePath}}#{{@root.assets.icons.chevron_down}}"
@@ -34,13 +32,11 @@
 
                             {{#each dropdown.items}}
                             <li>
-                                <a class="qld-header-link dropdown-item" href="{{url}}" {{#if target}}target="{{target}}"{{/if}}>
+                                <a class="qld-header-link dropdown-item " href="{{url}}" {{#if target}}target="{{target}}"{{/if}}>
                                     {{text}}
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
-                                        <path
-                                            d="M18.8592 12.6135L13.6659 17.6633C13.5721 17.7781 13.4156 17.8068 13.2905 17.8068C13.1654 17.8068 13.0402 17.7781 12.9464 17.692C12.7274 17.5199 12.7274 17.233 12.9151 17.0608L17.295 12.757H5.50056C5.21899 12.757 5 12.5562 5 12.3266C5 12.0971 5.21899 11.8389 5.50056 11.8389H17.295L12.9151 7.56375C12.7274 7.3916 12.7274 7.10468 12.9464 6.93253C13.1654 6.76038 13.4782 6.76038 13.6659 6.96122L18.8592 12.011C19.0469 12.1832 19.0469 12.4414 18.8592 12.6135Z"
-                                            fill="#FFE500" />
+                                    <svg width="24" height="24" class="qld-header-icon qld-header-dropdown-item-icon">
+                                       <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-arrow-right"
+                                    aria-hidden="true"></use>
                                     </svg>
                                 </a>
                             </li>

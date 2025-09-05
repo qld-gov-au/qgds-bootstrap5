@@ -294,6 +294,12 @@
     width: 1rem;
   }
 
+  &-dropdown-item-icon {
+    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
+    position: absolute;
+    right: 0;
+  }
+
   &__main {
     position: relative;
 
