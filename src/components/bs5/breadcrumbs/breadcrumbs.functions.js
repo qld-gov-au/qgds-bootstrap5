@@ -142,7 +142,6 @@ export function expandMenu(event) {
  * @param  {Event} event - The event that triggered this function.
  * @returns {void} Returns nothing.
  */
-
 function collapseMenu(event) {
   event.stopPropagation();
   const expandButton = document.querySelector(".breadcrumb-toggle-link");
