@@ -28,7 +28,7 @@
                         </a>
 
                         {{#ifCond dropdown.type "===" "list"}}
-                        <ul class="dropdown-menu dark">
+                        <ul class="dropdown-menu">
 
                             {{#each dropdown.items}}
                             <li>
@@ -62,11 +62,13 @@
                         
                     </div>
                     {{else}}
+
                     <a class="qld-header-link" href="{{url}}">
                         {{#if icon}}
                         <svg class="qld-header-link-icon">
                             <use href="{{@root.assets.SVGSpritePath}}#{{icon}}" aria-hidden="true"></use>
-                        </svg>{{/if}}{{{text}}}</a>
+                        </svg>{{/if}}{{{text}}}
+                    </a>
                     {{/if}}
                     {{/each}}
                 </div>
@@ -87,6 +89,7 @@
                     <span class="qld__main-nav__toggle-text">Search</span>
                 </button>
                 {{/if}}
+
                 <button aria-controls="main-nav" class="qld-header__toggle-main-nav qld__main-nav__toggle--open"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Open menu">
@@ -97,7 +100,6 @@
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
             </div>
-
         </div>
     </div>
 
