@@ -133,12 +133,14 @@ export function expandMenu(event) {
   const expandButton = document.querySelector(".breadcrumb-toggle-link");
   expandButton && document.addEventListener("click", collapseMenu);
 }
+
 /**
  * event listener for document click event used to collapse menu on clicking elsewhere
  * and also remove the event listener to prevent multiple listeners from being attached
  * @memberof module:Breadcrumb
  *
  * @param  {Event} event - The event that triggered this function.
+ * @returns {void} Returns nothing.
  */
 function collapseMenu(event) {
   event.stopPropagation();
