@@ -1,50 +1,143 @@
 // Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
-
+@use "../../../css/mixins" as m;
 // Define shared variables
-$breadcrumb-divider: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.4147 8.00107L4.66274 2.42785C4.55278 2.32142 4.49854 2.19345 4.50003 2.04392C4.5014 1.89428 4.55706 1.76624 4.66703 1.65982C4.77687 1.55327 4.90902 1.5 5.06346 1.5C5.21779 1.5 5.34993 1.55327 5.4599 1.65982L11.1531 7.18013C11.2735 7.29679 11.3615 7.42687 11.4169 7.57037C11.4723 7.714 11.5 7.85756 11.5 8.00107C11.5 8.14457 11.4723 8.28814 11.4169 8.43177C11.3615 8.57527 11.2735 8.70535 11.1531 8.82201L5.45543 14.3423C5.34559 14.4489 5.21419 14.5014 5.06123 14.5C4.90827 14.4986 4.77687 14.4447 4.66703 14.3382C4.55706 14.2317 4.50208 14.1037 4.50208 13.9541C4.50208 13.8045 4.55706 13.6765 4.66703 13.57L10.4147 8.00107Z' fill='currentColor' /%3E%3C/svg%3E");
-$breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.86175 17.7C8.39275 17.7 7.993 17.5331 7.6625 17.1993C7.332 16.8653 7.16675 16.4639 7.16675 15.995C7.16675 15.5262 7.33366 15.1265 7.6675 14.7958C8.00133 14.4653 8.40275 14.3 8.87175 14.3C9.34058 14.3 9.74025 14.467 10.0707 14.8008C10.4014 15.1348 10.5667 15.5362 10.5667 16.005C10.5667 16.4739 10.3997 16.8736 10.0657 17.2043C9.73191 17.5348 9.33058 17.7 8.86175 17.7ZM15.995 17.7C15.5262 17.7 15.1264 17.5331 14.7957 17.1993C14.4652 16.8653 14.3 16.4639 14.3 15.995C14.3 15.5262 14.4669 15.1265 14.8007 14.7958C15.1347 14.4653 15.5362 14.3 16.005 14.3C16.4738 14.3 16.8736 14.467 17.2042 14.8008C17.5347 15.1348 17.7 15.5362 17.7 16.005C17.7 16.4739 17.5331 16.8736 17.1992 17.2043C16.8652 17.5348 16.4638 17.7 15.995 17.7ZM23.1282 17.7C22.6594 17.7 22.2597 17.5331 21.9292 17.1993C21.5986 16.8653 21.4332 16.4639 21.4332 15.995C21.4332 15.5262 21.6002 15.1265 21.9342 14.7958C22.2681 14.4653 22.6694 14.3 23.1382 14.3C23.6072 14.3 24.007 14.467 24.3375 14.8008C24.668 15.1348 24.8332 15.5362 24.8332 16.005C24.8332 16.4739 24.6663 16.8736 24.3325 17.2043C23.9987 17.5348 23.5972 17.7 23.1282 17.7Z' fill='white' /%3E%3C/svg%3E%0A");
-
+$expander-icon-color: $qld-light-link;
 
 // Breadcrumb component styles
 .breadcrumb {
-
   // Shared CSS custom properties
-  --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
-  --#{$prefix}breadcrumb-expander: #{escape-svg($breadcrumb-expander)};
+  --#{$prefix}breadcrumb-divider: var(--qgds-icon-chevron-right);
+  --#{$prefix}breadcrumb-expander: var(--qgds-icon-more-horizontal);
   --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}dark-grey-muted);
   --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}light-action-secondary);
-  --#{$prefix}breadcrumb-expander-color: var(--#{$prefix}light-action-secondary);
+  --#{$prefix}breadcrumb-expander-color: var(
+    --#{$prefix}light-action-secondary
+  );
   --#{$prefix}breadcrumb-item-padding-x: 0;
   --#{$prefix}breadcrumb-bg: transparent;
   --#{$prefix}breadcrumb-margin-bottom: 0;
   --#{$prefix}breadcrumb-padding-y: 2rem;
   --#{$prefix}breadcrumb-link-color: var(--#{$prefix}light-link);
-  --#{$prefix}breadcrumb-link-text-decoration-color: var(--#{$prefix}light-link);
-  --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(--#{$prefix}light-link);
-
+  --#{$prefix}breadcrumb-link-text-decoration-color: var(
+    --#{$prefix}light-link
+  );
+  --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(
+    --#{$prefix}light-link
+  );
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  flex-wrap: nowrap;
   // Dark mode overrides
   .dark &,
   .dark-alt & {
-    --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-text-lighter);
-    --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}dark-action-secondary);
+    --#{$prefix}breadcrumb-item-active-color: var(
+      --#{$prefix}color-default-color-dark-text-lighter
+    );
+    --#{$prefix}breadcrumb-divider-color: var(
+      --#{$prefix}dark-action-secondary
+    );
     --#{$prefix}breadcrumb-link-color: var(--#{$prefix}dark-link);
-    --#{$prefix}breadcrumb-link-text-decoration-color: var(--#{$prefix}dark-link);
-    --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(--#{$prefix}dark-link);
+    --#{$prefix}breadcrumb-link-text-decoration-color: var(
+      --#{$prefix}dark-link
+    );
+    --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(
+      --#{$prefix}dark-link
+    );
+    .breadcrumb-vertical > li > a {
+      --#{$prefix}breadcrumb-link-color: var(--#{$prefix}light-link);
+    }
   }
 
-  &.expanded {
-    .breadcrumb-toggle {
+  .expanded {
+    .breadcrumb-collapse-wrapper {
+      max-height: 100%;
+      --#{$prefix}dropdown-box-shadow:
+        0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
+      box-shadow: var(--#{$prefix}dropdown-box-shadow);
+      pointer-events: all;
+      transition: max-height 0.5s ease-in;
+    }
+  }
+
+  .breadcrumb-vertical > li {
+    list-style: none;
+    width: 100%;
+    &:after {
       display: none;
     }
+
+    a {
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      display: block;
+      width: 100%;
+      color: $qld-text-grey;
+      white-space: nowrap; /* Prevents text from wrapping to the next line */
+      overflow: hidden; /* Hides any content that overflows the element's box */
+      text-overflow: ellipsis;
+      margin: 0;
+      &:hover {
+        text-decoration: underline;
+        color: $qld-light-link;
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
+        background-color: $core-default-color-neutral-lighter;
+      }
+      @include m.focusable($offsetOutline: 3px);
+      &:focus {
+        outline-offset: -3px;
+      }
+    }
+  }
+  .breadcrumb-collapse-wrapper {
+    position: absolute;
+    margin-top: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    width: 360px;
+    border-radius: 4px;
+    /* Transition properties */
+    transition: max-height 0.5s ease-out;
+  }
+  .breadcrumb-vertical {
+    padding: 0;
+    background-color: $core-default-color-neutral-lightest;
+    border-bottom: 4px solid $qld-brand-secondary;
   }
 }
 
 // Breadcrumb items
 .breadcrumb-item {
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 2rem;
   display: none;
+  white-space: nowrap;
 
+  &:not(:first-child) a {
+    margin-left: 5px;
+  }
+
+  &:nth-last-child(2) {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    &:focus {
+      overflow: initial;
+    }
+  }
+
+  &:first-child {
+    flex-shrink: 0;
+  }
+
+  a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   // Override Bootstrap's default :before pseudo element
   &:before {
     display: none;
@@ -53,13 +146,16 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
   // Divider
   &:after {
     content: "";
-    display: block;
-    width: 1.5rem;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
     mask-image: var(--#{$prefix}breadcrumb-divider);
     mask-size: 1rem 1rem;
     mask-repeat: no-repeat;
     mask-position: center center;
     background-color: var(--#{$prefix}breadcrumb-divider-color);
+    position: relative;
+    top: 4px;
   }
 
   &:last-child:after {
@@ -71,55 +167,72 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
   a:visited,
   a:hover {
     color: var(--#{$prefix}breadcrumb-link-color);
-    text-decoration-color: var(--#{$prefix}breadcrumb-link-text-decoration-color);
+    text-decoration-color: var(
+      --#{$prefix}breadcrumb-link-text-decoration-color
+    );
   }
 
-  &.shortened {
-    height: 0;
-    overflow: hidden;
-    max-width: 0;
-    transition: max-width 0s;
-    padding: 0;
+  a {
+    @include m.focusable($offsetOutline: 3px);
   }
+}
 
-  &.breadcrumb-toggle {
+.breadcrumb-toggle {
+  @include m.unset-button-styles();
+  flex-shrink: 0;
+
+  > button {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1.5rem;
+    outline: none;
     border: 0;
+    background-color: transparent;
+    border-radius: 4px;
     padding: 0;
-    vertical-align: inherit;
-
-    a {
-      display: inline-block;
-      width: 32px;
-      line-height: 1.5rem;
+    vertical-align: middle;
+    &:after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: " ";
       mask-image: var(--#{$prefix}breadcrumb-expander);
       background-color: var(--#{$prefix}breadcrumb-link-color);
-      mask-size: 2rem 2rem;
+      mask-size: 1.5rem 1.5rem;
       mask-repeat: no-repeat;
       mask-position: center center;
     }
-  }
 
+    &:hover,
+    &:focus {
+      background-color: rgba($core-default-color-neutral-black, 0.1);
+    }
+
+    @include m.focusable($offsetOutline: 3px);
+  }
 }
 
 // Responsive styles
 @include media-breakpoint-down(lg) {
-
   .breadcrumb {
     --#{$prefix}breadcrumb-padding-y: 1rem;
   }
 
   .breadcrumb-item {
+    max-width: unset;
     &:nth-last-child(2) {
       display: flex;
       flex-direction: row-reverse;
-
-      // Rotate the back arrow 180 degrees, shift left to align chevron with text 
+      min-width: 0;
+      // Rotate the back arrow 180 degrees, shift left to align chevron with text
       &:after {
         transform: rotate(180deg);
         transform-origin: center;
         margin-left: -0.25rem;
+        top: 7px;
+        min-width: 1.5rem;
       }
-
     }
   }
 }
@@ -127,8 +240,16 @@ $breadcrumb-expander: url("data:image/svg+xml,%3Csvg width='32' height='32' view
 //Large and above
 @include media-breakpoint-up(lg) {
   .breadcrumb-item {
-    display: flex;
+    display: inline;
     font-size: 1rem;
-    line-height: 1.5rem;
+
+    &.active {
+      white-space: nowrap; /* Prevents text from wrapping to the next line */
+      overflow: hidden; /* Hides any content that overflows the element's box */
+      text-overflow: ellipsis;
+      display: inline-block;
+      flex-shrink: 999999;
+      margin-left: 4px;
+    }
   }
 }

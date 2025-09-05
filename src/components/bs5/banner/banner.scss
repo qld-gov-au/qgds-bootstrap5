@@ -9,7 +9,6 @@
 // 1. Define Banner CSS propeties
 // ==========================================================================
 .qld-banner {
-
   //Text Color
   --#{$prefix}banner-title-color: var(--#{$prefix}light-text);
   --#{$prefix}banner-abstract-color: var(--#{$prefix}light-text);
@@ -23,7 +22,7 @@
   //Drop shadow for "block style" banner title
   --#{$prefix}title-box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.06);
 
-  // Colour Palette changes 
+  // Colour Palette changes
   // based on parent class (.qld-banner.light, .light-alt, .dark, .dark-alt)
   &.light {
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
@@ -41,7 +40,9 @@
 
   // .dark only
   &.dark {
-    --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-default);
+    --#{$prefix}banner-bg-color: var(
+      --#{$prefix}color-default-color-dark-background-default
+    );
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark.jpg);
     --#{$prefix}banner-bg-custom-color: #09549f;
@@ -49,7 +50,9 @@
 
   // .dark-alt only
   &.dark-alt {
-    --#{$prefix}banner-bg-color: var(--#{$prefix}color-default-color-dark-background-alt);
+    --#{$prefix}banner-bg-color: var(
+      --#{$prefix}color-default-color-dark-background-alt
+    );
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark-alt.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark-alt.jpg);
     --#{$prefix}banner-bg-custom-color: #0c3b71;
@@ -64,10 +67,18 @@
     .breadcrumb {
       // Variables scoped in the .breadcrumbs.scss component
       // Re-scoping when breadcrumbs are nested inside a .banner-* parent class
-      --#{$prefix}banner-breadcrumb-color: var(--#{$prefix}core-default-color-neutral-white);
-      --#{$prefix}banner-breadcrumb-divider-color: var(--#{$prefix}core-default-color-neutral-white);
-      --#{$prefix}banner-breadcrumb-item-active-color: var(--#{$prefix}core-default-color-neutral-white);
-      --#{$prefix}banner-link-color-rgb: var(--#{$prefix}core-default-color-neutral-white);
+      --#{$prefix}banner-breadcrumb-color: var(
+        --#{$prefix}core-default-color-neutral-white
+      );
+      --#{$prefix}banner-breadcrumb-divider-color: var(
+        --#{$prefix}core-default-color-neutral-white
+      );
+      --#{$prefix}banner-breadcrumb-item-active-color: var(
+        --#{$prefix}core-default-color-neutral-white
+      );
+      --#{$prefix}banner-link-color-rgb: var(
+        --#{$prefix}core-default-color-neutral-white
+      );
     }
   }
 
@@ -86,7 +97,6 @@
 
   // Medium viewports and above
   @include media-breakpoint-only(md) {
-
     //Default Banner
     --#{$prefix}banner-padding-top: 2rem;
     --#{$prefix}banner-padding-bottom: 2rem;
@@ -103,12 +113,10 @@
       --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 3rem;
     }
-
   }
 
   // Large viewports and above
   @include media-breakpoint-only(lg) {
-
     //Default Banner padding
     --#{$prefix}banner-padding-top: 3rem;
     --#{$prefix}banner-padding-bottom: 3rem;
@@ -130,11 +138,9 @@
   }
 
   @include media-breakpoint-only(xl) {
-
     //Default banner
     --#{$prefix}banner-padding-top: 3rem;
     --#{$prefix}banner-padding-bottom: 4rem;
-
 
     &.no-banner {
       --#{$prefix}banner-padding-top: 2rem;
@@ -149,15 +155,12 @@
     // Same as default banner
     // &.banner-advanced {}
   }
-
 }
-
 
 // 2. Define Banner Grid Layout (refer banner.grid.md)
 // ==========================================================================
 
 .qld-banner-grid {
-
   position: relative;
   background-color: var(--#{$prefix}banner-bg-color);
 
@@ -175,18 +178,19 @@
     margin-right: auto;
     padding-left: var(--container-fluid-px);
     padding-right: var(--container-fluid-px);
-
   }
 
   // End .container-fluid patch
-
 
   .banner-inner {
     padding-top: var(--#{$prefix}banner-padding-top);
     padding-bottom: var(--#{$prefix}banner-padding-bottom);
 
     display: grid;
-    grid-template-columns: repeat(12, 1fr); // The banner assumes a 12-column grid
+    grid-template-columns: repeat(
+      12,
+      1fr
+    ); // The banner assumes a 12-column grid
     grid-template-rows: auto auto auto;
     gap: 0;
 
@@ -207,8 +211,7 @@
 
     // Grid Layout - Medium and above (two columns)
     @include media-breakpoint-up(md) {
-
-      //No banner image, so we span breadcrumbs and content more columns (9)  
+      //No banner image, so we span breadcrumbs and content more columns (9)
       .banner-breadcrumbs {
         grid-column: 1 / span 7; // Spans 7 columns (left side)
         margin-bottom: 0;
@@ -227,12 +230,10 @@
   }
 }
 
-
 // 3. Define Banner Variants and Image Treatments
 // ==========================================================================
 .qld-banner {
-
-  // Banner hero image is hidden by default 
+  // Banner hero image is hidden by default
   .banner-image {
     display: none;
     background-image: none;
@@ -254,9 +255,8 @@
     }
 
     // On smaller viewports, the container background image renders between breadcrumbs and banner-content.
-    // We remove background image from the main container, and shift it to ::before .banner-content 
+    // We remove background image from the main container, and shift it to ::before .banner-content
     @include media-breakpoint-down(md) {
-
       background-image: none;
 
       .banner-image {
@@ -313,7 +313,7 @@
         background: center center / cover no-repeat;
       }
 
-      //Align to grid: .banner-image.align-grid 
+      //Align to grid: .banner-image.align-grid
       &.align-grid {
         .banner-image-inner {
           height: 100%;
@@ -323,7 +323,7 @@
 
       // On tablets and mobile, the hero-image is full width for all variants.
       @include media-breakpoint-down(md) {
-        //Overcome the left and right gutters      
+        //Overcome the left and right gutters
         margin: 0 calc(var(--container-fluid-px) * -1);
 
         &.align-grid,
@@ -337,13 +337,11 @@
 
     // Specific image treatments above medium viewports
     @include media-breakpoint-up(md) {
-
       overflow: hidden;
 
       .banner-image {
         &.align-right {
-
-          // Removes relative positioning from this container. 
+          // Removes relative positioning from this container.
           // This allows the image to break out of the grid and fallback to .qld-banner container's relative position
           position: unset;
 
@@ -354,7 +352,9 @@
             top: 0;
             bottom: 0;
             right: 0;
-            left: calc(57.5% + 1rem); // 7 columns * 8.3333% = 57.5%, 1rem gutter on lhs of image
+            left: calc(
+              57.5% + 1rem
+            ); // 7 columns * 8.3333% = 57.5%, 1rem gutter on lhs of image
             width: auto;
 
             // Align right image styling
@@ -371,7 +371,11 @@
               right: 0;
               bottom: 0;
               left: 0;
-              background-image: linear-gradient(to right, var(--#{$prefix}banner-bg-color), transparent);
+              background-image: linear-gradient(
+                to right,
+                var(--#{$prefix}banner-bg-color),
+                transparent
+              );
             }
           }
         }
@@ -384,9 +388,7 @@
 // ==========================================================================
 
 .qld-banner {
-
   .banner-content {
-
     padding-right: 1rem;
 
     &:has(.banner-title-wrap) {
@@ -400,7 +402,6 @@
     @include media-breakpoint-down(md) {
       padding-right: 0;
     }
-
   }
 
   .banner-title-wrap {
@@ -438,10 +439,11 @@
         font-weight: 600;
         color: var(--qld-white);
         background-color: var(--qld-dark-background);
-        box-shadow: 8px 0px 0 6px var(--qld-dark-background),
+        box-shadow:
+          8px 0px 0 6px var(--qld-dark-background),
           -8px 0px 0 6px var(--qld-dark-background),
           -12px 0px 0 6px var(--qld-light-accent),
-          0px 4px 16px rgba(0, 0, 0, .3);
+          0px 4px 16px rgba(0, 0, 0, 0.3);
       }
 
       // Second headline span
@@ -451,12 +453,12 @@
         color: var(--qld-light-text-text);
         background-color: var(--qld-default-background);
         margin-top: 0.75rem;
-        box-shadow: 8px 0px 0 6px var(--qld-default-background),
+        box-shadow:
+          8px 0px 0 6px var(--qld-default-background),
           -8px 0px 0 6px var(--qld-default-background),
           -12px 0px 0 6px var(--qld-light-accent),
-          0px 4px 16px rgba(0, 0, 0, .3);
+          0px 4px 16px rgba(0, 0, 0, 0.3);
       }
-
     }
   }
 
@@ -466,20 +468,20 @@
     .banner-title-wrap.as-block {
       .banner-title {
         background-color: var(--qld-dark-background-shade);
-        box-shadow: 8px 0px 0 6px var(--qld-dark-background-shade),
+        box-shadow:
+          8px 0px 0 6px var(--qld-dark-background-shade),
           -8px 0px 0 6px var(--qld-dark-background-shade),
           -12px 0px 0 6px var(--qld-light-accent),
-          0px 4px 16px rgba(0, 0, 0, .3);
+          0px 4px 16px rgba(0, 0, 0, 0.3);
       }
     }
   }
-
 
   .banner-abstract {
     font-size: 1.5rem;
     line-height: 2rem;
     margin: 1.5rem 0 0 0;
-    max-width: 50rem; //To make readable. Clips line length for very wide viewports. 
+    max-width: 50rem; //To make readable. Clips line length for very wide viewports.
     color: var(--#{$prefix}banner-abstract-color);
 
     @include media-breakpoint-down(lg) {
@@ -493,6 +495,10 @@
     display: flex;
     align-items: center;
     min-height: 1.25rem;
+
+    nav {
+      width: 100%;
+    }
 
     // lg
     @include media-breakpoint-up(lg) {

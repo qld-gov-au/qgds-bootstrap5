@@ -91,9 +91,12 @@ $enable-dark-mode: true;
 //8. QLD Design System typography (bootstrap overrides and custom). Please maintain naming consistency.
 @import "./qld-type";
 
+// Common Layout Blocks
+@import "../components/common/layout/content";
+@import "../components/common/layout/container";
+
 // 9. QLD Design System components (bootstrap overrides and custom). Please maintain naming consistency.
 @import "../components/bs5/accordion/accordion";
-@import "../components/bs5/backToTop/backToTop";
 @import "../components/bs5/banner/banner";
 @import "../components/bs5/blockquote/blockquote";
 @import "../components/bs5/breadcrumbs/breadcrumbs";
@@ -128,9 +131,6 @@ $enable-dark-mode: true;
 @import "../components/bs5/textbox/textInput";
 @import "../components/bs5/typography/typography";
 @import "../components/bs5/video/video";
-
-// Common Layout Blocks, under review
-@import "../components/common/layout/content";
 
 // Themes
 @import "qld-theme";
