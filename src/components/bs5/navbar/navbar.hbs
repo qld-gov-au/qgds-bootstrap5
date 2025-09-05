@@ -9,12 +9,11 @@
                     aria-controls="collapseExample">Close</button>
             </div>
             <div class="navbar-collapse">
-                
                 <ul class="navbar-nav">
                     {{#each navigation}}
                         {{#if navigationItems}}
                             <li class="nav-item dropdown{{#if @first}} active{{/if}}{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"> 
-                                <a class="nav-link{{#unless ../metadata.verticalOrientation}} dropdown-toggle{{/unless}}" aria-current="page" href="{{url}}"{{#if target}}target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link{{#unless ../metadata.verticalOrientation}} dropdown-toggle{{/unless}}" aria-current="page" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
@@ -30,14 +29,14 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item parent-link" role="button" aria-controls aria-current="page" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{title}}{{/if}}</a>
+                                        <a class="dropdown-item parent-link" role="button" aria-controls aria-current="page" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{title}}{{/if}}</a>
                                         {{#if dropdownOptions.description}}
                                             <p>{{dropdownOptions.description}}</p>
                                         {{/if}}
                                     </li>
                                     {{#each navigationItems}}
                                         <li{{#if mobileOnly}} class="mobile-only"{{/if}}>
-                                            <a class="dropdown-item" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
+                                            <a class="dropdown-item" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
                                             {{#if description}}
                                                 <p>{{description}}</p>
                                             {{/if}}

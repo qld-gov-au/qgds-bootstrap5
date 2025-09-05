@@ -1,4 +1,4 @@
-import Component from '../../../js/QGDSComponent.js';
+import Component from "../../../js/QGDSComponent.js";
 import template from "./navbar.hbs?raw";
 
 export class Navbar {
