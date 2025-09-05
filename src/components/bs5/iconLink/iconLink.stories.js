@@ -17,34 +17,38 @@ export default {
   argTypes: {
     url: {
       description: "The URL that the link points to",
-      control: { control: "text" },
+      control: { type: "text" },
     },
     id: { control: "text" },
     label: {
       description: "The text that appears for the link",
-      control: { control: "text" },
+      control: { type: "text" },
     },
     iconClass: {
       description: "The icon class for the link icon",
-      control: { control: "text" },
+      control: { type: "text" },
     },
     iconPosition: {
       description:
         "The position of the icon relative to the link text. Options are 'leading' or 'trailing'",
-      control: { control: "select" },
+      control: { type: "select" },
       options: ["leading", "trailing"],
       defaultValue: "leading",
     },
     target: {
       description:
         "The target attribute for the link (e.g., '_self', '_blank')",
-      control: "select",
+      control: { type: "select" },
       options: ["_self", "_blank"],
       defaultValue: "_self",
     },
     arialabel: {
       description: "The aria-label attribute for the link (for screen readers)",
-      control: { control: "text" },
+      control: { type: "text" },
+    },
+    download: {
+      description: "This decides if the file is downloaded on click",
+      control: { type: "text" },
     },
   },
 
