@@ -1,6 +1,6 @@
 <!-- QGDS Partial: Primary navigation -->
 
-<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.altColour}} dark{{/if}}{{#if metadata.vertOrientation}} vertical{{/if}}" aria-label="Website navigation" role="navigation">
+<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.alternativeColor}} dark{{/if}}{{#if metadata.verticalOrientation}} vertical{{/if}}" aria-label="Website navigation" role="navigation">
     <div id="navbarNav" class="container">
             <div class="nav-header">
                 <span class="navbar-brand" href="#">{{#if metadata.navbarBrandName}}{{metadata.navbarBrandName}}{{/if}}</span>
@@ -13,8 +13,8 @@
                 <ul class="navbar-nav">
                     {{#each navigation}}
                         {{#if navigationItems}}
-                            <li class="nav-item dropdown{{#if @first}} active{{/if}}{{#if altColour}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"> 
-                                <a class="nav-link{{#unless ../metadata.vertOrientation}} dropdown-toggle{{/unless}}" aria-current="page" href="{{url}}"{{#if target}}target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
+                            <li class="nav-item dropdown{{#if @first}} active{{/if}}{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"> 
+                                <a class="nav-link{{#unless ../metadata.verticalOrientation}} dropdown-toggle{{/unless}}" aria-current="page" href="{{url}}"{{#if target}}target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
@@ -30,7 +30,7 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item parent-link" role="button" aria-controls aria-current="page" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.altText}}{{dropdownOptions.altText}}{{else}}{{title}}{{/if}}</a>
+                                        <a class="dropdown-item parent-link" role="button" aria-controls aria-current="page" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{title}}{{/if}}</a>
                                         {{#if dropdownOptions.description}}
                                             <p>{{dropdownOptions.description}}</p>
                                         {{/if}}
@@ -51,7 +51,7 @@
                                 </ul>
                             </li>
                         {{else}}
-                            <li class="nav-item{{#if @first}} active{{/if}}{{#if altColour}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}">
+                            <li class="nav-item{{#if @first}} active{{/if}}{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}">
                                 <a class="nav-link" aria-current="page" href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
