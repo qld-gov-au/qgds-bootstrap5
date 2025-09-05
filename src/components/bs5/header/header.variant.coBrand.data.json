@@ -5,15 +5,11 @@
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
     },
-    "CTA": [
+    "actions": [
       {
         "id": "CTAone",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Get support to quit"
-        }
+        "url": "#",
+        "text": "Get support to quit"
       }
     ]
   },

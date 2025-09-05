@@ -5,123 +5,105 @@
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
     },
-    "CTA": [
+    "actions": [
       {
         "id": "CTAone",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Contact Information"
-        },
-        "dropdown_enabled": false,
-        "dropdown_options": {
-          "dropdown_type": "list",
-          "view_more": true,
-          "label": "View all",
-          "url": "https://www.qld.gov.au/queenslanders",
-          "target": "_blank",
-          "dropdown_config": {
-            "groups": [
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Transport and motoring"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Employment and jobs"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Education and training"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Queensland and its government"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Health and wellbeing"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Community support"
-              }
-            ]
-          }
+        "url": "#",
+        "text": "Contact Information",
+        "dropdown": {
+          "type": "list",
+          "viewMore": {
+            "text": "View all",
+            "url": "https://www.qld.gov.au/queenslanders",
+            "target": "_blank"
+          },
+          "items": [
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Transport and motoring"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Employment and jobs"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Education and training"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Queensland and its government"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Health and wellbeing"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Community support"
+            }
+          ]
         }
       },
       {
         "id": "CTAtwo",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Business and Industry"
-        },
-        "dropdown_enabled": true,
-        "dropdown_options": {
-          "dropdown_type": "list",
-          "view_more": true,
-          "label": "View all",
-          "url": "https://www.qld.gov.au/queenslanders",
-          "target": "_blank",
-          "dropdown_config": {
-            "groups": [
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Transport and motoring"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Employment and jobs"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Education and training"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Queensland and its government"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Health and wellbeing"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Community support"
-              }
-            ]
-          }
+        "url": "#",
+        "text": "Business and Industry",
+        "dropdown": {
+          "type": "list",
+          "viewMore": {
+            "text": "View all",
+            "url": "https://www.qld.gov.au/queenslanders",
+            "target": "_blank"
+          },
+
+          "items": [
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Transport and motoring"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Employment and jobs"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Education and training"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Queensland and its government"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Health and wellbeing"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Community support"
+            }
+          ]
         }
       },
       {
         "id": "CTAthree",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Login"
-        },
-        "dropdown_enabled": true,
-        "dropdown_options": {
-          "dropdown_type": "form",
-          "dropdown_config": {
-            "content": "<div></div>"
-          }
+        "url": "#",
+        "text": "Login",
+        "dropdown": {
+          "type": "form",
+          "HTMLContent": "<div></div>"
         }
       }
     ]
