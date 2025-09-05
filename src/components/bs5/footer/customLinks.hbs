@@ -1,14 +1,7 @@
-{{!-- {{#if customLinks }}
-    <ul class="nav footer-link-list--custom flex-column">      
-        {{#each customLinks.list }}
-        <li><a class="nav-link" href="{{ this.link }}" {{#if this.new_window }} target="_blank" {{/if}}>{{{ @key }}}</a></li>
-        {{/each }}
-    </ul>
-{{/if}} --}}
 {{#if customLinks }}
-    <ul class="nav footer-link-list--custom flex-column">      
+    <ul class="nav footer-link-list footer-link-list--custom flex-column">      
         {{#each customLinks }}
-        <li><a class="nav-link" href="{{ link }}" {{#if new_window }} target="_blank" {{/if}}>{{ label }}</a></li>
+        <li><a class="nav-link" href="{{ link }}" {{#if target }} target="_blank" {{/if}}>{{ label }}</a></li>
         {{/each }}
     </ul>
 {{/if}}

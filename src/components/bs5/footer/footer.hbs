@@ -82,7 +82,7 @@
                     {{!-- <nav class="nav footer-link-list flex-column"> --}}
                         <ul class="nav footer-link-list flex-column">
                         {{#each footerLinks.list }}
-                            <li><a class="nav-link" href="{{ this.link }}" {{#if this.new_window }} target="_blank" {{/if}}>{{{ @key }}}</a></li>
+                            <li><a class="nav-link" href="{{ this.link }}" {{#if this.target }}target="{{this.target}}"{{/if}}>{{ this.label }}</a></li>
                         {{/each }}
                         </ul>
                     {{!-- </nav> --}}

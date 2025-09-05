@@ -2,51 +2,15 @@
     <!-- {{#if followLinks.title}}<h3 class="footer-heading">{{followLinks.title}}</h3>{{/if}} -->
     <ul class="nav footer-link-list footer-link-list--social flex-column">    
         {{#each followLinks }}
-            {{#if enabled}}
                 <li>
                     <a  class="nav-link"  href="{{ link }}" {{#if target}}target="{{ target }}"{{/if}}>
                         <span class="qld-icon qld-icon-sm qld-icon-{{icon}} d-none d-lg-block" aria-hidden="true"></span>
                         <span class="qld-icon qld-icon-lg qld-icon-{{icon}} d-none d-md-block d-lg-none d-xl-none" aria-hidden="true"></span>
                         <span class="qld-icon qld-icon-md qld-icon-{{icon}} d-md-none d-sm-block" aria-hidden="true"></span>
-                        <span class="nav-link-label d-none d-lg-block">{{ name }}</span> 
+                        <span class="nav-link-label d-none d-lg-block">{{ label }}</span>
+                        <span class="sr-only">{{ label }}</span>
                     </a>
                 </li>
-            {{/if}}
         {{/each }}
     </ul>
-{{else}}
-{{! default follow Links }}
-<ul class="nav footer-link-list footer-link-list--social flex-column">
-    <li>
-        <a class="nav-link" href="#">
-            <span class="qld-icon qld-icon-sm qld-icon-facebook d-md-none" aria-hidden="true"></span>
-            <span class="qld-icon qld-icon-lg qld-icon-facebook d-none d-md-inline" aria-hidden="true"></span>
-            <span class="nav-link-label">Facebook</span> 
-        </a>
-    </li>
-    <li>
-        <a class="nav-link" href="#">
-            <span class="qld-icon qld-icon-sm qld-icon-linkedin" aria-hidden="true"></span>
-            <span class="nav-link-label">LinkedIn</span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link" href="#">
-            <span class="qld-icon qld-icon-sm qld-icon-x" aria-hidden="true"></span>
-            <span class="nav-link-label">X (Twitter)</span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link" href="#">
-            <span class="qld-icon qld-icon-sm qld-icon-youtube" aria-hidden="true"></span>
-            <span class="nav-link-label">Youtube</span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link" href="#">
-            <span class="qld-icon qld-icon-sm qld-icon-instagram" aria-hidden="true"></span>
-            <span class="nav-link-label">Instagram</span>
-        </a>
-    </li>
-</ul>
 {{/if}}

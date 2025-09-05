@@ -22,21 +22,41 @@
   "footerLinks": {
     "hasBorderColumn": false,
     "title": "",
-    "list": {
-      "Help": { "link": "https://www.qld.gov.au/help" },
-      "Copyright": { "link": "https://www.qld.gov.au/legal/copyright" },
-      "Disclaimer": { "link": "https://www.qld.gov.au/legal/disclaimer" },
-      "Privacy": { "link": "https://www.qld.gov.au/legal/privacy" },
-      "Right to information": {
+    "list": [
+      {
+        "label": "Help",
+        "link": "https://www.qld.gov.au/help"
+      },
+      {
+        "label": "Copyright",
+        "link": "https://www.qld.gov.au/legal/copyright"
+      },
+      {
+        "label": "Disclaimer",
+        "link": "https://www.qld.gov.au/legal/disclaimer"
+      },
+      {
+        "label": "Privacy",
+        "link": "https://www.qld.gov.au/legal/privacy"
+      },
+      {
+        "label": "Right to information",
         "link": "https://www.qld.gov.au/about/rights-accountability/right-to-information"
       },
-      "Accessibility": { "link": "https://www.qld.gov.au/help/accessibility" },
-      "Jobs in Queensland Government": {
-        "link": "https://smartjobs.qld.gov.au",
-        "new_window": true
+      {
+        "label": "Accessibility",
+        "link": "https://www.qld.gov.au/help/accessibility"
       },
-      "Other languages": { "link": "https://www.qld.gov.au/help/languages" }
-    }
+      {
+        "label": "Jobs in Queensland Government",
+        "link": "https://smartjobs.qld.gov.au",
+        "target": "_blank"
+      },
+      {
+        "label": "Other languages",
+        "link": "https://www.qld.gov.au/help/languages"
+      }
+    ]
   },
   "acknowledgements": [
     {
@@ -61,72 +81,66 @@
   },
   "followLinks": [
     {
-      "name": "Facebook",
-      "enabled": true,
+      "label": "Facebook",
       "link": "#",
-      "target": "_blank",
-      "icon": "facebook"
+      "icon": "facebook",
+      "target": "_blank"
     },
     {
-      "name": "LinkedIn",
-      "enabled": true,
+      "label": "LinkedIn",
       "link": "#",
-      "icon": "linkedin"
+      "icon": "linkedin",
+      "target": "_blank"
     },
     {
-      "name": "X (Twitter)",
-      "enabled": true,
+      "label": "X (Twitter)",
       "link": "#",
-      "icon": "x"
+      "icon": "x",
+      "target": "_blank"
     },
     {
-      "name": "Youtube",
-      "enabled": true,
+      "label": "Youtube",
       "link": "#",
-      "icon": "youtube"
+      "icon": "youtube",
+      "target": "_blank"
     },
     {
-      "name": "Instagram",
-      "enabled": true,
+      "label": "Instagram",
       "link": "#",
-      "icon": "instagram"
+      "icon": "instagram",
+      "target": "_blank"
     }
   ],
   "customLinks": [
     {
       "label": "Link 1",
       "link": "https://www.example.com",
-      "new_window": false
+      "target": "_blank"
     },
     {
       "label": "Link 2",
-      "link": "https://www.example.com",
-      "new_window": true
+      "link": "https://www.example.com"
     },
     {
       "label": "Link 3",
-      "link": "https://www.example.com",
-      "new_window": false
+      "link": "https://www.example.com"
     },
     {
       "label": "Link 4",
-      "link": "https://www.example.com",
-      "new_window": false
+      "link": "https://www.example.com"
     },
     {
       "label": "Link 5",
       "link": "https://www.example.com",
-      "new_window": false
+      "target": "_blank"
     },
     {
       "label": "Link 6",
-      "link": "https://www.example.com",
-      "new_window": false
+      "link": "https://www.example.com"
     },
     {
       "label": "Link 7",
-      "link": "https://www.example.com",
-      "new_window": false
+      "link": "https://www.example.com"
     }
   ],
   "optionalColumn1": {
