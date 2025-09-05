@@ -1,7 +1,6 @@
 {
   "customClass": "",
   "variantClass": "",
-  "placeholder": "Search website",
   "inputID": "search",
   "inputName": "query",
   "buttonID": "search-button",
@@ -56,7 +55,7 @@
     ],
     "options": {
       "label": "Browse all categories",
-      "view_more": false,
+      "view_more": true,
       "href": "/queenslanders"
     }
   }

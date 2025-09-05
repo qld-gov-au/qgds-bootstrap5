@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+
+  <link rel="stylesheet" href="/assets/css/qld.bootstrap.css">
+  <script type="text/javascript" async src="/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" async src="/assets/js/qld.bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="{{wrapperClasses}} {{join debugClasses }}">
+
+    {{> globalAlert globalAlert }}
+    {{> header header}}
+    {{> navbar navbar}}
+    
+    <main id="content">
+
+        <!-- breadcrumbs-->
+        {{#if breadcrumbsData }}
+        <div class="alt px-0">
+            <div class="container">
+              {{> breadcrumbs breadcrumbsData }}        
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Content Wrapper -->
+        <div class="container mt-40 mt-lg-64">
+          <div class="row">
+          
+          <!-- Side Navigation -->
+          {{#if sidenavData }}
+          <div class="col-12 col-lg-3 order-last order-lg-first mt-5 mt-lg-0">
+          {{> sidenav sidenavData }}
+          </div>
+          {{/if}}
+
+
+          <!-- Content body -->
+          <div class="col-12 col-lg-8">
+
+            <!-- Content has an additional 2rem padding-x -->  
+            <div class="qld-content-body px-32">
+
+              {{!-- Main content area --}}
+              <h1>{{title}}</h1>
+
+              {{#if abstract}}
+              <div class="qld-abstract">
+                {{{ abstract }}}
+              </div>
+              {{/if}}
+
+              {{> inpagenav inpageNavData }}
+
+              <h2 id="section-one">Section heading</h2>
+              <p>This is the main content inside the wrapper.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repudiandae nulla recusandae soluta officia possimus, nostrum nisi fuga laboriosam provident, est molestiae alias blanditiis explicabo consequuntur ullam expedita! Ab.</p>
+
+
+              <h3>Content heading</h3>
+              <p>This is the main content inside the wrapper.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>
+
+
+              <h2 id="section-two">Section heading</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>  
+
+
+              <section class="emphasis light">
+                <h2>Section heading (h2)</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumsan nulla, vel semper enim. In turpis.</p>
+              </section>
+
+            </div><!-- // content-body -->
+          </div><!-- // content-body-column -->
+
+          </div>
+
+          <!-- Content Footer -->
+          {{>contentFooter contentFooterData }}
+        </div>
+
+
+        
+    {{> footer footer}}
+
+  </div>
+
+
+
+</body>
+</html>
