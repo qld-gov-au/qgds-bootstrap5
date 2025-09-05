@@ -312,7 +312,7 @@
       }
     }
 
-    .qld-header__brand {
+    .qld-header-brand {
       padding: 1rem 0;
       display: flex;
       align-items: center;
@@ -335,7 +335,7 @@
           color: var(--#{$prefix}header__brand__anchor__hover_text_color);
           text-decoration: underline;
 
-          .qld-header__brand-image {
+          .qld-header-brand-image {
             color: var(
               --#{$prefix}header__brand__anchor__hover_brand-image__text_color
             );
@@ -354,7 +354,7 @@
       }
     }
 
-    .qld-header__brand-image {
+    .qld-header-brand-image {
       display: none;
       color: var(--#{$prefix}header__brand-image__crest_fill);
 

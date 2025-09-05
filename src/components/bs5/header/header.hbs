@@ -104,33 +104,47 @@
     </div>
 
     <div class="qld-header-main {{#if isMasterBrand}}is-masterbrand{{/if}}">
-        <div class="container">
-            {{#ifAny isMasterBrand isSubBrand isCoBrand}}
-            {{>headerBrand
-            url=mainContent.url
-            logo=mainContent.logo
-            siteTitle=mainContent.siteTitle
-            subline=mainContent.subline }}
-            {{/ifAny}}
+        <div class="container py-16">
+            <div class="row align-items-center">
+                <div class="col">
+                    {{#ifAny isMasterBrand isSubBrand isCoBrand}}
+                        {{>headerBrand
+                        url=mainContent.url
+                        logo=mainContent.logo
+                        siteTitle=mainContent.siteTitle
+                        subline=mainContent.subline }}
+                    {{/ifAny}}
 
-            {{#ifAny isEndorsedBrand isStandaloneBrand }}
-            {{>headerBrand
-            url=mainContent.url
-            logo=mainContent.logo
-            siteTitle=mainContent.siteTitle
-            secondaryLogo=mainContent.secondaryLogo
-            subline=mainContent.subline }}
-            {{/ifAny}}
+                    {{#ifAny isEndorsedBrand isStandaloneBrand }}
+                        {{>headerBrand
+                        url=mainContent.url
+                        logo=mainContent.logo
+                        siteTitle=mainContent.siteTitle
+                        secondaryLogo=mainContent.secondaryLogo
+                        subline=mainContent.subline }}
+                    {{/ifAny}}
+                </div>
 
-            {{#if assets.siteSearch.value}}
-            <div id="qld-header-search" class="qld-header__site-search qld-header__site-search--closed">
+                 {{#if assets.siteSearch.value}}
+                 <div class="col-lg-4">
+                    <div id="qld-header-search" class="qld-header__site-search qld-header__site-search--closed">
                 <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
                     action="{{assets.siteSearch.formAction.url}}" {{else}} action="https://www.qld.gov.au/search"
                     {{/if}}>
                     {{{ searchInput }}}
                 </form>
             </div>
+                </div>
+            
             {{/if}}
+
+
+                
+            </div>
+
+           
+
+           
         </div>
     </div>
 </header>
