@@ -45,9 +45,9 @@
   // ------------------------------------------------------------------------------------------------------------------
   // 2. Colours
   // ------------------------------------------------------------------------------------------------------------------
-  --qld-footer-column-border-color: var(--#{$prefix}footer-color-border);
+  --#{$prefix}footer-column-border-color: var(--#{$prefix}footer-color-border);
   @include media-breakpoint-down(lg) {
-    --qld-footer-column-border-color: transparent;
+    --#{$prefix}footer-column-border-color: transparent;
   }
 
   // ------------------------------------------------------------------------------------------------------------------
@@ -254,7 +254,9 @@
           display: block;
         }
       }
-
+      &--social li {
+        white-space: nowrap;
+      }
       &--social a.nav-link {
         display: flex;
         --#{$prefix}nav-link-padding-y: 0.625rem;
@@ -296,7 +298,7 @@
   }
 
   .container > .row > div {
-    padding-inline: var(--#{$prefix}footer-column-spacing);
+    /* padding-inline: var(--#{$prefix}footer-column-spacing); */
   }
 
   .btn-global-secondary {
@@ -315,7 +317,8 @@
 
     .container {
       > .row {
-        margin-inline: calc(var(--#{$prefix}footer-gap) * -1);
+        /* margin-inline: calc(var(--#{$prefix}footer-gap) * -1); */
+        margin-inline: -2rem;
         --qld-gutter-x: calc(var(--#{$prefix}footer-spacing) * 2);
 
         & > * {
@@ -426,6 +429,8 @@
   @include media-breakpoint-down(md) {
     .container {
       > .row {
+        margin-inline: -1rem;
+
         > .col-12 {
           margin-inline-start: var(--#{$prefix}footer-spacing);
           width: calc(100% - calc(var(--#{$prefix}footer-spacing) * 2));
@@ -485,16 +490,9 @@
 
         .footer-link-list--custom {
           margin-top: calc(var(--#{$prefix}nav-link-padding-y) * -0.5);
-
-          & a.nav-link {
-            /*             padding: calc(var(--#{$prefix}nav-link-padding-y) - 2px)
-              var(--#{$prefix}nav-link-padding-x); */
-          }
+          column-count: 2;
+          display: block;
         }
-      }
-      .footer-link-list--custom {
-        column-count: 2;
-        display: block;
       }
       .footer-crest svg {
         width: 14.5rem;
