@@ -1,0 +1,26 @@
+// Modifies BS5's default container behaviours at different viewports
+// Spec from QGDS UI-Kit spacing variables
+:root {
+  --qld-container-padding-x-sm: 1rem;
+  --qld-container-padding-x-md: 2rem;
+  --qld-container-max-width: 86rem;
+  --qld-gap: 2rem;
+}
+
+.row,
+.row-fluid {
+  --qld-gutter-x: 2rem;
+  --qld-gutter-y: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--qld-container-max-width);
+  padding-left: var(--qld-container-padding-x-sm);
+  padding-right: var(--qld-container-padding-x-sm);
+
+  @include media-breakpoint-up(md) {
+    padding-left: var(--qld-container-padding-x-md);
+    padding-right: var(--qld-container-padding-x-md);
+  }
+}

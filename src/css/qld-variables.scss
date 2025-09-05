@@ -153,6 +153,7 @@ $qld-fluid-width-1-quarter: 25%;
 
 $color-default-color-dark-underline-default: #ffffff;
 $color-default-color-dark-underline-default-hover: #ffffff;
+
 // Project-specific colors map for generating CSS custom properties only
 // These will NOT create utility classes, only CSS variables on :root
 // Available as var(--qld-[color-name])
@@ -320,6 +321,9 @@ $grid-breakpoints: (
 
 // Map merge to include custom breakpoints
 $breakpoints: map-merge($grid-breakpoints, ());
+
+// Gutters inside rows (column gutters)
+$grid-gutter-width: 2rem;
 
 // Default border radius
 $border-radius: 0.25rem;
