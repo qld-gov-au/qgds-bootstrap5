@@ -1,6 +1,13 @@
-.qld-content {
-    padding: 4rem 1.25rem 4.5rem 1.25rem;
-    @include media-breakpoint-up(lg) {
-        padding: 4rem 0 4.5rem;
+.qld-content-body {
+  .emphasis {
+    margin: 4rem -2rem;
+    padding: 4rem 2rem;
+    overflow: visible;
+
+    & p:last-child,
+    & ul:last-child,
+    & ol:last-child {
+      margin-bottom: 0;
     }
+  }
 }
