@@ -123,12 +123,12 @@
     }
   },
   "assets": {
-    "SVGSpritePath": "./assets/img/svg-icons.svg",
+    "SVGSpritePath": "./assets/img/icons-sprite.svg",
     "icons": {
-      "menu-icon": "qld__icon__mobile-menu",
-      "search-icon": "qld__icon__search",
-      "close-icon": "qld__icon__close",
-      "chevron_down": "qld__icon__chevron-down"
+      "menu-icon": "qgds-icon-menu",
+      "search-icon": "qgds-icon-search",
+      "close-icon": "qgds-icon-close",
+      "chevron_down": "qgds-icon-chevron-down"
     },
     "siteSearch": {
       "value": "#",
