@@ -1,0 +1,77 @@
+{
+  "default": {
+    "url": "",
+    "id": "",
+    "label": "Document title (PDF 2.5 MB)",
+    "target": "_self",
+    "arialabel": "Document title (PDF 2.5 MB)",
+    "iconClass": "qld-icon-document-pdf",
+    "iconPosition": "leading",
+    "download": null
+  },
+  "linkGroup": {
+    "title": "Link group title",
+    "linkList": [
+      {
+        "url": "",
+        "id": "doc-1",
+        "label": "Document title (DOC 2.5 MB)",
+        "target": "_self",
+        "arialabel": "Document title (DOC 2.5 MB)",
+        "iconClass": "qld-icon-document-word",
+        "iconPosition": "leading",
+        "download": null
+      },
+      {
+        "url": "",
+        "id": "doc-2",
+        "label": "JPG image file (JPG 2.5 KB)",
+        "target": "_self",
+        "arialabel": "JPG image file (JPG 2.5 KB)",
+        "iconClass": "qld-icon-image",
+        "iconPosition": "leading",
+        "download": null
+      },
+      {
+        "url": "",
+        "id": "doc-3",
+        "label": "PNG image file (PNG 2.5 KB)",
+        "target": "_self",
+        "arialabel": "PNG image file (PNG 2.5 KB)",
+        "iconClass": "qld-icon-image",
+        "iconPosition": "leading",
+        "download": null
+      },
+      {
+        "url": "",
+        "id": "doc-4",
+        "label": "Document title (PDF 2.5 MB)",
+        "target": "_self",
+        "arialabel": "Document title (PDF 2.5 MB)",
+        "iconClass": "qld-icon-document-pdf",
+        "iconPosition": "leading",
+        "download": null
+      },
+      {
+        "url": "",
+        "id": "doc-5",
+        "label": "Document title (CSV 2.5 MB)",
+        "target": "_self",
+        "arialabel": "Document title (CSV 2.5 MB)",
+        "iconClass": "qld-icon-document-spreadsheet",
+        "iconPosition": "leading",
+        "download": null
+      },
+      {
+        "url": "",
+        "id": "doc-6",
+        "label": "Document title (PDF 2.5 MB)",
+        "target": "_self",
+        "arialabel": "Document title (PDF 2.5 MB)",
+        "iconClass": "qld-icon-document-pdf",
+        "iconPosition": "leading",
+        "download": null
+      }
+    ]
+  }
+}
