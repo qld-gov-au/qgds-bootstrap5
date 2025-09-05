@@ -29,9 +29,9 @@
                             </svg>
                         </a>
 
-                        <ul class="dropdown-menu dark" role="list">
-                            {{#ifCond dropdown.type "===" "list"}}
-                  
+                        {{#ifCond dropdown.type "===" "list"}}
+                        <ul class="dropdown-menu dark">
+
                             {{#each dropdown.items}}
                             <li>
                                 <a class="qld-header-link dropdown-item" href="{{url}}" {{#if target}}target="{{target}}"{{/if}}>
@@ -45,6 +45,7 @@
                                 </a>
                             </li>
                             {{/each}}
+
                             {{#if dropdown.viewMore}}
                             <li>
                                 <a href="{{dropdown.viewMore.url}}" {{#if dropdown.viewMore.target}}target="{{dropdown.viewMore.target}}"{{/if}}
@@ -53,20 +54,21 @@
                                 </a>
                             </li>
                             {{/if}}
-                            {{/ifCond}}
-                            {{#ifCond dropdown.type "===" "form"}}
-                            {{{dropdown.HTMLContent}}}
-                       
-                            {{/ifCond}}
-                        </ul>
 
+                        </ul>
+                        {{/ifCond}}
+
+                        {{#ifCond dropdown.type "===" "form"}}
+                        <div class="dropdown-menu">
+                            {{{dropdown.HTMLContent}}}
+                        </div>
+                        {{/ifCond}}
+                        
                     </div>
                     {{else}}
                     <a class="qld-header-link" href="{{url}}">{{{text}}}</a>
                     {{/if}}
-
                     {{/each}}
-
                 </div>
                 {{/if}}
             </div>
