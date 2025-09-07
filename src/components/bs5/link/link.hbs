@@ -4,7 +4,7 @@
 {{~/inline}} 
 
 {{#*inline "link"~}}
-<a class="icon-link" {{#if id}}id="{{id}}"{{/if}}
+<a class="link" {{#if id}}id="{{id}}"{{/if}}
     href="{{url}}" 
     target="{{target}}" 
     {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} 
@@ -28,9 +28,9 @@
 {{~/inline}} 
 
 {{#if linkList~}}
-<ul class="icon-link-list">
+<ul class="link-list">
     {{#each linkList}}
-      <li class="icon-link-item">
+      <li class="link-item">
         {{~> link~}}
       </li>
     {{/each}}

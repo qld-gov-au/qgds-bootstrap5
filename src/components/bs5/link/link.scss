@@ -1,11 +1,11 @@
-.icon-link {
+.link {
   text-underline-offset: var(--qld-link-underline-offset);
   text-decoration-thickness: var(--qld-link-underline-thickness);
 
   --#{$prefix}icon-background-color: var(--#{$prefix}light-action-secondary);
   --#{$prefix}link-color: var(--#{$prefix}light-link);
   --#{$prefix}link-text-decoration-color: var(--#{$prefix}light-link);
-
+  --#{$prefix}link-gap: 0.5rem;
   .dark &,
   .dark-alt & {
     --#{$prefix}icon-background-color: var(--#{$prefix}dark-action-secondary);
@@ -19,6 +19,15 @@
 
   color: var(--#{$prefix}link-color);
   text-decoration-color: var(--#{$prefix}link-text-decoration-color);
+  display: inline-flex;
+  gap: var(--#{$prefix}link-gap);
+  align-items: center;
+  text-decoration-color: rgba(
+    var(--#{$prefix}link-color-rgb),
+    var(--#{$prefix}link-opacity, 0.5)
+  );
+  text-underline-offset: $icon-link-underline-offset;
+  backface-visibility: hidden;
 
   &:hover {
     text-decoration-thickness: var(--qld-link-underline-thickness);
@@ -47,7 +56,7 @@
   }
 }
 
-.icon-link-list {
+.link-list {
   list-style: none;
   margin: 0;
   padding: 0;
