@@ -20,7 +20,7 @@
     "buttonLink": "https://www.qld.gov.au/contact-us"
   },
   "footerLinks": {
-    "hasBorderColumn": false,
+    "hasBorderColumn": true,
     "title": "",
     "list": [
       {
@@ -57,27 +57,6 @@
         "link": "https://www.qld.gov.au/help/languages"
       }
     ]
-  },
-  "acknowledgements": [
-    {
-      "title": "Acknowledgement of Country",
-      "content": "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
-    }
-  ],
-  "footerLogo": {
-    "show": true,
-    "src": "",
-    "alt": "Queensland Government"
-  },
-  "copyright": {
-    "content": "&copy; The State of Queensland (Organisation)",
-    "showYearFrom": false,
-    "yearFrom": "1995"
-  },
-  "organisationLink": {
-    "show": true,
-    "URL": "https://www.qld.gov.au",
-    "text": "Queensland Government"
   },
   "followLinks": [
     {
@@ -143,6 +122,27 @@
       "link": "https://www.example.com"
     }
   ],
+  "acknowledgements": [
+    {
+      "title": "Acknowledgement of Country",
+      "content": "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
+    }
+  ],
+  "footerLogo": {
+    "show": true,
+    "src": "",
+    "alt": "Queensland Government"
+  },
+  "copyright": {
+    "content": "&copy; The State of Queensland (Organisation)",
+    "showYearFrom": false,
+    "yearFrom": "1995"
+  },
+  "organisationLink": {
+    "show": true,
+    "URL": "https://www.qld.gov.au",
+    "text": "Queensland Government"
+  },
   "optionalColumn1": {
     "hasBorderColumn": true,
     "title": "Optional Column 1",
@@ -152,7 +152,7 @@
   },
   "optionalColumn2": {
     "hasBorderColumn": true,
-    "title": "Optional Column 2",
+    "title": "Follow us",
     "content": "",
     "showFollowLinks": true,
     "showCustomLinks": false

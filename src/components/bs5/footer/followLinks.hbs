@@ -1,16 +1,14 @@
 {{#if followLinks }}
-    <!-- {{#if followLinks.title}}<h3 class="footer-heading">{{followLinks.title}}</h3>{{/if}} -->
-    <ul class="nav footer-link-list footer-link-list--social flex-column">    
-        {{#each followLinks }}
-                <li>
-                    <a  class="nav-link"  href="{{ link }}" {{#if target}}target="{{ target }}"{{/if}}>
-                        <span class="qld-icon qld-icon-sm qld-icon-{{icon}} d-none d-lg-block" aria-hidden="true"></span>
-                        <span class="qld-icon qld-icon-lg qld-icon-{{icon}} d-none d-md-block d-lg-none d-xl-none" aria-hidden="true"></span>
-                        <span class="qld-icon qld-icon-md qld-icon-{{icon}} d-md-none d-sm-block" aria-hidden="true"></span>
-                        <span class="nav-link-label d-none d-lg-block">{{ label }}</span>
-                        <span class="sr-only">{{ label }}</span>
-                    </a>
-                </li>
-        {{/each }}
+    <ul class="nav footer-link-list footer-link-list--social">    
+    {{#each followLinks }}
+      <li>
+          <a  class="nav-link"  href="{{ link }}" {{#if target}}target="{{ target }}"{{/if}}>
+              <span class="qld-icon qld-icon-md qld-icon-{{icon}} d-lg-none" aria-hidden="true"></span>
+              <span class="qld-icon qld-icon-sm qld-icon-{{icon}} d-none d-lg-block" aria-hidden="true"></span>
+              <span class="nav-link-label d-none d-lg-block">{{ label }}</span>
+              <span class="sr-only">{{ label }}</span>
+          </a>
+      </li>
+    {{/each }}
     </ul>
 {{/if}}
