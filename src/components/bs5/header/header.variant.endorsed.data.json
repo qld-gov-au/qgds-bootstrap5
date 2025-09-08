@@ -122,12 +122,6 @@
   },
   "assets": {
     "SVGSpritePath": "./assets/img/icons-sprite.svg",
-    "icons": {
-      "menu-icon": "qgds-icon-menu",
-      "search-icon": "qgds-icon-search",
-      "close-icon": "qgds-icon-close",
-      "chevron_down": "qgds-icon-chevron-down"
-    },
     "siteSearch": {
       "value": "#",
       "placeholder": "",
