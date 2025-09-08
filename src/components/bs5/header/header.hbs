@@ -19,7 +19,7 @@
                         <a id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                             class="qld-header-link" href="#">
                             {{{text}}}
-    
+
                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                                 class="qld-header-dropdown-icon ">
                                 <use href="{{@root.assets.SVGSpritePath}}#{{@root.assets.icons.chevron_down}}"
@@ -35,8 +35,8 @@
                                 <a class="qld-header-link dropdown-item " href="{{url}}" {{#if target}}target="{{target}}"{{/if}}>
                                     {{text}}
                                     <svg width="24" height="24" class="qld-header-icon qld-header-dropdown-item-icon">
-                                       <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-arrow-right"
-                                    aria-hidden="true"></use>
+                                        <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-arrow-right"
+                                            aria-hidden="true"></use>
                                     </svg>
                                 </a>
                             </li>
@@ -59,12 +59,12 @@
                             {{{dropdown.HTMLContent}}}
                         </div>
                         {{/ifCond}}
-                        
+
                     </div>
                     {{else}}
 
                     <a class="qld-header-link" href="{{url}}">
-                        {{#if icon}}
+                        {{#if icon}} 
                         <svg class="qld-header-link-icon">
                             <use href="{{@root.assets.SVGSpritePath}}#{{icon}}" aria-hidden="true"></use>
                         </svg>{{/if}}{{{text}}}
@@ -91,8 +91,8 @@
                 {{/if}}
 
                 <button id="burgerBtn" class="qld-header__toggle-main-nav qld__main-nav__toggle--open"
-                    data-bs-toggle="collapse" data-bs-target="#main-nav"
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Open menu">
+                    data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                    aria-label="Open menu">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                         <use href="{{@root.assets.SVGSpritePath}}#{{@root.assets.icons.menu-icon}}" aria-hidden="true">
                         </use>
@@ -108,43 +108,35 @@
             <div class="row align-items-center">
                 <div class="col">
                     {{#ifAny isMasterBrand isSubBrand isCoBrand}}
-                        {{>headerBrand
-                        url=mainContent.url
-                        logo=mainContent.logo
-                        siteTitle=mainContent.siteTitle
-                        subline=mainContent.subline }}
+                    {{>headerBrand
+                    url=mainContent.url
+                    logo=mainContent.logo
+                    siteTitle=mainContent.siteTitle
+                    subline=mainContent.subline }}
                     {{/ifAny}}
 
                     {{#ifAny isEndorsedBrand isStandaloneBrand }}
-                        {{>headerBrand
-                        url=mainContent.url
-                        logo=mainContent.logo
-                        siteTitle=mainContent.siteTitle
-                        secondaryLogo=mainContent.secondaryLogo
-                        subline=mainContent.subline }}
+                    {{>headerBrand
+                    url=mainContent.url
+                    logo=mainContent.logo
+                    siteTitle=mainContent.siteTitle
+                    secondaryLogo=mainContent.secondaryLogo
+                    subline=mainContent.subline }}
                     {{/ifAny}}
                 </div>
 
-                 {{#if assets.siteSearch.value}}
-                 <div class="col-lg-4">
+                {{#if assets.siteSearch.value}}
+                <div class="col-lg-4">
                     <div id="qld-header-search" class="qld-header__site-search qld-header__site-search--closed">
-                <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
-                    action="{{assets.siteSearch.formAction.url}}" {{else}} action="https://www.qld.gov.au/search"
-                    {{/if}}>
-                    {{{ searchInput }}}
-                </form>
-            </div>
+                        <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
+                            action="{{assets.siteSearch.formAction.url}}" {{else}}
+                            action="https://www.qld.gov.au/search" {{/if}}>
+                            {{{ searchInput }}}
+                        </form>
+                    </div>
                 </div>
-            
-            {{/if}}
-
-
-                
+                {{/if}}
             </div>
-
-           
-
-           
         </div>
     </div>
 </header>

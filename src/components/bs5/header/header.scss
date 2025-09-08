@@ -294,91 +294,8 @@
     right: 0;
   }
 
-  &__main {
+  &-main {
     position: relative;
-
-    .container-fluid {
-      align-items: center;
-      display: flex;
-      width: 100%;
-
-      @include media-breakpoint-up(md) {
-        padding: 0 2rem;
-      }
-
-      @include media-breakpoint-up(lg) {
-        height: auto;
-        justify-content: space-between;
-      }
-    }
-
-    .qld-header-brand {
-      padding: 1rem 0;
-      display: flex;
-      align-items: center;
-      font-variant-numeric: lining-nums;
-
-      @include media-breakpoint-up(md) {
-        padding: 1.25rem 0;
-      }
-
-      @include media-breakpoint-up(lg) {
-        flex-grow: 1;
-        padding: 32px 0;
-      }
-
-      a {
-        text-decoration: none;
-        display: flex;
-
-        &:hover {
-          color: var(--#{$prefix}header__brand__anchor__hover_text_color);
-          text-decoration: underline;
-
-          .qld-header-brand-image {
-            color: var(
-              --#{$prefix}header__brand__anchor__hover_brand-image__text_color
-            );
-            filter: var(
-              --#{$prefix}header__brand__anchor__hover_brand-image__filter
-            );
-          }
-
-          .qld-header__heading,
-          .qld-header__subline {
-            color: var(
-              --#{$prefix}header__brand__anchor__hover_headingsubline__text_color
-            );
-          }
-        }
-      }
-    }
-
-    .qld-header-brand-image {
-      display: none;
-      color: var(--#{$prefix}header__brand-image__crest_fill);
-
-      @include media-breakpoint-up(lg) {
-        display: block;
-      }
-
-      &.is-subtype {
-        border-right: 2px solid
-          var(--#{$prefix}header__brand-image__subtype__border_color);
-        color: var(--#{$prefix}header__brand-image__subtype__text_color);
-        margin-right: 1.5rem;
-        padding-right: 1.5rem;
-      }
-
-      img {
-        margin: auto 0;
-        display: block;
-      }
-
-      svg {
-        vertical-align: text-bottom;
-      }
-    }
 
     .qld-header__site-name {
       display: flex;
@@ -422,6 +339,74 @@
     }
   }
 
+  &-brand {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    font-variant-numeric: lining-nums;
+
+    @include media-breakpoint-up(md) {
+      padding: 1.25rem 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      flex-grow: 1;
+      padding: 32px 0;
+    }
+
+    a {
+      text-decoration: none;
+      display: flex;
+
+      &:hover {
+        color: var(--#{$prefix}header__brand__anchor__hover_text_color);
+        text-decoration: underline;
+
+        .qld-header-brand-image {
+          color: var(
+            --#{$prefix}header__brand__anchor__hover_brand-image__text_color
+          );
+          filter: var(
+            --#{$prefix}header__brand__anchor__hover_brand-image__filter
+          );
+        }
+
+        .qld-header__heading,
+        .qld-header__subline {
+          color: var(
+            --#{$prefix}header__brand__anchor__hover_headingsubline__text_color
+          );
+        }
+      }
+    }
+  }
+
+  &-brand-image {
+    display: none;
+    color: var(--#{$prefix}header__brand-image__crest_fill);
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+
+    &.is-subtype {
+      border-right: 2px solid
+        var(--#{$prefix}header__brand-image__subtype__border_color);
+      color: var(--#{$prefix}header__brand-image__subtype__text_color);
+      margin-right: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    img {
+      margin: auto 0;
+      display: block;
+    }
+
+    svg {
+      vertical-align: text-bottom;
+    }
+  }
+
   //Reduce size of whitebar on masterbrand
   &.is-masterbrand {
     @include media-breakpoint-down(lg) {
@@ -430,9 +415,6 @@
   }
 
   &__site-search {
-    //Auto margins for LTR and RTL
-    @extend .ms-auto;
-
     form {
       display: flex;
       position: relative;
@@ -453,6 +435,15 @@
       &--closed {
         display: none;
       }
+    }
+
+    // Some default styling overrides.
+    .container {
+      display: contents;
+    }
+
+    .qld-search-input {
+      min-width: auto;
     }
   }
 }
