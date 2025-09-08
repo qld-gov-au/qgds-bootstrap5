@@ -1,13 +1,14 @@
 
-    <a class="qld-header-brand" href="{{url}}">
-        <div class="qld-header-brand-image {{#ifAny isSubBrand isCoBrand isEndorsedBrand}}is-subtype{{/ifAny}}">
+    <a class="qld-header-brand qld-header-link" href="{{url}}">
+        <div class="qld-header-brand-image qld-header-logo
+         {{#ifAny isSubBrand isCoBrand isEndorsedBrand}}is-subtype{{/ifAny}}">
             {{#if logo}}
             <img src="{{logo.src}}" width="330" height="56" alt="{{#if logo.altText}}{{logo.altText}}{{else}}Queensland government{{/if}}" />
             {{else}}
             {{#if siteTitle}}
             {{>logo logo="coa-landscape-2lines" height="56" fill="currentColor"}}
             {{else}}
-             {{>logo height="56" fill="currentColor"}}
+            {{>logo height="56" fill="currentColor"}}
             {{/if}}
             {{/if}}
         </div>

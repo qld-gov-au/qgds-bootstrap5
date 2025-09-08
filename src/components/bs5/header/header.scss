@@ -26,6 +26,7 @@
   }
 
   &-pre-header {
+    //
     display: flex;
     align-items: center;
     font-size: 0.875rem; // set here so whitespace doesn't add extra height.
@@ -51,8 +52,6 @@
 
     .qld-header-toggle-main-nav {
       align-items: center;
-      -webkit-appearance: none;
-      -moz-appearance: none;
       appearance: none;
       background-color: transparent;
       border: 0;
@@ -169,20 +168,23 @@
 
   &-logo {
     display: block;
-    height: 1.75rem;
     width: auto;
 
-    @include media-breakpoint-up(md) {
-      height: 2.5rem;
-    }
-
-    @include media-breakpoint-up(lg) {
-      display: none;
-    }
-
     a:hover & {
-      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))
-        drop-shadow(0 6px 10px rgba(0, 0, 0, 0.1));
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08))
+        drop-shadow(0 13px 20px rgba(0, 0, 0, 0.08));
+    }
+
+    .qld-header-pre-header & {
+      height: 1.75rem;
+
+      @include media-breakpoint-up(md) {
+        height: 2.5rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
     }
   }
 
@@ -295,14 +297,10 @@
 
     &:hover {
       color: var(--#{$prefix}header__brand__anchor__hover_text_color);
-      text-decoration: underline;
 
       .qld-header-brand-image {
         color: var(
           --#{$prefix}header__brand__anchor__hover_brand-image__text_color
-        );
-        filter: var(
-          --#{$prefix}header__brand__anchor__hover_brand-image__filter
         );
       }
 
@@ -311,6 +309,8 @@
         color: var(
           --#{$prefix}header__brand__anchor__hover_headingsubline__text_color
         );
+        text-decoration: underline;
+        text-decoration-color: currentColor !important;
       }
     }
 
