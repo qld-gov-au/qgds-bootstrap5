@@ -26,7 +26,7 @@
 
   color: var(--#{$prefix}link-color);
   text-decoration-color: var(--#{$prefix}link-text-decoration-color);
-  display: inline-flex;
+  display: flex;
   gap: var(--#{$prefix}link-gap);
   align-items: center;
   text-decoration-color: rgba(
@@ -70,6 +70,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  li {
+    margin-top: 0.75rem;
+    line-height: 1.5rem;
+  }
   li:first-child {
     margin-top: 0;
   }
