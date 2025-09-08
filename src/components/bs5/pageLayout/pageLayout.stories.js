@@ -24,8 +24,6 @@ import textareaData from "../textarea/textarea.data.json";
 import searchData from "../searchInput/searchInput.data.json";
 import selectData from "../select/select.data.json";
 import buttonData from "../button/button.data.json";
-import checkboxData from "../formcheck/stories/checkbox/checkbox.data.json";
-import radioData from "../formcheck/stories/radio/radio.data.json";
 import buttondata from "../button/button.data.json";
 import accordionData from "../accordion/accordion.data.json";
 
@@ -223,6 +221,12 @@ export const ContentPageWithFormExample = {
   args: {
     ...defaultData,
     title: "Contact Us Form",
+    inpageAlert: {
+      variantClass: "alert-info",
+      alertType: "",
+      content:
+        "<p>Response times are estimated at 15 working days. If you're looking for a quicker response, call 13 QGOV ( <a href='#'>13 74 68</a>).</p>",
+    },
     banner: {
       ...bannerData,
       title: "Contact Us",
@@ -234,100 +238,112 @@ export const ContentPageWithFormExample = {
       <p>Please fill out the form below and we'll get back to you as soon as possible.</p>
     `,
     form: {
-      fields: [
+      fields1: [
         {
-          ...textboxData,
-          type: "textbox",
-          label: "First Name",
-          id: "firstName",
-          required: true,
+          type: "radio",
+          questionLabel: "Type of enquiry",
+          listClasses: "field-required",
+          listitems: [
+            {
+              type: "radio",
+              id: "type1",
+              name: "enquiry",
+              label: "Complaint",
+              value: "complaint",
+              isDisabled: false,
+            },
+            {
+              type: "radio",
+              id: "type2",
+              name: "enquiry",
+              label: "Compliment",
+              value: "compliment",
+              isDisabled: false,
+            },
+          ],
         },
         {
           ...textboxData,
           type: "textbox",
-          label: "Last Name",
+          "label-text":
+            "Please tell us in a few words what your enquiry relates to",
+          label: "Please tell us in a few words what your enquiry relates to",
+          "optional-text": "",
+          placeholder: "",
+          "hint-text":
+            "This will help us determine the most appropriate person to respond",
+          id: "firstName",
+          required: true,
+        },
+        {
+          ...textareaData,
+          type: "textarea",
+          "label-text": "Tell us what happened",
+          label: "Tell us what happened",
+          "optional-text": "",
+          "hint-text":
+            "Provide as much information as possible to help us better respond to your feedback. There is no character limit. Please don't include private information like credit card details or medical history.",
+          rows: 4,
+          cols: 50,
+          maxlength: 500,
+          minlength: 10,
+          resize: true,
+          id: "message",
+          required: true,
+        },
+      ],
+      fields2: [
+        {
+          ...textboxData,
+          type: "textbox",
+          "label-text": "Name",
+          "optional-text": "",
+          placeholder: "",
+          "hint-text": "",
           id: "lastName",
           required: true,
         },
         {
           ...textboxData,
           type: "textbox",
-          label: "Email",
+          "label-text": "Email",
+          "optional-text": "",
+          placeholder: "",
+          "hint-text": "",
           id: "email",
           inputType: "email",
           required: true,
         },
         {
-          ...selectData,
-          type: "select",
-          label: "Enquiry Type",
-          id: "enquiryType",
-        },
-        {
-          ...textareaData,
-          type: "textarea",
-          label: "Message",
-          id: "message",
+          ...textboxData,
+          type: "textbox",
+          "label-text": "Phone",
+          "optional-text": "",
+          placeholder: "",
+          "hint-text": "",
+          id: "phone",
+          inputType: "phone",
           required: true,
         },
         {
-          ...checkboxData,
+          ...selectData,
+          type: "select",
+          "label-text": "Enquiry Type",
+          "optional-text": "",
+          "hint-text": "",
+          id: "enquiryType",
+        },
+        {
           type: "checkbox",
-          questionLabel: "Services Required",
+          questionLabel: "Privacy acknowledgement",
+          listClasses: "field-required",
           listitems: [
             {
               type: "checkbox",
               id: "service1",
-              name: "services",
-              label: "Website Development",
-              value: "website",
-              isDisabled: false,
-            },
-            {
-              type: "checkbox",
-              id: "service2",
-              name: "services",
-              label: "Mobile App Development",
-              value: "mobile",
-              isDisabled: false,
-            },
-            {
-              type: "checkbox",
-              id: "service3",
-              name: "services",
-              label: "Consulting",
-              value: "consulting",
-              isDisabled: false,
-            },
-          ],
-        },
-        {
-          ...radioData,
-          type: "radio",
-          questionLabel: "Preferred Contact Method",
-          listitems: [
-            {
-              type: "radio",
-              id: "contact1",
-              name: "contactMethod",
-              label: "Email",
-              value: "email",
-              isDisabled: false,
-            },
-            {
-              type: "radio",
-              id: "contact2",
-              name: "contactMethod",
-              label: "Phone",
-              value: "phone",
-              isDisabled: false,
-            },
-            {
-              type: "radio",
-              id: "contact3",
-              name: "contactMethod",
-              label: "SMS",
-              value: "sms",
+              name: "Privacy acknowledgement",
+              label: "I have read and understood the privacy statement",
+              value: "checked",
               isDisabled: false,
             },
           ],
