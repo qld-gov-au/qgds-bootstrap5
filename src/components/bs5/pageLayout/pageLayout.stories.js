@@ -14,7 +14,6 @@ import bannerData from "../banner/banner.data.json";
 import cardData from "../card/card.data.json";
 import linkColumnsData from "../linkColumns/linkColumns.data.json";
 import promotionalPanelData from "../promotionalPanel/promotionalPanel.data.json";
-import sidenavData from "../sidenav/sidenav.data.json";
 import inpagenavData from "../inpagenav/inpagenav.data.json";
 import breadcrumbsData from "../breadcrumbs/breadcrumbs.data.json";
 import imageData from "../image/image.data.json";
@@ -28,6 +27,33 @@ import buttondata from "../button/button.data.json";
 import accordionData from "../accordion/accordion.data.json";
 
 import { SearchInput } from "../searchInput/SearchInput.js";
+
+const sideNavData = {
+  "navtitle": "Template",
+  "navtitlelink": "#optionallink",
+  "navlist": [
+    {
+      "link": "#https://www.qld.gov.au/transport/registration/register/heavy",
+      "label": "Home page",
+      "class": "",
+    },
+    {
+      "link": "#",
+      "label": "Content page (no bar)",
+      "class": "",
+    },
+    {
+      "link": "#",
+      "label": "Content page (basic bar)",
+      "class": "",
+    },
+    {
+      "link": "#",
+      "label": "Single page form",
+      "class": "",
+    },
+  ]
+}
 
 const defaultData = {
   cdn: ".", //for storybook it's ., for normal usage "PROD"
@@ -44,7 +70,7 @@ const defaultData = {
     variantClass: "dark",
   },
   contentFooter: contentFooterData,
-  sidenav: sidenavData,
+  sidenav: sideNavData,
 };
 
 export default {
@@ -177,17 +203,63 @@ export const Home = {
   },
 };
 
+const SideNavArgs = {
+  ...defaultData,
+  title: "Content Page with Side Navigation",
+  accordionItems: accordionData,
+  calloutdata: {
+    title: "Call out heading",
+    content:
+      "Faucibus urna non suspendisse augue donec fermentum. Semper elementum dui odio sociis. Quis risus pellentesque consectetur risus senectus. Egestas lectus nec dui odio vitae sem. Convallis pulvinar arcu feugiat eget. Est convallis mattis mauris nisi suscipit.",
+  },
+  inpagenav: inpagenavData,
+  image: imageData,
+  video: videoData.youtube,
+  callToAction: {
+    ...callToActionData,
+    label: "Call to action",
+  },
+};
+
+
 /**
  * Content Page with Side Navigation
  */
-export const ContentPageWithSideNav = {
+export const ContentPageNoBanner = {
   render: (args) => {
     return new ContentPageWithSideNavigation(args).html;
   },
   args: {
-    ...defaultData,
-    title: "Content Page with Side Navigation",
-    accordionItems: accordionData,
+    ...SideNavArgs,
+    banner: {
+      variantClass: "dark",
+      bannerType: "no-banner",
+      breadcrumbs: breadcrumbsData.default,
+    },
+    sidenav: {
+      ...sideNavData,
+      navlist: [
+        sideNavData.navlist[0],
+        {
+          ...sideNavData.navlist[1],
+          class: "active",
+        },
+        sideNavData.navlist[2],
+        sideNavData.navlist[3],
+      ]
+    }
+  },
+};
+
+/**
+ * Content Page with Side Navigation
+ */
+export const ContentPageBasicBanner = {
+  render: (args) => {
+    return new ContentPageWithSideNavigation(args).html;
+  },
+  args: {
+    ...SideNavArgs,
     banner: {
       ...bannerData,
       title: "Vehicle Registration",
@@ -195,18 +267,17 @@ export const ContentPageWithSideNav = {
         "Everything you need to know about registering your vehicle in Queensland.",
       breadcrumbs: breadcrumbsData.default,
     },
-    calloutdata: {
-      title: "Call out heading",
-      content:
-        "Faucibus urna non suspendisse augue donec fermentum. Semper elementum dui odio sociis. Quis risus pellentesque consectetur risus senectus. Egestas lectus nec dui odio vitae sem. Convallis pulvinar arcu feugiat eget. Est convallis mattis mauris nisi suscipit.",
-    },
-    sidenav: sidenavData,
-    inpagenav: inpagenavData,
-    image: imageData,
-    video: videoData.youtube,
-    callToAction: {
-      ...callToActionData,
-      label: "Call to action",
+    sidenav: {
+      ...sideNavData,
+      navlist: [
+        sideNavData.navlist[0],
+        sideNavData.navlist[1],
+        {
+          ...sideNavData.navlist[2],
+          class: "active",
+        },
+        sideNavData.navlist[3],
+      ]
     },
   },
 };
@@ -214,7 +285,7 @@ export const ContentPageWithSideNav = {
 /**
  * Content Page with Form
  */
-export const ContentPageWithFormExample = {
+export const ContentPageWithSingleForm = {
   render: (args) => {
     return new ContentPageWithForm(args).html;
   },
@@ -232,6 +303,18 @@ export const ContentPageWithFormExample = {
       title: "Contact Us",
       abstract: "Get in touch with us using the form below.",
       breadcrumbs: breadcrumbsData.default,
+    },
+    sidenav: {
+      ...sideNavData,
+      navlist: [
+        sideNavData.navlist[0],
+        sideNavData.navlist[1],
+        sideNavData.navlist[2],
+        {
+          ...sideNavData.navlist[3],
+          class: "active",
+        }
+      ]
     },
     content: `
       <h1>Contact Form</h1>
