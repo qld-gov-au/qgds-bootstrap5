@@ -8,18 +8,18 @@
             {{/if}}
         </div>
         {{#if secondaryLogo}}
-            <div class="qld-header__site-name">
-                <img class="qld-header__secondary-image" alt="{{#if secondaryLogo.altText}}{{secondaryLogo.altText}}{{else}}{{siteTitle}}{{#if subline}}{{subline}}{{/if}}{{/if}}"
+            <div class="qld-header-site-name">
+                <img class="qld-header-secondary-image" alt="{{#if secondaryLogo.altText}}{{secondaryLogo.altText}}{{else}}{{siteTitle}}{{#if subline}}{{subline}}{{/if}}{{/if}}"
                     src="{{secondaryLogo.src}}" />
             </div>
         {{else}}
         {{#if siteTitle}}
-        <div class="qld-header__site-name">
-            <span class="qld-header__heading">
+        <div class="qld-header-site-name">
+            <span class="qld-header-heading">
                 {{siteTitle}}
             </span>
             {{#if subline}}
-            <span class="qld-header__subline">
+            <span class="qld-header-subline">
                 {{subline}}
             </span>
             {{/if}}

@@ -46,13 +46,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     //Header search
-    let headerSearchButton = document.querySelector(
-      ".qld__main-nav__toggle-search",
+    let headerSearchButton = document.getElementById(
+      "qld-header-toggle-search-button",
     );
     if (headerSearchButton) {
-      document
-        .querySelector(".qld__main-nav__toggle-search")
-        .addEventListener("click", toggleSearch);
+      headerSearchButton.addEventListener("click", toggleSearch);
     }
 
     // Get all forms with the class 'site-search'

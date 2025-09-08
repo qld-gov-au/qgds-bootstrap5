@@ -75,10 +75,10 @@
                 {{/if}}
             </div>
 
-            <div class="qld-header__main-nav-controls">
+            <div class="qld-header-main-nav-controls">
                 {{#if assets.siteSearch.value}}
-                <button aria-controls="qld-header-search"
-                    class="qld-header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
+                <button id="qld-header-toggle-search-button" aria-controls="qld-header-search"
+                    class="qld-header-toggle-main-nav" aria-expanded="false">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                         <use class="icon-search"
                             href="{{@root.assets.SVGSpritePath}}#qgds-icon-search" aria-hidden="true"
@@ -86,18 +86,18 @@
                         <use class="icon-close" href="{{@root.assets.SVGSpritePath}}#qgds-icon-close"
                             style="display: none;"></use>
                     </svg>
-                    <span class="qld__main-nav__toggle-text">Search</span>
+                    <span class="qld-header-toggle-main-nav-text">Search</span>
                 </button>
                 {{/if}}
 
-                <button id="burgerBtn" class="qld-header__toggle-main-nav qld__main-nav__toggle--open"
+                <button id="burgerBtn" class="qld-header-toggle-main-nav"
                     data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
                     aria-label="Open menu">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                         <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-menu" aria-hidden="true">
                         </use>
                     </svg>
-                    <span class="qld__main-nav__toggle-text">Menu</span>
+                    <span class="qld-header-toggle-main-nav-text">Menu</span>
                 </button>
             </div>
         </div>
@@ -127,7 +127,7 @@
 
                 {{#if assets.siteSearch.value}}
                 <div class="col-lg-4">
-                    <div id="qld-header-search" class="qld-header__site-search qld-header__site-search--closed">
+                    <div id="qld-header-search" class="qld-header-site-search is-closed">
                         <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
                             action="{{assets.siteSearch.formAction.url}}" {{else}}
                             action="https://www.qld.gov.au/search" {{/if}}>

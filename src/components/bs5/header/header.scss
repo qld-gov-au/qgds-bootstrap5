@@ -36,7 +36,7 @@
     z-index: 2;
     height: var(--qld-header-preheader-height);
 
-    .qld-header__main-nav-controls {
+    .qld-header-main-nav-controls {
       display: flex;
       flex-direction: row;
       justify-content: end;
@@ -49,7 +49,7 @@
       }
     }
 
-    .qld-header__toggle-main-nav {
+    .qld-header-toggle-main-nav {
       align-items: center;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -84,7 +84,7 @@
         padding: 0.75rem 1rem 0.625rem 1rem;
       }
 
-      .qld__main-nav__toggle-text {
+      &-text {
         font-size: 0.625rem;
         margin-top: 0.125rem;
 
@@ -269,15 +269,6 @@
     svg {
       vertical-align: middle;
     }
-
-    svg.viewMoreCTA {
-      margin-left: 0.5rem;
-    }
-
-    svg.cta_arrow {
-      position: absolute;
-      right: 0;
-    }
   }
 
   &-dropdown-icon {
@@ -297,12 +288,12 @@
   &-main {
     position: relative;
 
-    .qld-header__site-name {
+    .qld-header-site-name {
       display: flex;
       flex-direction: column;
       justify-content: center;
 
-      .qld-header__secondary-image {
+      .qld-header-secondary-image {
         height: 2.5rem;
 
         @include media-breakpoint-up(md) {
@@ -310,7 +301,7 @@
         }
       }
 
-      .qld-header__heading {
+      .qld-header-heading {
         font-size: 1rem;
         font-weight: 700;
         line-height: 1.25;
@@ -325,7 +316,7 @@
         }
       }
 
-      .qld-header__subline {
+      .qld-header-subline {
         color: var(--#{$prefix}header__site-name__subline__text_color);
         font-size: 0.875rem;
         line-height: 1.14;
@@ -371,8 +362,8 @@
           );
         }
 
-        .qld-header__heading,
-        .qld-header__subline {
+        .qld-header-heading,
+        .qld-header-subline {
           color: var(
             --#{$prefix}header__brand__anchor__hover_headingsubline__text_color
           );
@@ -414,7 +405,7 @@
     }
   }
 
-  &__site-search {
+  &-site-search {
     form {
       display: flex;
       position: relative;
@@ -422,7 +413,7 @@
 
     @include media-breakpoint-down(lg) {
       // Mobile search open class
-      &--open {
+      &.is-open {
         z-index: 1;
         display: block;
         position: absolute;
@@ -432,15 +423,17 @@
         padding: 1rem 0;
         background-color: var(--#{$prefix}header-color-bg);
       }
-      &--closed {
+      &.is-closed {
         display: none;
       }
     }
 
-    // Some default styling overrides.
-    .container {
-      display: contents;
+    @include media-breakpoint-up(lg) {
+      .container {
+        display: contents;
+      }
     }
+    // Some default styling overrides.
 
     .qld-search-input {
       min-width: auto;
