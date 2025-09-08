@@ -31,6 +31,7 @@ import icon from "../components/bs5/icons/icon.hbs?raw";
 import image from "../components/bs5/image/image.hbs?raw";
 import inpageAlert from "../components/bs5/inpageAlert/inpageAlert.hbs?raw";
 import inpagenav from "../components/bs5/inpagenav/inpagenav.hbs?raw";
+import link from "../components/bs5/link/link.hbs?raw";
 import linkColumns from "../components/bs5/linkColumns/linkColumns.hbs?raw";
 import logo from "../components/bs5/logo/logo.hbs?raw";
 import logoCOALandscape from "../components/bs5/logo/logoCOALandscape.hbs?raw";
@@ -60,7 +61,6 @@ import textarea from "../components/bs5/textarea/textarea.hbs?raw";
 import textbox from "../components/bs5/textbox/textbox.hbs?raw";
 import typography from "../components/bs5/typography/typography.hbs?raw";
 import video from "../components/bs5/video/video.hbs?raw";
-
 
 /**
  * Registers Handlebars Partials
@@ -98,6 +98,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("image", image);
   handlebars.registerPartial("inpageAlert", inpageAlert);
   handlebars.registerPartial("inpagenav", inpagenav);
+  handlebars.registerPartial("link", link);
   handlebars.registerPartial("linkColumns", linkColumns);
   handlebars.registerPartial("logo", logo);
   handlebars.registerPartial("logoCOALandscape", logoCOALandscape);
@@ -109,7 +110,10 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("navbar", navbar);
   handlebars.registerPartial("pageLayout", pageLayout);
   handlebars.registerPartial("contentPageWithForm", contentPageWithForm);
-  handlebars.registerPartial("contentPageWithSideNavigation", contentPageWithSideNavigation);
+  handlebars.registerPartial(
+    "contentPageWithSideNavigation",
+    contentPageWithSideNavigation,
+  );
   handlebars.registerPartial("fullWidthLandingPage", fullWidthLandingPage);
   handlebars.registerPartial("pagination", pagination);
   handlebars.registerPartial("promotionalPanel", promotionalPanel);
@@ -127,8 +131,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("textbox", textbox);
   handlebars.registerPartial("typography", typography);
   handlebars.registerPartial("video", video);
-
 }
-if(typeof(Handlebars) !== 'undefined') {
+if (typeof Handlebars !== "undefined") {
   handlebarsPartials(Handlebars);
 }

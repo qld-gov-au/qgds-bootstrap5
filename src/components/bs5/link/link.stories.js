@@ -1,18 +1,17 @@
-// ComponentExample.stories.js
 /**
  * @file linkColumns.stories.js
  * @description Storybook configuration file for the link Columns component.
  * @module linkColumns.stories
  */
 
-import { IconLink } from "./iconLink.js";
-import defaultdata from "./iconLink.data.json";
+import { Link } from "./link.js";
+import defaultdata from "./link.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "3. Components/Icon Link",
+  title: "3. Components/Link",
 
-  render: (args) => new IconLink(args).html,
+  render: (args) => new Link(args).html,
   //   args: defaultdata,
   argTypes: {
     url: {

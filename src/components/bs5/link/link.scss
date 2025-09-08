@@ -1,14 +1,21 @@
-.icon-link {
+.link {
   text-underline-offset: var(--qld-link-underline-offset);
   text-decoration-thickness: var(--qld-link-underline-thickness);
 
   --#{$prefix}icon-background-color: var(--#{$prefix}light-action-secondary);
+  --#{$prefix}icon-background-color-hover: var(
+    --#{$prefix}light-action-secondary-hover
+  );
   --#{$prefix}link-color: var(--#{$prefix}light-link);
   --#{$prefix}link-text-decoration-color: var(--#{$prefix}light-link);
+  --#{$prefix}link-gap: 0.5rem;
 
   .dark &,
   .dark-alt & {
     --#{$prefix}icon-background-color: var(--#{$prefix}dark-action-secondary);
+    --#{$prefix}icon-background-color-hover: var(
+      --#{$prefix}dark-action-secondary-hover
+    );
     --#{$prefix}link-color: var(--#{$prefix}dark-link);
     --#{$prefix}link-text-decoration-color: var(--#{$prefix}dark-link);
     &:visited {
@@ -19,12 +26,25 @@
 
   color: var(--#{$prefix}link-color);
   text-decoration-color: var(--#{$prefix}link-text-decoration-color);
+  display: flex;
+  gap: var(--#{$prefix}link-gap);
+  align-items: center;
+  text-decoration-color: rgba(
+    var(--#{$prefix}link-color-rgb),
+    var(--#{$prefix}link-opacity, 0.5)
+  );
+  text-underline-offset: $icon-link-underline-offset;
+  backface-visibility: hidden;
+  width: fit-content;
 
   &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness);
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
     text-decoration-color: var(
       --#{$prefix}color-default-color-light-underline-default
     );
+    .qld-icon {
+      background-color: var(--#{$prefix}icon-background-color-hover);
+    }
   }
 
   &:visited {
@@ -47,10 +67,14 @@
   }
 }
 
-.icon-link-list {
+.link-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  li {
+    margin-top: 0.75rem;
+    line-height: 1.5rem;
+  }
   li:first-child {
     margin-top: 0;
   }
