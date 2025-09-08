@@ -1,5 +1,5 @@
 import Component from "../../../js/QGDSComponent.js";
-import template from "./iconLink.hbs?raw";
+import template from "./link.hbs?raw";
 
 /**
  * Creates a new instance of the Link Column class.
@@ -10,7 +10,7 @@ import template from "./iconLink.hbs?raw";
  * See sample data file for more examples.
  */
 
-export class IconLink {
+export class Link {
   // Use the global Component class to create a new instance of the LinkColumn component.
   // A data object, containing the Handlebars placeholder replacement strings, should be provided as an argument.
 
