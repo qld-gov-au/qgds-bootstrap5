@@ -13,10 +13,7 @@
             {{/if}}
         </div>
         {{#if secondaryLogo}}
-            <div class="qld-header-site-name">
-                <img src="{{secondaryLogo.src}}" class="qld-header-secondary-image" height="56" alt="{{#if secondaryLogo.altText}}{{secondaryLogo.altText}}{{else}}{{siteTitle}}{{#if subline}}{{subline}}{{/if}}{{/if}}"
-                    />
-            </div>
+            <img src="{{secondaryLogo.src}}" class="qld-header-secondary-image qld-header-logo" height="56" alt="{{#if secondaryLogo.altText}}{{secondaryLogo.altText}}{{else}}{{siteTitle}}{{#if subline}}{{subline}}{{/if}}{{/if}}" />
         {{else}}
         {{#if siteTitle}}
         <div class="qld-header-site-name">

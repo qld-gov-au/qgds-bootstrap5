@@ -357,13 +357,13 @@
       flex-wrap: nowrap;
       justify-content: center;
     }
+  }
 
-    .qld-header-secondary-image {
-      height: 2.5rem;
+  &-secondary-image {
+    height: 2.5rem;
 
-      @include media-breakpoint-up(md) {
-        height: 3.5rem;
-      }
+    @include media-breakpoint-up(md) {
+      height: 3.5rem;
     }
   }
 
