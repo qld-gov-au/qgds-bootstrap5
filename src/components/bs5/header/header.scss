@@ -424,12 +424,12 @@
       }
     }
 
+    // Some default styling overrides.
     @include media-breakpoint-up(lg) {
       .container {
         display: contents;
       }
     }
-    // Some default styling overrides.
 
     .qld-search-input {
       min-width: auto;
