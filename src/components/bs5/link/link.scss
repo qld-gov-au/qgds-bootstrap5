@@ -35,6 +35,7 @@
   );
   text-underline-offset: $icon-link-underline-offset;
   backface-visibility: hidden;
+  width: fit-content;
 
   &:hover {
     text-decoration-thickness: var(--qld-link-underline-thickness-hover);
