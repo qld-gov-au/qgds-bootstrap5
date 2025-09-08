@@ -197,10 +197,19 @@ export const ContentPageWithSideNav = {
         "Everything you need to know about registering your vehicle in Queensland.",
       breadcrumbs: breadcrumbsData.default,
     },
+    calloutdata: {
+      title: "Call out heading",
+      content:
+        "Faucibus urna non suspendisse augue donec fermentum. Semper elementum dui odio sociis. Quis risus pellentesque consectetur risus senectus. Egestas lectus nec dui odio vitae sem. Convallis pulvinar arcu feugiat eget. Est convallis mattis mauris nisi suscipit.",
+    },
     sidenav: sidenavData,
     inpagenav: inpagenavData,
     image: imageData,
     video: videoData.youtube,
+    callToAction: {
+      ...callToActionData,
+      label: "Call to action",
+    },
   },
 };
 
