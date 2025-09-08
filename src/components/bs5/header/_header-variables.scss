@@ -245,10 +245,10 @@ $prefix: "qld" !default;
 
   .dark-alt & {
     @include register-vars(
-      "#{$prefix}header",
+      "#{$prefix}header-",
       (
-        _bg: var(--#{$prefix}color-default-color-dark-background-alt),
-        __pre-header_bg_color: var(
+        color-bg: var(--#{$prefix}color-default-color-dark-background-alt),
+        pre-header-color-bg: var(
             --#{$prefix}color-default-color-dark-background-default
           ),
       )
@@ -257,10 +257,10 @@ $prefix: "qld" !default;
 
   .dark & {
     @include register-vars(
-      "#{$prefix}header",
+      "#{$prefix}header-",
       (
-        _bg: var(--#{$prefix}color-default-color-dark-background-default),
-        __pre-header_bg_color: var(
+        color-bg: var(--#{$prefix}color-default-color-dark-background-default),
+        pre-header-color-bg: var(
             --#{$prefix}color-default-color-dark-background-alt
           ),
         __cta-wrapper__cta-link-dropdown_bg_color: var(
