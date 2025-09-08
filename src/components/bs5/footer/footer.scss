@@ -122,8 +122,9 @@
   // Icons and Crest
   --#{$prefix}footer-crest-max-width: 15.72rem;
 
-  //--internal-gutter: var(--#{$prefix}footer-column-spacing);
-  padding-block: var(--#{$prefix}footer-padding-y);
+  @include media-breakpoint-up(lg) {
+    padding-block: var(--#{$prefix}footer-padding-y);
+  }
   border-top: solid;
   border-top-width: var(--#{$prefix}footer-top-border-width);
   border-top-color: var(--#{$prefix}footer-color-designAccent);
@@ -233,12 +234,10 @@
     display: block;
     width: 100%;
     max-width: 14.5rem;
-    margin-block-start: var(--#{$prefix}footer-spacing);
-    margin-block-end: var(--#{$prefix}footer-spacing);
+    margin-block-start: calc(var(--#{$prefix}footer-spacing) * 1.5);
+    margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.5);
 
     @include media-breakpoint-up(lg) {
-      margin-block-start: calc(var(--#{$prefix}footer-spacing) * 1.5);
-      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.5);
       max-width: var(--#{$prefix}footer-crest-max-width);
     }
   }
