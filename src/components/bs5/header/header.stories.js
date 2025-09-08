@@ -7,8 +7,9 @@ import { Banner } from "../banner/Banner.js";
 import { Footer } from "../footer/Footer.js";
 
 // Mock data
-import menu_state from "../navbar/navbar.variant.menuState.data.json";
-import cobrand_example from "../navbar/navbar.variant.coBrand.data.json";
+// import menu_state from "../navbar/navbar.variant.menuState.data.json";
+// import cobrand_example from "../navbar/navbar.variant.coBrand.data.json";
+import menu_state from "../navbar/navbar.data.json";
 import searchData from "../searchInput/searchInput.data.json";
 import breadcrumbs from "../banner/banner.data.json";
 import footerData from "../footer/footer.data.json";
@@ -217,7 +218,7 @@ export const SubBrand = {
 
 // Co brand
 export const CoBrand = {
-  args: mergeArgs(alternative_palette, cobrand_variant, cobrand_example),
+  args: mergeArgs(alternative_palette, cobrand_variant, menu_state),
   argTypes: arg_types,
   parameters: {
     backgrounds: {
