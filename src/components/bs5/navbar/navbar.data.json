@@ -1,29 +1,29 @@
 {
   "metadata": {
-    "altColour": false,
-    "vertOrientation": false,
+    "alternativeColor": false,
+    "verticalOrientation": false,
     "navbarBrandName": "Menu 2"
   },
   "navigation": [
     {
-        "text": "Home",
-        "iconName": "qld-icon-home",
-        "url": "index.html",
-        "altColour": false,
-        "mobileOnly": false,
-        "hideLabel": true,
-        "target": ""
+      "text": "Home",
+      "iconName": "qld-icon-home",
+      "url": "index.html",
+      "alternativeColor": false,
+      "mobileOnly": false,
+      "hideLabel": true,
+      "target": ""
     },
     {
       "text": "Simple list",
       "iconName": "",
       "url": "index.html",
-      "altColour": true,
+      "alternativeColor": true,
       "mobileOnly": false,
       "hideLabel": false,
       "target": "_blank",
       "dropdownOptions": {
-        "altText": "Patients and visitors",
+        "alternativeText": "Patients and visitors",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "viewAllHref": "wired.com"
       },
@@ -83,12 +83,12 @@
       "text": "Mega menu",
       "iconName": "qld-icon-calendar",
       "url": "https://www.wired.html",
-      "altColour": true,
+      "alternativeColor": true,
       "mobileOnly": false,
       "hideLabel": false,
       "target": "",
       "dropdownOptions": {
-        "altText": "Mega menu alt title",
+        "alternativeText": "Mega menu alt title",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "viewAllHref": "index.html"
       },
@@ -155,7 +155,7 @@
       "text": "Full screen view",
       "iconName": "",
       "url": "/iframe.html?viewMode=story&id=3-components-navbar--default",
-      "altColour": false,
+      "alternativeColor": false,
       "mobileOnly": false,
       "hideLabel": false,
       "target": ""
@@ -164,7 +164,7 @@
       "text": "Overview view",
       "iconName": "",
       "url": "/?path=/docs/3-components-navbar--overview",
-      "altColour": false,
+      "alternativeColor": false,
       "mobileOnly": false,
       "hideLabel": false,
       "target": ""
@@ -173,7 +173,7 @@
       "text": "mobile item",
       "iconName": "",
       "url": "index.html",
-      "altColour": false,
+      "alternativeColor": false,
       "mobileOnly": true,
       "hideLabel": false,
       "target": ""
@@ -182,7 +182,7 @@
       "text": "mobile item with icon",
       "iconName": "qld-icon-chart",
       "url": "index.html",
-      "altColour": false,
+      "alternativeColor": false,
       "mobileOnly": true,
       "hideLabel": false,
       "target": ""

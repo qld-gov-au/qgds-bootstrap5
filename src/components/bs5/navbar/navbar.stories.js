@@ -29,10 +29,10 @@ export default {
           args[`${itemName.replace(/\s+/g, "")}_mobileOnly`] !== undefined
             ? args[`${itemName.replace(/\s+/g, "")}_mobileOnly`]
             : originalItem.mobileOnly,
-        altColour:
-          args[`${itemName.replace(/\s+/g, "")}_altColour`] !== undefined
-            ? args[`${itemName.replace(/\s+/g, "")}_altColour`]
-            : originalItem.altColour,
+        alternativeColor:
+          args[`${itemName.replace(/\s+/g, "")}_alternativeColor`] !== undefined
+            ? args[`${itemName.replace(/\s+/g, "")}_alternativeColor`]
+            : originalItem.alternativeColor,
         iconName:
           args[`${itemName.replace(/\s+/g, "")}_iconName`] ||
           originalItem.iconName ||
@@ -46,7 +46,7 @@ export default {
         text: args[`newItem${i}_text`] || `New Item ${i + 1}`,
         hideLabel: args[`newItem${i}_hideLabel`] || false,
         mobileOnly: args[`newItem${i}_mobileOnly`] || false,
-        altColour: args[`newItem${i}_altColour`] || false,
+        alternativeColor: args[`newItem${i}_alternativeColor`] || false,
         iconName: args[`newItem${i}_iconName`] || "",
         url: "#",
         cssClass: "",
@@ -59,8 +59,9 @@ export default {
 
     // Apply metadata
     data.metadata = data.metadata || {};
-    data.metadata.altColour = args["Nav altColour"] || false;
-    data.metadata.vertOrientation = args["Nav vertOrientation"] || false;
+    data.metadata.alternativeColor = args["Nav alternativeColor"] || false;
+    data.metadata.verticalOrientation =
+      args["Nav verticalOrientation"] || false;
     data.metadata.navbarBrandName = args["Nav navbarBrandName"] || "";
 
     try {
@@ -114,7 +115,7 @@ export default {
           }
         }
 
-        if (item.altColour) {
+        if (item.alternativeColor) {
           const textPos = html.indexOf(item.text);
           if (textPos !== -1) {
             let liStart = html.lastIndexOf("<li", textPos);
@@ -189,11 +190,11 @@ export default {
 
   argTypes: {
     // 1. Navbar Body (first)
-    "Nav altColour": {
+    "Nav alternativeColor": {
       control: "boolean",
       table: { category: "Navbar Body" },
     },
-    "Nav vertOrientation": {
+    "Nav verticalOrientation": {
       control: "boolean",
       table: { category: "Navbar Body" },
     },
@@ -228,8 +229,8 @@ export default {
             control: "boolean",
             table: { category: "Base Items" },
           };
-          argTypes[`${baseName}_altColour`] = {
-            name: `${item.text} - Alt Colour`,
+          argTypes[`${baseName}_alternativeColor`] = {
+            name: `${item.text} - Alternative Color`,
             control: "boolean",
             table: { category: "Base Items" },
           };
@@ -286,8 +287,8 @@ export default {
               args && args["Add Navigation Item"] >= itemNumber ? "" : "hide",
           },
         };
-        argTypes[`newItem${i}_altColour`] = {
-          name: `New Item ${itemNumber} - Alt Colour`,
+        argTypes[`newItem${i}_alternativeColor`] = {
+          name: `New Item ${itemNumber} - Alternative Color`,
           control: "boolean",
           table: {
             category: "New Items",
@@ -311,8 +312,8 @@ export default {
 
 export const Default = {
   args: {
-    "Nav altColour": false,
-    "Nav vertOrientation": false,
+    "Nav alternativeColor": false,
+    "Nav verticalOrientation": false,
     "Nav navbarBrandName": "",
     "Add Navigation Item": 0,
     // Initialize base items with iconName
@@ -325,7 +326,7 @@ export const Default = {
           args[`${baseName}_text`] = item.text;
           args[`${baseName}_hideLabel`] = item.hideLabel || false;
           args[`${baseName}_mobileOnly`] = item.mobileOnly || false;
-          args[`${baseName}_altColour`] = item.altColour || false;
+          args[`${baseName}_alternativeColor`] = item.alternativeColor || false;
         });
       }
 
@@ -335,13 +336,13 @@ export const Default = {
         args[`newItem${i}_text`] = `New Item ${i + 1}`;
         args[`newItem${i}_hideLabel`] = false;
         args[`newItem${i}_mobileOnly`] = false;
-        args[`newItem${i}_altColour`] = false;
+        args[`newItem${i}_alternativeColor`] = false;
       }
 
       return args;
     })(),
   },
-  
+
   // Add custom render function for this story only
   render: (args) => {
     // Create a copy of default data
@@ -368,10 +369,10 @@ export const Default = {
           args[`${itemName.replace(/\s+/g, "")}_mobileOnly`] !== undefined
             ? args[`${itemName.replace(/\s+/g, "")}_mobileOnly`]
             : originalItem.mobileOnly,
-        altColour:
-          args[`${itemName.replace(/\s+/g, "")}_altColour`] !== undefined
-            ? args[`${itemName.replace(/\s+/g, "")}_altColour`]
-            : originalItem.altColour,
+        alternativeColor:
+          args[`${itemName.replace(/\s+/g, "")}_alternativeColor`] !== undefined
+            ? args[`${itemName.replace(/\s+/g, "")}_alternativeColor`]
+            : originalItem.alternativeColor,
         iconName:
           args[`${itemName.replace(/\s+/g, "")}_iconName`] ||
           originalItem.iconName ||
@@ -385,7 +386,7 @@ export const Default = {
         text: args[`newItem${i}_text`] || `New Item ${i + 1}`,
         hideLabel: args[`newItem${i}_hideLabel`] || false,
         mobileOnly: args[`newItem${i}_mobileOnly`] || false,
-        altColour: args[`newItem${i}_altColour`] || false,
+        alternativeColor: args[`newItem${i}_alternativeColor`] || false,
         iconName: args[`newItem${i}_iconName`] || "",
         url: "#",
         cssClass: "",
@@ -398,8 +399,9 @@ export const Default = {
 
     // Apply metadata
     data.metadata = data.metadata || {};
-    data.metadata.altColour = args["Nav altColour"] || false;
-    data.metadata.vertOrientation = args["Nav vertOrientation"] || false;
+    data.metadata.alternativeColor = args["Nav alternativeColor"] || false;
+    data.metadata.verticalOrientation =
+      args["Nav verticalOrientation"] || false;
     data.metadata.navbarBrandName = args["Nav navbarBrandName"] || "";
 
     try {
@@ -450,7 +452,7 @@ export const Default = {
           }
         }
 
-        if (item.altColour) {
+        if (item.alternativeColor) {
           const textPos = html.indexOf(item.text);
           if (textPos !== -1) {
             let liStart = html.lastIndexOf("<li", textPos);
@@ -510,7 +512,7 @@ export const Default = {
       `;
 
       const navbarHTML = styles + html + `<!-- Render: ${Date.now()} -->`;
-      
+
       // HTML that appears before the navbar (Storybook only)
       const beforeHTML = `
         <div id="storybook-only-header">
@@ -520,9 +522,8 @@ export const Default = {
           </button>
         </div>
       `;
-      
-      return beforeHTML + navbarHTML;
 
+      return beforeHTML + navbarHTML;
     } catch (error) {
       console.error("Error:", error);
       return `<div style="color: red; padding: 20px;"><h3>Error</h3><p>${error.message}</p></div>`;

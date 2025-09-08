@@ -3,10 +3,10 @@
             height: 4rem;
             display: flex;
             align-items: center;
-            color: var(--header-colour);
+            color: var(--header-color);
 
             a {
-                color: var(--header-colour);
+                color: var(--header-color);
             }
 
             .navbar-brand {
@@ -32,7 +32,7 @@
             max-width: 18.75rem;
             flex-direction: row;
             margin-inline: 0;
-            background-color: var(--vert-background-colour);
+            background-color: var(--vert-background-color);
             height: 100vh;
             flex-flow: column;
 
@@ -44,16 +44,16 @@
                 flex-direction: column;
                 width: 100%;
                 padding-inline-start: 0;
-                border-inline-end: 1px solid var(--border-colour);
+                border-inline-end: 1px solid var(--border-color);
                 .nav-item {
                     &.dropdown {
                         display: flex;
                         flex-wrap: wrap;
                         align-items: center;
-                        background-color: var(--background-colour);
+                        background-color: var(--background-color);
 
                         &:hover {
-                            background-color: var(--background-colour-hover);
+                            background-color: var(--background-color-hover);
                         }
 
                         &>a {
@@ -62,7 +62,7 @@
                         }
 
                         &:has(.show) {
-                            background-color: var(--background-colour-hover);
+                            background-color: var(--background-color-hover);
 
                             button.nav-link {
                                 background-color: var(--dropdown-show-btn-bg);
@@ -100,7 +100,7 @@
                                 mask-image: var(--qgds-icon-chevron-down);
                                 mask-repeat: no-repeat;
                                 mask-position: 0;
-                                background-color: var(--dropdown-show-btn-icon-colour);
+                                background-color: var(--dropdown-show-btn-icon-color);
                                 width: 1rem;
                                 height: 1rem;
                                 border: 0;
@@ -125,7 +125,7 @@
                     .dropdown-menu.show {
                         position: relative;
                         border: none;
-                        border-block-start: 1px solid var(--border-colour);
+                        border-block-start: 1px solid var(--border-color);
                         padding-block: 0;
                         margin-block: 0;
                         width: 100%;
@@ -175,20 +175,20 @@
             }
 
             li {
-                border-block-end: 1px solid var(--border-colour);
+                border-block-end: 1px solid var(--border-color);
             }
 
             a.nav-link,
             a.dropdown-item {
-                color: var(--link-colour);
+                color: var(--link-color);
                 padding: 0.75rem;
                 display: flex;
-                border-inline-start: 0.25rem solid var(--link-border-colour);
+                border-inline-start: 0.25rem solid var(--link-border-color);
                 align-items: center;
                 transition: padding-inline-end var(--animation-time) ease-in-out;
 
                 &:hover {
-                    border-inline-start: 0.25rem solid var(--link-border-colour-hover);
+                    border-inline-start: 0.25rem solid var(--link-border-color-hover);
                     text-decoration: underline;
                     text-underline-offset: 0.3rem;
                     text-decoration-thickness: 0.125rem;
@@ -255,32 +255,32 @@
 }
 
 .navbar {
-    --vert-background-colour: var(--#{$prefix}dark-background);
-    --background-colour: var(--#{$prefix}default-background-shade);
-    --background-colour-hover: var(--#{$prefix}light-border);
+    --vert-background-color: var(--#{$prefix}dark-background);
+    --background-color: var(--#{$prefix}default-background-shade);
+    --background-color-hover: var(--#{$prefix}light-border);
     --dropdown-show-bg: var(--#{$prefix}default-background);
-    --link-border-colour: var(--#{$prefix}light-accent);
-    --link-border-colour-hover: var(--#{$prefix}light-action-primary-hover);
-    --link-colour: var(--#{$prefix}light-action-primary-hover);
-    --text-colour: var(--#{$prefix}light-text-text);
-    --border-colour: var(--#{$prefix}light-border);
-    --header-colour:  var(--#{$prefix}default-background);
+    --link-border-color: var(--#{$prefix}light-accent);
+    --link-border-color-hover: var(--#{$prefix}light-action-primary-hover);
+    --link-color: var(--#{$prefix}light-action-primary-hover);
+    --text-color: var(--#{$prefix}light-text-text);
+    --border-color: var(--#{$prefix}light-border);
+    --header-color:  var(--#{$prefix}default-background);
     --action-icon-color: var(--#{$prefix}alt-button-hover);
     --mobile-only-display: none;
     --dropdown-show-btn-bg: var(--#{$prefix}default-background);
-    --dropdown-show-btn-icon-colour: var(--#{$prefix}alt-button-hover);
+    --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);
 
-    --nav-header-colour: var(--#{$prefix}dark-text-text);
-    --nav-header-border-colour: var(--#{$prefix}dark-border);
-    --nav-header-icon-colour: var(--#{$prefix}brand-accent);
+    --nav-header-color: var(--#{$prefix}dark-text-text);
+    --nav-header-border-color: var(--#{$prefix}dark-border);
+    --nav-header-icon-color: var(--#{$prefix}brand-accent);
 
     /* general */
-    --button-bg-colour: var(--#{$prefix}default-background);
+    --button-bg-color: var(--#{$prefix}default-background);
     --animation-time: 0.2s;
     --shadow-dropdown: 0px 1px 2px 0px rgba(0, 0, 0, .3), -2px 2px 6px 2px rgba(0, 0, 0, .15);
     /* hor bar */
-    --hor-bar-border-width: .5rem;
-    --dropdown-bg-colour: var(--#{$prefix}default-background);
+    --horizontal-bar-border-width: .5rem;
+    --dropdown-bg-color: var(--#{$prefix}default-background);
     /* House keeping */
     --icon-dir: 1;
     :dir(rtl) {
@@ -302,57 +302,57 @@
 
     /* colours */
     &.dark {
-        --vert-background-colour: var(--#{$prefix}default-background);
-        --background-colour: var(--#{$prefix}dark-background-shade);
-        --background-colour-hover: var(--#{$prefix}dark-alt-background);
+        --vert-background-color: var(--#{$prefix}default-background);
+        --background-color: var(--#{$prefix}dark-background-shade);
+        --background-color-hover: var(--#{$prefix}dark-alt-background);
         --dropdown-show-bg: var(--#{$prefix}dark-background-shade);
-        --link-border-colour: var(--#{$prefix}dark-accent);
-        --link-border-colour-hover: var(--#{$prefix}dark-action-primary-hover);
-        --link-colour: var(--#{$prefix}dark-text-text);
-        --text-colour: var(--#{$prefix}dark-text-text);
-        --border-colour: var(--#{$prefix}dark-border);
-        --header-colour: var(--#{$prefix}light-text-heading);
-        --dropdown-bg-colour: var(--#{$prefix}dark-background);
+        --link-border-color: var(--#{$prefix}dark-accent);
+        --link-border-color-hover: var(--#{$prefix}dark-action-primary-hover);
+        --link-color: var(--#{$prefix}dark-text-text);
+        --text-color: var(--#{$prefix}dark-text-text);
+        --border-color: var(--#{$prefix}dark-border);
+        --header-color: var(--#{$prefix}light-text-heading);
+        --dropdown-bg-color: var(--#{$prefix}dark-background);
         --action-icon-color: var(--#{$prefix}brand-accent);
 
-        --nav-header-colour: var(--#{$prefix}light-text-text);
-        --nav-header-border-colour: var(--#{$prefix}light-border);
-        --nav-header-icon-colour: var(--#{$prefix}alt-button-hover);
+        --nav-header-color: var(--#{$prefix}light-text-text);
+        --nav-header-border-color: var(--#{$prefix}light-border);
+        --nav-header-icon-color: var(--#{$prefix}alt-button-hover);
     }
 
     @include media-breakpoint-down(lg) { 
         --mobile-only-display: block;
         .alt {
-            --vert-background-colour: var(--#{$prefix}default-background);
-            --background-colour: var(--#{$prefix}dark-background-shade);
-            --background-colour-hover: var(--#{$prefix}dark-alt-background);
+            --vert-background-color: var(--#{$prefix}default-background);
+            --background-color: var(--#{$prefix}dark-background-shade);
+            --background-color-hover: var(--#{$prefix}dark-alt-background);
             --dropdown-show-bg: var(--#{$prefix}dark-background-shade);
-            --link-border-colour: var(--#{$prefix}dark-accent);
-            --link-border-colour-hover: var(--#{$prefix}dark-action-primary-hover);
-            --link-colour: var(--#{$prefix}dark-text-text);
-            --text-colour: var(--#{$prefix}dark-text-text);
-            --border-colour: var(--#{$prefix}dark-border);
-            --header-colour: var(--#{$prefix}light-text-heading);
-            --dropdown-bg-colour: var(--#{$prefix}dark-background);
+            --link-border-color: var(--#{$prefix}dark-accent);
+            --link-border-color-hover: var(--#{$prefix}dark-action-primary-hover);
+            --link-color: var(--#{$prefix}dark-text-text);
+            --text-color: var(--#{$prefix}dark-text-text);
+            --border-color: var(--#{$prefix}dark-border);
+            --header-color: var(--#{$prefix}light-text-heading);
+            --dropdown-bg-color: var(--#{$prefix}dark-background);
             --action-icon-color: var(--#{$prefix}brand-accent);
         }
         &.dark .alt {
-            --vert-background-colour: var(--#{$prefix}dark-background);
-            --background-colour: var(--#{$prefix}default-background-shade);
-            --background-colour-hover: var(--#{$prefix}light-border);
+            --vert-background-color: var(--#{$prefix}dark-background);
+            --background-color: var(--#{$prefix}default-background-shade);
+            --background-color-hover: var(--#{$prefix}light-border);
             --dropdown-show-bg: var(--#{$prefix}default-background);
-            --link-border-colour: var(--#{$prefix}light-accent);
-            --link-border-colour-hover: var(--#{$prefix}light-action-primary-hover);
-            --link-colour: var(--#{$prefix}light-action-primary-hover);
-            --text-colour: var(--#{$prefix}light-text-text);
-            --border-colour: var(--#{$prefix}light-border);
-            --header-colour: var(--#{$prefix}default-background);
+            --link-border-color: var(--#{$prefix}light-accent);
+            --link-border-color-hover: var(--#{$prefix}light-action-primary-hover);
+            --link-color: var(--#{$prefix}light-action-primary-hover);
+            --text-color: var(--#{$prefix}light-text-text);
+            --border-color: var(--#{$prefix}light-border);
+            --header-color: var(--#{$prefix}default-background);
             --action-icon-color: var(--#{$prefix}alt-button-hover);
         }
     }
 
-    background-color: var(--background-colour);
-    border-block-end: var(--hor-bar-border-width) solid var(--link-border-colour);
+    background-color: var(--background-color);
+    border-block-end: var(--horizontal-bar-border-width) solid var(--link-border-color);
     padding-block: 0;
 
     button.dropdown-toggle,
@@ -372,31 +372,31 @@
     }
 
     .navbar-nav a.nav-link {
-        background-color: var(--background-colour);
-        border-block-end: var(--hor-bar-border-width) solid var(--link-border-colour);
-        margin-block-end: calc(var(--hor-bar-border-width) * -1);
+        background-color: var(--background-color);
+        border-block-end: var(--horizontal-bar-border-width) solid var(--link-border-color);
+        margin-block-end: calc(var(--horizontal-bar-border-width) * -1);
 
         &.show {
-            color: var(--link-colour);
-            background-color: var(--dropdown-bg-colour);
-            border-block-end: var(--hor-bar-border-width) solid var(--dropdown-bg-colour);
+            color: var(--link-color);
+            background-color: var(--dropdown-bg-color);
+            border-block-end: var(--horizontal-bar-border-width) solid var(--dropdown-bg-color);
 
             &:hover {
-                background-color: var(--dropdown-bg-colour);
-                border-block-end: var(--hor-bar-border-width) solid var(--dropdown-bg-colour);
+                background-color: var(--dropdown-bg-color);
+                border-block-end: var(--horizontal-bar-border-width) solid var(--dropdown-bg-color);
             }
         }
 
         &.active {
-            color: var(--link-colour);
-            background-color: var(--background-colour);
-            border-block-end: var(--hor-bar-border-width) solid var(--background-colour);
+            color: var(--link-color);
+            background-color: var(--background-color);
+            border-block-end: var(--horizontal-bar-border-width) solid var(--background-color);
         }
 
         &:hover,
         &.active:hover {
-            background-color: var(--background-colour-hover);
-            border-block-end: var(--hor-bar-border-width) solid var(--link-border-colour-hover);
+            background-color: var(--background-color-hover);
+            border-block-end: var(--horizontal-bar-border-width) solid var(--link-border-color-hover);
         }
         .qld-icon {
             background-color: var(--action-icon-color);
@@ -405,7 +405,7 @@
 
     .navbar-nav a.nav-link,
     a.dropdown-item {
-        color: var(--link-colour);
+        color: var(--link-color);
         padding: 0.75rem;
         display: flex;
         line-height: 2rem;
@@ -450,15 +450,15 @@
     }
 
     .dropdown-menu.show {
-        --hor-bar-border-widthx2: calc(var(--hor-bar-border-width) * 2);
-        margin-block-start: calc(var(--hor-bar-border-widthx2) - 1px);
+        --horizontal-bar-border-widthx2: calc(var(--horizontal-bar-border-width) * 2);
+        margin-block-start: calc(var(--horizontal-bar-border-widthx2) - 1px);
         inset-inline: 0;
-        background-color: var(--dropdown-bg-colour);
+        background-color: var(--dropdown-bg-color);
         padding: 4rem;
         border-radius: 1rem;
         border-start-start-radius: 0;
         border-start-end-radius: 0;
-        color: var(--text-colour);
+        color: var(--text-color);
         box-shadow: var(--shadow-dropdown);
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -467,10 +467,10 @@
         &::before {
             content: "";
             position: absolute;
-            height: var(--hor-bar-border-width);
+            height: var(--horizontal-bar-border-width);
             inset: 0;
-            inset-block-start: calc(var(--hor-bar-border-width) * -1);
-            background-color: var(--dropdown-bg-colour);
+            inset-block-start: calc(var(--horizontal-bar-border-width) * -1);
+            background-color: var(--dropdown-bg-color);
         }
 
         li {
@@ -488,7 +488,7 @@
                 padding-inline-start: 0;
                 padding-inline-end: .75rem;
                 white-space: normal;
-                border-block-end: 1px solid var(--border-colour);
+                border-block-end: 1px solid var(--border-color);
                 padding-block-end: 1rem;
                 gap: 1rem;
                 transition: padding-inline-end var(--animation-time) ease-in-out, gap var(--animation-time) ease-in-out;
@@ -524,7 +524,7 @@
         }
 
         li:has(.parent-link) {
-            border-block-end: 1px solid var(--border-colour);
+            border-block-end: 1px solid var(--border-color);
             padding-block-end: 2rem;
             margin-block-end: 2rem;
             grid-column: 1 / -1; 
@@ -547,7 +547,7 @@
 
         li:has(.view-all) {
             width: 100%;
-            border-block-start: 1px solid var(--border-colour);
+            border-block-start: 1px solid var(--border-color);
             padding-block-start: 2rem;
             margin-block-start: 2rem;
             grid-column: 1 / -1; 
@@ -625,7 +625,7 @@
         @include repeatedVerticalStyles;
 
         .nav-header .navbar-brand {
-            color: var(--nav-header-colour);
+            color: var(--nav-header-color);
         }
 
         #burgerCloseBtn {
@@ -635,15 +635,15 @@
             align-items: center;
             justify-content: center;
             font-size: .7rem;
-            color: var(--nav-header-colour);
-            border-inline-start: 1px solid var(--nav-header-border-colour);
+            color: var(--nav-header-color);
+            border-inline-start: 1px solid var(--nav-header-border-color);
             padding-block: 0;
             &::before {
                 content: "";
                 mask-image: var(--qgds-icon-close);
                 mask-repeat: no-repeat;
                 mask-position: 0;
-                background-color: var(--nav-header-icon-colour);
+                background-color: var(--nav-header-icon-color);
                 width: 1.5rem;
                 height: 1.5rem;
                 border: 0;
