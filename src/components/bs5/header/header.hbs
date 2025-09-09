@@ -103,10 +103,10 @@
         </div>
     </div>
 
-    <div class="qld-header-main {{#if isMasterBrand}}is-masterbrand{{/if}}{{#ifCond preHeader.palette "===" " dark"}}dark{{else}}{{#ifCond
+    <div class="qld-header-main{{#ifCond preHeader.palette "===" " dark"}} dark{{else}}{{#ifCond
         preHeader.palette "===" "light" }} light{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
         }} dark-alt{{else}} default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
-        <div class="container py-16 py-md-24">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col">
                     {{#ifAny isMasterBrand isSubBrand isCoBrand}}

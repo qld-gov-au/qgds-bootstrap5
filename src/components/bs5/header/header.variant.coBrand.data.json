@@ -9,7 +9,8 @@
       {
         "id": "CTAone",
         "url": "#",
-        "text": "Get support to quit"
+        "text": "Get support to quit",
+        "icon": "profile"
       }
     ]
   },
