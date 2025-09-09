@@ -1,5 +1,6 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta, Story, Source } from "@storybook/blocks";
 import * as BannerStories from "./banner.stories";
+import defaultdata from "./banner.data.json";
 
 <Meta of={BannerStories} />
 
@@ -14,3 +15,7 @@ import * as BannerStories from "./banner.stories";
 - [Component library (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=10861-449385&mode=design&t=NREcuP5UOBB2Y6G4-4)
 - [Master component file (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=6037-22593&mode=design&t=YLfxdziHdqD2Ty0o-0)
 - [Design System website](https://www.designsystem.qld.gov.au/components/banners)
+
+## Example JSON data
+
+<Source language="json" code={JSON.stringify(defaultdata, null, 2)} />

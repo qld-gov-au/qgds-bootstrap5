@@ -1,9 +1,11 @@
-import { Canvas, Meta, Story } from "@storybook/blocks"
-import * as GlobalAlertStories from "./globalAlert.stories"
+import { Canvas, Meta, Story, Source } from "@storybook/blocks";
+import * as GlobalAlertStories from "./globalAlert.stories";
+import defaultdata from "./GlobalAlert.data.json";
 
 <Meta of={GlobalAlertStories} />
 
 # Global alert
+
 <Canvas>
   <Story of={GlobalAlertStories.Critical} />
 </Canvas>
@@ -13,3 +15,7 @@ import * as GlobalAlertStories from "./globalAlert.stories"
 - [Component library (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=23805-314551&mode=design&t=NREcuP5UOBB2Y6G4-4)
 - [Master component file (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-97590&mode=design&t=YLfxdziHdqD2Ty0o-0)
 - [Design System website](https://www.designsystem.qld.gov.au/components/alerts-global)
+
+## Example JSON data
+
+<Source language="json" code={JSON.stringify(defaultdata, null, 2)} />
