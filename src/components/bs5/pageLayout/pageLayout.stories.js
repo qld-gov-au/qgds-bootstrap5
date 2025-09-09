@@ -29,31 +29,31 @@ import accordionData from "../accordion/accordion.data.json";
 import { SearchInput } from "../searchInput/SearchInput.js";
 
 const sideNavData = {
-  "navtitle": "Template",
-  "navtitlelink": "#optionallink",
-  "navlist": [
+  navtitle: "Template",
+  navtitlelink: "#optionallink",
+  navlist: [
     {
-      "link": "#https://www.qld.gov.au/transport/registration/register/heavy",
-      "label": "Home page",
-      "class": "",
+      link: "#https://www.qld.gov.au/transport/registration/register/heavy",
+      label: "Home page",
+      class: "",
     },
     {
-      "link": "#",
-      "label": "Content page (no bar)",
-      "class": "",
+      link: "#",
+      label: "Content page (no bar)",
+      class: "",
     },
     {
-      "link": "#",
-      "label": "Content page (basic bar)",
-      "class": "",
+      link: "#",
+      label: "Content page (basic bar)",
+      class: "",
     },
     {
-      "link": "#",
-      "label": "Single page form",
-      "class": "",
+      link: "#",
+      label: "Single page form",
+      class: "",
     },
-  ]
-}
+  ],
+};
 
 const defaultData = {
   cdn: ".", //for storybook it's ., for normal usage "PROD"
@@ -74,7 +74,7 @@ const defaultData = {
 };
 
 export default {
-  title: "6. Templates/Page Layout",
+  title: "5. Templates/Page Layout",
   render: (args) => {
     return new PageLayout(args).html;
   },
@@ -221,7 +221,6 @@ const SideNavArgs = {
   },
 };
 
-
 /**
  * Content Page with Side Navigation
  */
@@ -246,8 +245,8 @@ export const ContentPageNoBanner = {
         },
         sideNavData.navlist[2],
         sideNavData.navlist[3],
-      ]
-    }
+      ],
+    },
   },
 };
 
@@ -277,7 +276,7 @@ export const ContentPageBasicBanner = {
           class: "active",
         },
         sideNavData.navlist[3],
-      ]
+      ],
     },
   },
 };
@@ -313,8 +312,8 @@ export const ContentPageWithSingleForm = {
         {
           ...sideNavData.navlist[3],
           class: "active",
-        }
-      ]
+        },
+      ],
     },
     content: `
       <h1>Contact Form</h1>
