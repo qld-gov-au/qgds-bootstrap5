@@ -478,16 +478,23 @@
   }
 
   .banner-abstract {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    margin: 1.5rem 0 0 0;
+    margin: 1rem 0 0 0;
     max-width: 50rem; //To make readable. Clips line length for very wide viewports.
     color: var(--#{$prefix}banner-abstract-color);
 
-    @include media-breakpoint-down(xl) {
-      font-size: 1.25rem; //20
-      line-height: 1.75rem; //28
-      margin: 1rem 0 0 0;
+    //Mobile typography
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+
+    //Medium and up typography
+    @include media-breakpoint-up(md) {
+      font-size: 1.5rem; //24
+      line-height: 2rem; //32
+    }
+
+    // XL viewports
+    @include media-breakpoint-up(xl) {
+      margin-top: 1.5rem;
     }
   }
 
