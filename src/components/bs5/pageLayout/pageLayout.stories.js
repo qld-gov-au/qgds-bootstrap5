@@ -211,7 +211,7 @@ export const ContentPageWithFormExample = {
               name: "services",
               label: "Website Development",
               value: "website",
-              isDisabled: false
+              isDisabled: false,
             },
             {
               type: "checkbox",
@@ -219,7 +219,7 @@ export const ContentPageWithFormExample = {
               name: "services",
               label: "Mobile App Development",
               value: "mobile",
-              isDisabled: false
+              isDisabled: false,
             },
             {
               type: "checkbox",
@@ -227,9 +227,9 @@ export const ContentPageWithFormExample = {
               name: "services",
               label: "Consulting",
               value: "consulting",
-              isDisabled: false
-            }
-          ]
+              isDisabled: false,
+            },
+          ],
         },
         {
           ...radioData,
@@ -242,7 +242,7 @@ export const ContentPageWithFormExample = {
               name: "contactMethod",
               label: "Email",
               value: "email",
-              isDisabled: false
+              isDisabled: false,
             },
             {
               type: "radio",
@@ -250,7 +250,7 @@ export const ContentPageWithFormExample = {
               name: "contactMethod",
               label: "Phone",
               value: "phone",
-              isDisabled: false
+              isDisabled: false,
             },
             {
               type: "radio",
@@ -258,9 +258,9 @@ export const ContentPageWithFormExample = {
               name: "contactMethod",
               label: "SMS",
               value: "sms",
-              isDisabled: false
-            }
-          ]
+              isDisabled: false,
+            },
+          ],
         },
       ],
       buttons: [
