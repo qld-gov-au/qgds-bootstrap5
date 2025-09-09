@@ -29,8 +29,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   --#{$prefix}card-border-width: #{$card-border-width};
   --#{$prefix}card-border-color: var(--#{$prefix}light-border-alt);
   --#{$prefix}card-border-radius: 0.75rem;
-  --#{$prefix}card-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
-    0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
+  --#{$prefix}card-box-shadow:
+    0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
   --#{$prefix}card-inner-border-radius: #{$card-inner-border-radius};
   --#{$prefix}card-cap-padding-y: #{$card-cap-padding-y};
   --#{$prefix}card-cap-padding-x: #{$card-cap-padding-x};
@@ -49,8 +49,12 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 
   // Icon variables
   --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
-  --#{$prefix}card-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
-  --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
+  --#{$prefix}card-icon-color-hover: var(
+    --#{$prefix}light-action-secondary-hover
+  );
+  --#{$prefix}card-icon-background-color: var(
+    --#{$prefix}default-background-shade
+  );
 
   // Side positioned icon as default
   --#{$prefix}card-icon-height: 4rem;
@@ -64,7 +68,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}video-nav-bg-rgb: 9, 84, 159;
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}light-action-primary-hover);
     --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 125;
-    --#{$prefix}video-nav-bg-opacity: .9;
+    --#{$prefix}video-nav-bg-opacity: 0.9;
     --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
     --#{$prefix}video-play-icon: #{escape-svg($video-play-icon)};
     --#{$prefix}video-play-icon-hover: #{escape-svg($video-play-icon-hover)};
@@ -80,34 +84,26 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}card-icon-line-height: 8rem;
   }
   &.card-no-action {
-    .qld-icon  {
-      background-color: var(--#{$prefix}card-title-color);
-    }
-    
+    --qld-icon-color: var(--#{$prefix}card-title-color);
   }
   &.default {
     .card-icon-background {
       background-color: var(--#{$prefix}neutral-lightest);
     }
   }
-  &.card-single-action{
-    .qld-icon  {
-      background-color: var(--#{$prefix}light-action-secondary);
-    }
-    &.card-dark, &.card-dark-alt {
-      .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);   
-      }
+  &.card-single-action {
+    --qld-icon-color: var(--#{$prefix}light-action-secondary);
+    &.card-dark,
+    &.card-dark-alt {
+      --qld-icon-color: var(--#{$prefix}dark-action-secondary);
     }
   }
   &.card-multi-action {
-    .qld-icon  {
-      background-color: var(--#{$prefix}light-action-secondary);
-    }
-    &.card-dark, &.card-dark-alt {
-      .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);   
-      }
+    --qld-icon-color: var(--#{$prefix}light-action-secondary);
+
+    &.card-dark,
+    &.card-dark-alt {
+      --qld-icon-color: var(--#{$prefix}dark-action-secondary);
     }
   }
   &.card-arrow {
@@ -129,15 +125,21 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   &-default {
     --#{$prefix}card-bg: var(--#{$prefix}light-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}light-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}light-background-shade
+    );
     --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
     &:hover {
-      --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
+      --#{$prefix}card-arrow-color: var(
+        --#{$prefix}light-action-secondary-hover
+      );
     }
   }
   &-default {
     --#{$prefix}card-bg: var(--#{$prefix}default-background);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}default-background-shade
+    );
   }
   &-light {
     --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
@@ -145,10 +147,14 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   &-alt {
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}light-alt-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}light-alt-background-shade
+    );
     --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
     &:hover {
-      --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
+      --#{$prefix}card-arrow-color: var(
+        --#{$prefix}light-action-secondary-hover
+      );
     }
   }
   &-dark,
@@ -162,7 +168,9 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}link-hover-colour: var(--#{$prefix}dark-action-primary-hover);
     --#{$prefix}link-hover-text-colour: var(--#{$prefix}text-darkest);
     &:hover {
-      --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary-hover);
+      --#{$prefix}card-arrow-color: var(
+        --#{$prefix}dark-action-secondary-hover
+      );
     }
     &:not(.card-no-action) {
       --#{$prefix}card-icon-color: var(--#{$prefix}dark-action-secondary);
@@ -170,28 +178,36 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     .video-overlay {
       --#{$prefix}video-nav-bg: var(--#{$prefix}dark-action-primary);
       --#{$prefix}video-nav-bg-rgb: 120, 186, 0;
-      --#{$prefix}video-nav-bg-hover: var(--#{$prefix}dark-action-primary-hover);
+      --#{$prefix}video-nav-bg-hover: var(
+        --#{$prefix}dark-action-primary-hover
+      );
       --#{$prefix}video-nav-bg-hover-rgb: 173, 211, 63;
       --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
       --#{$prefix}video-play-icon: #{escape-svg($video-play-icon-dark)};
-      --#{$prefix}video-play-icon-hover: #{escape-svg($video-play-icon-hover-dark)};
+      --#{$prefix}video-play-icon-hover: #{escape-svg(
+          $video-play-icon-hover-dark
+        )};
       --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon-dark)};
     }
   }
   &-dark {
     --#{$prefix}card-bg: var(--#{$prefix}dark-background);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}dark-background-shade
+    );
     --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
     --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
   }
   &-dark-alt {
     --#{$prefix}card-bg: var(--#{$prefix}dark-blue);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-alt-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}dark-alt-background-shade
+    );
     --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
     --#{$prefix}card-footer-border: var(--#{$prefix}dark-alt-border);
   }
   &.icon-top {
-    position: relative;;
+    position: relative;
   }
   &.icon-top .card-icon-background {
     width: 8rem;
@@ -243,7 +259,9 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}card-spacer-y: 1.5rem;
     --#{$prefix}card-title-font-size: 1.5rem;
     --#{$prefix}card-title-line-height: 2rem;
-    --#{$prefix}card-box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1); // Level 4 shadow
+    --#{$prefix}card-box-shadow:
+      7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1),
+      0px 13px 20px rgba(0, 0, 0, 0.1); // Level 4 shadow
     &-feature {
       --#{$prefix}card-title-font-size: 2rem;
       --#{$prefix}card-title-line-height: 2.5rem;
@@ -278,7 +296,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   .card-body li {
     margin-top: 0.5rem;
   }
-  .card-text> :last-child {
+  .card-text > :last-child {
     margin-bottom: 0;
   }
   &-single-action,
@@ -296,7 +314,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         opacity: 0.1;
       }
       .video-nav {
-        background-color: rgba(var(--#{$prefix}video-nav-bg-hover-rgb), var(--#{$prefix}video-nav-bg-opacity));
+        background-color: rgba(
+          var(--#{$prefix}video-nav-bg-hover-rgb),
+          var(--#{$prefix}video-nav-bg-opacity)
+        );
         .video-watch {
           background-color: var(--#{$prefix}video-nav-bg-hover);
           text-decoration: underline;
@@ -339,7 +360,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       background-color: var(--#{$prefix}card-img-overlay-color);
       opacity: 0;
     }
-    [class^=card-img] {
+    [class^="card-img"] {
       background-image: var(--card-image);
       background-position: center center;
       background-repeat: no-repeat;
@@ -351,7 +372,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         content: "";
         position: absolute;
         inset: -1px;
-        border: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+        border: var(--#{$prefix}card-border-width) solid
+          var(--#{$prefix}card-border-color);
         border-radius: var(--#{$prefix}card-img-border-radius);
       }
     }
@@ -372,7 +394,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     flex-wrap: wrap;
     align-items: center;
     .card-body {
-      width: calc(100% - var(--#{$prefix}card-icon-width) - (2 * var(--#{$prefix}card-spacer-x)));
+      width: calc(
+        100% - var(--#{$prefix}card-icon-width) -
+          (2 * var(--#{$prefix}card-spacer-x))
+      );
       &:not(:last-child) {
         padding-bottom: var(--#{$prefix}card-spacer-y);
       }
@@ -387,16 +412,16 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
   }
   &.card-arrow {
-    .card-body{
+    .card-body {
       position: relative;
       .card-title {
         padding-right: 3rem;
         a:before {
-          content: '';
+          content: "";
           position: absolute;
           right: 1.5rem;
           top: calc(50% - 16px);
-          transition: right .25s ease-in-out;
+          transition: right 0.25s ease-in-out;
           mask-image: var(--arrow-icon);
           mask-size: contain;
           mask-position: center;
@@ -406,10 +431,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
           transform: rotate(90deg);
         }
       }
-      &:hover .card-title{
+      &:hover .card-title {
         a:before {
           right: 1.25rem;
-          transition: .25s ease-in-out;
+          transition: 0.25s ease-in-out;
         }
       }
     }
@@ -429,7 +454,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     background: none;
     border-top: 0;
     position: relative;
-    padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
+    padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y)
+      var(--#{$prefix}card-spacer-x);
     width: 100%;
     flex: 0 1 auto;
     &:before {
@@ -520,7 +546,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
     &.card-multi-action.card-feature {
       .card-body {
-        padding: 2rem;  
+        padding: 2rem;
         padding-block-end: 0;
       }
       .card-footer {
