@@ -2,17 +2,9 @@ import { Header } from "./Header.js";
 import { Navbar } from "../navbar/Navbar.js";
 import { SearchInput } from "../searchInput/SearchInput.js";
 
-// Sample components
-import { Banner } from "../banner/Banner.js";
-import { Footer } from "../footer/Footer.js";
-
 // Mock data
-// import menu_state from "../navbar/navbar.variant.menuState.data.json";
-// import cobrand_example from "../navbar/navbar.variant.coBrand.data.json";
 import menu_state from "../navbar/navbar.data.json";
 import searchData from "../searchInput/searchInput.data.json";
-import breadcrumbs from "../banner/banner.data.json";
-import footerData from "../footer/footer.data.json";
 
 import masterbrand_variant from "./header.variant.masterBrand.data.json";
 import subbrand_variant from "./header.variant.subBrand.data.json";
@@ -228,9 +220,7 @@ export const CoBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
-      const footerDataWithOverride = { ...footerData, variantClass };
+      const args = context.args;
 
       // Generate CSS variables from args
       const cssVariables = Object.keys(args)
@@ -249,8 +239,6 @@ export const CoBrand = {
         </style>
         <main>
           ${Story()}
-          ${new Banner(bannerDataWithOverride).html}
-          ${new Footer(footerDataWithOverride).html}
         </main>
       `;
     },
@@ -269,9 +257,7 @@ export const EndorsedBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
-      const footerDataWithOverride = { ...footerData, variantClass };
+      const args = context.args;
 
       // Generate CSS variables from args
       const cssVariables = Object.keys(args)
@@ -291,10 +277,6 @@ export const EndorsedBrand = {
         <main>
           ${Story()}
         </main>
-        <div>
-          ${new Banner(bannerDataWithOverride).html}         
-          ${new Footer(footerDataWithOverride).html}
-        </div>
       `;
     },
   ],
@@ -312,9 +294,7 @@ export const StandaloneBrand = {
   },
   decorators: [
     (Story, context) => {
-      const { variantClass, ...args } = context.args;
-      const bannerDataWithOverride = { ...breadcrumbs, variantClass };
-      const footerDataWithOverride = { ...footerData, variantClass };
+      const args = context.args;
 
       // Generate CSS variables from args
       const cssVariables = Object.keys(args)
@@ -334,10 +314,6 @@ export const StandaloneBrand = {
         <main>
           ${Story()}
         </main>
-        <div>
-          ${new Banner(bannerDataWithOverride).html}
-          ${new Footer(footerDataWithOverride).html}
-        </div>
       `;
     },
   ],
