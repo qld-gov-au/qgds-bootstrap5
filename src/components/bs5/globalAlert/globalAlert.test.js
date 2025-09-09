@@ -83,17 +83,9 @@ describe("initGlobalAlerts", () => {
     const globalAlertComponent = new GlobalAlert(testMockData);
     return `
         <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <link rel="stylesheet" href="${__dirname}/../../../../dist/assets/css/qld.bootstrap.css">
-          </head>
-          <body>
-            ${globalAlertComponent.html}
-            <script>${bootstrapJsFile}</script>
-            <script>${qldBootstrapJsFile}</script>
-          </body>
-        </html>
+        ${globalAlertComponent.html}
+        <script>${bootstrapJsFile}</script>
+        <script>${qldBootstrapJsFile}</script>
       `;
   };
 

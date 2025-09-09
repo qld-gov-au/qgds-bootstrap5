@@ -43,7 +43,6 @@ describe("SearchInput", () => {
       <html>
         <head>
           <meta charset="utf-8">
-          <link rel="stylesheet" href="${__dirname}/../../../../dist/assets/css/qld.bootstrap.css">
         </head>
         <body>
           <form class="site-search" action="https://example.com/search">
@@ -401,7 +400,7 @@ describe("SearchInput", () => {
     expect(isElementVisible(suggestions)).toBe(true);
 
     // Click inside suggestions
-    const suggestionLink = suggestions.querySelector("a");
+    const suggestionLink = suggestions.querySelector("li");
     if (suggestionLink) {
       const clickEvent = new window.MouseEvent("click", {
         bubbles: true,
