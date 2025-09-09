@@ -5,7 +5,7 @@
  *
  * @returns {void}
  */
-export function displayFeedbackForm() {
+/* export function displayFeedbackForm() {
   window.formioQldCdnVersion = "v2/v2.x.x-latest";
 
   if (typeof FormioScript === "object") {
@@ -40,3 +40,4 @@ export function runDisplayFeedbackFormIO() {
   // eslint-disable-next-line no-undef
   FormioScript.init();
 }
+ */
