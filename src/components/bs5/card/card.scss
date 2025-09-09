@@ -17,8 +17,8 @@
   --#{$prefix}card-border-width: #{$card-border-width};
   --#{$prefix}card-border-color: var(--#{$prefix}light-border-alt);
   --#{$prefix}card-border-radius: 0.75rem;
-  --#{$prefix}card-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
-    0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
+  --#{$prefix}card-box-shadow:
+    0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
   --#{$prefix}card-inner-border-radius: #{$card-inner-border-radius};
   --#{$prefix}card-cap-padding-y: #{$card-cap-padding-y};
   --#{$prefix}card-cap-padding-x: #{$card-cap-padding-x};
@@ -29,15 +29,19 @@
   --#{$prefix}card-group-margin: #{$card-group-margin};
   --#{$prefix}card-link-color: var(--#{$prefix}light-link);
   --#{$prefix}card-date-color: var(--#{$prefix}dark-grey-muted);
-  --#{$prefix}card-footer-border: var(--#{$prefix}light-grey);
+  --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
   --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
   --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
   --#{$prefix}link-hover-colour: var(--#{$prefix}light-action-primary-hover);
   --#{$prefix}link-hover-text-colour: var(--#{$prefix}dark-link);
   // Icon variables
   --#{$prefix}card-icon-color: var(--#{$prefix}light-action-secondary);
-  --#{$prefix}card-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
-  --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
+  --#{$prefix}card-icon-color-hover: var(
+    --#{$prefix}light-action-secondary-hover
+  );
+  --#{$prefix}card-icon-background-color: var(
+    --#{$prefix}default-background-shade
+  );
   // Side positioned icon as default
   --#{$prefix}card-icon-height: 4rem;
   --#{$prefix}card-icon-width: 4rem;
@@ -49,7 +53,7 @@
     --#{$prefix}video-nav-bg-rgb: 9, 84, 159;
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}light-action-primary-hover);
     --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 125;
-    --#{$prefix}video-nav-bg-opacity: .9;
+    --#{$prefix}video-nav-bg-opacity: 0.9;
     --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
     --#{$prefix}video-clock-icon-size: 1.25rem;
     --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-text);
@@ -61,33 +65,34 @@
     --#{$prefix}card-icon-line-height: 8rem;
   }
   &.card-no-action {
-    .qld-icon  {
+    .qld-icon {
       background-color: var(--#{$prefix}card-title-color);
     }
-    
   }
   &.default {
     .card-icon-background {
       background-color: var(--#{$prefix}neutral-lightest);
     }
   }
-  &.card-single-action{
-    .qld-icon  {
+  &.card-single-action {
+    .qld-icon {
       background-color: var(--#{$prefix}light-action-secondary);
     }
-    &.card-dark, &.card-dark-alt {
+    &.card-dark,
+    &.card-dark-alt {
       .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);   
+        background-color: var(--#{$prefix}dark-action-secondary);
       }
     }
   }
   &.card-multi-action {
-    .qld-icon  {
+    .qld-icon {
       background-color: var(--#{$prefix}light-action-secondary);
     }
-    &.card-dark, &.card-dark-alt {
+    &.card-dark,
+    &.card-dark-alt {
       .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);   
+        background-color: var(--#{$prefix}dark-action-secondary);
       }
     }
   }
@@ -111,16 +116,21 @@
   &-light,
   &-default {
     --#{$prefix}card-bg: var(--#{$prefix}light-background);
-    --#{$prefix}card-footer-border: var(--#{$prefix}default-border);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}light-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}light-background-shade
+    );
     --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
     &:hover {
-      --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
+      --#{$prefix}card-arrow-color: var(
+        --#{$prefix}light-action-secondary-hover
+      );
     }
   }
   &-default {
     --#{$prefix}card-bg: var(--#{$prefix}default-background);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}default-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}default-background-shade
+    );
   }
   &-light {
     --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
@@ -128,10 +138,14 @@
   &-alt {
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
     --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}light-alt-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}light-alt-background-shade
+    );
     --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary);
     &:hover {
-      --#{$prefix}card-arrow-color: var(--#{$prefix}light-action-secondary-hover);
+      --#{$prefix}card-arrow-color: var(
+        --#{$prefix}light-action-secondary-hover
+      );
     }
   }
   &-dark,
@@ -145,7 +159,9 @@
     --#{$prefix}link-hover-colour: var(--#{$prefix}dark-action-primary-hover);
     --#{$prefix}link-hover-text-colour: var(--#{$prefix}text-darkest);
     &:hover {
-      --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary-hover);
+      --#{$prefix}card-arrow-color: var(
+        --#{$prefix}dark-action-secondary-hover
+      );
     }
     &:not(.card-no-action) {
       --#{$prefix}card-icon-color: var(--#{$prefix}dark-action-secondary);
@@ -153,7 +169,9 @@
     .video-overlay {
       --#{$prefix}video-nav-bg: var(--#{$prefix}dark-action-primary);
       --#{$prefix}video-nav-bg-rgb: 120, 186, 0;
-      --#{$prefix}video-nav-bg-hover: var(--#{$prefix}dark-action-primary-hover);
+      --#{$prefix}video-nav-bg-hover: var(
+        --#{$prefix}dark-action-primary-hover
+      );
       --#{$prefix}video-nav-bg-hover-rgb: 173, 211, 63;
       --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
       --#{$prefix}video-play-icon-color: var(--#{$prefix}text-darkest);
@@ -161,18 +179,22 @@
   }
   &-dark {
     --#{$prefix}card-bg: var(--#{$prefix}dark-background);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}dark-background-shade
+    );
     --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
     --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
   }
   &-dark-alt {
     --#{$prefix}card-bg: var(--#{$prefix}dark-blue);
-    --#{$prefix}card-icon-background-color: var(--#{$prefix}dark-alt-background-shade);
+    --#{$prefix}card-icon-background-color: var(
+      --#{$prefix}dark-alt-background-shade
+    );
     --#{$prefix}card-icon-color: var(--#{$prefix}dark-text-heading);
     --#{$prefix}card-footer-border: var(--#{$prefix}dark-alt-border);
   }
   &.icon-top {
-    position: relative;;
+    position: relative;
   }
   &.icon-top .card-icon-background {
     width: 8rem;
@@ -222,7 +244,9 @@
     --#{$prefix}card-spacer-y: 1.5rem;
     --#{$prefix}card-title-font-size: 1.5rem;
     --#{$prefix}card-title-line-height: 2rem;
-    --#{$prefix}card-box-shadow: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1); // Level 4 shadow
+    --#{$prefix}card-box-shadow:
+      7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1),
+      0px 13px 20px rgba(0, 0, 0, 0.1); // Level 4 shadow
     &-feature {
       --#{$prefix}card-title-font-size: 2rem;
       --#{$prefix}card-title-line-height: 2.5rem;
@@ -256,7 +280,7 @@
   .card-body li {
     margin-top: 0.5rem;
   }
-  .card-text> :last-child {
+  .card-text > :last-child {
     margin-bottom: 0;
   }
   &-single-action,
@@ -276,7 +300,7 @@
       .video-nav {
         .video-watch {
           background-color: rgb(var(--#{$prefix}video-nav-bg-hover-rgb));
-          span{
+          span {
             text-decoration: underline !important;
             text-underline-offset: var(--qld-link-underline-offset);
             text-decoration-thickness: var(--qld-link-underline-thickness);
@@ -285,7 +309,10 @@
         }
         .video-duration {
           text-shadow: 0.6px 0 0 currentColor;
-          background-color: rgba(var(--#{$prefix}video-nav-bg-hover-rgb), var(--#{$prefix}video-nav-bg-opacity));
+          background-color: rgba(
+            var(--#{$prefix}video-nav-bg-hover-rgb),
+            var(--#{$prefix}video-nav-bg-opacity)
+          );
         }
       }
       .icon-arrow {
@@ -320,7 +347,7 @@
       background-color: var(--#{$prefix}card-img-overlay-color);
       opacity: 0;
     }
-    [class^=card-img] {
+    [class^="card-img"] {
       background-image: var(--card-image);
       background-position: center center;
       background-repeat: no-repeat;
@@ -332,7 +359,8 @@
         content: "";
         position: absolute;
         inset: -1px;
-        border: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+        border: var(--#{$prefix}card-border-width) solid
+          var(--#{$prefix}card-border-color);
         border-radius: var(--#{$prefix}card-img-border-radius);
       }
     }
@@ -368,7 +396,10 @@
     flex-wrap: wrap;
     align-items: center;
     .card-body {
-      width: calc(100% - var(--#{$prefix}card-icon-width) - (2 * var(--#{$prefix}card-spacer-x)));
+      width: calc(
+        100% - var(--#{$prefix}card-icon-width) -
+          (2 * var(--#{$prefix}card-spacer-x))
+      );
       &:not(:last-child) {
         padding-bottom: var(--#{$prefix}card-spacer-y);
       }
@@ -400,7 +431,8 @@
     background: none;
     border-top: 0;
     position: relative;
-    padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
+    padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y)
+      var(--#{$prefix}card-spacer-x);
     width: 100%;
     flex: 0 1 auto;
     &:before {
@@ -488,7 +520,7 @@
     }
     &.card-multi-action.card-feature {
       .card-body {
-        padding: 2rem;  
+        padding: 2rem;
         padding-block-end: 0;
       }
       .card-footer {
