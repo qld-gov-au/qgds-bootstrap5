@@ -330,7 +330,8 @@ $_navbar-max-width: 26.25rem;
     --nav-header-icon-color: var(--#{$prefix}alt-button-hover);
   }
 
-  @media (max-width: 992px) {
+  /* Mobile < 992 */
+  @include media-breakpoint-down(lg) {
     --mobile-only-display: block;
     .alt {
       --vert-background-color: var(--#{$prefix}default-background);
@@ -641,7 +642,7 @@ $_navbar-max-width: 26.25rem;
   }
 
   /* Mobile < 992 */
-  @media (max-width: 992px) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -665,14 +666,27 @@ $_navbar-max-width: 26.25rem;
       --qld-btn-close-opacity: 1;
       --qld-btn-close-hover-opacity: 1;
 
+      //Mobile
+      --qld-btn-close-font-size: 0.625rem;
+      --qld-btn-close-width: 1.5rem;
+      --qld-btn-close-height: 1.5rem;
+
+      @include media-breakpoint-up(md) {
+        //Desktop
+        --qld-btn-close-font-size: 0.875rem;
+        --qld-btn-close-width: 2rem;
+        --qld-btn-close-height: 2rem;
+      }
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: var(--qld-btn-close-font-size);
       color: var(--nav-header-color);
       border-inline-start: 1px solid var(--nav-header-border-color);
       padding-block: 0;
+      background-color: transparent;
 
       &::before {
         content: "";
@@ -680,14 +694,10 @@ $_navbar-max-width: 26.25rem;
         mask-repeat: no-repeat;
         mask-position: 0;
         background-color: var(--nav-header-icon-color);
-        width: 1.5rem;
-        height: 1.5rem;
+        width: var(--qld-btn-close-width);
+        height: var(--qld-btn-close-height);
         border: 0;
         margin-left: 0;
-      }
-
-      &:hover {
-        background-color: var(--qld-dark-background-default-shade);
       }
     }
 
