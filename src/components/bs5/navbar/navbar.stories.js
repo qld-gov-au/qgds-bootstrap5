@@ -1,6 +1,7 @@
 import { Navbar } from "./Navbar.js";
 import defaultdata from "./navbar.data.json";
 
+//Default story
 export default {
   tags: ["autodocs"],
   title: "3. Components/Navbar",
