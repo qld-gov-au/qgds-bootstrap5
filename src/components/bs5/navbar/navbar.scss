@@ -418,12 +418,6 @@ $_navbar-max-width: 26.25rem;
     .qld-icon {
       background-color: var(--action-icon-color);
     }
-
-    .hide-label {
-      @include media-breakpoint-up(lg) {
-        @include visually-hidden();
-      }
-    }
   }
 
   .navbar-nav a.nav-link,
