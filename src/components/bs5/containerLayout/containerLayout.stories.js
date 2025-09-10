@@ -38,7 +38,7 @@ const defaultData = {
 };
 
 export default {
-  title: "6. Templates/Container Widths",
+  title: "5. Templates/Container Widths",
   render: (args) => {
     return new Handlebars.compile(template)(args);
   },
