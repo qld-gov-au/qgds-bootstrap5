@@ -56,20 +56,36 @@ $icon-sizes: (
 
 // Loop through the icon names and create utility class for each
 .qld-icon {
-  --icon-size: 1.25rem;
+  --_icon-size: var(--qld-icon-size, 1.25rem);
   display: inline-block;
-  width: var(--icon-size);
-  height: var(--icon-size);
+  width: var(--_icon-size);
+  height: var(--_icon-size);
   background-position: center center;
   background-repeat: no-repeat;
   mask-position: center center;
   mask-repeat: no-repeat;
   mask-size: contain;
   background-size: contain;
+  vertical-align: middle;
+  color: var(--qld-action-icon-color, inherit);
+
   //Change color at component level... e.g. on cards.css, use:
   // .card { --#{$prefix}icon-color: purple; }
   // If icon-color is not set, fallback to currentColor.
-  background-color: var(--#{$prefix}icon-color, currentColor);
+  &:where(:not(svg)) {
+    background-color: currentColor;
+  }
+
+  // &:where(svg) {
+  //   color: var(--qld-action-icon-color, inherit);
+  // }
+
+  // Better alignment for icons inline with text
+  &-inline {
+    vertical-align: baseline;
+    position: relative;
+    top: calc(calc(var(--_icon-size) / 2) - 0.5cap);
+  }
 
   // Utility classes for icons
   // Note: mask-image is the preferred method for icons that are single colour, as it allows for easy colour changes using CSS variables.
@@ -94,7 +110,7 @@ $icon-sizes: (
   // Independent from the icon base class to allow sizing on inline SVG icons as well as CSS icons.
   @each $key, $value in $icon-sizes {
     &-#{$key} {
-      --icon-size: #{$value};
+      --qld-icon-size: #{$value};
     }
   }
 }

@@ -1,29 +1,30 @@
 import iconNames from "./_icons.list.js";
-import { Card } from '../card/Card.js';
-import iconUsageHtml from './story-icon-usage.html?raw';
-import iconSizingHtml from './story-icon-sizing.html?raw';
+// import { Card } from "../card/Card.js";
+import iconUsageHtml from "./story-icon-usage.html?raw";
+import iconSizingHtml from "./story-icon-sizing.html?raw";
+import storyVerticalAlignmentHtml from "./story-vertical-alignment.html?raw";
 
-const defaultdata = {
-  "title": "Card title",
-  "description": "Card body text",
-  "date": "",
-  "variantClass": "default",
-  "image": "",
-  "imageAlt": "",
-  "iconClasses": "",
-  "iconPosition": "icon-top",
-  "action": "no",
-  "link": "",
-  "arrow": false,
-  "feature": false,
-  "featureImagePosition": "",
-  "video": false,
-  "videoDuration": "",
-  "footer": "",
-  "equalHeight": false,
-};
-const SPRITE_PATH = './assets/img/icons-sprite.svg';
-const PREFIX_QGDS = 'qgds-icon-';
+// const defaultdata = {
+//   title: "Card title",
+//   description: "Card body text",
+//   date: "",
+//   variantClass: "default",
+//   image: "",
+//   imageAlt: "",
+//   iconClasses: "",
+//   iconPosition: "icon-top",
+//   action: "no",
+//   link: "",
+//   arrow: false,
+//   feature: false,
+//   featureImagePosition: "",
+//   video: false,
+//   videoDuration: "",
+//   footer: "",
+//   equalHeight: false,
+// };
+const SPRITE_PATH = "./assets/img/icons-sprite.svg";
+const PREFIX_QGDS = "qgds-icon-";
 
 // Helper function to remove the prefix from icon names
 function _removePrefixQGDS(name) {
@@ -32,7 +33,6 @@ function _removePrefixQGDS(name) {
   }
   return name;
 }
-
 
 // Default export for Storybook
 export default {
@@ -45,7 +45,7 @@ export default {
     layout: "padded",
     docs: {
       title: "Iconography in default",
-    // page: null, // To disable autodocs 
+      // page: null, // To disable autodocs
     },
   },
 };
@@ -59,22 +59,23 @@ export const SvgIcons = () => {
     <div class="container">
     <div class="row row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 g-4">
       ${iconNames
-    .map(name => 
-    {
-      return new Card({
-        ...defaultdata,
-        title: ``,  // Overrides card title to empty string
-        description: `
-                <div class="mb-4">
-                  <svg class="qld-icon-xl" aria-label="${_removePrefixQGDS(name)} icon" role="img" width="32" height="32" viewBox="0 0 32 32" focusable="false">
+        .map((name) => {
+          return `
+          <div class="col">
+            <div class="card">
+              <div class="card-body" style="text-align: center">
+                <div class="mt-12 mb-4">
+                  <svg class="qld-icon qld-icon-xl" aria-label="${_removePrefixQGDS(name)} icon" role="img" width="32" height="32" viewBox="0 0 32 32" focusable="false">
                     <use href="${SPRITE_PATH}#${PREFIX_QGDS}${name}" />
                   </svg>
                 </div>
                 <small>${_removePrefixQGDS(name)}</small><br><code style="font-size: 0.75rem"> #${PREFIX_QGDS}${name}</code>
-                `,
-      }).html
-    })
-    .join('')}
+              </div>
+            </div>
+          </div>
+          `;
+        })
+        .join("")}
     </div>
     </div>
   `;
@@ -87,18 +88,20 @@ export const CssIcons = () => {
     <div class="container">
     <div class="row row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 g-4">
       ${iconNames
-    .map(name => new Card({
-      ...defaultdata,
-      title: ``,  // Override card title to empty string
-      description: `
-                <div class="mb-4">
+        .map((name) => {
+          return `
+          <div class="col">
+            <div class="card">
+              <div class="card-body" style="text-align: center">
+                <div class="mt-12 mb-4">
                   <span class="qld-icon qld-icon-xl qld-icon-${name}"></span>
                 </div>
                 <small>${_removePrefixQGDS(name)}</small><br><code style="font-size: 0.75rem">qld-icon-${name}</code>
-                `,
-      iconClasses: ``,
-    }).html)
-    .join('')}
+              </div>
+            </div>
+          </div>`;
+        })
+        .join("")}
     </div>
     </div>
   `;
@@ -106,7 +109,6 @@ export const CssIcons = () => {
 CssIcons.storyName = "CSS Icons";
 
 // Story for displaying icon sizing variations
-export const Sizes = () => {
-  return iconSizingHtml;
-};
+export const Sizes = () => iconSizingHtml;
 
+export const VerticalAlignment = () => storyVerticalAlignmentHtml;
