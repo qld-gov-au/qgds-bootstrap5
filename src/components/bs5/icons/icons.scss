@@ -76,10 +76,6 @@ $icon-sizes: (
     background-color: currentColor;
   }
 
-  // &:where(svg) {
-  //   color: var(--qld-action-icon-color, inherit);
-  // }
-
   // Better alignment for icons inline with text
   &-inline {
     vertical-align: baseline;
