@@ -133,6 +133,9 @@ $enable-dark-mode: true;
 @import "../components/bs5/typography/typography";
 @import "../components/bs5/video/video";
 
+// Custom utility classes
+@import "utilities";
+
 // Themes
 @import "qld-theme";
 
