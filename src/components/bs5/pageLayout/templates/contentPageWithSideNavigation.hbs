@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    {{> head }}
 </head>
 
 <body>
@@ -21,80 +20,101 @@
     {{/if}}
 
     <main>
-        <div class="container-fluid">
-            <div class="container qld-content">
-                {{#if breadcrumbs}}
-                <div class="row">
-                    <div class="col-12">
-                        <!-- breadcrumbs -->
-                        {{> breadcrumbs breadcrumbs}}
-                    </div>
-                </div>
-                {{/if}}
-
-                <!-- Main Grid Layout: Side navigation and content -->
-                <div class="row">
-                    {{#if sidenav}}
-                    <!-- Side navigation Col -->
-                    <div class="col-lg-3 col-md-4 px-0">
-                        {{> sidenav sidenav}}
-                    </div>
-                    <!-- Content Col -->
-                    <div class="col-lg-8 col-md-7 ps-32">
-                        {{else}}
-                        <div class="col-12">
-                            {{/if}}
-
-                            <!-- Main Content Sections -->
-                            <div class="content-section ps-32">
-
-                                {{#if inpagenav}}
-                                <!-- inpagenav Section -->
-                                {{> inpagenav inpagenav}}
-                                {{/if}}
-
-                                <h1 id="section-heading">Section heading (H1)</h1>
-                                <p>This is the main content area. It contains detailed information about the topic.</p>
-
-                                <h2 id="content-heading">Content heading (H2)</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
-
-                                <h3 id="inspection">Pre-registration inspection (H3)</h3>
-                                <p>Information about pre-registration inspection requirements.</p>
-
-                                <h4 id="fees-and-charges">Fees and charges (H4)</h4>
-                                <p>Details about fees and charges for vehicle registration.</p>
-
-                            </div>
-
-                            {{#if image}}
-                            <!-- image Section -->
-                            <div class="my-4 ps-32">
-                                {{> image image}}
-                            </div>
-                            {{/if}}
-
-                            {{#if table}}
-                            <!-- table Section -->
-                            <div class="my-4 ps-32">
-                                {{> table table}}
-                            </div>
-                            {{/if}}
-
-                            {{#if video}}
-                            <!-- video Section -->
-                            <div class="my-4 ps-32">
-                                {{> video video}}
-                            </div>
-                            {{/if}}
-
-                            <!-- Content Footer -->
-                            {{> contentFooter contentFooter}}
-                        </div>
-                    </div>
+        <div class="container mt-40 mt-lg-64">
+            {{#if breadcrumbs}}
+            <div class="row">
+                <div class="col-12">
+                    <!-- breadcrumbs -->
+                    {{> breadcrumbs breadcrumbs}}
                 </div>
             </div>
+            {{/if}}
+
+            <!-- Main Grid Layout: Side navigation and content -->
+            <div class="row">
+                {{#if sidenav}}
+                <!-- Side navigation Col -->
+                <div class="col-12 col-lg-3 mt-5 mt-lg-0">
+                    {{> sidenav sidenav}}
+                </div>
+                <!-- Content Col -->
+                <div class="col-lg-8 col-md-7 ps-1 ps-md-32">
+                    {{else}}
+                    <div class="col-12">
+                        {{/if}}
+
+                        <!-- Main Content Sections -->
+                        <div class="content-section mb-5 px-1 px-md-32">
+
+                            {{#if inpagenav}}
+                            <!-- inpagenav Section -->
+                            {{> inpagenav inpagenav}}
+                            {{/if}}
+
+                            <h1 id="section-heading">Section heading (H1)</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur. Sed facilisis purus eu convallis ut. Morbi condimentum volutpat feugiat pellentesque. Auctor amet auctor dolor metus eget diam. Facilisis vitae venenatis vestibulum libero ut. Luctus diam pellentesque ipsum accumsan amet commodo. 
+                            </p> 
+                            <p>
+                                Convallis et ullamcorper ac nisi ornare sed facilisis sem. Scelerisque malesuada vivamus tellus mi vitae amet ornare donec malesuada. Nascetur senectus aenean fames id turpis. 
+                            </p>
+
+                            <h2 id="content-heading">Content heading (H2)</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.</p>
+
+                            {{#if calloutdata}}
+                            <!-- callout Section -->
+                            {{> callout calloutdata}}
+                            {{/if}}
+
+                            <h3 id="inspection">Pre-registration inspection (H3)</h3>
+                            <p>Information about pre-registration inspection requirements.</p>
+
+                            <h4 id="fees-and-charges">Fees and charges (H4)</h4>
+                            <p>Details about fees and charges for vehicle registration.</p>
+
+                        </div>
+
+                        {{#if accordionItems}}
+                        <!-- accordion Section -->
+                        <div class="my-5 px-1 px-md-32">
+                            {{> accordion accordionItems}}
+                        </div>
+                        {{/if}} 
+
+                        {{#if video}}
+                        <!-- video Section -->
+                        <div class="my-5 px-1 px-md-32">
+                            {{> video video}}
+                        </div>
+                        {{/if}}
+
+                        <div class="my-5 p-1 p-md-32 bg-light">
+                            <h2 id="inspection">Section heading (H2)</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies
+                                est.
+                                Tincidunt ultrices commodo vestibulum non netus. </p>
+                            <p>Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien
+                                condimentum adipiscing augue quisque eu.</p>
+
+                            {{> callToAction callToAction}}
+                        </div>
+
+                        {{#if table}}
+                        <!-- table Section -->
+                        <div class="my-5 px-1 px-md-32">
+                            {{> table table}}
+                        </div>
+                        {{/if}}
+
+                    </div>
+                </div>
+
+                <!-- Content Footer -->
+                {{> contentFooter contentFooter}}
+            </div>
+        </div>
     </main>
     <!-- Footer -->
     {{> footer footer}}

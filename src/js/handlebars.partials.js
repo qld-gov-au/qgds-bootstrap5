@@ -8,8 +8,8 @@ import blockquote from "../components/bs5/blockquote/blockquote.hbs?raw";
 import breadcrumbs from "../components/bs5/breadcrumbs/breadcrumbs.hbs?raw";
 import breadcrumbsWrapper from "../components/bs5/breadcumbsWrapper/breadcrumbsWrapper.hbs?raw";
 import button from "../components/bs5/button/button.hbs?raw";
-import callout from "../components/bs5/callout/callout.hbs?raw";
 import callToAction from "../components/bs5/callToAction/callToAction.hbs?raw";
+import callout from "../components/bs5/callout/callout.hbs?raw";
 import card from "../components/bs5/card/card.hbs?raw";
 import containerLayout from "../components/bs5/containerLayout/containerLayout.hbs?raw";
 import contentFooter from "../components/bs5/contentFooter/contentFooter.hbs?raw";
@@ -42,10 +42,9 @@ import metaDcTerms from "../components/bs5/metaDcTerms/metaDcTerms.hbs?raw";
 import metaOpenGraph from "../components/bs5/metaOpenGraph/metaOpenGraph.hbs?raw";
 import modal from "../components/bs5/modal/modal.hbs?raw";
 import navbar from "../components/bs5/navbar/navbar.hbs?raw";
-import pageLayout from "../components/bs5/pageLayout/pageLayout.hbs?raw";
 import contentPageWithForm from "../components/bs5/pageLayout/templates/contentPageWithForm.hbs?raw";
 import contentPageWithSideNavigation from "../components/bs5/pageLayout/templates/contentPageWithSideNavigation.hbs?raw";
-import fullWidthLandingPage from "../components/bs5/pageLayout/templates/fullWidthLandingPage.hbs?raw";
+import homePage from "../components/bs5/pageLayout/templates/homePage.hbs?raw";
 import pagination from "../components/bs5/pagination/pagination.hbs?raw";
 import promotionalPanel from "../components/bs5/promotionalPanel/promotionalPanel.hbs?raw";
 import quickexit from "../components/bs5/quickexit/quickexit.hbs?raw";
@@ -63,7 +62,6 @@ import textbox from "../components/bs5/textbox/textbox.hbs?raw";
 import typography from "../components/bs5/typography/typography.hbs?raw";
 import video from "../components/bs5/video/video.hbs?raw";
 
-
 /**
  * Registers Handlebars Partials
  * @param {Handlebars} handlebars Templating engine
@@ -77,8 +75,8 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("breadcrumbs", breadcrumbs);
   handlebars.registerPartial("breadcrumbsWrapper", breadcrumbsWrapper);
   handlebars.registerPartial("button", button);
-  handlebars.registerPartial("callout", callout);
   handlebars.registerPartial("callToAction", callToAction);
+  handlebars.registerPartial("callout", callout);
   handlebars.registerPartial("card", card);
   handlebars.registerPartial("containerLayout", containerLayout);
   handlebars.registerPartial("contentFooter", contentFooter);
@@ -111,10 +109,12 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("metaOpenGraph", metaOpenGraph);
   handlebars.registerPartial("modal", modal);
   handlebars.registerPartial("navbar", navbar);
-  handlebars.registerPartial("pageLayout", pageLayout);
   handlebars.registerPartial("contentPageWithForm", contentPageWithForm);
-  handlebars.registerPartial("contentPageWithSideNavigation", contentPageWithSideNavigation);
-  handlebars.registerPartial("fullWidthLandingPage", fullWidthLandingPage);
+  handlebars.registerPartial(
+    "contentPageWithSideNavigation",
+    contentPageWithSideNavigation,
+  );
+  handlebars.registerPartial("homePage", homePage);
   handlebars.registerPartial("pagination", pagination);
   handlebars.registerPartial("promotionalPanel", promotionalPanel);
   handlebars.registerPartial("quickexit", quickexit);
@@ -131,8 +131,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("textbox", textbox);
   handlebars.registerPartial("typography", typography);
   handlebars.registerPartial("video", video);
-
 }
-if(typeof(Handlebars) !== 'undefined') {
+if (typeof Handlebars !== "undefined") {
   handlebarsPartials(Handlebars);
 }
