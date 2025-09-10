@@ -1,4 +1,3 @@
-import { PageLayout } from "./pageLayout.js";
 import { HomePage } from "./HomePage.js";
 import { ContentPageWithSideNavigation } from "./ContentPageWithSideNavigation.js";
 import { ContentPageWithForm } from "./ContentPageWithForm.js";
@@ -76,7 +75,7 @@ const defaultData = {
 export default {
   title: "5. Templates/Page Layout",
   render: (args) => {
-    return new PageLayout(args).html;
+    return new ContentPageWithSideNavigation(args).html;
   },
   args: defaultData,
   argTypes: {},
@@ -88,22 +87,46 @@ export default {
   },
 };
 
+const SideNavArgs = {
+  ...defaultData,
+  title: "Content Page with Side Navigation",
+  accordionItems: accordionData,
+  calloutdata: {
+    title: "Call out heading",
+    content:
+      "Faucibus urna non suspendisse augue donec fermentum. Semper elementum dui odio sociis. Quis risus pellentesque consectetur risus senectus. Egestas lectus nec dui odio vitae sem. Convallis pulvinar arcu feugiat eget. Est convallis mattis mauris nisi suscipit.",
+  },
+  inpagenav: inpagenavData,
+  image: imageData,
+  video: videoData.youtube,
+  callToAction: {
+    ...callToActionData,
+    label: "Call to action",
+  },
+};
+
 /**
- * Default page layout
+ * Default Content Page with Side Navigation
  */
 export const Default = {
   args: {
-    backToTop: {
-      hide_back_to_top: false,
-      min_page_height: 0,
-      is_fixed: false,
-      directionalLink: {
-        id: "",
-        label: "Back to top",
-        href: "#",
-        target: "_self",
-        class: "back-to-top up my-2 ms-auto",
-      },
+    ...SideNavArgs,
+    banner: {
+      variantClass: "dark",
+      bannerType: "no-banner",
+      breadcrumbs: breadcrumbsData.default,
+    },
+    sidenav: {
+      ...sideNavData,
+      navlist: [
+        sideNavData.navlist[0],
+        {
+          ...sideNavData.navlist[1],
+          class: "active",
+        },
+        sideNavData.navlist[2],
+        sideNavData.navlist[3],
+      ],
     },
   },
 };
@@ -199,53 +222,6 @@ export const Home = {
     promotionalPanel: {
       ...promotionalPanelData,
       variantClass: "dark",
-    },
-  },
-};
-
-const SideNavArgs = {
-  ...defaultData,
-  title: "Content Page with Side Navigation",
-  accordionItems: accordionData,
-  calloutdata: {
-    title: "Call out heading",
-    content:
-      "Faucibus urna non suspendisse augue donec fermentum. Semper elementum dui odio sociis. Quis risus pellentesque consectetur risus senectus. Egestas lectus nec dui odio vitae sem. Convallis pulvinar arcu feugiat eget. Est convallis mattis mauris nisi suscipit.",
-  },
-  inpagenav: inpagenavData,
-  image: imageData,
-  video: videoData.youtube,
-  callToAction: {
-    ...callToActionData,
-    label: "Call to action",
-  },
-};
-
-/**
- * Content Page with Side Navigation
- */
-export const ContentPageNoBanner = {
-  render: (args) => {
-    return new ContentPageWithSideNavigation(args).html;
-  },
-  args: {
-    ...SideNavArgs,
-    banner: {
-      variantClass: "dark",
-      bannerType: "no-banner",
-      breadcrumbs: breadcrumbsData.default,
-    },
-    sidenav: {
-      ...sideNavData,
-      navlist: [
-        sideNavData.navlist[0],
-        {
-          ...sideNavData.navlist[1],
-          class: "active",
-        },
-        sideNavData.navlist[2],
-        sideNavData.navlist[3],
-      ],
     },
   },
 };
