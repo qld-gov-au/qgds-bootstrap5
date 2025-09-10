@@ -57,10 +57,7 @@ $link-color: $qld-brand-primary;
 $link-hover-color: $qld-brand-primary;
 $link-visited-color: $qld-link-visited;
 
-//Links
-.default,
-.light,
-.alt,
+//Links - default root variables only
 :root {
   --qld-headings-color: #{$headings-color};
   --qld-body-color: #{$body-color};
@@ -82,42 +79,6 @@ $link-visited-color: $qld-link-visited;
   --qld-focus-color: var(--qld-light-focus);
   --qld-action-icon-color: var(--qld-light-action-secondary);
   --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
-}
-
-.dark,
-.dark-alt,
-:root[data-bs-theme="dark"] {
-  --qld-headings-color: #fff;
-  --qld-body-color: #fff;
-  --qld-body-bg: var(--qld-brand-primary);
-  --qld-link-color: #fff;
-  --qld-link-color-rgb: 255, 255, 255;
-  --qld-link-hover-color: #fff;
-  --qld-link-hover-color-rgb: 255, 255, 255;
-  --qld-link-visited: var(--qld-link-visited-dark);
-  --qld-selection-color: var(--qld-brand-primary);
-  --qld-selection-bg: var(--qld-white);
-  --qld-focus-color: var(--qld-dark-focus);
-  --qld-action-icon-color: var(--qld-dark-action-secondary);
-  --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
-}
-
-.default {
-  --qld-border-color: var(--qld-light-border);
-}
-.light {
-  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
-}
-.alt {
-  --qld-body-bg: var(--qld-light-alt-background);
-  --qld-border-color: var(--qld-soft-grey);
-}
-.dark {
-  --qld-border-color: var(--qld-dark-border);
-}
-.dark-alt {
-  --qld-body-bg: var(--qld-dark-alt-background);
-  --qld-border-color: var(--qld-dark-alt-border);
 }
 
 
@@ -232,35 +193,7 @@ figure > figcaption {
   line-height: 20px;
 }
 
-// Dark, dark alt
-.dark,
-.dark-alt {
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--#{$prefix}color-default-color-dark-text-heading);
-  }
-  body & {
-    color: var(--qld-body-color);
-  }
-  a,
-  a.nav-link {
-    text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default);
-
-    &:visited {
-      color: var(--#{$prefix}color-default-color-dark-link-visited);
-      text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-visited);
-
-      &:hover {
-        text-decoration-color: var(--#{$prefix}color-default-color-dark-underline-default-hover);
-      }
-    }
-  }
-}
+// Theme-specific typography styles moved to qld-theme.scss
 
 
 a.nostyle {
