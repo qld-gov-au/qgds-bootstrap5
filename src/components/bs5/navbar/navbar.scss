@@ -29,7 +29,7 @@
     flex-direction: column;
     align-items: start;
     padding-inline: 0;
-    max-width: 26.25rem;
+    max-width: var(--mobile-menu-width);
     flex-direction: row;
     margin-inline: 0;
     background-color: var(--vert-background-color);
@@ -280,6 +280,9 @@
   --nav-header-border-color: var(--#{$prefix}dark-border);
   --nav-header-icon-color: var(--#{$prefix}brand-accent);
 
+  /* mobile menu */
+  --mobile-menu-width: 26.25rem;
+
   /* general */
   --button-bg-color: var(--#{$prefix}default-background);
   --animation-time: 0.2s;
@@ -328,7 +331,8 @@
     --nav-header-icon-color: var(--#{$prefix}alt-button-hover);
   }
 
-  @media (max-width: 992px) {
+  /* Mobile < 992 */
+  @include media-breakpoint-down(lg) {
     --mobile-only-display: block;
     .alt {
       --vert-background-color: var(--#{$prefix}default-background);
@@ -639,13 +643,13 @@
   }
 
   /* Mobile < 992 */
-  @media (max-width: 992px) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     height: 100vh;
     position: fixed;
     display: none;
     top: 0;
-    right: -26.25rem; // match max-width of vertical menu
+    right: calc(var(--mobile-menu-width) * -1);
     align-items: start;
     background-color: transparent;
     border-block-end: 0;
@@ -683,6 +687,7 @@
       color: var(--nav-header-color);
       border-inline-start: 1px solid var(--nav-header-border-color);
       padding-block: 0;
+      background-color: transparent;
 
       &::before {
         content: "";
@@ -694,10 +699,6 @@
         height: var(--qld-btn-close-height);
         border: 0;
         margin-left: 0;
-      }
-
-      &:hover {
-        background-color: var(--qld-dark-background-default-shade);
       }
     }
 
