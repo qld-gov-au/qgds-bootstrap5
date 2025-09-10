@@ -1,5 +1,5 @@
 
-// QLD Customm Utilities, extends Bootstrap utilities
+// QLD Custom Utilities, extends Bootstrap utilities
 
 // Responsive width classes (w-md-25, w-lg-50, etc.)
 $utilities: map-merge(
@@ -14,6 +14,23 @@ $utilities: map-merge(
         50: 50%,
         75: 75%,
         100: 100%
+      )
+    ),
+    // QLD Background theme utilities
+    "qld-background": (
+      property: background-color,
+      class: bg,
+      values: (
+        "default": var(--qld-default-background),
+        "default-shade": var(--qld-default-background-shade),
+        "light": var(--qld-light-background),
+        "light-shade": var(--qld-light-background-shade),
+        "light-alt": var(--qld-light-alt-background),
+        "light-alt-shade": var(--qld-light-alt-background-shade),
+        "dark": var(--qld-dark-background),
+        "dark-shade": var(--qld-dark-background-shade),
+        "dark-alt": var(--qld-dark-alt-background),
+        "dark-alt-shade": var(--qld-dark-alt-background-shade)
       )
     )
   )
