@@ -1,31 +1,31 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es2021": true,
+  env: {
+    browser: true,
+    es2021: true,
   },
-  "extends": ["eslint:recommended", "plugin:json/recommended", "plugin:storybook/recommended"],
-  "overrides": [
+  extends: [
+    "eslint:recommended",
+    "plugin:json/recommended",
+    "plugin:storybook/recommended",
+  ],
+  overrides: [
     {
-      "env": {
-        "node": true,
+      env: {
+        node: true,
       },
-      "files": [
-        ".eslintrc.{js,cjs}",
-      ],
-      "parserOptions": {
-        "sourceType": "script",
+      files: [".eslintrc.{js,cjs}"],
+      parserOptions: {
+        sourceType: "script",
       },
-    }
+    },
   ],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  "plugins": [
-    "@stylistic/js",
-  ],
-  "rules": {
-    "@stylistic/js/indent": ["warn", 2],
+  plugins: ["@stylistic/js"],
+  rules: {
+    // "@stylistic/js/indent": ["warn", 2],
     "one-var": 0,
     "no-tabs": 0,
     "no-path-concat": 0,
@@ -39,14 +39,14 @@ module.exports = {
     "no-multi-spaces": [
       2,
       {
-        "exceptions": {
-          "Property": true,
-          "VariableDeclarator": true,
-          "ImportDeclaration": true,
-          "ObjectExpression": true,
+        exceptions: {
+          Property: true,
+          VariableDeclarator: true,
+          ImportDeclaration: true,
+          ObjectExpression: true,
         },
       },
     ],
     "no-warning-comments": 1,
   },
-}
+};

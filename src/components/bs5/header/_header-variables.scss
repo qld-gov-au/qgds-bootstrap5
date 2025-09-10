@@ -1,0 +1,272 @@
+@use "../../../css/mixins" as *;
+$prefix: "qld" !default;
+
+%header-variables {
+  // Header
+  @include register-vars(
+    "#{$prefix}header-",
+    (
+      color-text: var(--#{$prefix}color-default-color-light-text-default),
+      color-bg: var(--#{$prefix}color-default-color-light-background-default),
+    )
+  );
+
+  // Pre-header bar
+  @include register-vars(
+    "#{$prefix}header-pre-header-",
+    (
+      color-text: var(--#{$prefix}color-default-color-dark-text-default),
+      color-bg: var(--#{$prefix}color-default-color-dark-background-default),
+      boxshadow: (
+        0 1px 2px rgba(0, 0, 0, 0.2),
+        0 1px 3px 1px rgba(0, 0, 0, 0.1),
+      ),
+      color-link: var(--#{$prefix}color-default-color-dark-text-default),
+      color-outline-focus: var(
+          --#{$prefix}color-default-color-dark-focus-default
+        ),
+      color-link-decoration: var(
+          --#{$prefix}color-default-color-dark-underline-default
+        ),
+      color-link-decoration-focus: var(
+          --#{$prefix}color-default-color-dark-underline-default-hover
+        ),
+    )
+  );
+
+  // CTA Wrapper
+  @include register-vars(
+    "#{$prefix}header__cta-wrapper__cta-link",
+    (
+      _text_color: var(--#{$prefix}color-default-color-dark-link-default),
+      -icon_color: var(--#{$prefix}color-default-color-dark-action-secondary),
+      -icon_hover_color: var(
+          --#{$prefix}color-default-color-dark-action-secondary-hover
+        ),
+      _dropdown_bg_color: var(
+          --#{$prefix}color-default-color-dark-background-default
+        ),
+    )
+  );
+
+  @include register-vars(
+    "#{$prefix}header__CTA",
+    (
+      _text_color: var(--#{$prefix}color-default-color-dark-link-default),
+      _border_color: var(--#{$prefix}color-default-color-dark-border-default),
+    )
+  );
+
+  // Toggle main navigation
+  @include register-vars(
+    "#{$prefix}header__toggle-main-nav",
+    (
+      _text_color: var(--#{$prefix}color-default-color-dark-link-default),
+      _border_color: var(--#{$prefix}color-default-color-dark-border-default),
+      __hover_bg: var(
+          --#{$prefix}color-default-color-dark-background-default-shade
+        ),
+      __hover_svg_color: var(
+          --#{$prefix}color-default-color-dark-action-secondary-hover
+        ),
+      __focus_outline_color: var(
+          --#{$prefix}color-default-color-dark-focus-default
+        ),
+      __svg_color: var(--#{$prefix}color-default-color-dark-action-secondary),
+    )
+  );
+
+  // COA and title
+  @include register-vars(
+    "#{$prefix}header__brand-image",
+    (
+      __crest_fill: var(--#{$prefix}color-default-color-light-crest-fill),
+      __subtype__border_color: var(
+          --#{$prefix}color-default-color-light-accent-design-accent
+        ),
+      __subtype__text_color: var(
+          --#{$prefix}color-default-color-light-site-title
+        ),
+    )
+  );
+  @include register-vars(
+    "#{$prefix}header__brand__anchor",
+    (
+      __hover_text_color: var(
+          --#{$prefix}color-default-color-light-link-default
+        ),
+      __hover_brand-image__text_color: var(
+          --#{$prefix}color-default-color-light-link-default
+        ),
+      __hover_headingsubline__text_color: var(
+          --#{$prefix}color-default-color-light-link-default
+        ),
+      __hover_brand-image__filter: (
+        drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)),
+        drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08)),
+      ),
+    )
+  );
+
+  // Sitename heading
+  @include register-vars(
+    "#{$prefix}header__site-name",
+    (
+      __heading__text_color: var(
+          --#{$prefix}color-default-color-light-site-title
+        ),
+      __subline__text_color: var(
+          --#{$prefix}color-default-color-light-text-lighter
+        ),
+    )
+  );
+
+  // ------------------------------------------------------------------------------------------------------------------
+  //  3. Dark/dark-alt modes
+  // ------------------------------------------------------------------------------------------------------------------
+  .dark &,
+  .dark-alt & {
+    // Root (dark/dark-alt)
+    @include register-vars(
+      "#{$prefix}header",
+      (
+        _color: var(--#{$prefix}color-default-color-dark-text-default),
+      )
+    );
+
+    // Pre-header bar (dark)
+    @include register-vars(
+      "#{$prefix}header__pre-header",
+      (
+        _text_color: var(--#{$prefix}color-default-color-dark-text-default),
+        _boxshadow: (
+          0 1px 2px rgba(0, 0, 0, 0.2),
+          0 1px 3px 1px rgba(0, 0, 0, 0.1),
+        ),
+        __url_text_color: var(--#{$prefix}color-default-color-dark-link-default),
+        __anchor_text_color: var(
+            --#{$prefix}color-default-color-dark-text-default
+          ),
+        __anchor__focus_text_color: var(
+            --#{$prefix}color-default-color-dark-underline-default-hover
+          ),
+        __anchor_text_decoration_color: var(
+            --#{$prefix}color-default-color-dark-underline-default
+          ),
+        __anchor_text_decoration_thickness: var(
+            --#{$prefix}header-underline__thickness-thin
+          ),
+        __anchor_text_decoration_offset: var(
+            --#{$prefix}header-underline__offset
+          ),
+        __anchor__focus_text_decoration_color: var(
+            --#{$prefix}color-default-color-dark-underline-default-hover
+          ),
+        __anchor__focus_text_decoration_thickness: var(
+            --#{$prefix}header-underline__thickness-thick
+          ),
+      )
+    );
+
+    // Pre-header CTA elements (dark/dark-alt)
+    @include register-vars(
+      "#{$prefix}header__cta-wrapper__cta-link",
+      (
+        _text_color: var(--#{$prefix}color-default-color-dark-link-default),
+        -icon_color: var(--#{$prefix}color-default-color-dark-action-secondary),
+        -icon_hover_color: var(
+            --#{$prefix}color-default-color-dark-action-secondary-hover
+          ),
+      )
+    );
+
+    // Toggle navigation (dark/dark-alt)
+    @include register-vars(
+      "#{$prefix}header__toggle-main-nav",
+      (
+        _text_color: var(--#{$prefix}color-default-color-dark-link-default),
+        _border_color: var(--#{$prefix}color-default-color-dark-border-default),
+        __hover_bg: var(
+            --#{$prefix}color-default-color-dark-background-default-shade
+          ),
+        __hover_svg_color: var(
+            --#{$prefix}color-default-color-dark-action-secondary-hover
+          ),
+        __focus_outline_color: var(
+            --#{$prefix}color-default-color-dark-focus-default
+          ),
+        __svg_color: var(--#{$prefix}color-default-color-dark-action-secondary),
+      )
+    );
+
+    @include register-vars(
+      "#{$prefix}header__brand__anchor",
+      (
+        __hover_text_color: var(
+            --#{$prefix}color-default-color-dark-link-default
+          ),
+        __hover_brand-image__text_color: var(
+            --#{$prefix}color-default-color-dark-link-default
+          ),
+        __hover_headingsubline__text_color: var(
+            --#{$prefix}color-default-color-dark-link-default
+          ),
+        __hover_brand-image__filter: (
+          drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)),
+          drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08)),
+        ),
+      )
+    );
+    @include register-vars(
+      "#{$prefix}header__brand-image",
+      (
+        __subtype__border_color: var(
+            --#{$prefix}color-default-color-dark-accent-design-accent
+          ),
+        __subtype__text_color: var(
+            --#{$prefix}color-default-color-dark-site-title
+          ),
+        __crest_fill: var(--#{$prefix}color-default-color-dark-crest-fill),
+      )
+    );
+
+    @include register-vars(
+      "#{$prefix}header__site-name",
+      (
+        __heading__text_color: var(
+            --#{$prefix}color-default-color-dark-site-title
+          ),
+        __subline__text_color: var(
+            --#{$prefix}color-default-color-dark-text-lighter
+          ),
+      )
+    );
+  }
+
+  .dark-alt & {
+    @include register-vars(
+      "#{$prefix}header-",
+      (
+        color-bg: var(--#{$prefix}color-default-color-dark-background-alt),
+        pre-header-color-bg: var(
+            --#{$prefix}color-default-color-dark-background-default
+          ),
+      )
+    );
+  }
+
+  .dark & {
+    @include register-vars(
+      "#{$prefix}header-",
+      (
+        color-bg: var(--#{$prefix}color-default-color-dark-background-default),
+        pre-header-color-bg: var(
+            --#{$prefix}color-default-color-dark-background-alt
+          ),
+        __cta-wrapper__cta-link-dropdown_bg_color: var(
+            --#{$prefix}color-default-color-dark-background-alt
+          ),
+      )
+    );
+  }
+}
