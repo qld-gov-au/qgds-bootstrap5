@@ -111,12 +111,17 @@
     }
     .tabs-area {
       --qld-gutter-x: 0;
+      padding-inline: 0;
       .nav-tabs {
         margin-block-end: -1px;
       }
     }
     .tab-content {
       padding: 1.25rem;
+
+      .tab-pane p:last-of-type {
+        margin-block-end: 0;
+      }
     }
   }
   &.section-tabs {
@@ -135,6 +140,7 @@
       @include media-breakpoint-down(sm) {
         padding-inline: 1rem;
       }
+      margin-inline: auto;
       border-block-end: 1px solid;
       .nav-tabs {
         max-width: fit-content;
@@ -154,10 +160,25 @@
       }
     }
     .tab-content {
+      padding-inline: 4rem;
+
+      @include media-breakpoint-down(xl) {
+        padding-inline: 3rem;
+      }
+      @include media-breakpoint-down(lg) {
+        padding-inline: 2rem;
+      }
+      @include media-breakpoint-down(sm) {
+        padding-inline: 1rem;
+      }
+      margin-inline: auto;
       background-color: var(--qld-body-bg);
       border: 0;
       border-block-start: 0;
       margin-block-start: -1px;
+      .tab-pane p:last-of-type {
+        margin-block-end: 0;
+      }
       > article {
         max-width: var(--max-width);
         margin-inline: auto;
