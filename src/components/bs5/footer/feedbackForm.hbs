@@ -1,0 +1,25 @@
+<div class="col-12 col-md-6 col-lg-12">
+        <!-- <h3 class="footer-heading">{{#if feedbackForm.title}}{{feedbackForm.title}}{{else}}Website feedback{{/if}}</h3> -->
+        <p>{{#if feedbackForm.content}}{{feedbackForm.content}}{{else}}Help us improve the content on our website or tell us what is working well.{{/if}}</p>
+    </div>
+    <div class="col-12 col-md-6 col-lg-12">
+        <div id="qg-feedback-toggle" class="qg-footer-feedback-wrap">
+            <a id="btn-footer-feedback" class="btn btn-global-secondary qg-feedback-toggle collapsed" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="false" aria-controls="qg-footer-feedback" data-analytics-link-group="qg-feedback">
+                {{#if feedbackForm.btnTitle}}{{feedbackForm.btnTitle}}{{else}}Leave your feedback{{/if}}
+            </a>
+            <div id="qg-footer-feedback" class="qg-footer-feedback__v2 collapse">
+                {{#if feedbackForm.formAttr }}<div id="feedbackFormIO" {{#each feedbackForm.formAttr}}{{#if this}}{{@key}}="{{this}}"{{else}}{{@key}}{{/if}} {{/each}}>
+                {{else}}
+                {{!default if not set}}<div id="feedbackFormIO" data-formio data-formio-project-name="oldkihhcwbdtwye" data-formio-form-name="footerfeedbackcontactus" data-formio-env-url="api.forms.platforms.qld.gov.au" data-formio-createform-options="formioCreateFormOptions" data-formio-createform-controller="formioCreateFormController">
+                {{/if}}
+                    <div class="qg-spinner" role="status">
+                        <div class="spinner-border"></div>
+                        <div class="qg-spinner-label">Loading...</div>
+                    </div>
+                </div>
+                <div class="qg-footer-feedback-footer">
+                    <a class="qg-footer-feedback__close" data-bs-toggle="collapse" href="#qg-footer-feedback" role="button" aria-label="Close Feedback Form" aria-expanded="true" aria-controls="qg-footer-feedback">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>

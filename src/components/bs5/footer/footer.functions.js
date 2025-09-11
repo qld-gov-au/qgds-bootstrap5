@@ -5,14 +5,19 @@
  *
  * @returns {void}
  */
-export function displayFeedbackForm() {
+/* export function displayFeedbackForm() {
   window.formioQldCdnVersion = "v2/v2.x.x-latest";
 
   if (typeof FormioScript === "object") {
-    document.getElementById("btn-footer-feedback").addEventListener("click", runDisplayFeedbackFormIO);
+    document
+      .getElementById("btn-footer-feedback")
+      .addEventListener("click", runDisplayFeedbackFormIO);
   } else {
     let scriptEle = document.createElement("script");
-    scriptEle.setAttribute("src", "https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js");
+    scriptEle.setAttribute(
+      "src",
+      "https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js",
+    );
     scriptEle.setAttribute("type", "text/javascript");
     scriptEle.setAttribute("async", true);
 
@@ -20,7 +25,9 @@ export function displayFeedbackForm() {
 
     // Success event
     scriptEle.addEventListener("load", () => {
-      document.getElementById("btn-footer-feedback").addEventListener("click", runDisplayFeedbackFormIO);
+      document
+        .getElementById("btn-footer-feedback")
+        .addEventListener("click", runDisplayFeedbackFormIO);
     });
     // Error event
     scriptEle.addEventListener("error", (ev) => {
@@ -33,3 +40,4 @@ export function runDisplayFeedbackFormIO() {
   // eslint-disable-next-line no-undef
   FormioScript.init();
 }
+ */

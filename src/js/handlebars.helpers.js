@@ -1,4 +1,53 @@
 /* global Handlebars */
+
+/**
+ *
+ * @param {*} v1 The left value
+ * @param { "==" | "===" | "!=" | "!==" | "<" | "<=" | ">" | ">=" | "&&"  | "||" | "contains"} operator the operator to handle comparison
+ * @param {*} v2 The right value
+ * @param {Object} options handlebars-provided options object
+ * @returns {string} handlebars template block string
+ * @example
+ *   {{#ifCond value1 "===" value2}}
+ *     <!-- Content to render if condition is true -->
+ *     <p>Value1 is strictly equal to Value2</p>
+ *   {{else}}
+ *     <!-- Content to render if condition is false -->
+ *     <p>Value1 is not strictly equal to Value2</p>
+ *   {{/ifCond}}
+ */
+function ifCond(v1, operator, v2, options) {
+  switch (operator) {
+  case "==":
+    return v1 == v2 ? options.fn(this) : options.inverse(this);
+  case "===":
+    return v1 === v2 ? options.fn(this) : options.inverse(this);
+  case "!=":
+    return v1 != v2 ? options.fn(this) : options.inverse(this);
+  case "!==":
+    return v1 !== v2 ? options.fn(this) : options.inverse(this);
+  case "<":
+    return v1 < v2 ? options.fn(this) : options.inverse(this);
+  case "<=":
+    return v1 <= v2 ? options.fn(this) : options.inverse(this);
+  case ">":
+    return v1 > v2 ? options.fn(this) : options.inverse(this);
+  case ">=":
+    return v1 >= v2 ? options.fn(this) : options.inverse(this);
+  case "&&":
+    return v1 && v2 ? options.fn(this) : options.inverse(this);
+  case "||":
+    return v1 || v2 ? options.fn(this) : options.inverse(this);
+  case "contains":
+    if (typeof v1 == "string" && typeof v2 == "string") {
+      return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0
+        ? options.fn(this)
+        : options.inverse(this);
+    } else return options.inverse(this);
+  default:
+    return options.inverse(this);
+  }
+}
 /**
  * Registers Handlebars Helpers
  * @param {Handlebars} handlebars Templating engine
@@ -14,39 +63,9 @@ export default function handlebarsHelpers(handlebars) {
       ? options.fn(this)
       : options.inverse(this);
   });
-  // ifCond - checks conditions
-  handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
-    switch (operator) {
-    case "==":
-      return v1 == v2 ? options.fn(this) : options.inverse(this);
-    case "===":
-      return v1 === v2 ? options.fn(this) : options.inverse(this);
-    case "!=":
-      return v1 != v2 ? options.fn(this) : options.inverse(this);
-    case "!==":
-      return v1 !== v2 ? options.fn(this) : options.inverse(this);
-    case "<":
-      return v1 < v2 ? options.fn(this) : options.inverse(this);
-    case "<=":
-      return v1 <= v2 ? options.fn(this) : options.inverse(this);
-    case ">":
-      return v1 > v2 ? options.fn(this) : options.inverse(this);
-    case ">=":
-      return v1 >= v2 ? options.fn(this) : options.inverse(this);
-    case "&&":
-      return v1 && v2 ? options.fn(this) : options.inverse(this);
-    case "||":
-      return v1 || v2 ? options.fn(this) : options.inverse(this);
-    case "contains":
-      if (typeof v1 == "string" && typeof v2 == "string") {
-        return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0
-          ? options.fn(this)
-          : options.inverse(this);
-      } else return options.inverse(this);
-    default:
-      return options.inverse(this);
-    }
-  });
+
+  handlebars.registerHelper("ifCond", ifCond);
+
   // isType - Checks is expected type
   handlebars.registerHelper("isType", function (value, expected, options) {
     if (value === expected) {
@@ -198,27 +217,21 @@ export default function handlebarsHelpers(handlebars) {
     return durationString;
   });
 
-  // helper for extending components to set overridable data values
-  // if the value is not set in the component data.json, it will use the hds data value
-  handlebars.registerHelper('isdefined', function (value, defaultValue) {
-    return value !== undefined ? value : defaultValue;
-  });
-
   /**
    * Helper for extending components to set overridable data values
    * If the value is not set in the component data.json, it will use the hds data value
-   * 
+   *
    * @param {string} value - The value to check if it is defined
    * @param {string} defaultValue - The default value to return if value is not defined
    * @returns {string} - The value if it is defined, otherwise the default value
    */
-  handlebars.registerHelper('isdefined', function (value, defaultValue) {
+  handlebars.registerHelper("isdefined", function (value, defaultValue) {
     return value !== undefined && value !== "" ? value : defaultValue;
   });
 
   /**
    * Used to get class names added to an element based on their boolean values in an array
-   * 
+   *
    * @param {string} names - Comma-separated list of class names to check for
    * @param {array} array - Array of objects to check for true values
    * @returns {string} - Space-separated list of class names that have true values
@@ -233,7 +246,7 @@ export default function handlebarsHelpers(handlebars) {
     for (let i = 0; i < nameList.length; i++) {
       let name = nameList[i];
       // Check if any item in the array matches the name and is true
-      if(array){
+      if (array) {
         for (let j = 0; j < array.length; j++) {
           if (array[j][name] === true) {
             matchedItems.push(name); // Add to matchedItems if found and true
@@ -251,19 +264,18 @@ export default function handlebarsHelpers(handlebars) {
     }
   });
 
-
   handlebars.registerHelper("join", function (theArray, separator) {
     // Handle if a separator is not provided
     if (!separator || typeof separator !== "string") {
       separator = " ";
     }
-    
+
     // If theArray is not an array, return it as is, otherwise join it
     return !Array.isArray(theArray) ? theArray : theArray.join(separator);
   });
-  
-  handlebars.registerHelper('toCamelCase', function (text) {
-    if (typeof text !== 'string') return text;
+
+  handlebars.registerHelper("toCamelCase", function (text) {
+    if (typeof text !== "string") return text;
 
     // Remove whitespace and convert to camelCase
     return text
@@ -271,9 +283,8 @@ export default function handlebarsHelpers(handlebars) {
       .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) =>
         index === 0 ? match.toLowerCase() : match.toUpperCase(),
       )
-      .replace(/\s+/g, ''); // Remove all spaces
+      .replace(/\s+/g, ""); // Remove all spaces
   });
-
 }
 
 if (typeof Handlebars !== "undefined") {

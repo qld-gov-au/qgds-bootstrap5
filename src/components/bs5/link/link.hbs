@@ -1,0 +1,41 @@
+{{!-- Link icon partial --}}
+{{#*inline "linkIcon"~}}
+<span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
+{{~/inline}} 
+
+{{#*inline "link"~}}
+<a class="link" {{#if id}}id="{{id}}"{{/if}}
+    href="{{url}}" 
+    target="{{target}}" 
+    {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} 
+    {{#if download}}download="{{download}}"{{/if}} 
+    >
+ {{#if iconClass~}}
+    {{#ifCond iconPosition '==' 'leading'}}
+      {{~> linkIcon~}}
+    {{/ifCond}}
+  {{/if}}
+
+    {{label}}
+
+  {{#if iconClass~}}
+    {{#ifCond iconPosition '==' 'trailing'}}
+      {{~> linkIcon~}}
+    {{/ifCond}}
+  {{/if}}
+  
+</a>
+{{~/inline}} 
+
+{{#if linkList~}}
+<ul class="link-list">
+    {{#each linkList}}
+      <li class="link-item">
+        {{~> link~}}
+      </li>
+    {{/each}}
+</ul>
+        
+{{else}}
+    {{~> link~}}
+{{/if}}

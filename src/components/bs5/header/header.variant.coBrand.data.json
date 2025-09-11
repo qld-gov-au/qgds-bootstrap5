@@ -1,51 +1,39 @@
 {
-  "icon-root": "./assets/img/svg-icons.svg",
-  "icons": {
-    "menu-icon": "qld__icon__mobile-menu",
-    "search-icon": "qld__icon__search",
-    "close-icon": "qld__icon__close",
-    "chevron_down": "qld__icon__chevron-down"
-  },
-  "sitePreHeader": {
-    "url": {
-      "value": "https://qld.gov.au"
+  "isCoBrand": true,
+  "preHeader": {
+    "globalLink": {
+      "text": "www.qld.gov.au",
+      "url": "https://qld.gov.au"
     },
-    "text": {
-      "value": "www.qld.gov.au"
-    },
-    "CTA": [
+    "actions": [
       {
         "id": "CTAone",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Get support to quit"
-        }
+        "url": "#",
+        "text": "Get support to quit",
+        "icon": "profile"
       }
     ]
   },
-  "siteHeader": {
-    "config": {
-      "masterbrand_enabled": false,
-      "subbrand_enabled": true,
-      "cobrand_enabled": false,
-      "endorsed_enabled": false,
-      "standalone_enabled": false
-    },
-    "url": {
-      "value": "https://qld.gov.au"
-    },
-    "logo": {},
-    "secondaryType": {
-      "logo": {
-        "value": ""
+  "mainContent": {
+    "url": "https://qld.gov.au",
+    "logo": null,
+    "secondaryLogo": null,
+    "siteTitle": "Department of Seniors, Disability Services and Aboriginal and Torres Strait Islander Partnerships",
+    "subline": ""
+  },
+  "assets": {
+    "SVGSpritePath": "./assets/img/icons-sprite.svg",
+    "siteSearch": {
+      "value": "#",
+      "placeholder": "",
+      "label": "",
+      "formAction": {
+        "url": "https://www.forgov.qld.gov.au/search"
       },
-      "siteTitle": {
-        "value": "Vaping Exposed"
-      },
-      "subline": {
-        "value": ""
+      "options": {
+        "borderStyle": {
+          "full": true
+        }
       }
     }
   }

@@ -130,28 +130,6 @@ jobs:
         run: | # build the Storybook files
           npm run build-storybook
 
-      - name: Publish to Chromatic
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}
-        uses: chromaui/action@latest
-        # Options required to the GitHub Chromatic Action
-        with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          token: ${{ secrets.GH_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          # 👇 tell Chromatic to rebuild the entire project when a file matching the pattern is changed https://www.chromatic.com/docs/github-actions/#enable-turbosnap
-          #externals: |
-          #  *.sass
-          #  public/**
-          onlyChanged: true # 👈 Required option to enable TurboSnap
-          storybookBuildDir: "storybook-static"
-      - name: Publish to Chromatic - Is Skipped
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
-        run: |  
-          echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
-          echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
-          echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
-          echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
-
       - name: Package storybook files
         uses: actions/upload-artifact@v4 #provide nice artifact
         with:

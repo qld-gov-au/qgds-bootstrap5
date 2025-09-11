@@ -61,7 +61,7 @@ const buildConfig = {
 
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
-    ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []), // Generate icons assets when --icons theme is set
+    ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []), // Generate icons assets when --icons flag is set
     QDGScopy(),
     QGDSrawLoader(),
     versionPlugin(),

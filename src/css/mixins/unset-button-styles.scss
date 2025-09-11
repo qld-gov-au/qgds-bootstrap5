@@ -1,0 +1,15 @@
+///
+/// Unset all button styles - remove browser styles for a clean button.
+@mixin unset-button-styles() {
+  appearance: none;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+  background-color: transparent;
+  background: none;
+  border: 0 none transparent;
+  color: inherit;
+}
