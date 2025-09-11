@@ -1,7 +1,7 @@
 import Component from "../../../js/QGDSComponent.js";
 
 import template from "./footer.hbs?raw";
-import templateForgov from "./footerForgov.hbs?raw";
+/* import templateForgov from "./footerForgov.hbs?raw"; */
 
 export class Footer {
   constructor(data = {}) {
@@ -9,8 +9,8 @@ export class Footer {
   }
 }
 
-export class FooterForgov {
+/* export class FooterForgov {
   constructor(data = {}) {
     return new Component(templateForgov, data);
   }
-}
+} */

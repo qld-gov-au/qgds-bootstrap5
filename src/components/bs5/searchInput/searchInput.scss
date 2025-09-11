@@ -196,7 +196,7 @@
     border-radius: 0.25rem;
     border: 0.125rem solid var(--border-color);
     background: var(--background-color);
-    padding-right: 6rem;
+    padding-right: 7.5rem;
     color: var(--text-color);
 
     &::placeholder {
@@ -280,6 +280,7 @@
 
     .form-control {
       padding-left: 1rem;
+      padding-right: 4rem;
     }
 
     #search-button {

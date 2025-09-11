@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    {{> head }}
 </head>
 
 <body>
@@ -18,44 +17,76 @@
     {{/if}}
 
     <main>
-        <div class="container-fluid">
-            <div class="container qld-content">
-                {{#if breadcrumbs}}
-                <div class="row">
-                    <div class="col-12">
-                        {{> breadcrumbs breadcrumbs}}
-                    </div>
+        <div class="container mt-40 mt-lg-64">
+            {{#if breadcrumbs}}
+            <div class="row">
+                <div class="col-12">
+                    {{> breadcrumbs breadcrumbs}}
+                </div>
+            </div>
+            {{/if}}
+
+            <div class="row">
+                {{#if sidenav}}
+                <!-- Side navigation Col -->
+                <div class="col-12 col-lg-3 mt-5 mt-lg-0">
+                    {{> sidenav sidenav}}
                 </div>
                 {{/if}}
 
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="content-section">
-                            {{{content}}}
+                <!-- Content Col -->
+                <div class="col-lg-8 col-md-7 ps-1 ps-md-32">
+
+                    <!-- Main Content Sections -->
+                    <div class="content-section mb-5 px-1 px-md-32">
+
+                        <h1 id="section-heading">Single page form (H1)</h1>
+                        <p>
+                            Your feedback is important to us. It tells us how we can improve and what we’re doing well. Your feedback is confidential.
+                        </p> 
+                        
+                        <h2 id="form-heading">Enquiry form (H2)</h2>
+
+                        {{#if inpageAlert}}
+                        <!-- Inpage Alert -->
+                        <div class="mb-32">
+                            {{> inpageAlert inpageAlert}}
+                        </div>
+                        {{/if}}
+
+                        <div class="mb-32">
+                            <p>Any information submitted using this form will be used in line with our privacy statement.</p>
+                            <p>Required fields are marked with an *</p>
                         </div>
 
                         {{#if form}}
                         <form class="qld-form mb-5">
-                            {{#each form.fields}}
-                            <div class="form-group mb-3">
+                            {{#each form.fields1}}
+                            <div class="form-group mb-32">
                                 {{#ifCond type '==' 'textbox'}}
                                 {{> textbox this}}
                                 {{else ifCond type '==' 'textarea'}}
                                 {{> textarea this}}
-                                {{else ifCond type '==' 'select'}}
-                                {{> select this}}
-                                {{else ifCond type '==' 'dateinput'}}
-                                {{> dateinput this}}
-                                {{else ifCond type '==' 'formcheck'}}
-                                {{> formcheck this}}
-                                {{else ifCond type '==' 'checkbox'}}
-                                {{> formcheck this}}
                                 {{else ifCond type '==' 'radio'}}
                                 {{> formcheck this}}
                                 {{/ifCond}}
                             </div>
                             {{/each}}
 
+                            <h3 id="form-heading">Contact details (H3)</h3>
+
+                            {{#each form.fields2}}
+                            <div class="form-group mb-32">
+                                {{#ifCond type '==' 'textbox'}}
+                                {{> textbox this}}
+                                {{else ifCond type '==' 'select'}}
+                                {{> select this}}
+                                {{else ifCond type '==' 'checkbox'}}
+                                {{> formcheck this}}
+                                {{/ifCond}}
+                            </div>
+                            {{/each}}
+                            
                             {{#if form.buttons}}
                             <div class="form-actions d-flex mt-5 gap-4">
                                 {{#each form.buttons}}
@@ -66,9 +97,9 @@
                         </form>
                         {{/if}}
 
-                        {{> contentFooter contentFooter}}
                     </div>
                 </div>
+                {{> contentFooter contentFooter}}
             </div>
         </div>
     </main>

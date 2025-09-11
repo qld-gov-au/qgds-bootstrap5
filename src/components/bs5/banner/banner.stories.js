@@ -97,23 +97,23 @@ export default {
 
       // Provide cards or buttons if callToAction is set to true
       switch (args.callToAction) {
-      case "buttons":
-        args.buttons = exampleButtonData;
-        args.cards = false;
-        break;
-      case "cards":
-        args.cards = exampleCardData;
-        args.buttons = false;
-        break;
-      case "cardsMixed":
-        args.cards = exampleMixedCardData;
-        args.buttons = false;
-        break;
-      case "none":
-      default:
-        args.cards = false;
-        args.buttons = false;
-        break;
+        case "buttons":
+          args.buttons = exampleButtonData;
+          args.cards = false;
+          break;
+        case "cards":
+          args.cards = exampleCardData;
+          args.buttons = false;
+          break;
+        case "cardsMixed":
+          args.cards = exampleMixedCardData;
+          args.buttons = false;
+          break;
+        case "none":
+        default:
+          args.cards = false;
+          args.buttons = false;
+          break;
       }
 
       // Return the updated story

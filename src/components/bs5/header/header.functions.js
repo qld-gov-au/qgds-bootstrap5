@@ -20,21 +20,23 @@ export function toggleSearch(event) {
   const toggleButton = event.currentTarget;
   const searchIcon = toggleButton.querySelector("use.icon-search");
   const closeIcon = toggleButton.querySelector("use.icon-close");
-  const toggleText = toggleButton.querySelector(".qld__main-nav__toggle-text");
+  const toggleText = toggleButton.querySelector(
+    ".qld-header-toggle-main-nav-text",
+  );
 
   // Check current class and swap
   if (searchDiv) {
-    if (searchDiv.classList.contains("qld__header__site-search--open")) {
-      searchDiv.classList.remove("qld__header__site-search--open");
-      searchDiv.classList.add("qld__header__site-search--closed");
+    if (searchDiv.classList.contains("is-open")) {
+      searchDiv.classList.remove("is-open");
+      searchDiv.classList.add("is-closed");
 
       // Change icon and text back to default
       searchIcon.style.display = "block";
       closeIcon.style.display = "none";
       toggleText.textContent = "Search";
     } else {
-      searchDiv.classList.remove("qld__header__site-search--closed");
-      searchDiv.classList.add("qld__header__site-search--open");
+      searchDiv.classList.remove("is-closed");
+      searchDiv.classList.add("is-open");
 
       // Change icon and text to active state
       searchIcon.style.display = "none";
@@ -43,9 +45,7 @@ export function toggleSearch(event) {
     }
 
     // Optional: Update the aria-expanded attribute for accessibility
-    const isExpanded = searchDiv.classList.contains(
-      "qld__header__site-search--open",
-    );
+    const isExpanded = searchDiv.classList.contains("is-open");
     event.currentTarget.setAttribute("aria-expanded", isExpanded);
   }
 }

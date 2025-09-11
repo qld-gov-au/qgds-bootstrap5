@@ -4,7 +4,7 @@
     <div id="navbarNav" class="container">
             <div class="nav-header">
                 <span class="navbar-brand" href="#">{{#if metadata.navbarBrandName}}{{metadata.navbarBrandName}}{{/if}}</span>
-                <button id="burgerCloseBtn" type="button" class="navbar-btn btn-close" data-bs-toggle="collapse"
+                <button id="burgerCloseBtn" type="button" class="navbar-btn" data-bs-toggle="collapse"
                     aria-label="Close" data-bs-target="#main-nav" aria-expanded="false"
                     aria-controls="collapseExample">Close</button>
             </div>
@@ -18,7 +18,7 @@
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
                                     {{#if hideLabel}}
-                                        <span class="visually-hidden">{{text}}</span>
+                                        <span class="visually-hidden-lg">{{text}}</span>
                                     {{else}}
                                         {{text}}
                                     {{/if}}
@@ -57,7 +57,7 @@
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
                                     {{#if hideLabel}}
-                                        <span class="visually-hidden">{{text}}</span>
+                                        <span class="visually-hidden-lg">{{text}}</span>
                                     {{else}}
                                         {{text}}
                                     {{/if}}

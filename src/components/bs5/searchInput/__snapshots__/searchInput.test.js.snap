@@ -38,7 +38,7 @@ exports[`SearchInput > Renders as expected 1`] = `
             <div class="dynamic-suggestions"></div>
         </div>
         <button class="btn btn-primary" type="submit" id="search-button">
-            <span class="btn-icon"></span>
+            <span class="btn-icon mx-0"></span>
             <span class="btn-label">Search</span>
         </button>
     </div>
