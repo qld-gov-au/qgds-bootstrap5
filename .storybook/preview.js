@@ -2,7 +2,10 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/js/qld.bootstrap.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { withDynamicTheme, dynamicThemeGlobalTypes } from "./dynamicThemeDecorator.js";
+import {
+  withDynamicTheme,
+  dynamicThemeGlobalTypes,
+} from "./dynamicThemeDecorator.js";
 
 // Check if dynamic theme should be enabled via environment variable
 const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;

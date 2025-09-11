@@ -1,0 +1,109 @@
+// Variables Override File - Bright Red Theme
+// This file creates a custom bright red theme variant with different values from qld-tokens.scss
+
+// Core neutral colors - red-tinted tones
+$core-default-color-neutral-black: #2D0A0A;
+$core-default-color-neutral-darkest: #4A1515;
+$core-default-color-neutral-darker: #662020;
+$core-default-color-neutral-dark: #8B2A2A;
+$core-default-color-neutral-light: #FFB3B3;
+$core-default-color-neutral-lighter: #FFCCCC;
+$core-default-color-neutral-lightest: #FFE6E6;
+$core-default-color-neutral-white: #FFFFFF;
+
+// Status colors - bright red themed
+$core-default-color-status-caution-default: #FF6B35;
+$core-default-color-status-caution-darker: #E55A2B;
+$core-default-color-status-caution-lighter: #FFE8E0;
+$core-default-color-status-caution-lightest: #FFF5F2;
+$core-default-color-status-info-default: #FF4757;
+$core-default-color-status-info-darker: #E6414F;
+$core-default-color-status-info-lighter: #FFE0E3;
+$core-default-color-status-info-lightest: #FFF0F2;
+$core-default-color-status-error-default: #FF1744;
+$core-default-color-status-error-darker: #E6153D;
+$core-default-color-status-error-lighter: #FFCDD7;
+$core-default-color-status-error-lightest: #FFE6EC;
+$core-default-color-status-success-default: #FF5722;
+$core-default-color-status-success-darker: #E64E1F;
+$core-default-color-status-success-lighter: #FFE0DB;
+$core-default-color-status-success-lightest: #FFF0ED;
+
+// Underline colors
+$core-default-color-status-underline-light: #FFFFFF99;
+$core-default-color-status-underline-dark: #99192699;
+
+// Brand colors - bright red palette
+$core-default-color-brand-primary-dark-blue: #8B0000;
+$core-default-color-brand-primary-sapphire-blue: #FF1744;
+$core-default-color-brand-primary-light-blue: #FF4569;
+$core-default-color-brand-primary-light-green: #FF6B8A;
+$core-default-color-brand-secondary-darkgreen: #DC143C;
+$core-default-color-brand-secondary-golden-yellow: #FFB347;
+$core-default-color-brand-other-modern-maroon: #B22222;
+$core-default-color-brand-other-gov-maroon: #A0522D;
+
+// Code colors - bright red theme
+$core-default-color-code-green: #FF6B8A;
+$core-default-color-code-light-blue: #FF8FA3;
+$core-default-color-code-violet: #FFB3BA;
+$core-default-color-code-muted: #FFCCCC;
+
+// Layout backgrounds
+$core-default-color-contained-layout-background: #FF1744;
+$core-default-color-contained-layout-background-dark: #8B0000;
+
+// Light theme colors - bright red variations
+$color-default-color-light-background-default: #FFFFFF;
+$color-default-color-light-background-default-shade: #FFF5F5;
+$color-default-color-light-background-light: #FFE8E8;
+$color-default-color-light-background-light-shade: #FFCCCC;
+$color-default-color-light-background-alt: #FFCCCC;
+$color-default-color-light-background-alt-shade: #FFB3B3;
+$color-default-color-light-border-default: #FF9999;
+$color-default-color-light-border-light: #FF7F7F;
+$color-default-color-light-border-alt: #CC6666;
+$color-default-color-light-action-primary: #FF1744;
+$color-default-color-light-action-primary-hover: #E6153D;
+$color-default-color-light-action-secondary: #FF5722;
+$color-default-color-light-action-secondary-hover: #E64E1F;
+$color-default-color-light-link-on-action: #FFFFFF;
+$color-default-color-light-link-default: #FF1744;
+$color-default-color-light-link-visited: #B22222;
+$color-default-color-light-accent-design-accent: #FF6B8A;
+$color-default-color-light-focus-default: #FF4569;
+$color-default-color-light-underline-default: #DC143C;
+$color-default-color-light-underline-default-hover: #FF1744;
+$color-default-color-light-underline-visited: #B22222;
+$color-default-color-light-underline-visited-hover: #A0522D;
+$color-default-color-light-text-default: #4D1A1A;
+$color-default-color-light-text-lighter: #662020;
+$color-default-color-light-text-heading: #8B0000;
+$color-default-color-light-site-title: #B22222;
+$color-default-color-light-crest-fill: #DC143C;
+
+// Dark theme colors - bright red variations
+$color-default-color-dark-background-default: #FF1744;
+$color-default-color-dark-background-default-shade: #E6153D;
+$color-default-color-dark-background-alt: #8B0000;
+$color-default-color-dark-background-alt-shade: #660000;
+$color-default-color-dark-border-default: #FF8FA3;
+$color-default-color-dark-border-alt: #FF6B8A;
+$color-default-color-dark-action-primary: #FF6B8A;
+$color-default-color-dark-action-primary-hover: #FFB3C1;
+$color-default-color-dark-action-secondary: #FFB347;
+$color-default-color-dark-action-secondary-hover: #FFC266;
+$color-default-color-dark-link-default: #FFFFFF;
+$color-default-color-dark-link-visited: #FFB3BA;
+$color-default-color-dark-link-on-action: #8B0000;
+$color-default-color-dark-accent-design-accent: #FF6B8A;
+$color-default-color-dark-focus-default: #FF8FA3;
+$color-default-color-dark-underline-default: #FFCCCC;
+$color-default-color-dark-underline-default-hover: #FFFFFF;
+$color-default-color-dark-underline-visited: #FFB3BA;
+$color-default-color-dark-underline-visited-hover: #FF8FA3;
+$color-default-color-dark-text-default: #FFFFFF;
+$color-default-color-dark-text-lighter: #FFE8E8;
+$color-default-color-dark-text-heading: #FFFFFF;
+$color-default-color-dark-site-title: #FFFFFF;
+$color-default-color-dark-crest-fill: #FFFFFF;

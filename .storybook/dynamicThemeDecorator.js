@@ -5,7 +5,8 @@ let currentTheme = null;
 // Dynamic theme modules import for lazy loading
 const themeModules = {
   default: () => import("../src/css/main.scss"),
-  test: () => import("../src/css/themes/main.test.scss"),
+  green: () => import("../src/css/themes/main.green.scss"),
+  red: () => import("../src/css/themes/main.red.scss"),
 };
 
 function mapStyleElementsByTheme(callback) {
@@ -13,11 +14,11 @@ function mapStyleElementsByTheme(callback) {
   const styleElements = document.querySelectorAll('style[type="text/css"]');
   const linkElements = document.querySelectorAll('link[rel="stylesheet"]');
 
-  styleElements.forEach(element => {
+  styleElements.forEach((element) => {
     callback(element);
   });
 
-  linkElements.forEach(element => {
+  linkElements.forEach((element) => {
     callback(element);
   });
 }
@@ -26,7 +27,7 @@ const unloadTheme = (themeName) => {
   // Cache current theme's style elements before removing
   // Remove existing style elements for current theme
   const currentStyleElements = [];
-  const themeNotExist = themeName && !themeStyleElements.has(themeName)
+  const themeNotExist = themeName && !themeStyleElements.has(themeName);
   mapStyleElementsByTheme((element) => {
     if (themeNotExist) {
       currentStyleElements.push(element.cloneNode(true));
@@ -48,7 +49,7 @@ const loadTheme = async (themeName) => {
   // If theme style elements are cached, restore them
   if (themeStyleElements.has(themeName)) {
     const cachedElements = themeStyleElements.get(themeName);
-    cachedElements.forEach(element => {
+    cachedElements.forEach((element) => {
       document.head.appendChild(element.cloneNode(true));
     });
     currentTheme = themeName;
@@ -80,7 +81,6 @@ const loadTheme = async (themeName) => {
       // Store references
       loadedThemes.set(themeName, true);
       currentTheme = themeName;
-
     } catch (error) {
       console.warn(`Failed to load theme: ${themeName}`, error);
     }
@@ -100,12 +100,13 @@ export const dynamicThemeGlobalTypes = {
   themeName: {
     name: "Theme Palette",
     description: "Theme palette selector",
-    defaultValue: "default",
+    defaultValue: "green",
     toolbar: {
       icon: "switchalt",
       items: [
         { value: "default", title: "Default theme palette" },
-        { value: "test", title: "Test theme palette" },
+        { value: "green", title: "Green theme palette" },
+        { value: "red", title: "Red theme palette" },
       ],
       showName: true,
       dynamicTitle: true,
