@@ -1,6 +1,7 @@
-@import "./_icons.variables";
-@import "./_icons.list";
-@import "./_icons-multicolours.list";
+@forward "./_icons.variables";
+@use "./_icons.list" as *;
+@use "./icons.sizes" as *;
+@use "../../../css/mixins" as m;
 
 /* @TODO: Remove lines in between once all the icons within the components have been synced with new icons.  */
 :root {
@@ -37,68 +38,20 @@
 }
 /* @TODO: Remove all lines above once all the icons within the components have been synced with new icons.  */
 
-// Ensure SVGs inherit the current text color
-// Comment out to use the "fill" attribute inside svg element instead
-/*
-svg {
-	fill: currentColor;
-} */
-
-// List of icon sizes
-$icon-sizes: (
-  "xs": 1rem,
-  "sm": 1.25rem,
-  "md": 1.5rem,
-  "lg": 2rem,
-  "xl": 2.5rem,
-  "xxl": 3rem,
-);
-
 // Loop through the icon names and create utility class for each
 .qld-icon {
-  --_icon-size: var(--qld-icon-size, 1.25rem);
-  display: inline-block;
-  width: var(--_icon-size);
-  height: var(--_icon-size);
-  background-position: center center;
-  background-repeat: no-repeat;
-  mask-position: center center;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  background-size: contain;
-  vertical-align: middle;
-  color: var(--qld-icon-color, var(--qld-action-icon-color), inherit);
+  @include m.make-icon();
 
-  //Change color at component level... e.g. on cards.css, use:
-  // .card { --#{$prefix}icon-color: purple; }
-  // If icon-color is not set, fallback to currentColor.
-  &:where(:not(svg)) {
-    background-color: currentColor;
-  }
-
-  // Better alignment for icons inline with text
-  &-inline {
-    vertical-align: baseline;
-    position: relative;
-    top: calc(calc(var(--_icon-size) / 2) - 0.5cap);
+  &:where(svg) {
+    background-color: transparent;
   }
 
   // Utility classes for icons
   // Note: mask-image is the preferred method for icons that are single colour, as it allows for easy colour changes using CSS variables.
   // The background-image method is used for SVG icons with multiple fill colours.
   @each $icon in $icon-names {
-    @if index($icons-multicolour, $icon) {
-      // Only use background-image for multi colours icons.
-      &-#{$icon} {
-        background-image: var(--qgds-icon-#{$icon});
-        -webkit-background-image: var(--qgds-icon-#{$icon});
-        background-color: transparent;
-      }
-    } @else {
-      &-#{$icon} {
-        mask-image: var(--qgds-icon-#{$icon});
-        -webkit-mask-image: var(--qgds-icon-#{$icon});
-      }
+    &-#{$icon} {
+      @include m.make-icon($name: $icon, $include-base: false);
     }
   }
 
@@ -108,5 +61,10 @@ $icon-sizes: (
     &-#{$key} {
       --qld-icon-size: #{$value};
     }
+  }
+
+  // Better alignment for icons inline with text
+  &.is-inline {
+    @include m.make-icon($include-base: false, $is-inline: true);
   }
 }
