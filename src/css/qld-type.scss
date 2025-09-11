@@ -1,5 +1,6 @@
 //Typography
-$font-family-sans-serif: "Noto Sans",
+$font-family-sans-serif:
+  "Noto Sans",
   system-ui,
   -apple-system,
   "Segoe UI",
@@ -23,7 +24,7 @@ $font-weight-bolder: 900;
 $font-weights: (
   normal: 400,
   bold: 600,
-  bolder: 900
+  bolder: 900,
 );
 
 $body-color: $qld-text-grey;
@@ -51,7 +52,6 @@ $h2-line-height-mobile: 1.285; //36
 
 $headings-color: $qld-text-headings;
 $qld-heading-color: $core-default-color-brand-primary-light-green;
-
 
 $link-color: $qld-brand-primary;
 $link-hover-color: $qld-brand-primary;
@@ -81,14 +81,12 @@ $link-visited-color: $qld-link-visited;
   --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
 }
 
-
 //Content and links
 body {
   -webkit-font-smoothing: antialiased;
 }
 
 .qld-content-body {
-
   p {
     margin-bottom: 1.25rem;
   }
@@ -102,7 +100,6 @@ body {
   li {
     margin-top: 0.5rem;
   }
-
 }
 
 // Apply correct bold font-weight
@@ -125,7 +122,6 @@ dt {
   font-weight: $font-weight-bold;
 }
 
-
 // Definition list
 dt {
   margin-top: 0.5rem;
@@ -143,9 +139,7 @@ dl.qld-content-dates {
   dd {
     margin-top: 0.5rem;
   }
-
 }
-
 
 // Light, Light alt
 
@@ -158,26 +152,32 @@ h6 {
   color: var(--#{$prefix}color-default-color-light-text-heading);
 }
 
-
-
 a,
 a.nav-link {
   text-underline-offset: var(--qld-link-underline-offset);
   text-decoration-thickness: var(--qld-link-underline-thickness);
-  text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default);
+  text-decoration-color: var(
+    --#{$prefix}color-default-color-light-underline-default
+  );
 
   &:hover {
     text-decoration-thickness: var(--qld-link-underline-thickness-hover);
-    text-decoration-color: var(--#{$prefix}color-default-color-light-underline-default-hover);
+    text-decoration-color: var(
+      --#{$prefix}color-default-color-light-underline-default-hover
+    );
   }
 
   &:visited {
     color: var(--#{$prefix}color-default-color-light-link-visited);
-    text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited);
+    text-decoration-color: var(
+      --#{$prefix}color-default-color-light-underline-visited
+    );
 
     &:hover {
       text-decoration-thickness: var(--qld-link-underline-thickness-hover);
-      text-decoration-color: var(--#{$prefix}color-default-color-light-underline-visited-hover);
+      text-decoration-color: var(
+        --#{$prefix}color-default-color-light-underline-visited-hover
+      );
     }
   }
 
@@ -193,8 +193,42 @@ figure > figcaption {
   line-height: 20px;
 }
 
-// Theme-specific typography styles moved to qld-theme.scss
+// Theme-specific typography styles
+.dark,
+.dark-alt {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--#{$prefix}color-default-color-dark-text-heading);
+  }
 
+  body & {
+    color: var(--qld-body-color);
+  }
+
+  a,
+  a.nav-link {
+    text-decoration-color: var(
+      --#{$prefix}color-default-color-dark-underline-default
+    );
+
+    &:visited {
+      color: var(--#{$prefix}color-default-color-dark-link-visited);
+      text-decoration-color: var(
+        --#{$prefix}color-default-color-dark-underline-visited
+      );
+
+      &:hover {
+        text-decoration-color: var(
+          --#{$prefix}color-default-color-dark-underline-default-hover
+        );
+      }
+    }
+  }
+}
 
 a.nostyle {
   text-decoration: unset;
