@@ -1,11 +1,14 @@
 import { Canvas, Meta, Story, Source } from "@storybook/blocks";
 import { initTabs } from "./storybook-documentation.js";
 
-export const SharedNote = ({ defaultdata, designResources, children }) => (
+export const SharedNote = ({ defaultdata, designResources, componentId, children }) => (
   <>
     
 <div className="tab">
-  <button className="tablinks active" data-tabcontent="json-doc">
+ <button className="tablinks active" data-tabcontent="code-doc">
+    Code
+  </button>
+  <button className="tablinks" data-tabcontent="json-doc">
     JSON
   </button>
   <button className="tablinks" data-tabcontent="design-doc">
@@ -16,7 +19,12 @@ export const SharedNote = ({ defaultdata, designResources, children }) => (
   </button>
 </div>
 
-<div id="json-doc" className="tabcontent active" >
+<div id="code-doc" className="tabcontent active">
+  <h3>Component code</h3>
+  <Source language="html" id={componentId} />
+</div>
+
+<div id="json-doc" className="tabcontent" >
 <h3>Example Component data</h3>
 
 <Source language="json" code={JSON.stringify(defaultdata, null, 2)} />
