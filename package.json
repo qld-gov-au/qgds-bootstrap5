@@ -23,9 +23,10 @@
     "serve": "http-server dist -p 8080",
     "serve:test": "http-server dist -p 8081 --silent",
     "dev-storybook": "npm-run-all --parallel watch storybook",
-    "storybook": "ENABLE_DYNAMIC_THEME=true storybook dev -p 6006",
-    "build-storybook": "storybook build --webpack-stats-json ",
-    "build-storybook:serve": "http-server storybook-static -p 8080"
+    "storybook": "storybook dev -p 6006",
+    "storybook:themes": "ENABLE_DYNAMIC_THEME=true storybook dev -p 6006",
+    "build-storybook": "ENABLE_DYNAMIC_THEME=true storybook build --webpack-stats-json ",
+    "build-storybook:serve": "ENABLE_DYNAMIC_THEME=true http-server storybook-static -p 8080"
   },
   "keywords": [],
   "author": "",
