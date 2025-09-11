@@ -1,4 +1,4 @@
-@use "mixins" as *;
+@use "mixins" as m;
 
 // GLOBALLY SCOPED VARIABLES
 // These variables are available to the full project and all components. (This file is included at the top of main.css to ensure this)
@@ -222,7 +222,7 @@ $project-colors: (
   "default-border": $qld-light-border,
   "light-border": $color-default-color-light-border-light,
   "light-border-alt": $qld-light-border-alt,
-  
+
   //Links
   "light-link": $color-default-color-light-link-default,
   "dark-link": $color-default-color-dark-link-default,
@@ -306,8 +306,8 @@ $project-base-colors: (
 
 // Generate CSS custom properties for qld-tokens & project colours on :root to prevent utility class generation
 :root {
-  @include generate-color-vars($qld-tokens);
-  @include generate-color-vars($project-colors);
+  @include m.generate-color-vars($qld-tokens);
+  @include m.generate-color-vars($project-colors);
 }
 
 $theme-colors: map-merge($theme-colors, $project-base-colors);

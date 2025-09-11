@@ -5,6 +5,8 @@
 @use "../../components/bs5/icons/icons.sizes" as *;
 @use "../functions" as f;
 
+$prefix: "qld-" !default;
+
 ///
 /// @param {String} $name [null] - The name of icon
 /// @param {String} $size ["sm"] - The icon size, valid values are "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
@@ -44,7 +46,7 @@
     }
   } @else {
     @if $include-base {
-      --_icon-size: var(--qld-icon-size, $size);
+      --_icon-size: var(--#{$prefix}icon-size, $size);
       display: inline-block;
       width: var(--_icon-size);
       height: var(--_icon-size);
@@ -62,7 +64,7 @@
       // Preferred API to set color on icons is via --qld-icon-color property.
       // This is not set intentionally by default, so we can inherit --qld-action-icon-color from palette context.
       // Final fallback to inherit in case these go wrong.
-      color: var(--qld-icon-color, var(--qld-action-icon-color, inherit));
+      color: var(--#{$prefix}icon-color, var(--qld-action-icon-color, inherit));
       background-color: currentColor;
     }
     @if $is-inline {
