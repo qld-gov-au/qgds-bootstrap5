@@ -4,25 +4,6 @@ import iconUsageHtml from "./story-icon-usage.html?raw";
 import iconSizingHtml from "./story-icon-sizing.html?raw";
 import storyVerticalAlignmentHtml from "./story-vertical-alignment.html?raw";
 
-// const defaultdata = {
-//   title: "Card title",
-//   description: "Card body text",
-//   date: "",
-//   variantClass: "default",
-//   image: "",
-//   imageAlt: "",
-//   iconClasses: "",
-//   iconPosition: "icon-top",
-//   action: "no",
-//   link: "",
-//   arrow: false,
-//   feature: false,
-//   featureImagePosition: "",
-//   video: false,
-//   videoDuration: "",
-//   footer: "",
-//   equalHeight: false,
-// };
 const SPRITE_PATH = "./assets/img/icons-sprite.svg";
 const PREFIX_QGDS = "qgds-icon-";
 

@@ -91,21 +91,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       background-color: var(--#{$prefix}neutral-lightest);
     }
   }
-  &.card-single-action {
-    --qld-icon-color: var(--#{$prefix}light-action-secondary);
-    &.card-dark,
-    &.card-dark-alt {
-      --qld-icon-color: var(--#{$prefix}dark-action-secondary);
-    }
-  }
-  &.card-multi-action {
-    --qld-icon-color: var(--#{$prefix}light-action-secondary);
-
-    &.card-dark,
-    &.card-dark-alt {
-      --qld-icon-color: var(--#{$prefix}dark-action-secondary);
-    }
-  }
   &.card-arrow {
     .card-body {
       display: flex;

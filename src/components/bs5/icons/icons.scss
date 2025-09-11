@@ -67,7 +67,7 @@ $icon-sizes: (
   mask-size: contain;
   background-size: contain;
   vertical-align: middle;
-  color: var(--qld-action-icon-color, inherit);
+  color: var(--qld-icon-color, var(--qld-action-icon-color), inherit);
 
   //Change color at component level... e.g. on cards.css, use:
   // .card { --#{$prefix}icon-color: purple; }
