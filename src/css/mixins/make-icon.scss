@@ -46,7 +46,7 @@ $prefix: "qld-" !default;
     }
   } @else {
     @if $include-base {
-      --_icon-size: var(--#{$prefix}icon-size, $size);
+      --_icon-size: var(--#{$prefix}icon-size, #{map.get($icon-sizes, $size)});
       display: inline-block;
       width: var(--_icon-size);
       height: var(--_icon-size);
