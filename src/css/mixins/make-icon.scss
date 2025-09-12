@@ -42,11 +42,12 @@ $prefix: "qld-" !default;
   @if $pseudo {
     &::#{$pseudo} {
       content: "";
-      @include make-icon($name, null, $is-inline, $include-base);
+      // recursively call this mixin with $pseudo set to null
+      @include make-icon($name, $size, null, $is-inline, $include-base);
     }
   } @else {
     @if $include-base {
-      --_icon-size: var(--#{$prefix}icon-size, #{map.get($icon-sizes, $size)});
+      --_icon-size: var(--icon-size, #{map.get($icon-sizes, $size)});
       display: inline-block;
       width: var(--_icon-size);
       height: var(--_icon-size);
