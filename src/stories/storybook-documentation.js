@@ -4,11 +4,11 @@ window.addEventListener("DOMContentLoaded", () => {
 export function initTabs() {
   let tabButtons = document.querySelectorAll(".tablinks");
   tabButtons.forEach(function (tabButton) {
-    tabButton.addEventListener("click", openCity);
+    tabButton.addEventListener("click", openTab);
   });
 }
 
-export function openCity(evt) {
+export function openTab(evt) {
   const tabContent = evt.currentTarget.dataset.tabcontent;
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
