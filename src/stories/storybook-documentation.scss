@@ -1,8 +1,8 @@
 /* Style the tab */
 .tab {
-  overflow: hidden;
-  //border-bottom: 1px solid #f1f2f7;
-  //background-color: #f1f1f1;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 /* Style the buttons inside the tab */
@@ -16,9 +16,14 @@
   transition: 0.3s;
   font-size: 17px;
   font-weight: 600;
-  padding: 0 1rem;
-  margin: 0.75rem 0;
-  border-right: 1px solid #ccc;
+  padding: 0.5rem 0.3rem;
+  margin: 0 1rem 0 0;
+  white-space: nowrap;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
   p {
     color: inherit;
     margin: 0;
@@ -27,19 +32,20 @@
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover,
+.tab button:hover {
+  border-bottom: 2px solid #ccc;
+}
 .tab button.active {
   //  background-color: #ddd;
   color: #029cfd;
-  p {
-    border-bottom: 2px solid #029cfd;
-  }
+
+  border-bottom: 2px solid #029cfd;
 }
 
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 1rem;
+  padding: 1rem 0;
   border-top: 1px solid #ccc;
   //border-top: none;
   &.active {

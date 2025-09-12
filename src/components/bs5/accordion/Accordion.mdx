@@ -3,6 +3,7 @@ import * as AccordionStories from "./accordion.stories";
 import defaultdata from "./accordion.data.json";
 import "../../../stories/storybook-documentation.scss";
 import { SharedNote } from "../../../stories/sharedNote.mdx";
+import { designResources, usageInstructions } from "./docs.data.js";
 
 <Meta of={AccordionStories} />
 
@@ -18,62 +19,7 @@ import { SharedNote } from "../../../stories/sharedNote.mdx";
 <SharedNote
   defaultdata={defaultdata}
   componentId="accordion-default"
-  designResources={
-    <>
-      <h3>Design resources</h3>
-      <ul>
-        <li>
-          <a
-            href="https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&amp;node-id=6276-45691&amp;mode=design&amp;t=chjWFr1CLu6KQXzg-4"
-            target="_top"
-            rel="nofollow"
-            class="sbdocs sbdocs-a css-ajfpqr"
-          >
-            Component library (Figma)
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&amp;node-id=5990-98109&amp;mode=design&amp;t=ORVHLonASEFQzPeD-0"
-            target="_top"
-            rel="nofollow"
-            class="sbdocs sbdocs-a css-ajfpqr"
-          >
-            Master component file (Figma)
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.design-system.health.qld.gov.au/components/accordions"
-            target="_top"
-            rel="nofollow"
-            class="sbdocs sbdocs-a css-ajfpqr"
-          >
-            Design System website
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://getbootstrap.com/docs/5.3/components/accordion/"
-            target="_top"
-            rel="nofollow"
-            class="sbdocs sbdocs-a css-ajfpqr"
-          >
-            Bootstrap component
-          </a>
-        </li>
-      </ul>
-    </>
-  }
+  designResources={designResources}
 >
-  <h3>Usage Instructions</h3>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras consequat
-    gravida nulla et elementum. Vivamus ac nisl ac nunc mollis tincidunt.
-    Maecenas sagittis sit amet tellus accumsan sagittis. Duis a magna eu sem
-    dapibus auctor sit amet in eros. Ut consectetur augue vitae metus efficitur
-    aliquam. Donec at velit venenatis, vulputate ipsum id, dignissim nibh.
-    Pellentesque nisi mauris, sodales vitae blandit vel, semper eu mi. In vitae
-    lectus nec urna condimentum convallis.
-  </div>
+  <div dangerouslySetInnerHTML={{ __html: usageInstructions }}></div>
 </SharedNote>

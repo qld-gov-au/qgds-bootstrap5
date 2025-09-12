@@ -3,42 +3,55 @@ import { initTabs } from "./storybook-documentation.js";
 
 export const SharedNote = ({ defaultdata, designResources, componentId, children }) => (
   <>
-    
-<div className="tab">
- <button className="tablinks active" data-tabcontent="code-doc">
-    Code
-  </button>
-  <button className="tablinks" data-tabcontent="json-doc">
-    JSON
-  </button>
-  <button className="tablinks" data-tabcontent="design-doc">
-    Design Resources
-  </button>
-  <button className="tablinks" data-tabcontent="instructions-doc">
-    Usage Instructions
-  </button>
-</div>
 
-<div id="code-doc" className="tabcontent active">
-  <h3>Component code</h3>
-  <Source language="html" id={componentId} />
-</div>
+    <div className="tab">
+      <button className="tablinks active" data-tabcontent="code-doc">
+        Code
+      </button>
+      <button className="tablinks" data-tabcontent="json-doc">
+        JSON
+      </button>
+      <button className="tablinks" data-tabcontent="design-doc">
+        Design Resources
+      </button>
+      <button className="tablinks" data-tabcontent="instructions-doc">
+        Usage Instructions
+      </button>
+    </div>
 
-<div id="json-doc" className="tabcontent" >
-<h3>Example Component data</h3>
+    <div id="code-doc" className="tabcontent active">
+      <h3>Component code</h3>
+      <Source language="html" id={componentId} />
+    </div>
 
-<Source language="json" code={JSON.stringify(defaultdata, null, 2)} />
-</div>
+    <div id="json-doc" className="tabcontent" >
+      <h3>Example Component data</h3>
 
-<div id="design-doc" className="tabcontent">
-  {designResources}
+      <Source language="json" code={JSON.stringify(defaultdata, null, 2)} />
+    </div>
 
-</div>
+    <div id="design-doc" className="tabcontent">
+      <h3>Design resources</h3>
+      <ul>
+        {designResources.map((item,index) => (
+          <li key={`design-resource${index}`}><a
+            href={item?.url}
+            target="_top"
+            rel="nofollow"
+            class="sbdocs sbdocs-a css-ajfpqr"
+          >
+            {item?.text}
+          </a></li>
+        ))}
+      </ul>
 
-<div id="instructions-doc" className="tabcontent">
-  {children}
-</div>
-<script>initTabs(); // Call the function immediately</script>
+    </div>
+
+    <div id="instructions-doc" className="tabcontent">
+      {children}
+    </div>
+    <script>initTabs(); // Call the function immediately</script>
+
   </>
 );
 
