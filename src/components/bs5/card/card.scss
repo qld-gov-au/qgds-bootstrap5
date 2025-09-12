@@ -65,7 +65,7 @@
     --#{$prefix}card-icon-line-height: 8rem;
   }
   &.card-no-action {
-    --qld-icon-color: var(--#{$prefix}card-title-color);
+    --#{$prefix}icon-color: var(--#{$prefix}card-title-color);
   }
   &.default {
     .card-icon-background {

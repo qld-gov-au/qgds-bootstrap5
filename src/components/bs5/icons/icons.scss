@@ -59,7 +59,7 @@
   // Independent from the icon base class to allow sizing on inline SVG icons as well as CSS icons.
   @each $key, $value in $icon-sizes {
     &-#{$key} {
-      --#{$prefix}icon-size: #{$value};
+      --icon-size: #{$value};
     }
   }
 
