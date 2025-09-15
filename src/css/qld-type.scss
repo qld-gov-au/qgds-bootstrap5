@@ -1,26 +1,4 @@
-//Links - default root variables only
-:root {
-  --qld-headings-color: #{$headings-color};
-  --qld-body-color: #{$body-color};
-  --qld-body-font-weight: #{$body-font-weight};
-  --qld-link-font-weight: 400;
-  --qld-link-color: #{$link-color};
-  --qld-link-color-rgb: #{to-rgb($link-color)};
-  --qld-link-hover-color: var(--qld-link-color);
-  --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
-  --qld-link-underline-offset: 0.3rem;
-  --qld-link-underline-thickness: 0.5px;
-  --qld-link-underline-thickness-hover: 2px;
-  --qld-link-underline: #{$color-default-color-light-underline-default};
-  --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
-  --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
-  --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
-  --qld-selection-color: var(--qld-white);
-  --qld-selection-bg: var(--qld-brand-primary);
-  --qld-focus-color: var(--qld-light-focus);
-  --qld-action-icon-color: var(--qld-light-action-secondary);
-  --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
-}
+//Links - default root variables moved to qld-theme.scss
 
 //Content and links
 body {
