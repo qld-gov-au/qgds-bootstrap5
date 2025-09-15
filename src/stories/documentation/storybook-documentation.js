@@ -9,16 +9,16 @@ export function initTabs() {
 }
 
 export function openTab(evt) {
-  const tabContent = evt.currentTarget.dataset.tabcontent;
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].classList.remove("active");
+  const targetId = evt.currentTarget.dataset.targetid;
+
+  ["tabcontent", "tablinks"].forEach((cls) =>
+    document
+      .querySelectorAll(`.${cls}`)
+      .forEach((el) => el.classList.remove("active")),
+  );
+
+  if (targetId) {
+    document.getElementById(targetId)?.classList.add("active");
+    evt.currentTarget.classList.add("active");
   }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove("active");
-  }
-  document.getElementById(tabContent).classList.add("active");
-  evt.currentTarget.className += " active";
 }
