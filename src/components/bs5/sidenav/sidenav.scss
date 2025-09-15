@@ -61,6 +61,23 @@
 }
 
 .qld-side-navigation {
+  /* Desktop: disable accordion behavior */
+  @media (min-width: 992px) {
+    .accordion-button::after {
+      display: none; /* hide the accordion toggle icon */
+    }
+    .accordion-button {
+      //pointer-events: none; /* button acts like plain text */
+      background: transparent;
+      box-shadow: none;
+    }
+    .accordion-collapse {
+      display: block !important; /* force all content visible */
+      height: auto !important;
+      visibility: visible;
+    }
+  }
+
   .nav-title {
     color: var(--#{$prefix}-headings-color);
     line-height: 1.5;
@@ -87,6 +104,7 @@
     color: var(--body-color);
     text-decoration: none;
     transition-duration: 0s;
+    display: flex;
 
     //.nav-link Hover state
     &:hover {
