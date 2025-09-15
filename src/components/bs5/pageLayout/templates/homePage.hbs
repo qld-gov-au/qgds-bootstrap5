@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    {{> globalAlert globalAlert}}
+    {{> header header}}
+    {{> navbar navbar}}
+
+    {{#if banner}}
+    {{> banner banner}}
+    {{/if}}
+
+    <main>
+        <div class="container-fluid p-0">
+            {{#if cardGrid}}
+            <section class="py-5 mt-md-3">
+                <div class="container">
+                    <div class="row">
+                        {{#each cardGrid.cards}}
+                        <div class="col-md-4 mb-4">
+                            {{> card this}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </section>
+            {{/if}}
+
+            {{#if linkColumns}}
+            <section class="py-5">
+                <div class="container">
+                    {{> linkColumns linkColumns}}
+                </div>
+            </section>
+            {{/if}}
+
+            <section class="py-5 mt-md-3 bg-light">
+                <div class="container">
+                    <h2 id="content-heading">Section heading (H2)</h2>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <h3 id="inspection">Content heading (H3)</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies
+                                est.
+                                Tincidunt ultrices commodo vestibulum non netus. </p>
+                            <p>Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien
+                                condimentum adipiscing augue quisque eu.</p>
+
+                            {{> callToAction callToAction}}
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <h3 id="inspection">Content heading (H3)</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies
+                                est.
+                                Tincidunt ultrices commodo vestibulum non netus. </p>
+                            <p>Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien
+                                condimentum adipiscing augue quisque eu.</p>
+
+                            {{> callToAction callToAction}}
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <h3 id="inspection">Content heading (H3)</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies
+                                est.
+                                Tincidunt ultrices commodo vestibulum non netus. </p>
+                            <p>Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien
+                                condimentum adipiscing augue quisque eu.</p>
+
+                            {{> callToAction callToAction}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {{#if promotionalPanel}}
+            <section class="pt-5 bg-light">
+                <div class="container">
+                    {{> promotionalPanel promotionalPanel}}
+                </div>
+            </section>
+            {{/if}}
+
+            {{#if cardGridBottom}}
+            <section class="py-64 dark-alt">
+                <div class="container pt-64">
+                    <div class="row">
+                        {{#each cardGridBottom.cards}}
+                        <div class="col-md-4 mb-4">
+                            {{> card this}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </section>
+            {{/if}}
+
+        </div>
+    </main>
+    {{> footer footer}}
+</body>
+
+</html>

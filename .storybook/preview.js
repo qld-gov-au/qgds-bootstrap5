@@ -84,7 +84,7 @@ const preview = {
       // Optional configuration for the a11y addon
       config: {},
       options: {
-        runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'],
+        runOnly: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
         checks: { "color-contrast": { options: { noScroll: true } } },
         restoreScroll: true,
       },
@@ -103,11 +103,11 @@ const preview = {
       },
       defaultTheme: "None",
     }),
-    (Story, { parameters }) => {      
+    (Story, { parameters }) => {
       init(Handlebars);
-      const { pageLayout, wrapperClasses} = parameters;
+      const { pageLayout, wrapperClasses } = parameters;
       switch (pageLayout) {
-        case 'with-wrapper':
+        case "with-wrapper":
           return `
             <div class="${wrapperClasses}">
               ${Story()}	

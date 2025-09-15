@@ -10,14 +10,14 @@
 @import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
 
 //QLD Names Colours
-$qld-dark-blue : $core-default-color-brand-primary-dark-blue;
-$qld-sapphire-blue : $core-default-color-brand-primary-sapphire-blue;
-$qld-light-blue : $core-default-color-brand-primary-light-blue;
-$qld-light-green : $core-default-color-brand-primary-light-green;
-$qld-dark-green : $core-default-color-brand-secondary-darkgreen;
-$qld-golden-yellow : $core-default-color-brand-secondary-golden-yellow;
-$qld-maroon-traditional : $core-default-color-brand-other-gov-maroon;
-$qld-maroon-modern : $core-default-color-brand-other-modern-maroon;
+$qld-dark-blue: $core-default-color-brand-primary-dark-blue;
+$qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
+$qld-light-blue: $core-default-color-brand-primary-light-blue;
+$qld-light-green: $core-default-color-brand-primary-light-green;
+$qld-dark-green: $core-default-color-brand-secondary-darkgreen;
+$qld-golden-yellow: $core-default-color-brand-secondary-golden-yellow;
+$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
+$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
 $qld-dark-text: $color-default-color-dark-text-default;
 $qld-dark-border: $color-default-color-dark-border-default;
 $qld-dark-alt-border: $color-default-color-dark-border-alt;
@@ -26,7 +26,7 @@ $qld-general-info-alert: $core-default-color-status-info-lighter;
 $qld-red-border: $core-default-color-status-error-darker;
 $qld-blue-border: $color-default-color-light-border-light;
 $qld-yellow-border: $core-default-color-status-caution-darker;
-$qld-dark-blue-shade : $color-default-color-dark-background-alt-shade;
+$qld-dark-blue-shade: $color-default-color-dark-background-alt-shade;
 $qld-light-background: $core-default-color-status-info-lightest;
 $qld-light-background-shade: $color-default-color-light-background-light-shade;
 $qld-light-border: $color-default-color-light-border-default;
@@ -43,27 +43,27 @@ $qld-link-underline-dark: $color-default-color-dark-underline-default;
 $qld-link-underline-hover-dark: $color-default-color-dark-underline-default-hover;
 $qld-link-underline-visited-dark: $color-default-color-dark-underline-visited;
 $qld-link-underline-visited-hover-dark: $color-default-color-dark-underline-visited-hover;
-/// 
+///
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
-$qld-text-darkest : $color-default-color-dark-link-on-action;
-$qld-dark-hover : $color-default-color-dark-background-default-shade;
+$qld-text-darkest: $color-default-color-dark-link-on-action;
+$qld-dark-hover: $color-default-color-dark-background-default-shade;
 
-$qld-text-light-blue-dark : $core-default-color-brand-primary-dark-blue;
-$qld-light-green-dark : $core-default-color-brand-primary-light-green;
-$qld-dark-green-dark : $color-default-color-dark-action-primary;
-$qld-light-yellow : $core-default-color-status-caution-lightest;
-$qld-button-dark-blue : $color-default-color-light-action-primary-hover;
+$qld-text-light-blue-dark: $core-default-color-brand-primary-dark-blue;
+$qld-light-green-dark: $core-default-color-brand-primary-light-green;
+$qld-dark-green-dark: $color-default-color-dark-action-primary;
+$qld-light-yellow: $core-default-color-status-caution-lightest;
+$qld-button-dark-blue: $color-default-color-light-action-primary-hover;
 
 //QGOV Brand Mapping - QLD.GOV.AU
-$qld-brand-primary-dark : $qld-dark-blue;
-$qld-brand-primary : $qld-sapphire-blue;
-$qld-brand-primary-light : $qld-light-blue;
-$qld-brand-secondary-dark : $qld-dark-green;
-$qld-brand-secondary : $qld-light-green;
-$qld-brand-accent : $qld-golden-yellow;
+$qld-brand-primary-dark: $qld-dark-blue;
+$qld-brand-primary: $qld-sapphire-blue;
+$qld-brand-primary-light: $qld-light-blue;
+$qld-brand-secondary-dark: $qld-dark-green;
+$qld-brand-secondary: $qld-light-green;
+$qld-brand-accent: $qld-golden-yellow;
 
-// Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss). 
+// Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss).
 // Nuetrals were dropped from _variables.scss, but retained in _map.scss.
 $core-default-color-neutral-black: #131212;
 $core-default-color-neutral-darkest: #222020;
@@ -74,43 +74,40 @@ $core-default-color-neutral-lighter: #ebebeb;
 $core-default-color-neutral-lightest: #f5f5f5;
 $core-default-color-neutral-white: #ffffff;
 
-
 //Greys
-$qld-system-darkest : $core-default-color-neutral-darkest;
-$qld-dark-grey : $core-default-color-neutral-darker;
-$qld-medium-grey : $core-default-color-neutral-dark;
-$qld-alt-grey : $core-default-color-neutral-light;
+$qld-system-darkest: $core-default-color-neutral-darkest;
+$qld-dark-grey: $core-default-color-neutral-darker;
+$qld-medium-grey: $core-default-color-neutral-dark;
+$qld-alt-grey: $core-default-color-neutral-light;
 $qld-light-link: $color-default-color-light-link-default;
 $qld-dark-link: $color-default-color-dark-link-default;
 
 //Should be core color rather than second hand reference (no match)
 $qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
 
-
-
-$qld-dark-grey-muted : $color-default-color-light-text-lighter;
-$qld-text-grey : $color-default-color-light-text-default;
+$qld-dark-grey-muted: $color-default-color-light-text-lighter;
+$qld-text-grey: $color-default-color-light-text-default;
 $qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $color-default-color-dark-text-lighter;
 $qld-color-dark-button-hover: $core-default-color-brand-primary-light-green;
-$qld-text-headings : $color-default-color-light-text-heading;
-$qld-grey : $core-default-color-neutral-light;
-$qld-light-grey : $core-default-color-neutral-lighter;
-$qld-light-grey-alt : $color-default-color-light-background-alt;
-$qld-extra-light-grey : $core-default-color-neutral-lightest;
-$qld-white : $core-default-color-neutral-white;
-$qld-white-underline : $core-default-color-status-underline-light;
-$qld-dark-underline : $core-default-color-status-underline-dark;
+$qld-text-headings: $color-default-color-light-text-heading;
+$qld-grey: $core-default-color-neutral-light;
+$qld-light-grey: $core-default-color-neutral-lighter;
+$qld-light-grey-alt: $color-default-color-light-background-alt;
+$qld-extra-light-grey: $core-default-color-neutral-lightest;
+$qld-white: $core-default-color-neutral-white;
+$qld-white-underline: $core-default-color-status-underline-light;
+$qld-dark-underline: $core-default-color-status-underline-dark;
 $qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
-$qld-maroon-modern : $core-default-color-brand-other-modern-maroon;
-$qld-notify-warning : $core-default-color-status-error-default;
+$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
+$qld-notify-warning: $core-default-color-status-error-default;
 $qld-notify-information: $core-default-color-status-info-default;
-$qld-notify-success : $core-default-color-status-success-default;
-$qld-notify-alert : $core-default-color-status-caution-default;
-$qld-syntax-values : $core-default-color-brand-primary-light-green;
-$qld-syntax-elements : $core-default-color-code-light-blue;
-$qld-syntax-properties : $core-default-color-code-violet;
-$qld-syntax-comments : $core-default-color-code-muted;
+$qld-notify-success: $core-default-color-status-success-default;
+$qld-notify-alert: $core-default-color-status-caution-default;
+$qld-syntax-values: $core-default-color-brand-primary-light-green;
+$qld-syntax-elements: $core-default-color-code-light-blue;
+$qld-syntax-properties: $core-default-color-code-violet;
+$qld-syntax-comments: $core-default-color-code-muted;
 $qld-textbox-border-color: $color-default-color-light-action-primary-hover;
 $qld-color-error-light: $core-default-color-status-error-lightest;
 $qld-color-success-light: $core-default-color-status-success-lightest;
@@ -139,23 +136,23 @@ $qld-dark-action-secondary: $core-default-color-brand-secondary-golden-yellow;
 $qld-dark-action-secondary-hover: $color-default-color-dark-action-secondary-hover;
 $qld-dark-action-text: $color-default-color-dark-link-on-action;
 
-$primary : $qld-brand-primary;
-$primary-dark : $qld-brand-primary-dark;
-$secondary : $qld-dark-green;
-$success : $qld-notify-success;
-$info : $qld-notify-information;
-$warning : $qld-notify-alert;
-$danger : $qld-notify-warning;
-$light : $qld-extra-light-grey;
-$dark : $qld-dark-grey;
+$primary: $qld-brand-primary;
+$primary-dark: $qld-brand-primary-dark;
+$secondary: $qld-dark-green;
+$success: $qld-notify-success;
+$info: $qld-notify-information;
+$warning: $qld-notify-alert;
+$danger: $qld-notify-warning;
+$light: $qld-extra-light-grey;
+$dark: $qld-dark-grey;
 
 $qld-fluid-width-full: 100%;
 $qld-fluid-width-3-quarters: 75%;
 $qld-fluid-width-half: 48.5%;
 $qld-fluid-width-1-quarter: 25%;
 
-$color-default-color-dark-underline-default: #FFFFFF;
-$color-default-color-dark-underline-default-hover: #FFFFFF;
+$color-default-color-dark-underline-default: #ffffff;
+$color-default-color-dark-underline-default-hover: #ffffff;
 
 // Project-specific colors map for generating CSS custom properties only
 // These will NOT create utility classes, only CSS variables on :root
@@ -221,9 +218,11 @@ $project-colors: (
   "light-background-shade": $qld-light-background-shade,
 
   //Borders
-  "light-border": $qld-light-border,
+  //"light-border": $qld-light-border,
+  "default-border": $qld-light-border,
+  "light-border": $color-default-color-light-border-light,
   "light-border-alt": $qld-light-border-alt,
-
+  
   //Links
   "light-link": $color-default-color-light-link-default,
   "dark-link": $color-default-color-dark-link-default,
@@ -247,7 +246,6 @@ $project-colors: (
   "dark-alt-background": $qld-color-dark-alt-background,
   "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
 
-
   //Text
   "light-text-heading": $color-default-color-light-text-heading,
   "light-text-text": $color-default-color-light-text-default,
@@ -255,7 +253,6 @@ $project-colors: (
   "dark-text-heading": $color-default-color-dark-text-heading,
   "dark-text-text": $color-default-color-dark-text-default,
   "dark-text-lighter": $color-default-color-dark-text-lighter,
-
 
   // Desing Tokens V1 dependent variables
   "light-accent": $color-default-color-light-accent-design-accent,
@@ -273,9 +270,11 @@ $project-colors: (
 
   // Underlines
   "light-underline-default": $color-default-color-light-underline-default,
-  "light-underline-default-hover": $color-default-color-light-underline-default-hover,
+  "light-underline-default-hover":
+    $color-default-color-light-underline-default-hover,
   "dark-underline-default": $color-default-color-dark-underline-default,
-  "dark-underline-default-hover": $color-default-color-dark-underline-default-hover
+  "dark-underline-default-hover":
+    $color-default-color-dark-underline-default-hover,
 );
 
 $project-base-colors: (
@@ -302,7 +301,7 @@ $project-base-colors: (
   "light-yellow": $qld-light-yellow,
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
-  "dark-hover" : $qld-dark-hover,
+  "dark-hover": $qld-dark-hover
 );
 
 // Generate CSS custom properties for qld-tokens & project colours on :root to prevent utility class generation
@@ -319,11 +318,14 @@ $grid-breakpoints: (
   sm: 400px,
   md: 700px,
   lg: 992px,
-  xl: 1312px
+  xl: 1312px,
 );
 
 // Map merge to include custom breakpoints
 $breakpoints: map-merge($grid-breakpoints, ());
+
+// Gutters inside rows (column gutters)
+$grid-gutter-width: 2rem;
 
 // Default border radius
 $border-radius: 0.25rem;
@@ -331,25 +333,46 @@ $border-radius-sm: 0.25rem;
 $border-radius-lg: 0.25rem;
 
 // QGOV Borders
-$qld-border-width-thin : 1px;
-$qld-border-width-default : 2px;
-$qld-border-width-medium : 3px;
-$qld-border-width-thick : 4px;
-$qld-border-width-extra-thick : 8px;
+$qld-border-width-thin: 1px;
+$qld-border-width-default: 2px;
+$qld-border-width-medium: 3px;
+$qld-border-width-thick: 4px;
+$qld-border-width-extra-thick: 8px;
 
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
 $qld-custom-spacers: (
+  12: (
+    $spacer * 0.75,
+  ),
   16: $spacer,
-  20: ($spacer * 1.25),
-  24: ($spacer * 1.5),
-  32: ($spacer * 2),
-  40: ($spacer * 2.5),
-  48: ($spacer * 3.0),
-  56: ($spacer * 3.5),
-  64: ($spacer * 4),
-  72: ($spacer * 4.5),
-  80: ($spacer * 5)
+  20: (
+    $spacer * 1.25,
+  ),
+  24: (
+    $spacer * 1.5,
+  ),
+  32: (
+    $spacer * 2,
+  ),
+  40: (
+    $spacer * 2.5,
+  ),
+  48: (
+    $spacer * 3,
+  ),
+  56: (
+    $spacer * 3.5,
+  ),
+  64: (
+    $spacer * 4,
+  ),
+  72: (
+    $spacer * 4.5,
+  ),
+  80: (
+    $spacer * 5,
+  ),
 );
 
 $spacers: map-merge($spacers, $qld-custom-spacers);

@@ -26,8 +26,7 @@
 .alert {
 
     padding-left: 4rem;
-    // color: var(--text-color);
-    // background: var(--alert-bg);
+    overflow-wrap: break-word;
 
     .alert-heading {
         line-height: 1.5;

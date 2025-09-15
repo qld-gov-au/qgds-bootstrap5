@@ -1,0 +1,12 @@
+{
+  "skipLinks": [
+    {
+      "targetId": "content",
+      "label": "Skip to main content"
+    },
+    {
+      "targetId": "main-nav",
+      "label": "Skip to main navigation"
+    }
+  ]
+}
