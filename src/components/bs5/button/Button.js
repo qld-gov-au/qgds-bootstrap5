@@ -1,15 +1,16 @@
 import Component from "../../../js/QGDSComponent.js";
 import template from "./button.hbs?raw";
-import Ajv from "ajv";
+import {
+  validateAndLogErrors,
+  validateDataStrict,
+} from "../../../utils/validation.js";
 import buttonSchema from "../../../schemas/button.schema.json";
 
-/**
- * @typedef {import('../../../types/button.types.js').ButtonData} ButtonData
- */
-
-// Initialize AJV validator
-const ajv = new Ajv({ allErrors: true });
-const validateButtonData = ajv.compile(buttonSchema);
+// Export validation functions for external use
+export const validateButtonData = (data) =>
+  validateAndLogErrors(data, buttonSchema, "Button");
+export const validateButtonDataStrict = (data) =>
+  validateDataStrict(data, buttonSchema, "Button");
 
 export class Button {
   // Use the global Component class to create a new instance of the Button component.
@@ -21,19 +22,10 @@ export class Button {
    * @returns {Component} Rendered button component
    */
   constructor(data = {}) {
-    // Validate data against JSON schema
-    const isValid = validateButtonData(data);
+    // Validate data using common validation utility
+    validateAndLogErrors(data, buttonSchema, "Button");
 
-    if (!isValid) {
-      const errors =
-        validateButtonData.errors
-          ?.map((error) => `${error.instancePath || "root"}: ${error.message}`)
-          .join(", ") || "Unknown validation error";
-
-      throw new Error(`Button data validation failed: ${errors}`);
-    }
-
-    // Create component with validated data
+    // Create component with data
     return new Component(template, data);
   }
 }

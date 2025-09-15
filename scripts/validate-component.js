@@ -3,10 +3,6 @@
 import Ajv from "ajv";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // AJV configuration
 const ajv = new Ajv({
@@ -209,6 +205,7 @@ export function validateComponent(componentName, projectRoot = process.cwd()) {
 
 /**
  * Main function for CLI usage
+ * @returns {void}
  */
 function main() {
   const args = process.argv.slice(2);

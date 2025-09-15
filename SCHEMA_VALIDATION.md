@@ -1,6 +1,6 @@
 # TypeScript JSON Schema Validation System
 
-This project includes a comprehensive TypeScript-based JSON schema validation system for component data files.
+This project includes a comprehensive TypeScript-based JSON schema validation system for component data files with runtime validation support.
 
 ## Overview
 
@@ -8,7 +8,8 @@ The system provides:
 
 - **TypeScript Interfaces**: Strongly typed definitions for component data structures
 - **JSON Schema Generation**: Automatic generation of JSON schemas from TypeScript types
-- **Runtime Validation**: AJV-powered validation of JSON data against schemas
+- **Runtime Validation**: AJV-powered validation integrated into component constructors
+- **Common Validation Utilities**: Reusable validation functions for all components
 - **CLI Tools**: Command-line scripts for validation and testing
 
 ## File Structure
@@ -18,28 +19,31 @@ src/
 ├── types/
 │   ├── common.types.ts      # Common types used across components
 │   ├── button.types.ts      # Button component type definitions
+│   ├── footer.types.ts      # Footer component type definitions
 │   └── index.ts            # Type exports
 ├── schemas/                # Generated JSON schemas
 │   ├── button.schema.json
-│   ├── modal.schema.json
-│   └── textbox.schema.json
+│   ├── footer.schema.json
+│   └── modal.schema.json
+├── utils/
+│   ├── validation.js       # Common validation utilities
+│   └── schemas.js          # Schema loader and registry
 └── components/
     └── bs5/
-        └── button/
-            └── button.data.json  # Component data file
+        ├── button/
+        │   ├── Button.js           # Component with integrated validation
+        │   └── button.data.json    # Component data file
+        └── footer/
+            ├── Footer.js           # Component with validation
+            └── footer.data.json    # Component data file
 
 scripts/
 ├── generate-schemas.js     # Generate JSON schemas from TypeScript
 ├── validate-component.js   # Validate component data against schemas
 └── test-validation.js     # Comprehensive validation tests
-
-test/
-└── button.invalid.data.json  # Test data with validation errors
 ```
 
-## Usage
-
-### Generate Schemas
+## Generate Schemas
 
 Generate JSON schemas from TypeScript types:
 
@@ -48,141 +52,125 @@ Generate JSON schemas from TypeScript types:
 npm run schemas:generate
 
 # Generate schema for a specific component
+npm run schemas:generate [component-filter]
+
+# Example - Generate schema for a specific component
 npm run schemas:generate button
-npm run schemas:generate footer
-npm run schemas:generate modal
 ```
 
-This will create schema files in `src/schemas/` based on the TypeScript interfaces.
+## Component Integration
+
+### Runtime Validation in Components
+
+Components now include built-in validation using the common utilities:
+
+```javascript
+// src/components/bs5/button/Button.js
+import { validateAndLog } from "../../../utils/validation.js";
+import { buttonSchema } from "../../../utils/schemas.js";
+
+export class Button {
+  constructor(data = {}) {
+    // Validate data and log errors (non-blocking)
+    validateAndLog(data, buttonSchema, "Button", true);
+
+    // Create component with data (even if invalid)
+    return new Component(template, data);
+  }
+}
+```
+
+### Validation Modes
+
+The system supports three validation approaches:
+
+1. **Log Only (Current)**: Logs validation errors but continues component creation
+2. **Strict Mode**: Throws errors and prevents component creation
+3. **Silent Mode**: Only logs errors without success messages
+
+```javascript
+// Available validation functions
+import {
+  validateAndLog, // Logs errors, continues execution
+  validateDataStrict, // Throws error if invalid
+  validateAndLogErrors, // Silent success, logs only errors
+} from "../../../utils/validation.js";
+```
+
+## Usage
 
 ### Validate Components
 
-Validate a component's default data file:
+Validate a component's data file:
 
 ```bash
-# Validate button component
-npm run schemas:validate-button
+# Test with valid data
+node scripts/validate-component.js button src/components/bs5/button/button.data.json
+# Output: ✅ Data file is valid against button schema!
 
-# Validate any component
-npm run schemas:validate <component-name>
+# Test with invalid data (e.g., progressLabel: boolean instead of string)
+# Output: ❌ Data file is invalid against button schema:
+#         - /progressLabel: must be string
 ```
 
-Validate a specific data file:
+## Common Validation Utilities
 
-```bash
-node scripts/validate-component.js button path/to/data.json
+### Available Functions
+
+The `src/utils/validation.js` provides reusable validation functions:
+
+#### `validateData(data, schema, componentName)`
+
+Returns validation result object with errors array.
+
+#### `validateDataStrict(data, schema, componentName)`
+
+Throws error if validation fails (blocking).
+
+#### `validateAndLog(data, schema, componentName, showSuccessLog)`
+
+Logs validation results to console (non-blocking).
+
+#### `validateAndLogErrors(data, schema, componentName)`
+
+Only logs errors, silent on success.
+
+## Runtime Validation Examples
+
+### Console Output for Invalid Data
+
+When a component receives invalid data, you'll see:
+
 ```
-
-### Run Tests
-
-Run comprehensive validation tests:
-
-```bash
-npm run schemas:test
-```
-
-Run TypeScript integration tests:
-
-```bash
-npm run typescript:test
-```
-
-## How Schema Generation Works
-
-The schema generation process uses an enhanced script that supports filtering:
-
-### Command Structure
-
-```bash
-npm run schemas:generate [component-filter]
-```
-
-- **No filter**: Generates schemas for all configured components
-- **With filter**: Generates only schemas matching the component name
-
-### Examples
-
-```bash
-# Generate all schemas
-npm run schemas:generate
-
-# Generate only button schema
-npm run schemas:generate button
-
-# Generate only footer schema
-npm run schemas:generate footer
-
-# Case-insensitive matching
-npm run schemas:generate BUTTON  # Works for button
-```
-
-### How Filtering Works
-
-The script matches the filter against:
-
-1. **Type name** (e.g., "ButtonData", "FooterData")
-2. **Output filename** (e.g., "button.schema.json", "footer.schema.json")
-
-Both matches are case-insensitive, so `button`, `Button`, or `BUTTON` all work.
-
-## Generated JSON Schema
-
-The TypeScript interfaces are automatically converted to JSON Schema format:
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
-    "ButtonData": {
-      "additionalProperties": false,
-      "properties": {
-        "variantClass": {
-          "type": "string",
-          "description": "CSS class for button variant"
-        },
-        "iconPosition": {
-          "enum": ["leading", "trailing"],
-          "type": "string"
-        }
-        // ... other properties
-      },
-      "required": ["variantClass", "islink", "isdisabled", ...]
-    }
-  }
-}
+❌ Button data validation failed:
+   - /progressLabel: must be string
+   - /iconPosition: must be equal to one of the allowed values
+⚠️ Creating Button with invalid data - this may cause issues
 ```
 
 ## Benefits
 
 1. **Type Safety**: Catch data structure errors at development time
-2. **Documentation**: Self-documenting component interfaces
-3. **Validation**: Runtime validation ensures data integrity
-4. **Maintainability**: Changes to types automatically update schemas
-5. **Developer Experience**: Clear error messages for invalid data
+2. **Runtime Validation**: Prevent invalid data from breaking components
+3. **Developer Experience**: Clear console feedback for validation issues
+4. **Non-blocking**: Components still render with invalid data (with warnings)
+5. **Centralised**: Common validation utilities reduce code duplication
+6. **Maintainable**: Single source of truth for schemas
 
 ## Adding New Components
 
 1. **Define TypeScript Interface**: Create interface in `src/types/`
 2. **Update Schema Generation**: Add component to `scripts/generate-schemas.js`
-3. **Generate Schema**: Run `npm run schemas:generate [component-filter]`
-4. **Validate**: Use `npm run schemas:validate <component-name>`
+3. **Generate Schema**: Run `npm run schemas:generate [component-name]`
+4. **Add to Schema Loader**: Import schema in `src/utils/schemas.js`
+5. **Integrate Validation**: Use validation utilities in component constructor
 
 ## Dependencies
 
-- **ts-json-schema-generator**: Schema generation
-- **ajv**: JSON schema validation
+- **ts-json-schema-generator**: Schema generation from TypeScript
+- **ajv**: JSON schema validation library
+  AJV is configured with:
+  - `allErrors: true` - Report all validation errors
+  - Detailed error messages with property paths
+  - Support for custom error formatting
 - **typescript**: Type checking and compilation
-
-## Configuration
-
-### TypeScript Config for Schemas
-
-A dedicated `tsconfig.schemas.json` is used for schema generation to avoid conflicts with the main project configuration.
-
-### AJV Configuration
-
-The validator uses AJV with the following settings:
-
-- `allErrors: true` - Report all validation errors
-- `verbose: true` - Include detailed error information
-- `strict: false` - Allow flexible schema validation

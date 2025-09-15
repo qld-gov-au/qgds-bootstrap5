@@ -25,11 +25,11 @@ export interface FooterContactList {
 /** Footer contact section configuration */
 export interface FooterContact {
   /** Whether to show border column styling */
-  hasBorderColumn: boolean | string;
+  hasBorderColumn?: boolean;
   /** Section title */
-  title: string;
+  title?: string;
   /** HTML content for the section */
-  content: string;
+  content?: string;
   /** Whether to show the contact list */
   showList: boolean;
   /** Contact list items */
@@ -53,29 +53,29 @@ export interface FooterLinkItem {
 /** Footer links section configuration */
 export interface FooterLinks {
   /** Whether to show border column styling */
-  hasBorderColumn: boolean;
+  hasBorderColumn?: boolean;
   /** Section title */
-  title: string;
+  title?: string;
   /** Array of footer links */
-  list: FooterLinkItem[];
+  list?: FooterLinkItem[];
 }
 
 /** Footer acknowledgement section */
 export interface FooterAcknowledgement {
   /** Acknowledgement title */
-  title: string;
+  title?: string;
   /** HTML content for acknowledgement */
-  content: string;
+  content?: string;
 }
 
 /** Footer logo configuration */
 export interface FooterLogo {
   /** Whether to display the logo */
-  show: boolean;
+  show?: boolean;
   /** Logo image source URL */
-  src: string;
+  src?: string;
   /** Logo alt text for accessibility */
-  alt: string;
+  alt?: string;
 }
 
 /** Footer copyright configuration */
@@ -83,9 +83,9 @@ export interface FooterCopyright {
   /** Copyright text content */
   content: string;
   /** Whether to show "from year" */
-  showYearFrom: boolean;
+  showYearFrom?: boolean;
   /** Starting year for copyright */
-  yearFrom: string;
+  yearFrom?: string;
 }
 
 /** Footer organisation link configuration */
@@ -93,9 +93,9 @@ export interface FooterOrganisationLink {
   /** Whether to display the organisation link */
   show: boolean;
   /** Organisation website URL */
-  URL: string;
+  URL?: string;
   /** Organisation display text */
-  text: string;
+  text?: string;
 }
 
 /** Social media follow link */
@@ -125,13 +125,13 @@ export interface FooterOptionalColumn {
   /** Whether to show border column styling */
   hasBorderColumn: boolean;
   /** Column title */
-  title: string;
+  title?: string;
   /** HTML content for the column */
-  content: string;
+  content?: string;
   /** Whether to display follow/social links */
-  showFollowLinks: boolean;
+  showFollowLinks?: boolean;
   /** Whether to display custom links */
-  showCustomLinks: boolean;
+  showCustomLinks?: boolean;
 }
 
 /**
@@ -145,23 +145,23 @@ export interface FooterData extends StylingProps, AccessibilityProps {
   /** Contact section configuration */
   contact: FooterContact;
   /** Footer links section */
-  footerLinks: FooterLinks;
+  footerLinks?: FooterLinks;
   /** Acknowledgement sections */
-  acknowledgements: FooterAcknowledgement[];
+  acknowledgements?: FooterAcknowledgement[];
   /** Footer logo configuration */
   footerLogo: FooterLogo;
   /** Copyright information */
-  copyright: FooterCopyright;
+  copyright?: FooterCopyright;
   /** Organisation link configuration */
   organisationLink: FooterOrganisationLink;
   /** Social media follow links */
-  followLinks: FooterFollowLink[];
+  followLinks?: FooterFollowLink[];
   /** Custom footer links */
-  customLinks: FooterCustomLink[];
+  customLinks?: FooterCustomLink[];
   /** Optional column 1 configuration */
-  optionalColumn1: FooterOptionalColumn;
+  optionalColumn1?: FooterOptionalColumn;
   /** Optional column 2 configuration */
-  optionalColumn2: FooterOptionalColumn;
+  optionalColumn2?: FooterOptionalColumn;
 }
 
 /**

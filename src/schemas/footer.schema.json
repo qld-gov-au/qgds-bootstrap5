@@ -15,10 +15,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "title",
-        "content"
-      ],
       "type": "object"
     },
     "FooterContact": {
@@ -39,10 +35,7 @@
         },
         "hasBorderColumn": {
           "description": "Whether to show border column styling",
-          "type": [
-            "boolean",
-            "string"
-          ]
+          "type": "boolean"
         },
         "list": {
           "$ref": "#/definitions/FooterContactList",
@@ -57,12 +50,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "hasBorderColumn",
-        "title",
-        "content",
-        "showList"
-      ],
+      "required": ["showList"],
       "type": "object"
     },
     "FooterContactList": {
@@ -103,10 +91,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "icon",
-        "label"
-      ],
+      "required": ["icon", "label"],
       "type": "object"
     },
     "FooterCopyright": {
@@ -126,11 +111,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "content",
-        "showYearFrom",
-        "yearFrom"
-      ],
+      "required": ["content"],
       "type": "object"
     },
     "FooterCustomLink": {
@@ -147,62 +128,32 @@
         },
         "target": {
           "description": "Link target (optional)",
-          "enum": [
-            "_blank",
-            "_self",
-            "_parent",
-            "_top"
-          ],
+          "enum": ["_blank", "_self", "_parent", "_top"],
           "type": "string"
         }
       },
-      "required": [
-        "label",
-        "link"
-      ],
+      "required": ["label", "link"],
       "type": "object"
     },
     "FooterData": {
-      "additionalProperties": false,
+      "additionalProperties": true,
       "description": "Main footer component data structure interface",
       "properties": {
-        "acknowledgements": {
-          "description": "Acknowledgement sections",
-          "items": {
-            "$ref": "#/definitions/FooterAcknowledgement"
-          },
-          "type": "array"
-        },
-        "ariaDescribedBy": {
-          "description": "ARIA described by reference",
+        "sitename": {
+          "description": "Site name or identifier",
           "type": "string"
         },
-        "ariaHidden": {
-          "description": "Whether element is hidden from screen readers",
-          "type": "boolean"
-        },
-        "ariaLabel": {
-          "description": "ARIA label for screen readers",
+        "variantClass": {
+          "description": "CSS variant class for footer styling",
           "type": "string"
         },
         "contact": {
           "$ref": "#/definitions/FooterContact",
           "description": "Contact section configuration"
         },
-        "copyright": {
-          "$ref": "#/definitions/FooterCopyright",
-          "description": "Copyright information"
-        },
-        "customClass": {
-          "description": "Additional CSS classes",
-          "type": "string"
-        },
-        "customLinks": {
-          "description": "Custom footer links",
-          "items": {
-            "$ref": "#/definitions/FooterCustomLink"
-          },
-          "type": "array"
+        "footerLinks": {
+          "$ref": "#/definitions/FooterLinks",
+          "description": "Footer links section"
         },
         "followLinks": {
           "description": "Social media follow links",
@@ -211,13 +162,31 @@
           },
           "type": "array"
         },
-        "footerLinks": {
-          "$ref": "#/definitions/FooterLinks",
-          "description": "Footer links section"
+        "customLinks": {
+          "description": "Custom footer links",
+          "items": {
+            "$ref": "#/definitions/FooterCustomLink"
+          },
+          "type": "array"
+        },
+        "acknowledgements": {
+          "description": "Acknowledgement sections",
+          "items": {
+            "$ref": "#/definitions/FooterAcknowledgement"
+          },
+          "type": "array"
         },
         "footerLogo": {
           "$ref": "#/definitions/FooterLogo",
           "description": "Footer logo configuration"
+        },
+        "copyright": {
+          "$ref": "#/definitions/FooterCopyright",
+          "description": "Copyright information"
+        },
+        "organisationLink": {
+          "$ref": "#/definitions/FooterOrganisationLink",
+          "description": "Organisation link configuration"
         },
         "optionalColumn1": {
           "$ref": "#/definitions/FooterOptionalColumn",
@@ -226,32 +195,9 @@
         "optionalColumn2": {
           "$ref": "#/definitions/FooterOptionalColumn",
           "description": "Optional column 2 configuration"
-        },
-        "organisationLink": {
-          "$ref": "#/definitions/FooterOrganisationLink",
-          "description": "Organisation link configuration"
-        },
-        "sitename": {
-          "description": "Site name or identifier",
-          "type": "string"
-        },
-        "variantClass": {
-          "description": "CSS variant class for footer styling",
-          "type": "string"
         }
       },
-      "required": [
-        "contact",
-        "footerLinks",
-        "acknowledgements",
-        "footerLogo",
-        "copyright",
-        "organisationLink",
-        "followLinks",
-        "customLinks",
-        "optionalColumn1",
-        "optionalColumn2"
-      ],
+      "required": ["contact", "footerLogo", "organisationLink"],
       "type": "object"
     },
     "FooterFollowLink": {
@@ -272,20 +218,11 @@
         },
         "target": {
           "description": "Link target (optional)",
-          "enum": [
-            "_blank",
-            "_self",
-            "_parent",
-            "_top"
-          ],
+          "enum": ["_blank", "_self", "_parent", "_top"],
           "type": "string"
         }
       },
-      "required": [
-        "label",
-        "link",
-        "icon"
-      ],
+      "required": ["label", "link", "icon"],
       "type": "object"
     },
     "FooterLinkItem": {
@@ -302,19 +239,11 @@
         },
         "target": {
           "description": "Link target (optional)",
-          "enum": [
-            "_blank",
-            "_self",
-            "_parent",
-            "_top"
-          ],
+          "enum": ["_blank", "_self", "_parent", "_top"],
           "type": "string"
         }
       },
-      "required": [
-        "label",
-        "link"
-      ],
+      "required": ["label", "link"],
       "type": "object"
     },
     "FooterLinks": {
@@ -337,11 +266,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "hasBorderColumn",
-        "title",
-        "list"
-      ],
       "type": "object"
     },
     "FooterLogo": {
@@ -361,11 +285,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "show",
-        "src",
-        "alt"
-      ],
       "type": "object"
     },
     "FooterOptionalColumn": {
@@ -393,13 +312,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "hasBorderColumn",
-        "title",
-        "content",
-        "showFollowLinks",
-        "showCustomLinks"
-      ],
+      "required": ["hasBorderColumn"],
       "type": "object"
     },
     "FooterOrganisationLink": {
@@ -419,11 +332,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "show",
-        "URL",
-        "text"
-      ],
+      "required": ["show"],
       "type": "object"
     }
   }

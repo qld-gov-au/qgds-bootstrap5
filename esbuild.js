@@ -1,4 +1,3 @@
-/* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
 
