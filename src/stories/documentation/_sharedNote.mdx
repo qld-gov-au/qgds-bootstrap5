@@ -1,6 +1,18 @@
 import { Canvas, Meta, Story, Source } from "@storybook/blocks";
 import { initTabs } from "./storybook-documentation.js";
 
+/\*\*
+
+- SharedNote component.
+-
+- Renders a shared note section in documentation stories.
+-
+- @param {object} defaultdata - The default data to be displayed in the JSON tab.
+- @param {object} designResources - Design resource links or assets related to the note to be displayed in Design Resources tab.
+- @param {string} componentId - Id value of associated component to be fed into code block.
+- @param {React.ReactNode} children - Content to be rendered inside the shared note.
+  \*/
+
 export const SharedNote = ({ defaultdata, designResources, componentId, children }) => (
   <>
 
