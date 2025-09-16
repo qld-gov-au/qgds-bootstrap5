@@ -4,6 +4,7 @@
  * @module accordion.stories
  */
 
+import { ArgTypes } from "@storybook/blocks";
 import { Accordion } from "./Accordion.js";
 import defaultdata from "./accordion.data.json";
 
@@ -12,6 +13,15 @@ export default {
   title: "3. Components/Accordion",
   render: (args) => new Accordion(args).html,
   args: defaultdata,
+  argTypes: {
+    headingTag: {
+      name: "Heading Tag",
+      description:
+        "Heading tag for the In-page Alert component. Can be h2, h3, h4, h5 or h6.",
+      control: "select",
+      options: ["h2", "h3", "h4", "h5", "h6"],
+    },
+  },
 
   /**
    * Additional parameters for the story.
