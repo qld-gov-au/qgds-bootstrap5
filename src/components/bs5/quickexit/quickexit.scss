@@ -58,8 +58,10 @@
       position: absolute;
     }
     .qld-tooltip-wrapper:after {
-      border-block-end: var(--#{$prefix}tooltip-arrow) solid var(--#{$prefix}quick-exit-tooltip-bg);
-      border-inline-start: var(--#{$prefix}tooltip-arrow) solid var(--#{$prefix}quick-exit-tooltip-bg);
+      border-block-end: var(--#{$prefix}tooltip-arrow) solid
+        var(--#{$prefix}quick-exit-tooltip-bg);
+      border-inline-start: var(--#{$prefix}tooltip-arrow) solid
+        var(--#{$prefix}quick-exit-tooltip-bg);
       border-inline-end: var(--#{$prefix}tooltip-arrow) solid transparent;
       border-block-start: var(--#{$prefix}tooltip-arrow) solid transparent;
       inset-block-end: calc(var(--#{$prefix}tooltip-arrow) * -1);
@@ -75,7 +77,8 @@
       &:focus-within {
         outline-offset: var(--#{$prefix}quick-exit-text-outline-offset);
         box-shadow: none;
-        outline: var(--#{$prefix}quick-exit-text-outline) solid var(--#{$prefix}quick-exit-tooltip-btn-focus);
+        outline: var(--#{$prefix}quick-exit-text-outline) solid
+          var(--#{$prefix}quick-exit-tooltip-btn-focus);
         border-radius: 0;
       }
     }
@@ -84,9 +87,13 @@
       font-weight: 500;
       text-decoration-line: underline;
       text-decoration-style: solid;
-      text-underline-offset: calc(var(--#{$prefix}quick-exit-text-outline-offset) * 2);
+      text-underline-offset: calc(
+        var(--#{$prefix}quick-exit-text-outline-offset) * 2
+      );
       &:hover {
-        text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
       }
     }
     .qld-tooltip-prompt {
@@ -117,6 +124,7 @@
       border-color: var(--#{$prefix}quick-exit-button-bg-colour);
       background-color: var(--#{$prefix}quick-exit-button-bg-colour);
       color: var(--#{$prefix}quick-exit-button-text-colour);
+      display: inline-block;
       &:hover {
         border-color: var(--#{$prefix}quick-exit-button-bg-colour-hover);
         background-color: var(--#{$prefix}quick-exit-button-bg-colour-hover);
@@ -129,7 +137,9 @@
       }
       &:hover,
       &:focus {
-        text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
       }
     }
     .qg-quick-exit__tips {
@@ -188,8 +198,10 @@
       .qld-tooltip-wrapper:after {
         border-block-end: var(--#{$prefix}tooltip-arrow) solid transparent;
         border-inline-start: var(--#{$prefix}tooltip-arrow) solid transparent;
-        border-inline-end: var(--#{$prefix}tooltip-arrow) solid var(--#{$prefix}quick-exit-tooltip-bg);
-        border-block-start: var(--#{$prefix}tooltip-arrow) solid var(--#{$prefix}quick-exit-tooltip-bg);
+        border-inline-end: var(--#{$prefix}tooltip-arrow) solid
+          var(--#{$prefix}quick-exit-tooltip-bg);
+        border-block-start: var(--#{$prefix}tooltip-arrow) solid
+          var(--#{$prefix}quick-exit-tooltip-bg);
         inset-block-end: auto;
         inset-inline-start: 25px;
         inset-block-start: calc(var(--#{$prefix}tooltip-arrow) * -1);
