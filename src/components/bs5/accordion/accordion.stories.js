@@ -15,8 +15,7 @@ export default {
   argTypes: {
     headingTag: {
       name: "Heading Tag",
-      description:
-        "Heading tag for the In-page Alert component. Can be h2, h3, h4, h5 or h6.",
+      description: "Heading tag. Can be h2, h3, h4, h5 or h6.",
       control: "select",
       options: ["h2", "h3", "h4", "h5", "h6"],
     },
