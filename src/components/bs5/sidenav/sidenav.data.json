@@ -1,7 +1,7 @@
 {
   "navtitle": "Side navigation",
   "navtitlelink": "#optionallink",
-  "accordiontitle": "In this section",
+  "collapseTitle": "In this section",
   "navlist": [
     {
       "link": "https://www.qld.gov.au/transport/registration/register/heavy",

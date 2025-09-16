@@ -1,96 +1,85 @@
 <div class="qld-side-navigation">
-  <div class="accordion" id="accordionSideNav">
-    <div class="accordion-item border-lg-0">
-      <button
-        class="accordion-button d-lg-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseOne"
-        aria-expanded="true"
-        aria-controls="collapseOne"
-      >{{accordiontitle}}</button>
-      <div
-        id="collapseOne"
-        class="accordion-collapse collapse show"
-        data-bs-parent="#accordionSideNav"
-      >
-        <div class="accordion-body">
-          <h2 class="nav-title">
-            {{#if navtitlelink}}
-              <a class="nav-link" href="{{navtitlelink}}">{{navtitle}}</a>
-            {{else}}
-              {{navtitle}}
-            {{/if}}
-          </h2>
+  <button
+    class="accordion-button d-lg-none"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#sideNavCollapse"
+    aria-expanded="false"
+    aria-controls="sideNavCollapse"
+  >
+    {{isdefined collapseTitle "In this section"}}
+  </button>
+  <div class="nav-wrapper collapse" id="sideNavCollapse">
+    <h2 class="nav-title">
+      {{#if navtitlelink}}
+        <a class="nav-link" href="{{navtitlelink}}">{{navtitle}}</a>
+      {{else}}
+        {{navtitle}}
+      {{/if}}
+    </h2>
 
-          <!-- Level One -->
-          <ul class="nav" aria-label="section navigation">
+    <!-- Level One -->
+    <ul class="nav" aria-label="section navigation">
 
-            {{#each navlist}}
-              <li class="nav-item {{class}}">
+      {{#each navlist}}
+        <li class="nav-item {{class}}">
 
-                {{#contains "active" class}}
-                  <span class="nav-link">{{label}}</span>
-                {{else}}
-                  <a class="nav-link" href="{{link}}" target="{{target}}">
-                    {{label}}
-                    {{class}}
-                  </a>
-                {{/contains}}
+          {{#contains "active" class}}
+            <span class="nav-link">{{label}}</span>
+          {{else}}
+            <a class="nav-link" href="{{link}}" target="{{target}}">
+              {{label}}
+              {{class}}
+            </a>
+          {{/contains}}
 
-                {{#if children}}
-                  <!-- Level Two -->
-                  <ul>
-                    {{#each children}}
-                      <li class="nav-item {{class}}">
+          {{#if children}}
+            <!-- Level Two -->
+            <ul>
+              {{#each children}}
+                <li class="nav-item {{class}}">
 
-                        {{#contains "active" class}}
-                          <span class="nav-link">{{label}}</span>
-                        {{else}}
-                          <a
-                            class="nav-link"
-                            href="{{link}}"
-                            target="{{target}}"
-                          >
-                            {{label}}
-                            {{class}}
-                          </a>
-                        {{/contains}}
+                  {{#contains "active" class}}
+                    <span class="nav-link">{{label}}</span>
+                  {{else}}
+                    <a class="nav-link" href="{{link}}" target="{{target}}">
+                      {{label}}
+                      {{class}}
+                    </a>
+                  {{/contains}}
 
-                        {{#if children}}
-                          <!-- Level Three -->
-                          <ul class="with-stalks">
-                            {{#each children}}
-                              <li class="nav-item {{class}}">
+                  {{#if children}}
+                    <!-- Level Three -->
+                    <ul class="with-stalks">
+                      {{#each children}}
+                        <li class="nav-item {{class}}">
 
-                                {{#contains "active" class}}
-                                  <span class="nav-link">{{label}}</span>
-                                {{else}}
-                                  <a
-                                    class="nav-link"
-                                    href="{{link}}"
-                                    target="{{target}}"
-                                  >
-                                    {{label}}
-                                    {{class}}
-                                  </a>
-                                {{/contains}}
+                          {{#contains "active" class}}
+                            <span class="nav-link">{{label}}</span>
+                          {{else}}
+                            <a
+                              class="nav-link"
+                              href="{{link}}"
+                              target="{{target}}"
+                            >
+                              {{label}}
+                              {{class}}
+                            </a>
+                          {{/contains}}
 
-                              </li>
-                            {{/each}}
-                          </ul>
-                        {{/if}}
+                        </li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
 
-                      </li>
-                    {{/each}}
-                  </ul>
-                {{/if}}
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
 
-              </li>
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-    </div>
+        </li>
+      {{/each}}
+    </ul>
   </div>
+
 </div>
