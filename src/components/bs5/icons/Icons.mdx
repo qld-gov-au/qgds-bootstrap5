@@ -8,16 +8,18 @@ import {
   Heading,
   Source,
 } from "@storybook/blocks";
-import * as IconsStories from "./icons.stories.js";
+import * as IconStories from "./icons.stories.js";
+import IconsUsage from "./_IconsUsage.mdx";
 
-<Meta of={IconsStories} />
+<Meta of={IconStories} />
 
-{/* Show Overview Story only - text returned by export default render function */}
-Where is this?
+# Iconography
 
-<Canvas>
-  <Story of={IconsStories.Overview} />
-</Canvas>
+{/* <Canvas> */}
+{/* <Story of={IconsStories.Default} /> */}
+{/* </Canvas> */}
+
+<IconsUsage />
 
 ## Design resources
 

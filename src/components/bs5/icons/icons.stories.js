@@ -1,8 +1,7 @@
 import iconNames from "./_icons.list.js";
-// import { Card } from "../card/Card.js";
-import iconUsageHtml from "./story-icon-usage.html?raw";
-import iconSizingHtml from "./story-icon-sizing.html?raw";
-import storyVerticalAlignmentHtml from "./story-vertical-alignment.html?raw";
+import storyInlineWithTextHtml from "./stories/storyInlineWithText.html?raw";
+import storyFlexContainerHtml from "./stories/storyFlexContainer.html?raw";
+import storySizesHtml from "./stories/storySizes.html?raw";
 
 const SPRITE_PATH = "./assets/img/icons-sprite.svg";
 const PREFIX_QGDS = "qgds-icon-";
@@ -19,9 +18,12 @@ function _removePrefixQGDS(name) {
 export default {
   tags: ["autodocs"],
   title: "1. Core Styles/Iconography",
-  render: () => {
-    return iconUsageHtml + `<hr>` + iconSizingHtml;
-  },
+  // render: () => {
+  //   return `<span
+  //       class="qld-icon qld-icon-alert-information"
+  //       aria-label="Information"
+  //     ></span>`;
+  // },
   parameters: {
     layout: "padded",
     docs: {
@@ -31,8 +33,10 @@ export default {
   },
 };
 
-// Exports default as Overview, in order to avoid another "Default" menu in Storybook
-export const Overview = {};
+// export const Default = () => `<span
+//         class="qld-icon qld-icon-alert-information"
+//         aria-label="Information"
+//       ></span>`;
 
 // Story for displaying all icons as SVGs
 export const SvgIcons = () => {
@@ -89,7 +93,8 @@ export const CssIcons = () => {
 };
 CssIcons.storyName = "CSS Icons";
 
-// Story for displaying icon sizing variations
-export const Sizes = () => iconSizingHtml;
+export const Sizes = () => storySizesHtml;
 
-export const VerticalAlignment = () => storyVerticalAlignmentHtml;
+export const FlexContainer = () => storyFlexContainerHtml;
+
+export const InlineWithText = () => storyInlineWithTextHtml;

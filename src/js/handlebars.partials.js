@@ -8,8 +8,8 @@ import blockquote from "../components/bs5/blockquote/blockquote.hbs?raw";
 import breadcrumbs from "../components/bs5/breadcrumbs/breadcrumbs.hbs?raw";
 import breadcrumbsWrapper from "../components/bs5/breadcumbsWrapper/breadcrumbsWrapper.hbs?raw";
 import button from "../components/bs5/button/button.hbs?raw";
-import callToAction from "../components/bs5/callToAction/callToAction.hbs?raw";
 import callout from "../components/bs5/callout/callout.hbs?raw";
+import callToAction from "../components/bs5/callToAction/callToAction.hbs?raw";
 import card from "../components/bs5/card/card.hbs?raw";
 import containerLayout from "../components/bs5/containerLayout/containerLayout.hbs?raw";
 import contentFooter from "../components/bs5/contentFooter/contentFooter.hbs?raw";
@@ -62,6 +62,7 @@ import textbox from "../components/bs5/textbox/textbox.hbs?raw";
 import typography from "../components/bs5/typography/typography.hbs?raw";
 import video from "../components/bs5/video/video.hbs?raw";
 
+
 /**
  * Registers Handlebars Partials
  * @param {Handlebars} handlebars Templating engine
@@ -75,8 +76,8 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("breadcrumbs", breadcrumbs);
   handlebars.registerPartial("breadcrumbsWrapper", breadcrumbsWrapper);
   handlebars.registerPartial("button", button);
-  handlebars.registerPartial("callToAction", callToAction);
   handlebars.registerPartial("callout", callout);
+  handlebars.registerPartial("callToAction", callToAction);
   handlebars.registerPartial("card", card);
   handlebars.registerPartial("containerLayout", containerLayout);
   handlebars.registerPartial("contentFooter", contentFooter);
@@ -110,10 +111,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("modal", modal);
   handlebars.registerPartial("navbar", navbar);
   handlebars.registerPartial("contentPageWithForm", contentPageWithForm);
-  handlebars.registerPartial(
-    "contentPageWithSideNavigation",
-    contentPageWithSideNavigation,
-  );
+  handlebars.registerPartial("contentPageWithSideNavigation", contentPageWithSideNavigation);
   handlebars.registerPartial("homePage", homePage);
   handlebars.registerPartial("pagination", pagination);
   handlebars.registerPartial("promotionalPanel", promotionalPanel);
@@ -131,7 +129,8 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("textbox", textbox);
   handlebars.registerPartial("typography", typography);
   handlebars.registerPartial("video", video);
+
 }
-if (typeof Handlebars !== "undefined") {
+if(typeof(Handlebars) !== 'undefined') {
   handlebarsPartials(Handlebars);
 }
