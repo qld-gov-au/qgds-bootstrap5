@@ -4,7 +4,6 @@
  * @module accordion.stories
  */
 
-import { ArgTypes } from "@storybook/blocks";
 import { Accordion } from "./Accordion.js";
 import defaultdata from "./accordion.data.json";
 
