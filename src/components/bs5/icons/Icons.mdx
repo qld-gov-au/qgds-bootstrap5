@@ -1,25 +1,173 @@
-import {
-  Canvas,
-  Meta,
-  Story,
-  Title,
-  Subtitle,
-  Description,
-  Heading,
-  Source,
-} from "@storybook/blocks";
+import { Canvas, Meta, Story, Markdown } from "@storybook/blocks";
 import * as IconStories from "./icons.stories.js";
-import IconsUsage from "./_IconsUsage.mdx";
+import IconSizes from "./docs/_IconsSizes.mdx";
 
 <Meta of={IconStories} />
 
 # Iconography
 
-{/* <Canvas> */}
-{/* <Story of={IconsStories.Default} /> */}
-{/* </Canvas> */}
+The icons in QGDS can be used in multiple ways depending on your needs and environment. This guide covers the 4 primary methods as well as the sizing utilities:
 
-<IconsUsage />
+- **Inline SVG**
+- **CSS utility class**
+- **SCSS mixin**
+- **CSS variables**
+
+## Inline SVG (HTML Embed)
+
+This method allows for full control over the icon's appearance, eg: colour,
+size, stroke, etc. Recommended for developers and content editors embedding
+icons directly in HTML.
+
+Place the Symbol ID on to the `<use>` element within an `<svg>` tag. Example:
+
+<svg
+  className="qld-icon qld-icon-lg"
+  style={{ color: "#dd0000" }}
+  aria-label="Cancel alert"
+  role="img"
+>
+  <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-cancel"></use>
+</svg>
+<svg
+  className="qld-icon qld-icon-lg"
+  style={{ color: "#ffa500" }}
+  aria-label="Warning alert"
+  role="img"
+>
+  <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-warning"></use>
+</svg>
+<svg
+  className="qld-icon qld-icon-lg"
+  style={{ color: "#00dd00" }}
+  aria-label="Success alert"
+  role="img"
+>
+  <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-success"></use>
+</svg>
+
+```html
+<svg className="qld-icon qld-icon-lg" aria-label="Cancel alert">
+  <use href="./assets/img/icons-sprite.svg#qgds-icon-alert-cancel"></use>
+</svg>
+```
+
+### Accessibility
+
+- Always include `role="img"` and `aria-label`
+  attributes to provide context for screen readers.
+
+- Use `aria-hidden="true"` when the icon is decorative
+
+## CSS Class
+
+This method is suitable for developers who want to apply icons in their stylesheets.
+
+Use the `qld-icon` + `qld-icon-{iconName}` utility class to render icons as CSS masked elements.
+Example:
+
+<div>
+  <span class="qld-icon qld-icon-lg qld-icon-home" aria-hidden="true"></span>
+  <span class="qld-icon qld-icon-lg qld-icon-search" aria-hidden="true"></span>
+  <span class="qld-icon qld-icon-lg qld-icon-menu" aria-hidden="true"></span>
+</div>
+
+{/* prettier-ignore-start */}
+```html
+<span class="qld-icon qld-icon-lg qld-icon-home" aria-hidden="true"></span>
+<span class="qld-icon qld-icon-lg qld-icon-search" aria-hidden="true"></span>
+<span class="qld-icon qld-icon-lg qld-icon-menu" aria-hidden="true"></span>
+```
+{/* prettier-ignore-end */}
+
+### Accessibility
+
+- This method is for decorative only. Use `aria-hidden="true"` to hide the icon from screen readers.
+- Ensure to use it alongside text or other elements that provide context for screen readers users.
+
+## SCSS mixin
+
+For developers with access to scss source code, and when it is not feasible to alter existing html markup, you can apply the `make-icon` mixin to any existing class.
+Using the mixin ensures consistent implementation and API with standard icon classes.
+
+```css
+/* @use - sass module system. Make sure the path is correct for your particular implementation. */
+@use "/../../css/mixins";
+
+.my-custom-class {
+  @include mixins.make-icon($name: "alert-cancel");
+}
+```
+
+### Mixin API
+
+<Markdown>
+  {`
+| Parameter         | Type    | Description                                                                                                               |
+| ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| \`$name\`         | String  | The name of icon. eg "alert-cancel". Optional but recoommended.                                                           |
+| \`$size\`         | String  | The icon size, valid values are \`"xs"\`, \`"sm"\`(default), \`"md"\`, \`"lg"\`, \`"xl"\`, \`"xxl"\`.                     |
+| \`$pseudo\`       | String  | Optionally apply styles as a pseudo-element. Valid string values are \`"before"\`, \`"after"\`, \`null\`(default)         |
+| \`$is-inline\`    | Boolean | Applies extra styles to assist with vertical alignent when used inline with text. Default:\`false\`                      |
+| \`$include-base\` | Boolean | Apply all base styles. Set to false when creating modifier classes where base styles are already applied. Default:\`true\`|                                                                                              
+`}
+
+</Markdown>
+
+## CSS Variables
+
+As a last resort this method allows developers to create custom styles with any CSS property that accepts a URL, such as <code>mask-image</code> and <code>background-image</code>.
+Only use this method in custom CSS where you don't have access to precompiled scss.
+Example:
+
+```css
+.mysite-icon-cancel-payment {
+  mask-image: var(--qgds-icon-alert-cancel);
+}
+
+.abc-icon-login {
+  background-image: var(--qgds-icon-identity);
+}
+```
+
+### Accessibility
+
+- This method is for decorative only. Use `aria-hidden="true"` to hide the icon from screen readers.
+- Ensure to use it alongside text or other elements that provide context for screen readers users.
+
+<IconSizes />
+
+## Working with color
+
+Assigning a value to the custom property `--qld-icon-color` to alter an icon's color.
+This ensures the same API between inline SVGs, CSS classes and SCSS mixin. An extra benefit is that custom property cascades, meaning icons will inherit whatever value is set on its ancestors.
+
+<span className="my-link-with-icon" style={{ "--qld-icon-color": "red" }}>
+  <span class="qld-icon qld-icon-alert-danger"></span> Custom properties rock!
+</span>
+
+{/* prettier-ignore-start */}
+```html
+<span class="my-link-with-icon" style="--qld-icon-color: red">
+  <span class="qld-icon qld-icon-alert-danger"></span>
+  Custom properties rock!
+</span>
+```
+{/* prettier-ignore-end */}
+
+## Vertical Alignment
+
+### Inline with text
+
+When using icons inline with text, add additional class `is-inline` to the icon to assist with vertical alignment.
+
+<Canvas of={IconStories.InlineWithText} />
+
+### Within a flex container
+
+Use flex utility classes when within a flex container, either `align-items-center` on the parent, or `align-self-center` on the icon itself.
+
+<Canvas of={IconStories.FlexContainer} />
 
 ## Design resources
 

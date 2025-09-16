@@ -18,12 +18,6 @@ function _removePrefixQGDS(name) {
 export default {
   tags: ["autodocs"],
   title: "1. Core Styles/Iconography",
-  // render: () => {
-  //   return `<span
-  //       class="qld-icon qld-icon-alert-information"
-  //       aria-label="Information"
-  //     ></span>`;
-  // },
   parameters: {
     layout: "padded",
     docs: {
@@ -32,11 +26,6 @@ export default {
     },
   },
 };
-
-// export const Default = () => `<span
-//         class="qld-icon qld-icon-alert-information"
-//         aria-label="Information"
-//       ></span>`;
 
 // Story for displaying all icons as SVGs
 export const SvgIcons = () => {
