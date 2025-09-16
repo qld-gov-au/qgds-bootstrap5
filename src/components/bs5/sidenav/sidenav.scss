@@ -61,6 +61,10 @@
 }
 
 .qld-side-navigation {
+  .accordion-body {
+    padding: 0.5rem 1rem;
+  }
+
   .nav-title {
     color: var(--#{$prefix}-headings-color);
     line-height: 1.5;
@@ -75,6 +79,8 @@
     }
 
     .nav-link {
+      line-height: 1.5rem;
+
       &:visited {
         color: var(--#{$prefix}headings-color);
       }
@@ -87,6 +93,7 @@
     color: var(--body-color);
     text-decoration: none;
     transition-duration: 0s;
+    line-height: 1.25rem;
 
     //.nav-link Hover state
     &:hover {
@@ -95,6 +102,10 @@
       text-decoration: underline;
       text-underline-offset: 0.25rem;
       text-decoration-thickness: 2px;
+    }
+
+    &:focus-visible {
+      box-shadow: none;
     }
   }
 
@@ -182,6 +193,12 @@
           width: 1rem;
         }
       }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .accordion-item {
+      border: none;
     }
   }
 }
