@@ -4,6 +4,9 @@
   // Maximum width for all containers, 86rem (or 1376px)
   --qld-container-max-width: 86rem;
 
+  // Maximum width for extended containers, 120rem (or 1920px)
+  --qld-container-extended-max-width: 100rem;
+
   // Default horizontal padding for containers.
   --qld-container-padding-x: 1rem;
 
@@ -17,6 +20,13 @@
   width: 100%;
   //Apply custom variables
   max-width: var(--qld-container-max-width);
+  padding-left: var(--qld-container-padding-x);
+  padding-right: var(--qld-container-padding-x);
+}
+
+.container-lg {
+  width: 100%;
+  max-width: var(--qld-container-extended-max-width);
   padding-left: var(--qld-container-padding-x);
   padding-right: var(--qld-container-padding-x);
 }
