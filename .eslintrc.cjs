@@ -40,7 +40,7 @@ module.exports = {
   },
   plugins: ["@stylistic/js"],
   rules: {
-    "@stylistic/js/indent": ["warn", 2],
+    // "@stylistic/js/indent": ["warn", 2],
     "one-var": 0,
     "no-tabs": 0,
     "no-path-concat": 0,
