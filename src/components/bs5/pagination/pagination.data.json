@@ -1,21 +1,21 @@
 {
-    "arialabel" : "Pagination for search results",
-	"previous": {
-        "href": "#",
-        "linktext": "Back",
-        "arialabel": "Previous page"
-    },
-    "next": {
-        "href": "#",
-        "linktext": "Next",
-        "arialabel": "Next page"
-    },
-    
-	"pages": [
-        { "href": "#", "linktext": "1", "customClasses": "" },
-        { "href": "#", "linktext": "2", "customClasses": "active" },
-        { "href": "#", "linktext": "", "customClasses": "more", "more": true },
-        { "href": "#", "linktext": "6", "customClasses": "" },
-        { "href": "#", "linktext": "7", "customClasses": "" }
-    ]
+  "arialabel": "Pagination for search results",
+  "previous": {
+    "href": "#",
+    "linktext": "Back",
+    "arialabel": "Previous page"
+  },
+  "next": {
+    "href": "#",
+    "linktext": "Next",
+    "arialabel": "Next page"
+  },
+
+  "pages": [
+    { "href": "#", "linktext": "1", "customClasses": "" },
+    { "href": "#", "linktext": "2", "customClasses": "active" },
+    { "href": "#", "linktext": "6", "customClasses": "" },
+    { "href": "#", "linktext": "", "customClasses": "more", "more": true },
+    { "href": "#", "linktext": "7", "customClasses": "" }
+  ]
 }
