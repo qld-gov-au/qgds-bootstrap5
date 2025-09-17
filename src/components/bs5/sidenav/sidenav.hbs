@@ -1,6 +1,6 @@
 <div class="qld-side-navigation">
   <button
-    class="accordion-button d-lg-none"
+    class="accordion-button collapsed d-lg-none"
     type="button"
     data-bs-toggle="collapse"
     data-bs-target="#sideNavCollapse"
@@ -9,7 +9,7 @@
   >
     {{isdefined collapseTitle "In this section"}}
   </button>
-  <div class="nav-wrapper collapse" id="sideNavCollapse">
+  <div class="nav-wrapper collapse d-lg-block" id="sideNavCollapse">
     <h2 class="nav-title">
       {{#if navtitlelink}}
         <a class="nav-link" href="{{navtitlelink}}">{{navtitle}}</a>
