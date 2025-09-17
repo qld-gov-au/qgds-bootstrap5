@@ -5,8 +5,8 @@ let currentTheme = null;
 // Dynamic theme modules import for lazy loading
 const themeModules = {
   default: () => import("../src/css/main.scss"),
-  green: () => import("../src/css/themes/main.green.scss"),
   test: () => import("../src/css/themes/main.test.scss"),
+  green: () => import("../src/css/themes/main.green.scss"),
 };
 
 function mapStyleElementsByTheme(callback) {
