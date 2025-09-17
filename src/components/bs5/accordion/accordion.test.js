@@ -1,5 +1,7 @@
 import { expect, it, describe, test } from "vitest";
 import { JSDOM } from "jsdom";
+import Handlebars from "handlebars";
+import handlebarsHelpers from "../../../js/handlebars.helpers.js";
 import { Accordion } from "./Accordion.js";
 import mockData from "./accordion.data.json";
 import fs from "fs";
@@ -29,6 +31,9 @@ const qldBootstrapJsFile = fs.readFileSync(
   `${__dirname}/../../../../dist/assets/js/qld.bootstrap.min.js`,
   "utf-8",
 );
+
+// Register Handlebars helpers before running tests
+handlebarsHelpers(Handlebars);
 
 describe("Accordion", () => {
   const AccordionComponent = new Accordion(mockData);
