@@ -13,7 +13,7 @@ import { initTabs } from "./storybook-documentation.js";
 - @param {React.ReactNode} children - Content to be rendered inside the shared note.
   \*/
 
-export const SharedNote = ({ defaultdata, designResources, componentId, children }) => (
+export const SharedNote = ({ defaultdata, DesignResources, componentId, children }) => (
   <>
 
     <div className="tab">
@@ -43,7 +43,7 @@ export const SharedNote = ({ defaultdata, designResources, componentId, children
     </div>
 
     <div id="design-doc" className="tabcontent">
-      <div dangerouslySetInnerHTML={{ __html: designResources }}></div>
+      <DesignResources/>
     </div>
 
     <div id="instructions-doc" className="tabcontent">
