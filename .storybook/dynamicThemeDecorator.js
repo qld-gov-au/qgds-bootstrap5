@@ -6,7 +6,7 @@ let currentTheme = null;
 const themeModules = {
   default: () => import("../src/css/main.scss"),
   green: () => import("../src/css/themes/main.green.scss"),
-  red: () => import("../src/css/themes/main.red.scss"),
+  test: () => import("../src/css/themes/main.test.scss"),
 };
 
 function mapStyleElementsByTheme(callback) {
@@ -100,13 +100,13 @@ export const dynamicThemeGlobalTypes = {
   themeName: {
     name: "Theme Palette",
     description: "Theme palette selector",
-    defaultValue: "green",
+    defaultValue: "test",
     toolbar: {
       icon: "switchalt",
       items: [
         { value: "default", title: "Default theme palette" },
         { value: "green", title: "Green theme palette" },
-        { value: "red", title: "Red theme palette" },
+        { value: "test", title: "Test theme palette" },
       ],
       showName: true,
       dynamicTitle: true,
