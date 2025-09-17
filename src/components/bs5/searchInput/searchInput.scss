@@ -1,9 +1,9 @@
-// ----------------------------------------------------------------------------------------------------------------------
-// Search input - palettes and second hand variables:
-@import "./colours";
+@import "variables";
 
 // ----------------------------------------------------------------------------------------------------------------------
 .qld-search-input {
+  @extend %search-input-variables;
+  //
   //Default state - unfocused, unhovered
   --text-color: var(--qld-dark-grey-muted);
   --placeholder-color: var(--qld-dark-grey-muted);
@@ -36,10 +36,9 @@
     width: 100%;
     z-index: 1;
     border-radius: 0.5rem;
-    background: var(--#{$prefix}site-search-suggestions-bg);
-    box-shadow: var(--#{$prefix}site-search_boxshadow);
-    border-bottom: solid 0.25rem
-      var(--#{$prefix}site-search-suggestions-hover__border_color);
+    background: var(--suggestions-bg);
+    box-shadow: var(--suggestions-shadow);
+    border-bottom: solid 0.25rem var(--suggestions-hover-border-color);
 
     .suggestions-category {
       &-view-more {
@@ -50,7 +49,7 @@
           0.5
         );
         &:hover {
-          background-color: var(--#{$prefix}site-search-suggestions-hover);
+          background-color: var(--suggestions-hover);
           text-decoration-color: rgba(
             $color-default-color-light-text-default,
             1
@@ -82,22 +81,20 @@
 
     // Featured search result styles
     .feature {
-      background-color: var(--#{$prefix}site-search-suggestions-feature_bg);
+      background-color: var(--suggestions-feature-bg);
 
       strong {
-        color: var(--#{$prefix}site-search-suggestions-feature_text-color);
+        color: var(--suggestions-feature-text-color);
       }
 
       ul {
         li {
           &:hover {
-            background-color: var(
-              --#{$prefix}site-search-suggestions-feature_hover
-            );
+            background-color: var(--suggestions-feature-hover);
           }
 
           a {
-            color: var(--#{$prefix}site-search-suggestions-feature_text-color);
+            color: var(--suggestions-feature-text-color);
           }
         }
       }
@@ -113,8 +110,6 @@
 
       a,
       strong {
-        color: var(--site-search-input-color);
-        font-weight: 400;
         font-size: 1rem;
         text-decoration: none;
       }
@@ -143,7 +138,7 @@
           }
 
           &:hover {
-            background-color: var(--#{$prefix}site-search-suggestions-hover);
+            background-color: var(--suggestions-hover);
 
             a {
               text-decoration: underline;

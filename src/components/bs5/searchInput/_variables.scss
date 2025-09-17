@@ -1,0 +1,20 @@
+// prettier-ignore
+%search-input-variables {
+    --suggestions-shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 1px 3px 1px rgba(0, 0, 0, .1);
+    --suggestions-bg: var(--#{$prefix}color-default-color-light-background-default-shade);
+    --suggestions-hover: var(--#{$prefix}color-default-color-light-border-default);
+    --suggestions-hover-border-color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    --suggestions-feature-bg: var(--#{$prefix}color-default-color-dark-background-default);
+    --suggestions-feature-hover: var(--#{$prefix}color-default-color-dark-background-default-shade);
+    --suggestions-feature-text-color: var(--#{$prefix}color-default-color-dark-text-default);
+
+    .dark &,
+    .dark-alt & {
+        --suggestions-bg: var(--#{$prefix}color-default-color-dark-background-default-shade);
+        --suggestions-hover: var(--#{$prefix}color-default-color-dark-background-default);
+        --suggestions-hover-border-color: var(--#{$prefix}color-default-color-dark-accent-design-accent);
+        --suggestions-feature-bg: var(--#{$prefix}color-default-color-dark-background-alt);
+        --suggestions-feature-hover: var(--#{$prefix}color-default-color-dark-background-alt-shade);
+        --suggestions-feature-text-color: var(--#{$prefix}color-default-color-dark-text-default);
+    }
+}
