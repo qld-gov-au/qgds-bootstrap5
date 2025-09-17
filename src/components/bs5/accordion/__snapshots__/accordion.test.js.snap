@@ -3,7 +3,6 @@
 exports[`Accordion > Renders as expected 1`] = `
 "<!-- QGDS Component: Accordion -->
 <div class="accordion-group">
-
         <div class="accordion-toggle">
             <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button">Open all</button>
         </div>
@@ -47,9 +46,7 @@ exports[`Accordion > Renders as expected 1`] = `
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 "
 `;
