@@ -43,20 +43,7 @@ export const SharedNote = ({ defaultdata, designResources, componentId, children
     </div>
 
     <div id="design-doc" className="tabcontent">
-      <h3>Design resources</h3>
-      <ul>
-        {designResources.map((item,index) => (
-          <li key={`design-resource${index}`}><a
-            href={item?.url}
-            target="_top"
-            rel="nofollow"
-            class="sbdocs sbdocs-a css-ajfpqr"
-          >
-            {item?.text}
-          </a></li>
-        ))}
-      </ul>
-
+      <div dangerouslySetInnerHTML={{ __html: designResources }}></div>
     </div>
 
     <div id="instructions-doc" className="tabcontent">
@@ -66,5 +53,3 @@ export const SharedNote = ({ defaultdata, designResources, componentId, children
 
   </>
 );
-
-;

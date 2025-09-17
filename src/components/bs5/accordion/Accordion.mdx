@@ -3,7 +3,8 @@ import * as AccordionStories from "./accordion.stories";
 import defaultdata from "./accordion.data.json";
 import "../../../stories/documentation/storybook-documentation.scss";
 import { SharedNote } from "../../../stories/documentation/_sharedNote.mdx";
-import { designResources, usageInstructions } from "./docs.data.js";
+import designResourcesHtml from "./mdx/_designResources.html?raw";
+import usageInstructionsHtml from "./mdx/_usageInstructions.html?raw";
 
 <Meta of={AccordionStories} />
 
@@ -19,7 +20,7 @@ import { designResources, usageInstructions } from "./docs.data.js";
 <SharedNote
   defaultdata={defaultdata}
   componentId="accordion-default"
-  designResources={designResources}
+  designResources={designResourcesHtml}
 >
-  <div dangerouslySetInnerHTML={{ __html: usageInstructions }}></div>
+  <div dangerouslySetInnerHTML={{ __html: usageInstructionsHtml }}></div>
 </SharedNote>
