@@ -262,6 +262,7 @@
     border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
     padding: 1rem 1.75rem 1rem 0;
     line-height: 1.5;
+    white-space: normal; // allow text to wrap
 
     &:visited {
       color: var(--#{$prefix}header__CTA_text_color);
@@ -285,6 +286,8 @@
     color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
     position: absolute;
     right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   &-main {
