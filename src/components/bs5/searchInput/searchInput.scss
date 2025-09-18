@@ -3,8 +3,6 @@
 // ----------------------------------------------------------------------------------------------------------------------
 .qld-search-input {
   @extend %search-input-variables;
-  //
-  //Default state - unfocused, unhovered
   position: relative;
   width: 100%;
 
@@ -29,6 +27,11 @@
     background: var(--background-color);
     padding-right: 7.5rem;
     color: var(--text-color);
+    transition: {
+      property: border-color, background-color, color;
+      timing-function: ease-out;
+      duration: 0.2s;
+    }
 
     &::placeholder {
       color: var(--placeholder-color);
