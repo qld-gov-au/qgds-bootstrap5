@@ -3,11 +3,38 @@ const themeStyleElements = new Map();
 let currentTheme = null;
 
 // Dynamic theme modules import for lazy loading
-const themeModules = {
-  default: () => import("../src/css/main.scss"),
-  test: () => import("../src/css/themes/main.test.scss"),
-  green: () => import("../src/css/themes/main.green.scss"),
-};
+// Automatically generate theme modules based on available theme files
+const themeModules = (() => {
+  const modules = {
+    default: () => import("../src/css/main.scss"),
+  };
+
+  // Get all theme files in the themes directory
+  const themeContext = import.meta.glob("../src/css/main.*.scss", {
+    eager: false,
+  });
+
+  for (const [path, moduleImporter] of Object.entries(themeContext)) {
+    // Extract theme name from path (e.g., "../src/css/themes/main.test.scss" -> "test")
+    const match = path.match(/(?:main\.)?(\w+)\.scss$/);
+    if (match) {
+      const themeName = match[1];
+      // Only include main.*.scss files or individual theme files if no main.*.scss exists
+      if (path.includes(`main.${themeName}.scss`)) {
+        modules[themeName] = moduleImporter;
+      } else if (
+        !Object.keys(themeContext).some((p) =>
+          p.includes(`main.${themeName}.scss`),
+        )
+      ) {
+        // If no main.*.scss file exists for this theme, use the individual theme file
+        modules[themeName] = moduleImporter;
+      }
+    }
+  }
+
+  return modules;
+})();
 
 function mapStyleElementsByTheme(callback) {
   // Handle both dev mode (style elements) and production mode (link elements)
@@ -100,14 +127,27 @@ export const dynamicThemeGlobalTypes = {
   themeName: {
     name: "Theme Palette",
     description: "Theme palette selector",
-    defaultValue: "test",
+    defaultValue: "default",
     toolbar: {
       icon: "switchalt",
-      items: [
-        { value: "default", title: "Default theme palette" },
-        { value: "green", title: "Green theme palette" },
-        { value: "test", title: "Test theme palette" },
-      ],
+      items: (() => {
+        // Dynamically generate toolbar items from available themes
+        const items = [{ value: "default", title: "Default theme palette" }];
+
+        // Add items for all discovered themes
+        Object.keys(themeModules).forEach((themeName) => {
+          if (themeName !== "default") {
+            const capitalizedName =
+              themeName.charAt(0).toUpperCase() + themeName.slice(1);
+            items.push({
+              value: themeName,
+              title: `${capitalizedName} theme palette`,
+            });
+          }
+        });
+
+        return items;
+      })(),
       showName: true,
       dynamicTitle: true,
     },

@@ -1,7 +1,6 @@
 /* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
-import fs from "fs";
 import path from "path";
 
 //Local ESBUILD PLUGINS
@@ -125,12 +124,7 @@ async function StartBuild() {
   } else {
     await ctx.rebuild();
     await ctx.dispose();
-    // Clean up temp files
-    tempEntries.forEach(tempEntry => {
-      if (tempEntry && fs.existsSync(tempEntry)) {
-        fs.unlinkSync(tempEntry);
-      }
-    });
+    // Note: Temp files are preserved for performance - they're only recreated when content changes
   }
    
   //node js module
