@@ -9,27 +9,38 @@ export default {
     return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search">${new SearchInput(args).html}</form>`;
   },
 
-  argTypes: {
-  },
-
+  argTypes: {},
   parameters: {
     docs: {
       controls: {
-        exclude: ["variantClass", "customClass", "inputID", "inputName", "buttonID", "buttonType", "ariaLabel"],
+        exclude: [
+          "variantClass",
+          "customClass",
+          "inputID",
+          "inputName",
+          "buttonID",
+          "buttonType",
+          "ariaLabel",
+        ],
       },
+      story: { height: "400px" },
     },
   },
-
 };
-
-
-
 
 /**
  * Default Search Input
  */
 export const Default = {
   args: defaultdata,
+  name: "Default - Filled Variant",
+};
+
+/**
+ * Outline Variant
+ */
+export const OutlinedVariant = {
+  args: { ...defaultdata, customClass: "is-outline" },
 };
 
 /**
@@ -40,26 +51,23 @@ export const FullWidth = {
     ...defaultdata,
     customClass: "full-width",
   },
-}
-
+};
 
 /**
  * Dark themed Search Input
- * 
- * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element. 
+ *
+ * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
  */
 
 export const Dark = {
-  args: { 
-	  ...defaultdata,
-	  variantClass: "dark",
+  args: {
+    ...defaultdata,
+    variantClass: "dark",
   },
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-brand-primary)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
     },
   },
   decorators: [
