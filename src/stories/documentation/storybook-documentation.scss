@@ -1,29 +1,26 @@
 /* Style the tab */
-.tab {
+.qld-sb-docs-tab {
   display: flex;
   overflow-y: hidden;
   overflow-x: auto;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Style the buttons inside the tab */
-.tab button {
+.qld-sb-docs-tab button {
   background-color: inherit;
   float: left;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 0;
   transition: 0.3s;
   font-size: 17px;
   font-weight: 600;
   padding: 0.5rem 0.3rem;
-  margin: 0 1rem 0 0;
   white-space: nowrap;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
   p {
     color: inherit;
     margin: 0;
@@ -32,10 +29,10 @@
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+.qld-sb-docs-tab button:hover {
   border-bottom: 2px solid #ccc;
 }
-.tab button.active {
+.qld-sb-docs-tab button.active {
   //  background-color: #ddd;
   color: #029cfd;
 

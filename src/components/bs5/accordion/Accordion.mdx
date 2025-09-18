@@ -2,7 +2,7 @@ import { Canvas, Meta, Story, Source } from "@storybook/blocks";
 import * as AccordionStories from "./accordion.stories";
 import defaultdata from "./accordion.data.json";
 import "../../../stories/documentation/storybook-documentation.scss";
-import { SharedNote } from "../../../stories/documentation/_sharedNote.mdx";
+import { SharedNote } from "../../../stories/documentation/_storybookDocsTabs.jsx";
 import DesignResources from "./mdx/_designResources.mdx";
 import UsageInstructions from "./mdx/_usageInstructions.mdx";
 
@@ -10,17 +10,37 @@ import UsageInstructions from "./mdx/_usageInstructions.mdx";
 
 # Accordion
 
+> Accordions help users see only the content they need. Accordions expand and collapse sections of content.
+
 <Canvas>
   <Story id="accordion-default" of={AccordionStories.Default} />
 </Canvas>
 
-<h2>Documentation</h2>
-<p>Click on the buttons inside the tabbed menu:</p>
-
 <SharedNote
-  defaultdata={defaultdata}
-  componentId="accordion-default"
-  DesignResources={DesignResources}
->
-  <UsageInstructions />
-</SharedNote>
+  tabs={[
+    {
+      label: "Code",
+      id: "code-doc",
+      heading: "Component code",
+      content: <Source language="html" id="accordion-default" />,
+    },
+    {
+      label: "JSON",
+      id: "json-doc",
+      heading: "Example Component data",
+      content: (
+        <Source language="json" code={JSON.stringify(defaultdata, null, 2)} />
+      ),
+    },
+    {
+      label: "Design Resources",
+      id: "design-resources-doc",
+      content: <DesignResources />,
+    },
+    {
+      label: "Usage Instructions",
+      id: "usage-instructions-doc",
+      content: <UsageInstructions />,
+    },
+  ]}
+></SharedNote>
