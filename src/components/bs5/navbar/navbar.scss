@@ -236,6 +236,7 @@
   --header-color: var(--#{$prefix}default-background);
   --action-icon-color: var(--#{$prefix}alt-button-hover);
   --mobile-only-display: none;
+  --visibility-display: hidden;
   --dropdown-show-btn-bg: var(--#{$prefix}default-background);
   --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);
   /* general */
@@ -280,6 +281,7 @@
   /* Mobile < 992 */
   @include media-breakpoint-down(lg) {
     --mobile-only-display: block;
+    --visibility-display: visible;
     .qld-header:has(.qld-header-pre-header.dark) ~ & {
       --vert-background-color: var(--#{$prefix}dark-background);
       --background-color: var(--#{$prefix}default-background-shade);
@@ -292,7 +294,6 @@
       --border-color: var(--#{$prefix}default-border);
       --header-color: var(--#{$prefix}default-background);
       --action-icon-color: var(--#{$prefix}alt-button-hover);
-      --mobile-only-display: none;
       --dropdown-show-btn-bg: var(--#{$prefix}default-background);
       --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);    
       --nav-header-color: var(--#{$prefix}dark-text-text);
@@ -387,6 +388,7 @@
     display: flex;
     &.mobile-only {
       display: var(--mobile-only-display);
+      visibility: var(--visibility-display);
     }
   }
   .navbar-nav a.nav-link {
