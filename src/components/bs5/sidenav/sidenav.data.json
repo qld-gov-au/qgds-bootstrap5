@@ -1,42 +1,42 @@
 {
-  "navtitle": "Side navigation",
-  "navtitlelink": "#optionallink",
   "collapseTitle": "In this section",
+  "navtitle": "Parent page",
+  "navtitlelink": "#optionallink",
   "navlist": [
     {
       "link": "https://www.qld.gov.au/transport/registration/register/heavy",
-      "label": "Heavy vehicles",
+      "label": "Sibling page",
       "class": "",
       "target": "",
       "children": [
         {
           "link": "#",
           "class": "",
-          "label": "Level two item",
+          "label": "Child page",
           "children": []
         },
         {
           "link": "#",
           "class": "active",
-          "label": "Level two item",
+          "label": "Child page",
           "children": []
         },
         {
           "link": "#",
           "class": "",
 
-          "label": "Level two item",
+          "label": "Child page",
           "children": [
             {
               "link": "#",
               "class": "",
-              "label": "Level three item",
+              "label": "Grandchild page",
               "children": []
             },
             {
               "link": "#",
               "class": "active",
-              "label": "Level three item that wraps to another line",
+              "label": "Grandchild page",
               "children": []
             }
           ]
@@ -45,43 +45,43 @@
     },
     {
       "link": "#",
-      "label": "Renew registration",
+      "label": "Sibling page",
       "class": "",
       "children": []
     },
     {
       "link": "#",
-      "label": "Register a motorised mobility device",
+      "label": "Sibling page",
       "class": "active",
       "children": []
     },
     {
       "link": "#",
-      "label": "Register a boat",
+      "label": "Sibling page",
       "class": "",
       "children": []
     },
     {
       "link": "#",
-      "label": "Conditional registration",
+      "label": "Sibling page",
       "class": "",
       "children": []
     },
     {
       "link": "#",
-      "label": "Vehicles registered overseas temporarily being used in Queensland",
+      "label": "Sibling page",
       "class": "",
       "children": []
     },
     {
       "link": "#",
-      "label": "Left hand drive vehicles",
+      "label": "Sibling page",
       "class": "",
       "children": []
     },
     {
       "link": "#",
-      "label": "Registration Help Tool—how to register a used motor vehicle or motorcycle",
+      "label": "Sibling page",
       "class": "",
       "children": []
     }
