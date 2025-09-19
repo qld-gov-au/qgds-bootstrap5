@@ -2,7 +2,7 @@ import { Canvas, Meta, Story, Source } from "@storybook/blocks";
 import * as AccordionStories from "./accordion.stories";
 import defaultdata from "./accordion.data.json";
 import "../../../stories/documentation/storybook-documentation.scss";
-import { SharedNote } from "../../../stories/documentation/_storybookDocsTabs.jsx";
+import { StorybookDocsTabs } from "../../../stories/documentation/_storybookDocsTabs.jsx";
 import DesignResources from "./mdx/_designResources.mdx";
 import UsageInstructions from "./mdx/_usageInstructions.mdx";
 
@@ -14,7 +14,7 @@ import UsageInstructions from "./mdx/_usageInstructions.mdx";
 
 <Canvas of={AccordionStories.Default} />
 
-<SharedNote
+<StorybookDocsTabs
   tabs={[
     {
       label: "Code",
@@ -41,4 +41,4 @@ import UsageInstructions from "./mdx/_usageInstructions.mdx";
       content: <UsageInstructions />,
     },
   ]}
-></SharedNote>
+></StorybookDocsTabs>

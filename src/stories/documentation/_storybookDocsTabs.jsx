@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 
 /**
- * SharedNote component renders a tabbed interface for displaying documentation sections.
+ * StorybookDocsTabs component renders a tabbed interface for displaying documentation sections.
  *
  * @param {Array} props.tabs - Array of tab objects, each containing id, label, and content to display in the tabbed interface.
  * @returns {JSX.Element} Tabbed documentation interface.
  */
-export const SharedNote = ({ tabs }) => {
+export const StorybookDocsTabs = ({ tabs }) => {
   useEffect(() => {
     // This code will run once the component has mounted
     initTabs();
