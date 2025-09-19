@@ -1,124 +1,4 @@
-//Typography
-$font-family-sans-serif:
-  "Noto Sans",
-  system-ui,
-  -apple-system,
-  "Segoe UI",
-  Roboto,
-  "Helvetica Neue",
-  "Noto Sans",
-  "Liberation Sans",
-  Arial,
-  sans-serif,
-  "Apple Color Emoji",
-  "Segoe UI Emoji",
-  "Segoe UI Symbol",
-  "Noto Color Emoji" !default;
-
-// Override Bootstrap font variables
-$font-weight-base: 400;
-$font-weight-bold: 600;
-$font-weight-bolder: 900;
-
-// Apply custom font weights to Bootstrap's utility classes
-$font-weights: (
-  normal: 400,
-  bold: 600,
-  bolder: 900,
-);
-
-$body-color: $qld-text-grey;
-$body-font-weight: 400;
-$font-size-base: 1rem;
-
-// https: //www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=58880-54175&t=35PGuqUnIyLmf28d-0
-// Headings font weight and line height
-$headings-font-weight: 600;
-$headings-line-height: 1.3;
-
-// Headings font sizes
-$h1-font-size: $font-size-base * 2.5;
-$h2-font-size: $font-size-base * 2;
-$h3-font-size: $font-size-base * 1.5;
-$h4-font-size: $font-size-base * 1.25;
-$h5-font-size: $font-size-base * 1;
-$h6-font-size: $font-size-base * 0.875;
-
-// < 991 Mobile Tablet font sizes and line heights
-$h1-font-size-mobile: $font-size-base * 2; // 32
-$h2-font-size-mobile: $font-size-base * 1.75; // 28
-$h1-line-height-mobile: 1.25; //40
-$h2-line-height-mobile: 1.285; //36
-
-$headings-color: $qld-text-headings;
-$qld-heading-color: $core-default-color-brand-primary-light-green;
-
-$link-color: $qld-brand-primary;
-$link-hover-color: $qld-brand-primary;
-$link-visited-color: $qld-link-visited;
-
-//Links
-.default,
-.light,
-.alt,
-:root {
-  --qld-headings-color: #{$headings-color};
-  --qld-body-color: #{$body-color};
-  --qld-body-font-weight: #{$body-font-weight};
-  --qld-link-font-weight: 400;
-  --qld-link-color: #{$link-color};
-  --qld-link-color-rgb: #{to-rgb($link-color)};
-  --qld-link-hover-color: var(--qld-link-color);
-  --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
-  --qld-link-underline-offset: 0.3rem;
-  --qld-link-underline-thickness: 0.5px;
-  --qld-link-underline-thickness-hover: 2px;
-  --qld-link-underline: #{$color-default-color-light-underline-default};
-  --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
-  --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
-  --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
-  --qld-selection-color: var(--qld-white);
-  --qld-selection-bg: var(--qld-brand-primary);
-  --qld-focus-color: var(--qld-light-focus);
-  --qld-action-icon-color: var(--qld-light-action-secondary);
-  --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
-}
-
-.dark,
-.dark-alt,
-:root[data-bs-theme="dark"] {
-  --qld-headings-color: #fff;
-  --qld-body-color: #fff;
-  --qld-body-bg: var(--qld-brand-primary);
-  --qld-link-color: #fff;
-  --qld-link-color-rgb: 255, 255, 255;
-  --qld-link-hover-color: #fff;
-  --qld-link-hover-color-rgb: 255, 255, 255;
-  --qld-link-visited: var(--qld-link-visited-dark);
-  --qld-selection-color: var(--qld-brand-primary);
-  --qld-selection-bg: var(--qld-white);
-  --qld-focus-color: var(--qld-dark-focus);
-  --qld-action-icon-color: var(--qld-dark-action-secondary);
-  --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
-}
-
-.default {
-  --qld-border-color: var(--qld-light-border);
-}
-.light {
-  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
-}
-.alt {
-  --qld-body-bg: var(--qld-light-alt-background);
-  --qld-border-color: var(--qld-soft-grey);
-}
-.dark {
-  --qld-border-color: var(--qld-dark-border);
-}
-.dark-alt {
-  --qld-body-bg: var(--qld-dark-alt-background);
-  --qld-border-color: var(--qld-dark-alt-border);
-}
+//Links - default root variables moved to qld-theme.scss
 
 //Content and links
 body {
@@ -232,7 +112,7 @@ figure > figcaption {
   line-height: 20px;
 }
 
-// Dark, dark alt
+// Theme-specific typography styles
 .dark,
 .dark-alt {
   h1,
@@ -243,9 +123,11 @@ figure > figcaption {
   h6 {
     color: var(--#{$prefix}color-default-color-dark-text-heading);
   }
+
   body & {
     color: var(--qld-body-color);
   }
+
   a,
   a.nav-link {
     text-decoration-color: var(
