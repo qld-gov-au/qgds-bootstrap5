@@ -553,9 +553,11 @@
       border-block-end: 1px solid var(--border-color);
       padding-block-end: 2rem;
       margin-block-end: 2rem;
-      grid-column: 1 / -1;      
+      gap: 1rem;
+      grid-column: 1 / -1;
       .dropdown-item {
         border-block-end: 0;
+        padding-block-end: 0;
         gap: 1rem;
         transition: gap var(--animation-time) ease-in-out;
         font-size: 1.5rem;
