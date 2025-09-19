@@ -125,6 +125,7 @@
       border-color: var(--#{$prefix}quick-exit-button-bg-colour);
       background-color: var(--#{$prefix}quick-exit-button-bg-colour);
       color: var(--#{$prefix}quick-exit-button-text-colour);
+      display: inline-block;
       &:hover {
         border-color: var(--#{$prefix}quick-exit-button-bg-colour-hover);
         background-color: var(--#{$prefix}quick-exit-button-bg-colour-hover);
