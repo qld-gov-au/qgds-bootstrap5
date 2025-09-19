@@ -1,10 +1,13 @@
 // prettier-ignore
 %search-input-variables {
-  --text-color: var(--qld-dark-grey-muted);
-  --placeholder-color: var(--qld-dark-grey-muted);
-  --border-color: var(--qld-soft-grey);
-  --background-color: var(--qld-white);
-  --outline-color: var(--qld-light-blue);
+  --text-color: var(--#{$prefix}light-text-text);
+  --placeholder-color: var(--#{$prefix}light-text-lighter);
+  --border-color: var(--#{$prefix}light-border-alt);
+  --border-color-hover: var(--#{$prefix}light-action-primary-hover);
+  --border-color-focus: var(--#{$prefix}neutral-lighter);
+  --background-color: var(--#{$prefix}extra-light-grey);
+  --background-color-hover: var(--#{$prefix}extra-light-grey);
+  --background-color-focus: var(--#{$prefix}white);
   --icon-color: var(--qld-dark-grey-muted);
   --icon-color-on-btn: var(--qld-white);
   --icon: var(--qgds-icon-search);
@@ -22,8 +25,8 @@
   .dark-alt & {
     --icon-color: #deebf9;
     --icon-color-on-btn: var(--qld-dark-action-text);
-    --text-color: #deebf9;
-    --placeholder-color: #deebf9;
+    --text-color: var(--qld-dark-text-text);
+    --placeholder-color: var(--qld-dark-text-lighter);
     --border-color: var(--qld-dark-alt-border);
     --background-color: var(--qld-dark-background);
 

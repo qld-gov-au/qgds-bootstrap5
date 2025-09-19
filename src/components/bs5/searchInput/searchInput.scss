@@ -1,10 +1,16 @@
+@use "../../../css/mixins";
 @import "variables";
 
 // ----------------------------------------------------------------------------------------------------------------------
 .qld-search-input {
   @extend %search-input-variables;
+  $border-radius: 0.25rem;
+  //
+  display: flex;
   position: relative;
-  width: 100%;
+  border-radius: $border-radius;
+
+  @include mixins.focusable($customSelector: ":has(.form-control:focus)");
 
   &.full-width {
     max-width: 100%;
@@ -17,13 +23,24 @@
 
   &:has(.form-control:focus) {
     --icon-color: var(--qld-text-grey);
+
+    > button {
+      border-bottom-right-radius: $border-radius;
+    }
   }
 
   .form-control {
     min-height: 52px;
     padding: 0.75rem 4rem 0.75rem 1rem;
-    border-radius: 0.25rem;
-    border: 0.125rem solid var(--border-color);
+    border: {
+      color: var(--border-color);
+      style: solid;
+      top-width: 0;
+      right-width: 0;
+      bottom-width: 0.125rem;
+      left-width: 0;
+      radius: $border-radius 0 0 0;
+    }
     background: var(--background-color);
     padding-right: 7.5rem;
     color: var(--text-color);
@@ -38,38 +55,37 @@
     }
 
     &:hover {
-      //Rescope hover state
       --icon-color: var(--qld-dark-grey-muted);
       --text-color: var(--qld-text-grey);
-      --placeholder-color: var(--qld-text-grey);
-      --border-color: var(--qld-light-action-primary);
-      --background-color: var(--qld-default-background-shade);
+      // --placeholder-color: var(--text-color);
+      --border-color: var(--border-color-hover);
+      --background-color: var(--background-color-hover);
     }
 
+    &:active,
     &:focus {
-      //Rescope focus state
       --icon-color: var(--qld-text-grey);
       --text-color: var(--qld-text-grey);
-      --placeholder-color: var(--qld-text-grey);
-      --border-color: var(--qld-soft-grey);
-      --background-color: var(--qld-white);
-
-      outline: 0.188rem solid var(--outline-color);
-      outline-offset: 0.125rem;
+      // --placeholder-color: var(--qld-text-grey);
+      --border-color: var(--border-color-focus);
+      --background-color: var(--background-color-focus);
+      outline: none;
+      border-bottom-left-radius: $border-radius;
     }
   }
 
   > button {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 0 0.25rem 0.25rem 0;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // right: 0;
+    border-radius: 0 $border-radius 0 0;
     padding: 0;
     margin: 0;
     width: 3rem;
     box-shadow: none;
     min-width: auto;
+    flex-shrink: 0;
 
     &:hover,
     &:focus {
@@ -259,6 +275,26 @@
           }
         }
       }
+    }
+  }
+
+  //is-filled is default
+
+  &.is-outline {
+    --border-color-focus: var(--#{$prefix}light-border-alt);
+
+    .form-control {
+      border: {
+        top-width: 0.125rem;
+        right-width: 0;
+        bottom-width: 0.125rem;
+        left-width: 0.125rem;
+        radius: $border-radius 0 0 $border-radius;
+      }
+    }
+
+    > button {
+      border-radius: 0 $border-radius $border-radius 0;
     }
   }
 

@@ -38,6 +38,8 @@ export const Default = {
 
 /**
  * Outline Variant
+ *
+ * With `customClass: is-outline`
  */
 export const OutlinedVariant = {
   args: { ...defaultdata, customClass: "is-outline" },
