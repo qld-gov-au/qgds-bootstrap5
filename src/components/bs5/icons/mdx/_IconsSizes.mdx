@@ -1,0 +1,112 @@
+import { Sizes } from "../icons.stories";
+import { Story } from "@storybook/blocks";
+
+## Sizes
+
+We have 6 preset sizes for icons ranging from extra small (xs) to extra
+extra large (xxl) and a dedicated feature size for large or detailed icons.
+Feature icons use a background shade to help make it stand out from other
+elements on the page.
+
+This size range allows for flexibility and adaptability in various design
+contexts while maintaining visual harmony and balance. These predefined
+sizes ensure that icons are proportionate and legible, enhancing their
+effectiveness and the overall aesthetic of the site.
+
+<Story of={Sizes} />
+
+#### Usage
+
+Combine base class <code>qld-icon</code> with specific icon name and size
+class as listed here to set the icon size.
+
+<table class="table table-responsive">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">Class</th>
+      <th scope="col">REM size</th>
+      <th scope="col">Pixel size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>.qld-icon-xs</code>
+      </td>
+      <td>
+        <pre>1rem</pre>
+      </td>
+      <td>
+        <pre>16x16</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.qld-icon-sm</code>
+      </td>
+      <td>
+        <pre>1.25rem</pre>
+      </td>
+      <td>
+        <pre>20x20</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.qld-icon-md</code>
+      </td>
+      <td>
+        <pre>1.5rem</pre>
+      </td>
+      <td>
+        <pre>24x24</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.qld-icon-lg</code>
+      </td>
+      <td>
+        <pre>2rem</pre>
+      </td>
+      <td>
+        <pre>32x32</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.qld-icon-xl</code>
+      </td>
+      <td>
+        <pre>2.5rem</pre>
+      </td>
+      <td>
+        <pre>40x40</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.qld-icon-xxl</code>
+      </td>
+      <td>
+        <pre>3rem</pre>
+      </td>
+      <td>
+        <pre>48x48</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 class="mt-5">Example code:</h5>
+
+{/* prettier-ignore-start */}
+```html
+<span class="qld-icon qld-icon-xxl qld-icon-design" aria-hidden="true"></span>
+<span class="qld-icon qld-icon-xl qld-icon-design" aria-hidden="true"></span>
+<span class="qld-icon qld-icon-lg qld-icon-design" aria-hidden="true"></span>
+<span class="qld-icon qld-icon-md qld-icon-design" aria-hidden="true"></span>
+<span class="qld-icon qld-icon-sm qld-icon-design" aria-hidden="true"></span>
+<span class="qld-icon qld-icon-xs qld-icon-design" aria-hidden="true"></span>
+```
+{/* prettier-ignore-end */}
