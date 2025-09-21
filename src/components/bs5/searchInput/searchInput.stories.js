@@ -13,15 +13,7 @@ export default {
   parameters: {
     docs: {
       controls: {
-        exclude: [
-          "variantClass",
-          "customClass",
-          "inputID",
-          "inputName",
-          "buttonID",
-          "buttonType",
-          "ariaLabel",
-        ],
+        include: ["buttonLabel", "suggestions"],
       },
       story: { height: "400px" },
     },
