@@ -118,6 +118,8 @@
   }
 
   &.global-alert-critical {
+    --#{$prefix}icon-color: #{$core-default-color-neutral-white};
+    //
     background-color: $qld-notify-warning;
     color: var(--#{$prefix}white);
     font-size: 0.875em;
@@ -153,6 +155,8 @@
   }
 
   &.global-alert-warning {
+    --#{$prefix}icon-color: #{$core-default-color-neutral-black};
+    //
     background-color: $qld-notify-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
@@ -165,6 +169,8 @@
   }
 
   &.global-alert-info {
+    --#{$prefix}icon-color: #{$core-default-color-neutral-black};
+    //
     background-color: $qld-general-info-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
