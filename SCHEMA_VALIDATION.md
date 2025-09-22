@@ -26,8 +26,10 @@ src/
 │   ├── footer.schema.json
 │   └── modal.schema.json
 ├── utils/
+│   ├── schemas.js          # Schema loader and registry
+├── js/
 │   ├── validation.js       # Common validation utilities
-│   └── schemas.js          # Schema loader and registry
+│   └── QGDSComponent.js    # Component base class
 └── components/
     └── bs5/
         ├── button/
@@ -37,8 +39,12 @@ src/
             ├── Footer.js           # Component with validation
             └── footer.data.json    # Component data file
 
-scripts/
+src/js/
 ├── generate-schemas.js     # Generate JSON schemas from TypeScript
+├── validation.js          # Common validation utilities
+└── QGDSComponent.js       # Component base class
+
+scripts/
 ├── validate-component.js   # Validate component data against schemas
 └── test-validation.js     # Comprehensive validation tests
 ```
@@ -66,7 +72,7 @@ Components now include built-in validation using the common utilities:
 
 ```javascript
 // src/components/bs5/button/Button.js
-import { validateAndLog } from "../../../utils/validation.js";
+import { validateAndLog } from "../../../js/validation.js";
 import { buttonSchema } from "../../../utils/schemas.js";
 
 export class Button {
@@ -94,7 +100,7 @@ import {
   validateAndLog, // Logs errors, continues execution
   validateDataStrict, // Throws error if invalid
   validateAndLogErrors, // Silent success, logs only errors
-} from "../../../utils/validation.js";
+} from "../../../js/validation.js";
 ```
 
 ## Usage
@@ -117,7 +123,7 @@ node scripts/validate-component.js button src/components/bs5/button/button.data.
 
 ### Available Functions
 
-The `src/utils/validation.js` provides reusable validation functions:
+The `src/js/validation.js` provides reusable validation functions:
 
 #### `validateData(data, schema, componentName)`
 
@@ -160,7 +166,7 @@ When a component receives invalid data, you'll see:
 ## Adding New Components
 
 1. **Define TypeScript Interface**: Create interface in `src/types/`
-2. **Update Schema Generation**: Add component to `scripts/generate-schemas.js`
+2. **Update Schema Generation**: Add component to `src/js/generate-schemas.js`
 3. **Generate Schema**: Run `npm run schemas:generate [component-name]`
 4. **Add to Schema Loader**: Import schema in `src/utils/schemas.js`
 5. **Integrate Validation**: Use validation utilities in component constructor

@@ -3,7 +3,7 @@ import template from "./button.hbs?raw";
 import {
   validateAndLogErrors,
   validateDataStrict,
-} from "../../../utils/validation.js";
+} from "../../../js/validation.js";
 import buttonSchema from "../../../schemas/button.schema.json";
 
 // Export validation functions for external use

@@ -3,7 +3,7 @@ import template from "./footer.hbs?raw";
 import {
   validateAndLogErrors,
   validateDataStrict,
-} from "../../../utils/validation.js";
+} from "../../../js/validation.js";
 import footerSchema from "../../../schemas/footer.schema.json";
 
 // Export validation functions for external use
