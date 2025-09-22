@@ -18,11 +18,11 @@
 
   //Icon color is scoped against the parent container, not the input :(
   &:has(.form-control:hover) {
-    --icon-color: var(--qld-dark-grey-muted);
+    --qld-icon-color: var(--qld-dark-grey-muted);
   }
 
   &:has(.form-control:focus) {
-    --icon-color: var(--qld-text-grey);
+    --qld-icon-color: var(--qld-text-grey);
 
     > button {
       border-bottom-right-radius: $border-radius;
@@ -55,7 +55,7 @@
     }
 
     &:hover {
-      --icon-color: var(--qld-dark-grey-muted);
+      --qld-icon-color: var(--qld-dark-grey-muted);
       --text-color: var(--qld-text-grey);
       // --placeholder-color: var(--text-color);
       --border-color: var(--border-color-hover);
@@ -64,7 +64,7 @@
 
     &:active,
     &:focus {
-      --icon-color: var(--qld-text-grey);
+      --qld-icon-color: var(--qld-text-grey);
       --text-color: var(--qld-text-grey);
       // --placeholder-color: var(--qld-text-grey);
       --border-color: var(--border-color-focus);
@@ -129,20 +129,11 @@
       padding: 0.75rem 1rem 0.75rem 2.5rem;
     }
 
-    //SVG Search Icon
-    &::before {
-      content: "";
+    @include mixins.make-icon($name: "search", $size: "xs", $pseudo: "before") {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       left: calc(1rem - 0.125rem);
-      width: 1rem;
-      height: 1rem;
-      background-color: var(--icon-color);
-      mask: var(--icon) center center / 1rem no-repeat;
-      mask-size: contain;
-      -webkit-mask-size: contain;
-      -webkit-mask: var(--icon) center center / 1rem no-repeat;
     }
   }
 
