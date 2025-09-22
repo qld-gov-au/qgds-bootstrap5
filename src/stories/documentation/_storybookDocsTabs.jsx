@@ -38,9 +38,8 @@ export const StorybookDocsTabs = ({ tabs }) => {
       <ul className="qld-sb-docs-tab sb-unstyled">
         {tabs &&
           tabs.map((tab, index) => (
-            <li>
+            <li key={`tab-${index}`}>
               <button
-                key={`tab-${index}`}
                 className={`tablinks ${index === 0 ? "active" : ""}`}
                 data-targetid={tab.id}
               >
