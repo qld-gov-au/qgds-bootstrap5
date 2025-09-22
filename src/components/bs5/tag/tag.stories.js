@@ -131,12 +131,157 @@ export const Status = {
 };
 
 /**
- * Show the Default mode of Status tags in all possible variants. 
+ * Show the Default mode of Status tags in all possible variants.
  * This Story can be used to help in troubleshooting.
  */
 export const AllStatusVariantsInDefaultMode = {
   render:() => {
     return statusVariantsMarkup();
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
+};
+
+// Parent Context Support Stories
+export const ParentContextDark = {
+  name: 'Parent Context - Dark',
+  args: {
+    variant: "", // No variant to test parent context override
+    tagItems: [
+      {
+        content: "Information tag",
+        classes: "tag-information",
+      },
+      {
+        content: "<a href='javascript:void(0)'>Action tag</a>",
+        classes: "tag-link",
+      },
+      {
+        content: "Large filter tag",
+        classes: "tag-large",
+        "applied-filter": true,
+      },
+      {
+        content: "Info tag",
+        classes: "tag-info",
+      },
+    ],
+  },
+  render: (args) => {
+    return `
+      <div class="dark p-4" style="background-color: #1a1a1a;">
+        <h6 class="text-white mb-3">Tags inside .dark parent context</h6>
+        ${new Tag(args).html}
+      </div>
+    `;
+  },
+  parameters: {
+    backgrounds: {
+      default: 'Dark',
+      values: [
+        { name: 'Dark', value: '#1a1a1a' },
+      ],
+    },
+  },
+};
+
+export const ParentContextDarkAlt = {
+  name: 'Parent Context - Dark Alt',
+  args: {
+    variant: "", // No variant to test parent context override
+    tagItems: [
+      {
+        content: "Information tag",
+        classes: "tag-information",
+      },
+      {
+        content: "<a href='javascript:void(0)'>Action tag</a>",
+        classes: "tag-link",
+      },
+      {
+        content: "Large filter tag",
+        classes: "tag-large",
+        "applied-filter": true,
+      },
+      {
+        content: "Info tag",
+        classes: "tag-info",
+      },
+    ],
+  },
+  render: (args) => {
+    return `
+      <div class="dark-alt p-4" style="background-color: #2c3e50;">
+        <h6 class="text-white mb-3">Tags inside .dark-alt parent context</h6>
+        ${new Tag(args).html}
+      </div>
+    `;
+  },
+  parameters: {
+    backgrounds: {
+      default: 'Dark Alt',
+      values: [
+        { name: 'Dark Alt', value: '#2c3e50' },
+      ],
+    },
+  },
+};
+
+export const ParentContextComparison = {
+  name: 'Parent Context vs Component Variant Comparison',
+  render: () => {
+    const testTags = {
+      variant: "",
+      tagItems: [
+        {
+          content: "Information",
+          classes: "tag-information",
+        },
+        {
+          content: "<a href='javascript:void(0)'>Action</a>",
+          classes: "tag-link",
+        },
+        {
+          content: "Filter",
+          classes: "tag-large",
+          "applied-filter": true,
+        },
+        {
+          content: "Large",
+          classes: "tag-large",
+        },
+      ],
+    };
+
+    return `
+      <div class="mb-4">
+        <h6>Default (Light Theme)</h6>
+        ${new Tag(testTags).html}
+      </div>
+
+      <div class="mb-4">
+        <h6>Component Variant: tag-dark</h6>
+        ${new Tag({...testTags, variant: "tag-dark"}).html}
+      </div>
+
+      <div class="dark p-3 mb-4" style="background-color: #1a1a1a;">
+        <h6 class="text-white">Parent Context: .dark (no component variant)</h6>
+        ${new Tag(testTags).html}
+      </div>
+
+      <div class="mb-4">
+        <h6>Component Variant: tag-dark-alt</h6>
+        ${new Tag({...testTags, variant: "tag-dark-alt"}).html}
+      </div>
+
+      <div class="dark-alt p-3 mb-4" style="background-color: #2c3e50;">
+        <h6 class="text-white">Parent Context: .dark-alt (no component variant)</h6>
+        ${new Tag(testTags).html}
+      </div>
+    `;
   },
   parameters: {
     controls: {

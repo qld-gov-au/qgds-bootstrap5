@@ -127,8 +127,8 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
 
     &.tag-link {
-      color: var(--#{$prefix}sapphire-blue);
-      border-color: var(--#{$prefix}sapphire-blue);
+      color: var(--#{$prefix}brand-primary);
+      border-color: var(--#{$prefix}brand-primary);
 
       a {
         text-decoration: none;
@@ -146,7 +146,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       &:focus-within {
         background-color: var(--#{$prefix}textbox-border-color);
         color: var(--#{$prefix}white);
-        background-color: var(--#{$prefix}button-dark-blue);
+        background-color: var(--#{$prefix}light-action-primary-hover);
         text-decoration: underline;
         text-underline-offset: var(--#{$prefix}link-underline-offset);
 
@@ -267,7 +267,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
   }
 
   &.tag-dark {
-    background-color: var(--#{$prefix}sapphire-blue);
+    background-color: var(--#{$prefix}brand-primary);
 
     .tag-item {
       --qld-focus-color: #{$qld-dark-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color correctly here.
@@ -287,7 +287,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       &:focus,
       &:focus-within {
         background-color: var(--#{$prefix}dark-action-primary-hover);
-        border-color: var(--#{$prefix}light-green-dark);
+        border-color: var(--#{$prefix}brand-secondary);
         color: var(--#{$prefix}text-darkest);
 
         a {
@@ -324,13 +324,13 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
 
     .tag-link {
-      color: var(--#{$prefix}sapphire-blue);
-      border-color: var(--#{$prefix}sapphire-blue);
+      color: var(--#{$prefix}brand-primary);
+      border-color: var(--#{$prefix}brand-primary);
     }
   }
 
   &.tag-dark-alt {
-    background-color: var(--#{$prefix}dark-blue);
+    background-color: var(--#{$prefix}brand-primary-dark);
 
     .tag-item {
       --qld-focus-color: #{$qld-dark-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color correctly here.
@@ -344,7 +344,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
 
     .tag-info {
-      background-color: var(--#{$prefix}dark-blue-shade);
+      background-color: var(--#{$prefix}color-dark-background--shade);
     }
 
     .tag-link {
@@ -353,7 +353,100 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       &:focus,
       &:focus-within {
         background-color: var(--#{$prefix}dark-action-primary-hover);
-        border-color: var(--#{$prefix}light-green-dark);
+        border-color: var(--#{$prefix}brand-secondary);
+        color: var(--#{$prefix}text-darkest);
+
+        a {
+          color: var(--#{$prefix}text-darkest);
+        }
+      }
+    }
+
+    .tag-clear-filter-button {
+      color: var(--#{$prefix}dark-action-secondary);
+
+      &:hover {
+        color: var(--#{$prefix}dark-action-secondary-hover);
+      }
+    }
+  }
+}
+
+// PARENT CONTEXT SUPPORT
+// Support for global parent contexts like .dark .tag-list instead of just component-scoped .tag-dark
+
+.dark .tag-list {
+  // Apply dark theme styling when tag-list is inside a .dark parent
+  &:not(.tag-dark):not(.tag-dark-alt) {
+    background-color: var(--#{$prefix}brand-primary);
+
+    .tag-item {
+      --qld-focus-color: #{$qld-dark-focus};
+      color: var(--#{$prefix}dark-text);
+    }
+
+    .tag-link {
+      color: var(--#{$prefix}white);
+      border-color: var(--#{$prefix}white);
+
+      a {
+        color: white;
+      }
+
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-within {
+        background-color: var(--#{$prefix}dark-action-primary-hover);
+        border-color: var(--#{$prefix}brand-secondary);
+        color: var(--#{$prefix}text-darkest);
+
+        a {
+          color: var(--#{$prefix}text-darkest);
+        }
+      }
+    }
+
+    .tag-info {
+      background-color: var(--#{$prefix}color-dark-background--shade);
+    }
+
+    .tag-clear-filter-button {
+      color: var(--#{$prefix}dark-action-secondary);
+
+      &:hover {
+        color: var(--#{$prefix}dark-action-secondary-hover);
+      }
+    }
+  }
+}
+
+.dark-alt .tag-list {
+  // Apply dark-alt theme styling when tag-list is inside a .dark-alt parent
+  &:not(.tag-dark):not(.tag-dark-alt) {
+    background-color: var(--#{$prefix}brand-primary-dark);
+
+    .tag-item {
+      --qld-focus-color: #{$qld-dark-focus};
+      color: var(--#{$prefix}dark-text);
+      border-color: var(--#{$prefix}dark-border);
+
+      a {
+        color: var(--#{$prefix}dark-text);
+      }
+    }
+
+    .tag-info {
+      background-color: var(--#{$prefix}color-dark-background--shade);
+    }
+
+    .tag-link {
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-within {
+        background-color: var(--#{$prefix}dark-action-primary-hover);
+        border-color: var(--#{$prefix}brand-secondary);
         color: var(--#{$prefix}text-darkest);
 
         a {
