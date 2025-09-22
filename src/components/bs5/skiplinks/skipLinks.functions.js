@@ -1,5 +1,3 @@
-import { isFocusable } from "../../../js/utils";
-
 /**
  * Checks whether target elements in a list of skip links are valid - ie they can receive focus.
  * @returns {boolean} Return true if skip links are valid, false if there is a problem.
