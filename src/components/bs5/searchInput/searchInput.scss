@@ -1,11 +1,39 @@
 @use "../../../css/mixins";
-@import "variables";
 
-// ----------------------------------------------------------------------------------------------------------------------
 .qld-search-input {
-  @extend %search-input-variables;
+  // Input variables
+  --background-color: var(--#{$prefix}extra-light-grey);
+  --border-color: var(--#{$prefix}light-border-alt);
+  --placeholder-color: var(--#{$prefix}light-text-lighter);
+  --qld-icon-color: var(--#{$prefix}light-text-lighter);
+  --text-color: var(--#{$prefix}light-text-text);
+
+  // Suggestions variables
+  --suggestions-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+  --suggestions-bg: var(
+    --#{$prefix}color-default-color-light-background-default-shade
+  );
+  --suggestions-hover: var(
+    --#{$prefix}color-default-color-light-border-default
+  );
+  --suggestions-hover-border-color: var(
+    --#{$prefix}color-default-color-light-accent-design-accent
+  );
+  --suggestions-feature-bg: var(
+    --#{$prefix}color-default-color-dark-background-default
+  );
+  --suggestions-feature-hover: var(
+    --#{$prefix}color-default-color-dark-background-default-shade
+  );
+  --suggestions-feature-text-color: var(
+    --#{$prefix}color-default-color-dark-text-default
+  );
+
+  // local variables
   $border-radius: 0.25rem;
   --_size: 3rem; // 48px;
+
   //
   display: flex;
   position: relative;
@@ -13,18 +41,7 @@
 
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
 
-  &.full-width {
-    max-width: 100%;
-  }
-
-  //Icon color is scoped against the parent container, not the input :(
-  &:has(.form-control:hover) {
-    --qld-icon-color: var(--qld-dark-grey-muted);
-  }
-
   &:has(.form-control:focus) {
-    --qld-icon-color: var(--qld-text-grey);
-
     > button {
       border-bottom-right-radius: $border-radius;
     }
@@ -56,20 +73,14 @@
     }
 
     &:hover {
-      --qld-icon-color: var(--qld-dark-grey-muted);
-      --text-color: var(--qld-text-grey);
-      // --placeholder-color: var(--text-color);
-      --border-color: var(--border-color-hover);
-      --background-color: var(--background-color-hover);
+      --border-color: var(--#{$prefix}light-action-primary-hover);
+      --background-color: var(--#{$prefix}extra-light-grey);
     }
 
     &:active,
     &:focus {
-      --qld-icon-color: var(--qld-text-grey);
-      --text-color: var(--qld-text-grey);
-      // --placeholder-color: var(--qld-text-grey);
-      --border-color: var(--border-color-focus);
-      --background-color: var(--background-color-focus);
+      --border-color: var(--#{$prefix}neutral-lighter);
+      --background-color: var(--#{$prefix}white);
       outline: none;
       border-bottom-left-radius: $border-radius;
     }
@@ -97,7 +108,7 @@
     //prep a button "search-icon" which is invoked at smaller screeen sizes below
     .btn-icon {
       @include mixins.make-icon($name: "search", $size: "md");
-      --qld-icon-color: var(--icon-color-on-btn);
+      --qld-icon-color: currentColor;
     }
   }
 
@@ -263,11 +274,13 @@
     }
   }
 
+  &.full-width {
+    max-width: 100%;
+  }
+
   //is-filled is default
 
   &.is-outline {
-    --border-color-focus: var(--#{$prefix}light-border-alt);
-
     .form-control {
       border: {
         top-width: 0.125rem;
@@ -275,6 +288,10 @@
         bottom-width: 0.125rem;
         left-width: 0.125rem;
         radius: $border-radius 0 0 $border-radius;
+      }
+
+      &:focus {
+        --border-color: var(--#{$prefix}light-border-alt);
       }
     }
 
@@ -285,31 +302,62 @@
 
   .dark &,
   .dark-alt & {
-    //Icon color is scoped against the parent container, not the input :(
-    &:has(.form-control:hover) {
-      --icon-color: var(--qld-white);
-    }
+    --background-color: var(--#{$prefix}dark-background-shade);
+    --border-color: var(--#{$prefix}dark-alt-border);
+    --placeholder-color: var(--${prefix}dark-text-lighter);
+    --qld-icon-color: var(--#{$prefix}white);
+    --text-color: var(--#{$prefix}dark-text-text);
+
+    // Suggestions variables
+    --suggestions-bg: var(
+      --#{$prefix}color-default-color-dark-background-default-shade
+    );
+    --suggestions-hover: var(
+      --#{$prefix}color-default-color-dark-background-default
+    );
+    --suggestions-hover-border-color: var(
+      --#{$prefix}color-default-color-dark-accent-design-accent
+    );
+    --suggestions-feature-bg: var(
+      --#{$prefix}color-default-color-dark-background-alt
+    );
+    --suggestions-feature-hover: var(
+      --#{$prefix}color-default-color-dark-background-alt-shade
+    );
+    --suggestions-feature-text-color: var(
+      --#{$prefix}color-default-color-dark-text-default
+    );
 
     &:has(.form-control:focus) {
-      --icon-color: var(--qld-text-grey);
-      --text-color: var(--qld-text-grey);
+      --qld-icon-color: var(--#{$prefix}light-text-lighter);
+      --text-color: var(--#{$prefix}light-text-text);
     }
 
     .form-control {
       &:hover {
-        //Dark - Hover state
-        --text-color: var(--qld-white);
-        --placeholder-color: var(--qld-white);
-        --background-color: var(--qld-dark-background-shade);
-        --border-color: var(--qld-dark-action-primary-hover);
+        --background-color: var(--#{$prefix}dark-background-shade);
+        --border-color: var(--#{$prefix}dark-action-primary-hover);
       }
 
+      &:active,
       &:focus {
-        //Dark - Focus state
-        --text-color: var(--qld-text-grey);
-        --placeholder-color: var(--qld-text-grey);
-        --border-color: var(--qld-light-grey);
-        --background-color: var(--qld-white);
+        --text-color: var(--#{$prefix}light-text-text);
+        --border-color: var(--#{$prefix}neutral-lighter);
+        --background-color: var(--#{$prefix}white);
+      }
+    }
+
+    &.is-outline {
+      --background-color: var(--#{$prefix}dark-background-background);
+      .form-control {
+        &:hover {
+          --background-color: var(--#{$prefix}dark-background-shade);
+        }
+
+        &:active,
+        &:focus {
+          --background-color: var(--#{$prefix}white);
+        }
       }
     }
   }
