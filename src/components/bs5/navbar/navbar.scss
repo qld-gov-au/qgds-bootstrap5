@@ -52,7 +52,7 @@
           }
           & > a {
             width: calc(100% - 3rem);
-            border-start-end-radius: 1rem;
+            border-start-end-radius: 1rem;            
           }
           &:has(.show) {
             background-color: var(--background-color-hover);
@@ -111,6 +111,9 @@
         }
         &:has(.dropdown-menu.show) {
           border-block-end-width: 0;
+          .qld-icon {
+            background-color: var(--header-color); // Sen
+          }
         }
         .dropdown-menu.show {
           position: relative;
@@ -192,6 +195,13 @@
           border-block-end: 0;
         }
       }
+      &:hover {
+        // .nav-link:hover {
+          .qld-icon {
+            background-color: var(--link-border-color-hover); // Sen
+          }       
+        }     
+      // }
       &.dropdown-toggle {
         &::after {
           display: none;
@@ -290,10 +300,12 @@
       --dropdown-show-bg: var(--#{$prefix}default-background);
       --link-border-color: var(--#{$prefix}light-accent);
       --link-border-color-hover: var(--#{$prefix}light-action-primary-hover);
+      // --link-border-color-hover: var(--#{$prefix}dark-action-primary-hover);
       --link-color: var(--#{$prefix}light-link);
       --text-color: var(--#{$prefix}light-text-text);
       --border-color: var(--#{$prefix}default-border);
-      --header-color: var(--#{$prefix}default-background);
+      --header-color: var(--#{$prefix}light-text-heading);
+      // --header-color: var(--#{$prefix}default-background);
       --action-icon-color: var(--#{$prefix}alt-button-hover);
       --dropdown-show-btn-bg: var(--#{$prefix}default-background);
       --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);    
@@ -306,14 +318,18 @@
         --background-color: var(--#{$prefix}sapphire-blue);
         --background-color-hover: var(--#{$prefix}sapphire-blue);
         --dropdown-show-bg: var(--#{$prefix}dark-background-shade);
-        --link-border-color: transparent;
-        --link-border-color-hover: transparent;
+        --link-border-color: var(--#{$prefix}light-accent); //transparent;
+        --link-border-color-hover: var(--#{$prefix}dark-action-primary-hover);// transparent;
         --link-color: var(--#{$prefix}dark-link);
         --text-color: var(--#{$prefix}dark-text-text);
         --border-color: var(--#{$prefix}dark-border);
-        --header-color: var(--#{$prefix}light-text-heading);
+        // --header-color: var(--#{$prefix}light-text-heading);
+        --header-color: var(--#{$prefix}default-background);
         --dropdown-bg-color: var(--#{$prefix}dark-background);
         --action-icon-color: var(--#{$prefix}brand-accent);
+        .nav-link {
+          border-inline-start: 0;
+        }
       }
     }
     .qld-header:has(.qld-header-pre-header) ~ & {
@@ -333,18 +349,24 @@
       --nav-header-border-color: var(--#{$prefix}light-border);
       --nav-header-icon-color: var(--#{$prefix}alt-button-hover);
       --navbar-collapse-bg: var(--#{$prefix}default-background-shade);
+      
       .alt {
         --vert-background-color: var(--#{$prefix}dark-background);
         --background-color: var(--#{$prefix}default-background);
         --background-color-hover: var(--#{$prefix}default-background);
         --dropdown-show-bg: var(--#{$prefix}default-background);
-        --link-border-color: transparent;
-        --link-border-color-hover: transparent;
+        // --link-border-color: transparent;
+        // --link-border-color-hover: transparent;
+        --link-border-color: var(--#{$prefix}light-accent); //transparent;
+        --link-border-color-hover: var(--#{$prefix}light-action-primary-hover);// transparent;
         --link-color: var(--#{$prefix}light-link);
         --text-color: var(--#{$prefix}light-text-text);
         --border-color: var(--#{$prefix}default-border);
         --header-color: var(--#{$prefix}default-background);
         --action-icon-color: var(--#{$prefix}alt-button-hover);
+        .nav-link {
+          border-inline-start: 0;
+        }
       }
     }
     .qld-header:has(.qld-header-pre-header.dark-alt) ~ & {
@@ -371,6 +393,11 @@
         --text-color: var(--#{$prefix}dark-text-text);
         --border-color: var(--#{$prefix}dark-border);
         --action-icon-color: var(--#{$prefix}brand-accent);
+        // --link-border-color: var(--#{$prefix}light-accent); //transparent;
+        --link-border-color-hover: var(--#{$prefix}dark-action-secondary-hover);// transparent;
+        .nav-link {
+          border-inline-start: 0;
+        }
       }
     }
   }
@@ -500,6 +527,9 @@
       &:has(p) {
         flex-direction: column;
         row-gap: 20px;
+        p {
+          font-size: 0.875rem;
+        }
       }
       a {
         display: flex;
@@ -510,7 +540,8 @@
         border-block-end: 1px solid var(--border-color);
         padding-block-start: 1rem;
         padding-block-end: calc(1rem - 1px);
-        gap: 1rem;
+        gap: 0.75rem;
+        font-weight: 600;
         transition:
           padding-inline-end var(--animation-time) ease-in-out,
           gap var(--animation-time) ease-in-out;
@@ -528,7 +559,7 @@
         }
         &:hover {
           padding-inline-end: 0.25rem;
-          gap: 1.25rem;
+          gap: 1rem;
           transition:
             padding-inline-end var(--animation-time) ease-in-out,
             gap var(--animation-time) ease-in-out;
@@ -550,7 +581,7 @@
       }
     }
     li:has(.parent-link) {
-      border-block-end: 1px solid var(--border-color);
+      border-block-end: 2px solid var(--border-color);
       padding-block-end: 2rem;
       margin-block-end: 2rem;
       gap: 1rem;
@@ -572,10 +603,13 @@
           transition: gap var(--animation-time) ease-in-out;
         }
       }
+      p {
+        font-size: 1rem;
+      }
     }
     li:has(.view-all) {
       width: 100%;
-      border-block-start: 1px solid var(--border-color);
+      border-block-start: 2px solid var(--border-color);
       padding-block-start: 2rem;
       margin-block-start: 2rem;
       grid-column: 1 / -1;
@@ -584,7 +618,7 @@
         display: flex;
         flex-direction: row-reverse;
         padding-inline-end: 0.5rem;
-        gap: 1rem;
+        gap: 0.5rem;
         transition:
           gap var(--animation-time) ease-in-out,
           padding-inline-end var(--animation-time) ease-in-out;
@@ -603,7 +637,7 @@
           content: none;
         }
         &:hover {
-          gap: 1.25rem;
+          gap: 0.75rem;
           padding-inline-end: 0.25rem;
           transition:
             padding-inline-end var(--animation-time) ease-in-out,
