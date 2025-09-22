@@ -17,8 +17,7 @@
 
 .qld-header {
   @extend %header-variables;
-  color: var(--#{$prefix}header-color-text);
-  background: var(--#{$prefix}header-color-bg);
+
   font-size: 1rem;
 
   @include media-breakpoint-up(sm) {
@@ -292,6 +291,8 @@
 
   &-main {
     position: relative;
+    color: var(--#{$prefix}header-color-text);
+    background: var(--#{$prefix}header-color-bg);
   }
 
   &-brand {
