@@ -17,13 +17,6 @@ export function validateSkipLinks() {
       );
       return false;
     }
-    // check if target is focusable
-    if (!isFocusable(target)) {
-      console.error(
-        `A skip link with label "${item.textContent}" is targeting a non-focusable element with id "${targetId}". Make sure the element is natively focusable, or assign a tab index of -1.`,
-      );
-      return false;
-    }
     return true;
   });
 }
