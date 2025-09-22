@@ -400,11 +400,6 @@
   }
 
   &-site-search {
-    form {
-      display: flex;
-      position: relative;
-    }
-
     @include media-breakpoint-down(lg) {
       // Mobile search open class
       &.is-open {
