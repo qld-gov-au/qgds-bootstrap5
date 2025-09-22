@@ -65,35 +65,11 @@
     --#{$prefix}card-icon-line-height: 8rem;
   }
   &.card-no-action {
-    .qld-icon {
-      background-color: var(--#{$prefix}card-title-color);
-    }
+    --#{$prefix}icon-color: var(--#{$prefix}card-title-color);
   }
   &.default {
     .card-icon-background {
       background-color: var(--#{$prefix}neutral-lightest);
-    }
-  }
-  &.card-single-action {
-    .qld-icon {
-      background-color: var(--#{$prefix}light-action-secondary);
-    }
-    &.card-dark,
-    &.card-dark-alt {
-      .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);
-      }
-    }
-  }
-  &.card-multi-action {
-    .qld-icon {
-      background-color: var(--#{$prefix}light-action-secondary);
-    }
-    &.card-dark,
-    &.card-dark-alt {
-      .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);
-      }
     }
   }
   &.card-arrow {

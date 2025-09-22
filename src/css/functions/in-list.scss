@@ -1,0 +1,5 @@
+@use "sass:list";
+
+@function in-list($value, $list) {
+  @return list.index($list, $value) != null;
+}
