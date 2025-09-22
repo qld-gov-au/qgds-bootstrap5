@@ -1,0 +1,68 @@
+{
+  "$ref": "#/definitions/ButtonData",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ButtonData": {
+      "additionalProperties": true,
+      "description": "Button component data structure interface",
+      "properties": {
+        "customClass": {
+          "description": "Additional CSS classes",
+          "type": "string"
+        },
+        "href": {
+          "description": "URL for link buttons",
+          "type": "string"
+        },
+        "iconClass": {
+          "description": "CSS class for the icon (e.g., 'qld-icon-external-link')",
+          "type": "string"
+        },
+        "iconPosition": {
+          "description": "Position of the icon relative to text - either 'leading' or 'trailing'",
+          "enum": ["leading", "trailing"],
+          "type": "string"
+        },
+        "isdisabled": {
+          "description": "Whether the button is disabled",
+          "type": "boolean"
+        },
+        "islink": {
+          "description": "Whether the button should render as a link",
+          "type": "boolean"
+        },
+        "isprogress": {
+          "description": "Whether the button shows progress state",
+          "type": "boolean"
+        },
+        "label": {
+          "description": "Button text/label",
+          "type": "string"
+        },
+        "progressLabel": {
+          "description": "Label text to show during progress state",
+          "type": "string"
+        },
+        "target": {
+          "description": "Link target attribute (e.g., '_blank', '_self')",
+          "enum": ["_blank", "_self", "_parent", "_top"],
+          "type": "string"
+        },
+        "variantClass": {
+          "description": "CSS class for button variant (e.g., 'btn-primary', 'btn-secondary')",
+          "enum": ["btn-primary", "btn-secondary", "btn-tertiary"],
+          "type": "string"
+        }
+      },
+      "required": [
+        "variantClass",
+        "islink",
+        "isdisabled",
+        "label",
+        "href",
+        "target"
+      ],
+      "type": "object"
+    }
+  }
+}

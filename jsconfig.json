@@ -14,5 +14,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true
-  }
+  },
+  "include": ["src/**/*", ".esbuild/**/*", "scripts/**/*", "*.js", "*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

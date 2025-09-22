@@ -1,0 +1,339 @@
+{
+  "$ref": "#/definitions/FooterData",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FooterAcknowledgement": {
+      "additionalProperties": false,
+      "description": "Footer acknowledgement section",
+      "properties": {
+        "content": {
+          "description": "HTML content for acknowledgement",
+          "type": "string"
+        },
+        "title": {
+          "description": "Acknowledgement title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FooterContact": {
+      "additionalProperties": false,
+      "description": "Footer contact section configuration",
+      "properties": {
+        "buttonLabel": {
+          "description": "Call-to-action button label",
+          "type": "string"
+        },
+        "buttonLink": {
+          "description": "Call-to-action button URL",
+          "type": "string"
+        },
+        "content": {
+          "description": "HTML content for the section",
+          "type": "string"
+        },
+        "hasBorderColumn": {
+          "description": "Whether to show border column styling",
+          "type": "boolean"
+        },
+        "list": {
+          "$ref": "#/definitions/FooterContactList",
+          "description": "Contact list items"
+        },
+        "showList": {
+          "description": "Whether to show the contact list",
+          "type": "boolean"
+        },
+        "title": {
+          "description": "Section title",
+          "type": "string"
+        }
+      },
+      "required": ["showList"],
+      "type": "object"
+    },
+    "FooterContactList": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/FooterContactListItem"
+          },
+          {
+            "not": {}
+          }
+        ],
+        "description": "Additional contact items"
+      },
+      "description": "Collection of contact list items",
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/FooterContactListItem",
+          "description": "Email contact item"
+        },
+        "phone": {
+          "$ref": "#/definitions/FooterContactListItem",
+          "description": "Phone contact item"
+        }
+      },
+      "type": "object"
+    },
+    "FooterContactListItem": {
+      "additionalProperties": false,
+      "description": "Contact list item within footer contact section",
+      "properties": {
+        "icon": {
+          "description": "Icon CSS class (e.g., 'qld-icon-phone', 'qld-icon-email')",
+          "type": "string"
+        },
+        "label": {
+          "description": "HTML content for the contact item",
+          "type": "string"
+        }
+      },
+      "required": ["icon", "label"],
+      "type": "object"
+    },
+    "FooterCopyright": {
+      "additionalProperties": false,
+      "description": "Footer copyright configuration",
+      "properties": {
+        "content": {
+          "description": "Copyright text content",
+          "type": "string"
+        },
+        "showYearFrom": {
+          "description": "Whether to show \"from year\"",
+          "type": "boolean"
+        },
+        "yearFrom": {
+          "description": "Starting year for copyright",
+          "type": "string"
+        }
+      },
+      "required": ["content"],
+      "type": "object"
+    },
+    "FooterCustomLink": {
+      "additionalProperties": false,
+      "description": "Custom footer link",
+      "properties": {
+        "label": {
+          "description": "Link display text",
+          "type": "string"
+        },
+        "link": {
+          "description": "Link URL",
+          "type": "string"
+        },
+        "target": {
+          "description": "Link target (optional)",
+          "enum": ["_blank", "_self", "_parent", "_top"],
+          "type": "string"
+        }
+      },
+      "required": ["label", "link"],
+      "type": "object"
+    },
+    "FooterData": {
+      "additionalProperties": true,
+      "description": "Main footer component data structure interface",
+      "properties": {
+        "sitename": {
+          "description": "Site name or identifier",
+          "type": "string"
+        },
+        "variantClass": {
+          "description": "CSS variant class for footer styling",
+          "type": "string"
+        },
+        "contact": {
+          "$ref": "#/definitions/FooterContact",
+          "description": "Contact section configuration"
+        },
+        "footerLinks": {
+          "$ref": "#/definitions/FooterLinks",
+          "description": "Footer links section"
+        },
+        "followLinks": {
+          "description": "Social media follow links",
+          "items": {
+            "$ref": "#/definitions/FooterFollowLink"
+          },
+          "type": "array"
+        },
+        "customLinks": {
+          "description": "Custom footer links",
+          "items": {
+            "$ref": "#/definitions/FooterCustomLink"
+          },
+          "type": "array"
+        },
+        "acknowledgements": {
+          "description": "Acknowledgement sections",
+          "items": {
+            "$ref": "#/definitions/FooterAcknowledgement"
+          },
+          "type": "array"
+        },
+        "footerLogo": {
+          "$ref": "#/definitions/FooterLogo",
+          "description": "Footer logo configuration"
+        },
+        "copyright": {
+          "$ref": "#/definitions/FooterCopyright",
+          "description": "Copyright information"
+        },
+        "organisationLink": {
+          "$ref": "#/definitions/FooterOrganisationLink",
+          "description": "Organisation link configuration"
+        },
+        "optionalColumn1": {
+          "$ref": "#/definitions/FooterOptionalColumn",
+          "description": "Optional column 1 configuration"
+        },
+        "optionalColumn2": {
+          "$ref": "#/definitions/FooterOptionalColumn",
+          "description": "Optional column 2 configuration"
+        }
+      },
+      "required": ["contact", "footerLogo", "organisationLink"],
+      "type": "object"
+    },
+    "FooterFollowLink": {
+      "additionalProperties": false,
+      "description": "Social media follow link",
+      "properties": {
+        "icon": {
+          "description": "Icon identifier (e.g., 'facebook', 'linkedin')",
+          "type": "string"
+        },
+        "label": {
+          "description": "Social platform name",
+          "type": "string"
+        },
+        "link": {
+          "description": "Social platform URL",
+          "type": "string"
+        },
+        "target": {
+          "description": "Link target (optional)",
+          "enum": ["_blank", "_self", "_parent", "_top"],
+          "type": "string"
+        }
+      },
+      "required": ["label", "link", "icon"],
+      "type": "object"
+    },
+    "FooterLinkItem": {
+      "additionalProperties": false,
+      "description": "Footer link item",
+      "properties": {
+        "label": {
+          "description": "Link display text",
+          "type": "string"
+        },
+        "link": {
+          "description": "Link URL",
+          "type": "string"
+        },
+        "target": {
+          "description": "Link target (optional)",
+          "enum": ["_blank", "_self", "_parent", "_top"],
+          "type": "string"
+        }
+      },
+      "required": ["label", "link"],
+      "type": "object"
+    },
+    "FooterLinks": {
+      "additionalProperties": false,
+      "description": "Footer links section configuration",
+      "properties": {
+        "hasBorderColumn": {
+          "description": "Whether to show border column styling",
+          "type": "boolean"
+        },
+        "list": {
+          "description": "Array of footer links",
+          "items": {
+            "$ref": "#/definitions/FooterLinkItem"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Section title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FooterLogo": {
+      "additionalProperties": false,
+      "description": "Footer logo configuration",
+      "properties": {
+        "alt": {
+          "description": "Logo alt text for accessibility",
+          "type": "string"
+        },
+        "show": {
+          "description": "Whether to display the logo",
+          "type": "boolean"
+        },
+        "src": {
+          "description": "Logo image source URL",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FooterOptionalColumn": {
+      "additionalProperties": false,
+      "description": "Optional footer column configuration",
+      "properties": {
+        "content": {
+          "description": "HTML content for the column",
+          "type": "string"
+        },
+        "hasBorderColumn": {
+          "description": "Whether to show border column styling",
+          "type": "boolean"
+        },
+        "showCustomLinks": {
+          "description": "Whether to display custom links",
+          "type": "boolean"
+        },
+        "showFollowLinks": {
+          "description": "Whether to display follow/social links",
+          "type": "boolean"
+        },
+        "title": {
+          "description": "Column title",
+          "type": "string"
+        }
+      },
+      "required": ["hasBorderColumn"],
+      "type": "object"
+    },
+    "FooterOrganisationLink": {
+      "additionalProperties": false,
+      "description": "Footer organisation link configuration",
+      "properties": {
+        "URL": {
+          "description": "Organisation website URL",
+          "type": "string"
+        },
+        "show": {
+          "description": "Whether to display the organisation link",
+          "type": "boolean"
+        },
+        "text": {
+          "description": "Organisation display text",
+          "type": "string"
+        }
+      },
+      "required": ["show"],
+      "type": "object"
+    }
+  }
+}

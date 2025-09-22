@@ -18,6 +18,21 @@ module.exports = {
         sourceType: "script",
       },
     },
+    {
+      env: {
+        node: true,
+      },
+      files: ["scripts/**/*.js", "*.config.js", "esbuild.js"],
+      parserOptions: {
+        sourceType: "module",
+      },
+    },
+    {
+      files: ["tsconfig.json", "jsconfig.json"],
+      rules: {
+        "json/*": "off",
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: "latest",

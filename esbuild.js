@@ -1,4 +1,3 @@
-/* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
 
@@ -18,7 +17,6 @@ import handlebarsPlugin from "esbuild-plugin-handlebars";
 //Command line arguments are available via argv object
 import minimist from "minimist";
 const argv = minimist(process.argv.slice(2));
-
 
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
@@ -53,8 +51,11 @@ const buildConfig = {
     ".html": "text",
     ".hbs": "text",
     ".js": "jsx",
+    ".ts": "ts",
+    ".tsx": "tsx",
     ".jpg": "file",
     ".png": "file",
+    ".json": "json",
   },
 
   plugins: [
@@ -81,7 +82,7 @@ const buildNodeConfig = {
   external: buildConfig.external,
   platform: "node",
   target: ["node20"],
-  format: 'esm',
+  format: "esm",
   entryPoints: [
     {
       in: "./src/js/handlebars.init.cjs",
@@ -95,7 +96,7 @@ const buildNodeConfig = {
     versionPlugin(),
     handlebarsPlugin(),
   ],
-}
+};
 
 async function StartBuild() {
   let ctx = await esbuild.context(buildConfig);
@@ -103,7 +104,6 @@ async function StartBuild() {
   if (argv.watch === true) {
     // "npm run watch"
     await ctx.watch();
-
   } else {
     // "npm run build" or "node build.js"
     await ctx.rebuild();
@@ -114,7 +114,6 @@ async function StartBuild() {
   let ctxNode = await esbuild.context(buildNodeConfig);
   await ctxNode.rebuild();
   await ctxNode.dispose();
-
 }
 
 //Initate the project build...
