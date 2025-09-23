@@ -7,7 +7,6 @@ $accordion-icon-color: $qld-brand-secondary-dark;
 $accordion-icon-active-color: $qld-brand-secondary-dark;
 $accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 $accordion-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-
 $accordion-icon-dark-color: $qld-brand-accent;
 $accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
@@ -15,10 +14,20 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 // CSS Scoped Variables
 //--#{$prefix}{component}-{property}
 
+.accordion-group {
+  --#{$prefix}focus: var(--#{$prefix}light-focus);
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}focus: var(--#{$prefix}dark-focus);
+  }
+}
+
 .accordion {
   --#{$prefix}accordion-color: var(--#{$prefix}body-color);
   --#{$prefix}accordion-bg: var(--#{$prefix}body-bg);
-  --#{$prefix}accordion-border-color: var(--#{$prefix}color-default-color-light-border-default);
+  --#{$prefix}accordion-border-color: var(
+    --#{$prefix}color-default-color-light-border-default
+  );
   --#{$prefix}accordion-border-width: 1px;
   --#{$prefix}accordion-border-radius: 0;
   --#{$prefix}accordion-inner-border-radius: 0;
@@ -27,20 +36,23 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   --#{$prefix}accordion-btn-color: var(--#{$prefix}link-color);
   --#{$prefix}accordion-btn-bg: var(--#{$prefix}extra-light-grey);
   --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon)};
-  --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon)};
+  --#{$prefix}accordion-btn-active-icon: #{escape-svg(
+      $accordion-button-active-icon
+    )};
   --#{$prefix}accordion-btn-icon-width: 1.5rem;
   --#{$prefix}accordion-btn-icon-transform: rotate(180deg);
   --#{$prefix}accordion-btn-icon-transition: transform 0.25s ease-in;
   --#{$prefix}accordion-btn-focus-box-shadow: none;
   --#{$prefix}accordion-active-bg: var(--#{$prefix}accordion-btn-bg);
   --#{$prefix}accordion-active-color: var(--#{$prefix}accordion-btn-color);
-  --#{$prefix}focus: var(--#{$prefix}light-blue);
+  --#{$prefix}focus: var(--#{$prefix}light-focus);
 
   .light & {
     --#{$prefix}accordion-bg: var(--#{$prefix}light-background);
     --#{$prefix}accordion-btn-bg: var(--#{$prefix}light-background-shade);
-    --#{$prefix}accordion-border-color: var(--#{$prefix}color-default-color-light-border-light);
-
+    --#{$prefix}accordion-border-color: var(
+      --#{$prefix}color-default-color-light-border-light
+    );
   }
 
   .alt & {
@@ -53,7 +65,9 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   .dark &,
   .dark-alt & {
     --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon-dark)};
-    --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon-dark)};
+    --#{$prefix}accordion-btn-active-icon: #{escape-svg(
+        $accordion-button-active-icon-dark
+      )};
     --#{$prefix}accordion-color: var(--#{$prefix}white);
     --#{$prefix}accordion-btn-color: var(--#{$prefix}white);
     --#{$prefix}accordion-active-color: var(--#{$prefix}white);
@@ -85,10 +99,14 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     text-underline-offset: var(--#{$prefix}link-underline-offset);
     text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
     font-weight: 600;
+    line-height: 1.5rem;
+    gap: 1rem;
 
     &:hover {
       background: var(--#{$prefix}accordion-bg);
-      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+      text-decoration-thickness: var(
+        --#{$prefix}link-underline-thickness-hover
+      );
     }
 
     &:focus,
@@ -100,13 +118,14 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 
   &-header {
     font-weight: var(--#{$prefix}body-font-weight);
+    margin-block-start: 0;
   }
 }
 
 div .accordion-body {
-  padding: 1rem 1rem 1.25rem; //Override BS default
+  padding: 1rem;
 
- :last-child {
+  :last-child {
     margin-bottom: 0;
   }
 }
@@ -115,41 +134,45 @@ div .accordion-body {
 .accordion-toggle {
   display: flex;
   justify-content: flex-end;
-  padding: 0.5rem 0;
-  font-size: 0.75rem;
+  padding: 0;
+  padding-block-end: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
 
   .accordion-toggle-btn {
     background-color: transparent;
     border: none;
     color: var(--#{$prefix}link-color);
     font-size: inherit;
-    margin-right: 0.5rem;
     position: relative;
     text-decoration: underline;
-    text-underline-offset: var(--#{$prefix}link-underline-offset);
+    text-underline-offset: 0.125rem;
     text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-inline: 2px;
 
     &:hover {
-      text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+      text-decoration: none;
     }
 
     &:after {
       content: #{escape-svg($accordion-button-icon)};
-      display: inline-block;
-      width: 0.5rem;
-      height: 1rem;
-      position: absolute;
-      top: 50%;
-      margin-top: -0.5rem;
-      right: -0.5rem;
       transition: transform 0.25s ease-in;
+      height: 1rem;
+      aspect-ratio: 1 / 1;
+      margin-block: 1px;
 
       .dark &,
       .dark-alt & {
         content: #{escape-svg($accordion-button-icon-dark)};
       }
     }
-
+    &:focus {
+      outline: 2px solid var(--#{$prefix}focus);
+      border-radius: 1px;
+    }
     .dark &,
     .dark-alt & {
       color: var(--#{$prefix}white);

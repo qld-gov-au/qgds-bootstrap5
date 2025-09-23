@@ -1,0 +1,609 @@
+.qld-tabs {
+  --accent-colour: var(--qld-brand-secondary);
+  --border-radius: #{$border-radius};
+  --section-content-padding: 4rem;
+  // tabs colours
+  --default-bg-colour: var(--qld-default-background);
+  --light-bg-colour: var(--qld-light-background);
+  --alt-bg-colour: var(--qld-light-alt-background);
+  --dark-bg-colour: var(--qld-dark-background);
+  --dark-alt-bg-colour: var(--qld-dark-alt-background);
+  --light-border-colour: var(--qld-soft-grey);
+  --light-colour: var(--qld-light-text-heading);
+  --dark-border-colour: var(--qld-dark-alt-border);
+  --dark-colour: var(--qld-dark-text);
+  --icon-dropshadow:
+    0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  --focus-default-colour: var(--qld-light-focus);
+  --nav-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill=''><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+  // bootstrap variables
+  --#{$prefix}nav-tabs-border-radius: var(--border-radius);
+  --#{$prefix}nav-tabs-link-hover-border-color: var(--qld-tab-background-hover);
+  --#{$prefix}nav-tabs-link-active-color: var(--qld-tab-hover-text-color);
+  --#{$prefix}nav-tabs-link-active-bg: var(--qld-tab-background);
+  --#{$prefix}nav-tabs-link-active-border-color: var(--qld-border-color);
+  // animation
+  --fade-time: 0.15s;
+
+  position: relative;
+
+  .default &,
+  .default,
+  &.default {
+    --qld-tab-background: var(--qld-default-background-shade);
+  }
+  .alt &,
+  .alt,
+  &.alt {
+    --qld-body-bg: var(--qld-light-alt-background);
+    --qld-border-color: var(--qld-soft-grey);
+    --qld-tab-background: var(--qld-light-alt-background-shade);
+  }
+  .light &,
+  .light,
+  &.light {
+    --qld-body-bg: #eff4f9;
+    --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
+    --qld-tab-background: var(--qld-light-background-shade);
+    --qld-tab-background-hover: var(--qld-button-dark-blue);
+  }
+  .dark &,
+  .dark,
+  &.dark {
+    --qld-border-color: var(--qld-dark-border);
+    --qld-tab-background: var(--qld-dark-hover);
+  }
+  .dark-alt &,
+  .dark-alt,
+  &.dark-alt {
+    --qld-body-bg: var(--qld-dark-alt-background);
+    --qld-border-color: var(--qld-dark-alt-border);
+    --qld-tab-background: var(--qld-dark-alt-background-shade);
+  }
+  &.default,
+  &.light,
+  &.alt {
+    --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
+    --qld-tab-icon-color: var(--qld-light-action-secondary);
+    --qld-tab-background-hover: var(--qld-light-action-primary-hover);
+    --qld-border-color: var(--light-border-colour);
+    --qld-tab-icon-color-hover: var(--qld-dark-action-secondary);
+    --qld-tab-focus-colour: var(--qld-light-focus);
+    --qld-tab-active-focus-colour: var(--qld-light-focus);
+    --qld-scroll-bg-color: var(--default-bg-colour);
+  }
+  &.dark,
+  &.dark-alt {
+    --qld-tab-background-hover: var(--qld-dark-action-primary-hover);
+    --qld-tab-hover-text-color: var(--qld-text-darkest);
+    --qld-tab-icon-color: var(--qld-dark-action-secondary);
+    --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
+    --qld-tab-text-colour-heading: var(--qld-dark-text);
+    --qld-border-color: var(--qld-dark-alt-border);
+    --qld-tab-icon-color-hover: var(--qld-dark-action-text);
+    --qld-tab-focus-colour: var(--qld-dark-focus);
+    --qld-tab-active-focus-colour: var(--qld-dark-focus);
+    --qld-scroll-bg-color: var(--default-bg-colour);
+  }
+  &.container-tabs {
+    --scroll-distance: 0;
+    --gradient-percentage: 80%;
+    background-color: transparent;
+    padding-block-end: 5rem;
+    margin-block-start: 3rem;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    .nav-tabs {
+      background-color: transparent;
+      align-items: end;
+      .nav-item .nav-link {
+        background-color: var(--qld-tab-background);
+        padding-block-start: calc(0.75rem - 3px);
+        padding-block-end: calc(0.75rem - 1px);
+        &.active {
+          background-color: var(--qld-body-bg);
+        }
+        span {
+          display: flex;
+        }
+      }
+    }
+    .tabs-area {
+      --qld-gutter-x: 0;
+      padding-inline: 0;
+      .nav-tabs {
+        margin-block-end: -1px;
+      }
+    }
+    .tab-content {
+      padding: 1.25rem;
+
+      .tab-pane p:last-of-type {
+        margin-block-end: 0;
+      }
+    }
+  }
+  &.section-tabs {
+    --scroll-distance: 1.75rem;
+    --gradient-percentage: 50%;
+    background-color: transparent;
+    .tabs-area {
+      padding-inline: 4rem;
+
+      @include media-breakpoint-down(xl) {
+        padding-inline: 3rem;
+      }
+      @include media-breakpoint-down(lg) {
+        padding-inline: 2rem;
+      }
+      @include media-breakpoint-down(sm) {
+        padding-inline: 1rem;
+      }
+      margin-inline: auto;
+      border-block-end: 1px solid;
+      .nav-tabs {
+        max-width: fit-content;
+        margin-inline: 0;
+        .nav-item {
+          display: flex;
+          .nav-link {
+            border-block-end: 0;
+            padding-block-end: 0.65rem;
+            padding-block-start: 0.7rem;
+            &.active {
+              padding-block-start: 0.7rem;
+              padding-block-end: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+    .tab-content {
+      padding-inline: 4rem;
+
+      @include media-breakpoint-down(xl) {
+        padding-inline: 3rem;
+      }
+      @include media-breakpoint-down(lg) {
+        padding-inline: 2rem;
+      }
+      @include media-breakpoint-down(sm) {
+        padding-inline: 1rem;
+      }
+      margin-inline: auto;
+      background-color: var(--qld-body-bg);
+      border: 0;
+      border-block-start: 0;
+      margin-block-start: -1px;
+      .tab-pane p:last-of-type {
+        margin-block-end: 0;
+      }
+      > article {
+        max-width: var(--max-width);
+        margin-inline: auto;
+      }
+    }
+  }
+  .tabs-area {
+    position: relative;
+    z-index: 10;
+    .nav-tabs {
+      margin-block-end: 0;
+      background-color: transparent;
+      margin-block-end: -1px;
+    }
+    .show {
+      display: flex;
+    }
+  }
+  &.default .tabs-area,
+  &.light .tabs-area,
+  &.alt .tabs-area {
+    border-block-end-color: var(--light-border-colour);
+    .nav-tabs {
+      .nav-item {
+        .nav-link {
+          &.active {
+            border: 1px solid var(--light-border-colour);
+            span {
+              color: var(--light-colour);
+              &:hover {
+                color: var(--light-colour);
+              }
+              i {
+                color: var(--light-colour);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.default {
+    --qld-scroll-area-bg-color: var(--default-bg-colour);
+    .tabs-area {
+      .nav-tabs {
+        .nav-item {
+          .nav-link.active {
+            background-color: var(--default-bg-colour);
+            border-block-end: 0 solid var(--default-bg-colour);
+          }
+        }
+      }
+    }
+  }
+  &.light {
+    --qld-scroll-bg-color: var(--light-bg-colour);
+    --qld-scroll-area-bg-color: var(--light-bg-colour);
+    .tabs-area {
+      .nav-tabs {
+        .nav-item {
+          .nav-link.active {
+            background-color: var(--light-bg-colour);
+            border-block-end: 0 solid var(--light-bg-colour);
+          }
+        }
+      }
+    }
+  }
+  &.alt {
+    --qld-scroll-bg-color: var(--alt-bg-colour);
+    --qld-scroll-area-bg-color: var(--alt-bg-colour);
+    .tabs-area {
+      .nav-tabs {
+        .nav-item {
+          .nav-link.active {
+            background-color: var(--alt-bg-colour);
+            border-block-end: 0 solid var(--alt-bg-colour);
+          }
+        }
+      }
+    }
+  }
+  &.dark .tabs-area,
+  &.dark-alt .tabs-area {
+    border-block-end-color: var(--dark-border-colour);
+    .nav-item {
+      .nav-link {
+        &.active {
+          --qld-tab-focus-colour: var(--qld-dark-focus);
+          --qld-tab-active-focus-colour: var(--qld-dark-focus);
+          border: 1px solid var(--dark-border-colour);
+          border-block-end-color: transparent;
+          span {
+            color: var(--dark-colour);
+            &:hover {
+              background-color: var(--dark-colour);
+            }
+            i {
+              background-color: var(--dark-colour);
+            }
+          }
+        }
+      }
+    }
+  }
+  &.dark {
+    --qld-scroll-area-bg-color: var(--dark-bg-colour);
+    .tabs-area {
+      .nav-tabs {
+        .nav-item {
+          .nav-link.active {
+            background-color: var(--dark-bg-colour);
+            border-block-end: 0 solid var(--dark-bg-colour);
+            &:hover {
+              border-color: var(--dark-border-colour);
+            }
+          }
+        }
+      }
+    }
+  }
+  &.dark-alt {
+    --qld-scroll-area-bg-color: var(--dark-alt-bg-colour);
+    .nav-tabs {
+      .nav-item {
+        .nav-link.active {
+          background-color: var(--dark-alt-bg-colour);
+          border-block-end: 0 solid var(--dark-alt-bg-colour);
+          &:hover {
+            border-color: var(--dark-border-colour);
+          }
+        }
+      }
+    }
+  }
+  .scroll {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    background-color: transparent;
+    border: none;
+    z-index: 20;
+    inset-block-start: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      background-color: var(--qld-scroll-bg-color);
+      border-radius: 1.875rem;
+      width: 1.75rem;
+      height: 1.75rem;
+      box-shadow: var(--icon-dropshadow);
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &.scroll-left {
+      inset-inline-start: var(--scroll-distance);
+      inset-block-end: -1px;
+      inset-block-start: 0;
+      justify-content: end;
+      background-image: linear-gradient(
+        to bottom,
+        transparent,
+        var(--qld-scroll-area-bg-color) var(--gradient-percentage)
+      );
+      i::before {
+        mask: var(--qgds-icon-chevron-left);
+        background-color: var(--qld-light-action-secondary);
+        mask-position: center;
+        mask-size: 18px;
+        mask-repeat: no-repeat;
+      }
+    }
+    &.scroll-right {
+      inset-inline-end: var(--scroll-distance);
+      inset-block-start: 0;
+      justify-content: start;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 0, 0, 0),
+        var(--qld-scroll-area-bg-color) var(--gradient-percentage)
+      );
+      i::before {
+        mask: var(--qgds-icon-chevron-right);
+        background-color: var(--qld-light-action-secondary);
+        mask-position: center;
+        mask-size: 18px;
+        mask-repeat: no-repeat;
+      }
+    }
+  }
+  .nav-tabs {
+    overflow-x: scroll;
+    overflow-y: clip;
+    position: relative;
+    margin-block-end: -1px;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    gap: 0.25rem;
+    align-items: baseline;
+    border-block-end: 0;
+    flex-wrap: nowrap;
+    align-items: end;
+    .nav-item {
+      align-items: baseline;
+      appearance: auto;
+      background-attachment: scroll;
+      background-clip: border-box;
+      .nav-link {
+        &[tabindex="0"]:focus,
+        &[tabindex="-1"]:focus,
+        &:focus-visible {
+          outline: 0.1875rem solid var(--qld-tab-focus-colour);
+          box-shadow: none;
+        }
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-inline: 1.25rem;
+        background-color: var(--qld-tab-background);
+        scroll-snap-align: start;
+        outline-offset: -0.625rem;
+        margin-block-end: 1px;
+        span {
+          display: flex;
+          gap: 0.5rem;
+          white-space: nowrap;
+          color: var(--qld-nav-link-color);
+          align-items: anchor-center;
+          i {
+            font-size: 1.125rem;
+            background-color: var(--qld-tab-icon-color);
+          }
+          &.reverse {
+            flex-direction: row-reverse;
+          }
+        }
+        &:hover {
+          border: 1px solid transparent;
+          background-color: var(--qld-tab-background-hover);
+          span {
+            color: var(--qld-tab-hover-text-color);
+            text-decoration: underline;
+            text-underline-offset: 4.8px;
+            text-decoration-thickness: 2px;
+            i {
+              background-color: var(--qld-tab-icon-color-hover);
+            }
+          }
+        }
+        &::after {
+          content: "";
+          display: block;
+          height: 0.25rem;
+          margin-block-end: calc(-0.8rem - 2px);
+        }
+        &.active {
+          &[tabindex="0"]:focus,
+          &[tabindex="-1"]:focus,
+          &:focus-visible {
+            outline: 0.1875rem solid var(--qld-tab-active-focus-colour);
+          }
+          pointer-events: none;
+          cursor: default;
+          background-color: var(--qld-body-bg);
+          margin-block-end: 0;
+          margin-block-start: 1px;
+          padding-block-start: 0.75rem;
+          &::after {
+            content: "";
+            border-radius: 0;
+            border-start-end-radius: var(--border-radius);
+            border-start-start-radius: var(--border-radius);
+            background-color: var(--accent-colour);
+          }
+          &:hover {
+            border-color: var(--qld-border-color);
+            span {
+              text-decoration: none;
+            }
+          }
+          span {
+            font-weight: 600;
+            color: var(--qld-tab-text-colour-heading);
+            &:hover {
+              color: var(--qld-tab-text-colour-heading);
+            }
+            i {
+              color: var(--qld-tab-text-colour-heading);
+            }
+          }
+          &::after {
+            margin-block-end: -0.75rem;
+          }
+        }
+        &:disabled,
+        &[disabled] {
+          background-color: transparent;
+          cursor: not-allowed;
+          span {
+            color: var(--qld-tab-disabled-colour);
+            i {
+              color: var(--qld-tab-disabled-colour);
+            }
+          }
+        }
+      }
+    }
+  }
+  .tab-content {
+    position: relative;
+    z-index: 5;
+    background-color: var(--qld-body-bg);
+    border: 1px solid var(--qld-border-color);
+    padding-block: var(--section-content-padding);
+    padding-inline: 2.5rem;
+    h2 {
+      line-height: 40px;
+    }
+    .qld-cta-link {
+      margin-block-start: 2rem;
+    }
+    .show {
+      display: block;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    --section-content-padding: 2.5rem;
+  }
+  .scroll {
+    display: none;
+  }
+  .fade {
+    opacity: 0;
+    transition: opacity var(--fade-time) linear;
+    &.show {
+      opacity: 1;
+    }
+  }
+  .fade:not(.show) {
+    display: none;
+  }
+  &.section-tabs {
+    .default ~ & {
+      --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
+      --qld-tab-icon-color: var(--qld-light-action-secondary);
+      --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
+      --qld-tab-text-colour-heading: var(--qld-light-text-heading);
+      --qld-tab-background-hover: var(--qld-light-action-primary-hover);
+      --qld-tab-focus-colour: var(--qld-light-focus);
+      --qld-tab-active-focus-colour: var(--qld-light-focus);
+      --qld-scroll-bg-color: var(--default-bg-colour);
+      --qld-scroll-area-bg-color: var(--default-bg-colour);
+      --qld-tab-icon-color-hover: var(--qld-dark-action-secondary);
+      .tabs-area {
+        background-color: var(--default-bg-colour);
+      }
+    }
+    .light ~ & {
+      --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
+      --qld-tab-icon-color: var(--qld-light-action-secondary);
+      --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
+      --qld-tab-text-colour-heading: var(--qld-light-text-heading);
+      --qld-tab-background-hover: var(--qld-light-action-primary-hover);
+      --qld-tab-focus-colour: var(--qld-light-focus);
+      --qld-tab-active-focus-colour: var(--qld-light-focus);
+      --qld-scroll-bg-color: var(--light-bg-colour);
+      --qld-scroll-area-bg-color: var(--light-bg-colour);
+      --qld-tab-icon-color-hover: var(--qld-dark-action-secondary);
+      .tabs-area {
+        background-color: var(--light-bg-colour);
+      }
+    }
+    .alt ~ & {
+      --qld-tab-hover-text-color: #{$color-default-color-light-link-on-action};
+      --qld-tab-icon-color: var(--qld-light-action-secondary);
+      --qld-tab-disabled-colour: var(--qld-dark-grey-muted);
+      --qld-tab-text-colour-heading: var(--qld-light-text-heading);
+      --qld-tab-background-hover: var(--qld-light-action-primary-hover);
+      --qld-tab-focus-colour: var(--qld-light-focus);
+      --qld-tab-active-focus-colour: var(--qld-light-focus);
+      --qld-scroll-bg-color: var(--alt-bg-colour);
+      --qld-scroll-area-bg-color: var(--alt-bg-colour);
+      --qld-tab-icon-color-hover: var(--qld-dark-action-secondary);
+      .tabs-area {
+        background-color: var(--alt-bg-colour);
+      }
+    }
+    .dark ~ & {
+      --qld-tab-background-hover: var(--qld-dark-action-primary-hover);
+      --qld-tab-hover-text-color: var(--qld-text-darkest);
+      --qld-tab-icon-color: var(--qld-dark-action-secondary);
+      --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
+      --qld-tab-text-colour-heading: var(--qld-dark-text);
+      --qld-scroll-bg-color: var(--default-bg-colour);
+      --qld-scroll-area-bg-color: var(--dark-bg-colour);
+      --qld-tab-icon-color-hover: var(--qld-dark-action-text);
+      .tabs-area {
+        background-color: var(--dark-bg-colour);
+      }
+    }
+    .dark-alt ~ & {
+      --qld-tab-background-hover: var(--qld-dark-action-primary-hover);
+      --qld-tab-hover-text-color: var(--qld-text-darkest);
+      --qld-tab-icon-color: var(--qld-dark-action-secondary);
+      --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
+      --qld-tab-text-colour-heading: var(--qld-dark-text);
+      --qld-scroll-bg-color: var(--default-bg-colour);
+      --qld-tab-icon-color-hover: var(--qld-dark-action-text);
+      color: var(--qld-body-color);
+      background-color: var(--qld-dark-alt-background);
+      .tabs-area {
+        background-color: var(--dark-alt-bg-colour);
+      }
+    }
+  }
+}

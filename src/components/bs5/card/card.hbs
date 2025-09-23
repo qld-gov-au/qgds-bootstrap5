@@ -1,39 +1,40 @@
 <!-- QGDS Partial: card -->
 
 <div class="col{{#if feature}}-md-12 col-lg-12{{/if}}">
-
     <div class="card card-{{variantClass}} {{variantClass}} {{iconPosition}} card-{{action}}-action{{#if arrow}} card-arrow{{/if}}{{#if equalHeight}} h-100{{/if}}{{#if feature}} card-feature card-feature-{{featureImagePosition}}{{/if}}{{#if video}} card-video{{/if}}">
-
         {{#if image}}
         <div class="card-img ratio ratio-16x9">
             <div class="{{#if feature}}card-img-{{featureImagePosition}}{{else}}card-img-top{{/if}}"
             style="--card-image:url({{image}})" alt="{{imageAlt}}"></div>
-
             {{#if video}}
             <div class="video-overlay">
                 <div class="video-nav">
-                    <div class="video-watch"><span class="icon"></span><span>Watch</span></div>
-
+                    <div class="video-watch"><span class="qld-icon qld-icon-lg qld-icon-video" aria-hidden="true"></span><span>Watch</span></div>
                     {{#if videoDuration}}
-                        <div title="Video duration" class="video-duration"><span class="icon"></span><span>{{videoDuration}}</span></div>
+                        <div title="Video duration" class="video-duration"><span class="qld-icon qld-icon-sm qld-icon-clock" aria-hidden="true"></span><span>{{videoDuration}}</span></div>
                     {{/if}}
                 </div>
             </div>
             {{/if}}
         </div>
         {{/if}}
-
         {{#if iconClasses}}
-        <div class="card-icon {{iconPosition}} {{iconClasses}}"></div>
+            {{#ifCond iconPosition '==' 'icon-top'}}
+                <div class="card-icon-background">
+                    <span class="qld-icon qld-icon-xxl {{iconClasses}} {{iconPosition}}" aria-hidden="true"></span>
+                </div>
+            {{/ifCond}}
+            {{#ifCond iconPosition '==' 'icon-left'}}
+                <div class="card-icon-background">
+                    <span class="qld-icon qld-icon-lg {{iconClasses}} {{iconPosition}}" aria-hidden="true"></span>
+                </div>
+            {{/ifCond}}
         {{/if}}
-
         {{#if feature}}<div class="card-inner">{{/if}}
-
             <div class="card-body">
                 {{#if date}}
                 <div class="card-date">{{date}}</div>
                 {{/if}}
-
                 <h3 class="card-title">
                     {{#if link}}
                     <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
@@ -41,26 +42,20 @@
                     {{ title }}
                     {{/if }}
                 </h3>
-
                 {{#if description}}
                 <div class="card-text">
                     {{{description}}}
                 </div>
                 {{/if}}
-
                 {{#if arrow}}
-                <div class="card-icon icon-arrow"></div>
+                    <div class="qld-icon qld-icon-md qld-icon-arrow-right"></div>
                 {{/if}}
             </div>
-
             {{#if footer}}
             <div class="card-footer">
                 {{{footer}}}
             </div>
             {{/if }}
-
         {{#if feature}}</div>{{/if}}
-
     </div>
-
 </div>

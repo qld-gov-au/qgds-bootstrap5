@@ -1,0 +1,43 @@
+@use "../../../css/mixins" as m;
+
+.qld-skip-links {
+  line-height: 1;
+
+  &__item {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+
+    &,
+    &:visited,
+    &:visited:hover {
+      color: var(--#{$prefix}color-default-color-dark-link-default);
+      text-decoration-color: var(
+        --#{$prefix}-color-default-color-light-underline-default
+      );
+    }
+
+    &:focus {
+      top: 1rem;
+      left: 1rem;
+      padding: 1.5rem;
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: absolute;
+      width: auto;
+      color: var(--#{$prefix}color-default-color-dark-link-default);
+      background-color: var(
+        --#{$prefix}color-default-color-dark-background-default-shade
+      );
+      z-index: 999;
+      @include m.focusable();
+    }
+  }
+}

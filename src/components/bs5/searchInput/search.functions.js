@@ -1,4 +1,4 @@
-import { createPopper } from '@popperjs/core';
+import { createPopper } from "@popperjs/core";
 
 /**
  * Fetches data from the provided URL.
@@ -11,7 +11,7 @@ async function fetchData(url, type) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
     const data = await response.json();
     return data;
@@ -29,21 +29,22 @@ async function fetchData(url, type) {
  * @returns {void}
  */
 export function selectSuggestion(value, form) {
-  const searchInput = form.querySelector('.qld-search-input input');
-  const suggestions = form.querySelector('.suggestions');
+  const searchInput = form.querySelector(".qld-search-input input");
+  const suggestions = form.querySelector(".suggestions");
 
   if (searchInput && suggestions) {
     searchInput.value = value.trim();
-    suggestions.style.display = 'none';
+    suggestions.classList.add("d-none");
 
     // Retrieve additional params
-    const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
-    const profile = searchInput.getAttribute('data-profile') || 'qld';
-    const numRanks = searchInput.getAttribute('data-numranks') || '10';
-    const tiers = searchInput.getAttribute('data-tiers') || 'off';
+    const collection =
+      searchInput.getAttribute("data-collection") || "qgov~sp-search";
+    const profile = searchInput.getAttribute("data-profile") || "qld";
+    const numRanks = searchInput.getAttribute("data-numranks") || "10";
+    const tiers = searchInput.getAttribute("data-tiers") || "off";
 
     // Form action
-    const actionUrl = form.getAttribute('action');
+    const actionUrl = form.getAttribute("action");
 
     // Construct the URL with proper parameters
     const params = new URLSearchParams({
@@ -69,96 +70,125 @@ export function selectSuggestion(value, form) {
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  **/
-export async function showSuggestions(value = '', isDefault = false, form) {
-  const searchInput = form.querySelector('.qld-search-input input');
-  const suggestions = form.querySelector('.suggestions');
-  const defaultSuggestionsContainer = form.querySelector('.default-suggestions');
-  const dynamicSuggestionsContainer = form.querySelector('.dynamic-suggestions');
+export async function showSuggestions(value = "", isDefault = false, form) {
+  const searchInput = form.querySelector(".qld-search-input input");
+  const suggestions = form.querySelector(".suggestions");
+  const defaultSuggestionsContainer = form.querySelector(
+    ".default-suggestions",
+  );
+  const dynamicSuggestionsContainer = form.querySelector(
+    ".dynamic-suggestions",
+  );
 
   if (!suggestions || !searchInput) {
-    console.error("Required elements not found.");
+    console.warn("Required suggestions elements not found.");
     return;
   }
 
   // Hide/show default suggestions
   if (isDefault) {
-    defaultSuggestionsContainer.style.display = 'block';
-    dynamicSuggestionsContainer.innerHTML = '';
-    dynamicSuggestionsContainer.style.display = 'none';
+    defaultSuggestionsContainer.classList.remove("d-none");
+    dynamicSuggestionsContainer.innerHTML = "";
+    dynamicSuggestionsContainer.classList.add("d-none");
     createPopper(searchInput, suggestions, {
-      placement: 'bottom-start',
+      placement: "bottom-start",
     });
-    suggestions.style.display = 'block';
+    suggestions.classList.remove("d-none");
     return;
   }
 
   if (value.length === 0) {
-    dynamicSuggestionsContainer.innerHTML = '';
-    dynamicSuggestionsContainer.style.display = 'none';
+    dynamicSuggestionsContainer.innerHTML = "";
+    dynamicSuggestionsContainer.classList.add("d-none");
     return;
   }
 
-  defaultSuggestionsContainer.style.display = 'none';
+  defaultSuggestionsContainer.classList.add("d-none");
 
   // Fetch dynamic suggestions if available
-  const suggestUrl = searchInput.getAttribute('data-suggestions');
+  const suggestUrl = searchInput.getAttribute("data-suggestions");
   if (suggestUrl) {
-    const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
-    const profile = searchInput.getAttribute('data-profile') || 'qld';
-    const fetchedSuggestions = await fetchData(`${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`, 'suggestions');
+    const collection =
+      searchInput.getAttribute("data-collection") || "qgov~sp-search";
+    const profile = searchInput.getAttribute("data-profile") || "qld";
+    const fetchedSuggestions = await fetchData(
+      `${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`,
+      "suggestions",
+    );
 
     if (fetchedSuggestions.length > 0) {
       dynamicSuggestionsContainer.innerHTML = `
-        <div class="suggestions-category mt-2">
-          <strong class="suggestions-category-label">Suggestions</strong>
-          <ul class="mt-2">${fetchedSuggestions.slice(0, 4).map(item => {
-    const highlightedText = item.replace(new RegExp(`(${value})`, 'gi'), '<strong>$1</strong>');
-    return `<li><a href="#">${highlightedText}</a></li>`;
-  }).join('')}</ul>
+        <div class="suggestions-category mt-16">
+          <strong class="suggestions-category-label d-block">Suggestions</strong>
+          <ul class="mt-2">${fetchedSuggestions
+            .slice(0, 4)
+            .map((item) => {
+              const highlightedText = item.replace(
+                new RegExp(`(${value})`, "gi"),
+                "<strong>$1</strong>",
+              );
+              return `<li><a href="#">${highlightedText}</a></li>`;
+            })
+            .join("")}</ul>
         </div>`;
-      dynamicSuggestionsContainer.style.display = 'block';
+      dynamicSuggestionsContainer.classList.remove("d-none");
       createPopper(searchInput, suggestions, {
-        placement: 'bottom-start',
+        placement: "bottom-start",
       });
-      suggestions.style.display = 'block';
+      suggestions.classList.remove("d-none");
 
       // Attach click event listeners to each suggestion item
-      form.querySelectorAll('.suggestions li').forEach((item) => {
-        item.addEventListener('click', () => selectSuggestion(item.innerText, form));
+      form.querySelectorAll(".suggestions li").forEach((item) => {
+        item.addEventListener("click", () =>
+          selectSuggestion(item.innerText, form),
+        );
       });
     } else {
-      dynamicSuggestionsContainer.innerHTML = '';
-      dynamicSuggestionsContainer.style.display = 'none';
-      suggestions.style.display = 'none';
+      dynamicSuggestionsContainer.innerHTML = "";
+      dynamicSuggestionsContainer.classList.add("d-none");
+      suggestions.classList.add("d-none");
     }
   }
 
-  const resultsUrl = searchInput.getAttribute('data-results-url');
+  const resultsUrl = searchInput.getAttribute("data-results-url");
   if (resultsUrl) {
-    const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
-    const profile = searchInput.getAttribute('data-profile') || 'qld';
-    const fetchedServices = await fetchData(`${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`, 'services');
+    const collection =
+      searchInput.getAttribute("data-collection") || "qgov~sp-search";
+    const profile = searchInput.getAttribute("data-profile") || "qld";
+    const fetchedServices = await fetchData(
+      `${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`,
+      "services",
+    );
 
-    if (fetchedServices.response.resultPacket && fetchedServices.response.resultPacket.results.length > 0) {
+    if (
+      fetchedServices.response.resultPacket &&
+      fetchedServices.response.resultPacket.results.length > 0
+    ) {
       dynamicSuggestionsContainer.innerHTML += `
-        <div class="suggestions-category feature pt-2">
-          <strong class="suggestions-category-label">Services</strong>
-          <ul class="mt-2">${fetchedServices.response.resultPacket.results.slice(0, 4).map(item => `<li><a href="${item.liveUrl}">${item.title}</a></li>`).join('')}</ul>
+        <div class="suggestions-category feature pt-16">
+          <strong class="suggestions-category-label d-block">Services</strong>
+          <ul class="mt-2">${fetchedServices.response.resultPacket.results
+            .slice(0, 4)
+            .map(
+              (item) => `<li><a href="${item.liveUrl}">${item.title}</a></li>`,
+            )
+            .join("")}</ul>
         </div>`;
-      dynamicSuggestionsContainer.style.display = 'block';
+      dynamicSuggestionsContainer.classList.remove("d-none");
       createPopper(searchInput, suggestions, {
-        placement: 'bottom-start',
+        placement: "bottom-start",
       });
-      suggestions.style.display = 'block';
+      suggestions.classList.remove("d-none");
 
       // Attach click event listeners to each suggestion item
-      form.querySelectorAll('.suggestions li').forEach((item) => {
-        item.addEventListener('click', () => selectSuggestion(item.innerText, form));
+      form.querySelectorAll(".suggestions li").forEach((item) => {
+        item.addEventListener("click", () =>
+          selectSuggestion(item.innerText, form),
+        );
       });
     }
   }
 }
-
 
 /**
  * Submits the search form with proper parameters.
@@ -167,13 +197,14 @@ export async function showSuggestions(value = '', isDefault = false, form) {
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  */
-export function submitSearchForm(query = '', form) {
-  const searchInput = form.querySelector('.qld-search-input input');
+export function submitSearchForm(query = "", form) {
+  const searchInput = form.querySelector(".qld-search-input input");
 
-  const collection = searchInput.getAttribute('data-collection') || 'qgov~sp-search';
-  const profile = searchInput.getAttribute('data-profile') || 'qld';
-  const numRanks = searchInput.getAttribute('data-numranks') || '10';
-  const tiers = searchInput.getAttribute('data-tiers') || 'off';
+  const collection =
+    searchInput.getAttribute("data-collection") || "qgov~sp-search";
+  const profile = searchInput.getAttribute("data-profile") || "qld";
+  const numRanks = searchInput.getAttribute("data-numranks") || "10";
+  const tiers = searchInput.getAttribute("data-tiers") || "off";
 
   const params = new URLSearchParams({
     query: query.trim(),
@@ -183,7 +214,7 @@ export function submitSearchForm(query = '', form) {
     tiers: tiers,
   });
 
-  const searchUrl = `${form.getAttribute('action')}?${params.toString()}`;
+  const searchUrl = `${form.getAttribute("action")}?${params.toString()}`;
   window.location.href = searchUrl;
 }
 

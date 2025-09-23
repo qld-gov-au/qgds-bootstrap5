@@ -1,4 +1,53 @@
 /* global Handlebars */
+
+/**
+ *
+ * @param {*} v1 The left value
+ * @param { "==" | "===" | "!=" | "!==" | "<" | "<=" | ">" | ">=" | "&&"  | "||" | "contains"} operator the operator to handle comparison
+ * @param {*} v2 The right value
+ * @param {Object} options handlebars-provided options object
+ * @returns {string} handlebars template block string
+ * @example
+ *   {{#ifCond value1 "===" value2}}
+ *     <!-- Content to render if condition is true -->
+ *     <p>Value1 is strictly equal to Value2</p>
+ *   {{else}}
+ *     <!-- Content to render if condition is false -->
+ *     <p>Value1 is not strictly equal to Value2</p>
+ *   {{/ifCond}}
+ */
+function ifCond(v1, operator, v2, options) {
+  switch (operator) {
+  case "==":
+    return v1 == v2 ? options.fn(this) : options.inverse(this);
+  case "===":
+    return v1 === v2 ? options.fn(this) : options.inverse(this);
+  case "!=":
+    return v1 != v2 ? options.fn(this) : options.inverse(this);
+  case "!==":
+    return v1 !== v2 ? options.fn(this) : options.inverse(this);
+  case "<":
+    return v1 < v2 ? options.fn(this) : options.inverse(this);
+  case "<=":
+    return v1 <= v2 ? options.fn(this) : options.inverse(this);
+  case ">":
+    return v1 > v2 ? options.fn(this) : options.inverse(this);
+  case ">=":
+    return v1 >= v2 ? options.fn(this) : options.inverse(this);
+  case "&&":
+    return v1 && v2 ? options.fn(this) : options.inverse(this);
+  case "||":
+    return v1 || v2 ? options.fn(this) : options.inverse(this);
+  case "contains":
+    if (typeof v1 == "string" && typeof v2 == "string") {
+      return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0
+        ? options.fn(this)
+        : options.inverse(this);
+    } else return options.inverse(this);
+  default:
+    return options.inverse(this);
+  }
+}
 /**
  * Registers Handlebars Helpers
  * @param {Handlebars} handlebars Templating engine
@@ -14,41 +63,11 @@ export default function handlebarsHelpers(handlebars) {
       ? options.fn(this)
       : options.inverse(this);
   });
-  // ifCond - checks conditions
-  handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
-    switch (operator) {
-    case "==":
-      return v1 == v2 ? options.fn(this) : options.inverse(this);
-    case "===":
-      return v1 === v2 ? options.fn(this) : options.inverse(this);
-    case "!=":
-      return v1 != v2 ? options.fn(this) : options.inverse(this);
-    case "!==":
-      return v1 !== v2 ? options.fn(this) : options.inverse(this);
-    case "<":
-      return v1 < v2 ? options.fn(this) : options.inverse(this);
-    case "<=":
-      return v1 <= v2 ? options.fn(this) : options.inverse(this);
-    case ">":
-      return v1 > v2 ? options.fn(this) : options.inverse(this);
-    case ">=":
-      return v1 >= v2 ? options.fn(this) : options.inverse(this);
-    case "&&":
-      return v1 && v2 ? options.fn(this) : options.inverse(this);
-    case "||":
-      return v1 || v2 ? options.fn(this) : options.inverse(this);
-    case "contains":
-      if (typeof v1 == "string" && typeof v2 == "string") {
-        return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0
-          ? options.fn(this)
-          : options.inverse(this);
-      } else return options.inverse(this);
-    default:
-      return options.inverse(this);
-    }
-  });
+
+  handlebars.registerHelper("ifCond", ifCond);
+
   // isType - Checks is expected type
-  handlebars.registerHelper('isType', function (value, expected, options) {
+  handlebars.registerHelper("isType", function (value, expected, options) {
     if (value === expected) {
       return options.fn(this); // Render the block if condition is true
     } else {
@@ -56,47 +75,63 @@ export default function handlebarsHelpers(handlebars) {
     }
   });
   // ifAny - {{{#ifAny variable1 variable2 variable3 variable4 etc}}, if any set then return true
-  handlebars.registerHelper('ifAny', function (...args) {
+  handlebars.registerHelper("ifAny", function (...args) {
     const options = args.pop(); // The last argument is the options object
-    return args.some(arg => !!arg) ? options.fn(this) : options.inverse(this);
+    return args.some((arg) => !!arg) ? options.fn(this) : options.inverse(this);
   });
   // now - return current timestamp i.e {{now}}
-  handlebars.registerHelper('now', function() {
+  handlebars.registerHelper("now", function () {
     return new Date().toISOString();
   });
   // formatDate - Format Date, for footer meta data i.e {{formatDate '2023-06-23'}}
-  handlebars.registerHelper('formatDate', function(dateString, defaultDate, format) {
-    // Use the dateString if provided, otherwise use the defaultDate, otherwise error
-    let date;
-    if (dateString) {
-      date = new Date(dateString);
-    }
-    if (isNaN(date) && defaultDate) {
-      date = new Date(defaultDate);
-    }
+  handlebars.registerHelper(
+    "formatDate",
+    function (dateString, defaultDate, format) {
+      // Use the dateString if provided, otherwise use the defaultDate, otherwise error
+      let date;
+      if (dateString) {
+        date = new Date(dateString);
+      }
+      if (isNaN(date) && defaultDate) {
+        date = new Date(defaultDate);
+      }
 
-    // Check if the date is valid
-    if (isNaN(date)) {
-      return 'Invalid Date';
-    }
+      // Check if the date is valid
+      if (isNaN(date)) {
+        return "Invalid Date";
+      }
 
-    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var day = date.getDate();
-    var month = monthNames[date.getMonth()];
-    var year = date.getFullYear();
-    // Format date based on the format string
-    switch (format) {
-    case 'YYYY':
-      return `${year}`;
-    case 'MMMM YYYY':
-      return `${month} ${year}`;
-    default:
-      return `${day} ${month} ${year}`;
-    }
-  });
+      var monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      var day = date.getDate();
+      var month = monthNames[date.getMonth()];
+      var year = date.getFullYear();
+      // Format date based on the format string
+      switch (format) {
+      case "YYYY":
+        return `${year}`;
+      case "MMMM YYYY":
+        return `${month} ${year}`;
+      default:
+        return `${day} ${month} ${year}`;
+      }
+    },
+  );
 
   // formatDateOrToday - Format Date if passed or today i.e. {{formatDateOrToday '2023-06-23'}} or {{formatDateOrToday}} <!-- This will use the current date -->
-  handlebars.registerHelper('formatDateOrToday', function(dateString, format) {
+  handlebars.registerHelper("formatDateOrToday", function (dateString, format) {
     // Use the current date if dateString is missing or invalid
     const dateToFormat = dateString || new Date().toISOString();
     // Call the formatDate helper with the determined date and format
@@ -126,7 +161,7 @@ export default function handlebarsHelpers(handlebars) {
    * {{formatDuration duration}}
    * {{formatDuration duration "long"}}
    */
-  handlebars.registerHelper('formatDuration', function(duration, format) {
+  handlebars.registerHelper("formatDuration", function (duration, format) {
     // Return empty string when there is no duration.
     if (!duration) {
       return "";
@@ -134,7 +169,7 @@ export default function handlebarsHelpers(handlebars) {
 
     // Nothing to process here when the duration is already in short format string
     // (to support existing CMS metadata).
-    if (typeof(duration) === 'string' && format !== "long") {
+    if (typeof duration === "string" && format !== "long") {
       return duration;
     }
 
@@ -143,8 +178,8 @@ export default function handlebarsHelpers(handlebars) {
     let hours, minutes, seconds;
 
     // Support for string type 'duration'.
-    if (typeof(duration) === 'string') {
-      const durationSplit = duration.split(":");  
+    if (typeof duration === "string") {
+      const durationSplit = duration.split(":");
       seconds = durationSplit[0];
       if (durationSplit.length == 2) {
         [minutes = "", seconds = ""] = durationSplit;
@@ -159,17 +194,17 @@ export default function handlebarsHelpers(handlebars) {
     // Long format: "X hours Y minutes Z seconds"
     if (format === "long") {
       if (hours > 0) {
-        parts.push(`${hours} hour${hours > 1 ? 's' : ''}`);
+        parts.push(`${hours} hour${hours > 1 ? "s" : ""}`);
       }
       if (minutes > 0) {
-        parts.push(`${minutes} minute${minutes > 1 ? 's' : ''}`);
+        parts.push(`${minutes} minute${minutes > 1 ? "s" : ""}`);
       }
       if (seconds > 0) {
-        parts.push(`${seconds} second${seconds > 1 ? 's' : ''}`);
+        parts.push(`${seconds} second${seconds > 1 ? "s" : ""}`);
       }
       durationString = parts.join(" ");
 
-    // Short format: "HH:MM:SS"
+      // Short format: "HH:MM:SS"
     } else {
       // Omitting hours when zero
       if (hours > 0) {
@@ -182,21 +217,28 @@ export default function handlebarsHelpers(handlebars) {
     return durationString;
   });
 
-  // helper for extending components to set overridable data values
-  // if the value is not set in the component data.json, it will use the hds data value
-  handlebars.registerHelper('isdefined', function (value, defaultValue) {
-    return value !== undefined ? value : defaultValue;
+  /**
+   * Helper for extending components to set overridable data values
+   * If the value is not set in the component data.json, it will use the hds data value
+   *
+   * @param {string} value - The value to check if it is defined
+   * @param {string} defaultValue - The default value to return if value is not defined
+   * @returns {string} - The value if it is defined, otherwise the default value
+   */
+  handlebars.registerHelper("isdefined", function (value, defaultValue) {
+    return value !== undefined && value !== "" ? value : defaultValue;
   });
 
   /**
    * Used to get class names added to an element based on their boolean values in an array
+   *
    * @param {string} names - Comma-separated list of class names to check for
    * @param {array} array - Array of objects to check for true values
    * @returns {string} - Space-separated list of class names that have true values
    */
-  handlebars.registerHelper('getClassNames', function(names, array) {
+  handlebars.registerHelper("getClassNames", function (names, array) {
     // Split the comma-separated string of names into an array
-    let nameList = names.split(',').map(name => name.trim());
+    let nameList = names.split(",").map((name) => name.trim());
 
     // Create an array to hold the names that have true values
     let matchedItems = [];
@@ -204,25 +246,47 @@ export default function handlebarsHelpers(handlebars) {
     for (let i = 0; i < nameList.length; i++) {
       let name = nameList[i];
       // Check if any item in the array matches the name and is true
-      for (let j = 0; j < array.length; j++) {
-        if (array[j][name] === true) {
-          matchedItems.push(name); // Add to matchedItems if found and true
-          break;
+      if (array) {
+        for (let j = 0; j < array.length; j++) {
+          if (array[j][name] === true) {
+            matchedItems.push(name); // Add to matchedItems if found and true
+            break;
+          }
         }
       }
     }
 
     // If we found any matched items, return them as a space-separated string
     if (matchedItems.length > 0) {
-      return matchedItems.join(' ');
+      return matchedItems.join(" ");
     } else {
       return "";
     }
   });
-  
 
+  handlebars.registerHelper("join", function (theArray, separator) {
+    // Handle if a separator is not provided
+    if (!separator || typeof separator !== "string") {
+      separator = " ";
+    }
+
+    // If theArray is not an array, return it as is, otherwise join it
+    return !Array.isArray(theArray) ? theArray : theArray.join(separator);
+  });
+
+  handlebars.registerHelper("toCamelCase", function (text) {
+    if (typeof text !== "string") return text;
+
+    // Remove whitespace and convert to camelCase
+    return text
+      .toLowerCase()
+      .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) =>
+        index === 0 ? match.toLowerCase() : match.toUpperCase(),
+      )
+      .replace(/\s+/g, ""); // Remove all spaces
+  });
 }
 
-if(typeof(Handlebars) !== 'undefined') {
+if (typeof Handlebars !== "undefined") {
   handlebarsHelpers(Handlebars);
 }

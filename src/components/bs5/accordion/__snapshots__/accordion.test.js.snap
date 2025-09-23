@@ -1,0 +1,52 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion > Renders as expected 1`] = `
+"<!-- QGDS Component: Accordion -->
+<div class="accordion-group">
+        <div class="accordion-toggle">
+            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button">Open all</button>
+        </div>
+    <div class="accordion" id="accordion-group-1">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-One">
+                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-One" aria-expanded="true" aria-controls="collapse-One">
+                    Accordion item #1
+                </button>
+            </h2>
+
+            <div id="collapse-One" class="accordion-collapse collapse show" aria-labelledby="heading-One" role="region">
+                <div class="accordion-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas.</p><p>Aenean sed pretium mauris. Quisque euismod in nisl et consequat.</p> 
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-Two">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-Two" aria-expanded="false" aria-controls="collapse-Two">
+                    Accordion item #2
+                </button>
+            </h2>
+
+            <div id="collapse-Two" class="accordion-collapse collapse " aria-labelledby="heading-Two" role="region">
+                <div class="accordion-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-Three">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-Three" aria-expanded="false" aria-controls="collapse-Three">
+                    Accordion item #3
+                </button>
+            </h2>
+
+            <div id="collapse-Three" class="accordion-collapse collapse " aria-labelledby="heading-Three" role="region">
+                <div class="accordion-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+"
+`;

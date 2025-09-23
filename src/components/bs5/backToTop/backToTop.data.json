@@ -1,10 +1,7 @@
 {
     "hide_back_to_top": false,
-    "min_page_height": 0,
-    "button": {
+    "directionalLink": {
         "label": "Back to top",
-        "islink": true,
-        "iconClass": "btn-icon",
-        "iconPosition": "trailing"
+        "href": "#"
     }
 }

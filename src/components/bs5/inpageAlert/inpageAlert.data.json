@@ -1,5 +1,7 @@
 {
-	"variantClass": "alert-success",
-	"heading": "Alert heading",
-	"content": "<p>This is an alert notice with some important information. <a href='#'>Find out more</a>.</p>"
+  "variantClass": "alert-success",
+  "alertType": "",
+  "heading": "Alert heading",
+  "headingTag": "h2",
+  "content": "<p>This is an alert notice with some important information. <a href='#'>Find out more</a>.</p>"
 }

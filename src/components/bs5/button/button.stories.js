@@ -1,6 +1,6 @@
 // Button.stories.js
-import { Button } from './Button.js';
-import defaultdata from './button.data.json';
+import { Button } from "./Button.js";
+import defaultdata from "./button.data.json";
 
 /**
  * Define the variants for Button component.
@@ -11,14 +11,20 @@ const buttonVariants = {
   "btn-primary": "Primary",
   "btn-secondary": "Secondary",
   "btn-tertiary": "Tertiary",
-}
+};
 
 /**
  * Define different status of button
  */
 const statuses = [
-  { isdisabled: false, label: 'Enabled' },
-  { isdisabled: true, label: 'Disabled' },
+  { isdisabled: false, isprogress: false, label: "Enabled" },
+  { isdisabled: true, isprogress: false, label: "Disabled" },
+  {
+    isdisabled: false,
+    isprogress: true,
+    progressLabel: "Loading",
+    label: "Progress",
+  },
 ];
 
 /**
@@ -26,35 +32,41 @@ const statuses = [
  * @returns {HTML} HTML Markup
  */
 function buttonVariantsMarkup() {
-  return Object.entries(buttonVariants).map(([variantClass, variantLabel]) => {
-    const variantButtons = statuses.map(status =>
-      new Button({
-        ...defaultdata,
-        variantClass,
-        ...status,
-      }).html,
-    ).join('');
+  return Object.entries(buttonVariants)
+    .map(([variantClass, variantLabel]) => {
+      const variantButtons = statuses
+        .map(
+          (status) =>
+            new Button({
+              ...defaultdata,
+              variantClass,
+              ...status,
+            }).html,
+        )
+        .join("");
 
-    return `<div class="d-grid mb-4">
+      return `<div class="d-grid mb-4">
               <div class="fw-bold">${variantLabel}</div>
-              <div class="btn-toolbar">
+              <div class="d-flex gap-3">
                 ${variantButtons}
               </div>
             </div>`;
-  }).join('');
+    })
+    .join("");
 }
 
 export default {
-  tags: ['autodocs'],
-  title: '3. Components/Button',
+  tags: ["autodocs"],
+  title: "3. Components/Button",
   args: defaultdata,
   render: (args) => {
     return `
-    <div class="btn-toolbar">
+    <div class="d-flex gap-3">
       ${new Button(args).html}
-      ${new Button({...args, isdisabled: true}).html}
+      ${new Button({ ...args, isdisabled: true }).html}
+      ${new Button({ ...args, isprogress: true, iconClass: "", label: "Loading button", progressLabel: "Loading...", islink: false, dataatts: 'data-loading-btn="true"' }).html}
     </div>
-    `//expand arguments, specifically turn isdisabled into true
+    `; //expand arguments, specifically turn isdisabled into true
   },
 
   argTypes: {
@@ -63,9 +75,21 @@ export default {
         disable: true,
       },
     },
+    isprogress: {
+      name: "Progress State",
+      description: "Show loading spinner and progress label",
+      control: "boolean",
+    },
+    progressLabel: {
+      name: "Progress Label",
+      description:
+        "Text to show when in progress state (e.g., 'Loading', 'Saving', 'Please wait')",
+      control: "text",
+      if: { arg: "isprogress", truthy: true },
+    },
     variantClass: {
       name: "Variants",
-      description: 'Settable variant type for Button component',
+      description: "Settable variant type for Button component",
       control: {
         type: "radio",
         labels: buttonVariants,
@@ -73,7 +97,7 @@ export default {
       options: Object.keys(buttonVariants),
     },
     iconPosition: {
-      description: 'Position of the icon placement',
+      description: "Position of the icon placement",
       control: "radio",
       options: ["leading", "trailing"],
     },
@@ -103,10 +127,8 @@ export const Default = {};
 export const Dark = {
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
     },
   },
   decorators: [
@@ -125,7 +147,7 @@ export const Dark = {
  * This Story can be used to help in troubleshooting.
  */
 export const AllVariantsInDefaultMode = {
-  render:() => {
+  render: () => {
     return buttonVariantsMarkup();
   },
   parameters: {
@@ -140,12 +162,12 @@ export const AllVariantsInDefaultMode = {
  * This Story can be used to help in troubleshooting.
  */
 export const AllVariantsInDarkMode = {
-  render:() => {
+  render: () => {
     return buttonVariantsMarkup();
   },
   parameters: {
     backgrounds: {
-      default: 'Dark',
+      default: "Dark",
     },
     controls: {
       disable: true,
@@ -160,4 +182,68 @@ export const AllVariantsInDarkMode = {
       `;
     },
   ],
+};
+
+/**
+ * Show buttons with long labels that wrap text when hitting container limits.
+ * This demonstrates how button text wraps and becomes centered.
+ */
+export const LongLabelsWrapping = {
+  render: () => {
+    const longLabelButtons = Object.entries(buttonVariants)
+      .map(([variantClass, variantLabel]) => {
+        const longLabelButton = new Button({
+          ...defaultdata,
+          variantClass,
+          iconClass: "", // no icon for this demo
+          label: "This is a very long button label that should wrap",
+          isdisabled: false,
+        }).html;
+
+        const longLabelDisabledButton = new Button({
+          ...defaultdata,
+          variantClass,
+          iconClass: "", // no icon for this demo
+          label: "Another extremely long button label for disabled",
+          isdisabled: true,
+        }).html;
+
+        return `<div class="d-grid mb-4" style="max-width: 300px;">
+                <div class="fw-bold">${variantLabel} - Long Labels</div>
+                <div class="d-grid gap-2">
+                  ${longLabelButton}
+                  ${longLabelDisabledButton}
+                </div>
+              </div>`;
+      })
+      .join("");
+
+    return `
+      <div class="d-grid gap-4">
+        <div>
+          <h5 class="mb-3">Buttons with Long Labels (300px container)</h5>
+          <div class="d-flex flex-wrap gap-4">
+            ${longLabelButtons}
+          </div>
+        </div>
+        <div style="max-width: 200px;">
+          <h5 class="mb-3">Even Narrower Container (200px)</h5>
+          ${
+  new Button({
+    ...defaultdata,
+    iconClass: "", // no icon for this demo
+    variantClass: "btn-primary",
+    label: "Long button text in a narrow container",
+    isdisabled: false,
+  }).html
+}
+        </div>
+      </div>
+    `;
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
 };

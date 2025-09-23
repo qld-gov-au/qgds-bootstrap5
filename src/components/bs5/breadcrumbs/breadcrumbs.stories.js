@@ -1,20 +1,36 @@
-// Blockquote.stories.js
-import { Breadcrumbs } from './Breadcrumbs.js';
-import defaultdata from './breadcrumbs.data.json';
+//Breadcrumbs.stories.js
+import { Breadcrumbs } from "./Breadcrumbs.js";
+import defaultdata from "./breadcrumbs.data.json";
 
 export default {
-  tags: ['autodocs'],
-  title: '2. Layout/Breadcrumbs',
+  tags: ["autodocs"],
+  title: "2. Layout/Breadcrumbs",
   args: defaultdata.default,
   render: (args) => new Breadcrumbs(args).html,
 
   argTypes: {
     breadcrumbs: {
-      name: 'Breadcrumbs',
-      control: 'object',
+      name: "Breadcrumbs",
+      control: "object",
       description: `Pass a JSON object containing an array of links to the component.`,
     },
   },
+
+  decorators: [
+    (Story, context) => {
+      const { args } = context; // Deconstruct args from the context oject
+      return `
+      <div class="container-fluid ${args.class || ""}">
+        <div class="row">
+          <div class="col-12">
+              <!-- Breadcrumbs Component -->
+              ${Story(args)} <!-- Pass args to the Story -->
+          </div>
+        </div>
+      </div>
+      `;
+    },
+  ],
 
   /**
    * Additional parameters for the story.
@@ -37,7 +53,7 @@ export default {
 /**
  * Default Breadcrumbs story
  * */
-export const Default = { };
+export const Default = {};
 
 /**
  * Dark Breadcrumbs story
@@ -45,28 +61,53 @@ export const Default = { };
 export const Dark = {
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
     },
   },
+
+  args: {
+    ...defaultdata.default,
+    class: "dark",
+  },
+
   decorators: [
     (Story) => {
       return `
-      <div class="container-fluid"><div class="row"><div class="col-12">
-      <div class="dark">
-          ${Story()}
-      </div>
-      </div></div></div>
+        <!-- Breadcrumb Component -->
+        ${Story()}
       `;
     },
   ],
 };
 
 /**
- * Deep page Breadcrumbs example
+ * Breadcrumbs with expander (Default)
  * */
-export const DeepPage = {
+export const WithExpanderDefault = {
+  args: defaultdata.expanderSample,
+};
+
+/**
+ * Breadcrumbs with expander (Dark)
+ * */
+export const WithExpanderDark = {
+  parameters: {
+    backgrounds: {
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+    },
+  },
+  args: {
+    ...defaultdata.expanderSample,
+    class: "dark",
+  },
+};
+
+/* export const LongBreadcrumbs = {
+  args: defaultdata.defaultLong,
+}; */
+
+export const ForGov = {
   args: defaultdata.forGov,
 };

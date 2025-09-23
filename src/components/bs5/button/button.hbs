@@ -1,42 +1,60 @@
 {{!-- Button icon partial --}}
 {{#*inline "buttonIcon"~}}
-<span class="btn-icon {{iconClass}} {{iconPosition}}"></span>
+<span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
 {{~/inline}} 
+
+{{!-- Progress spinner partial --}}
+{{#*inline "progressSpinner"~}}
+<div class="spinner-border"></div>
+{{~/inline}}
 
 {{#unless islink}}
 
-  <button class="btn {{variantClass}} {{label}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
-  {{#if iconClass~}}
-    {{#ifCond iconPosition '==' 'leading'}}
-      {{~>buttonIcon~}}
-    {{/ifCond}}
-  {{/if}}
-  
-  {{~label~}}
-  
-  {{#if iconClass~}}
-    {{#ifCond iconPosition '==' 'trailing'}}
-      {{>buttonIcon~}}
-    {{/ifCond}}
-  {{/if}}
+  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}} {{label}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}}>
+    {{#if isprogress}}
+      {{~>progressSpinner~}}
+    {{else}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'leading'}}
+          {{~>buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/if}}
+    
+    <span class="btn-label-default">{{~label~}}</span>
+    {{#if isprogress}}
+      <span class="btn-label-progress">{{~progressLabel~}}</span>
+    {{/if}}
+    {{#unless isprogress}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'trailing'}}
+          {{~>buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/unless}}
   </button>
 
 {{else}}
+  <a class="btn {{variantClass}} {{#if isdisabled}}disabled {{/if}}{{#if isprogress}}disabled btn-progress{{/if}}" {{#if isdisabled}}aria-disabled="true"{{/if}} {{#if isprogress}}aria-live="polite"{{/if}} href="{{href}}" target="{{target}}" {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}} {{{dataatts}}}>
+    {{#if isprogress}}
+      {{~>progressSpinner~}}
+    {{else}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'leading'}}
+          {{~> buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/if}}
+    
+    <span class="btn-label-default">{{~label~}}</span>
+    <span class="btn-label-progress">{{~progressLabel~}}</span>
 
-  <a class="btn {{variantClass}} {{#if isdisabled}} disabled {{/if}}" {{#if isdisabled}}aria-disabled="true"{{/if}} href="{{href}}" target="{{target}}" {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}}>
-  {{#if iconClass~}}
-    {{#ifCond iconPosition '==' 'leading'}}
-      {{~> buttonIcon~}}
-    {{/ifCond}}
-  {{/if}}
-  
-  {{~label~}}
-
-  {{#if iconClass~}}
-    {{#ifCond iconPosition '==' 'trailing'}}
-      {{~> buttonIcon~}}
-    {{/ifCond}}
-  {{/if}}
-  </a>
-
+    {{#unless isprogress}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'trailing'}}
+          {{~> buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/unless}}
+    </a>
 {{/unless}}

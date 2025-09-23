@@ -16,7 +16,7 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new CallToAction({...args, label: 'View All'}).html}
+          ${new CallToAction({...args}).html}
         </div>
         <div class="col">
           ${new CallToAction({...args, label: 'Label', "class": [{"small": false}, {"view-all": false}]}).html}
@@ -39,6 +39,15 @@ export default {
  */
 export const Default = {
   args: defaultdata,
+  decorators: [
+    (Story) => {
+      return `
+      <div class="default">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 /**
@@ -114,6 +123,51 @@ export const Dark = {
  * Call To Action - Dark-Alt
  * */
 export const DarkAlt = {
+  parameters: {
+    backgrounds: {
+      default: 'DarkAlt',
+      values: [
+        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
+      ],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark-alt">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
+ * Call To Action - Small
+ * */
+export const Small = {
+  args: {
+    ...defaultdata,
+    label: "View all",
+    class: [
+      {"small": true}, 
+      {"view-all": true},
+    ],
+  },
+  render: (args) => {
+    return `
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          ${new CallToAction({...args}).html}
+        </div>
+        <div class="col">
+          ${new CallToAction({...args, label: 'Label', "class": [{"small": true}, {"view-all": false}]}).html}
+        </div>
+      </div>
+    </div>
+    `
+  },
   parameters: {
     backgrounds: {
       default: 'DarkAlt',

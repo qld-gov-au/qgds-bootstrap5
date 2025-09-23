@@ -1,0 +1,23 @@
+///
+/// Create a list of CSS custom properties, easily prepending a prefix
+/// @param {string} $prefix - Prepended to the custom property name;
+/// @param {map} $vars - a map of (string: value);
+/// @example
+///    @include register-vars(
+///    "qld-header-",
+///    (
+///      underline-thickness-thin: 0.5px,
+///      underline-thickness-thick: 2px,
+///      underline-offset: 0.3em
+///    )
+///  );
+///
+///   // output:
+///   --qld-header-underline-thickness-thin: 0.5px;
+///   --qld-header-underline-thickness-thick: 2px;
+///   --qld-header-underline-offset: 0.3em;
+@mixin register-vars($prefix, $vars) {
+  @each $key, $value in $vars {
+    --#{$prefix}#{$key}: #{$value};
+  }
+}

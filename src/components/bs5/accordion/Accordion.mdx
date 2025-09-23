@@ -1,16 +1,44 @@
-import { Canvas, Meta, Story } from "@storybook/blocks"
-import * as AccordionStories from "./accordion.stories"
+import { Canvas, Meta, Story, Source } from "@storybook/blocks";
+import * as AccordionStories from "./accordion.stories";
+import defaultdata from "./accordion.data.json";
+import "../../../stories/documentation/storybook-documentation.scss";
+import { StorybookDocsTabs } from "../../../stories/documentation/_storybookDocsTabs.jsx";
+import DesignResources from "./mdx/_designResources.mdx";
+import UsageInstructions from "./mdx/_usageInstructions.mdx";
 
 <Meta of={AccordionStories} />
 
 # Accordion
-<Canvas>
-  <Story of={AccordionStories.Default} />
-</Canvas>
 
-## Design resources
+> Accordions help users see only the content they need. Accordions expand and collapse sections of content.
 
-- [Component library (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=6276-45691&mode=design&t=chjWFr1CLu6KQXzg-4)
-- [Master component file (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98109&mode=design&t=ORVHLonASEFQzPeD-0)
-- [Design System website](https://www.design-system.health.qld.gov.au/components/accordions)
-- [Bootstrap component](https://getbootstrap.com/docs/5.3/components/accordion/)
+<Canvas of={AccordionStories.Default} />
+
+<StorybookDocsTabs
+  tabs={[
+    {
+      label: "Code",
+      id: "code-doc",
+      heading: "Component code",
+      content: <Source language="html" id="accordion-default" />,
+    },
+    {
+      label: "JSON",
+      id: "json-doc",
+      heading: "Example Component data",
+      content: (
+        <Source language="json" code={JSON.stringify(defaultdata, null, 2)} />
+      ),
+    },
+    {
+      label: "Design Resources",
+      id: "design-resources-doc",
+      content: <DesignResources />,
+    },
+    /* {
+      label: "Usage Instructions",
+      id: "usage-instructions-doc",
+      content: <UsageInstructions />,
+    }, */
+  ]}
+></StorybookDocsTabs>

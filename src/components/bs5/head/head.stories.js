@@ -41,6 +41,9 @@ export default {
  */
 export const Default = {
   args: defaultdata,
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     (Story) => {
       return `
@@ -55,6 +58,9 @@ export const DEV = {
   args: {
     cdn: "DEV",
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators:[Story => {
     return `
           ${Story()}
@@ -65,6 +71,9 @@ export const DEV = {
 export const SQUIZ = {
   args: {
     cdn: "/__data/assets/git_bridge/0026/471752",
+  },
+  parameters: {
+    chromatic: { disableSnapshot: true },
   },
   decorators:[Story => {
     return `

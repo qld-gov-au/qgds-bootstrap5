@@ -1,0 +1,108 @@
+// CSS utilities for fixed-ratio specific QGDS images
+
+/* prettier-ignore-start */
+.image-ratio-1x1 { --image-ratio: calc(1 / 1); }
+.image-ratio-3x2 { --image-ratio: calc(3 / 2); }
+.image-ratio-2x3 { --image-ratio: calc(2 / 3); }
+.image-ratio-4x3 { --image-ratio: calc(4 / 3); }
+.image-ratio-3x4 { --image-ratio: calc(3 / 4); }
+.image-ratio-16x9 { --image-ratio: calc(16 / 9); }
+/* prettier-ignore-end */
+
+
+img[class*="image-ratio-"] {
+  aspect-ratio: var(--image-ratio, calc(3 / 2)); // Default to 3:2 if not specified
+  object-fit: cover;
+  object-position: var(--position-x, center) var(--position-y, center);
+  max-width: 100%; // Ensure responsive images
+  height: auto;
+}
+
+figure {
+  --figure-bg: var(--qld-neutral-lightest);
+  --figure-color: var(--qld-light-text-lighter);
+
+  display: table;
+
+  &.light {
+    --figure-bg: var(--qld-light-background-shade);
+    --figure-color: var(--qld-light-text-lighter);
+  }
+
+  &.light-alt {
+    --figure-bg: var(--qld-light-alt-background-shade);
+    --figure-color: var(--qld-light-text-lighter);
+  }
+
+  &.dark {
+    --figure-bg: var(--qld-dark-background-shade);
+    --figure-color: var(--qld-dark-text-text);
+  }
+
+  &.dark-alt {
+    --figure-bg: var(--qld-dark-alt-background-shade);
+    --figure-color: var(--qld-dark-text-text);
+  }
+
+  > img {
+    display: block;
+  }
+
+  > figcaption {
+    background: var(--figure-bg);
+    color: var(--figure-color);
+
+    display: table-caption;
+    caption-side: bottom;
+    padding: 0.5rem;
+  }
+
+  //Reset bootstrap's figure margin
+  .figure-img {
+    margin-bottom: 0;
+  }
+}
+
+// Usage example in HTML:
+// <img class="image-ratio image-ratio-4x3" ... />
+// Or for a custom ratio:
+// <img class="image-ratio" style="--image-ratio: 5 / 4;" ... />
+
+// Horizontal placement: position-x-left, position-x-30%, etc.
+// Vertical placement: position-y-top, position-y-60%, etc.
+@mixin position-class($axis, $position, $unit: "") {
+  .position-#{$axis}-#{$position} {
+    --position-#{$axis}: #{$position}#{$unit};
+  }
+}
+
+// 1. Named positions
+// Loop through the $named-positions map
+$named-positions: (
+  x: (
+    "left",
+    "center",
+    "right",
+  ),
+  y: (
+    "top",
+    "center",
+    "bottom",
+  ),
+);
+
+// Build a class for each named position
+@each $axis, $positions-list in $named-positions {
+  @each $position in $positions-list {
+    @include position-class($axis, $position);
+  }
+}
+
+// 2. Numeric Positions (0, 10, 20, ..., 100 for both axes)
+// Build a class for each numeric position
+$numeric-steps: 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
+
+@each $value in $numeric-steps {
+  @include position-class(x, $value, "%");
+  @include position-class(y, $value, "%");
+}

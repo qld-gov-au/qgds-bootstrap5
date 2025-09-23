@@ -9,4 +9,3 @@ export class Header {
     return new Component(template, data);
   }
 }
-

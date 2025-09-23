@@ -1,134 +1,255 @@
-//Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
+// Breadcrumbs: https://getbootstrap.com/docs/5.3/components/breadcrumb/#sass-variables
+@use "../../../css/mixins" as m;
+// Define shared variables
+$expander-icon-color: $qld-light-link;
 
-$breadcrumb-divider-color: $qld-brand-secondary-dark;
-$breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='#{$breadcrumb-divider-color}' d='M234.8 36.25c3.438 3.141 5.156 7.438 5.156 11.75c0 3.891-1.406 7.781-4.25 10.86L53.77 256l181.1 197.1c6 6.5 5.625 16.64-.9062 22.61c-6.5 6-16.59 5.594-22.59-.8906l-192-208c-5.688-6.156-5.688-15.56 0-21.72l192-208C218.2 30.66 228.3 30.25 234.8 36.25z'/%3E%3C/svg%3E");
-$breadcrumb-divider-flipped: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='#{$breadcrumb-divider-color}'><path d='M85.14 475.8c-3.438-3.141-5.156-7.438-5.156-11.75c0-3.891 1.406-7.781 4.25-10.86l181.1-197.1L84.23 58.86c-6-6.5-5.625-16.64 .9062-22.61c6.5-6 16.59-5.594 22.59 .8906l192 208c5.688 6.156 5.688 15.56 0 21.72l-192 208C101.7 481.3 91.64 481.8 85.14 475.8z'/></svg>");
-
-$breadcrumb-divider-dark-color: $qld-brand-accent;
-$breadcrumb-divider-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='#{$breadcrumb-divider-dark-color}' d='M234.8 36.25c3.438 3.141 5.156 7.438 5.156 11.75c0 3.891-1.406 7.781-4.25 10.86L53.77 256l181.1 197.1c6 6.5 5.625 16.64-.9062 22.61c-6.5 6-16.59 5.594-22.59-.8906l-192-208c-5.688-6.156-5.688-15.56 0-21.72l192-208C218.2 30.66 228.3 30.25 234.8 36.25z'/%3E%3C/svg%3E");
-$breadcrumb-divider-dark-flipped: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='#{$breadcrumb-divider-dark-color}'><path d='M85.14 475.8c-3.438-3.141-5.156-7.438-5.156-11.75c0-3.891 1.406-7.781 4.25-10.86l181.1-197.1L84.23 58.86c-6-6.5-5.625-16.64 .9062-22.61c6.5-6 16.59-5.594 22.59 .8906l192 208c5.688 6.156 5.688 15.56 0 21.72l-192 208C101.7 481.3 91.64 481.8 85.14 475.8z'/></svg>");
-
-//OR using custom CSS properties scoped to the component
+// Breadcrumb component styles
 .breadcrumb {
-  --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider)};
-  --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-flipped)};
+  // Shared CSS custom properties
+  --#{$prefix}breadcrumb-divider: var(--qgds-icon-chevron-right);
+  --#{$prefix}breadcrumb-expander: var(--qgds-icon-more-horizontal);
   --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}dark-grey-muted);
+  --#{$prefix}breadcrumb-divider-color: var(--#{$prefix}light-action-secondary);
+  --#{$prefix}breadcrumb-expander-color: var(
+    --#{$prefix}light-action-secondary
+  );
+  --#{$prefix}breadcrumb-item-padding-x: 0;
   --#{$prefix}breadcrumb-bg: transparent;
   --#{$prefix}breadcrumb-margin-bottom: 0;
-  --#{$prefix}breadcrumb-padding-y: 1.5rem 0 1rem;
-  --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-light-link-default);
-  --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(
-    --#{$prefix}color-default-color-light-underline-default
+  --#{$prefix}breadcrumb-padding-y: 2rem;
+  --#{$prefix}breadcrumb-link-color: var(--#{$prefix}light-link);
+  --#{$prefix}breadcrumb-link-text-decoration-color: var(
+    --#{$prefix}light-link
   );
-  --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(
-    --#{$prefix}color-default-color-light-underline-default-hover
+  --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(
+    --#{$prefix}light-link
   );
-
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  // Dark mode overrides
   .dark &,
   .dark-alt & {
-    --#{$prefix}breadcrumb-item-active-color: var(--#{$prefix}color-default-color-dark-text-lighter);
-    --#{$prefix}breadcrumb-divider: #{escape-svg($breadcrumb-divider-dark)};
-    --#{$prefix}breadcrumb-divider-flipped: #{escape-svg($breadcrumb-divider-dark-flipped)};
-    --#{$prefix}breadcrumb-visited-link-color: var(--#{$prefix}color-default-color-dark-link-default);
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color: var(
-      --#{$prefix}color-default-color-dark-underline-default
+    --#{$prefix}breadcrumb-item-active-color: var(
+      --#{$prefix}color-default-color-dark-text-lighter
     );
-    --#{$prefix}breadcrumb-visited-link-text-decoration-color-hover: var(
-      --#{$prefix}color-default-color-dark-underline-default-hover
+    --#{$prefix}breadcrumb-divider-color: var(
+      --#{$prefix}dark-action-secondary
     );
+    --#{$prefix}breadcrumb-link-color: var(--#{$prefix}dark-link);
+    --#{$prefix}breadcrumb-link-text-decoration-color: var(
+      --#{$prefix}dark-link
+    );
+    --#{$prefix}breadcrumb-link-text-decoration-color-hover: var(
+      --#{$prefix}dark-link
+    );
+    .breadcrumb-vertical > li > a {
+      --#{$prefix}breadcrumb-link-color: var(--#{$prefix}light-link);
+    }
   }
-}
 
-@include color-mode(dark) {
-}
+  .expanded {
+    .breadcrumb-collapse-wrapper {
+      max-height: 100%;
+      --#{$prefix}dropdown-box-shadow:
+        0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); // level 2 shadow
+      box-shadow: var(--#{$prefix}dropdown-box-shadow);
+      pointer-events: all;
+      transition: max-height 0.5s ease-in;
+    }
+  }
 
-.breadcrumb {
-  font-size: 0.875rem;
-  &.expanded {
-    .breadcrumb-toggle {
+  .breadcrumb-vertical > li {
+    list-style: none;
+    width: 100%;
+    &:after {
       display: none;
     }
-  }
-}
-.breadcrumb-item {
-  display: none;
-  line-height: 2rem;
-  &:nth-last-child(2) {
-    display: list-item;
-    &:before {
-      content: var(--#{$prefix}breadcrumb-divider);
-      float: left;
-      padding-right: var(--qld-breadcrumb-item-padding-x);
-      width: 1rem;
+
+    a {
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      display: block;
+      width: 100%;
+      color: $qld-text-grey;
+      white-space: nowrap; /* Prevents text from wrapping to the next line */
+      overflow: hidden; /* Hides any content that overflows the element's box */
+      text-overflow: ellipsis;
+      margin: 0;
+      &:hover {
+        text-decoration: underline;
+        color: $qld-light-link;
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
+        background-color: $core-default-color-neutral-lighter;
+      }
+      @include m.focusable($offsetOutline: 3px);
+      &:focus {
+        outline-offset: -3px;
+      }
     }
   }
-  a:after {
-    content: none;
-  }
-  &.shortened {
-    height: 0;
+  .breadcrumb-collapse-wrapper {
+    position: absolute;
+    margin-top: 1rem;
+    max-height: 0;
     overflow: hidden;
-    max-width: 0;
-    transition: max-width 0s;
-    padding: 0;
+    pointer-events: none;
+    width: 360px;
+    border-radius: 4px;
+    /* Transition properties */
+    transition: max-height 0.5s ease-out;
   }
-  .breadcrumb-toggle {
+  .breadcrumb-vertical {
+    padding: 0;
+    background-color: $core-default-color-neutral-lightest;
+    border-bottom: 4px solid $qld-brand-secondary;
+  }
+}
+
+// Breadcrumb items
+.breadcrumb-item {
+  font-size: 0.875rem;
+  line-height: 2rem;
+  display: none;
+  white-space: nowrap;
+
+  &:not(:first-child) a {
+    margin-left: 5px;
+  }
+
+  &:nth-last-child(2) {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    &:focus {
+      overflow: initial;
+    }
+  }
+
+  &:first-child {
+    flex-shrink: 0;
+  }
+
+  a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  // Override Bootstrap's default :before pseudo element
+  &:before {
+    display: none;
+  }
+
+  // Divider
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    mask-image: var(--#{$prefix}breadcrumb-divider);
+    mask-size: 1rem 1rem;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    background-color: var(--#{$prefix}breadcrumb-divider-color);
+    position: relative;
+    top: 4px;
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+
+  // Breadcrumb link
+  a,
+  a:visited,
+  a:hover {
+    color: var(--#{$prefix}breadcrumb-link-color);
+    text-decoration-color: var(
+      --#{$prefix}breadcrumb-link-text-decoration-color
+    );
+  }
+
+  a {
+    @include m.focusable($offsetOutline: 3px);
+  }
+}
+
+.breadcrumb-toggle {
+  @include m.unset-button-styles();
+  flex-shrink: 0;
+
+  > button {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1.5rem;
+    outline: none;
     border: 0;
+    background-color: transparent;
+    border-radius: 4px;
     padding: 0;
-    vertical-align: inherit;
-  }
-  a:visited {
-    color: var(--#{$prefix}breadcrumb-visited-link-color);
-    text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color);
-    &:hover {
-      text-decoration-color: var(--#{$prefix}breadcrumb-visited-link-text-decoration-color-hover);
+    vertical-align: middle;
+    &:after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: " ";
+      mask-image: var(--#{$prefix}breadcrumb-expander);
+      background-color: var(--#{$prefix}breadcrumb-link-color);
+      mask-size: 1.5rem 1.5rem;
+      mask-repeat: no-repeat;
+      mask-position: center center;
     }
+
+    &:hover,
+    &:focus {
+      background-color: rgba($core-default-color-neutral-black, 0.1);
+    }
+
+    @include m.focusable($offsetOutline: 3px);
   }
 }
 
-@include media-breakpoint-up(md) {
+// Responsive styles
+@include media-breakpoint-down(lg) {
   .breadcrumb {
-    --#{$prefix}breadcrumb-padding-y: 2.5rem 0 1.5rem;
+    --#{$prefix}breadcrumb-padding-y: 1rem;
   }
+
   .breadcrumb-item {
-    :after {
-      content: var(--#{$prefix}breadcrumb-divider-flipped);
-    }
-    &:last-child {
-      content: none;
+    max-width: unset;
+    &:nth-last-child(2) {
+      display: flex;
+      flex-direction: row-reverse;
+      min-width: 0;
+      // Rotate the back arrow 180 degrees, shift left to align chevron with text
+      &:after {
+        transform: rotate(180deg);
+        transform-origin: center;
+        margin-left: -0.25rem;
+        top: 7px;
+        min-width: 1.5rem;
+      }
     }
   }
 }
 
+//Large and above
 @include media-breakpoint-up(lg) {
-  .breadcrumb {
-    --#{$prefix}breadcrumb-padding-y: 3rem 0 2rem;
-
-    font-size: 1rem;
-  }
   .breadcrumb-item {
-    display: list-item;
-    padding-left: 0;
-    padding-right: var(--qld-breadcrumb-item-padding-x);
-    & + .breadcrumb-item {
-      padding-left: 0;
-      &:before {
-        content: none;
-      }
-    }
-    &:nth-last-child(2):before {
-      content: none;
-    }
+    display: inline;
+    font-size: 1rem;
+
     &.active {
-      &:before {
-        content: none;
-      }
-    }
-    a:after {
-      width: 1rem;
-      content: var(--#{$prefix}breadcrumb-divider-flipped);
-      float: right;
-      padding-left: var(--qld-breadcrumb-item-padding-x);
+      white-space: nowrap; /* Prevents text from wrapping to the next line */
+      overflow: hidden; /* Hides any content that overflows the element's box */
+      text-overflow: ellipsis;
+      display: inline-block;
+      flex-shrink: 999999;
+      margin-left: 4px;
     }
   }
 }

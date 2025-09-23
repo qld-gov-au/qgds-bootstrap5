@@ -1,29 +1,86 @@
-// Dark mode.  
-// Note that you can't read custom variables into media queries (as at Sep 2023).
-// Example: "background: var(--theme-background);"  
+// QLD Theme Palette Classes
+// Provides complete theme styling including color, background-color, and CSS variables
 
-// However, you can set them, however:
-// example: --theme-background: #000;
-
-//You can also fall back to SASS variable to set at compile time.
-
-@include color-mode(dark) {
-    :root {
-        --#{$prefix}body-bg: var(--qld-brand-primary-dark);
-        --#{$prefix}body-color: #FFF;
-        --#{$prefix}heading-color: #FFF;
-        --#{$prefix}link-color: #FFF;
-        --#{$prefix}link-hover-color: var(--qld-brand-accent);
-    }
-
-    //...etc
+// Theme properties mixins to avoid duplication
+@mixin light-theme-properties {
+  background-color: var(--qld-body-bg);
+  color: var(--qld-body-color);
+  --qld-action-icon-color: var(--qld-light-action-secondary);
+  --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
+  --qld-body-color: #{$body-color};
+  --qld-body-font-weight: #{$body-font-weight};
+  --qld-focus-color: var(--qld-light-focus);
+  --qld-headings-color: #{$headings-color};
+  --qld-link-color: #{$link-color};
+  --qld-link-color-rgb: #{to-rgb($link-color)};
+  --qld-link-font-weight: 400;
+  --qld-link-hover-color: var(--qld-link-color);
+  --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
+  --qld-link-underline: #{$color-default-color-light-underline-default};
+  --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
+  --qld-link-underline-offset: 0.3rem;
+  --qld-link-underline-thickness: 0.5px;
+  --qld-link-underline-thickness-hover: 2px;
+  --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
+  --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
+  --qld-selection-bg: var(--qld-brand-primary);
+  --qld-selection-color: var(--qld-white);
 }
 
+@mixin dark-theme-properties {
+  background-color: var(--qld-body-bg);
+  color: var(--qld-body-color);
+  --qld-action-icon-color: var(--qld-dark-action-secondary);
+  --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
+  --qld-body-color: #fff;
+  --qld-focus-color: var(--qld-dark-focus);
+  --qld-headings-color: #fff;
+  --qld-link-color: #fff;
+  --qld-link-color-rgb: 255, 255, 255;
+  --qld-link-hover-color: #fff;
+  --qld-link-hover-color-rgb: 255, 255, 255;
+  --qld-link-visited: var(--qld-link-visited-dark);
+  --qld-selection-bg: var(--qld-white);
+  --qld-selection-color: var(--qld-brand-primary);
+}
 
+// Default theme (inherits :root variables) and root variables
+:root,
+.default {
+  @include light-theme-properties;
+  --qld-body-bg: var(--qld-default-background);
+  --qld-border-color: var(--qld-light-border);
+}
+
+// Light theme
 .light {
-    background: var(--#{$prefix}light-background);
+  @include light-theme-properties;
+  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
 }
 
+// Alt theme (light alternative)
 .alt {
-    background: var(--#{$prefix}light-alt-background);
+  @include light-theme-properties;
+  --qld-body-bg: var(--qld-light-alt-background);
+  --qld-border-color: var(--qld-soft-grey);
+}
+
+// Dark theme
+.dark {
+  @include dark-theme-properties;
+  --qld-body-bg: var(--qld-dark-background);
+  --qld-border-color: var(--qld-dark-border);
+}
+
+// Dark alt theme
+.dark-alt {
+  @include dark-theme-properties;
+  --qld-body-bg: var(--qld-dark-alt-background);
+  --qld-border-color: var(--qld-dark-alt-border);
+}
+
+// Bootstrap dark mode support
+:root[data-bs-theme="dark"] {
+  @include dark-theme-properties;
+  --qld-body-bg: var(--qld-brand-primary);
 }

@@ -1,12 +1,12 @@
-import { Canvas, Meta, Story } from "@storybook/blocks"
-import * as AlertStories from "./inpageAlert.stories"
+import { Canvas, Meta, Story, Source } from "@storybook/blocks";
+import * as AlertStories from "./inpageAlert.stories";
+import defaultdata from "./inpageAlert.data.json";
 
 <Meta of={AlertStories} />
 
 # In-page alert
-<Canvas>
-  <Story of={AlertStories.Success} />
-</Canvas>
+
+<Canvas of={AlertStories.Default} />
 
 ## Design resources
 
@@ -14,3 +14,7 @@ import * as AlertStories from "./inpageAlert.stories"
 - [Master component file (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98125&mode=design&t=YLfxdziHdqD2Ty0o-0)
 - [Design System website](https://www.designsystem.qld.gov.au/components/alerts-in-page)
 - [Bootstrap component](https://getbootstrap.com/docs/5.3/components/alerts/)
+
+## Example JSON data
+
+<Source language="json" code={JSON.stringify(defaultdata, null, 2)} />

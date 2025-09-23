@@ -3,8 +3,8 @@ import { Tag } from './Tag.js';
 import defaultdata from './tag.data.json';
 
 const sizes = {
-  "tag-small": "Small",
-  "tag-big": "Big (Default)",
+  "": "Small (Default)",
+  "tag-large": "Large",
 };
 
 const emphasis = {

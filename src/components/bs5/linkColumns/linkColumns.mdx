@@ -1,0 +1,19 @@
+import { Canvas, Meta, Story, Source } from "@storybook/blocks";
+import * as linkColumnsStories from "./linkColumns.stories";
+import defaultdata from "./linkColumns.data.json";
+
+<Meta of={linkColumnsStories} />
+
+# LinkColumns
+
+<Canvas of={linkColumnsStories.Default} />
+
+## Design resources
+
+- [Component library (Figma)](https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=6pghtHXhO8h5PAit-0)
+- [Master component file (Figma)](https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=6sRnJtEdRnteiQXM-0)
+- [Design System website](https://www.designsystem.qld.gov.au/components/link-columns-link-list)
+
+## Example JSON data
+
+<Source language="json" code={JSON.stringify(defaultdata, null, 2)} />

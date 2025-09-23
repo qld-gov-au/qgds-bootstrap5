@@ -1,29 +1,65 @@
-<!-- QGDS Partial: banner -->
+<!-- QGDS Banner Component -->
+  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" role="banner">
+    <div class="container-fluid">
+      <div class="banner-inner">
 
-<div class="container-fluid qld-banner {{variantClass}}">
-
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-12 col-md-7">
-
-                {{{breadcrumbs}}}
-
-                <h1 class="banner-title">{{{title}}}</h1>
-                <p class="banner-lead">{{{content}}}</p>
-
-                {{#if ctabuttons}}
-                <div class="banner-cta btn-toolbar">
-                    {{#each ctabuttons}}
-                    <a href="{{link}}" class="btn {{class}}" target="{{target}}">{{label}}</a>
-                    {{/each}}
-                </div>
-                {{/if}}
-
-            </div>
+        <div class="banner-breadcrumbs">
+          {{> breadcrumbs breadcrumbs }}
         </div>
+
+        <div class="banner-content">
+
+          {{#if title}}
+
+          {{!-- titleClasses accepts a "title-block" class --}}
+          <h1 class="banner-title-wrap {{ join titleClasses }}">
+            <span class="banner-title">{{~title~}}</span>
+            {{#if subtitle }}
+            <span class="banner-subtitle">{{~subtitle~}}</span>
+            {{/if}}
+          </h1>
+          {{/if}}
+
+
+          {{#if abstract}}
+          <div class="banner-abstract">
+            {{abstract}}
+          </div>
+          {{/if}}
+
+          {{!-- CTA Buttons block. Pass an array of button data objects --}}
+          {{#if buttons}}
+          <div class="banner-cta" role="group" aria-label="Available options">
+            <div class="cta-buttons">
+              {{#each buttons}}
+              {{> button this }}
+              {{/each}}
+            </div>
+          </div>
+          {{/if}}
+
+          {{!-- CTA Cards block. Pass an array of card data objects --}}
+          {{#if cards}}
+          <div class="banner-cta" role="group" aria-label="Available options">
+            <div class="cta-cards">
+              {{#each cards }}
+              {{> card this }}
+              {{/each }}
+            </div>
+          </div>
+          {{/if}}
+
+        </div>
+        {{!-- End banner content --}}
+
+        {{#if image }}
+        <div class="banner-image {{ join image.classes }}">
+          <div class="banner-image-inner" style="background-image:url({{image.url}})" role="img"
+            aria-label="{{ image.alt }}"></div>
+        </div>
+        {{/if}}
+
+      </div>
+
     </div>
-
-    <div class="banner-image {{image.classes}}" style="--banner-background-img:url({{image.url}})"></div>
-
-</div>
+  </div>
