@@ -6,6 +6,7 @@
 
 import { DirectionLinks } from "./directionLinks.js";
 import defaultdata from "./directionLinks.data.json";
+import { Disabled } from "../dateinput/Dateinput.stories.js";
 
 export default {
   tags: ["autodocs"],
@@ -15,29 +16,21 @@ export default {
     <!-- Grid container -->
     <div class="container">
       <div class="row">
-        <div class="col">
-          
+        <div class="col">          
           <!-- Component HTML -->
-          ${new DirectionLinks({ ...args, class: "up", label: "Up" }).html}
-        
+          ${new DirectionLinks({ ...args, class: "up", label: "Up" }).html}        
           </div>
         <div class="col">
-          
           <!-- Component HTML -->
-          ${new DirectionLinks({ ...args, class: "down", label: "Down" }).html}
-        
+            ${new DirectionLinks({ ...args, class: "down", label: "Down" }).html}
         </div>
         <div class="col">
-          
           <!-- Component HTML -->
-          ${new DirectionLinks({ ...args, class: "left", label: "Left" }).html}
-        
+            ${new DirectionLinks({ ...args, class: "left", label: "Left" }).html}        
         </div>
-        <div class="col">
-          
+        <div class="col">          
           <!-- Component HTML -->
-          ${new DirectionLinks({ ...args, class: "right", label: "Right" }).html}
-        
+            ${new DirectionLinks({ ...args, class: "right", label: "Right" }).html}        
         </div>
       </div>
     </div>
@@ -59,6 +52,7 @@ export default {
     label: { control: "text" },
   },
   parameters: {
+    controls: { disable: true },
     design: {
       name: "QGDS Figma Reference",
       type: "figma",

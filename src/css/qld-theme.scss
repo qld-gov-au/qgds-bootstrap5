@@ -55,6 +55,7 @@
 // Light theme
 .light {
   @include light-theme-properties;
+  --qld-body-bg: var(--qld-light-background);
   --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
 }
 
