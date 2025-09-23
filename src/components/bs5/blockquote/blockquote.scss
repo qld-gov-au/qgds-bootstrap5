@@ -17,10 +17,34 @@
   // Fonts
   --#{$prefix}quote-font-size: 1rem;
   --#{$prefix}quote-heavy-font-weight: 600;
+  --#{$prefix}blockquote-bg: var(--#{$prefix}body-bg);
+
+  .light & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}light-background);
+  }
+
+  .alt & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}light-grey-alt);
+  }
+
+  .dark & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}brand-primary);
+  }
+
+  .dark-alt & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}dark-blue);
+  }
+
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}quote-text-color: var(--#{$prefix}white);
+    --#{$prefix}quote-ref-text-color: var(--#{$prefix}white);
+  }
 }
 
 //Ruleset for COMPONENT, reference our scoped variables, or use variables of ::root node
 .blockquote {
+  background: var(--#{$prefix}blockquote-bg);
   border-inline-start: var(--#{$prefix}quote-border-width) solid
     var(--#{$prefix}quote-border-color);
   padding-block: calc(var(--#{$prefix}quote-spacing) * 0.5);
