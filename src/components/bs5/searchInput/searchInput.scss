@@ -142,14 +142,6 @@
     }
   }
 
-  @include media-breakpoint-up(lg) {
-    min-width: 22.5rem;
-  }
-
-  @include media-breakpoint-up(xl) {
-    min-width: 26rem;
-  }
-
   //Search dropdown
   .suggestions {
     position: absolute;
