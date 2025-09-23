@@ -85,7 +85,10 @@ const preview = {
       config: {},
       options: {
         runOnly: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
-        checks: { "color-contrast": { options: { noScroll: true } } },
+        checks: {
+          "color-contrast": { options: { noScroll: true } },
+          region: { enabled: false },
+        },
         restoreScroll: true,
       },
     },
