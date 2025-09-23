@@ -263,3 +263,10 @@
     }
   }
 }
+
+body:has(.qld-quick-exit) {
+  html,
+  body {
+    height: auto;
+  }
+}

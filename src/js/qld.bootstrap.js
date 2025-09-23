@@ -21,8 +21,6 @@ import { initTabsScroll } from "./../components/bs5/tabs/tabs.functions";
 import { initGlobalAlerts } from "./../components/bs5/globalAlert/globalAlert.function";
 import { validateSkipLinks } from "./../components/bs5/skiplinks/skipLinks.functions";
 
-//window.addEventListener("scroll", positionQuickExit, true);
-//window.addEventListener("resize", positionQuickExit, true);
 window.addEventListener("click", initQuickexit, true);
 window.addEventListener("keydown", initQuickexit, true);
 
@@ -148,8 +146,6 @@ window.addEventListener("DOMContentLoaded", () => {
     initBreadcrumb();
 
     // Quick exit
-    //window.addEventListener("scroll", positionQuickExit, true);
-    //window.addEventListener("resize", positionQuickExit, true);
     window.addEventListener("click", initQuickexit, true);
     window.addEventListener("keydown", initQuickexit, true);
     initQuickexit();
