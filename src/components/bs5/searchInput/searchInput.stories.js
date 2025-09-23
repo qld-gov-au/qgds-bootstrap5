@@ -52,22 +52,44 @@ export const FullWidth = {
  *
  * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
  */
-
 export const Dark = {
   args: {
     ...defaultdata,
-    variantClass: "dark",
   },
   parameters: {
     backgrounds: {
       default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
     },
   },
   decorators: [
     (Story) => {
       return `
-      <div class="dark p-5">
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};
+
+/**
+ * Dark themed Search Input
+ *
+ * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
+ */
+export const DarkOutlined = {
+  args: { ...defaultdata, customClass: "is-outline" },
+  parameters: {
+    backgrounds: {
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+    },
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark">
           ${Story()}
       </div>
       `;
