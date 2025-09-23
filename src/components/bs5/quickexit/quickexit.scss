@@ -264,3 +264,7 @@
     }
   }
 }
+
+body:has(.qld-quick-exit) {
+  height: auto;
+}
