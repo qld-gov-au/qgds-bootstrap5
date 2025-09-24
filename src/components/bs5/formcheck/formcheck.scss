@@ -345,22 +345,8 @@ $form-check-inline-margin-end: 1rem;
   }
 
   // DARK MODE VALIDATION SUPPORT
-  .dark .valid &,
-  .dark .invalid &,
-  .dark .is-valid &,
-  .dark .is-invalid &,
-  .dark .needs-validation &:valid,
-  .dark .was-validated &:valid,
-  .dark .needs-validation &:invalid,
-  .dark .was-validated &:invalid,
-  .dark-alt .valid &,
-  .dark-alt .invalid &,
-  .dark-alt .is-valid &,
-  .dark-alt .is-invalid &,
-  .dark-alt .needs-validation &:valid,
-  .dark-alt .was-validated &:valid,
-  .dark-alt .needs-validation &:invalid,
-  .dark-alt .was-validated &:invalid {
+  :is(.dark, .dark-alt) :is(.valid, .invalid, .is-valid, .is-invalid) &,
+  :is(.dark, .dark-alt) :is(.needs-validation, .was-validated) &:is(:valid, :invalid) {
     &:focus + label::before {
       outline: $form-check-input-outline-dark;
       outline-offset: 2px;
