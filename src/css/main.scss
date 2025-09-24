@@ -1,7 +1,7 @@
 // Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
 
 // External fonts
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Noto+Sans:wght@400;600;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;900&display=swap");
 $font-family-sans-serif:
   "Noto Sans",
   system-ui,
@@ -17,7 +17,7 @@ $font-family-sans-serif:
   "Segoe UI Emoji",
   "Segoe UI Symbol",
   "Noto Color Emoji" !default;
-$font-family-sitename: "Fira Sans", $font-family-sans-serif;
+$font-family-sitename: $font-family-sans-serif;
 
 //Icons
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css");
