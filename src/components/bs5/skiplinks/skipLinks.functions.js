@@ -1,5 +1,3 @@
-import { isFocusable } from "../../../js/utils";
-
 /**
  * Checks whether target elements in a list of skip links are valid - ie they can receive focus.
  * @returns {boolean} Return true if skip links are valid, false if there is a problem.
@@ -14,13 +12,6 @@ export function validateSkipLinks() {
     if (!target) {
       console.error(
         `A skip link with label "${item.textContent}" is targeting a non-existent element with id "${targetId}".`,
-      );
-      return false;
-    }
-    // check if target is focusable
-    if (!isFocusable(target)) {
-      console.error(
-        `A skip link with label "${item.textContent}" is targeting a non-focusable element with id "${targetId}". Make sure the element is natively focusable, or assign a tab index of -1.`,
       );
       return false;
     }

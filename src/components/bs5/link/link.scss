@@ -2,20 +2,12 @@
   text-underline-offset: var(--qld-link-underline-offset);
   text-decoration-thickness: var(--qld-link-underline-thickness);
 
-  --#{$prefix}icon-background-color: var(--#{$prefix}light-action-secondary);
-  --#{$prefix}icon-background-color-hover: var(
-    --#{$prefix}light-action-secondary-hover
-  );
   --#{$prefix}link-color: var(--#{$prefix}light-link);
   --#{$prefix}link-text-decoration-color: var(--#{$prefix}light-link);
   --#{$prefix}link-gap: 0.5rem;
 
   .dark &,
   .dark-alt & {
-    --#{$prefix}icon-background-color: var(--#{$prefix}dark-action-secondary);
-    --#{$prefix}icon-background-color-hover: var(
-      --#{$prefix}dark-action-secondary-hover
-    );
     --#{$prefix}link-color: var(--#{$prefix}dark-link);
     --#{$prefix}link-text-decoration-color: var(--#{$prefix}dark-link);
     &:visited {
@@ -38,13 +30,12 @@
   width: fit-content;
 
   &:hover {
+    --#{$prefix}icon-color: var(--#{$prefix}action-icon-hover-color);
+
     text-decoration-thickness: var(--qld-link-underline-thickness-hover);
     text-decoration-color: var(
       --#{$prefix}color-default-color-light-underline-default
     );
-    .qld-icon {
-      background-color: var(--#{$prefix}icon-background-color-hover);
-    }
   }
 
   &:visited {
@@ -60,10 +51,6 @@
     outline: 3px solid var(--qld-focus-color);
     outline-offset: 2px;
     border-radius: 4px;
-  }
-
-  .qld-icon {
-    background-color: var(--#{$prefix}icon-background-color);
   }
 }
 
