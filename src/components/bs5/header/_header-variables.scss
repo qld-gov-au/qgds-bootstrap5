@@ -43,9 +43,7 @@ $prefix: "qld" !default;
       -icon_hover_color: var(
           --#{$prefix}color-default-color-dark-action-secondary-hover
         ),
-      _dropdown_bg_color: var(
-          --#{$prefix}color-default-color-dark-background-default
-        ),
+      _dropdown_bg_color: var(--#{$prefix}dark-background-shade),
     )
   );
 
@@ -264,7 +262,7 @@ $prefix: "qld" !default;
             --#{$prefix}color-default-color-dark-background-alt
           ),
         __cta-wrapper__cta-link-dropdown_bg_color: var(
-            --#{$prefix}color-default-color-dark-background-alt
+            --#{$prefix}dark-background-shade
           ),
       )
     );

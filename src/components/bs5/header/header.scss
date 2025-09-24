@@ -1,6 +1,7 @@
 @use "./header-variables" with (
   $prefix: $prefix
 );
+@use "../../../css/mixins";
 
 // Play nice with navbar header.
 :root {
@@ -123,6 +124,8 @@
   &-link {
     font-size: 0.875rem;
     line-height: 1;
+    display: inline-flex;
+    align-items: center;
 
     &,
     &:visited {
@@ -143,6 +146,7 @@
         --#{$prefix}header-pre-header-color-link-decoration-focus
       ) !important;
       text-decoration-thickness: 2px;
+      outline-offset: 0;
     }
 
     &:disabled,
@@ -187,9 +191,31 @@
     }
   }
 
-  // Preheader CTA dropdown - custom functionality:
   .dropdown {
     line-height: 1.5;
+    display: flex;
+  }
+
+  .dropdown-toggle {
+    padding-inline: 1.25rem;
+    display: flex;
+    align-items: center;
+    height: var(--qld-header-preheader-height);
+
+    &::after {
+      content: "";
+      @include mixins.make-icon($name: "chevron-down", $size: "xs");
+      margin-left: 0.5rem;
+      transition: transform 0.2s;
+    }
+
+    &.show {
+      background-color: var(--qld-dark-background-shade);
+      &::after {
+        // transform: scaleY(-1);
+        transform: rotate(-180deg);
+      }
+    }
   }
 
   .dropdown-menu {
@@ -199,27 +225,28 @@
     //
     width: 20.25rem;
     min-height: 1rem;
-    padding: 0rem 2rem 1.75rem;
+    padding: 1rem 2rem 1rem;
     border-radius: 0 0 0.75rem 0.75rem;
     border: 0;
     background-color: var(
       --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
     );
     box-shadow: var(--#{$prefix}header-pre-header-boxshadow);
-    margin-top: 0.8rem !important; // Overrides the default bs-popper margin
+    transform: translate(0px, var(--qld-header-preheader-height)) !important;
+    // margin-top: 0.8rem !important; // Overrides the default bs-popper margin
 
-    &::before {
-      position: absolute;
-      content: " ";
-      height: 6px;
-      top: -6px;
-      left: 0;
-      right: 0px;
-      background-color: var(
-        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
-      );
-      pointer-events: none; // so that pseudo-element isn't clickable
-    }
+    // &::before {
+    //   position: absolute;
+    //   content: " ";
+    //   height: 6px;
+    //   top: -6px;
+    //   left: 0;
+    //   right: 0px;
+    //   background-color: var(
+    //     --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
+    //   );
+    //   pointer-events: none; // so that pseudo-element isn't clickable
+    // }
 
     hr {
       margin: 1.5rem 0;
@@ -276,7 +303,7 @@
   &-dropdown-icon {
     vertical-align: middle;
     margin-left: 0.5rem;
-    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
+    // color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
     height: 1rem;
     width: 1rem;
   }
