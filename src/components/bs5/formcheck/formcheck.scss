@@ -1,3 +1,4 @@
+@use "../../../css/mixins" as m;
 // NTGOV Form Controls, radios, checkboxes and input groups
 // https://getbootstrap.com/docs/5.2/forms/form-control/#variables
 
@@ -257,47 +258,33 @@ $form-check-inline-margin-end: 1rem;
   }
 
   // BOOTSTRAP 5 VALIDATION STATES
-  // Support for .is-valid and .is-invalid classes
+  // Support for .is-valid/.is-invalid classes and HTML5 validation
   .is-valid &,
-  .is-invalid & {
+  .is-invalid &,
+  .needs-validation &:valid,
+  .was-validated &:valid,
+  .needs-validation &:invalid,
+  .was-validated &:invalid {
     &:focus + label::before {
       outline: $form-check-input-outline;
       outline-offset: 2px;
       box-shadow: none;
     }
   }
-  .is-valid & {
-    + label::before {
-      outline: $form-check-valid-color solid 2px;
-    }
-  }
-  .is-invalid & {
-    + label::before {
-      outline: $form-check-invalid-color solid 2px;
-    }
-  }
 
-  // Support for :valid and :invalid pseudo-classes with validation parent classes
+  .is-valid &,
   .needs-validation &:valid,
   .was-validated &:valid {
     + label::before {
       outline: $form-check-valid-color solid 2px;
     }
-    &:focus + label::before {
-      outline: $form-check-input-outline;
-      outline-offset: 2px;
-      box-shadow: none;
-    }
   }
+
+  .is-invalid &,
   .needs-validation &:invalid,
   .was-validated &:invalid {
     + label::before {
       outline: $form-check-invalid-color solid 2px;
-    }
-    &:focus + label::before {
-      outline: $form-check-input-outline;
-      outline-offset: 2px;
-      box-shadow: none;
     }
   }
 
@@ -362,21 +349,14 @@ $form-check-inline-margin-end: 1rem;
   .dark .invalid &,
   .dark .is-valid &,
   .dark .is-invalid &,
-  .dark-alt .valid &,
-  .dark-alt .invalid &,
-  .dark-alt .is-valid &,
-  .dark-alt .is-invalid & {
-    &:focus + label::before {
-      outline: $form-check-input-outline-dark;
-      outline-offset: 2px;
-      box-shadow: none;
-    }
-  }
-
   .dark .needs-validation &:valid,
   .dark .was-validated &:valid,
   .dark .needs-validation &:invalid,
   .dark .was-validated &:invalid,
+  .dark-alt .valid &,
+  .dark-alt .invalid &,
+  .dark-alt .is-valid &,
+  .dark-alt .is-invalid &,
   .dark-alt .needs-validation &:valid,
   .dark-alt .was-validated &:valid,
   .dark-alt .needs-validation &:invalid,
@@ -412,25 +392,12 @@ $form-check-inline-margin-end: 1rem;
 
 .valid-feedback {
   color: $form-check-valid-color;
-  &:before {
-    content: "";
-    height: 2rem;
-    width: 2rem;
-    transform: scale(0.6);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' enable-background='new 0 0 64 64'%3E%3Cpath d='M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z' fill='%2343a047'/%3E%3C/svg%3E");
-  }
+  @include m.make-icon($name: "status-success", $size: "lg", $pseudo: "before");
 }
 
 .invalid-feedback {
   color: $form-check-invalid-color;
-  &:before {
-    content: "";
-    height: 2rem;
-    width: 2rem;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12Z' fill='%23E22339'/%3E%3Cpath d='M11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18Z' fill='white'/%3E%3Cpath d='M11 5C11 4.44771 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V14C13 14.5523 12.5523 15 12 15C11.4477 15 11 14.5523 11 14V5Z' fill='white'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    transform: scale(0.6);
-  }
+  @include m.make-icon($name: "status-error", $size: "lg", $pseudo: "before");
 }
 
 // Dark mode feedback

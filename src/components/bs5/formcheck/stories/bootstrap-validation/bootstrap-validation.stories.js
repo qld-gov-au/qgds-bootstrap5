@@ -4,7 +4,7 @@ import checkboxData from '../checkbox/checkbox.data.json';
 
 export default {
   tags: ['autodocs'],
-  title: '3. Components/Forms/Bootstrap 5 Validation',
+  title: '3. Components/Forms/Form Validation (Bootstrap 5)',
   render: (args) => {
     return `${new Formcheck(args).html}`
   },
@@ -13,21 +13,6 @@ export default {
       description: {
         component: 'Bootstrap 5 validation states for form controls. Supports .is-valid/.is-invalid classes, :valid/:invalid pseudo-classes with .needs-validation/.was-validated parent classes, and validation feedback messages. Also maintains existing QLD Design System .valid/.invalid classes.',
       },
-    },
-  },
-  argTypes: {
-    validationState: {
-      control: { type: 'select' },
-      options: ['none', 'is-valid', 'is-invalid', 'valid', 'invalid'],
-      description: 'Validation state to apply',
-    },
-    showFeedback: {
-      control: { type: 'boolean' },
-      description: 'Show validation feedback message',
-    },
-    feedbackMessage: {
-      control: { type: 'text' },
-      description: 'Custom feedback message',
     },
   },
 };
@@ -263,7 +248,11 @@ export const BootstrapValidationDark = {
   },
   decorators: [
     (Story) => {
-      return `<div class="dark">${Story()}</div>`;
+      return `
+      <div class="dark">
+          ${Story()}
+      </div>
+      `;
     },
   ],
 };
