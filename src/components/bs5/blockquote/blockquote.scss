@@ -1,9 +1,15 @@
 //PREP REUSABLE VARIABLES, SCOPED TO .blockquote
 .blockquote {
   // Colours
-  --#{$prefix}quote-border-color: var(--#{$prefix}color-default-color-light-accent-design-accent);
-  --#{$prefix}quote-text-color: var(--#{$prefix}color-default-color-light-text-heading);
-  --#{$prefix}quote-ref-text-color: var(--#{$prefix}color-default-color-light-text-default);
+  --#{$prefix}quote-border-color: var(
+    --#{$prefix}color-default-color-light-accent-design-accent
+  );
+  --#{$prefix}quote-text-color: var(
+    --#{$prefix}color-default-color-light-text-heading
+  );
+  --#{$prefix}quote-ref-text-color: var(
+    --#{$prefix}color-default-color-light-text-default
+  );
   //Measurements
   --#{$prefix}quote-spacing: 1rem;
   --#{$prefix}quote-border-width: 0.25rem;
@@ -11,13 +17,38 @@
   // Fonts
   --#{$prefix}quote-font-size: 1rem;
   --#{$prefix}quote-heavy-font-weight: 600;
+  --#{$prefix}blockquote-bg: var(--#{$prefix}body-bg);
+
+  .light & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}light-background);
+  }
+
+  .alt & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}light-grey-alt);
+  }
+
+  .dark & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}brand-primary);
+  }
+
+  .dark-alt & {
+    --#{$prefix}blockquote-bg: var(--#{$prefix}dark-blue);
+  }
+
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}quote-text-color: var(--#{$prefix}white);
+    --#{$prefix}quote-ref-text-color: var(--#{$prefix}white);
+  }
 }
 
 //Ruleset for COMPONENT, reference our scoped variables, or use variables of ::root node
 .blockquote {
-  border-inline-start: var(--#{$prefix}quote-border-width) solid var(--#{$prefix}quote-border-color);
+  background: var(--#{$prefix}blockquote-bg);
+  border-inline-start: var(--#{$prefix}quote-border-width) solid
+    var(--#{$prefix}quote-border-color);
   padding-block: calc(var(--#{$prefix}quote-spacing) * 0.5);
-  padding-inline-start: calc(var(--#{$prefix}quote-spacing) * 1.5);
+  padding-inline-start: calc(var(--#{$prefix}quote-spacing) * 1.25);
   padding-inline-end: calc(var(--#{$prefix}quote-spacing) * 1);
 
   blockquote {
@@ -25,7 +56,7 @@
     margin-block-end: 0;
     color: var(--#{$prefix}quote-text-color);
     font-size: calc(var(--#{$prefix}quote-font-size) * 1.25);
-    line-height: calc(var(--#{$prefix}quote-font-size) * 1.4);
+    line-height: calc(var(--#{$prefix}quote-font-size) * 1.75);
     font-weight: var(--#{$prefix}quote-heavy-font-weight);
     p:last-child {
       margin-block-end: 0;
@@ -34,6 +65,15 @@
   .quote-source {
     color: var(--#{$prefix}quote-ref-text-color);
     font-size: calc(var(--#{$prefix}quote-font-size) * 0.875);
-    margin-block-start: calc(var(--#{$prefix}quote-spacing) * 0.625);
+    margin-block-start: calc(var(--#{$prefix}quote-spacing) * 0.75);
+  }
+
+  > figcaption {
+    background: transparent;
+    color: var(--figure-color);
+
+    display: block;
+    caption-side: bottom;
+    padding: 0;
   }
 }

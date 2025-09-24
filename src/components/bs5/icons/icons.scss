@@ -1,3 +1,8 @@
+@forward "./_icons.variables";
+@use "./_icons.list" as *;
+@use "./icons.sizes" as *;
+@use "../../../css/mixins" as m;
+
 /* @TODO: Remove lines in between once all the icons within the components have been synced with new icons.  */
 :root {
   //Define global icons as CSS variables
@@ -9,23 +14,6 @@
 }
 
 .qld-icon {
-  //Shared icon styles
-  display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
-  background-position: center center;
-  background-repeat: no-repeat;
-  mask-position: center center;
-  -webkit-mask-position: center center;
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-
-  //Default color
-  background: var(--#{$prefix}icon-color);
-
-  //Change color at component level... e.g. on cards.css, use:
-  // .card { --#{$prefix}icon-color: purple; }
-
   &.icon-dot-grid {
     mask-image: escape-svg(var(--icon-dot-grid));
     -webkit-mask-image: escape-svg(var(--icon-dot-grid));
@@ -50,69 +38,33 @@
 }
 /* @TODO: Remove all lines above once all the icons within the components have been synced with new icons.  */
 
-@import "./_icons.variables";
-@import "./_icons.list";
-@import "./_icons-multicolours.list";
-
-$prefixIcon: $prefix + "icon-"; // Prefix for icon classes, based on global prefix in main.scss
-$prefixIconQgds: "--qgds-icon-"; // This QGDS variable could be moved to the token or tolkien repo.
-
-// Ensure SVGs inherit the current text color
-// Comment out to use the "fill" attribute inside svg element instead
-/*
-svg {
-	fill: currentColor;
-} */
-
-// List of icon sizes
-$icon-sizes: (
-  "xs": 1rem,
-  "sm": 1.25rem,
-  "md": 1.5rem,
-  "lg": 2rem,
-  "xl": 2.5rem,
-  "xxl": 3rem,
-);
-
 // Loop through the icon names and create utility class for each
 .qld-icon {
-  display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
-  background-position: center center;
-  background-repeat: no-repeat;
-  mask-position: center center;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  background-color: var(--#{$prefix}body-color); // Default icon color
+  @include m.make-icon();
+
+  &:where(svg) {
+    background-color: transparent;
+  }
 
   // Utility classes for icons
   // Note: mask-image is the preferred method for icons that are single colour, as it allows for easy colour changes using CSS variables.
   // The background-image method is used for SVG icons with multiple fill colours.
   @each $icon in $icon-names {
-    @if index($icons-multicolour, $icon) {
-      // Only use background-image for multi colours icons.
-      &.#{$prefixIcon}#{$icon} {
-        background-image: var(#{$prefixIconQgds}#{$icon});
-        -webkit-background-image: var(#{$prefixIconQgds}#{$icon});
-        background-color: transparent;
-      }
-    } @else {
-      &.#{$prefixIcon}#{$icon} {
-        mask-image: var(#{$prefixIconQgds}#{$icon});
-        -webkit-mask-image: var(#{$prefixIconQgds}#{$icon});
-      }
+    &-#{$icon} {
+      @include m.make-icon($name: $icon, $include-base: false);
     }
   }
-}
 
-// Loop through the icon sizes and create utility class for each size.
-// Independent from the icon base class to allow sizing on inline SVG icons as well as CSS icons.
-@each $size, $value in $icon-sizes {
-  .#{$prefixIcon}#{$size} {
-    width: $value;
-    height: $value;
-    mask-size: $value;
-    background-size: $value;
+  // Loop through the icon sizes and create utility class for each size.
+  // Independent from the icon base class to allow sizing on inline SVG icons as well as CSS icons.
+  @each $key, $value in $icon-sizes {
+    &-#{$key} {
+      --icon-size: #{$value};
+    }
+  }
+
+  // Better alignment for icons inline with text
+  &.is-inline {
+    @include m.make-icon($include-base: false, $is-inline: true);
   }
 }
