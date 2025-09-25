@@ -3,9 +3,8 @@
 
 // QGDS specific In-page Navigation variables.
 .qld-inpage-nav {
-  --#{$prefix}inpage-nav-padding-left: 1.5rem;
-  --#{$prefix}inpage-nav-title-padding-left: $nav-link-padding-x;
-  --#{$prefix}inpage-nav-link-padding-left: $nav-link-padding-x;
+  --#{$prefix}inpage-nav-padding-left: 1.25rem;
+  --#{$prefix}inpage-nav-title-padding-left: 0;
   --#{$prefix}inpage-nav-link-padding-y: 0.25rem;
   --#{$prefix}inpage-nav-border-color: var(--#{$prefix}brand-primary);
 }
@@ -51,6 +50,10 @@
 
     &:first-child .nav-link {
       padding-top: 0;
+    }
+
+    &:last-child .nav-link {
+      padding-bottom: 0;
     }
   }
 }
