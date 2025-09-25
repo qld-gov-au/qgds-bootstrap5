@@ -20,26 +20,18 @@ export default {
   },
 };
 
-/**
- * Default Search Input
- */
 export const Default = {
   args: defaultdata,
-  name: "Default - Filled Variant",
+  name: "Default - Outline Variant",
 };
 
 /**
- * Outline Variant
- *
- * With `customClass: is-outline`
+ * With `customClass: is-filled`
  */
-export const OutlinedVariant = {
-  args: { ...defaultdata, customClass: "is-outline" },
+export const FilledVariant = {
+  args: { ...defaultdata, customClass: "is-filled" },
 };
 
-/**
- * Full width Search Input
- */
 export const FullWidth = {
   args: {
     ...defaultdata,
@@ -78,8 +70,8 @@ export const Dark = {
  *
  * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
  */
-export const DarkOutlined = {
-  args: { ...defaultdata, customClass: "is-outline" },
+export const DarkFilled = {
+  args: { ...defaultdata, customClass: "is-filled" },
   parameters: {
     backgrounds: {
       default: "Dark",

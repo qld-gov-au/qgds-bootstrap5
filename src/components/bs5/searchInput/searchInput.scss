@@ -2,7 +2,7 @@
 
 .qld-search-input {
   // Input variables
-  --background-color: var(--#{$prefix}extra-light-grey);
+  --background-color: var(--#{$prefix}white);
   --border-color: var(--#{$prefix}light-border-alt);
   --placeholder-color: var(--#{$prefix}light-text-lighter);
   --qld-icon-color: var(--#{$prefix}light-text-lighter);
@@ -53,11 +53,11 @@
     border: {
       color: var(--border-color);
       style: solid;
-      top-width: 0;
+      top-width: 0.125rem;
       right-width: 0;
       bottom-width: 0.125rem;
-      left-width: 0;
-      radius: $border-radius 0 0 0;
+      left-width: 0.125rem;
+      radius: $border-radius 0 0 $border-radius;
     }
     background: var(--background-color);
     padding-right: 7.5rem;
@@ -73,21 +73,20 @@
     }
 
     &:hover {
+      --background-color: var(--#{$prefix}neutral-lightest);
       --border-color: var(--#{$prefix}light-action-primary-hover);
-      --background-color: var(--#{$prefix}extra-light-grey);
     }
 
     &:active,
     &:focus {
-      --border-color: var(--#{$prefix}neutral-lighter);
+      --border-color: var(--#{$prefix}light-border-alt);
       --background-color: var(--#{$prefix}white);
       outline: none;
-      border-bottom-left-radius: $border-radius;
     }
   }
 
   > button {
-    border-radius: 0 $border-radius 0 0;
+    border-radius: 0 $border-radius $border-radius 0;
     padding: 0;
     margin: 0;
     width: var(--_size);
@@ -270,31 +269,33 @@
     max-width: 100%;
   }
 
-  //is-filled is default
+  &.is-filled {
+    --background-color: var(--#{$prefix}neutral-lightest);
 
-  &.is-outline {
     .form-control {
       border: {
-        top-width: 0.125rem;
+        top-width: 0;
         right-width: 0;
         bottom-width: 0.125rem;
-        left-width: 0.125rem;
-        radius: $border-radius 0 0 $border-radius;
+        left-width: 0;
+        radius: $border-radius 0 0 0;
       }
 
+      &:active,
       &:focus {
-        --border-color: var(--#{$prefix}light-border-alt);
+        --border-color: var(--#{$prefix}neutral-lighter);
+        border-bottom-left-radius: $border-radius;
       }
     }
 
     > button {
-      border-radius: 0 $border-radius $border-radius 0;
+      border-radius: 0 $border-radius 0 0;
     }
   }
 
   .dark &,
   .dark-alt & {
-    --background-color: var(--#{$prefix}dark-background-shade);
+    --background-color: var(--#{$prefix}dark-background-background);
     --border-color: var(--#{$prefix}dark-alt-border);
     --placeholder-color: var(--${prefix}dark-text-lighter);
     --qld-icon-color: var(--#{$prefix}white);
@@ -339,16 +340,19 @@
       }
     }
 
-    &.is-outline {
-      --background-color: var(--#{$prefix}dark-background-background);
+    &.is-filled {
+      --background-color: var(--#{$prefix}dark-background-shade);
+
       .form-control {
         &:hover {
           --background-color: var(--#{$prefix}dark-background-shade);
+          --border-color: var(--#{$prefix}dark-action-primary-hover);
         }
 
         &:active,
         &:focus {
           --background-color: var(--#{$prefix}white);
+          --border-color: var(--#{$prefix}neutral-lighter);
         }
       }
     }
