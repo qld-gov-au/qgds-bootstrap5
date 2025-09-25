@@ -1,13 +1,17 @@
 .content-emphasis {
-  margin-left: -2rem;
-  margin-right: -2rem;
-  padding: 2.5rem 2rem;
+  // Negative margin on the emphasis section. Capped to outer container padding,
+  // to prevent overflow and horizontal scrollbar
+  --margin-offset: max(-2rem, calc(var(--qld-container-padding-x) * -1));
+
+  margin-left: var(--margin-offset);
+  margin-right: var(--margin-offset);
+
+  padding: 2.5rem var(--qld-container-padding-x);
 
   @include media-breakpoint-up(lg) {
     padding: 4rem 2rem;
+    overflow: visible;
   }
-
-  overflow: visible;
 
   & p:last-child,
   & ul:last-child,
