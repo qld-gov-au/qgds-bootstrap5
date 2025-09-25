@@ -1,3 +1,5 @@
+import { Docs } from "@storybook/blocks";
+import { parameters } from "../../../../storybook-static/assets/entry-preview-DImpdu69.js";
 import { Navbar } from "./Navbar.js";
 import defaultdata from "./navbar.data.json";
 
@@ -312,6 +314,11 @@ export default {
 };
 
 export const Default = {
+  parameters: {
+    docs: {
+      story: { height: "80vh" },
+    },
+  },
   args: {
     "Nav alternativeColor": false,
     "Nav verticalOrientation": false,
@@ -518,9 +525,14 @@ export const Default = {
               display:none;
             }
           }
+          #storybook-root:has(.show) {
+            #storybook-only-header {
+              display:none;
+            }
+          }
           .navbar #burgerCloseBtn::before {
             --nav-header-icon-color: var(--#{$prefix}brand-accent);
-            background-color: var(--nav-header-icon-color, #FFEF60);
+            background-color: var(--nav-header-icon-color, #008635);
           }
         }
         @media (width >= 992px) {
