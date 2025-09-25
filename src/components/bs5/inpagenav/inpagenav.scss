@@ -46,6 +46,7 @@
       padding-bottom: var(--#{$prefix}inpage-nav-link-padding-y);
       padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
       color: var(--#{$prefix}nav-link-color);
+      text-decoration-line: underline;
     }
 
     &:first-child .nav-link {
