@@ -1,4 +1,3 @@
-import { parameters } from "../../../../storybook-static/assets/entry-preview-DImpdu69.js";
 import { Navbar } from "./Navbar.js";
 import defaultdata from "./navbar.data.json";
 
