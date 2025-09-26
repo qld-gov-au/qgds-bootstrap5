@@ -16,24 +16,11 @@ $pagination-icon-more-hover-color: $secondary;
 $pagination-icon-more-dark-color: $qld-white;
 $pagination-icon-more-dark-hover-color: $qld-golden-yellow;
 
-//SVG ICONS - Default, light and light-alt
-$pagination-icon-prevnext: url('data:image/svg+xml,<svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 8.50066C21.5 8.89906 21.125 9.20892 20.7031 9.20892L3.03125 9.20892L9.59375 15.8489C9.875 16.1145 9.875 16.5572 9.54688 16.8228C9.40625 16.9556 9.21875 16.9998 9.03125 16.9998C8.79688 16.9998 8.60938 16.9556 8.46875 16.7785L0.6875 8.98759C0.40625 8.72199 0.40625 8.32359 0.6875 8.05799L8.46875 0.267061C8.75 -0.0428051 9.21875 -0.0428051 9.54688 0.222795C9.875 0.488394 9.875 0.931061 9.59375 1.19666L3.03125 7.79239L20.7031 7.79239C21.125 7.79239 21.5 8.14652 21.5 8.50066Z" fill="#{$pagination-icon-prevnext-color}"/></svg>');
-$pagination-icon-prevnext-hover: url('data:image/svg+xml,<svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 8.50066C21.5 8.89906 21.125 9.20892 20.7031 9.20892L3.03125 9.20892L9.59375 15.8489C9.875 16.1145 9.875 16.5572 9.54688 16.8228C9.40625 16.9556 9.21875 16.9998 9.03125 16.9998C8.79688 16.9998 8.60938 16.9556 8.46875 16.7785L0.6875 8.98759C0.40625 8.72199 0.40625 8.32359 0.6875 8.05799L8.46875 0.267061C8.75 -0.0428051 9.21875 -0.0428051 9.54688 0.222795C9.875 0.488394 9.875 0.931061 9.59375 1.19666L3.03125 7.79239L20.7031 7.79239C21.125 7.79239 21.5 8.14652 21.5 8.50066Z" fill="#{$pagination-icon-prevnext-hover-color}"/></svg>');
-$pagination-icon-more: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="16" r="2" fill="#{$pagination-icon-more-color}"/><circle cx="16" cy="16" r="2" fill="#{$pagination-icon-more-color}"/><circle cx="24" cy="16" r="2" fill="#{$pagination-icon-more-color}"/></svg>');
-
-///////////////////////EDIT
-$pagination-icon-more-hover: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="16" r="2" fill="#{$pagination-icon-more-hover-color}"/><circle cx="16" cy="16" r="2" fill="#{$pagination-icon-more-hover-color}"/><circle cx="24" cy="16" r="2" fill="#{$pagination-icon-more-hover-color}"/></svg>');
-
-$pagination-icon-more-dark-hover: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="16" r="2" fill="#{$pagination-icon-more-dark-hover-color}"/><circle cx="16" cy="16" r="2" fill="#{$pagination-icon-more-dark-hover-color}"/><circle cx="24" cy="16" r="2" fill="#{$pagination-icon-more-dark-hover-color}"/></svg>');
-
-
-//SVG ICONS - Dark and dark-alt
-$pagination-icon-prevnext-dark: url('data:image/svg+xml,<svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 8.50066C21.5 8.89906 21.125 9.20892 20.7031 9.20892L3.03125 9.20892L9.59375 15.8489C9.875 16.1145 9.875 16.5572 9.54688 16.8228C9.40625 16.9556 9.21875 16.9998 9.03125 16.9998C8.79688 16.9998 8.60938 16.9556 8.46875 16.7785L0.6875 8.98759C0.40625 8.72199 0.40625 8.32359 0.6875 8.05799L8.46875 0.267061C8.75 -0.0428051 9.21875 -0.0428051 9.54688 0.222795C9.875 0.488394 9.875 0.931061 9.59375 1.19666L3.03125 7.79239L20.7031 7.79239C21.125 7.79239 21.5 8.14652 21.5 8.50066Z" fill="#{$pagination-icon-prevnext-dark-color}"/></svg>');
-$pagination-icon-prevnext-dark-hover: url('data:image/svg+xml,<svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 8.50066C21.5 8.89906 21.125 9.20892 20.7031 9.20892L3.03125 9.20892L9.59375 15.8489C9.875 16.1145 9.875 16.5572 9.54688 16.8228C9.40625 16.9556 9.21875 16.9998 9.03125 16.9998C8.79688 16.9998 8.60938 16.9556 8.46875 16.7785L0.6875 8.98759C0.40625 8.72199 0.40625 8.32359 0.6875 8.05799L8.46875 0.267061C8.75 -0.0428051 9.21875 -0.0428051 9.54688 0.222795C9.875 0.488394 9.875 0.931061 9.59375 1.19666L3.03125 7.79239L20.7031 7.79239C21.125 7.79239 21.5 8.14652 21.5 8.50066Z" fill="#{$pagination-icon-prevnext-dark-hover-color}"/></svg>');
-$pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="16" r="2" fill="#{$pagination-icon-more-dark-color}"/><circle cx="16" cy="16" r="2" fill="#{$pagination-icon-more-dark-color}"/><circle cx="24" cy="16" r="2" fill="#{$pagination-icon-more-dark-color}"/></svg>');
-
-
 .pagination {
+    --action-icon-color: var(--#{$prefix}light-action-secondary);
+    --action-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
+    --action-icon-more-color: var(--#{$prefix}light-text-text);
+    --action-icon-more-color-hover: var(--#{$prefix}light-action-secondary);
 
     //Padding
     --#{$prefix}pagination-padding-x: 1rem;
@@ -78,13 +65,6 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
     --#{$prefix}pagination-disabled-bg: var(--#{$prefix}secondary-bg);
     --#{$prefix}pagination-disabled-border-color: var(--#{$prefix}border-color);
 
-    //SASS icons assinged to CSS properties
-    --#{$prefix}pagination-icon-prevnext: #{escape-svg($pagination-icon-prevnext)};
-    --#{$prefix}pagination-icon-prevnext-hover: #{escape-svg($pagination-icon-prevnext-hover)};
-    --#{$prefix}pagination-icon-more: #{escape-svg($pagination-icon-more)};
-    --#{$prefix}pagination-icon-more-hover: #{escape-svg($pagination-icon-more-hover)};
-    --#{$prefix}pagination-icon-more-dark-hover: #{escape-svg($pagination-icon-more-dark-hover)};
-
 }
 
 // When the parent container has a darker background (.dark), or the parent container uses attribute data-bs-theme="dark"
@@ -126,9 +106,10 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
     --#{$prefix}pagination-active-focus-bg: var(--#{$prefix}dark-action-primary-hover);
 
     //SASS icons assinged to CSS properties
-    --#{$prefix}pagination-icon-prevnext: #{escape-svg($pagination-icon-prevnext-dark)};
-    --#{$prefix}pagination-icon-prevnext-hover: #{escape-svg($pagination-icon-prevnext-dark-hover)};
-    --#{$prefix}pagination-icon-more: #{escape-svg($pagination-icon-more-dark)};
+    --action-icon-color: var(--#{$prefix}dark-action-secondary);
+    --action-icon-color-hover: var(--#{$prefix}dark-action-secondary-hover);
+    --action-icon-more-color: var(--#{$prefix}dark-text-text);
+    --action-icon-more-color-hover: var(--#{$prefix}dark-action-secondary);
 }
 
 
@@ -154,7 +135,7 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
     .page-item {
 
         .page-link {
-            border-radius: 3px;
+            border-radius: 4px;
             width: 2rem;
             height: 2rem;
             padding: 0;
@@ -194,40 +175,41 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
         //Shared by both .prev and .next
         &.previous .page-link,
         &.next .page-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
 
             //.prev and .next arrows
             &:before {
                 content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 2rem;
-                height: 2rem;
-                background: var(--#{$prefix}pagination-icon-prevnext) center center;
-                background-repeat: no-repeat;
+                width: 1.5rem;
+                height: 1.5rem;
+                mask-image: var(--qgds-icon-arrow-left);
+                background-color: var(--action-icon-color);
+                mask-repeat: no-repeat;
+                mask-position: 0;
             }
 
             &:hover:before {
-                background: var(--#{$prefix}pagination-icon-prevnext-hover) center center;
-                background-repeat: no-repeat;
+                background-color: var(--action-icon-color-hover);
             }
 
             &:hover, &:focus {
             //Previous and Next "link text" 
-            span {
-                text-decoration: underline;
-                text-underline-offset: 2px;
-            }
+                span {
+                    text-decoration: underline;
+                    text-underline-offset: 2px;
+                }
 
             }
-
         }
 
-        &.next .page-link:before {
-            //Replica of previous arrow (defined above), but rotated 180 degrees
-            transform: rotate(180deg);
-            right: 0;
-            left: unset;
+        &.next .page-link {
+            flex-direction: row-reverse;
+        
+            &:before {
+                transform: rotate(180deg);            
+            }
         }
 
         //Non-numeric links in pagination
@@ -276,29 +258,21 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
         //More dots
         &.more span {
             border: none;
-            position: relative;
+            // position: relative;
             height: 2rem;
             width: 2rem;
-            display: inline-block;
+            display: inline-flex;
 
             &:hover:before {
-                background: var(--#{$prefix}pagination-icon-more-hover);
+                background-color: var(--action-icon-more-color-hover);
             }
             &:before {
                 content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: var(--#{$prefix}pagination-icon-more);
+                width: 2rem;
+                height: 2rem;
                 background-repeat: no-repeat;
-            }
-            .dark &, .dark-alt & {
-                &:hover:before {
-                    background: var(--#{$prefix}pagination-icon-more-dark-hover);
-                    
-                }
+                mask-image: var(--qgds-icon-more-horizontal);
+                background-color: var(--action-icon-more-color);
             }
         }
     }
@@ -307,7 +281,7 @@ $pagination-icon-more-dark: url('data:image/svg+xml,<svg width="32" height="32" 
     .dark &, .dark-alt & {
 
         .page-item {
-                    //Active link only
+            //Active link only
             &.active .page-link {
                 &:hover {
                     color: black;
