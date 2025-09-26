@@ -15,6 +15,7 @@
   --qld-link-color-rgb: #{to-rgb($link-color)};
   --qld-link-font-weight: 400;
   --qld-link-hover-color: var(--qld-link-color);
+  --qld-link-visited-color: #{$color-default-color-light-link-visited};
   --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
   --qld-link-underline: #{$color-default-color-light-underline-default};
   --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
@@ -39,7 +40,10 @@
   --qld-link-color-rgb: 255, 255, 255;
   --qld-link-hover-color: #fff;
   --qld-link-hover-color-rgb: 255, 255, 255;
-  --qld-link-visited: var(--qld-link-visited-dark);
+  --qld-link-visited-color: #{$color-default-color-dark-link-visited};
+  --qld-link-visited: var(
+    --qld-link-visited-dark
+  ); // TODO tidy up these variables, we should only use --qld-link-visited-color
   --qld-selection-bg: var(--qld-white);
   --qld-selection-color: var(--qld-brand-primary);
 }
