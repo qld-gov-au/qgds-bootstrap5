@@ -3,7 +3,7 @@ import { ContentPageWithSideNavigation } from "./ContentPageWithSideNavigation.j
 import { ContentPageWithForm } from "./ContentPageWithForm.js";
 //Data
 import masterbrand_variant from "../header/header.variant.masterBrand.data.json";
-import menu_state from "../navbar/navbar.variant.menuState.data.json";
+import menu_state from "../navbar/navbar.data.json";
 import globalAlertData from "../globalAlert/globalAlert.data.json";
 import tableData from "../table/table.data.json";
 import footerData from "../footer/footer.data.json";
@@ -70,6 +70,8 @@ const defaultData = {
   },
   contentFooter: contentFooterData,
   sidenav: sideNavData,
+  // Mapping some @root header fields to this pageLayout root object, so template partials can resolve values
+  // assets: masterbrand_variant.assets,
 };
 
 export default {
