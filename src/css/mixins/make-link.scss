@@ -10,7 +10,7 @@
       color, background-color, border-color, outline-color, outline-offset,
       outline-width, text-decoration-color, text-decoration-thickness,
       text-underline-offset, opacity;
-    duration: animation.$duration;
+    duration: animation.$duration-fast;
     timing-function: animation.$timing-function;
   }
 
