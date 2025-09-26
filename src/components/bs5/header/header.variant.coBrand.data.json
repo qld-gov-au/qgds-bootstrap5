@@ -22,7 +22,6 @@
     "subline": ""
   },
   "assets": {
-    "SVGSpritePath": "./assets/img/icons-sprite.svg",
     "siteSearch": {
       "value": "#",
       "placeholder": "",
