@@ -431,6 +431,15 @@
         margin: 0;
       }
     }
+    /////////////////////////////////////////////
+    // Override default spacing on link list component for icon links
+    .link-list {
+      margin: 1rem 0;
+      padding: 0;
+      .link-item {
+        margin: 0;
+      }
+    }
   }
   .card-footer {
     font-size: 1.25rem;
