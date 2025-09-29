@@ -31,9 +31,11 @@
     display: flex;
     align-items: center;
     font-size: 0.875rem; // set here so whitespace doesn't add extra height.
-    color: var(--#{$prefix}header-pre-header-color-text);
-    background-color: var(--#{$prefix}header-pre-header-color-bg);
-    box-shadow: var(--#{$prefix}header-pre-header-boxshadow);
+    // color: var(--#{$prefix}header-pre-header-color-text);
+    // background-color: var(--#{$prefix}header-pre-header-color-bg);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 1px 3px 1px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
     height: var(--qld-header-preheader-height);
@@ -54,8 +56,7 @@
       appearance: none;
       background-color: transparent;
       border: 0;
-      border-left: 1px solid
-        var(--#{$prefix}header__toggle-main-nav_border_color);
+      border-left: 1px solid var(--qld-border-color);
       color: var(--#{$prefix}header__toggle-main-nav_text_color);
       cursor: pointer;
       display: flex;
@@ -164,6 +165,11 @@
   &-logo {
     display: block;
     width: auto;
+    transition: {
+      property: filter, color, outline, outline-offset;
+      duration: animation.$duration-fast;
+      timing-function: animation.$timing-function;
+    }
 
     a:hover & {
       filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08))
