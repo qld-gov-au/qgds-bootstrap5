@@ -35,11 +35,6 @@
       "label": "",
       "formAction": {
         "url": "https://www.forgov.qld.gov.au/search"
-      },
-      "options": {
-        "borderStyle": {
-          "full": true
-        }
       }
     }
   }

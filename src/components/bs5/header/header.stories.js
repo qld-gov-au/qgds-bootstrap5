@@ -161,6 +161,17 @@ export default {
   parameters: {
     layout: "fullscreen",
     docs: {
+      controls: {
+        exclude: [
+          "navigation",
+          "preHeader.globalLink.url",
+          "mainContent.url",
+          "assets.siteSearch.value",
+          "assets.siteSearch.placeholder",
+          "assets.siteSearch.label",
+          "assets.siteSearch.formAction.url",
+        ],
+      },
       story: { height: "400px" },
     },
   },
