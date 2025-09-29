@@ -382,7 +382,6 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-item {
       --qld-focus-color: #{$qld-dark-focus};
-      color: var(--#{$prefix}dark-text);
     }
 
     .tag-link {
