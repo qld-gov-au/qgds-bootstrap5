@@ -1,8 +1,6 @@
-@use "./header-variables" with (
-  $prefix: $prefix
-);
 @use "../../../css/mixins";
 @use "../../../css/variables/animation";
+@import "./header-variables";
 
 // Play nice with navbar header.
 :root {
@@ -27,12 +25,11 @@
   }
 
   &-pre-header {
+    @extend %preheader-variables;
     //
     display: flex;
     align-items: center;
     font-size: 0.875rem; // set here so whitespace doesn't add extra height.
-    // color: var(--#{$prefix}header-pre-header-color-text);
-    // background-color: var(--#{$prefix}header-pre-header-color-bg);
     box-shadow:
       0 1px 2px rgba(0, 0, 0, 0.2),
       0 1px 3px 1px rgba(0, 0, 0, 0.1);
@@ -54,10 +51,10 @@
     .qld-header-mobile-button {
       align-items: center;
       appearance: none;
-      background-color: transparent;
+      background-color: var(--#{$prefix}header-mobile-button-bg);
       border: 0;
       border-left: 1px solid var(--qld-border-color);
-      color: var(--#{$prefix}header__toggle-main-nav_text_color);
+      color: var(--qld-link-color);
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -67,18 +64,20 @@
       font-size: 0.625rem;
       line-height: 1.25;
       padding: 0;
+      text-decoration: underline solid transparent 0px;
+      text-underline-offset: 0.3em;
+
       transition: {
-        property: color, background-color, outline, outline-offset;
+        property:
+          color, background-color, outline, outline-offset, text-decoration;
         duration: animation.$duration-fast;
         timing-function: animation.$timing-function;
       }
 
       &:hover {
-        background-color: var(--#{$prefix}header__toggle-main-nav__hover_bg);
-
-        svg {
-          color: var(--#{$prefix}header__toggle-main-nav__hover_svg_color);
-        }
+        background-color: var(--#{$prefix}header-mobile-button-bg-hover);
+        text-decoration: underline solid currentColor 0.5px;
+        --qld-icon-color: var(--qld-action-icon-hover-color);
       }
 
       @include mixins.focusable($offsetOutline: false);
@@ -118,6 +117,7 @@
   }
 
   &-link {
+    @include mixins.make-link();
     font-size: 0.875rem;
     line-height: 1;
     display: inline-flex;
@@ -125,24 +125,11 @@
 
     &,
     &:visited {
-      color: var(--qld-header-pre-header-color-link) !important;
-      text-decoration: none;
-      text-decoration-color: var(
-        --#{$prefix}header-pre-header-color-link-decoration
-      ) !important;
-      text-decoration-thickness: 0.5px;
-      text-underline-offset: 0.3em;
-      text-decoration-skip-ink: auto;
-    }
+      text-decoration: underline solid transparent 0px;
 
-    &:focus,
-    &:hover {
-      text-decoration: underline;
-      text-decoration-color: var(
-        --#{$prefix}header-pre-header-color-link-decoration-focus
-      ) !important;
-      text-decoration-thickness: 2px;
-      outline-offset: 0;
+      &:hover {
+        text-decoration-color: var(--qld-link-underline-hover);
+      }
     }
 
     &:disabled,
@@ -199,6 +186,12 @@
     display: flex;
     align-items: center;
     height: var(--qld-header-preheader-height);
+    background-color: var(--dropdown-bg);
+
+    &:focus {
+      outline-offset: -2px;
+      z-index: 1;
+    }
 
     &::after {
       content: "";
@@ -208,7 +201,7 @@
     }
 
     &.show {
-      background-color: var(--qld-dark-background-shade);
+      background-color: var(--dropdown-bg-active);
       &::after {
         // transform: scaleY(-1);
         transform: rotate(-180deg);
@@ -226,16 +219,16 @@
     padding: 1rem 2rem 1rem;
     border-radius: 0 0 0.75rem 0.75rem;
     border: 0;
-    background-color: var(
-      --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
-    );
-    box-shadow: var(--#{$prefix}header-pre-header-boxshadow);
+    background-color: var(--dropdown-menu-bg);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 1px 3px 1px rgba(0, 0, 0, 0.1);
     transform: translate(0px, var(--qld-header-preheader-height)) !important;
 
     hr {
       margin: 1.5rem 0;
-      color: var(--#{$prefix}header__CTA_border_color);
-      border-color: var(--#{$prefix}header__CTA_border_color);
+      color: var(--qld-border-color);
+      border-color: var(--qld-border-color);
       opacity: 1;
     }
 
@@ -249,18 +242,6 @@
       text-decoration-color: inherit;
       text-decoration-thickness: inherit;
     }
-
-    .group {
-      a {
-        font-weight: 600;
-        color: var(--#{$prefix}header__CTA_text_color);
-        text-decoration: underline var(--#{$prefix}header__CTA_text_color);
-
-        &:visited {
-          color: var(--#{$prefix}header__CTA_text_color);
-        }
-      }
-    }
   }
 
   ul.dropdown-menu.show:has(> li) {
@@ -269,13 +250,13 @@
 
   .dropdown-item {
     position: relative;
-    border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+    border-bottom: solid 1px var(--qld-border-color);
     padding: 1rem 1.75rem 1rem 0;
     line-height: 1.5;
     white-space: normal; // allow text to wrap
 
-    &:visited {
-      color: var(--#{$prefix}header__CTA_text_color);
+    &:hover {
+      color: var(--qld-link-visited-color);
     }
 
     &::after {
@@ -296,7 +277,6 @@
   &-dropdown-icon {
     vertical-align: middle;
     margin-left: 0.5rem;
-    // color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
     height: 1rem;
     width: 1rem;
   }

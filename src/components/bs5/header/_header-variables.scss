@@ -1,9 +1,10 @@
-@use "../../../css/mixins" as *;
-$prefix: "qld-" !default;
+@use "../../../css/mixins" as m;
 
 %header-variables {
+  --qld-link-underline: #{$color-default-color-light-underline-default};
+  --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
   // Header
-  @include register-vars(
+  @include m.register-vars(
     "#{$prefix}header-",
     (
       color-text: var(--#{$prefix}color-default-color-light-text-default),
@@ -11,67 +12,8 @@ $prefix: "qld-" !default;
     )
   );
 
-  // Pre-header bar
-  @include register-vars(
-    "#{$prefix}header-pre-header-",
-    (
-      color-text: var(--#{$prefix}color-default-color-dark-text-default),
-      color-bg: var(--#{$prefix}color-default-color-dark-background-default),
-      color-link: var(--#{$prefix}color-default-color-dark-text-default),
-      color-outline-focus: var(
-          --#{$prefix}color-default-color-dark-focus-default
-        ),
-      color-link-decoration: var(
-          --#{$prefix}color-default-color-dark-underline-default
-        ),
-      color-link-decoration-focus: var(
-          --#{$prefix}color-default-color-dark-underline-default-hover
-        ),
-    )
-  );
-
-  // CTA Wrapper
-  @include register-vars(
-    "#{$prefix}header__cta-wrapper__cta-link",
-    (
-      _text_color: var(--#{$prefix}color-default-color-dark-link-default),
-      -icon_color: var(--#{$prefix}color-default-color-dark-action-secondary),
-      -icon_hover_color: var(
-          --#{$prefix}color-default-color-dark-action-secondary-hover
-        ),
-      _dropdown_bg_color: var(--#{$prefix}dark-background-shade),
-    )
-  );
-
-  @include register-vars(
-    "#{$prefix}header__CTA",
-    (
-      _text_color: var(--#{$prefix}color-default-color-dark-link-default),
-      _border_color: var(--#{$prefix}color-default-color-dark-border-default),
-    )
-  );
-
-  // Toggle main navigation
-  @include register-vars(
-    "#{$prefix}header__toggle-main-nav",
-    (
-      _text_color: var(--#{$prefix}color-default-color-dark-link-default),
-      _border_color: var(--#{$prefix}color-default-color-dark-border-default),
-      __hover_bg: var(
-          --#{$prefix}color-default-color-dark-background-default-shade
-        ),
-      __hover_svg_color: var(
-          --#{$prefix}color-default-color-dark-action-secondary-hover
-        ),
-      __focus_outline_color: var(
-          --#{$prefix}color-default-color-dark-focus-default
-        ),
-      __svg_color: var(--#{$prefix}color-default-color-dark-action-secondary),
-    )
-  );
-
   // COA and title
-  @include register-vars(
+  @include m.register-vars(
     "#{$prefix}header__brand-image",
     (
       __crest_fill: var(--#{$prefix}color-default-color-light-crest-fill),
@@ -83,7 +25,7 @@ $prefix: "qld-" !default;
         ),
     )
   );
-  @include register-vars(
+  @include m.register-vars(
     "#{$prefix}header__brand__anchor",
     (
       __hover_text_color: var(
@@ -103,7 +45,7 @@ $prefix: "qld-" !default;
   );
 
   // Sitename heading
-  @include register-vars(
+  @include m.register-vars(
     "#{$prefix}header__site-name",
     (
       __heading__text_color: var(
@@ -121,7 +63,7 @@ $prefix: "qld-" !default;
   .dark &,
   .dark-alt & {
     // Root (dark/dark-alt)
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header",
       (
         _color: var(--#{$prefix}color-default-color-dark-text-default),
@@ -129,14 +71,10 @@ $prefix: "qld-" !default;
     );
 
     // Pre-header bar (dark)
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header__pre-header",
       (
         _text_color: var(--#{$prefix}color-default-color-dark-text-default),
-        _boxshadow: (
-          0 1px 2px rgba(0, 0, 0, 0.2),
-          0 1px 3px 1px rgba(0, 0, 0, 0.1),
-        ),
         __url_text_color: var(--#{$prefix}color-default-color-dark-link-default),
         __anchor_text_color: var(
             --#{$prefix}color-default-color-dark-text-default
@@ -163,7 +101,7 @@ $prefix: "qld-" !default;
     );
 
     // Pre-header CTA elements (dark/dark-alt)
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header__cta-wrapper__cta-link",
       (
         _text_color: var(--#{$prefix}color-default-color-dark-link-default),
@@ -175,7 +113,7 @@ $prefix: "qld-" !default;
     );
 
     // Toggle navigation (dark/dark-alt)
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header__toggle-main-nav",
       (
         _text_color: var(--#{$prefix}color-default-color-dark-link-default),
@@ -193,7 +131,7 @@ $prefix: "qld-" !default;
       )
     );
 
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header__brand__anchor",
       (
         __hover_text_color: var(
@@ -211,7 +149,7 @@ $prefix: "qld-" !default;
         ),
       )
     );
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header__brand-image",
       (
         __subtype__border_color: var(
@@ -224,7 +162,7 @@ $prefix: "qld-" !default;
       )
     );
 
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header__site-name",
       (
         __heading__text_color: var(
@@ -238,7 +176,7 @@ $prefix: "qld-" !default;
   }
 
   .dark-alt & {
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header-",
       (
         color-bg: var(--#{$prefix}color-default-color-dark-background-alt),
@@ -250,7 +188,7 @@ $prefix: "qld-" !default;
   }
 
   .dark & {
-    @include register-vars(
+    @include m.register-vars(
       "#{$prefix}header-",
       (
         color-bg: var(--#{$prefix}color-default-color-dark-background-default),
@@ -262,5 +200,33 @@ $prefix: "qld-" !default;
           ),
       )
     );
+  }
+}
+
+%preheader-variables {
+  // "default" is .dark
+  --qld-link-visited-color: var(--qld-link-color);
+  --dropdown-menu-bg: var(--qld-body-bg);
+
+  &,
+  &.default {
+    --#{$prefix}header-mobile-button-bg: #{$qld-color-background};
+    --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-background--shade};
+    --dropdown-bg: #{$qld-color-background};
+    --dropdown-bg-active: #{$qld-color-background--shade};
+  }
+
+  &.dark {
+    --#{$prefix}header-mobile-button-bg: #{$qld-color-dark-background};
+    --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-dark-background--shade};
+    --dropdown-bg: #{$qld-color-dark-background};
+    --dropdown-bg-active: #{$qld-color-dark-background--shade};
+  }
+
+  &.dark-alt {
+    --#{$prefix}header-mobile-button-bg: #{$qld-color-dark-alt-background};
+    --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-dark-alt-background--shade};
+    --dropdown-bg: #{$qld-color-dark-alt-background};
+    --dropdown-bg-active: #{$qld-color-dark-alt-background--shade};
   }
 }
