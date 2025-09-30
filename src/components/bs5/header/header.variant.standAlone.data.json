@@ -1,6 +1,7 @@
 {
   "isStandaloneBrand": true,
   "preHeader": {
+    "palette": "dark-alt",
     "globalLink": {
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
@@ -110,6 +111,7 @@
     ]
   },
   "mainContent": {
+    "palette": "default",
     "url": "https://qld.gov.au",
     "siteTitle": "Standalone example",
     "subLine": "",

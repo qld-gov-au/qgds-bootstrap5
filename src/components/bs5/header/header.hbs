@@ -83,8 +83,8 @@
         </div>
     </div>
 
-    <div class="qld-header-main{{#ifCond preHeader.palette "===" " dark"}} dark{{else}}{{#ifCond
-        preHeader.palette "===" "light" }} light{{else}}{{#ifCond preHeader.palette "===" "dark-alt" }} dark-alt{{else}}
+    <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else}}{{#ifCond
+        mainContent.palette "===" "default" }}default{{else}}{{#ifCond mainContent.palette "===" "dark-alt" }}dark-alt{{else}}
         default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
             <div class="row align-items-center">

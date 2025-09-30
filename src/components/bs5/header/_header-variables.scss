@@ -204,7 +204,7 @@
 }
 
 %preheader-variables {
-  // "default" is .dark
+  // variables already controlled via theme
   --qld-link-visited-color: var(--qld-link-color);
   --dropdown-menu-bg: var(--qld-body-bg);
 
