@@ -280,6 +280,11 @@
   &-main {
     @extend %header-main-variables;
     position: relative;
+    border-bottom: 0.25rem solid var(--#{$prefix}header-border-color);
+
+    @include media-breakpoint-up("lg") {
+      border-bottom: none;
+    }
   }
 
   &-brand {
@@ -315,7 +320,7 @@
   }
 
   &-secondary-content {
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
     align-items: baseline;
     text-wrap: balance;
@@ -326,6 +331,7 @@
     }
 
     @include media-breakpoint-up(lg) {
+      display: flex;
       padding-block: 0;
       flex-direction: column;
       flex-wrap: nowrap;
@@ -348,7 +354,7 @@
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.25;
-    margin: 0 1ch 0 0;
+    // margin: 0 1ch 0 0;
     padding: 0;
     font-family: $font-family-sitename;
     color: var(--#{$prefix}site-title-color);

@@ -1,7 +1,7 @@
 {
   "isSubBrand": true,
   "preHeader": {
-    "palette": "default",
+    "palette": "dark",
     "globalLink": {
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
@@ -23,12 +23,12 @@
     ]
   },
   "mainContent": {
-    "palette": "dark",
+    "palette": "default",
     "url": "https://qld.gov.au",
     "logoPath": "",
     "secondaryLogoPath": "",
-    "siteTitle": "For government",
-    "subline": "Hospital and Health Service"
+    "siteTitle": "Department of Seniors, Disability Services and Aboriginal and Torres Strait Islander Partnerships",
+    "subline": ""
   },
   "assets": {
     "siteSearch": {

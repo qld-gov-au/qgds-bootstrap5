@@ -6,6 +6,7 @@
   --#{$prefix}header-brand-divider-color: #{$color-default-color-light-accent-design-accent};
   --#{$prefix}site-title-color: #{$color-default-color-light-site-title};
   --#{$prefix}header-subline-color: #{$color-default-color-light-text-default};
+  --#{$prefix}header-border-color: #{$color-default-color-light-accent-design-accent};
 
   // ------------------------------------------------------------------------------------------------------------------
   //  3. Dark/dark-alt modes
@@ -17,6 +18,7 @@
     --#{$prefix}header-subline-color: #{$color-default-color-dark-text-default};
     --#{$prefix}header-brand-image-color: #{$color-default-color-dark-site-title};
     --#{$prefix}header-brand-image-color-hover: #{$color-default-color-dark-link-default};
+    --#{$prefix}header-border-color: #{$color-default-color-dark-accent-design-accent};
   }
 }
 
