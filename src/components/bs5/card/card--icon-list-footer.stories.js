@@ -1,15 +1,49 @@
 // card--icon-list-footer.stories.js
-import { Card } from './Card.js';
-import { Link } from '../link/link.js';
-import defaultdata from './card.data.json';
-import linkdata from '../link/link.data.json';
+import { Card } from "./Card.js";
+import { Link } from "../link/link.js";
+import defaultdata from "./card.data.json";
 
 export default {
   tags: ["autodocs"],
   title: "3. Components/Card/Icon List Footer",
   render: (args) => {
-    // Create icon list for card footer with proper CSS styling
-    const iconListHtml = new Link(linkdata.linkGroup).html;
+    // Create icon list for card footer following Figma design pattern
+    const figmaLinkData = {
+      title: "Related links",
+      linkList: [
+        {
+          url: "#",
+          id: "link-1",
+          label: "Label",
+          target: "_self",
+          arialabel: "Label",
+          iconClass: "qld-icon-arrow-right",
+          iconPosition: "leading",
+          download: null,
+        },
+        {
+          url: "#",
+          id: "link-2",
+          label: "Label",
+          target: "_self",
+          arialabel: "Label",
+          iconClass: "qld-icon-profile",
+          iconPosition: "leading",
+          download: null,
+        },
+        {
+          url: "#",
+          id: "link-3",
+          label: "Label",
+          target: "_self",
+          arialabel: "Label",
+          iconClass: "qld-icon-like",
+          iconPosition: "leading",
+          download: null,
+        },
+      ],
+    };
+    const iconListHtml = new Link(figmaLinkData).html;
 
     return `
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -18,39 +52,48 @@ export default {
       ${new Card({ ...args, variantClass: "alt", footer: iconListHtml }).html}
       ${new Card({ ...args, variantClass: "dark", footer: iconListHtml }).html}
       ${new Card({ ...args, variantClass: "dark-alt", footer: iconListHtml }).html}
-      ${new Card({
-        ...args,
-        iconClasses: "qld-icon-design",
-        iconPosition: "icon-left",
-        footer: iconListHtml,
-      }).html}
-      ${new Card({
-        ...args,
-        iconClasses: "qld-icon-design",
-        iconPosition: "icon-top",
-        footer: iconListHtml,
-      }).html}
-      ${new Card({
-        ...args,
-        image: "./img/image-placeholder.png",
-        imageAlt: "A grey placeholder image with an icon in the centre.",
-        footer: iconListHtml,
-      }).html}
-      ${new Card({
-        ...args,
-        image: "./img/image-placeholder.png",
-        imageAlt: "A grey placeholder image with an icon in the centre.",
-        video: true,
-        videoDuration: "2:34",
-        footer: iconListHtml,
-      }).html}
+      ${
+        new Card({
+          ...args,
+          iconClasses: "qld-icon-design",
+          iconPosition: "icon-left",
+          footer: iconListHtml,
+        }).html
+      }
+      ${
+        new Card({
+          ...args,
+          iconClasses: "qld-icon-design",
+          iconPosition: "icon-top",
+          footer: iconListHtml,
+        }).html
+      }
+      ${
+        new Card({
+          ...args,
+          image: "./img/image-placeholder.png",
+          imageAlt: "A grey placeholder image with an icon in the centre.",
+          footer: iconListHtml,
+        }).html
+      }
+      ${
+        new Card({
+          ...args,
+          image: "./img/image-placeholder.png",
+          imageAlt: "A grey placeholder image with an icon in the centre.",
+          video: true,
+          videoDuration: "2:34",
+          footer: iconListHtml,
+        }).html
+      }
     </div>
     `;
   },
   args: {
     ...defaultdata.multiAction,
     title: "Card with Icon List Footer",
-    description: "This card demonstrates the proper nesting of an Icon List component into the Card Footer with 1rem margin spacing as specified in the design requirements.",
+    description:
+      "This card demonstrates the proper nesting of an Icon List component into the Card Footer following the Figma design pattern with 0.75rem gap spacing between links and 12px gap between icons and text.",
   },
   argTypes: {
     date: {
@@ -78,7 +121,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        story: "This story demonstrates how to properly nest an Icon List component into the Card Footer with adjusted spacing (1rem margin) to match design specifications. The Icon List component supports leading icons for list items and maintains proper styling across all card variants.",
+        story:
+          "This story demonstrates how to properly nest an Icon List component into the Card Footer following the Figma design pattern with 0.75rem gap spacing between links and 12px gap between icons and text. Each link uses consistent 'Label' text with different leading icons (arrow-right, profile, like) as shown in the design reference.",
       },
       controls: {
         exclude: ["link", "arrow", "iconPosition", "footer"],
