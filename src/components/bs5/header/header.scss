@@ -16,8 +16,6 @@
 }
 
 .qld-header {
-  @extend %header-variables;
-
   font-size: 1rem;
 
   @include media-breakpoint-up(sm) {
@@ -120,15 +118,13 @@
     @include mixins.make-link();
     font-size: 0.875rem;
     line-height: 1;
-    display: inline-flex;
-    align-items: center;
 
     &,
     &:visited {
       text-decoration: underline solid transparent 0px;
 
       &:hover {
-        text-decoration-color: var(--qld-link-underline-hover);
+        text-decoration-color: currentColor;
       }
     }
 
@@ -282,33 +278,13 @@
   }
 
   &-main {
+    @extend %header-main-variables;
     position: relative;
-    // color: var(--#{$prefix}header-color-text);
-    // background: var(--#{$prefix}header-color-bg);
   }
 
   &-brand {
     font-variant-numeric: lining-nums;
     text-decoration: none;
-
-    a:hover {
-      color: var(--#{$prefix}header__brand__anchor__hover_text_color);
-
-      .qld-header-brand-image {
-        color: var(
-          --#{$prefix}header__brand__anchor__hover_brand-image__text_color
-        );
-      }
-
-      .qld-header-heading,
-      .qld-header-subline {
-        color: var(
-          --#{$prefix}header__brand__anchor__hover_headingsubline__text_color
-        );
-        text-decoration: underline;
-        text-decoration-color: currentColor !important;
-      }
-    }
 
     @include media-breakpoint-up(lg) {
       padding-block: 1.5rem;
@@ -317,7 +293,7 @@
 
   &-brand-image {
     display: none;
-    color: var(--#{$prefix}header__brand-image__crest_fill);
+    color: var(--#{$prefix}header-brand-image-color);
 
     @include media-breakpoint-up(lg) {
       display: block;
@@ -330,6 +306,11 @@
 
     svg {
       vertical-align: text-bottom;
+      pointer-events: none;
+    }
+
+    a:hover & {
+      color: var(--#{$prefix}header-brand-image-color-hover);
     }
   }
 
@@ -349,8 +330,7 @@
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: center;
-      border-left: 2px solid
-        var(--#{$prefix}header__brand-image__subtype__border_color);
+      border-left: 2px solid var(--#{$prefix}header-brand-divider-color);
       margin-left: 1.5rem;
       padding-left: 1.5rem;
     }
@@ -371,7 +351,17 @@
     margin: 0 1ch 0 0;
     padding: 0;
     font-family: $font-family-sitename;
-    color: var(--#{$prefix}header__site-name__heading__text_color);
+    color: var(--#{$prefix}site-title-color);
+    text-decoration: underline solid 0px transparent;
+    transition-property: text-decoration, color;
+    transition-duration: animation.$duration-fast;
+    transition-timing-function: animation.$timing-function;
+
+    a:hover & {
+      color: var(--#{$prefix}site-title-color);
+      text-decoration: underline;
+      text-decoration-color: currentColor !important;
+    }
 
     @include media-breakpoint-up(md) {
       font-size: 1.25rem;
@@ -380,10 +370,20 @@
   }
 
   &-subline {
-    color: var(--#{$prefix}header__site-name__subline__text_color);
+    color: var(--#{$prefix}header-subline-color);
     font-size: 0.875rem;
     line-height: 1.14;
     max-width: 80ch;
+    text-decoration: underline solid 0px transparent;
+    transition-property: text-decoration, color;
+    transition-duration: animation.$duration-fast;
+    transition-timing-function: animation.$timing-function;
+
+    a:hover & {
+      color: var(--#{$prefix}header-subline-color);
+      text-decoration: underline;
+      text-decoration-color: currentColor !important;
+    }
 
     @include media-breakpoint-up(md) {
       font-size: 1rem;

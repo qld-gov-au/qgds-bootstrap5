@@ -1,11 +1,11 @@
-<header class="qld-header" role="banner">
-    <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" " dark"}}dark{{else}}{{#ifCond
+<header class="qld-header " role="banner">
+    <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
         }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
             <div class="d-flex justify-content-between">
 
-                <a class="qld-header-link"
+                <a class="qld-header-link align-self-center"
                     href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
                     <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
                     {{>logo className="qld-header-logo" fill="currentColor"}}
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="qld-header-main {{#ifCond mainContent.palette "===" " dark"}}dark{{else}}{{#ifCond
+    <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else}}{{#ifCond
         mainContent.palette "===" "default" }}default{{else}}{{#ifCond mainContent.palette "===" "dark-alt"
         }}dark-alt{{else}} default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
