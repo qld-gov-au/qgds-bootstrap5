@@ -33,6 +33,7 @@
     --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-background--shade};
     --dropdown-bg: #{$qld-color-background};
     --dropdown-bg-active: #{$qld-color-background--shade};
+    --dropdown-menu-bg: #{$qld-color-background--shade};
   }
 
   &.dark {
@@ -40,6 +41,7 @@
     --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-dark-background--shade};
     --dropdown-bg: #{$qld-color-dark-background};
     --dropdown-bg-active: #{$qld-color-dark-background--shade};
+    --dropdown-menu-bg: #{$qld-color-dark-background--shade};
   }
 
   &.dark-alt {
@@ -47,5 +49,6 @@
     --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-dark-alt-background--shade};
     --dropdown-bg: #{$qld-color-dark-alt-background};
     --dropdown-bg-active: #{$qld-color-dark-alt-background--shade};
+    --dropdown-menu-bg: #{$qld-color-dark-alt-background--shade};
   }
 }
