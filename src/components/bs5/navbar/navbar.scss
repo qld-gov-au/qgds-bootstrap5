@@ -132,7 +132,7 @@
             text-align: start;
             padding-block-end: 0;
             margin-block-end: 0;
-            a {
+            > a {
               background-color: var(--dropdown-show-bg);
               padding-inline: 0.75rem;
               margin-block-end: 0;
@@ -151,6 +151,29 @@
             p {
               position: absolute;
               left: -9999px;
+            }
+            h2,h3,h4,h5,h6 {
+              color: var(--text-color);
+            }
+            div {
+              padding: 1rem;
+              p {
+                position: relative;
+                left: auto;
+              }
+              a {
+                display: block;
+                border-block-end: 0;
+                border: 0;
+                color: var(--link-color);
+                text-decoration-color: inherit;
+                padding: 0;
+                // transition:none;
+                &:after {
+                  content: "";
+                  content: none;
+                }
+              }
             }
             &:has(.view-all),
             &:has(.parent-link) {
@@ -313,6 +336,7 @@
       --nav-header-border-color: var(--#{$prefix}dark-border);
       --nav-header-icon-color: var(--#{$prefix}brand-accent);
       --navbar-collapse-bg: var(--#{$prefix}dark-background-shade);
+      --action-icon-color_active: var(--text-color);
       .alt {
         --vert-background-color: var(--#{$prefix}default-background);
         --background-color: var(--#{$prefix}sapphire-blue);
@@ -326,6 +350,7 @@
         --header-color: var(--#{$prefix}default-background);
         --dropdown-bg-color: var(--#{$prefix}dark-background);
         --action-icon-color: var(--#{$prefix}brand-accent);
+        --action-icon-color_active: var(--text-color);
         .nav-link {
           border-inline-start: 0;
         }
@@ -348,6 +373,7 @@
       --nav-header-border-color: var(--#{$prefix}light-border);
       --nav-header-icon-color: var(--#{$prefix}alt-button-hover);
       --navbar-collapse-bg: var(--#{$prefix}default-background-shade);
+      --action-icon-color_active: var(--text-color);
       
       .alt {
         --vert-background-color: var(--#{$prefix}dark-background);
@@ -361,6 +387,7 @@
         --border-color: var(--#{$prefix}default-border);
         --header-color: var(--#{$prefix}default-background);
         --action-icon-color: var(--#{$prefix}alt-button-hover);
+        --action-icon-color_active: var(--text-color);
         .nav-link {
           border-inline-start: 0;
         }
@@ -383,6 +410,7 @@
       --nav-header-color: var(--#{$prefix}default-background);
       --nav-header-border-color: var(--#{$prefix}dark-border);
       --nav-header-icon-color: var(--#{$prefix}dark-action-secondary);
+      --action-icon-color_active: var(--text-color);
       .alt {
         --background-color: var(--#{$prefix}dark-alt-background-shade);
         --background-color-hover: var(--#{$prefix}dark-alt-background-shade);
@@ -391,6 +419,7 @@
         --border-color: var(--#{$prefix}dark-border);
         --action-icon-color: var(--#{$prefix}brand-accent);
         --link-border-color-hover: var(--#{$prefix}dark-action-secondary-hover);
+        --action-icon-color_active: var(--text-color);
         .nav-link {
           border-inline-start: 0;
         }
@@ -640,6 +669,9 @@
             gap var(--animation-time) ease-in-out;
         }
       }
+    }
+    li:has(.hasNoLink) {
+      display: none;
     }
   }
   &.vertical {

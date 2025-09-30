@@ -3,13 +3,15 @@
 /// @param {Boolean} $offsetOutline [true] - Offset the focus ring by 2px.
 /// @param {Boolean} $isFocusWithin [false] - Optionally apply styles via :focus-within rather than :focus-visible
 /// @param {String} $outlineWidth: [3px] The width of the outline.
+/// @param {String} $customSelector [null] - If passed, will override $isFocusWithin and apply focus styles instead to a custom selector string. @see SearchInput
+
 @mixin focusable(
   $offsetOutline: true,
   $isFocusWithin: false,
-  $outlineWidth: 3px
+  $outlineWidth: 3px,
+  $customSelector: null
 ) {
   // outline styles without the pseudo state to allow for transition animations.
-
   $initial-offset: 0 - $outlineWidth;
 
   @if $offsetOutline == true {
@@ -21,7 +23,11 @@
   outline: $outlineWidth solid transparent;
   outline-offset: $initial-offset;
 
-  $selector: if($isFocusWithin, ":focus-within", ":focus");
+  $selector: if(
+    $customSelector,
+    $customSelector,
+    if($isFocusWithin, ":focus-within", ":focus")
+  );
 
   &#{$selector} {
     outline: {

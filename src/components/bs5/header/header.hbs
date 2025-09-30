@@ -1,5 +1,5 @@
 <header class="qld-header" role="banner">
-    <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
+    <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" " dark"}}dark{{else}}{{#ifCond
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
         }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
@@ -19,6 +19,11 @@
                         <a id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                             class="qld-header-link dropdown-toggle" href="#">
                             {{{text}}}
+                            <<<<<<< HEAD=======<svg aria-hidden="true" focusable="false"
+                                xmlns="http://www.w3.org/2000/svg" class="qld-header-dropdown-icon ">
+                                <use href="{{../assets.SVGSpritePath}}#qgds-icon-chevron-down" aria-hidden="true"></use>
+                                </svg>
+                                >>>>>>> 1505b95b568cf228331cdec3767827aa549cf011
                         </a>
 
                         {{#ifCond dropdown.type "===" "list"}}
@@ -29,6 +34,12 @@
                                 <a class="qld-header-link dropdown-item " href="{{url}}" {{#if
                                     target}}target="{{target}}" {{/if}}>
                                     {{text}}
+                                    <<<<<<< HEAD=======<svg width="24" height="24"
+                                        class="qld-header-icon qld-header-dropdown-item-icon">
+                                        <use href="{{ ../../assets.SVGSpritePath }}#qgds-icon-arrow-right"
+                                            aria-hidden="true"></use>
+                                        </svg>
+                                        >>>>>>> 1505b95b568cf228331cdec3767827aa549cf011
                                 </a>
                             </li>
                             {{/each}}
@@ -79,13 +90,12 @@
                 </div>
             </div>
 
-
         </div>
     </div>
 
-    <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else}}{{#ifCond
-        mainContent.palette "===" "default" }}default{{else}}{{#ifCond mainContent.palette "===" "dark-alt" }}dark-alt{{else}}
-        default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
+    <div class="qld-header-main {{#ifCond mainContent.palette "===" " dark"}}dark{{else}}{{#ifCond
+        mainContent.palette "===" "default" }}default{{else}}{{#ifCond mainContent.palette "===" "dark-alt"
+        }}dark-alt{{else}} default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col">

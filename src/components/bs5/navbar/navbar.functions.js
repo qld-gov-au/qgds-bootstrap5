@@ -26,6 +26,10 @@ export function initializeNavbar() {
     // Toggle dropdown functionality based on screen size
     dropdownToggles.forEach((toggle) => {
       if (isMobile) {
+        // Skip toggle items with hasNoLink class
+        if (toggle.classList.contains("hasNoLink")) {
+          return;
+        }
         toggle.classList.replace("dropdown-toggle", "no-dropdown-toggle");
         toggle.removeAttribute("data-bs-toggle");
       } else {

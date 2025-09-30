@@ -13,7 +13,7 @@
                     {{#each navigation}}
                         {{#if navigationItems}}
                             <li class="nav-item dropdown{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"> 
-                                <a class="nav-link{{#unless ../metadata.verticalOrientation}} dropdown-toggle{{/unless}}{{#if currentPage}} active{{/if}}" {{#if currentPage}}aria-current="page"{{/if}} href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link{{#unless ../metadata.verticalOrientation}} dropdown-toggle{{/unless}}{{#if currentPage}} active{{/if}}{{#if dropdownOptions.hasNoLink}} hasNoLink{{/if}}" {{#if currentPage}}aria-current="page"{{/if}}{{#if dropdownOptions.hasNoLink}} href="#"{{else}} href="{{url}}"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                                 {{#if iconName}}
                                     <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
@@ -30,18 +30,25 @@
                                     <span class="visually-hidden">Expand</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item parent-link" role="button"{{#if currentPage}} aria-current="page"{{/if}} href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
-                                        {{#if dropdownOptions.description}}
-                                            <p>{{dropdownOptions.description}}</p>
-                                        {{/if}}
-                                    </li>
+                                    {{#unless dropdownOptions.hasNoLink}}
+                                        <li>
+                                            <a class="dropdown-item parent-link" role="button"{{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
+                                            {{#if dropdownOptions.description}}
+                                                <p>{{dropdownOptions.description}}</p>
+                                            {{/if}}
+                                        </li>
+                                    {{/unless}}
                                     {{#each navigationItems}}
                                         <li{{#if mobileOnly}} class="mobile-only"{{/if}}>
-                                            <a class="dropdown-item" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
-                                            {{#if description}}
-                                                <p>{{description}}</p>
+                                            {{#if isHTML}}
+                                                {{{htmlContent}}}
                                             {{/if}}
+                                            {{#unless isHTML}}
+                                                <a class="dropdown-item" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
+                                                {{#if description}}
+                                                    <p>{{description}}</p>
+                                                {{/if}}
+                                            {{/unless}}
                                         </li>
                                     {{/each}}
                                     {{#if dropdownOptions.viewAllHref}}
