@@ -65,7 +65,19 @@ const buildConfig = {
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
-    sassPlugin(),
+    //https://github.com/twbs/bootstrap/issues/40962 bootstrap 5.x is not ready for sass 1.80, so silence what we can't change (review 2026)
+    sassPlugin( {
+      silenceDeprecations: [
+        'legacy-js-api',
+        'mixed-decls',
+        'color-functions',
+        'global-builtin',
+        'import',
+      ],
+      indentType: 'space',
+      indentWidth: 2,
+      includePaths: ['./node_modules'],
+    }),
     QDGSbuildLog(),
   ],
 };
