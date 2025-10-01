@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "husky && npm run build",
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
     "build": "node esbuild.js",
