@@ -1,24 +1,36 @@
 @use "../../../css/mixins" as m;
 
 %header-main-variables {
-  --#{$prefix}header-brand-image-color: #{$core-default-color-neutral-black};
-  --#{$prefix}header-brand-image-color-hover: #{$color-default-color-light-link-default};
-  --#{$prefix}header-brand-divider-color: #{$color-default-color-light-accent-design-accent};
-  --#{$prefix}site-title-color: #{$color-default-color-light-site-title};
-  --#{$prefix}header-subline-color: #{$color-default-color-light-text-default};
-  --#{$prefix}header-border-color: #{$color-default-color-light-accent-design-accent};
+  &,
+  &.default {
+    @include m.register-vars(
+      $prefix,
+      (
+        header-border-color: #{$color-default-color-light-accent-design-accent},
+        header-brand-divider-color:
+          #{$color-default-color-light-accent-design-accent},
+        header-logo-color: #{$core-default-color-neutral-black},
+        header-logo-color-hover: #{$color-default-color-light-link-default},
+        header-subline-color: #{$color-default-color-light-text-default},
+        site-title-color: #{$color-default-color-light-site-title},
+      )
+    );
+  }
 
-  // ------------------------------------------------------------------------------------------------------------------
-  //  3. Dark/dark-alt modes
-  // ------------------------------------------------------------------------------------------------------------------
   &.dark,
   &.dark-alt {
-    --#{$prefix}header-brand-divider-color: #{$color-default-color-dark-accent-design-accent};
-    --#{$prefix}site-title-color: #{$color-default-color-dark-site-title};
-    --#{$prefix}header-subline-color: #{$color-default-color-dark-text-default};
-    --#{$prefix}header-brand-image-color: #{$color-default-color-dark-site-title};
-    --#{$prefix}header-brand-image-color-hover: #{$color-default-color-dark-link-default};
-    --#{$prefix}header-border-color: #{$color-default-color-dark-accent-design-accent};
+    @include m.register-vars(
+      $prefix,
+      (
+        header-border-color: #{$color-default-color-dark-accent-design-accent},
+        header-brand-divider-color:
+          #{$color-default-color-dark-accent-design-accent},
+        header-logo-color: #{$color-default-color-dark-site-title},
+        header-logo-color-hover: #{$color-default-color-dark-link-default},
+        header-subline-color: #{$color-default-color-dark-text-default},
+        site-title-color: #{$color-default-color-dark-site-title},
+      )
+    );
   }
 }
 
@@ -29,24 +41,45 @@
 
   &,
   &.default {
-    --#{$prefix}header-mobile-button-bg: #{$qld-color-background};
-    --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-background--shade};
+    @include m.register-vars(
+      $prefix,
+      (
+        header-logo-color: #{$core-default-color-neutral-black},
+        header-logo-color-hover: #{$color-default-color-light-link-default},
+        header-mobile-button-bg: #{$qld-color-background},
+        header-mobile-button-bg-hover: #{$qld-color-background--shade},
+      )
+    );
     --dropdown-bg: #{$qld-color-background};
     --dropdown-bg-active: #{$qld-color-background--shade};
     --dropdown-menu-bg: #{$qld-color-background--shade};
   }
 
   &.dark {
-    --#{$prefix}header-mobile-button-bg: #{$qld-color-dark-background};
-    --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-dark-background--shade};
+    @include m.register-vars(
+      $prefix,
+      (
+        header-logo-color: #{$color-default-color-dark-site-title},
+        header-logo-color-hover: #{$color-default-color-dark-link-default},
+        header-mobile-button-bg: #{$qld-color-dark-background},
+        header-mobile-button-bg-hover: #{$qld-color-dark-background--shade},
+      )
+    );
     --dropdown-bg: #{$qld-color-dark-background};
     --dropdown-bg-active: #{$qld-color-dark-background--shade};
     --dropdown-menu-bg: #{$qld-color-dark-background--shade};
   }
 
   &.dark-alt {
-    --#{$prefix}header-mobile-button-bg: #{$qld-color-dark-alt-background};
-    --#{$prefix}header-mobile-button-bg-hover: #{$qld-color-dark-alt-background--shade};
+    @include m.register-vars(
+      $prefix,
+      (
+        header-logo-color: #{$color-default-color-dark-site-title},
+        header-logo-color-hover: #{$color-default-color-dark-link-default},
+        header-mobile-button-bg: #{$qld-color-dark-alt-background},
+        header-mobile-button-bg-hover: #{$qld-color-dark-alt-background--shade},
+      )
+    );
     --dropdown-bg: #{$qld-color-dark-alt-background};
     --dropdown-bg-active: #{$qld-color-dark-alt-background--shade};
     --dropdown-menu-bg: #{$qld-color-dark-alt-background--shade};

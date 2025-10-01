@@ -153,8 +153,10 @@
       duration: animation.$duration-fast;
       timing-function: animation.$timing-function;
     }
+    color: var(--#{$prefix}header-logo-color);
 
     a:hover & {
+      color: var(--#{$prefix}header-logo-color-hover);
       filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08))
         drop-shadow(0 13px 20px rgba(0, 0, 0, 0.08));
     }
@@ -294,11 +296,17 @@
     @include media-breakpoint-up(lg) {
       padding-block: 1.5rem;
     }
+
+    &:not(:has(.qld-header-secondary-content)) {
+      @include media-breakpoint-down(lg) {
+        // prevent tabbing into empty link on smaller screens.
+        display: none;
+      }
+    }
   }
 
   &-brand-image {
     display: none;
-    color: var(--#{$prefix}header-brand-image-color);
 
     @include media-breakpoint-up(lg) {
       display: block;
@@ -312,10 +320,6 @@
     svg {
       vertical-align: text-bottom;
       pointer-events: none;
-    }
-
-    a:hover & {
-      color: var(--#{$prefix}header-brand-image-color-hover);
     }
   }
 
@@ -365,7 +369,7 @@
 
     a:hover & {
       color: var(--#{$prefix}site-title-color);
-      text-decoration: underline;
+      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
       text-decoration-color: currentColor !important;
     }
 
@@ -387,7 +391,7 @@
 
     a:hover & {
       color: var(--#{$prefix}header-subline-color);
-      text-decoration: underline;
+      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
       text-decoration-color: currentColor !important;
     }
 
