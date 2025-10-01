@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       description:
-        description: 'Manual run of update Libs'  
+        description: 'Manual run of update Libs'
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: write #Work with the contents of the repository. For example, contents: read permits an action to list the commits, and contents: write allows the action to create a release.
@@ -56,7 +56,7 @@ jobs:
 
       - name: Install
         run: | # Install packages
-          npm install --prefer-offline --no-audit --ignore-scripts
+          npm ci --prefer-offline --no-audit --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
 
@@ -71,16 +71,16 @@ jobs:
       - name: What changed
         run: |
          export outdated="`npm outdated --parsable `"
-          
+
          echo '### Outdated' >> $GITHUB_STEP_SUMMARY
          echo "$outdated" >> $GITHUB_STEP_SUMMARY
          echo '' >> $GITHUB_STEP_SUMMARY
-         
-        
+
+
          echo 'OUTDATED_LIST<<EOF' >> $GITHUB_OUTPUT
          echo "$outdated" >> $GITHUB_OUTPUT
          echo 'EOF' >> $GITHUB_OUTPUT
-        
+
          echo "OUTDATED_VERSION<<EOF" >> $GITHUB_OUTPUT
          npm outdated --parsable|grep ^storybook|awk '{ print $4 }' >> $GITHUB_OUTPUT
          echo 'EOF' >> $GITHUB_OUTPUT
@@ -89,10 +89,10 @@ jobs:
 
       - name: Update package.json ${{ steps.what-changed-data.outputs.OUTDATED_VERSION }}
         run: | # Update storybook
-          npx storybook@latest upgrade  -y 
+          npx storybook@latest upgrade  -y
       - name: Install latest
         run: | # Install packages https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#use-private-packages
-          npm install --no-audit --ignore-scripts
+          npm ci --no-audit --ignore-scripts
 
 
       # `npm rebuild` will run all those post-install scripts for us.

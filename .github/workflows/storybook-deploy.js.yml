@@ -62,7 +62,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install
         run: | # Install packages
-          npm install --prefer-offline --no-audit --ignore-scripts
+          npm ci --prefer-offline --no-audit --ignore-scripts
         #env:
         #  NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
 

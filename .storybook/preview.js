@@ -3,7 +3,7 @@ import "../src/js/qld.bootstrap.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { allBackgrounds } from "./modes.js";
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
 

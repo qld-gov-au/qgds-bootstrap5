@@ -139,11 +139,11 @@ describe("initGlobalAlerts", () => {
     localStorage = localStorageMock;
 
     // Set global references for initGlobalAlerts
-    // eslint-disable-next-line no-undef
+     
     global.document = d;
-    // eslint-disable-next-line no-undef
+     
     global.window = window;
-    // eslint-disable-next-line no-undef
+     
     global.localStorage = localStorageMock;
 
     // Clear localStorage before each test

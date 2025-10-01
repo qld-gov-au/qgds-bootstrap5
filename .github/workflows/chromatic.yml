@@ -1,4 +1,4 @@
-# This workflow will run chromatic build on specific branches. We separated out the chromatic job to make sure it run on manual trigger and 
+# This workflow will run chromatic build on specific branches. We separated out the chromatic job to make sure it run on manual trigger and
 # restricted to push on specific branches and pull requests like before
 
 name: Chromatic
@@ -61,7 +61,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install #run on lint step (Which is cached)
         run: | # Install packages
-          npm install --prefer-offline --no-audit --ignore-scripts
+          npm ci --prefer-offline --no-audit --ignore-scripts
         #env:
         #  NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
 
@@ -107,7 +107,7 @@ jobs:
           storybookBuildDir: "storybook-static"
       - name: Publish to Chromatic - Is Skipped
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
-        run: |  
+        run: |
           echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
           echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
           echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY

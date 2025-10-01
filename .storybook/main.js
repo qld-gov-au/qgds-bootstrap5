@@ -1,7 +1,13 @@
 /** @type { import('@storybook/html-vite').StorybookConfig } */
+// Is an ESM module now
 
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
+
+// ESM equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const config = {
   stories: [
@@ -17,11 +23,10 @@ const config = {
     //https://storybook.js.org/addons/
     "@storybook/addon-a11y",
     "@storybook/addon-themes",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@storybook/addon-links",
     "@chromatic-com/storybook",
     "storybook-addon-deep-controls",
+    "@storybook/addon-docs"
   ],
 
   framework: {
