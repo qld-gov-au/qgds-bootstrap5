@@ -40,8 +40,14 @@ const buildConfig = {
       out: "./assets/css/qld.bootstrap",
     },
     {
-      in: "./src/js/handlebars.helpers.js",
+      //Deprecated init is where it should be at
+      in: "./src/js/handlebars.init.js",
       out: "./assets/js/handlebars.helpers.bundle",
+    },
+    {
+      //Deprecated init is where it should be at
+      in: "./src/js/handlebars.init.js",
+      out: "./assets/js/handlebars.partials",
     },
     {
       in: "./src/js/handlebars.init.js",

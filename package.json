@@ -19,7 +19,7 @@
     "test:testrunner": "sleep 2 && mocha --timeout 10000 --require ./test/testServer.test.js ",
     "watch": "node esbuild.js --watch",
     "serve": "http-server dist -p 8080",
-    "serve:test": "http-server dist -p 8081 --silent",
+    "serve:test": "http-server . -p 8081 --silent",
     "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --webpack-stats-json ",
