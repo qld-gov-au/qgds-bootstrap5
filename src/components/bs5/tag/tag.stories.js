@@ -41,7 +41,7 @@ export const ParentContextComparison = {
       tagItems: [
         {
           content: "Information",
-          classes: "tag-information",
+          classes: "tag-info",
         },
         {
           content: "<a href='javascript:void(0)'>Action</a>",

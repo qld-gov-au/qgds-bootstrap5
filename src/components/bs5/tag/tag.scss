@@ -272,6 +272,10 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     .tag-item {
       --qld-focus-color: #{$qld-dark-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color correctly here.
       color: var(--#{$prefix}dark-text);
+
+      &.tag-large {
+        color: var(--#{$prefix}white);
+      }
     }
 
     .tag-link {
@@ -298,6 +302,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-info {
       background-color: var(--#{$prefix}color-dark-background--shade);
+      color: var(--#{$prefix}white);
     }
 
     .tag-clear-filter-button {
@@ -341,10 +346,15 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
       color: var(--#{$prefix}dark-text);
       border-color: var(--#{$prefix}dark-border);
+
+      &.tag-large {
+        color: var(--#{$prefix}white);
+      }
     }
 
     .tag-info {
       background-color: var(--#{$prefix}color-dark-background--shade);
+      color: var(--#{$prefix}white);
     }
 
     .tag-link {
@@ -382,6 +392,10 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-item {
       --qld-focus-color: #{$qld-dark-focus};
+
+      &.tag-large {
+        color: var(--#{$prefix}white);
+      }
     }
 
     .tag-link {
@@ -408,6 +422,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-info {
       background-color: var(--#{$prefix}color-dark-background--shade);
+      color: var(--#{$prefix}white);
     }
 
     .tag-clear-filter-button {
@@ -432,10 +447,15 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       a {
         color: var(--#{$prefix}dark-text);
       }
+
+      &.tag-large {
+        color: var(--#{$prefix}white);
+      }
     }
 
     .tag-info {
       background-color: var(--#{$prefix}color-dark-background--shade);
+      color: var(--#{$prefix}white);
     }
 
     .tag-link {
