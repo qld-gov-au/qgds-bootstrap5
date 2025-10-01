@@ -19,7 +19,7 @@ jobs:
       IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
     strategy:
       matrix:
-        node: [ '20' ]
+        node: [ '22' ]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
