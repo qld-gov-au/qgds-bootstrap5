@@ -267,7 +267,7 @@
   --text-color: var(--#{$prefix}light-text-text);
   --border-color: var(--#{$prefix}default-border);
   --header-color: var(--#{$prefix}default-background);
-  --action-icon-color: var(--#{$prefix}alt-button-hover);
+  --action-icon-color: var(--#{$prefix}light-action-secondary);
   --action-icon-color_active: var(--text-color);
   --mobile-only-display: none;
   --visibility-display: hidden;
@@ -475,10 +475,11 @@
   .navbar-nav a.nav-link,
   a.dropdown-item {
     color: var(--link-color);
-    padding: 0.5rem;
+    padding-block: 0.625rem;
+    padding-inline: 0.75rem;
     display: flex;
     line-height: 2rem;
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: center;
     &:hover {
       text-decoration: underline;
@@ -578,6 +579,7 @@
           background-color: var(--action-icon-color);
           height: 1.25rem;
           width: 1.25rem;
+          min-width: 1.25rem;
           margin-inline-start: auto;
           border: 0;
           transform: scaleX(var(--icon-dir));
