@@ -1,5 +1,11 @@
-# This workflow will run chromatic build on specific branches. We separated out the chromatic job to make sure it run on manual trigger and 
+# This workflow will run chromatic build on specific branches. We separated out the chromatic job to make sure it run on manual trigger and
 # restricted to push on specific branches and pull requests like before
+#
+# TurboSnap Performance: This workflow enables TurboSnap for efficient visual regression testing.
+# The build step regenerates handlebars.partials.js which can trigger false cache invalidation.
+# Mitigations applied:
+# - Deterministic file ordering in .esbuild/plugins/qgds-plugin-handlebar-partial-builder.js
+# - Generated files excluded from linting to prevent formatting changes
 
 name: Chromatic
 permissions:
