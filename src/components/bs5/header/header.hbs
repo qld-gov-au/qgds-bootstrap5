@@ -46,7 +46,7 @@
                         </ul>
                         {{/ifCond}}
 
-                        {{#ifCond dropdown.type "===" "html"}}
+                        {{#ifCond dropdown.type "in" "html, form"}}
                         <div class="dropdown-menu">
                             {{{dropdown.HTMLContent}}}
                         </div>

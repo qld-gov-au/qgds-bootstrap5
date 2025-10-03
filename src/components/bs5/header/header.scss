@@ -293,7 +293,7 @@
     text-decoration: none;
 
     @include media-breakpoint-up(lg) {
-      padding-block: 1.5rem;
+      padding-block: 2rem;
     }
 
     &:not(:has(.qld-header-secondary-content)) {
