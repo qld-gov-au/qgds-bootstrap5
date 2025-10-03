@@ -59,7 +59,7 @@
             button.nav-link {
               background-color: var(--dropdown-show-btn-bg);
               &::after {
-                transform: rotate(180deg);
+                transform: rotate(-180deg);
                 transition: transform var(--animation-time) ease-in;
               }
             }
@@ -506,7 +506,7 @@
     }
     &.show {
       &:after {
-        transform: rotate(180deg);
+        transform: rotate(-180deg);
         transition: transform var(--animation-time) ease-in;
       }
     }
