@@ -180,7 +180,7 @@
   }
 
   .dropdown-toggle {
-    padding-inline: 1.25rem;
+    padding-inline: 0.5rem;
     display: flex;
     align-items: center;
     height: var(--qld-header-preheader-height);
@@ -201,7 +201,6 @@
     &.show {
       background-color: var(--dropdown-bg-active);
       &::after {
-        // transform: scaleY(-1);
         transform: rotate(-180deg);
       }
     }
