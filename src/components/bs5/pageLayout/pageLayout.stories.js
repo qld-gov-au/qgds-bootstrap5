@@ -43,12 +43,12 @@ const sideNavData = {
     },
     {
       link: "#",
-      label: "Content page (basic bar)",
+      label: "Content page (with bar)",
       class: "",
     },
     {
       link: "#",
-      label: "Single page form",
+      label: "Page with form",
       class: "",
     },
   ],
