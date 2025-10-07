@@ -266,7 +266,8 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
   }
 
-  &.tag-dark {
+  &.tag-dark,
+  .dark &:not(.tag-dark):not(.tag-dark-alt):not(.tag-alt) {
     background-color: var(--#{$prefix}brand-primary);
 
     .tag-item {
@@ -283,7 +284,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       border-color: var(--#{$prefix}white);
 
       a {
-        color: white;
+        color: var(--#{$prefix}white);
       }
 
       &:hover,
@@ -334,7 +335,8 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
   }
 
-  &.tag-dark-alt {
+  &.tag-dark-alt,
+  .dark-alt &:not(.tag-dark):not(.tag-dark-alt):not(.tag-alt) {
     background-color: var(--#{$prefix}brand-primary-dark);
 
     .tag-item {
@@ -382,103 +384,3 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
   }
 }
 
-// PARENT CONTEXT SUPPORT
-// Support for global parent contexts like .dark .tag-list instead of just component-scoped .tag-dark
-
-.dark .tag-list {
-  // Apply dark theme styling when tag-list is inside a .dark parent
-  &:not(.tag-dark):not(.tag-dark-alt) {
-    background-color: var(--#{$prefix}brand-primary);
-
-    .tag-item {
-      --qld-focus-color: #{$qld-dark-focus};
-
-      &.tag-large {
-        color: var(--#{$prefix}white);
-      }
-    }
-
-    .tag-link {
-      color: var(--#{$prefix}white);
-      border-color: var(--#{$prefix}white);
-
-      a {
-        color: white;
-      }
-
-      &:hover,
-      &:active,
-      &:focus,
-      &:focus-within {
-        background-color: var(--#{$prefix}dark-action-primary-hover);
-        border-color: var(--#{$prefix}brand-secondary);
-        color: var(--#{$prefix}text-darkest);
-
-        a {
-          color: var(--#{$prefix}text-darkest);
-        }
-      }
-    }
-
-    .tag-info {
-      background-color: var(--#{$prefix}color-dark-background--shade);
-      color: var(--#{$prefix}white);
-    }
-
-    .tag-clear-filter-button {
-      color: var(--#{$prefix}dark-action-secondary);
-
-      &:hover {
-        color: var(--#{$prefix}dark-action-secondary-hover);
-      }
-    }
-  }
-}
-
-.dark-alt .tag-list {
-  // Apply dark-alt theme styling when tag-list is inside a .dark-alt parent
-  &:not(.tag-dark):not(.tag-dark-alt) {
-    background-color: var(--#{$prefix}brand-primary-dark);
-
-    .tag-item {
-      --qld-focus-color: #{$qld-dark-focus};
-      border-color: var(--#{$prefix}dark-border);
-
-      a {
-        color: var(--#{$prefix}dark-text);
-      }
-
-      &.tag-large {
-        color: var(--#{$prefix}white);
-      }
-    }
-
-    .tag-info {
-      background-color: var(--#{$prefix}color-dark-background--shade);
-      color: var(--#{$prefix}white);
-    }
-
-    .tag-link {
-      &:hover,
-      &:active,
-      &:focus,
-      &:focus-within {
-        background-color: var(--#{$prefix}dark-action-primary-hover);
-        border-color: var(--#{$prefix}brand-secondary);
-        color: var(--#{$prefix}text-darkest);
-
-        a {
-          color: var(--#{$prefix}text-darkest);
-        }
-      }
-    }
-
-    .tag-clear-filter-button {
-      color: var(--#{$prefix}dark-action-secondary);
-
-      &:hover {
-        color: var(--#{$prefix}dark-action-secondary-hover);
-      }
-    }
-  }
-}
