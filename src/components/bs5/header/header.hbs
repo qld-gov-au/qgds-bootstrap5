@@ -22,7 +22,7 @@
                         </a>
 
                         {{#ifCond dropdown.type "===" "list"}}
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-end">
 
                             {{#each dropdown.items}}
                             <li>
@@ -47,7 +47,7 @@
                         {{/ifCond}}
 
                         {{#ifCond dropdown.type "in" "html, form"}}
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu dropdown-menu-end">
                             {{{dropdown.HTMLContent}}}
                         </div>
                         {{/ifCond}}

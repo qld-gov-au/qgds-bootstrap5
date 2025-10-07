@@ -213,7 +213,7 @@
     //
     width: 20.25rem;
     min-height: 1rem;
-    padding: 1rem 2rem 1rem;
+    padding: 1rem 1.75rem 1rem;
     border-radius: 0 0 0.75rem 0.75rem;
     border: 0;
     background-color: var(--dropdown-menu-bg);
@@ -251,18 +251,27 @@
     padding: 1rem 1.75rem 1rem 0;
     line-height: 1.5;
     white-space: normal; // allow text to wrap
+    --_icon-translateX: 0rem;
 
     &:hover {
+      --_icon-translateX: 0.25rem;
       color: var(--qld-link-visited-color);
     }
 
-    &::after {
-      content: "";
-      @include mixins.make-icon($name: "arrow-right", $size: "md");
+    @include mixins.make-icon(
+      $name: "arrow-right",
+      $pseudo: "after",
+      $size: "sm"
+    ) {
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translate(var(--_icon-translateX), -50%);
+      transition: {
+        property: color, background-color, transform;
+        duration: animation.$duration-fast;
+        timing-function: animation.$timing-function;
+      }
     }
 
     span,
