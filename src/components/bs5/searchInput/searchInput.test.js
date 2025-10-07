@@ -1,4 +1,4 @@
-import { expect, it, describe, test, beforeEach } from "vitest";
+import { expect, it, describe, test, beforeEach, afterEach } from "vitest";
 import { JSDOM } from "jsdom";
 import { SearchInput } from "./SearchInput.js";
 import mockData from "./searchInput.data.json";
@@ -63,16 +63,32 @@ describe("SearchInput", () => {
     d = dom.window.document;
     window = dom.window;
 
-    // Wait for scripts to execute
-    await waitFor();
+    // Wait for scripts to execute and DOM to be fully ready
+    await waitFor(100);
+
+    // Additional wait to ensure all scripts are fully initialized
+    await new Promise(resolve => setTimeout(resolve, 100));
 
     form = d.querySelector(".site-search");
-    searchInput = form.querySelector(".qld-search-input input");
-    suggestions = form.querySelector(".suggestions");
+    searchInput = form?.querySelector(".qld-search-input input");
+    suggestions = form?.querySelector(".suggestions");
 
     // Ensure elements exist
     if (!form || !searchInput || !suggestions) {
       throw new Error("Required elements not found in DOM");
+    }
+  });
+
+  afterEach(() => {
+    // Clean up DOM and prevent memory leaks
+    if (dom) {
+      dom.window.close();
+      dom = null;
+      d = null;
+      window = null;
+      form = null;
+      searchInput = null;
+      suggestions = null;
     }
   });
 
