@@ -12,20 +12,22 @@
       "alternativeColor": false,
       "mobileOnly": false,
       "hideLabel": true,
+      "currentPage": true,
       "target": ""
     },
     {
       "text": "Simple list",
       "iconName": "",
       "url": "index.html",
-      "alternativeColor": true,
+      "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": "_blank",
       "dropdownOptions": {
-        "alternativeText": "Patients and visitors",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        "viewAllHref": "https://example.com"
+        "alternativeText": "",
+        "description": "",
+        "viewAllHref": ""
       },
       "navigationItems": [
         {
@@ -83,8 +85,9 @@
       "text": "Mega menu",
       "iconName": "qld-icon-calendar",
       "url": "https://example.com",
-      "alternativeColor": true,
+      "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": "",
       "dropdownOptions": {
@@ -157,6 +160,7 @@
       "url": "/iframe.html?viewMode=story&id=3-components-navbar--default",
       "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
     },
@@ -166,15 +170,17 @@
       "url": "/?path=/docs/3-components-navbar--overview",
       "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
     },
     {
-      "text": "Mobile only",
+      "text": "Full screen view 2",
       "iconName": "",
       "url": "index.html",
-      "alternativeColor": false,
+      "alternativeColor": true,
       "mobileOnly": true,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
     },
@@ -182,8 +188,9 @@
       "text": "Mobile only with icon",
       "iconName": "qld-icon-chart",
       "url": "index.html",
-      "alternativeColor": false,
+      "alternativeColor": true,
       "mobileOnly": true,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
     }

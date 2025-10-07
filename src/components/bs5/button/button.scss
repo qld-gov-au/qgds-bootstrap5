@@ -165,6 +165,10 @@ a.btn,
   min-height: 3.25rem;
   text-align: center;
 
+  .qld-icon {
+    flex-shrink: 0;
+  }
+
   span[class^="icon-"],
   span[class^="fa-"] {
     margin: 0 0.5rem;

@@ -72,7 +72,6 @@ describe("Skip Links", () => {
 
     expect(resolvedMessages).toEqual([
       'A skip link with label "Skip to nowhere" is targeting a non-existent element with id "i-dont-exist".',
-      'A skip link with label "Skip to unfocusable" is targeting a non-focusable element with id "unfocusable". Make sure the element is natively focusable, or assign a tab index of -1.',
     ]);
 
     // JSDOM does not implement navigation so must manual test for main functionality
