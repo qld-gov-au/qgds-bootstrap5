@@ -293,6 +293,14 @@
     position: relative;
     color: var(--#{$prefix}header-color-text);
     background: var(--#{$prefix}header-color-bg);
+
+    // Patch for v2.0.5. Redundant after header QGDS-266 is merged
+    border-bottom: 0.25rem solid var(--qld-light-accent);
+
+    @include media-breakpoint-up(lg) {
+      border-bottom: none;
+    }
+    // End patch for v2.0.5
   }
 
   &-brand {
