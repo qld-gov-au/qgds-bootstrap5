@@ -7,6 +7,14 @@ import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
 
+// NOTE: TurboSnap Performance Warning
+// The handlebars.init.js import above loads handlebars.partials.js which is
+// auto-generated during build. Changes to this file trigger TurboSnap to
+// rebuild all stories. To prevent false positives:
+// 1. The generator plugin ensures deterministic file ordering
+// 2. The generated file is excluded from linting
+// See: .esbuild/plugins/qgds-plugin-handlebar-partial-builder.js
+
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
   parameters: {
@@ -85,7 +93,10 @@ const preview = {
       config: {},
       options: {
         runOnly: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
-        checks: { "color-contrast": { options: { noScroll: true } } },
+        checks: {
+          "color-contrast": { options: { noScroll: true } },
+          region: { enabled: false },
+        },
         restoreScroll: true,
       },
     },

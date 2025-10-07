@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "scripts": {
     "prepare": "npm run build",
     "start": "npm run build",
-    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
+    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' --ignore-pattern 'src/js/handlebars.partials.js' .",
     "build": "node esbuild.js",
     "build:icons": "node esbuild.js --icons",
     "test": "vitest",

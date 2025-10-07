@@ -530,7 +530,7 @@ export const Default = {
           }
           .navbar #burgerCloseBtn::before {
             --nav-header-icon-color: var(--#{$prefix}brand-accent);
-            background-color: var(--nav-header-icon-color, #008635);
+            background-color: var(--nav-header-icon-color, #ffe500);
           }
         }
         @media (width >= 992px) {
