@@ -336,7 +336,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
   }
 
   &.tag-dark-alt,
-  .dark-alt &:not(.tag-dark):not(.tag-dark-alt):not(.tag-alt) {
+  .dark-alt &:not(.tag-dark, .tag-dark-alt, .tag-alt) {
     background-color: var(--#{$prefix}brand-primary-dark);
 
     .tag-item {
@@ -383,4 +383,3 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
   }
 }
-
