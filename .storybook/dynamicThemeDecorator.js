@@ -1,12 +1,12 @@
 const loadedThemes = new Map();
 const themeStyleElements = new Map();
-let currentTheme = null;
+let currentTheme = "customized";
 
 // Dynamic theme modules import for lazy loading
 // Automatically generate theme modules based on available theme files
 const themeModules = (() => {
   const modules = {
-    default: () => import("../src/css/main.scss"),
+    customized: () => import("../src/css/main.scss"),
   };
 
   // Get all theme files in the themes directory
@@ -116,7 +116,7 @@ const loadTheme = async (themeName) => {
 
 export const withDynamicTheme = (Story, context) => {
   const { globals } = context;
-  const themeName = globals.themeName || "default";
+  const themeName = globals.themeName || "customized";
 
   loadTheme(themeName);
 
@@ -127,21 +127,21 @@ export const dynamicThemeGlobalTypes = {
   themeName: {
     name: "Theme Palette",
     description: "Theme palette selector",
-    defaultValue: "default",
+    defaultValue: "masterbrand",
     toolbar: {
       icon: "switchalt",
       items: (() => {
         // Dynamically generate toolbar items from available themes
-        const items = [{ value: "default", title: "Default theme palette" }];
+        const items = [{ value: "customized", title: "Customized theme" }];
 
         // Add items for all discovered themes
         Object.keys(themeModules).forEach((themeName) => {
-          if (themeName !== "default") {
+          if (themeName !== "customized") {
             const capitalizedName =
               themeName.charAt(0).toUpperCase() + themeName.slice(1);
             items.push({
               value: themeName,
-              title: `${capitalizedName} theme palette`,
+              title: `${capitalizedName} theme`,
             });
           }
         });

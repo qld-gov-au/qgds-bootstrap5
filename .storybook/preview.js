@@ -8,7 +8,7 @@ import {
 } from "./dynamicThemeDecorator.js";
 
 // Check if dynamic theme should be enabled via environment variable
-const ENABLE_DYNAMIC_THEME = true; //import.meta.env.ENABLE_DYNAMIC_THEME;
+const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;
 import { allBackgrounds } from "./modes.js";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import init from "../src/js/handlebars.init.js";
