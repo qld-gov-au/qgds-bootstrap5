@@ -14,9 +14,9 @@ permissions:
 on:
   push:
     branches:
-     - main
-     - develop
-     - master
+      - main
+      - develop
+      - master
   pull_request:
   workflow_dispatch:
 concurrency:
@@ -31,7 +31,7 @@ jobs:
       IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
     strategy:
       matrix:
-        node: [ '20' ]
+        node: ["20"]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
@@ -61,10 +61,10 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: ${{ matrix.node }}
-          cache: 'npm'
+          cache: "npm"
           #always-auth: 'true'
           #registry-url: 'https://nexus.tools.services.qld.gov.au/nexus/repository/npm_all/'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
       - name: Install #run on lint step (Which is cached)
         run: | # Install packages
           npm install --prefer-offline --no-audit --ignore-scripts
@@ -83,7 +83,6 @@ jobs:
         run: |
           npm run test
 
-
       - name: Integration Test
         run: |
           npm run test:integration
@@ -95,7 +94,7 @@ jobs:
 
       - name: Build Storybook 🔧
         run: | # build the Storybook files
-          if [ "${{ vars.STORYBOOK_THEMES }}" == "true" ]; then
+          if [ "${{ vars.ENABLE_STORYBOOK_THEMES }}" == "true" ]; then
             npm run build-storybook:themes
           else
             npm run build-storybook
@@ -117,7 +116,7 @@ jobs:
           storybookBuildDir: "storybook-static"
       - name: Publish to Chromatic - Is Skipped
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
-        run: |  
+        run: |
           echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
           echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
           echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
