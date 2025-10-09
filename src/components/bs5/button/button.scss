@@ -12,6 +12,8 @@
   --#{$prefix}btn-focus-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   --#{$prefix}btn-disabled-opacity: 0.5;
   --#{$prefix}btn-spinner-icon-size__md: 1.5rem;
+  --#{$prefix}icon-color: var(--qld-action-icon-color);
+  --#{$prefix}icon-hover-color: var(--qld-action-icon-hover-color);
 
   //Primary button variant
   &-primary {
@@ -31,8 +33,9 @@
     --#{$prefix}btn-focus-border-color: var(
       --#{$prefix}color-default-color-light-action-primary-hover
     );
+    --#{$prefix}icon-color: currentColor;
+    --#{$prefix}icon-hover-color: currentColor;
   }
-
   //Secondary button variant
   &-secondary,
   &-outline-secondary {
@@ -162,9 +165,17 @@ a.btn,
   min-height: 3.25rem;
   text-align: center;
 
+  .qld-icon {
+    flex-shrink: 0;
+  }
+
   span[class^="icon-"],
   span[class^="fa-"] {
     margin: 0 0.5rem;
+  }
+
+  &:hover {
+    --#{$prefix}icon-color: var(--#{$prefix}icon-hover-color);
   }
 
   &:hover,
@@ -196,6 +207,7 @@ a.btn,
   &:disabled,
   &.disabled {
     --qld-body-color: var(--#{$prefix}btn-disabled-color);
+    --#{$prefix}icon-color: currentColor;
 
     &:visited {
       color: var(--#{$prefix}btn-disabled-color);

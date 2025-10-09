@@ -17,8 +17,7 @@
 
 .qld-header {
   @extend %header-variables;
-  color: var(--#{$prefix}header-color-text);
-  background: var(--#{$prefix}header-color-bg);
+
   font-size: 1rem;
 
   @include media-breakpoint-up(sm) {
@@ -292,6 +291,16 @@
 
   &-main {
     position: relative;
+    color: var(--#{$prefix}header-color-text);
+    background: var(--#{$prefix}header-color-bg);
+
+    // Patch for v2.0.5. Redundant after header QGDS-266 is merged
+    border-bottom: 0.25rem solid var(--qld-light-accent);
+
+    @include media-breakpoint-up(lg) {
+      border-bottom: none;
+    }
+    // End patch for v2.0.5
   }
 
   &-brand {
@@ -399,37 +408,25 @@
   }
 
   &-site-search {
-    form {
-      display: flex;
-      position: relative;
+    display: none;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0.4rem;
+    padding: 1rem var(--qld-container-padding-x);
+    background-color: var(--#{$prefix}header-color-bg);
+
+    &.is-open {
+      display: block;
     }
 
-    @include media-breakpoint-down(lg) {
-      // Mobile search open class
-      &.is-open {
-        z-index: 1;
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0.4rem;
-        padding: 1rem 0;
-        background-color: var(--#{$prefix}header-color-bg);
-      }
-      &.is-closed {
-        display: none;
-      }
-    }
-
-    // Some default styling overrides.
     @include media-breakpoint-up(lg) {
-      .container {
-        display: contents;
-      }
-    }
-
-    .qld-search-input {
-      min-width: auto;
+      z-index: unset;
+      display: block;
+      position: static;
+      padding: 0;
+      background-color: transparent;
     }
   }
 }

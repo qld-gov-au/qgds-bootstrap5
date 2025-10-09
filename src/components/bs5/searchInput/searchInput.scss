@@ -1,31 +1,150 @@
-// ----------------------------------------------------------------------------------------------------------------------
-// Search input - palettes and second hand variables:
-@import "./colours";
+@use "../../../css/mixins";
 
-// ----------------------------------------------------------------------------------------------------------------------
 .qld-search-input {
-  //Default state - unfocused, unhovered
-  --text-color: var(--qld-dark-grey-muted);
-  --placeholder-color: var(--qld-dark-grey-muted);
-  --border-color: var(--qld-soft-grey);
-  --background-color: var(--qld-white);
-  --outline-color: var(--qld-light-blue);
-  --icon-color: var(--qld-dark-grey-muted);
-  --icon-color-on-btn: var(--qld-white);
-  --icon: var(--qgds-icon-search);
+  // Input variables
+  --background-color: var(--#{$prefix}white);
+  --border-color: var(--#{$prefix}light-border-alt);
+  --placeholder-color: var(--#{$prefix}light-text-lighter);
+  --qld-icon-color: var(--#{$prefix}light-text-lighter);
+  --text-color: var(--#{$prefix}light-text-text);
+  --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
+  
+  .dark &, .dark-alt & {
+    --text-heading: var(--#{$prefix}dark-text-lighter);
+    --qld-focus-color: var(--#{$prefix}dark-focus);
+  }
+  
+  // Suggestions variables
+  --suggestions-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+  --suggestions-bg: var(
+    --#{$prefix}color-default-color-light-background-default-shade
+  );
+  --suggestions-hover: var(
+    --#{$prefix}color-default-color-light-border-default
+  );
+  --suggestions-hover-border-color: var(
+    --#{$prefix}color-default-color-light-accent-design-accent
+  );
+  --suggestions-feature-bg: var(
+    --#{$prefix}color-default-color-dark-background-default
+  );
+  --suggestions-feature-hover: var(
+    --#{$prefix}color-default-color-dark-background-default-shade
+  );
+  --suggestions-feature-text-color: var(
+    --#{$prefix}color-default-color-dark-text-default
+  );
+
+  // local variables
+  $border-radius: 0.25rem;
+  --_size: 3rem;
+
+
+  display: flex;
   position: relative;
-  width: 100%;
+  border-radius: $border-radius;
+
+  @include mixins.focusable($customSelector: ":has(.form-control:focus)");
+
+  &:has(.form-control:focus) {
+    > button {
+      border-bottom-right-radius: $border-radius;
+    }
+  }
 
   .form-control {
-    min-height: 52px;
+    min-height: var(--_size);
+    padding: 0 4rem 0 1rem;
+    border: {
+      color: var(--border-color);
+      style: solid;
+      top-width: 0.125rem;
+      right-width: 0;
+      bottom-width: 0.125rem;
+      left-width: 0.125rem;
+      radius: $border-radius 0 0 $border-radius;
+    }
+    background: var(--background-color);
+    padding-right: 7.5rem;
+    color: var(--text-color);
+    transition: {
+      property: border-color, background-color, color;
+      timing-function: ease-out;
+      duration: 0.2s;
+    }
+
+    &::placeholder {
+      color: var(--placeholder-color);
+    }
+
+    &:hover {
+      --background-color: var(--#{$prefix}neutral-lightest);
+      --border-color: var(--#{$prefix}light-action-primary-hover);
+    }
+
+    &:active,
+    &:focus {
+      --border-color: var(--#{$prefix}light-border-alt);
+      --background-color: var(--#{$prefix}white);
+      outline: none;
+    }
   }
 
-  @include media-breakpoint-up(lg) {
-    min-width: 22.5rem;
+  > button {
+    border-radius: 0 $border-radius $border-radius 0;
+    padding: 0;
+    margin: 0;
+    width: var(--_size);
+    box-shadow: none;
+    min-width: auto;
+    min-height: auto;
+    flex-shrink: 0;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+
+    .btn-label {
+      display: none;
+    }
+
+    //prep a button "search-icon" which is invoked at smaller screeen sizes below
+    .btn-icon {
+      @include mixins.make-icon($name: "search", $size: "md");
+      --qld-icon-color: currentColor;
+    }
   }
 
-  @include media-breakpoint-up(xl) {
-    min-width: 26rem;
+  @include media-breakpoint-up(md) {
+    --_size: 3.25rem;
+
+    > button {
+      padding: calc(0.75rem - 0.125rem) var(--qld-btn-padding-x);
+      margin: 0;
+      width: auto;
+
+      .btn-label {
+        display: block;
+      }
+
+      .btn-icon {
+        display: none;
+        margin-left: 0;
+      }
+    }
+
+    .form-control {
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+    }
+
+    @include mixins.make-icon($name: "search", $size: "xs", $pseudo: "before") {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(1rem - 0.125rem);
+    }
   }
 
   //Search dropdown
@@ -36,10 +155,9 @@
     width: 100%;
     z-index: 1;
     border-radius: 0.5rem;
-    background: var(--#{$prefix}site-search-suggestions-bg);
-    box-shadow: var(--#{$prefix}site-search_boxshadow);
-    border-bottom: solid 0.25rem
-      var(--#{$prefix}site-search-suggestions-hover__border_color);
+    background: var(--suggestions-bg);
+    box-shadow: var(--suggestions-shadow);
+    border-bottom: solid 0.25rem var(--suggestions-hover-border-color);
 
     .suggestions-category {
       &-view-more {
@@ -50,7 +168,7 @@
           0.5
         );
         &:hover {
-          background-color: var(--#{$prefix}site-search-suggestions-hover);
+          background-color: var(--suggestions-hover);
           text-decoration-color: rgba(
             $color-default-color-light-text-default,
             1
@@ -82,22 +200,20 @@
 
     // Featured search result styles
     .feature {
-      background-color: var(--#{$prefix}site-search-suggestions-feature_bg);
+      background-color: var(--suggestions-feature-bg);
 
       strong {
-        color: var(--#{$prefix}site-search-suggestions-feature_text-color);
+        color: var(--suggestions-feature-text-color);
       }
 
       ul {
         li {
           &:hover {
-            background-color: var(
-              --#{$prefix}site-search-suggestions-feature_hover
-            );
+            background-color: var(--suggestions-feature-hover);
           }
 
           a {
-            color: var(--#{$prefix}site-search-suggestions-feature_text-color);
+            color: var(--suggestions-feature-text-color);
           }
         }
       }
@@ -113,15 +229,13 @@
 
       a,
       strong {
-        color: var(--site-search-input-color);
-        font-weight: 400;
         font-size: 1rem;
         text-decoration: none;
       }
 
       strong {
         font-weight: 600;
-        color: var(--#{$prefix}color-default-color-light-text-heading);
+        color: var(--text-heading);
       }
 
       ul {
@@ -143,7 +257,7 @@
           }
 
           &:hover {
-            background-color: var(--#{$prefix}site-search-suggestions-hover);
+            background-color: var(--suggestions-hover);
 
             a {
               text-decoration: underline;
@@ -161,186 +275,93 @@
     max-width: 100%;
   }
 
-  //SVG Search Icon
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: calc(1rem - 0.125rem);
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--icon-color);
-    mask: var(--icon) center center / 1rem no-repeat;
-    mask-size: contain;
-    -webkit-mask-size: contain;
-    -webkit-mask: var(--icon) center center / 1rem no-repeat;
-  }
-
-  //Icon color is scoped against the parent container, not the input :(
-  &:has(.form-control:hover) {
-    --icon-color: var(--qld-dark-grey-muted);
-  }
-
-  &:has(.form-control:focus) {
-    --icon-color: var(--qld-text-grey);
-  }
-
-  .btn {
-    box-shadow: none;
-    min-width: auto;
-  }
-
-  .form-control {
-    padding: 0.75rem 1rem 0.75rem 2.5rem;
-    border-radius: 0.25rem;
-    border: 0.125rem solid var(--border-color);
-    background: var(--background-color);
-    padding-right: 7.5rem;
-    color: var(--text-color);
-
-    &::placeholder {
-      color: var(--placeholder-color);
-    }
-
-    &:hover {
-      //Rescope hover state
-      --icon-color: var(--qld-dark-grey-muted);
-      --text-color: var(--qld-text-grey);
-      --placeholder-color: var(--qld-text-grey);
-      --border-color: var(--qld-light-action-primary);
-      --background-color: var(--qld-default-background-shade);
-    }
-
-    &:focus {
-      //Rescope focus state
-      --icon-color: var(--qld-text-grey);
-      --text-color: var(--qld-text-grey);
-      --placeholder-color: var(--qld-text-grey);
-      --border-color: var(--qld-soft-grey);
-      --background-color: var(--qld-white);
-
-      outline: 0.188rem solid var(--outline-color);
-      outline-offset: 0.125rem;
-    }
-  }
-
-  button {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 0 0.25rem 0.25rem 0;
-
-    // Adjust button padding to allow for input borders of 2px top and bottom
-    padding-top: calc(0.75rem - 0.125rem);
-    padding-bottom: calc(0.75rem - 0.125rem);
-
-    //prep a button "search-icon" which is invoked at smaller screeen sizes below
-    span.btn-icon {
-      display: none;
-      width: 1.5rem;
-      height: 1.5rem;
-      height: 1.5rem;
-      margin-right: 0;
-      background-color: var(--icon-color-on-btn);
-      mask: var(--icon) center center / 1.25rem no-repeat;
-    }
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .qld-search-input {
-    button {
-      span.btn-label {
-        display: block;
-      }
-
-      span.btn-icon {
-        display: none;
-      }
-    }
-  }
-}
-
-//Adjustments for 991px and below
-// Apply styles for medium screens and down
-@include media-breakpoint-down(md) {
-  .qld-search-input {
-    button {
-      span.btn-label {
-        display: none;
-      }
-
-      //Show the search icon (on button) on small screens
-      span.btn-icon {
-        display: block;
-      }
-    }
+  &.is-filled {
+    --background-color: var(--#{$prefix}neutral-lightest);
 
     .form-control {
-      padding-left: 1rem;
-      padding-right: 4rem;
-    }
+      border: {
+        top-width: 0;
+        right-width: 0;
+        bottom-width: 0.125rem;
+        left-width: 0;
+        radius: $border-radius 0 0 0;
+      }
 
-    #search-button {
-      &.btn {
-        padding: 0;
-        margin: 0;
-        width: 3rem;
-
-        .btn-icon {
-          margin-left: 0.65rem;
-        }
+      &:active,
+      &:focus {
+        --border-color: var(--#{$prefix}neutral-lighter);
+        border-bottom-left-radius: $border-radius;
       }
     }
 
-    //Hide the search icon (input field) on small screens
-    &::before {
-      content: none;
+    > button {
+      border-radius: 0 $border-radius 0 0;
     }
   }
-}
 
-.dark {
-  .qld-search-input {
-    // Rescope colours inside a dark container
+  .dark &,
+  .dark-alt & {
+    --background-color: var(--#{$prefix}dark-background-background);
+    --border-color: var(--#{$prefix}dark-alt-border);
+    --placeholder-color: var(--${prefix}dark-text-lighter);
+    --qld-icon-color: var(--#{$prefix}white);
+    --text-color: var(--#{$prefix}dark-text-text);
 
-    // Default state - unfocused, unhovered
-    --icon-color: #deebf9;
-    --icon-color-on-btn: var(--qld-dark-action-text);
-
-    --text-color: #deebf9;
-    --placeholder-color: #deebf9;
-    --border-color: var(--qld-dark-alt-border);
-    --background-color: var(--qld-dark-background);
-
-    //Icon color is scoped against the parent container, not the input :(
-    &:has(.form-control:hover) {
-      --icon-color: var(--qld-white);
-    }
+    // Suggestions variables
+    --suggestions-bg: var(
+      --#{$prefix}color-default-color-dark-background-default-shade
+    );
+    --suggestions-hover: var(
+      --#{$prefix}color-default-color-dark-background-default
+    );
+    --suggestions-hover-border-color: var(
+      --#{$prefix}color-default-color-dark-accent-design-accent
+    );
+    --suggestions-feature-bg: var(
+      --#{$prefix}color-default-color-dark-background-alt
+    );
+    --suggestions-feature-hover: var(
+      --#{$prefix}color-default-color-dark-background-alt-shade
+    );
+    --suggestions-feature-text-color: var(
+      --#{$prefix}color-default-color-dark-text-default
+    );
 
     &:has(.form-control:focus) {
-      --icon-color: var(--qld-text-grey);
-      --text-color: var(--qld-text-grey);
+      --qld-icon-color: var(--#{$prefix}light-text-lighter);
+      --text-color: var(--#{$prefix}light-text-text);
     }
 
     .form-control {
       &:hover {
-        //Dark - Hover state
-        --text-color: var(--qld-white);
-        --placeholder-color: var(--qld-white);
-        --background-color: var(--qld-dark-background-shade);
-        --border-color: var(--qld-dark-action-primary-hover);
+        --background-color: var(--#{$prefix}dark-background-shade);
+        --border-color: var(--#{$prefix}dark-action-primary-hover);
       }
 
+      &:active,
       &:focus {
-        //Dark - Focus state
-        --text-color: var(--qld-text-grey);
-        --placeholder-color: var(--qld-text-grey);
-        --border-color: var(--qld-light-grey);
-        --background-color: var(--qld-white);
+        --text-color: var(--#{$prefix}light-text-text);
+        --border-color: var(--#{$prefix}neutral-lighter);
+        --background-color: var(--#{$prefix}white);
+      }
+    }
+
+    &.is-filled {
+      --background-color: var(--#{$prefix}dark-background-shade);
+
+      .form-control {
+        &:hover {
+          --background-color: var(--#{$prefix}dark-background-shade);
+          --border-color: var(--#{$prefix}dark-action-primary-hover);
+        }
+
+        &:active,
+        &:focus {
+          --background-color: var(--#{$prefix}white);
+          --border-color: var(--#{$prefix}neutral-lighter);
+        }
       }
     }
   }
+  
 }

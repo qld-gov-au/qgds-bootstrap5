@@ -22,7 +22,7 @@
 
                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                                 class="qld-header-dropdown-icon ">
-                                <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-chevron-down"
+                                <use href="{{../assets.SVGSpritePath}}#qgds-icon-chevron-down"
                                     aria-hidden="true"></use>
                             </svg>
                         </a>
@@ -35,7 +35,7 @@
                                 <a class="qld-header-link dropdown-item " href="{{url}}" {{#if target}}target="{{target}}"{{/if}}>
                                     {{text}}
                                     <svg width="24" height="24" class="qld-header-icon qld-header-dropdown-item-icon">
-                                        <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-arrow-right"
+                                        <use href="{{ ../../assets.SVGSpritePath }}#qgds-icon-arrow-right"
                                             aria-hidden="true"></use>
                                     </svg>
                                 </a>
@@ -66,7 +66,7 @@
                     <a class="qld-header-link" href="{{url}}">
                         {{#if icon}} 
                         <svg class="qld-header-link-icon">
-                            <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-{{icon}}" aria-hidden="true"></use>
+                            <use href="{{ ../assets.SVGSpritePath }}#qgds-icon-{{icon}}" aria-hidden="true"></use>
                         </svg>{{/if}}{{{text}}}
                     </a>
                     {{/if}}
@@ -80,11 +80,8 @@
                 <button id="qld-header-toggle-search-button" aria-controls="qld-header-search"
                     class="qld-header-toggle-main-nav" aria-expanded="false">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                        <use class="icon-search"
-                            href="{{@root.assets.SVGSpritePath}}#qgds-icon-search" aria-hidden="true"
-                            style="display: block;"></use>
-                        <use class="icon-close" href="{{@root.assets.SVGSpritePath}}#qgds-icon-close"
-                            style="display: none;"></use>
+                        <use class="icon-search" href="{{ assets.SVGSpritePath }}#qgds-icon-search" aria-hidden="true" style="display: block;"></use>
+                        <use class="icon-close" href="{{ assets.SVGSpritePath}}#qgds-icon-close" style="display: none;"></use>
                     </svg>
                     <span class="qld-header-toggle-main-nav-text">Search</span>
                 </button>
@@ -94,7 +91,7 @@
                     data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
                     aria-label="Open menu">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                        <use href="{{@root.assets.SVGSpritePath}}#qgds-icon-menu" aria-hidden="true">
+                        <use href="{{assets.SVGSpritePath}}#qgds-icon-menu" aria-hidden="true">
                         </use>
                     </svg>
                     <span class="qld-header-toggle-main-nav-text">Menu</span>

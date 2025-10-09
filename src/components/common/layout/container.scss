@@ -19,4 +19,9 @@
   max-width: var(--qld-container-max-width);
   padding-left: var(--qld-container-padding-x);
   padding-right: var(--qld-container-padding-x);
+
+  &.is-extended {
+    // Maximum width for extended containers, 100rem (or 1600px)
+    --qld-container-max-width: 100rem;
+  }
 }

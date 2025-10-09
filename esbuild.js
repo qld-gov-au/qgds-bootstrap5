@@ -66,7 +66,12 @@ const buildConfig = {
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
-    sassPlugin(),
+    sassPlugin({
+      //Hide sass deprecation warnings with a quiet flag...  npm run build -- --quiet
+      silenceDeprecations: argv.quiet
+        ? ["import", "global-builtin", "mixed-decls", "color-functions"]
+        : [],
+    }),
     QDGSbuildLog(),
   ],
 };
@@ -107,8 +112,12 @@ async function StartBuild() {
     const cssDir = path.resolve("src/css");
     const mainScss = path.join(cssDir, "main.scss");
 
-    themes.forEach(themeVar => {
-      const tempEntry = createOverrideThemeScssEntry({ cssDir, mainScss, themeVar });
+    themes.forEach((themeVar) => {
+      const tempEntry = createOverrideThemeScssEntry({
+        cssDir,
+        mainScss,
+        themeVar,
+      });
       tempEntries.push(tempEntry);
       config.entryPoints.push({
         in: tempEntry,
@@ -116,6 +125,15 @@ async function StartBuild() {
       });
       console.log(`theme SCSS entry created: ${tempEntry}`);
     });
+  }
+
+  if (argv.watch === true) {
+    // "npm run watch"
+    await ctx.watch();
+  } else {
+    // "npm run build" or "node build.js"
+    await ctx.rebuild();
+    await ctx.dispose();
   }
 
   let ctx = await esbuild.context(config);
@@ -126,7 +144,7 @@ async function StartBuild() {
     await ctx.dispose();
     // Note: Temp files are preserved for performance - they're only recreated when content changes
   }
-   
+
   //node js module
   let ctxNode = await esbuild.context(buildNodeConfig);
   await ctxNode.rebuild();

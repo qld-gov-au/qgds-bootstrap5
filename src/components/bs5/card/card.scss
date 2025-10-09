@@ -65,35 +65,11 @@
     --#{$prefix}card-icon-line-height: 8rem;
   }
   &.card-no-action {
-    .qld-icon {
-      background-color: var(--#{$prefix}card-title-color);
-    }
+    --#{$prefix}icon-color: var(--#{$prefix}card-title-color);
   }
   &.default {
     .card-icon-background {
       background-color: var(--#{$prefix}neutral-lightest);
-    }
-  }
-  &.card-single-action {
-    .qld-icon {
-      background-color: var(--#{$prefix}light-action-secondary);
-    }
-    &.card-dark,
-    &.card-dark-alt {
-      .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);
-      }
-    }
-  }
-  &.card-multi-action {
-    .qld-icon {
-      background-color: var(--#{$prefix}light-action-secondary);
-    }
-    &.card-dark,
-    &.card-dark-alt {
-      .qld-icon {
-        background-color: var(--#{$prefix}dark-action-secondary);
-      }
     }
   }
   &.card-arrow {
@@ -453,6 +429,21 @@
       flex-wrap: wrap;
       .tag-item {
         margin: 0;
+      }
+    }
+    /////////////////////////////////////////////
+    // Override default spacing on link list component for icon links
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+      padding: 0;
+      gap: 0.75rem;
+      .link-item {
+        margin: 0;
+        a {
+          gap: 12px;
+        }
       }
     }
   }

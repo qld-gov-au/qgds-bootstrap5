@@ -312,10 +312,15 @@ export default {
 };
 
 export const Default = {
+  parameters: {
+    docs: {
+      story: { height: "80vh" },
+    },
+  },
   args: {
     "Nav alternativeColor": false,
     "Nav verticalOrientation": false,
-    "Nav navbarBrandName": "",
+    "Nav navbarBrandName": "Menu",
     "Add Navigation Item": 0,
     // Initialize base items with iconName
     ...(() => {
@@ -500,8 +505,32 @@ export const Default = {
           align-items: center;
         }
         @media (width <= 992px) {
+          
           #burgerBtn {
+            --nav-header-icon-color: #ffe500;
             display: flex !important;
+            flex-direction: column;
+            gap:0;
+            .qld-icon {
+              background-color: var(--nav-header-icon-color);
+            }
+          }
+          .navbar.show #overlay {
+            position: absolute;
+          }
+          #story--3-components-navbar--default--primary-inner:has(.show) {
+            #storybook-only-header {
+              display:none;
+            }
+          }
+          #storybook-root:has(.show) {
+            #storybook-only-header {
+              display:none;
+            }
+          }
+          .navbar #burgerCloseBtn::before {
+            --nav-header-icon-color: var(--#{$prefix}brand-accent);
+            background-color: var(--nav-header-icon-color, #ffe500);
           }
         }
         @media (width >= 992px) {
@@ -519,7 +548,7 @@ export const Default = {
         <div id="storybook-only-header">
           <button id="burgerBtn" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-expanded="false" aria-controls="collapseExample">
             <span class="qld-icon qld-icon-xl qld-icon-menu"></span>
-            Menu
+            menu
           </button>
         </div>
       `;

@@ -12,70 +12,87 @@
       "alternativeColor": false,
       "mobileOnly": false,
       "hideLabel": true,
+      "currentPage": true,
       "target": ""
     },
     {
       "text": "Simple list",
       "iconName": "",
-      "url": "index.html",
-      "alternativeColor": true,
+      "url": "https://www.wired.html",
+      "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": "_blank",
       "dropdownOptions": {
-        "alternativeText": "Patients and visitors",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        "viewAllHref": "https://example.com"
+        "hasNoLink": false,
+        "alternativeText": "",
+        "description": "",
+        "viewAllHref": ""
       },
       "navigationItems": [
         {
           "text": "Find your reason",
           "description": "",
           "url": "index.html",
-          "mobileOnly": true,
-          "target": ""
+          "mobileOnly": false,
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Quit stories",
           "description": "",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Vaping (e-cigarettes)",
           "description": "",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Choose your method",
           "description": "",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Pregnancy and smoking",
           "description": "",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Sign up for our support program",
           "description": "",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Plan your journey",
           "description": "",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         }
       ]
     },
@@ -83,11 +100,13 @@
       "text": "Mega menu",
       "iconName": "qld-icon-calendar",
       "url": "https://example.com",
-      "alternativeColor": true,
+      "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": "",
       "dropdownOptions": {
+        "hasNoLink": true,
         "alternativeText": "Mega menu alt title",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "viewAllHref": "index.html"
@@ -98,56 +117,72 @@
           "description": "One of the best motivations for quitting is having a clear reason in mind so you know exactly why you’re doing it in the first place.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Aboriginal and Torres Strait Islander support",
           "description": "Be encouraged and motivated by listening to stories of others who've quit smoking for life.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Your healthcare rights and responsibilities",
           "description": "Vaping products are also known as e-cigarettes, e-cigars, vape pens or personal vapourisers. Vapes are harmful. The safest option is to not vape at all.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Going to hospital",
           "description": "There are plenty of ways to quit smoking cigarettes and vapes. Find one that suits you best and commit to it.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Interpreter services",
           "description": "Whether you’re thinking about getting pregnant, you're pregnant or have recently given birth, quitting smoking or vaping is the best thing you can do for the health of  you and your baby.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Health costs, insurance and financial support",
           "description": "Sign up for My Quit Journey to support you to stop smoking.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Leaving hospital",
           "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         },
         {
           "text": "Your health record",
           "description": "Congratulations on taking the first step in your journey and deciding to make one of the best choices of your life.",
           "url": "index.html",
           "mobileOnly": false,
-          "target": ""
+          "target": "",
+          "isHTML": false,
+          "htmlContent": ""
         }
       ]
     },
@@ -157,6 +192,7 @@
       "url": "/iframe.html?viewMode=story&id=3-components-navbar--default",
       "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
     },
@@ -166,24 +202,54 @@
       "url": "/?path=/docs/3-components-navbar--overview",
       "alternativeColor": false,
       "mobileOnly": false,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
     },
     {
-      "text": "Mobile only",
+      "text": "Full screen view 2",
       "iconName": "",
       "url": "index.html",
-      "alternativeColor": false,
+      "alternativeColor": true,
       "mobileOnly": true,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
+    },
+    {
+      "text": "Login",
+      "iconName": "qld-icon-login",
+      "url": "",
+      "alternativeColor": true,
+      "mobileOnly": true,
+      "currentPage": false,
+      "hideLabel": false,
+      "target": "",
+      "dropdownOptions": {
+        "hasNoLink": true,
+        "alternativeText": "",
+        "description": "",
+        "viewAllHref": ""
+      },
+      "navigationItems": [
+        {
+          "text": "",
+          "description": "",
+          "url": "",
+          "mobileOnly": true,
+          "target": "",
+          "isHTML": true,
+          "htmlContent": "<div class='someClass'><h4 class='mt-2 mb-3'>Log in to For government</h4><p>Most employees can log in using single sign on (SSO).</p><div class='someClass'><a class='btn btn-secondary justify-content-center' href='/someLink'>Log in with single sign-on</a><div class='group'><a class='mt-2 qld__header__cta-group-list' href='/somelink'>If your agency doesn't use SSO.</a></div></div><hr><h4 class='mt-2 mb-3'>Select your agency</h4><p>See information relevant to your agency.</p></div>"
+        }
+      ]
     },
     {
       "text": "Mobile only with icon",
       "iconName": "qld-icon-chart",
       "url": "index.html",
-      "alternativeColor": false,
+      "alternativeColor": true,
       "mobileOnly": true,
+      "currentPage": false,
       "hideLabel": false,
       "target": ""
     }

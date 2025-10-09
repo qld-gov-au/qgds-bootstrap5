@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "2.0.1",
+  "version": "2.0.4",
   "description": "",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "scripts": {
     "prepare": "npm run build",
     "start": "npm run build",
-    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
+    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' --ignore-pattern 'src/js/handlebars.partials.js' .",
     "build": "node esbuild.js",
     "build:icons": "node esbuild.js --icons",
     "build:theme": "node esbuild.js --theme",
@@ -46,9 +46,7 @@
     "vite.config.js"
   ],
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.6.0",
-    "bootstrap": "^5.3.8",
-    "material-symbols": "^0.31.7"
+    "bootstrap": "^5.3.8"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",

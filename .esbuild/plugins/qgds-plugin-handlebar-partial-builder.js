@@ -35,6 +35,10 @@ export default function QGDSupdateHandlebarsPartialsPlugin() {
             build.onStart(async () => {
 
                 const files = getAllFiles(COMPONENTS_DIR);
+                // Sort files alphabetically to ensure deterministic ordering
+                // This prevents TurboSnap cache invalidation in Chromatic builds
+                // caused by non-deterministic filesystem readdir ordering
+                files.sort();
                 //console.log(files);
                 const fileNames = new Map();
                 let duplicateFound = false;
