@@ -168,7 +168,6 @@
                 color: var(--link-color);
                 text-decoration-color: inherit;
                 padding: 0;
-                // transition:none;
                 &:after {
                   content: "";
                   content: none;
@@ -533,7 +532,6 @@
     --horizontal-bar-border-widthx2: calc(
       var(--horizontal-bar-border-width) * 2
     );
-    // margin-block-start: calc(var(--horizontal-bar-border-widthx2) - 1px);
     margin-block-start: 7px;
     inset-inline: 0;
     background-color: var(--dropdown-bg-color);
@@ -557,7 +555,6 @@
       position: absolute;
       height: var(--horizontal-bar-border-width);
       inset: 0;
-      // inset-block-start: calc(var(--horizontal-bar-border-width) * -1);
       inset-block-start: 0;
       background-color: var(--dropdown-bg-color);
     }
