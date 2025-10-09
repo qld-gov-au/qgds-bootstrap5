@@ -1,6 +1,6 @@
 const loadedThemes = new Map();
 const themeStyleElements = new Map();
-let currentTheme = "customized";
+let currentTheme = "masterbrand";
 
 // Dynamic theme modules import for lazy loading
 // Automatically generate theme modules based on available theme files
@@ -132,7 +132,7 @@ export const dynamicThemeGlobalTypes = {
       icon: "switchalt",
       items: (() => {
         // Dynamically generate toolbar items from available themes
-        const items = [{ value: "customized", title: "Customized theme" }];
+        const items = [];
 
         // Add items for all discovered themes
         Object.keys(themeModules).forEach((themeName) => {
@@ -145,7 +145,7 @@ export const dynamicThemeGlobalTypes = {
             });
           }
         });
-
+        items.push({ value: "customized", title: "Customized theme" });
         return items;
       })(),
       showName: true,
