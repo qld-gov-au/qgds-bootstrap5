@@ -127,15 +127,6 @@ async function StartBuild() {
     });
   }
 
-  if (argv.watch === true) {
-    // "npm run watch"
-    await ctx.watch();
-  } else {
-    // "npm run build" or "node build.js"
-    await ctx.rebuild();
-    await ctx.dispose();
-  }
-
   let ctx = await esbuild.context(config);
   if (argv.watch === true) {
     await ctx.watch();
