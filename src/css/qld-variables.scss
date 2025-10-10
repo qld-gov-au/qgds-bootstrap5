@@ -1,3 +1,4 @@
+@use "sass:meta";
 @use "mixins" as m;
 
 // GLOBALLY SCOPED VARIABLES
@@ -6,8 +7,8 @@
 // These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.css,
 
 //QGDS tokens - masterbrand
-@import "@qld-gov-au/qgds-tokens/dist/scss/_variables.scss";
-@import "@qld-gov-au/qgds-tokens/dist/scss/_map.scss";
+@use "./qld-tokens.scss";
+@import "./qld-tokens.scss";
 
 //QLD Names Colours
 $qld-dark-blue: $core-default-color-brand-primary-dark-blue;
@@ -33,16 +34,17 @@ $qld-light-border: $color-default-color-light-border-default;
 $qld-light-border-alt: $color-default-color-light-border-alt;
 $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-light-focus: $color-default-color-light-focus-default;
+
 ////
 $qld-link-underline: $color-default-color-light-underline-default;
 $qld-link-underline-hover: $color-default-color-light-underline-default-hover;
 $qld-link-underline-visited: $color-default-color-light-underline-visited;
 $qld-link-underline-visited-hover: $color-default-color-light-underline-visited-hover;
-
 $qld-link-underline-dark: $color-default-color-dark-underline-default;
 $qld-link-underline-hover-dark: $color-default-color-dark-underline-default-hover;
 $qld-link-underline-visited-dark: $color-default-color-dark-underline-visited;
 $qld-link-underline-visited-hover-dark: $color-default-color-dark-underline-visited-hover;
+
 ///
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
@@ -158,6 +160,7 @@ $color-default-color-dark-underline-default-hover: #ffffff;
 // These will NOT create utility classes, only CSS variables on :root
 // Available as var(--qld-[color-name])
 
+// DO NOT override the variables inside the object
 $project-colors: (
   "brand-primary-dark": $qld-brand-primary-dark,
   "brand-primary": $qld-brand-primary,
@@ -304,6 +307,8 @@ $project-base-colors: (
   "dark-hover": $qld-dark-hover
 );
 
+$qld-tokens: meta.module-variables("qld-tokens");
+
 // Generate CSS custom properties for qld-tokens & project colours on :root to prevent utility class generation
 :root {
   @include m.generate-color-vars($qld-tokens);
@@ -312,6 +317,7 @@ $project-base-colors: (
 
 $theme-colors: map-merge($theme-colors, $project-base-colors);
 
+// DO NOT override the variables which is predefined in bootstrap;
 // Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (
   xs: 0,
@@ -339,6 +345,7 @@ $qld-border-width-medium: 3px;
 $qld-border-width-thick: 4px;
 $qld-border-width-extra-thick: 8px;
 
+// DO NOT override the variables which is predefined in bootstrap;
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
 $qld-custom-spacers: (
