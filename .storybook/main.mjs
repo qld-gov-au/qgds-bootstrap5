@@ -1,8 +1,7 @@
-// @type { import('@storybook/html-vite').StorybookConfig }
+/**  @type { import('@storybook/html-vite').StorybookConfig } */
 // Is an ESM module now
 
 import path from "path";
-import fs from "fs";
 import { fileURLToPath } from "url";
 
 // ESM equivalent of __dirname

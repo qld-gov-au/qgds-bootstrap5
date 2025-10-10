@@ -163,6 +163,7 @@ export default {
     docs: {
       story: { height: "400px" },
     },
+    backgrounds: { disable: true },
   },
 };
 
@@ -171,12 +172,6 @@ export const MasterBrand = {
   args: {
     ...masterbrand_variant,
     ...menu_state,
-  },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
   },
   decorators: [
     (Story) => {
@@ -193,12 +188,6 @@ export const SubBrand = {
     ...subbrand_variant,
     ...menu_state,
   },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story) => {
       return `
@@ -212,12 +201,6 @@ export const SubBrand = {
 export const CoBrand = {
   args: mergeArgs(alternative_palette, cobrand_variant, menu_state),
   argTypes: arg_types,
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story, context) => {
       const args = context.args;
@@ -249,12 +232,6 @@ export const CoBrand = {
 export const EndorsedBrand = {
   args: mergeArgs(sample_argtypes, endorsed_variant, menu_state),
   argTypes: arg_types,
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story, context) => {
       const args = context.args;
@@ -286,12 +263,6 @@ export const EndorsedBrand = {
 export const StandaloneBrand = {
   args: mergeArgs(sample_argtypes, standalone_variant, menu_state),
   argTypes: arg_types,
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story, context) => {
       const args = context.args;

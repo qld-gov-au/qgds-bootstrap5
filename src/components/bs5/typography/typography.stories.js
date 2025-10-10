@@ -68,6 +68,8 @@ export default {
         url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=23805-301553&mode=design&t=5REJ3QGtTW1K0fGT-4",
       },
     ],
+    backgrounds: { disable: false },
+    globals: { backgrounds: { value: "default" } },
   },
 };
 
@@ -80,12 +82,7 @@ export const Default = {};
  * Light colour Callout
  */
 export const Light = {
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "light" } },
   decorators: [
     (Story) => {
       return `
@@ -103,12 +100,7 @@ export const Light = {
  * Alternative Callout
  */
 export const Alternative = {
-  parameters: {
-    backgrounds: {
-      default: "Alternative",
-      values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
-    },
-  },
+  globals: { backgrounds: { value: "alt" } },
   decorators: [
     (Story) => {
       return `
@@ -126,12 +118,7 @@ export const Alternative = {
  * Dark Callout
  */
 export const Dark = {
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -149,12 +136,7 @@ export const Dark = {
  * Dark alternative Callout
  */
 export const DarkAlternative = {
-  parameters: {
-    backgrounds: {
-      default: "Dark alternative",
-      values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "darkAlt" } },
   decorators: [
     (Story) => {
       return `
