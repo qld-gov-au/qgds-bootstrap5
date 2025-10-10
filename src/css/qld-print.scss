@@ -34,7 +34,9 @@
     margin: 0;
     float: none;
     position: static;
+    transition: none !important;
   }
+
   *:before,
   *:after {
     color: #000 !important;
@@ -234,6 +236,10 @@
     margin-bottom: 1em;
     display: block;
     min-height: 32mm;
+
+    &:after {
+      margin: 1rem 0 !important;
+    }
   }
   #qg-site-map {
     border-top: 1px solid #000000;
@@ -257,6 +263,7 @@
   .max-width,
   .container,
   .container-fluid,
+  .qld-banner,
   main {
     width: 100% !important;
     max-width: 100% !important;
@@ -296,6 +303,10 @@
     display: none;
   }
 
+  .navbar {
+    border-block-end-color: none !important;
+  }
+
   .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -320,20 +331,33 @@
     --#{$prefix}accordion-btn-bg: transparent !important;
     --#{$prefix}accordion-border-color: transparent !important;
     --#{$prefix}accordion-btn-color: var(--qld-body-color);
+
+    .accordion-body {
+      padding: 0 !important;
+    }
+
+    //Toggle chevron
     .accordion-button {
-      text-decoration: none;
+      text-decoration: none !important;
+      padding: 2rem 0 !important;
+
+      &:after {
+        background-image: none !important;
+      }
     }
   }
-  .accordion-toggle-btn {
-    display: none;
+
+  .accordion-toggle {
+    display: none !important;
   }
+
   /* Print URL after header */
   .qld-header:after {
     content: "(" attr(data-page-url) ")";
     display: block;
     font-size: 0.9rem;
     font-weight: bold;
-    margin: 1rem 0 1rem 2rem;
+    margin: 1rem;
   }
 
   .nav-item.active a {
@@ -370,6 +394,11 @@
     line-height: 1;
     position: relative;
   }
+
+  a.qld-cta-link {
+    display: none !important;
+  }
+
   /* Custom qld- styles */
   .qld-side-navigation,
   .qld-inpage-nav {
@@ -397,6 +426,15 @@
   /* Show header main content */
   .qld-header-main {
     display: block !important;
+    border-bottom: none !important;
+
+    > .container .col {
+      padding: 0 !important;
+    }
+  }
+
+  .qld-header-link {
+    display: inline-flex !important;
   }
 
   /* Ensure header brand displays correctly */
@@ -419,18 +457,49 @@
     width: auto !important;
   }
 
+  .qld-banner {
+    background: none !important;
+    margin-bottom: 1rem !important;
+
+    .banner-inner {
+      padding-top: 0 !important;
+    }
+
+    .banner-abstract,
+    .banner-title {
+      color: black !important;
+    }
+  }
+
+  .banner-breadcrumbs nav {
+    display: block !important;
+    color: #000 !important;
+    .breadcrumb-item {
+      color: #000 !important;
+      &:after {
+        content: none !important;
+      }
+    }
+  }
+
   /* adding class to print data-href from breadcrumb link */
   .print-current-url {
     display: block;
     font-size: bold;
     color: var(--qld-primary) !important;
   }
+
+  .content-emphasis {
+    background: none !important;
+    margin: 4rem 0 !important;
+    padding: 0 !important;
+  }
 }
 
 /* Print colors to show background elements */
-
 .alert,
-.card-img {
+.card-img,
+video {
   print-color-adjust: exact;
 }
 
@@ -446,17 +515,4 @@
 
 .no-print {
   @extend .d-print-none;
-}
-
-@media only print {
-  .qld-cta-link {
-    color: #000 !important;
-
-    .icon::after {
-      background-image: none !important;
-      content: " > " !important;
-      border: none !important;
-      transform: rotate(0deg) !important;
-    }
-  }
 }
