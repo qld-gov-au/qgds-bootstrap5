@@ -1,4 +1,4 @@
-/** @type { import('@storybook/html-vite').StorybookConfig } */
+// @type { import('@storybook/html-vite').StorybookConfig }
 // Is an ESM module now
 
 import path from "path";
@@ -26,7 +26,7 @@ const config = {
     "@storybook/addon-links",
     "@chromatic-com/storybook",
     "storybook-addon-deep-controls",
-    "@storybook/addon-docs"
+    "@storybook/addon-docs",
   ],
 
   framework: {
