@@ -17,35 +17,35 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-neutral-lightest);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-neutral-light);
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
 
   //Status - Low -- Success
   $tag-type: "success";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-success-lighter);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-success-default);
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
 
   //Status - Low -- Warning
   $tag-type: "warning";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-caution-lightest);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-caution-default);
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
 
   //Status - Low -- Error
   $tag-type: "error";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-error-lighter);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-error-default);
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
 
   //Status - Low -- Information
   $tag-type: "information";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-info-lighter);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-info-default);
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
 
   //Status - High emphasis
   $tag-emphasis: "high";
@@ -109,7 +109,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     gap: calc(var(--_padding-x) / 2);
     padding: var(--_padding-y) var(--_padding-x);
     list-style-type: none;
-    border: var(--_border-width) solid var(--#{$prefix}light-grey);
+    border: var(--_border-width) solid #09ACFE;
     border-radius: 1rem;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -128,7 +128,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     &.tag-link {
       color: var(--#{$prefix}brand-primary);
-      border-color: var(--#{$prefix}brand-primary);
+      border-color: #09ACFE;
 
       a {
         text-decoration: none;
@@ -281,7 +281,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-link {
       color: var(--#{$prefix}white);
-      border-color: var(--#{$prefix}white);
+      border-color: #09ACFE;
 
       a {
         color: var(--#{$prefix}white);
@@ -320,7 +320,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-item {
       color: var(--#{$prefix}dark-grey-muted);
-      border-color: var(--#{$prefix}soft-grey);
+      border-color: #09ACFE;
     }
 
     .tag-link:hover,
@@ -331,7 +331,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-link {
       color: var(--#{$prefix}brand-primary);
-      border-color: var(--#{$prefix}brand-primary);
+      border-color: #09ACFE;
     }
   }
 
@@ -347,7 +347,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       }
 
       color: var(--#{$prefix}dark-text);
-      border-color: var(--#{$prefix}dark-border);
+      border-color: #09ACFE;
 
       &.tag-large {
         color: var(--#{$prefix}white);
