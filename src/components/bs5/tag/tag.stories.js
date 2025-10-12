@@ -70,7 +70,7 @@ export const ParentContextComparison = {
         ${new Tag({ ...testTags, variant: "tag-dark" }).html}
       </div>
 
-      <div class="dark p-3 mb-4" style="background-color: #1a1a1a;">
+      <div class="mb-4">
         <h6 class="text-white">Parent Context: .dark (no component variant)</h6>
         ${new Tag(testTags).html}
       </div>
@@ -80,7 +80,7 @@ export const ParentContextComparison = {
         ${new Tag({ ...testTags, variant: "tag-dark-alt" }).html}
       </div>
 
-      <div class="dark-alt p-3 mb-4" style="background-color: #2c3e50;">
+      <div class="mb-4">
         <h6 class="text-white">Parent Context: .dark-alt (no component variant)</h6>
         ${new Tag(testTags).html}
       </div>
