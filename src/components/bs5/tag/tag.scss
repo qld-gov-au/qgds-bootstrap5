@@ -335,6 +335,45 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     }
   }
 
+  &.tag-light {
+    background-color: var(--#{$prefix}color-default-color-light-background-light);
+
+    .tag-item {
+      color: var(--#{$prefix}dark-grey-muted);
+      border-color: var(--#{$prefix}light-grey);
+    }
+
+    .tag-link {
+      color: var(--#{$prefix}brand-primary);
+      border-color: var(--#{$prefix}brand-primary);
+
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-within {
+        background-color: var(--#{$prefix}light-action-primary-hover);
+        color: var(--#{$prefix}white);
+
+        a {
+          color: var(--#{$prefix}white);
+        }
+      }
+    }
+
+    .tag-info {
+      background-color: var(--#{$prefix}extra-light-grey);
+      color: var(--#{$prefix}dark-grey-muted);
+    }
+
+    .tag-clear-filter-button {
+      color: var(--#{$prefix}light-action-secondary);
+
+      &:hover {
+        color: var(--#{$prefix}light-action-secondary-hover);
+      }
+    }
+  }
+
   &.tag-dark-alt,
   .dark-alt &:not(.tag-dark, .tag-dark-alt, .tag-alt) {
     background-color: var(--#{$prefix}brand-primary-dark);
