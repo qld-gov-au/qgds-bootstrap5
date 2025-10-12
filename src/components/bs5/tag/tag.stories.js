@@ -14,11 +14,12 @@ export default {
         labels: {
           "tag-default": "Default",
           "tag-alt": "Alt",
+          "tag-light": "Light",
           "tag-dark": "Dark",
           "tag-dark-alt": "Dark-alt",
         },
       },
-      options: ["tag-default", "tag-alt", "tag-dark", "tag-dark-alt"],
+      options: ["tag-default", "tag-alt", "tag-light", "tag-dark", "tag-dark-alt"],
     },
   },
 };
@@ -63,6 +64,11 @@ export const ParentContextComparison = {
       <div class="mb-4">
         <h6>Default (Light Theme)</h6>
         ${new Tag(testTags).html}
+      </div>
+
+      <div class="mb-4">
+        <h6>Component Variant: tag-light</h6>
+        ${new Tag({ ...testTags, variant: "tag-light" }).html}
       </div>
 
       <div class="mb-4">
