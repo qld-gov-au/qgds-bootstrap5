@@ -7,9 +7,7 @@
   //  1. Palette colours
   // ------------------------------------------------------------------------------------------------------------------
   // Default palette
-  --#{$prefix}footer-color-crest-fill: var(
-    --#{$prefix}color-default-color-light-crest-fill
-  );
+  --#{$prefix}footer-color-crest-fill: var(--#{$prefix}-neutral-black);
   --#{$prefix}footer-color-border: var(
     --#{$prefix}color-default-color-light-border-default
   );

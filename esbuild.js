@@ -1,7 +1,7 @@
 /* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
-//import path from "path";
+import path from "path";
 
 //Local ESBUILD PLUGINS
 import QGDSupdateHandlebarsPartialsPlugin from "./.esbuild/plugins/qgds-plugin-handlebar-partial-builder.js";
@@ -11,7 +11,7 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
-//import { createOverrideThemeScssEntry } from "./.esbuild/helpers/scssOverrideTheme.js";
+import { createOverrideThemeScssEntry } from "./.esbuild/helpers/scssOverrideTheme.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
@@ -110,9 +110,6 @@ const buildNodeConfig = {
 async function StartBuild() {
   // Choose configuration based on theme
   let config = buildConfig;
-
-  /* // Disabled 13/10/2025 for masterbrand and masterbrand legacy rewrite. To review SP
-  
   const tempEntries = [];
 
   if (argv.theme) {
@@ -121,21 +118,19 @@ async function StartBuild() {
     const mainScss = path.join(cssDir, "main.scss");
 
     themes.forEach((themeVar) => {
-      // const tempEntry = createOverrideThemeScssEntry({
-      //   cssDir,
-      //   mainScss,
-      //   themeVar,
-      // });
-      // tempEntries.push(tempEntry);
-      // config.entryPoints.push({
-      //   in: tempEntry,
-      //   out: `./assets/css/qld.${themeVar}.bootstrap`,
-      // });
-      // console.log(`theme SCSS entry created: ${tempEntry}`);
+      const tempEntry = createOverrideThemeScssEntry({
+        cssDir,
+        mainScss,
+        themeVar,
+      });
+      tempEntries.push(tempEntry);
+      config.entryPoints.push({
+        in: tempEntry,
+        out: `./assets/css/qld.${themeVar}.bootstrap`,
+      });
+      console.log(`theme SCSS entry created: ${tempEntry}`);
     });
   }
-
-  */
 
   let ctx = await esbuild.context(config);
   if (argv.watch === true) {
