@@ -1,35 +1,27 @@
 // FormcheckCheckbox.stories.js
-import { Formcheck } from '../../Formcheck.js';
-import defaultdata from './checkbox.data.json';
+import { Formcheck } from "../../Formcheck.js";
+import defaultdata from "./checkbox.data.json";
 
 export default {
-  tags: ['autodocs'],
-  title: '3. Components/Forms/Checkbox',
+  tags: ["autodocs"],
+  title: "3. Components/Forms/Checkbox",
   render: (args) => {
-    return `${new Formcheck(args).html}`
+    return `${new Formcheck(args).html}`;
   },
-  //https://storybook.js.org/docs/api/arg-types 
-  argTypes: {
-  },
-
-  
+  globals: { backgrounds: { value: "default" } },
+  parameters: { backgrounds: { disable: false } },
+  //https://storybook.js.org/docs/api/arg-types
+  argTypes: {},
 };
 
 export const Default = {
-  args: {...defaultdata},
+  args: { ...defaultdata },
+  globals: { backgrounds: { value: "default" } },
 };
 
 export const CheckboxDark = {
-  
-  args: {...defaultdata},
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
-    },
-  },
+  args: { ...defaultdata },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -42,7 +34,7 @@ export const CheckboxDark = {
 };
 
 export const CheckboxSmall = {
-  args: {...defaultdata, id: "checkboxSmall"},
+  args: { ...defaultdata, id: "checkboxSmall" },
   decorators: [
     (Story) => {
       return `
@@ -55,15 +47,8 @@ export const CheckboxSmall = {
 };
 
 export const CheckboxSmallDark = {
-  args: {...defaultdata, id: "checkboxSmallDark"},
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
-    },
-  },
+  args: { ...defaultdata, id: "checkboxSmallDark" },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -78,39 +63,32 @@ export const CheckboxSmallDark = {
 };
 
 export const CheckboxValid = {
-  args: {...defaultdata, id: "checkboxValid"},
+  args: { ...defaultdata, id: "checkboxValid" },
   render: (args) => {
     return `
     <div class="valid">${new Formcheck(args).html}</div>
-    `
+    `;
   },
-}
+};
 
 export const CheckboxValidSmall = {
-  args: {...defaultdata, id: "checkboxValidSmall"},
+  args: { ...defaultdata, id: "checkboxValidSmall" },
   render: (args) => {
     return `
     <div class="small"><div class="valid">${new Formcheck(args).html}</div></div>
-    `
+    `;
   },
-}
+};
 
 export const CheckboxValidDark = {
-  args: {...defaultdata, id: "checkboxValidDark"},
+  args: { ...defaultdata, id: "checkboxValidDark" },
   render: (args) => {
     return `
     <div class="dark">
     <div class="valid">${new Formcheck(args).html}</div></div>
-    `
-  },  
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
-    },
+    `;
   },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -120,24 +98,17 @@ export const CheckboxValidDark = {
       `;
     },
   ],
-}
+};
 
 export const CheckboxValidSmallDark = {
-  args: {...defaultdata, id: "checkboxValidSmallDark"},
+  args: { ...defaultdata, id: "checkboxValidSmallDark" },
   render: (args) => {
     return `
     <div class="dark">
     <div class="valid">${new Formcheck(args).html}</div></div>
-    `
-  },  
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
-    },
+    `;
   },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -147,42 +118,35 @@ export const CheckboxValidSmallDark = {
       `;
     },
   ],
-}
+};
 
 export const CheckboxInvalid = {
-  args: {...defaultdata, id: "checkboxInvalid"},
+  args: { ...defaultdata, id: "checkboxInvalid" },
   render: (args) => {
     return `
     <div class="invalid">${new Formcheck(args).html}</div>
-    `
+    `;
   },
-}
+};
 
 export const CheckboxInvalidSmall = {
-  args: {...defaultdata, id: "checkboxInvalidSmall"},
+  args: { ...defaultdata, id: "checkboxInvalidSmall" },
   render: (args) => {
     return `
     <div class="small"><div class="invalid">${new Formcheck(args).html}</div></div>
-    `
+    `;
   },
-}
+};
 
 export const CheckboxInvalidDark = {
-  args: {...defaultdata, id: "checkboxInvalidDark"},
+  args: { ...defaultdata, id: "checkboxInvalidDark" },
   render: (args) => {
     return `
     <div class="dark">
     <div class="invalid">${new Formcheck(args).html}</div></div>
-    `
-  },  
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
-    },
+    `;
   },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -192,24 +156,17 @@ export const CheckboxInvalidDark = {
       `;
     },
   ],
-}
+};
 
 export const CheckboxInvalidSmallDark = {
-  args: {...defaultdata, id: "checkboxInvalidSmallDark"},
+  args: { ...defaultdata, id: "checkboxInvalidSmallDark" },
   render: (args) => {
     return `
     <div class="dark">
     <div class="invalid">${new Formcheck(args).html}</div></div>
-    `
-  },  
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-sapphire-blue)' },
-      ],
-    },
+    `;
   },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -219,4 +176,4 @@ export const CheckboxInvalidSmallDark = {
       `;
     },
   ],
-}
+};

@@ -3,7 +3,6 @@
 
 import path from "path";
 
-
 const config = {
   stories: [
     "../src/stories/Introduction.mdx",
@@ -21,7 +20,7 @@ const config = {
     "@storybook/addon-links",
     "@chromatic-com/storybook",
     "storybook-addon-deep-controls",
-    "@storybook/addon-docs"
+    "@storybook/addon-docs",
   ],
 
   framework: {

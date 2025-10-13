@@ -15,7 +15,11 @@ export default {
       description: `Pass a JSON object containing an array of links to the component.`,
     },
   },
-
+  globals: {
+    backgrounds: {
+      value: "default",
+    },
+  },
   decorators: [
     (Story, context) => {
       const { args } = context; // Deconstruct args from the context oject
@@ -47,30 +51,36 @@ export default {
       type: "figma",
       url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98076&mode=design&t=Ge7frKNP4uEGswUz-0",
     },
+    backgrounds: {
+      disable: false,
+    },
   },
 };
 
 /**
  * Default Breadcrumbs story
  * */
-export const Default = {};
+export const Default = {
+  globals: {
+    backgrounds: {
+      value: "default",
+    },
+  },
+};
 
 /**
  * Dark Breadcrumbs story
  * */
 export const Dark = {
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+      value: "dark",
     },
   },
-
   args: {
     ...defaultdata.default,
     class: "dark",
   },
-
   decorators: [
     (Story) => {
       return `
@@ -92,10 +102,9 @@ export const WithExpanderDefault = {
  * Breadcrumbs with expander (Dark)
  * */
 export const WithExpanderDark = {
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+      value: "dark",
     },
   },
   args: {

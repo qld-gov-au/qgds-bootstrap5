@@ -2,7 +2,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/js/qld.bootstrap.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { allBackgrounds } from "./modes.js";
+// import { allBackgrounds } from "./modes.js";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
@@ -64,14 +64,14 @@ const preview = {
       },
     },
     backgrounds: {
-      //default: 'default',
-      values: [
-        allBackgrounds["default"],
-        allBackgrounds["Light"],
-        allBackgrounds["Light alternative"],
-        allBackgrounds["Dark"],
-        allBackgrounds["Dark alternative"],
-      ],
+      options: {
+        default: { name: "Default", value: "#FFFFFF" },
+        light: { name: "Light", value: "var(--qld-light-background)" },
+        alt: { name: "Light Alt", value: "var(--qld-light-grey-alt)" },
+        dark: { name: "Dark", value: "var(--qld-sapphire-blue)" },
+        darkAlt: { name: "Dark Alt", value: "var(--qld-dark-blue)" },
+      },
+      disable: true,
     },
     options: {
       storySort: {
@@ -91,6 +91,9 @@ const preview = {
         },
         restoreScroll: true,
       },
+    },
+    initialGlobals: {
+      backgrounds: { value: "default" },
     },
   },
 
