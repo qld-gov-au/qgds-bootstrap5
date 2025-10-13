@@ -1,7 +1,7 @@
 /* global process */
 // ESBUILD PROJECT DEPENDENCIES
 import * as esbuild from "esbuild";
-import path from "path";
+//import path from "path";
 
 //Local ESBUILD PLUGINS
 import QGDSupdateHandlebarsPartialsPlugin from "./.esbuild/plugins/qgds-plugin-handlebar-partial-builder.js";
@@ -11,7 +11,7 @@ import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
 import QDGScopy from "./.esbuild/plugins/qgds-plugin-copy-assets.js";
 import { QGDSgenerateIconAssetsPlugin } from "./.esbuild/plugins/qgds-plugin-generate-icon-assets.js";
 import { versionPlugin } from "./.esbuild/plugins/qgds-plugin-version.js";
-import { createOverrideThemeScssEntry } from "./.esbuild/helpers/scssOverrideTheme.js";
+//import { createOverrideThemeScssEntry } from "./.esbuild/helpers/scssOverrideTheme.js";
 
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
