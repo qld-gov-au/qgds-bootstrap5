@@ -50,27 +50,23 @@ function mapStyleElementsByTheme(callback) {
   });
 }
 
-const unloadTheme = (themeName) => {
-  // Cache current theme's style elements before removing
-  // Remove existing style elements for current theme
-  const currentStyleElements = [];
-  const themeNotExist = themeName && !themeStyleElements.has(themeName);
-  mapStyleElementsByTheme((element) => {
-    if (themeNotExist) {
-      currentStyleElements.push(element.cloneNode(true));
-    }
-    element.remove();
-  });
-
-  if (currentStyleElements.length > 0) {
-    themeStyleElements.set(themeName, currentStyleElements);
-  }
-};
-
 const loadTheme = async (themeName) => {
-  // Unload current theme if it's different
-  if (currentTheme && currentTheme !== themeName) {
-    unloadTheme(currentTheme);
+  // Store the previous theme name before changing
+  const previousTheme = currentTheme;
+
+  // Cache previous theme's elements BEFORE loading new theme
+  const previousThemeElements = [];
+  if (previousTheme && previousTheme !== themeName) {
+    mapStyleElementsByTheme((element) => {
+      previousThemeElements.push(element);
+    });
+    // Store in cache if not already cached
+    if (!themeStyleElements.has(previousTheme)) {
+      themeStyleElements.set(
+        previousTheme,
+        previousThemeElements.map((el) => el.cloneNode(true))
+      );
+    }
   }
 
   // If theme style elements are cached, restore them
@@ -78,6 +74,10 @@ const loadTheme = async (themeName) => {
     const cachedElements = themeStyleElements.get(themeName);
     cachedElements.forEach((element) => {
       document.head.appendChild(element.cloneNode(true));
+    });
+    // Remove previous theme elements after new theme is fully loaded
+    previousThemeElements.forEach((element) => {
+      element.remove();
     });
     currentTheme = themeName;
     return;
@@ -108,6 +108,11 @@ const loadTheme = async (themeName) => {
       // Store references
       loadedThemes.set(themeName, true);
       currentTheme = themeName;
+
+      // Remove previous theme elements after new theme is fully loaded
+      previousThemeElements.forEach((element) => {
+        element.remove();
+      });
     } catch (error) {
       console.warn(`Failed to load theme: ${themeName}`, error);
     }
