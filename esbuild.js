@@ -111,6 +111,8 @@ async function StartBuild() {
   // Choose configuration based on theme
   let config = buildConfig;
 
+  /* // Disabled 13/10/2025 for masterbrand and masterbrand legacy rewrite. To review SP
+  
   const tempEntries = [];
 
   if (argv.theme) {
@@ -119,21 +121,21 @@ async function StartBuild() {
     const mainScss = path.join(cssDir, "main.scss");
 
     themes.forEach((themeVar) => {
-      const tempEntry = createOverrideThemeScssEntry({
-        cssDir,
-        mainScss,
-        themeVar,
-      });
-
-      tempEntries.push(tempEntry);
-      config.entryPoints.push({
-        in: tempEntry,
-        out: `./assets/css/qld.${themeVar}.bootstrap`,
-      });
-
-      console.log(`theme SCSS entry created: ${tempEntry}`);
+      // const tempEntry = createOverrideThemeScssEntry({
+      //   cssDir,
+      //   mainScss,
+      //   themeVar,
+      // });
+      // tempEntries.push(tempEntry);
+      // config.entryPoints.push({
+      //   in: tempEntry,
+      //   out: `./assets/css/qld.${themeVar}.bootstrap`,
+      // });
+      // console.log(`theme SCSS entry created: ${tempEntry}`);
     });
   }
+
+  */
 
   let ctx = await esbuild.context(config);
   if (argv.watch === true) {
