@@ -6,7 +6,7 @@ let currentTheme = "masterbrand";
 // Automatically generate theme modules based on available theme files
 const themeModules = (() => {
   const modules = {
-    customized: () => import("../src/css/main.scss"),
+    masterbrand: () => import("../src/css/main.scss"),
   };
 
   // Get all theme files in the themes directory
@@ -64,7 +64,7 @@ const loadTheme = async (themeName) => {
     if (!themeStyleElements.has(previousTheme)) {
       themeStyleElements.set(
         previousTheme,
-        previousThemeElements.map((el) => el.cloneNode(true))
+        previousThemeElements.map((el) => el.cloneNode(true)),
       );
     }
   }
@@ -137,11 +137,11 @@ export const dynamicThemeGlobalTypes = {
       icon: "switchalt",
       items: (() => {
         // Dynamically generate toolbar items from available themes
-        const items = [];
+        const items = [{ value: "masterbrand", title: "Masterbrand theme" }];
 
         // Add items for all discovered themes
         Object.keys(themeModules).forEach((themeName) => {
-          if (themeName !== "customized") {
+          if (themeName !== "masterbrand") {
             const capitalizedName =
               themeName.charAt(0).toUpperCase() + themeName.slice(1);
             items.push({
@@ -150,7 +150,6 @@ export const dynamicThemeGlobalTypes = {
             });
           }
         });
-        items.push({ value: "customized", title: "Customized theme" });
         return items;
       })(),
       showName: true,

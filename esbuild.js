@@ -37,8 +37,12 @@ const buildConfig = {
       out: "./assets/js/qld.bootstrap.min",
     },
     {
-      in: "./src/css/main.scss",
+      in: "./src/css/main.scss", //default masterbrand theme
       out: "./assets/css/qld.bootstrap",
+    },
+    {
+      in: "./src/css/main.legacy.scss", //legacy masterbrand theme (before October 2025)
+      out: "./assets/css/qld.bootstrap.legacy",
     },
     {
       in: "./src/js/handlebars.helpers.js",
@@ -107,6 +111,7 @@ async function StartBuild() {
   // Choose configuration based on theme
   let config = buildConfig;
   const tempEntries = [];
+
   if (argv.theme) {
     const themes = Array.isArray(argv.theme) ? argv.theme : [argv.theme];
     const cssDir = path.resolve("src/css");
