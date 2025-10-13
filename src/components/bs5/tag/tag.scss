@@ -90,13 +90,16 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
 // General styling rules.
 .tag-list {
+  --_padding-y: 0;
+  --_padding-x: 0.5rem;
   list-style-type: none;
   margin: 0.5rem 0;
   padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--_padding-x) * 2);
 
   .tag-item {
-    --_padding-y: 0;
-    --_padding-x: 0.5rem;
     --_height: 1.5rem;
     --_border-width: 1px;
     --_icon-size: 1rem;
@@ -105,11 +108,10 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     display: inline-flex;
     align-items: center;
     color: var(--#{$prefix}dark-grey-muted);
-    margin-top: 0.5rem;
-    gap: calc(var(--_padding-x) / 2);
+    // margin: 0 1rem 1rem 0;
     padding: var(--_padding-y) var(--_padding-x);
     list-style-type: none;
-    border: var(--_border-width) solid #09ACFE;
+    border: var(--_border-width) solid #09acfe;
     border-radius: 1rem;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -121,14 +123,13 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       --_padding-x: 1rem;
       --_height: 2.5rem;
       --_icon-size: 1.5rem;
-      margin: 0 1rem 1rem 0;
       font-size: 1rem;
       border-radius: calc(var(--_height) / 2);
     }
 
     &.tag-link {
       color: var(--#{$prefix}brand-primary);
-      border-color: #09ACFE;
+      border-color: #09acfe;
 
       a {
         text-decoration: none;
@@ -281,7 +282,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-link {
       color: var(--#{$prefix}white);
-      border-color: #09ACFE;
+      border-color: #09acfe;
 
       a {
         color: var(--#{$prefix}white);
@@ -320,7 +321,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-item {
       color: var(--#{$prefix}dark-grey-muted);
-      border-color: #09ACFE;
+      border-color: #09acfe;
     }
 
     .tag-link:hover,
@@ -331,12 +332,14 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-link {
       color: var(--#{$prefix}brand-primary);
-      border-color: #09ACFE;
+      border-color: #09acfe;
     }
   }
 
   &.tag-light {
-    background-color: var(--#{$prefix}color-default-color-light-background-light);
+    background-color: var(
+      --#{$prefix}color-default-color-light-background-light
+    );
 
     .tag-item {
       color: var(--#{$prefix}dark-grey-muted);
@@ -386,7 +389,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       }
 
       color: var(--#{$prefix}dark-text);
-      border-color: #09ACFE;
+      border-color: #09acfe;
 
       &.tag-large {
         color: var(--#{$prefix}white);

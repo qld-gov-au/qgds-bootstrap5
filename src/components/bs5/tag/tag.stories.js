@@ -19,7 +19,13 @@ export default {
           "tag-dark-alt": "Dark-alt",
         },
       },
-      options: ["tag-default", "tag-alt", "tag-light", "tag-dark", "tag-dark-alt"],
+      options: [
+        "tag-default",
+        "tag-alt",
+        "tag-light",
+        "tag-dark",
+        "tag-dark-alt",
+      ],
     },
   },
 };
@@ -67,6 +73,11 @@ export const ParentContextComparison = {
       </div>
 
       <div class="mb-4">
+        <h6>Component Variant: tag-alt</h6>
+        ${new Tag({ ...testTags, variant: "tag-alt" }).html}
+      </div>
+
+      <div class="mb-4">
         <h6>Component Variant: tag-light</h6>
         ${new Tag({ ...testTags, variant: "tag-light" }).html}
       </div>
@@ -77,18 +88,8 @@ export const ParentContextComparison = {
       </div>
 
       <div class="mb-4">
-        <h6 class="text-white">Parent Context: .dark (no component variant)</h6>
-        ${new Tag(testTags).html}
-      </div>
-
-      <div class="mb-4">
         <h6>Component Variant: tag-dark-alt</h6>
         ${new Tag({ ...testTags, variant: "tag-dark-alt" }).html}
-      </div>
-
-      <div class="mb-4">
-        <h6 class="text-white">Parent Context: .dark-alt (no component variant)</h6>
-        ${new Tag(testTags).html}
       </div>
     `;
   },
