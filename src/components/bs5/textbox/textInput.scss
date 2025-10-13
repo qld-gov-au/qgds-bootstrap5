@@ -35,7 +35,7 @@
 
   &:disabled {
     cursor: not-allowed;
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
@@ -53,7 +53,7 @@
 
   &.field-required {
     &:before {
-      content: ' *';
+      content: " *";
     }
   }
 }
@@ -64,10 +64,10 @@
   }
 }
 
-*+.qld-hint-text,
-*+.qld-input-error,
-*+.qld-input-success,
-*+.date-container {
+* + .qld-hint-text,
+* + .qld-input-error,
+* + .qld-input-success,
+* + .date-container {
   margin-top: 8px;
 }
 
@@ -79,10 +79,10 @@
   margin-bottom: 0.5rem;
 }
 
-*+p.qld-input-error,
-*+span.qld-input-error,
-*+p.qld-input-success,
-*+span.qld-input-success {
+* + p.qld-input-error,
+* + span.qld-input-error,
+* + p.qld-input-success,
+* + span.qld-input-success {
   font-size: 1rem;
   line-height: 1.5;
   display: flex;
@@ -119,25 +119,25 @@ span.qld-input-error {
   }
 }
 
-.qld-hint-text+select,
-.qld-hint-text+input,
-.qld-hint-text+textarea,
-.sq-form-question-note+select,
-.sq-form-question-note+input,
-.sq-form-question-note+textarea {
+.qld-hint-text + select,
+.qld-hint-text + input,
+.qld-hint-text + textarea,
+.sq-form-question-note + select,
+.sq-form-question-note + input,
+.sq-form-question-note + textarea {
   margin-top: 0.5rem;
 }
 
-.qld-input-success+input[type=text],
-.qld-input-error+input[type=text],
-.qld-input-success+input[type=email],
-.qld-input-error+input[type=email],
-.qld-input-success+input[type=date],
-.qld-input-error+input[type=date],
-.qld-input-success+.qld-text-input,
-.qld-input-error+.qld-text-input,
-.qld-input-success+textarea,
-.qld-input-error+textarea {
+.qld-input-success + input[type="text"],
+.qld-input-error + input[type="text"],
+.qld-input-success + input[type="email"],
+.qld-input-error + input[type="email"],
+.qld-input-success + input[type="date"],
+.qld-input-error + input[type="date"],
+.qld-input-success + .qld-text-input,
+.qld-input-error + .qld-text-input,
+.qld-input-success + textarea,
+.qld-input-error + textarea {
   margin-top: 8px;
   margin-top: 0.5rem;
 }
@@ -172,7 +172,9 @@ select.qld-select.qld-input-success:not(:focus) {
 
   &.disabled,
   &:disabled {
-    background-color: var(--#{$prefix}color-default-color-light-background-default-shade);
+    background-color: var(
+      --#{$prefix}color-default-color-light-background-default-shade
+    );
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23636363' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
   }
 
@@ -204,7 +206,6 @@ select.qld-select.qld-input-success:not(:focus) {
 }
 
 @include media-breakpoint-up(md) {
-
   input.qld-field-width-1-quarter,
   select.qld-field-width-1-quarter {
     max-width: $qld-fluid-width-1-quarter;
@@ -222,41 +223,56 @@ select.qld-select.qld-input-success:not(:focus) {
 }
 
 .dark {
-  .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::-webkit-input-placeholder {
+  .form-control.qld-text-input:not(:hover):not(:focus):not(
+      .qld-input-error
+    ):not(.qld-input-success)::-webkit-input-placeholder {
     color: $qld-hint-text-color-muted;
   }
 
-  .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::-moz-placeholder {
+  .form-control.qld-text-input:not(:hover):not(:focus):not(
+      .qld-input-error
+    ):not(.qld-input-success)::-moz-placeholder {
     color: $qld-hint-text-color-muted;
   }
 
-  .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::-ms-placeholder {
+  .form-control.qld-text-input:not(:hover):not(:focus):not(
+      .qld-input-error
+    ):not(.qld-input-success)::-ms-placeholder {
     color: $qld-hint-text-color-muted;
   }
 
-  .form-control.qld-text-input:not(:hover):not(:focus):not(.qld-input-error):not(.qld-input-success)::placeholder {
+  .form-control.qld-text-input:not(:hover):not(:focus):not(
+      .qld-input-error
+    ):not(.qld-input-success)::placeholder {
     color: $qld-hint-text-color-muted;
   }
 
-  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::-webkit-input-placeholder {
+  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(
+      .qld-input-success
+    )::-webkit-input-placeholder {
     color: $qld-white;
   }
 
-  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::-moz-placeholder {
+  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(
+      .qld-input-success
+    )::-moz-placeholder {
     color: $qld-white;
   }
 
-  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::-ms-placeholder {
+  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(
+      .qld-input-success
+    )::-ms-placeholder {
     color: $qld-white;
   }
 
-  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(.qld-input-success)::placeholder {
+  .form-control.qld-text-input:hover:not(:focus):not(.qld-input-error):not(
+      .qld-input-success
+    )::placeholder {
     color: $qld-white;
   }
 }
 
 .dark {
-
   .qld-text-input {
     border-color: $qld-dark-alt-border;
     background-color: var(--qld-dark-background);
@@ -265,7 +281,7 @@ select.qld-select.qld-input-success:not(:focus) {
     &:hover {
       color: $qld-white;
       background-color: $qld-color-dark-background--shade;
-      border-color: $qld-color-dark-button-hover;
+      border-color: $color-default-color-dark-action-primary-hover;
     }
 
     &:focus {

@@ -1,20 +1,20 @@
 // callout.stories.js
-import { Callout } from './Callout.js';
-import defaultdata from './callout.data.json';
+import { Callout } from "./Callout.js";
+import defaultdata from "./callout.data.json";
 
 export default {
-  tags: ['autodocs'],
-  title: '3. Components/Callout',
+  tags: ["autodocs"],
+  title: "3. Components/Callout",
   render: (args) => new Callout(args).html,
 
   argTypes: {
     title: {
-      name: 'Title',
+      name: "Title",
       description: `H3 title text for the callout.`,
     },
     content: {
-      name: 'Content',
-      description: 'Text content for the callout. Can include HTML markup.',
+      name: "Content",
+      description: "Text content for the callout. Can include HTML markup.",
     },
   },
 
@@ -57,10 +57,8 @@ export const Light = {
   args: defaultdata.default,
   parameters: {
     backgrounds: {
-      default: 'Light',
-      values: [
-        { name: 'Light', value: 'var(--qld-light-background)' },
-      ],
+      default: "Light",
+      values: [{ name: "Light", value: "var(--qld-light-background)" }],
     },
   },
   decorators: [
@@ -83,10 +81,8 @@ export const Alternative = {
   args: defaultdata.default,
   parameters: {
     backgrounds: {
-      default: 'Alternative',
-      values: [
-        { name: 'Alternative', value: 'var(--qld-light-grey-alt)' },
-      ],
+      default: "Alternative",
+      values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
     },
   },
   decorators: [
@@ -109,10 +105,8 @@ export const Dark = {
   args: defaultdata.default,
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-brand-primary)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
     },
   },
   decorators: [
@@ -135,9 +129,9 @@ export const DarkAlternative = {
   args: defaultdata.default,
   parameters: {
     backgrounds: {
-      default: 'Dark alternative',
+      default: "Dark alternative",
       values: [
-        { name: 'Dark alternative', value: 'var(--qld-dark-blue)' },
+        { name: "Dark alternative", value: "var(--qld-dark-alt-background)" },
       ],
     },
   },

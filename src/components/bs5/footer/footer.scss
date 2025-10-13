@@ -35,11 +35,9 @@
   --#{$prefix}footer-color-background: var(
     --#{$prefix}color-default-color-light-background-default
   );
-  --#{$prefix}footer-color-alt-button: var(
-    --#{$prefix}core-default-color-brand-secondary-darkgreen
-  );
+  --#{$prefix}footer-color-alt-button: var(--#{$prefix}light-action-secondary);
   --#{$prefix}footer-color-alt-button__hover: var(
-    --#{$prefix}core-default-color-brand-primary-light-green
+    --#{$prefix}light-action-secondary-hover
   );
   --#{$prefix}footer-color-social-icon: #{$core-default-color-neutral-black};
 
