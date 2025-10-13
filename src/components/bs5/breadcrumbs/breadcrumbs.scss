@@ -124,7 +124,8 @@ $expander-icon-color: $qld-light-link;
     text-overflow: ellipsis;
     overflow-x: hidden;
     white-space: nowrap;
-    &:focus {
+
+    &:has(a:focus) {
       overflow: initial;
     }
   }
@@ -137,6 +138,10 @@ $expander-icon-color: $qld-light-link;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    &:focus {
+      overflow: initial;
+    }
   }
   // Override Bootstrap's default :before pseudo element
   &:before {
