@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "",
   "repository": {
     "type": "git",
@@ -13,9 +13,11 @@
   "scripts": {
     "prepare": "husky && npm run build",
     "start": "npm run build",
-    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' .",
+    "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' --ignore-pattern 'src/js/handlebars.partials.js' .",
     "build": "node esbuild.js",
     "build:icons": "node esbuild.js --icons",
+    "build:theme": "node esbuild.js --theme",
+    "build:theme:icons": "node esbuild.js --theme --icons",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:integration": "npm-run-all --parallel --race serve:test test:testrunner",
@@ -25,7 +27,9 @@
     "serve:test": "http-server . -p 8081 --silent",
     "dev-storybook": "npm-run-all --parallel watch storybook",
     "storybook": "storybook dev -p 6006",
+    "storybook:themes": "ENABLE_DYNAMIC_THEME=true storybook dev -p 6006",
     "build-storybook": "storybook build --webpack-stats-json ",
+    "build-storybook:themes": "ENABLE_DYNAMIC_THEME=true storybook build --webpack-stats-json ",
     "build-storybook:serve": "http-server storybook-static -p 8080"
   },
   "keywords": [],

@@ -1,14 +1,32 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/js/qld.bootstrap.js";
-import "../src/css/main.scss";
+import "../src/css/main.masterbrand.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
 // import { allBackgrounds } from "./modes.js";
+import {
+  withDynamicTheme,
+  dynamicThemeGlobalTypes,
+} from "./dynamicThemeDecorator.js";
+
+// Check if dynamic theme should be enabled via environment variable
+const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
 
+// NOTE: TurboSnap Performance Warning
+// The handlebars.init.js import above loads handlebars.partials.js which is
+// auto-generated during build. Changes to this file trigger TurboSnap to
+// rebuild all stories. To prevent false positives:
+// 1. The generator plugin ensures deterministic file ordering
+// 2. The generated file is excluded from linting
+// See: .esbuild/plugins/qgds-plugin-handlebar-partial-builder.js
+
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
+  globalTypes: {
+    ...(ENABLE_DYNAMIC_THEME ? dynamicThemeGlobalTypes : {}),
+  },
   parameters: {
     //actions: { argTypesRegex: "^on[A-Z].*" },
     chromatic: {
@@ -98,6 +116,7 @@ const preview = {
   },
 
   decorators: [
+    ...(ENABLE_DYNAMIC_THEME ? [withDynamicTheme] : []),
     // data-bs-theme="dark" won't be used
     withThemeByClassName({
       themes: {

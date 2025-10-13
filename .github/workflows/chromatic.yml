@@ -1,5 +1,11 @@
 # This workflow will run chromatic build on specific branches. We separated out the chromatic job to make sure it run on manual trigger and
 # restricted to push on specific branches and pull requests like before
+#
+# TurboSnap Performance: This workflow enables TurboSnap for efficient visual regression testing.
+# The build step regenerates handlebars.partials.js which can trigger false cache invalidation.
+# Mitigations applied:
+# - Deterministic file ordering in .esbuild/plugins/qgds-plugin-handlebar-partial-builder.js
+# - Generated files excluded from linting to prevent formatting changes
 
 name: Chromatic
 permissions:
@@ -8,9 +14,9 @@ permissions:
 on:
   push:
     branches:
-     - main
-     - develop
-     - master
+      - main
+      - develop
+      - master
   pull_request:
   workflow_dispatch:
 concurrency:
@@ -25,7 +31,7 @@ jobs:
       IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
     strategy:
       matrix:
-        node: [ '22' ]
+        node: ["22"]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
@@ -55,10 +61,10 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: ${{ matrix.node }}
-          cache: 'npm'
+          cache: "npm"
           #always-auth: 'true'
           #registry-url: 'https://nexus.tools.services.qld.gov.au/nexus/repository/npm_all/'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
       - name: Install #run on lint step (Which is cached)
         run: | # Install packages
           npm ci --prefer-offline --no-audit --ignore-scripts
@@ -77,7 +83,6 @@ jobs:
         run: |
           npm run test
 
-
       - name: Integration Test
         run: |
           npm run test:integration
@@ -89,7 +94,11 @@ jobs:
 
       - name: Build Storybook 🔧
         run: | # build the Storybook files
-          npm run build-storybook
+          if [ "${{ vars.ENABLE_STORYBOOK_THEMES }}" == "true" ]; then
+            npm run build-storybook:themes
+          else
+            npm run build-storybook
+          fi
 
       - name: Publish to Chromatic
         if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}

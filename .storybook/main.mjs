@@ -45,6 +45,12 @@ const config = {
 
   viteFinal: async (config, { configType }) => {
     config.root = "./dist";
+    
+    // Define environment variables for the browser
+    config.define = {
+      ...config.define,
+      'import.meta.env.ENABLE_DYNAMIC_THEME': JSON.stringify(process.env.ENABLE_DYNAMIC_THEME === 'true')
+    };
     // config.plugins.push({
     //     name: "html-transform",
     //     transform(src, id) {

@@ -87,25 +87,33 @@ mvn install
    ```
 
 4. Build the Design System CSS, Components and templates
+    
+    ```bash
+    npm run build
+    ```
 
-   ```bash
-   npm run build
-   ```
+5. Build the same command as above, but with `:theme` following by args `${ThemePaletteName}`
+   This will generate a separate altertive CSS export named as `qld.${ThemePaletteName}.bootstrap.css`
+    
+    ```bash
+    npm run build:theme ${ThemePaletteName}
+    
+    npm run build:theme -- --theme=${ThemePaletteA} --theme=${ThemePaletteB}
+    ```
 
-5. Start Watch and Storybook for component development
+6.  Start Watch and Storybook for component development
+        
+    ```bash
+    npm run dev-storybook
+    ```
+     Alt:
+     ```bash
+     npm run watch
+     npm run storybook
+     ```
 
-   ```bash
-   npm run dev-storybook
-   ```
+7. Lint
 
-   Alt:
-
-   ```bash
-   npm run watch
-   npm run storybook
-   ```
-
-6. Lint
    ```bash
    npm run lint
    ```
