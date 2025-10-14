@@ -343,12 +343,11 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     .tag-item {
       color: var(--#{$prefix}dark-grey-muted);
-      border-color: var(--#{$prefix}light-grey);
+      border-color: var(--#{$prefix}brand-primary);
     }
 
     .tag-link {
       color: var(--#{$prefix}brand-primary);
-      border-color: var(--#{$prefix}brand-primary);
 
       &:hover,
       &:active,
