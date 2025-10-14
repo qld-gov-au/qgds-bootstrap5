@@ -1,6 +1,6 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/js/qld.bootstrap.js";
-import "../src/css/main.masterbrand.scss";
+import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import {
   withDynamicTheme,
