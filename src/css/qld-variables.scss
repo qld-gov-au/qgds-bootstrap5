@@ -103,8 +103,6 @@ $qld-light-grey: $core-default-color-neutral-lighter;
 $qld-light-grey-alt: $color-default-color-light-background-alt;
 $qld-extra-light-grey: $core-default-color-neutral-lightest;
 $qld-white: $core-default-color-neutral-white;
-$qld-white-underline: $core-default-color-status-underline-light;
-$qld-dark-underline: $core-default-color-status-underline-dark;
 $qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
 $qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
 $qld-notify-warning: $core-default-color-status-error-default;
@@ -193,8 +191,6 @@ $project-colors: (
   "light-grey-alt": $qld-light-grey-alt,
   "extra-light-grey": $qld-extra-light-grey,
   "white": $qld-white,
-  "white-underline": $qld-white-underline,
-  "dark-underline": $qld-dark-underline,
   "maroon-traditional": $qld-maroon-traditional,
   "maroon-modern": $qld-maroon-modern,
 
