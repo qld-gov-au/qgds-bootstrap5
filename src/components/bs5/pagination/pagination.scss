@@ -1,70 +1,84 @@
 // QGDS QOL Pagination
 // extends https://getbootstrap.com/docs/5.3/components/pagination/#variables
 
-
 //PREV NEXT ARROW on default background
-$pagination-icon-prevnext-color: $secondary;
-$pagination-icon-prevnext-hover-color: $qld-alt-button-hover;
+$pagination-icon-prevnext-color: var(--#{$prefix}light-action-secondary);
+$pagination-icon-prevnext-hover-color: var(
+  --#{$prefix}light-action-secondary-hover
+);
+
 //PREV NEXT ARROW on dark background
-$pagination-icon-prevnext-dark-color: $qld-golden-yellow;
-$pagination-icon-prevnext-dark-hover-color: $qld-dark-action-secondary-hover;
+$pagination-icon-prevnext-dark-color: var(--#{$prefix}dark-action-secondary);
+$pagination-icon-prevnext-dark-hover-color: var(
+  --#{$prefix}dark-action-secondary-hover
+);
+
 //MORE DOTS on default background
-$pagination-icon-more-color: $primary;
-$pagination-icon-more-hover-color: $secondary;
+$pagination-icon-more-color: var(--#{$prefix}neutral-darker);
+$pagination-icon-more-hover-color: var(--#{$prefix}light-action-secondary);
 
 //MORE DOTS on dark background
-$pagination-icon-more-dark-color: $qld-white;
-$pagination-icon-more-dark-hover-color: $qld-golden-yellow;
+$pagination-icon-more-dark-color: var(--#{$prefix}dark-link);
+$pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
 
 .pagination {
-    --action-icon-color: var(--#{$prefix}light-action-secondary);
-    --action-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
-    --action-icon-more-color: var(--#{$prefix}light-text-text);
-    --action-icon-more-color-hover: var(--#{$prefix}light-action-secondary);
+  --action-icon-color: var(--#{$prefix}light-action-secondary);
+  --action-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
+  --action-icon-more-color: var(--#{$prefix}light-text-text);
+  --action-icon-more-color-hover: var(--#{$prefix}light-action-secondary);
 
-    //Padding
-    --#{$prefix}pagination-padding-x: 1rem;
-    --#{$prefix}pagination-padding-y: 0.5rem;
+  //Padding
+  --#{$prefix}pagination-padding-x: 1rem;
+  --#{$prefix}pagination-padding-y: 0.5rem;
 
-    //Colour
-    --#{$prefix}pagination-color: var(--#{$prefix}link-color);
-    --#{$prefix}pagination-bg: transparent;
+  //Colour
+  --#{$prefix}pagination-color: var(--#{$prefix}link-color);
+  --#{$prefix}pagination-bg: transparent;
 
-    //Border
-    --#{$prefix}pagination-border-width: 1px;
-    --#{$prefix}pagination-border-color: var(--#{$prefix}soft-grey);
-    --#{$prefix}pagination-border-radius: var(--#{$prefix}border-radius);
+  //Border
+  --#{$prefix}pagination-border-width: 1px;
+  --#{$prefix}pagination-border-color: var(--#{$prefix}soft-grey);
+  --#{$prefix}pagination-border-radius: var(--#{$prefix}border-radius);
 
-    //Focus (outline)    
-    --#{$prefix}pagination-focus-color: var(--#{$prefix}link-hover-color);
-    --#{$prefix}pagination-focus-border-color: var(--#{$prefix}secondary-dark);
-    --#{$prefix}pagination-focus-outline-color: var(--#{$prefix}light-blue);
-    --#{$prefix}pagination-focus-bg: transparent;
+  //Focus (outline)
+  --#{$prefix}pagination-focus-color: var(--#{$prefix}light-focus);
+  --#{$prefix}pagination-focus-border-color: var(
+    --#{$prefix}dark-action-secondary
+  );
+  --#{$prefix}pagination-focus-outline-color: var(--#{$prefix}light-link);
+  --#{$prefix}pagination-focus-bg: transparent;
 
-    //Hover
-    --#{$prefix}pagination-hover-box-shadow: none;
-    --#{$prefix}pagination-hover-color: var(--#{$prefix}primary);
-    --#{$prefix}pagination-hover-border-color: var(--#{$prefix}secondary);
-    --#{$prefix}pagination-hover-bg: transparent;
+  //Hover
+  --#{$prefix}pagination-hover-box-shadow: none;
+  --#{$prefix}pagination-hover-color: var(--#{$prefix}light-link);
+  --#{$prefix}pagination-hover-border-color: var(
+    --#{$prefix}light-action-secondary
+  );
+  --#{$prefix}pagination-hover-bg: transparent;
 
-    //Active
-    --#{$prefix}pagination-active-color: var(--#{$prefix}white);
-    --#{$prefix}pagination-active-bg: var(--#{$prefix}dark-background);
-    --#{$prefix}pagination-active-border-color: var(--#{$prefix}dark-background-shade);
-    --#{$prefix}pagination-active-dropshadow: 0px 1px 2px rgba(0, 0, 0, .2),
-        0px 1px 3px 1px rgba(0, 0, 0, .1);
+  //Active
+  --#{$prefix}pagination-active-color: var(--#{$prefix}light-link-on-action);
+  --#{$prefix}pagination-active-bg: var(--#{$prefix}light-action-primary);
+  --#{$prefix}pagination-active-border-color: var(
+    --#{$prefix}light-action-primary
+  );
+  --#{$prefix}pagination-active-dropshadow:
+    0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
 
-    //Active Hover
-    --#{$prefix}pagination-active-hover-bg: var(--#{$prefix}dark-background-shade);
+  //Active Hover
+  --#{$prefix}pagination-active-hover-bg: var(
+    --#{$prefix}dark-background-shade
+  );
 
-    //Active Focus
-    --#{$prefix}pagination-active-focus-bg: var(--#{$prefix}dark-background-shade);
+  //Active Focus
+  --#{$prefix}pagination-active-focus-bg: var(
+    --#{$prefix}dark-background-shade
+  );
 
-    //Disabled
-    --#{$prefix}pagination-disabled-color: var(--#{$prefix}secondary-color);
-    --#{$prefix}pagination-disabled-bg: var(--#{$prefix}secondary-bg);
-    --#{$prefix}pagination-disabled-border-color: var(--#{$prefix}border-color);
-
+  //Disabled
+  --#{$prefix}pagination-disabled-color: var(--#{$prefix}secondary-color);
+  --#{$prefix}pagination-disabled-bg: var(--#{$prefix}secondary-bg);
+  --#{$prefix}pagination-disabled-border-color: var(--#{$prefix}border-color);
 }
 
 // When the parent container has a darker background (.dark), or the parent container uses attribute data-bs-theme="dark"
@@ -73,246 +87,248 @@ $pagination-icon-more-dark-hover-color: $qld-golden-yellow;
 .dark-alt .pagination,
 [data-bs-theme="dark"] .pagination,
 [data-bs-theme="dark-alt"] .pagination {
+  //Colour
+  --#{$prefix}pagination-color: var(--#{$prefix}dark-link);
+  --#{$prefix}pagination-bg: transparent;
 
-    //Colour
-    --#{$prefix}pagination-color: var(--#{$prefix}white);
-    --#{$prefix}pagination-bg: transparent;
+  //Border
+  --#{$prefix}pagination-border-color: var(--#{$prefix}dark-alt-border);
 
-    //Border
-    --#{$prefix}pagination-border-color: var(--#{$prefix}dark-alt-border);
+  //Focus
+  --#{$prefix}pagination-focus-color: var(--#{$prefix}dark-link);
+  --#{$prefix}pagination-focus-border-color: var(
+    --#{$prefix}dark-action-secondary
+  );
+  --#{$prefix}pagination-focus-outline-color: var(--#{$prefix}dark-focus);
+  --#{$prefix}pagination-focus-bg: transparent;
 
-    //Focus    
-    --#{$prefix}pagination-focus-outline-color: var(--#{$prefix}dark-focus);
-    --#{$prefix}pagination-focus-color: var(--#{$prefix}link-hover-color);
-    --#{$prefix}pagination-focus-border-color: var(--#{$prefix}secondary-dark);
-    --#{$prefix}pagination-focus-bg: transparent;
+  //Hover
+  --#{$prefix}pagination-hover-color: var(--#{$prefix}dark-link);
+  --#{$prefix}pagination-hover-border-color: var(
+    --#{$prefix}dark-action-secondary
+  );
+  --#{$prefix}pagination-hover-bg: transparent;
 
-    //Hover
-    --#{$prefix}pagination-hover-color: var(--#{$prefix}white);
-    --#{$prefix}pagination-hover-border-color: var(--#{$prefix}golden-yellow);
-    --#{$prefix}pagination-hover-bg: transparent;
+  //Active
+  --#{$prefix}pagination-active-color: var(--#{$prefix}dark-link-on-action);
+  --#{$prefix}pagination-active-bg: var(--#{$prefix}dark-action-primary);
+  --#{$prefix}pagination-active-border-color: var(
+    --#{$prefix}dark-action-primary
+  );
+  --#{$prefix}pagination-active-dropshadow:
+    0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
 
-    //Active
-    --#{$prefix}pagination-active-color: var(--#{$prefix}dark-action-text);
-    --#{$prefix}pagination-active-bg: #{$qld-dark-action-primary};
-    --#{$prefix}pagination-active-border-color: #{$qld-dark-action-primary};
-    --#{$prefix}pagination-active-dropshadow: 0px 1px 2px rgba(0, 0, 0, .2),
-        0px 1px 3px 1px rgba(0, 0, 0, .1);
-        
-    //Active Hover
-    --#{$prefix}pagination-active-hover-bg: var(--#{$prefix}dark-action-primary-hover);
+  //Active Hover
+  --#{$prefix}pagination-active-hover-bg: var(
+    --#{$prefix}dark-action-primary-hover
+  );
 
-    //Active Focus
-    --#{$prefix}pagination-active-focus-bg: var(--#{$prefix}dark-action-primary-hover);
+  //Active Focus
+  --#{$prefix}pagination-active-focus-bg: var(
+    --#{$prefix}dark-action-primary-hover
+  );
 
-    //SASS icons assinged to CSS properties
-    --action-icon-color: var(--#{$prefix}dark-action-secondary);
-    --action-icon-color-hover: var(--#{$prefix}dark-action-secondary-hover);
-    --action-icon-more-color: var(--#{$prefix}dark-text-text);
-    --action-icon-more-color-hover: var(--#{$prefix}dark-action-secondary);
+  //SASS icons assinged to CSS properties
+  --action-icon-color: var(--#{$prefix}dark-action-secondary);
+  --action-icon-color-hover: var(--#{$prefix}dark-action-secondary-hover);
+  --action-icon-more-color: var(--#{$prefix}dark-text-text);
+  --action-icon-more-color-hover: var(--#{$prefix}dark-action-secondary);
 }
 
-
 .pagination {
+  // General ruleset
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
 
-    // General ruleset
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin: 1rem 0;
+  .previous {
+    margin-right: 0.25rem;
+  }
+  .next {
+    margin-left: 0.25rem;
+  }
+  .active a {
+    font-weight: 700;
+  }
 
-    .previous {
-        margin-right: 0.25rem;
-    }
-    .next {
-        margin-left: 0.25rem;
-    }
-    .active a {
-        font-weight: 700;
-    }
+  //Page item buttons
+  .page-item {
+    .page-link {
+      border-radius: 4px;
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      text-align: center;
+      line-height: calc(2rem - 2px);
+      color: var(--#{$prefix}pagination-color);
+      border-color: var(--#{$prefix}pagination-border-color);
 
-    //Page item buttons
-    .page-item {
+      &:hover {
+        border-color: var(--#{$prefix}pagination-hover-border-color);
+        box-shadow: inset 0 0 0 1px
+          var(--#{$prefix}pagination-hover-border-color);
+        background-color: var(--#{$prefix}pagination-hover-bg);
+      }
 
-        .page-link {
-            border-radius: 4px;
-            width: 2rem;
-            height: 2rem;
-            padding: 0;
-            text-align: center;
-            line-height: calc(2rem - 2px);
-            color: var(--#{$prefix}pagination-color);
-            border-color: var(--#{$prefix}pagination-border-color);
-
-            &:hover {
-                border-color: var(--#{$prefix}pagination-hover-border-color);
-                box-shadow: inset 0 0 0 1px var(--#{$prefix}pagination-hover-border-color);
-                background-color: var(--#{$prefix}pagination-hover-bg);
-            }
-
-            &:focus {
-                outline: 2px solid var(--#{$prefix}pagination-focus-outline-color);
-                outline-offset: 2px;
-                border-color: var(--#{$prefix}pagination-hover-border-color);
-                box-shadow: inset 0 0 0 1px var(--#{$prefix}pagination-hover-border-color);
-                background-color: var(--#{$prefix}pagination-focus-bg);
-            }
-
-        }
-
-        //Only .previous
-        &.previous .page-link {
-            padding-left: 2.25rem;
-            width: unset;
-        }
-
-        //Only .next
-        &.next .page-link {
-            padding-right: 2.25rem;
-            width: unset;
-        }
-
-        //Shared by both .prev and .next
-        &.previous .page-link,
-        &.next .page-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-
-            //.prev and .next arrows
-            &:before {
-                content: "";
-                width: 1.5rem;
-                height: 1.5rem;
-                mask-image: var(--qgds-icon-arrow-left);
-                background-color: var(--action-icon-color);
-                mask-repeat: no-repeat;
-                mask-position: 0;
-            }
-
-            &:hover:before {
-                background-color: var(--action-icon-color-hover);
-            }
-
-            &:hover, &:focus {
-            //Previous and Next "link text" 
-                span {
-                    text-decoration: underline;
-                    text-underline-offset: 2px;
-                }
-
-            }
-        }
-
-        &.next .page-link {
-            flex-direction: row-reverse;
-        
-            &:before {
-                transform: rotate(180deg);            
-            }
-        }
-
-        //Non-numeric links in pagination
-        &.previous,
-        &.next {
-            .page-link {
-                border: none;
-                position: relative;
-                height: 2rem;
-
-                &:hover {
-                    box-shadow: none;
-                }
-
-                &:focus {
-                    outline: 2px solid var(--#{$prefix}pagination-focus-outline-color);
-                    outline-offset: 2px;
-                    border: none;
-                    box-shadow: none;
-                }
-            }
-        }
-
-        //Active link only
-        &.active .page-link {
-
-            color: var(--#{$prefix}pagination-active-color);
-            background-color: var(--#{$prefix}pagination-active-bg);
-            border-color: var(--#{$prefix}pagination-active-border-color);
-
-            &:hover {
-                border-color: var(--#{$prefix}pagination-active-bg);
-                box-shadow: var(--#{$prefix}pagination-active-dropshadow);
-                background-color: var(--#{$prefix}pagination-active-hover-bg);
-            }
-
-            &:focus {
-                outline: 2px solid var(--#{$prefix}pagination-focus-outline-color);
-                outline-offset: 2px;
-                border-color: var(--#{$prefix}pagination-active-bg);
-                box-shadow: var(--#{$prefix}pagination-active-dropshadow);
-                background-color: var(--#{$prefix}pagination-active-focus-bg);
-            }
-        }
-
-        //More dots
-        &.more span {
-            border: none;
-            // position: relative;
-            height: 2rem;
-            width: 2rem;
-            display: inline-flex;
-
-            &:hover:before {
-                background-color: var(--action-icon-more-color-hover);
-            }
-            &:before {
-                content: "";
-                width: 2rem;
-                height: 2rem;
-                background-repeat: no-repeat;
-                mask-image: var(--qgds-icon-more-horizontal);
-                background-color: var(--action-icon-more-color);
-            }
-        }
-    }
-    
-    // Dark modes 
-    .dark &, .dark-alt & {
-
-        .page-item {
-            //Active link only
-            &.active .page-link {
-                &:hover {
-                    color: black;
-                }
-            }
-        }
-        
-
+      &:focus {
+        outline: 2px solid var(--#{$prefix}pagination-focus-outline-color);
+        outline-offset: 2px;
+        border-color: var(--#{$prefix}pagination-hover-border-color);
+        box-shadow: inset 0 0 0 1px
+          var(--#{$prefix}pagination-hover-border-color);
+        background-color: var(--#{$prefix}pagination-focus-bg);
+      }
     }
 
-    // RESPONSIVE ADJUSTMENTS
-
-    // Pagination fallback on small devices
-    // Hide page numbers, show previous and next arrows
-    @include media-breakpoint-down(sm) {
-
-        .page-item {
-            display: block;
-        }
-
-        .page-item.previous,
-        .page-item.next {
-            display: inline-flex;
-        }
+    //Only .previous
+    &.previous .page-link {
+      padding-left: 2.25rem;
+      width: unset;
     }
 
-    //Remove Previous and Next "link text" from smaller devices
-    @include media-breakpoint-down(md) {
+    //Only .next
+    &.next .page-link {
+      padding-right: 2.25rem;
+      width: unset;
+    }
+
+    //Shared by both .prev and .next
+    &.previous .page-link,
+    &.next .page-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      //.prev and .next arrows
+      &:before {
+        content: "";
+        width: 1.5rem;
+        height: 1.5rem;
+        mask-image: var(--qgds-icon-arrow-left);
+        background-color: var(--action-icon-color);
+        mask-repeat: no-repeat;
+        mask-position: 0;
+      }
+
+      &:hover:before {
+        background-color: var(--action-icon-color-hover);
+      }
+
+      &:hover,
+      &:focus {
+        //Previous and Next "link text"
         span {
-            display: none;
+          text-decoration: underline;
+          text-underline-offset: 2px;
         }
+      }
     }
 
+    &.next .page-link {
+      flex-direction: row-reverse;
+
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+
+    //Non-numeric links in pagination
+    &.previous,
+    &.next {
+      .page-link {
+        border: none;
+        position: relative;
+        height: 2rem;
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        &:focus {
+          outline: 2px solid var(--#{$prefix}pagination-focus-outline-color);
+          outline-offset: 2px;
+          border: none;
+          box-shadow: none;
+        }
+      }
+    }
+
+    //Active link only
+    &.active .page-link {
+      color: var(--#{$prefix}pagination-active-color);
+      background-color: var(--#{$prefix}pagination-active-bg);
+      border-color: var(--#{$prefix}pagination-active-border-color);
+
+      &:hover {
+        border-color: var(--#{$prefix}pagination-active-bg);
+        box-shadow: var(--#{$prefix}pagination-active-dropshadow);
+        background-color: var(--#{$prefix}pagination-active-hover-bg);
+      }
+
+      &:focus {
+        outline: 2px solid var(--#{$prefix}pagination-focus-outline-color);
+        outline-offset: 2px;
+        border-color: var(--#{$prefix}pagination-active-bg);
+        box-shadow: var(--#{$prefix}pagination-active-dropshadow);
+        background-color: var(--#{$prefix}pagination-active-focus-bg);
+      }
+    }
+
+    //More dots
+    &.more span {
+      border: none;
+      // position: relative;
+      height: 2rem;
+      width: 2rem;
+      display: inline-flex;
+
+      &:hover:before {
+        background-color: var(--action-icon-more-color-hover);
+      }
+      &:before {
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        background-repeat: no-repeat;
+        mask-image: var(--qgds-icon-more-horizontal);
+        background-color: var(--action-icon-more-color);
+      }
+    }
+  }
+
+  // Dark modes
+  .dark &,
+  .dark-alt & {
+    .page-item {
+      //Active link only
+      &.active .page-link {
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+
+  // RESPONSIVE ADJUSTMENTS
+
+  // Pagination fallback on small devices
+  // Hide page numbers, show previous and next arrows
+  @include media-breakpoint-down(sm) {
+    .page-item {
+      display: block;
+    }
+
+    .page-item.previous,
+    .page-item.next {
+      display: inline-flex;
+    }
+  }
+
+  //Remove Previous and Next "link text" from smaller devices
+  @include media-breakpoint-down(md) {
+    span {
+      display: none;
+    }
+  }
 }
