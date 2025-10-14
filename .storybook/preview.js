@@ -83,11 +83,11 @@ const preview = {
     },
     backgrounds: {
       options: {
-        default: { name: "Default", value: "#FFFFFF" },
+        default: { name: "Default", value: "var(--qld-default-background)" },
         light: { name: "Light", value: "var(--qld-light-background)" },
-        alt: { name: "Light Alt", value: "var(--qld-light-grey-alt)" },
-        dark: { name: "Dark", value: "var(--qld-sapphire-blue)" },
-        darkAlt: { name: "Dark Alt", value: "var(--qld-dark-blue)" },
+        alt: { name: "Light Alt", value: "var(--qld-light-alt-background)" },
+        dark: { name: "Dark", value: "var(--qld-dark-background)" },
+        darkAlt: { name: "Dark Alt", value: "var(--qld-dark-alt-background)" },
       },
       disable: true,
     },
