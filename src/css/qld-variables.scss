@@ -50,32 +50,13 @@ $qld-dark-green-dark: $color-default-color-dark-action-primary;
 $qld-light-yellow: $core-default-color-status-caution-lightest;
 $qld-button-dark-blue: $color-default-color-light-action-primary-hover;
 
-//QGOV Brand Mapping - QLD.GOV.AU
-// $qld-brand-primary-dark: $qld-dark-blue;
-// $qld-brand-primary: $qld-sapphire-blue;
-// $qld-brand-primary-light: $qld-light-blue;
-// $qld-brand-secondary-dark: $qld-dark-green;
-// $qld-brand-secondary: $qld-light-green;
-// $qld-brand-accent: $qld-golden-yellow;
-
-// Remapped legacy brand color values to align with correct UI Kit variables
+//Mapping brand vars to local vars
 $qld-brand-primary: $color-default-color-light-action-primary;
 $qld-brand-primary-light: $color-default-color-light-action-primary;
 $qld-brand-primary-dark: $color-default-color-dark-action-primary;
 $qld-brand-secondary: $color-default-color-light-action-secondary;
 $qld-brand-secondary-dark: $color-default-color-dark-action-secondary;
 $qld-brand-accent: $color-default-color-light-accent-design-accent;
-
-// Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss).
-// Nuetrals were dropped from _variables.scss, but retained in _map.scss.
-$core-default-color-neutral-black: #131212;
-$core-default-color-neutral-darkest: #222020;
-$core-default-color-neutral-darker: #595959;
-$core-default-color-neutral-dark: #78797e;
-$core-default-color-neutral-light: #e0e0e0;
-$core-default-color-neutral-lighter: #ebebeb;
-$core-default-color-neutral-lightest: #f5f5f5;
-$core-default-color-neutral-white: #ffffff;
 
 //Greys
 $qld-system-darkest: $core-default-color-neutral-darkest;
