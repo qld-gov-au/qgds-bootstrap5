@@ -2,8 +2,15 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/js/qld.bootstrap.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { allBackgrounds } from "./modes.js";
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+// import { allBackgrounds } from "./modes.js";
+import {
+  withDynamicTheme,
+  dynamicThemeGlobalTypes,
+} from "./dynamicThemeDecorator.js";
+
+// Check if dynamic theme should be enabled via environment variable
+const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
 
@@ -17,6 +24,9 @@ import Handlebars from "handlebars";
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
+  globalTypes: {
+    ...(ENABLE_DYNAMIC_THEME ? dynamicThemeGlobalTypes : {}),
+  },
   parameters: {
     //actions: { argTypesRegex: "^on[A-Z].*" },
     chromatic: {
@@ -72,14 +82,14 @@ const preview = {
       },
     },
     backgrounds: {
-      //default: 'default',
-      values: [
-        allBackgrounds["default"],
-        allBackgrounds["Light"],
-        allBackgrounds["Light alternative"],
-        allBackgrounds["Dark"],
-        allBackgrounds["Dark alternative"],
-      ],
+      options: {
+        default: { name: "Default", value: "var(--qld-default-background)" },
+        light: { name: "Light", value: "var(--qld-light-background)" },
+        alt: { name: "Light Alt", value: "var(--qld-light-alt-background)" },
+        dark: { name: "Dark", value: "var(--qld-dark-background)" },
+        darkAlt: { name: "Dark Alt", value: "var(--qld-dark-alt-background)" },
+      },
+      disable: true,
     },
     options: {
       storySort: {
@@ -100,9 +110,13 @@ const preview = {
         restoreScroll: true,
       },
     },
+    initialGlobals: {
+      backgrounds: { value: "default" },
+    },
   },
 
   decorators: [
+    ...(ENABLE_DYNAMIC_THEME ? [withDynamicTheme] : []),
     // data-bs-theme="dark" won't be used
     withThemeByClassName({
       themes: {

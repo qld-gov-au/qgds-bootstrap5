@@ -1,6 +1,5 @@
 // QGDS QOL Video Component
 
-
 // Video variables.
 
 $video-icon-color: $qld-dark-text;
@@ -19,10 +18,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 .video {
   --#{$prefix}video-border-radius: 0.25rem;
   --#{$prefix}video-nav-bg: var(--#{$prefix}light-action-primary);
-  --#{$prefix}video-nav-bg-rgb: 9, 84, 159;
+  --#{$prefix}video-nav-bg-rgb: 0, 94, 184;
   --#{$prefix}video-nav-bg-hover: var(--#{$prefix}light-action-primary-hover);
-  --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 125;
-  --#{$prefix}video-nav-bg-opacity: .9;
+  --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 150;
+  --#{$prefix}video-nav-bg-opacity: 0.9;
   --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
   --#{$prefix}video-play-icon: #{escape-svg($video-play-icon)};
   --#{$prefix}video-play-icon-size: 2rem;
@@ -33,13 +32,12 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   .dark &,
   .dark-alt & {
     --#{$prefix}video-nav-bg: var(--#{$prefix}dark-action-primary);
-    --#{$prefix}video-nav-bg-rgb: 120, 186, 0;
+    --#{$prefix}video-nav-bg-rgb: 132, 211, 255;
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}dark-action-primary-hover);
-    --#{$prefix}video-nav-bg-hover-rgb: 173, 211, 63;
+    --#{$prefix}video-nav-bg-hover-rgb: 166, 247, 255;
     --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
     --#{$prefix}video-play-icon: #{escape-svg($video-play-icon-dark)};
     --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon-dark)};
-
   }
 }
 
@@ -47,7 +45,9 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 .video {
   padding: 0px;
   border-radius: var(--#{$prefix}video-border-radius);
-  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+    0px 1px 2px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-rows: 1fr;
   grid-template-areas: "video" "description" "transcript";
@@ -63,7 +63,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       outline: 3px solid var(--#{$prefix}focus);
       outline-offset: 2px;
     }
-
   }
 
   &-thumbnail,
@@ -77,8 +76,12 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     width: 100%;
     overflow: clip;
     border: 0;
-    -webkit-transition: opacity .25s ease-out, z-index .3s 0s ease-out;
-    transition: opacity .25s ease-out, z-index .3s 0s ease-out;
+    -webkit-transition:
+      opacity 0.25s ease-out,
+      z-index 0.3s 0s ease-out;
+    transition:
+      opacity 0.25s ease-out,
+      z-index 0.3s 0s ease-out;
   }
 
   &-thumbnail {
@@ -94,17 +97,21 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       left: 0;
       width: 100%;
       height: 100%;
-      -webkit-transition: opacity .25s ease-in-out;
-      transition: opacity .25s ease-in-out;
+      -webkit-transition: opacity 0.25s ease-in-out;
+      transition: opacity 0.25s ease-in-out;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       &:before {
-        opacity: .15;
+        opacity: 0.15;
       }
 
       .video-nav {
-        background-color: rgba(var(--#{$prefix}video-nav-bg-hover-rgb), var(--#{$prefix}video-nav-bg-opacity));
+        background-color: rgba(
+          var(--#{$prefix}video-nav-bg-hover-rgb),
+          var(--#{$prefix}video-nav-bg-opacity)
+        );
 
         .video-watch {
           background-color: var(--#{$prefix}video-nav-bg-hover);
@@ -116,7 +123,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 
       .video-thumbnail-image {
         &:before {
-          opacity: .15;
+          opacity: 0.15;
         }
       }
     }
@@ -140,8 +147,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         left: 0;
         width: 100%;
         height: 100%;
-        -webkit-transition: opacity .25s ease-in-out;
-        transition: opacity .25s ease-in-out;
+        -webkit-transition: opacity 0.25s ease-in-out;
+        transition: opacity 0.25s ease-in-out;
       }
     }
   }
@@ -179,7 +186,10 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     display: flex;
     left: 0;
     bottom: 0;
-    background-color: rgba(var(--#{$prefix}video-nav-bg-rgb), var(--#{$prefix}video-nav-bg-opacity));
+    background-color: rgba(
+      var(--#{$prefix}video-nav-bg-rgb),
+      var(--#{$prefix}video-nav-bg-opacity)
+    );
     border-top-right-radius: 0.75rem;
     overflow: clip;
     font-weight: 400;
@@ -188,8 +198,12 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 
   &-nav,
   &-watch {
-    -webkit-transition: background-color .25s ease-in-out, text-decoration-color .25s ease-in-out;
-    transition: background-color .25s ease-in-out, text-decoration-color .25s ease-in-out;
+    -webkit-transition:
+      background-color 0.25s ease-in-out,
+      text-decoration-color 0.25s ease-in-out;
+    transition:
+      background-color 0.25s ease-in-out,
+      text-decoration-color 0.25s ease-in-out;
   }
 
   &-duration,
@@ -206,7 +220,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       display: inline-block;
       vertical-align: middle;
       margin-left: -2rem;
-      margin-right: .5rem;
+      margin-right: 0.5rem;
     }
   }
 
@@ -229,12 +243,12 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     }
   }
 
-
-
   &-description {
     padding: 0.75rem 1rem;
     grid-area: description;
-    p, ul, ol {
+    p,
+    ul,
+    ol {
       &:last-child {
         margin-bottom: 0;
       }
@@ -246,7 +260,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     grid-area: transcript;
     &-item {
       &,
-      &:last-of-type>.accordion-header .accordion-button.collapsed {
+      &:last-of-type > .accordion-header .accordion-button.collapsed {
         border-bottom-right-radius: var(--#{$prefix}video-border-radius);
         border-bottom-left-radius: var(--#{$prefix}video-border-radius);
       }
