@@ -17,6 +17,14 @@ export default {
       },
       story: { height: "400px" },
     },
+    backgrounds: {
+      disable: false,
+    },
+  },
+  globals: {
+    backgrounds: {
+      value: "default",
+    },
   },
 };
 
@@ -48,12 +56,7 @@ export const Dark = {
   args: {
     ...defaultdata,
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -72,12 +75,7 @@ export const Dark = {
  */
 export const DarkFilled = {
   args: { ...defaultdata, customClass: "is-filled" },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `

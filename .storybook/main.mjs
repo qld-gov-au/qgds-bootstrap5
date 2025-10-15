@@ -1,7 +1,7 @@
 /** @type { import('@storybook/html-vite').StorybookConfig } */
+// Is an ESM module now
 
 import path from "path";
-import fs from "fs";
 
 const config = {
   stories: [
@@ -17,11 +17,10 @@ const config = {
     //https://storybook.js.org/addons/
     "@storybook/addon-a11y",
     "@storybook/addon-themes",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@storybook/addon-links",
     "@chromatic-com/storybook",
     "storybook-addon-deep-controls",
+    "@storybook/addon-docs",
   ],
 
   framework: {
@@ -69,8 +68,8 @@ const config = {
       fs: {
         allow: [
           // Allow access to assets
-          path.resolve(__dirname, "../src/assets"),
-          path.resolve(__dirname, "../src/img"),
+          path.resolve(process.cwd(), "../src/assets"),
+          path.resolve(process.cwd(), "../src/img"),
         ],
       },
     };

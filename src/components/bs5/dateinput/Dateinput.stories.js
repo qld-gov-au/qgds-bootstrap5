@@ -6,23 +6,22 @@ export default {
   tags: ["autodocs"],
   title: "3. Components/Forms/Dateinput",
   render: (args) => {
-    
-    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 
+    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.
     //We can't use commas on our class="..." attribute, so we need to replace the commas with spaces.
 
-    if( typeof(args.customClass) === 'string' ) {
-      args.customClass = args.customClass.replaceAll(","," ");
-    } else if ( typeof(args.customClass) === 'object' ) {
+    if (typeof args.customClass === "string") {
+      args.customClass = args.customClass.replaceAll(",", " ");
+    } else if (typeof args.customClass === "object") {
       args.customClass = args.customClass.join(" ");
     }
-  
+
     return new Dateinput(args).html;
-  
   },
 
   //https://storybook.js.org/docs/api/arg-types
-  argTypes: {
-  },
+  argTypes: {},
+  globals: { backgrounds: { value: "default" } },
+  parameters: { backgrounds: { disable: false } },
 };
 
 /**
@@ -30,24 +29,18 @@ export default {
  */
 export const Default = {
   args: defaultdata,
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
  * Dark themed Date inputs
  */
 export const Dark = {
-  args: { 
-	  ...defaultdata,
-	  ...{isDisabled: false},
+  args: {
+    ...defaultdata,
+    ...{ isDisabled: false },
   },
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-brand-primary)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -63,20 +56,19 @@ export const Dark = {
  * Filled style Date inputs
  */
 export const Filled = {
-  args: { 
-	  ...defaultdata,
-	  ...{customClass: "form-style-filled"},
+  args: {
+    ...defaultdata,
+    ...{ customClass: "form-style-filled" },
   },
 };
-
 
 /**
  * Disabled Date inputs
  */
 export const Disabled = {
-  args: { 
-	  ...defaultdata,
-	  ...{isDisabled: true},
+  args: {
+    ...defaultdata,
+    ...{ isDisabled: true },
   },
 };
 
@@ -85,8 +77,8 @@ export const Disabled = {
  */
 export const Valid = {
   args: {
-	  ...defaultdata,
-    ...{customClass: "qld-input-success"},
+    ...defaultdata,
+    ...{ customClass: "qld-input-success" },
   },
 };
 
@@ -95,7 +87,7 @@ export const Valid = {
  */
 export const Invalid = {
   args: {
-	  ...defaultdata,
-    ...{customClass: "qld-input-error"},
+    ...defaultdata,
+    ...{ customClass: "qld-input-error" },
   },
 };

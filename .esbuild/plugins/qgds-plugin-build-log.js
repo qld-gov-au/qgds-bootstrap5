@@ -12,7 +12,7 @@ export default function buildlog() {
         log("yellow", "Starting build...\n");
       });
 
-      // eslint-disable-next-line no-unused-vars
+       
       build.onEnd((result) => {
         console.log("BUNDLING:");
         build.initialOptions.entryPoints.forEach((entry) => {
@@ -45,7 +45,7 @@ export default function buildlog() {
 
       });
 
-      // eslint-disable-next-line no-unused-vars
+       
       build.onEnd((result) => {
         console.log(`\n`);
         log("yellow", `✓ Build complete.\n\n`);
