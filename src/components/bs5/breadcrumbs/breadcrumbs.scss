@@ -125,6 +125,7 @@ $expander-icon-color: $qld-light-link;
     overflow-x: hidden;
     white-space: nowrap;
 
+    //Handle outline offset when focused
     &:has(a:focus) {
       overflow: initial;
     }
