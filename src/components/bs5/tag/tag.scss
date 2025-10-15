@@ -1,7 +1,6 @@
 @use "../../../css/mixins" as m;
 
 // custom icon used because the standard one has hard coded colors.
-$_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.9971 2C17.9335 2 19.7542 2.36766 21.458 3.10254C23.1617 3.8374 24.6442 4.83504 25.9043 6.09473C27.1642 7.35432 28.1622 8.83534 28.8975 10.5381C29.6325 12.2411 30 14.061 30 15.9971C30 17.9335 29.6324 19.7542 28.8975 21.458C28.1626 23.1617 27.165 24.6442 25.9053 25.9043C24.6457 27.1642 23.1647 28.1622 21.4619 28.8975C19.7589 29.6325 17.939 30 16.0029 30C14.0665 30 12.2458 29.6324 10.542 28.8975C8.83829 28.1626 7.35588 27.165 6.0957 25.9053C4.83572 24.6457 3.83782 23.1647 3.10254 21.4619C2.36746 19.7589 2.00004 17.939 2 16.0029C2 14.0665 2.36766 12.2458 3.10254 10.542C3.8374 8.83829 4.83504 7.35588 6.09473 6.0957C7.35432 4.83573 8.83535 3.83781 10.5381 3.10254C12.2411 2.36746 14.061 2.00004 15.9971 2ZM21.3545 9C20.9061 9.00003 20.5078 9.16358 20.1904 9.48047L16 13.6709L11.8096 9.48047C11.4972 9.16854 11.1006 9.01383 10.6602 9.00684C10.2068 9.00009 9.80152 9.16076 9.48047 9.48145C9.16361 9.7988 9 10.1971 9 10.6455C9.00003 11.0939 9.16374 11.4923 9.48047 11.8096L13.6709 16L9.48047 20.1904C9.16865 20.5027 9.01391 20.8986 9.00684 21.3389C8.99998 21.7924 9.16066 22.1984 9.48145 22.5195C9.7988 22.8364 10.1972 23 10.6455 23C11.0941 23 11.4932 22.8355 11.8105 22.5186L16 18.3291L20.1973 22.5264C20.5097 22.8385 20.9062 22.993 21.3467 23C21.7999 23.0067 22.2054 22.8468 22.5264 22.5264C22.8521 22.2002 23 21.7901 23 21.3545C23 20.9116 22.847 20.5183 22.5264 20.1973L18.3291 16L22.5195 11.8096C22.8314 11.4972 22.9862 11.1006 22.9932 10.6602C22.9999 10.2068 22.8392 9.80152 22.5186 9.48047C22.2012 9.16359 21.8029 9 21.3545 9Z" fill="currentColor"/></svg>');
 
 // QGDS specific tag variables
 .tag-list {
@@ -101,7 +100,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     --_border-width: 1px;
     --_icon-size: 1rem;
     --qld-focus-color: #{$qld-light-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color here.
-    //
+  
     display: inline-flex;
     align-items: center;
     color: var(--#{$prefix}dark-grey-muted);
@@ -176,7 +175,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     @include m.unset-button-styles();
     @include m.focusable($offsetOutline: -2px);
     --_size: calc(var(--_height) - (var(--_border-width) * 2));
-    --_icon: var(--qgds-icon-alert-cancel);
+    --_icon: var(--qgds-icon-close);
     height: var(--_size);
     width: var(--_size);
     margin-block: calc(var(--_padding-y) * -1);
@@ -188,16 +187,28 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     align-items: center;
     justify-content: center;
     color: var(--#{$prefix}light-action-secondary);
+    position: relative;
 
     &:before {
       content: "";
-      height: var(--_icon-size);
-      width: var(--_icon-size);
+      width: 1rem;
+      aspect-ratio: 1;
       background-color: currentColor;
       mask-image: var(--_icon);
       mask-size: contain;
       mask-repeat: no-repeat;
+      position: relative;
+      z-index: 2;
     }
+    &::after {
+      content: "";
+      height: var(--_icon-size);
+      width: var(--_icon-size);
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      position: absolute;
+    }
+    
 
     &:hover {
       color: var(--#{$prefix}light-action-secondary-hover);
@@ -205,7 +216,21 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     &:focus-visible,
     &:hover {
-      --_icon: #{$_icon-status-cancel};
+      &::before {
+        mask-image: var(--_icon);
+        background-color: white;
+        z-index: 10;
+      }
+      &::after {
+        content: "";
+        background-color: currentColor;
+        width: calc(var(--_icon-size) - 2px);
+        height: calc(var(--_icon-size) - 2px);
+        aspect-ratio: 1;
+        position: absolute;
+        border-radius: 50%;
+        z-index: 1;
+      }
     }
   }
 
