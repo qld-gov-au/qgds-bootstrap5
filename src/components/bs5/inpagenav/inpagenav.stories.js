@@ -13,7 +13,9 @@ export default {
         exclude: ["variantClass", "navitems"],
       },
     },
+    backgrounds: { disable: false },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
@@ -21,6 +23,7 @@ export default {
  */
 export const Default = {
   args: defaultdata,
+  globals: { backgrounds: { value: "default" } },
   decorators: [
     (Story) => {
       return `
@@ -43,12 +46,7 @@ export const Default = {
  */
 export const Dark = {
   args: defaultdata,
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `

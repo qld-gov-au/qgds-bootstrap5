@@ -49,6 +49,11 @@ const buildConfig = {
       out: "./assets/js/handlebars.helpers.bundle",
     },
     {
+      //Deprecated init is where it should be at
+      in: "./src/js/handlebars.init.js",
+      out: "./assets/js/handlebars.partials",
+    },
+    {
       in: "./src/js/handlebars.init.js",
       out: "./assets/js/handlebars.init.min",
     },
@@ -70,11 +75,18 @@ const buildConfig = {
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
+    //https://github.com/twbs/bootstrap/issues/40962 bootstrap 5.x is not ready for sass 1.80, so silence what we can't change (review 2026)
     sassPlugin({
-      //Hide sass deprecation warnings with a quiet flag...  npm run build -- --quiet
-      silenceDeprecations: argv.quiet
-        ? ["import", "global-builtin", "mixed-decls", "color-functions"]
-        : [],
+      silenceDeprecations: [
+        "legacy-js-api",
+        "mixed-decls",
+        "color-functions",
+        "global-builtin",
+        "import",
+      ],
+      indentType: "space",
+      indentWidth: 2,
+      includePaths: ["./node_modules"],
     }),
     QDGSbuildLog(),
   ],

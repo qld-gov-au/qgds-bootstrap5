@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '20' ]
+        node: [ '22' ]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4.1.2
@@ -110,7 +110,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - run: npm ci
@@ -142,7 +142,7 @@ jobs:
 #
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: https://registry.npmjs.org/
           # Defaults to the user or organization that owns the workflow file
           #scope: '@${username:lowercase}'
@@ -158,7 +158,7 @@ jobs:
 
       - name: Publish
         if: ${{ env.DO_DEPLOYMENT == 'true' }}
-        run: | 
+        run: |
             npm publish --provenance --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

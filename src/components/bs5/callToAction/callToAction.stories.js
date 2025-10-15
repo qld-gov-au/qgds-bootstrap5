@@ -16,14 +16,14 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new CallToAction({...args}).html}
+          ${new CallToAction({ ...args }).html}
         </div>
         <div class="col">
-          ${new CallToAction({...args, label: 'Label', "class": [{"small": false}, {"view-all": false}]}).html}
+          ${new CallToAction({ ...args, label: "Label", class: [{ small: false }, { "view-all": false }] }).html}
         </div>
       </div>
     </div>
-    `
+    `;
   },
   parameters: {
     design: {
@@ -31,7 +31,9 @@ export default {
       type: "figma",
       url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=v3sxViBgYUUmwplL-0",
     },
+    backgrounds: { disable: false },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
@@ -39,6 +41,7 @@ export default {
  */
 export const Default = {
   args: defaultdata,
+  globals: { backgrounds: { value: "default" } },
   decorators: [
     (Story) => {
       return `
@@ -54,14 +57,7 @@ export const Default = {
  * Call To Action - Light
  * */
 export const Light = {
-  parameters: {
-    backgrounds: {
-      default: 'Light',
-      values: [
-        { name: 'Light', value: 'var(--qld-light-background)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "light" } },
   decorators: [
     (Story) => {
       return `
@@ -77,14 +73,7 @@ export const Light = {
  * Call To Action - Light-Alt
  * */
 export const LightAlt = {
-  parameters: {
-    backgrounds: {
-      default: 'LightAlt',
-      values: [
-        { name: 'LightAlt', value: 'var(--qld-light-alt-background)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "alt" } },
   decorators: [
     (Story) => {
       return `
@@ -100,14 +89,7 @@ export const LightAlt = {
  * Call To Action - Dark
  * */
 export const Dark = {
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-dark-background)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -123,14 +105,7 @@ export const Dark = {
  * Call To Action - Dark-Alt
  * */
 export const DarkAlt = {
-  parameters: {
-    backgrounds: {
-      default: 'DarkAlt',
-      values: [
-        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "darkAlt" } },
   decorators: [
     (Story) => {
       return `
@@ -149,33 +124,23 @@ export const Small = {
   args: {
     ...defaultdata,
     label: "View all",
-    class: [
-      {"small": true}, 
-      {"view-all": true},
-    ],
+    class: [{ small: true }, { "view-all": true }],
   },
   render: (args) => {
     return `
     <div class="container">
       <div class="row">
         <div class="col">
-          ${new CallToAction({...args}).html}
+          ${new CallToAction({ ...args }).html}
         </div>
         <div class="col">
-          ${new CallToAction({...args, label: 'Label', "class": [{"small": true}, {"view-all": false}]}).html}
+          ${new CallToAction({ ...args, label: "Label", class: [{ small: true }, { "view-all": false }] }).html}
         </div>
       </div>
     </div>
-    `
+    `;
   },
-  parameters: {
-    backgrounds: {
-      default: 'DarkAlt',
-      values: [
-        { name: 'DarkAlt', value: 'var(--qld-dark-alt-background)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "darkAlt" } },
   decorators: [
     (Story) => {
       return `

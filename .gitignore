@@ -11,3 +11,4 @@ dist/
 *.iml
 docs/storybook-static
 prettier.json
+/debug-storybook.log
