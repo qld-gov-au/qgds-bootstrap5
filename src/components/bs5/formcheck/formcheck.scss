@@ -246,53 +246,6 @@ $form-check-inline-margin-end: 1rem;
     }
   }
 
-  // DEFAULT VALID & INVALID (Custom QLD classes)
-  .valid &,
-  .invalid & {
-    &:focus + label::before {
-      outline: $form-check-input-outline;
-      outline-offset: 2px;
-      box-shadow: none;
-    }
-  }
-  .valid & {
-    + label::before {
-      outline: $form-check-valid-color solid 2px;
-    }
-  }
-  .invalid & {
-    + label::before {
-      outline: $form-check-invalid-color solid 2px;
-    }
-  }
-
-  // BOOTSTRAP 5 VALIDATION STATES
-  // Support for .is-valid/.is-invalid classes and HTML5 validation
-  .is-valid &,
-  .is-invalid &,
-  .was-validated &:valid,
-  .was-validated &:invalid {
-    &:focus + label::before {
-      outline: $form-check-input-outline;
-      outline-offset: 2px;
-      box-shadow: none;
-    }
-  }
-
-  .is-valid &,
-  .was-validated &:valid {
-    + label::before {
-      outline: $form-check-valid-color solid 2px;
-    }
-  }
-
-  .is-invalid &,
-  .was-validated &:invalid {
-    + label::before {
-      outline: $form-check-invalid-color solid 2px;
-    }
-  }
-
   .small & {
     &:checked + label::before {
       background-size: 22px 22px;
@@ -346,25 +299,56 @@ $form-check-inline-margin-end: 1rem;
     &:focus + label::before {
       outline: $form-check-input-outline-dark;
     }
-  }
 
-  :is(.dark, .dark-alt) :is(.valid, .invalid, .is-valid, .is-invalid) &,
-  :is(.dark, .dark-alt)
-    :is(.needs-validation, .was-validated)
-    &:is(:valid, :invalid) {
-    &:focus + label::before {
-      outline: $form-check-input-outline-dark;
-      outline-offset: 2px;
-      box-shadow: none;
+    :is(.valid, .invalid, .is-valid, .is-invalid) &,
+    .was-validated &:is(:valid, :invalid) {
+      &:focus + label::before {
+        outline: $form-check-input-outline-dark;
+        outline-offset: 2px;
+        box-shadow: none;
+      }
     }
   }
+}
+
+%_form-check-input-valid,
+%_form-check-input-invalid {
+  &:focus + label::before {
+    outline: $form-check-input-outline;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+
+%_form-check-input-valid {
+  + label::before {
+    outline: $form-check-valid-color solid 2px;
+  }
+}
+
+%_form-check-input-invalid {
+  + label::before {
+    outline: $form-check-invalid-color solid 2px;
+  }
+}
+
+.valid .form-check-input,
+.is-valid .form-check-input,
+.was-validated .form-check-input:valid {
+  @extend %_form-check-input-valid;
+}
+
+.invalid .form-check-input,
+.is-invalid .form-check-input,
+.was-validated .form-check-input:invalid {
+  @extend %_form-check-input-invalid;
 }
 
 .valid-feedback,
 .invalid-feedback {
   font-size: f.remify(14px);
   line-height: f.snap-line-height(1.5);
-  display: flex;
+  display: none;
   gap: f.remify(4px);
   flex-wrap: nowrap;
   margin-block: f.remify(8px);
@@ -373,6 +357,7 @@ $form-check-inline-margin-end: 1rem;
 .valid-feedback {
   @extend %form-valid-feedback-variables;
   color: var(--color-text);
+
   @include m.make-icon(
     $name: "status-success",
     $size: "sm",
@@ -388,4 +373,15 @@ $form-check-inline-margin-end: 1rem;
   @include m.make-icon($name: "status-error", $size: "sm", $pseudo: "before") {
     flex-shrink: 0;
   }
+}
+
+// Feedback is placed before the validated input element, so CSS sibling doesn't work here.
+// We can use has() on the immediate parent instead.
+:has(.is-valid) > .valid-feedback,
+:has(.is-invalid) > .invalid-feedback,
+.was-validated :has(:valid) > .valid-feedback,
+.was-validated :has(:invalid) > .invalid-feedback,
+.valid .valid-feedback,
+.invalid .invalid-feedback {
+  display: flex;
 }
