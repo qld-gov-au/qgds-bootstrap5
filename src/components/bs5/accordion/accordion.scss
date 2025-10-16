@@ -164,7 +164,7 @@ div .accordion-body {
     &:after {
       content: "";
       mask-image: var(--qgds-icon-chevron-down);
-      background-color: var(--#{$prefix}light-action-secondary);
+      background-color: var(--#{$prefix}action-icon-color);
       transition: transform 0.25s ease-in;
       height: 1rem;
       aspect-ratio: 1 / 1;

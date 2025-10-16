@@ -192,12 +192,10 @@
     &:before {
       content: "";
       width: 1rem;
-      aspect-ratio: 1;
+      height: 1rem;
       background-color: currentColor;
       mask-image: var(--_icon);
-      mask-size: contain;
       mask-repeat: no-repeat;
-      position: relative;
       z-index: 2;
     }
     &::after {
@@ -207,6 +205,7 @@
       border: 1px solid currentColor;
       border-radius: 50%;
       position: absolute;
+      z-index: 1;
     }
     
 
@@ -217,19 +216,12 @@
     &:focus-visible,
     &:hover {
       &::before {
-        mask-image: var(--_icon);
         background-color: white;
-        z-index: 10;
       }
       &::after {
-        content: "";
         background-color: currentColor;
         width: calc(var(--_icon-size) - 2px);
         height: calc(var(--_icon-size) - 2px);
-        aspect-ratio: 1;
-        position: absolute;
-        border-radius: 50%;
-        z-index: 1;
       }
     }
   }

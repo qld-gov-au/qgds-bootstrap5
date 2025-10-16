@@ -221,7 +221,7 @@ $video-icon-color-dark: $qld-dark-action-text;
     gap: 0.5rem;
     height: 100%;
     span.qld-icon {
-      color: currentColor;
+      color: inherit;
     }
   }
 
@@ -236,7 +236,9 @@ $video-icon-color-dark: $qld-dark-action-text;
       }
     }
   }
-
+  .icon {
+    background-image: none;
+  }
   .accordion {
     margin-bottom: 0;
     grid-area: transcript;
