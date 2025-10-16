@@ -10,8 +10,9 @@ export default {
   },
 
   argTypes: {},
-
+  globals: { backgrounds: { value: "default" } },
   parameters: {
+    backgrounds: { disable: false },
     docs: {
       controls: {
         exclude: ["navlist", "navtitlelink"],
@@ -26,6 +27,7 @@ export default {
  */
 export const Default = {
   args: defaultdata,
+  globals: { backgrounds: { value: "default" } },
   decorators: [
     (Story) => {
       return `
@@ -46,12 +48,7 @@ export const Default = {
  *
  */
 export const Dark = {
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   args: defaultdata,
   decorators: [
     (Story) => {

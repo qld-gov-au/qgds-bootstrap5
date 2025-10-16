@@ -8,6 +8,8 @@ export default {
   render: (args) => {
     return `${new Formcheck(args).html}`;
   },
+  globals: { backgrounds: { value: "default" } },
+  parameters: { backgrounds: { disable: false } },
   //https://storybook.js.org/docs/api/arg-types
   argTypes: {},
 };
@@ -18,16 +20,12 @@ export const Default = {
   parameters: {
     controls: { include: `listitems` },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 export const RadioDark = {
   args: { ...defaultdata },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -54,12 +52,7 @@ export const RadioSmall = {
 
 export const RadioSmallDark = {
   args: { ...defaultdata, id: "radioSmallDark" },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -97,12 +90,7 @@ export const RadioValidDark = {
     <div class="valid">${new Formcheck(args).html}</div></div>
     `;
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -122,12 +110,7 @@ export const RadioValidSmallDark = {
     <div class="valid">${new Formcheck(args).html}</div></div>
     `;
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -163,12 +146,7 @@ export const RadioInvalidDark = {
     <div class="invalid"><div class="dark">${new Formcheck(args).html}</div></div>
     `;
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -188,12 +166,7 @@ export const RadioInvalidSmallDark = {
     <div class="invalid">${new Formcheck(args).html}</div></div>
     `;
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `

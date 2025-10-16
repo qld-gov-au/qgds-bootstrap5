@@ -31,7 +31,7 @@ jobs:
       IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
     strategy:
       matrix:
-        node: ["20"]
+        node: ["22"]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
@@ -67,7 +67,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install #run on lint step (Which is cached)
         run: | # Install packages
-          npm install --prefer-offline --no-audit --ignore-scripts
+          npm ci --prefer-offline --no-audit --ignore-scripts
         #env:
         #  NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
 
