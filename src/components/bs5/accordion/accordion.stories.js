@@ -20,6 +20,9 @@ export default {
       options: ["h2", "h3", "h4", "h5", "h6"],
     },
   },
+  globals: {
+    backgrounds: { value: "default" },
+  },
 
   /**
    * Additional parameters for the story.
@@ -36,13 +39,18 @@ export default {
       type: "figma",
       url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=6276-45691&mode=design&t=crJKtPwMG2IcZf5E-4",
     },
+    backgrounds: {
+      disable: false,
+    },
   },
 };
 
 /**
  * Default Accordion story
  */
-export const Default = {};
+export const Default = {
+  globals: { backgrounds: { value: "default" } },
+};
 
 /**
  * Accordion in 'Light' colour theme.
@@ -57,11 +65,8 @@ export const Light = {
       2: { ...defaultdata.accordionItems[2], id: "light-three" },
     },
   },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
+  globals: {
+    backgrounds: { value: "light" },
   },
   decorators: [
     (Story) => {
@@ -89,11 +94,8 @@ export const Alternative = {
       2: { ...defaultdata.accordionItems[2], id: "alt-three" },
     },
   },
-  parameters: {
-    backgrounds: {
-      default: "Alternative",
-      values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
-    },
+  globals: {
+    backgrounds: { value: "alt" },
   },
   decorators: [
     (Story) => {
@@ -121,11 +123,8 @@ export const Dark = {
       2: { ...defaultdata.accordionItems[2], id: "dark-three" },
     },
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
-    },
+  globals: {
+    backgrounds: { value: "dark" },
   },
   decorators: [
     (Story) => {
@@ -153,12 +152,8 @@ export const DarkAlternative = {
       2: { ...defaultdata.accordionItems[2], id: "dark-alt-three" },
     },
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark alternative",
-      values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "darkAlt" } },
+
   decorators: [
     (Story) => {
       return `

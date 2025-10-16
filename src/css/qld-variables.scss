@@ -1,14 +1,7 @@
 @use "sass:meta";
 @use "mixins" as m;
 
-// GLOBALLY SCOPED VARIABLES
-// These variables are available to the full project and all components. (This file is included at the top of main.css to ensure this)
-
-// These variables include new $variables for the project, or replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.css,
-
-//QGDS tokens - masterbrand
-@use "./qld-tokens.scss";
-@import "./qld-tokens.scss";
+// GLOBALLY SCOPED VARIABLES defined via qld-tokens.scss sass map, imported at top of main.scss
 
 //QLD Names Colours
 $qld-dark-blue: $core-default-color-brand-primary-dark-blue;
@@ -58,12 +51,20 @@ $qld-light-yellow: $core-default-color-status-caution-lightest;
 $qld-button-dark-blue: $color-default-color-light-action-primary-hover;
 
 //QGOV Brand Mapping - QLD.GOV.AU
-$qld-brand-primary-dark: $qld-dark-blue;
-$qld-brand-primary: $qld-sapphire-blue;
-$qld-brand-primary-light: $qld-light-blue;
-$qld-brand-secondary-dark: $qld-dark-green;
-$qld-brand-secondary: $qld-light-green;
-$qld-brand-accent: $qld-golden-yellow;
+// $qld-brand-primary-dark: $qld-dark-blue;
+// $qld-brand-primary: $qld-sapphire-blue;
+// $qld-brand-primary-light: $qld-light-blue;
+// $qld-brand-secondary-dark: $qld-dark-green;
+// $qld-brand-secondary: $qld-light-green;
+// $qld-brand-accent: $qld-golden-yellow;
+
+// Remapped legacy brand color values to align with correct UI Kit variables
+$qld-brand-primary: $color-default-color-light-action-primary;
+$qld-brand-primary-light: $color-default-color-light-action-primary;
+$qld-brand-primary-dark: $color-default-color-dark-action-primary;
+$qld-brand-secondary: $color-default-color-light-action-secondary;
+$qld-brand-secondary-dark: $color-default-color-dark-action-secondary;
+$qld-brand-accent: $color-default-color-light-accent-design-accent;
 
 // Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss).
 // Nuetrals were dropped from _variables.scss, but retained in _map.scss.
@@ -81,8 +82,12 @@ $qld-system-darkest: $core-default-color-neutral-darkest;
 $qld-dark-grey: $core-default-color-neutral-darker;
 $qld-medium-grey: $core-default-color-neutral-dark;
 $qld-alt-grey: $core-default-color-neutral-light;
+
+//Links
 $qld-light-link: $color-default-color-light-link-default;
 $qld-dark-link: $color-default-color-dark-link-default;
+$qld-light-link-on-action: $color-default-color-light-link-on-action;
+$qld-dark-link-on-action: $color-default-color-dark-link-on-action;
 
 //Should be core color rather than second hand reference (no match)
 $qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
@@ -91,7 +96,7 @@ $qld-dark-grey-muted: $color-default-color-light-text-lighter;
 $qld-text-grey: $color-default-color-light-text-default;
 $qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $color-default-color-dark-text-lighter;
-$qld-color-dark-button-hover: $core-default-color-brand-primary-light-green;
+
 $qld-text-headings: $color-default-color-light-text-heading;
 $qld-grey: $core-default-color-neutral-light;
 $qld-light-grey: $core-default-color-neutral-lighter;
@@ -122,19 +127,19 @@ $qld-color-light-background--shade: $color-default-color-light-background-light-
 $qld-color-light-alt-background: $color-default-color-light-background-alt;
 $qld-color-light-alt-background--shade: $color-default-color-light-background-alt-shade;
 
-$qld-color-dark-background: $core-default-color-brand-primary-sapphire-blue;
+$qld-color-dark-background: $color-default-color-dark-background-default;
 $qld-color-dark-background--shade: $color-default-color-dark-background-default-shade;
-$qld-color-dark-alt-background: $core-default-color-brand-primary-dark-blue;
+$qld-color-dark-alt-background: $color-default-color-dark-background-alt;
 $qld-color-dark-alt-background--shade: $color-default-color-dark-background-alt-shade;
 
-$qld-light-action-primary: $qld-sapphire-blue;
+$qld-light-action-primary: $color-default-color-light-action-primary;
 $qld-light-action-primary-hover: $color-default-color-light-action-primary-hover;
 $qld-light-action-secondary: $color-default-color-light-action-secondary;
 $qld-light-action-secondary-hover: $color-default-color-light-action-secondary-hover;
 
 $qld-dark-action-primary: $color-default-color-dark-action-primary;
 $qld-dark-action-primary-hover: $color-default-color-dark-action-primary-hover;
-$qld-dark-action-secondary: $core-default-color-brand-secondary-golden-yellow;
+$qld-dark-action-secondary: $color-default-color-dark-action-secondary;
 $qld-dark-action-secondary-hover: $color-default-color-dark-action-secondary-hover;
 $qld-dark-action-text: $color-default-color-dark-link-on-action;
 
@@ -229,6 +234,8 @@ $project-colors: (
   //Links
   "light-link": $color-default-color-light-link-default,
   "dark-link": $color-default-color-dark-link-default,
+  "light-link-on-action": $color-default-color-light-link-on-action,
+  "dark-link-on-action": $color-default-color-dark-link-on-action,
 
   "link-visited": $qld-link-visited,
   "link-visited-dark": $qld-link-visited-dark,
@@ -280,11 +287,19 @@ $project-colors: (
     $color-default-color-dark-underline-default-hover,
 );
 
+// Generate CSS custom properties for qld-tokens & project colours on :root to prevent utility class generation
+:root {
+  @include m.generate-color-vars($qld-tokens);
+  @include m.generate-color-vars($project-colors);
+}
+
+// These variables replace existing out-of-the-box bootstrap variables defined under /node_modules/bootstrap/.../_variables.css`
+
 $project-base-colors: (
   //Legacy color based variables - to review
-  "primary": $qld-sapphire-blue,
-  "primary-dark": $qld-brand-primary-dark,
-  "secondary": $qld-dark-green,
+  "primary": $color-default-color-light-action-primary,
+  "primary-dark": $color-default-color-dark-action-primary,
+  "secondary": $color-default-color-light-action-secondary,
   "success": $qld-notify-success,
   "info": $qld-notify-information,
   "warning": $qld-notify-alert,
@@ -306,14 +321,6 @@ $project-base-colors: (
   "text-darkest": $qld-text-darkest,
   "dark-hover": $qld-dark-hover
 );
-
-$qld-tokens: meta.module-variables("qld-tokens");
-
-// Generate CSS custom properties for qld-tokens & project colours on :root to prevent utility class generation
-:root {
-  @include m.generate-color-vars($qld-tokens);
-  @include m.generate-color-vars($project-colors);
-}
 
 $theme-colors: map-merge($theme-colors, $project-base-colors);
 
