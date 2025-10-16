@@ -32,8 +32,9 @@ $form-check-input-width: 2rem;
 $form-check-input-width-small: 1.375rem;
 
 $form-check-min-height: $font-size-base * $line-height-base;
-$form-check-padding-start: $form-check-input-width + 0.5rem;
-$form-check-margin-bottom: 1rem;
+$form-check-padding-start: $form-check-input-width + f.remify(8px);
+$form-check-margin-top: f.remify(8px);
+$form-check-margin-bottom: f.remify(16px);
 $form-check-label-color: $body-color;
 $form-check-label-cursor: null;
 $form-check-transition: null;
@@ -138,7 +139,7 @@ $form-check-inline-margin-end: 1rem;
 .form-check {
   display: flex;
   align-items: center;
-  margin-bottom: $form-check-margin-bottom;
+  margin-block: f.remify(8px 16px);
 }
 
 .form-check-input {
@@ -269,9 +270,7 @@ $form-check-inline-margin-end: 1rem;
   // Support for .is-valid/.is-invalid classes and HTML5 validation
   .is-valid &,
   .is-invalid &,
-  .needs-validation &:valid,
   .was-validated &:valid,
-  .needs-validation &:invalid,
   .was-validated &:invalid {
     &:focus + label::before {
       outline: $form-check-input-outline;
@@ -281,7 +280,6 @@ $form-check-inline-margin-end: 1rem;
   }
 
   .is-valid &,
-  .needs-validation &:valid,
   .was-validated &:valid {
     + label::before {
       outline: $form-check-valid-color solid 2px;
@@ -289,7 +287,6 @@ $form-check-inline-margin-end: 1rem;
   }
 
   .is-invalid &,
-  .needs-validation &:invalid,
   .was-validated &:invalid {
     + label::before {
       outline: $form-check-invalid-color solid 2px;
@@ -365,13 +362,12 @@ $form-check-inline-margin-end: 1rem;
 
 .valid-feedback,
 .invalid-feedback {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: f.remify(14px);
+  line-height: f.snap-line-height(1.5);
   display: flex;
   gap: f.remify(4px);
   flex-wrap: nowrap;
-  align-items: baseline;
-  margin-block: f.remify(4px);
+  margin-block: f.remify(8px);
 }
 
 .valid-feedback {
@@ -380,8 +376,7 @@ $form-check-inline-margin-end: 1rem;
   @include m.make-icon(
     $name: "status-success",
     $size: "sm",
-    $pseudo: "before",
-    $is-inline: true
+    $pseudo: "before"
   ) {
     flex-shrink: 0;
   }
@@ -390,13 +385,7 @@ $form-check-inline-margin-end: 1rem;
 .invalid-feedback {
   @extend %form-invalid-feedback-variables;
   color: var(--color-text);
-  @include m.make-icon(
-    $name: "status-error",
-    $size: "sm",
-    $pseudo: "before",
-    $is-inline: true
-  ) {
-    margin-inline-end: 0.25rem;
+  @include m.make-icon($name: "status-error", $size: "sm", $pseudo: "before") {
     flex-shrink: 0;
   }
 }
