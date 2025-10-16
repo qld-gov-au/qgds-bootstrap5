@@ -3,6 +3,9 @@
   "optionalLabel": "(Optional)",
   "hintLabel": "Hint label",
   "listClasses": "field-required",
+  "successMessageText": "Success message",
+  "errorMessageText": "Error message",
+  "isValid": null,
   "listitems": [
     {
       "type": "checkbox",

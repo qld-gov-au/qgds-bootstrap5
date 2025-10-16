@@ -18,11 +18,14 @@ export default {
   },
 };
 
-// Bootstrap .is-valid class
+/**
+ * Server side validation with isValid: true
+ */
 export const BootstrapIsValid = {
   name: "Bootstrap .is-valid",
   args: {
     ...checkboxData,
+    isValid: true,
     questionLabel: "Bootstrap .is-valid validation",
     listitems: [
       {
@@ -33,23 +36,16 @@ export const BootstrapIsValid = {
       },
     ],
   },
-  render: (args) => {
-    return `
-      <div class="is-valid">
-        ${new Formcheck(args).html}
-        <div class="valid-feedback">
-          Looks good! This field is valid.
-        </div>
-      </div>
-    `;
-  },
 };
 
-// Bootstrap .is-invalid class
+/**
+ * Server side validation
+ */
 export const BootstrapIsInvalid = {
   name: "Bootstrap .is-invalid",
   args: {
     ...checkboxData,
+    isValid: false,
     questionLabel: "Bootstrap .is-invalid validation",
     listitems: [
       {
@@ -59,16 +55,6 @@ export const BootstrapIsInvalid = {
         isChecked: false,
       },
     ],
-  },
-  render: (args) => {
-    return `
-      <div class="is-invalid">
-        ${new Formcheck(args).html}
-        <div class="invalid-feedback">
-          Please check this box if you want to proceed.
-        </div>
-      </div>
-    `;
   },
 };
 

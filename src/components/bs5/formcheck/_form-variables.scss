@@ -1,0 +1,25 @@
+// Expand this file with all themable shared form variables
+// @extend %form-variables in all input and form components.
+%form-variables {
+  //
+}
+
+%form-valid-feedback-variables {
+  :is(:root, .default, .light, .alt) & {
+    --color-text: #{$color-default-color-light-text-default};
+  }
+
+  :is(.dark, .dark-alt) & {
+    --color-text: #{$color-default-color-dark-text-default};
+  }
+}
+
+%form-invalid-feedback-variables {
+  :is(:root, .default, .light, .alt) & {
+    --color-text: #{$core-default-color-status-error-default};
+  }
+
+  :is(.dark, .dark-alt) & {
+    --color-text: #{$core-default-color-status-error-lighter};
+  }
+}

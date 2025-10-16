@@ -1,3 +1,5 @@
+@use "../../../css/functions" as f;
+
 .qld-text-input {
   padding: 12px 16px;
   border-radius: 4px;
@@ -44,7 +46,7 @@
   display: block;
   font-weight: 600;
   line-height: 1.5;
-  margin-bottom: 0.5rem;
+  margin-bottom: f.remify(4px);
 
   .label-text-optional {
     color: $qld-dark-grey-muted;
@@ -68,7 +70,7 @@
 * + .qld-input-error,
 * + .qld-input-success,
 * + .date-container {
-  margin-top: 8px;
+  margin-top: f.remify(4px);
 }
 
 .qld-hint-text {
@@ -76,7 +78,7 @@
   display: block;
   font-size: 1em;
   line-height: 1.5;
-  margin-bottom: 0.5rem;
+  margin-bottom: f.remify(4px);
 }
 
 * + p.qld-input-error,

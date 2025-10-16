@@ -11,9 +11,17 @@
   {{#if hintLabel}}
   <span class="qld-hint-text">{{hintLabel}}</span>
   {{/if}}
+
+  {{#if successMessageText}}
+  <div class="valid-feedback">{{successMessageText}}</div>
+  {{/if}}
+
+  {{#if errorMessageText}}
+  <div class="invalid-feedback">{{errorMessageText}}</div>
+  {{/if}}
   
   {{#each listitems}}
-  <div class="form-check">
+  <div class="form-check {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}">
     <input class="form-check-input" type="{{type}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}}>
     <label class="form-check-label" for="{{id}}">
       {{label}}

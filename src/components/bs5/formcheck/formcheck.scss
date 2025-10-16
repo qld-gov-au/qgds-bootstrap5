@@ -1,4 +1,6 @@
 @use "../../../css/mixins" as m;
+@use "../../../css/functions" as f;
+@import "form-variables";
 // NTGOV Form Controls, radios, checkboxes and input groups
 // https://getbootstrap.com/docs/5.2/forms/form-control/#variables
 
@@ -131,6 +133,12 @@ $form-check-inline-margin-end: 1rem;
     outline-offset: 2px;
     box-shadow: none;
   }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: $form-check-margin-bottom;
 }
 
 .form-check-input {
@@ -338,13 +346,11 @@ $form-check-inline-margin-end: 1rem;
       outline: $form-check-input-outline-dark;
     }
 
-    // Dark mode validation states
     &:focus + label::before {
       outline: $form-check-input-outline-dark;
     }
   }
 
-  // DARK MODE VALIDATION SUPPORT
   :is(.dark, .dark-alt) :is(.valid, .invalid, .is-valid, .is-invalid) &,
   :is(.dark, .dark-alt)
     :is(.needs-validation, .was-validated)
@@ -357,38 +363,40 @@ $form-check-inline-margin-end: 1rem;
   }
 }
 
-.form-check {
-  display: flex;
-  align-items: center;
-  margin-bottom: $form-check-margin-bottom;
-  &-label {
-    margin-left: 0.5rem;
-  }
-}
-
-// BOOTSTRAP VALIDATION FEEDBACK MESSAGES
 .valid-feedback,
 .invalid-feedback {
   font-size: 1rem;
   line-height: 1.5;
   display: flex;
-  flex-wrap: wrap;
-  margin-left: -6px;
-  align-items: center;
-  margin-top: 8px;
+  gap: f.remify(4px);
+  flex-wrap: nowrap;
+  align-items: baseline;
+  margin-block: f.remify(4px);
 }
 
 .valid-feedback {
-  color: $form-check-valid-color;
-  @include m.make-icon($name: "status-success", $size: "lg", $pseudo: "before");
+  @extend %form-valid-feedback-variables;
+  color: var(--color-text);
+  @include m.make-icon(
+    $name: "status-success",
+    $size: "sm",
+    $pseudo: "before",
+    $is-inline: true
+  ) {
+    flex-shrink: 0;
+  }
 }
 
 .invalid-feedback {
-  color: $form-check-invalid-color;
-  @include m.make-icon($name: "status-error", $size: "lg", $pseudo: "before");
-}
-
-// Dark mode feedback
-.dark .invalid-feedback {
-  color: $qld-color-error-light;
+  @extend %form-invalid-feedback-variables;
+  color: var(--color-text);
+  @include m.make-icon(
+    $name: "status-error",
+    $size: "sm",
+    $pseudo: "before",
+    $is-inline: true
+  ) {
+    margin-inline-end: 0.25rem;
+    flex-shrink: 0;
+  }
 }
