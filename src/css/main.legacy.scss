@@ -1,0 +1,19 @@
+// Legacy Theme Entry Point
+//
+// This file compiles the stylesheet using the legacy (pre-October 2025) theme.
+//
+// It works by loading variables from `qld-tokens-legacy.scss` and creating a
+// `$qld-tokens` SASS map. This map is then consumed by the main application
+// (`main.scss`) to override the default theme tokens.
+
+@use "sass:meta";
+
+//Legacy Masterbrand "tokens" (Pre October 2025)
+@use "./qld-tokens-legacy";
+@import "./qld-tokens-legacy";
+
+//Map to $qld-tokens sass map
+$qld-tokens: meta.module-variables("qld-tokens-legacy");
+
+// Continue with full main.scss entry file
+@import "./main.scss";

@@ -37,12 +37,21 @@ const buildConfig = {
       out: "./assets/js/qld.bootstrap.min",
     },
     {
-      in: "./src/css/main.scss",
+      in: "./src/css/main.scss", //default masterbrand theme
       out: "./assets/css/qld.bootstrap",
+    },
+    {
+      in: "./src/css/main.legacy.scss", //legacy masterbrand theme (before October 2025)
+      out: "./assets/css/qld.bootstrap.legacy",
     },
     {
       in: "./src/js/handlebars.helpers.js",
       out: "./assets/js/handlebars.helpers.bundle",
+    },
+    {
+      //Deprecated init is where it should be at
+      in: "./src/js/handlebars.init.js",
+      out: "./assets/js/handlebars.partials",
     },
     {
       in: "./src/js/handlebars.init.js",
@@ -66,11 +75,18 @@ const buildConfig = {
     versionPlugin(),
     QDGScleanFolders(),
     handlebarsPlugin(),
+    //https://github.com/twbs/bootstrap/issues/40962 bootstrap 5.x is not ready for sass 1.80, so silence what we can't change (review 2026)
     sassPlugin({
-      //Hide sass deprecation warnings with a quiet flag...  npm run build -- --quiet
-      silenceDeprecations: argv.quiet
-        ? ["import", "global-builtin", "mixed-decls", "color-functions"]
-        : [],
+      silenceDeprecations: [
+        "legacy-js-api",
+        "mixed-decls",
+        "color-functions",
+        "global-builtin",
+        "import",
+      ],
+      indentType: "space",
+      indentWidth: 2,
+      includePaths: ["./node_modules"],
     }),
     QDGSbuildLog(),
   ],
@@ -107,6 +123,7 @@ async function StartBuild() {
   // Choose configuration based on theme
   let config = buildConfig;
   const tempEntries = [];
+
   if (argv.theme) {
     const themes = Array.isArray(argv.theme) ? argv.theme : [argv.theme];
     const cssDir = path.resolve("src/css");

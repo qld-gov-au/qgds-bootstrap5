@@ -13,6 +13,7 @@ export default {
 
   render: (args) => new Link(args).html,
   //   args: defaultdata,
+  globals: { backgrounds: { value: "default" } },
   argTypes: {
     url: {
       description: "The URL that the link points to",
@@ -61,6 +62,7 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
+    backgrounds: { disable: false },
     design: {
       name: "QGDS Figma Reference",
       type: "figma",
@@ -78,18 +80,14 @@ export const Default = {
   args: {
     ...defaultdata.default,
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
  * Link in 'Dark' colour theme.
  */
 export const Dark = {
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   args: {
     ...defaultdata.default,
     class: "dark",
