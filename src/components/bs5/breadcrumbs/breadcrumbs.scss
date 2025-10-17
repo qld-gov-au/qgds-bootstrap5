@@ -126,7 +126,7 @@ $expander-icon-color: $qld-light-link;
     white-space: nowrap;
 
     //Handle outline offset when focused
-    &:has(a:focus) {
+    &:has(a:focus-within) {
       overflow: initial;
     }
   }
@@ -140,7 +140,7 @@ $expander-icon-color: $qld-light-link;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    &:focus {
+    &:focus-within {
       overflow: initial;
     }
   }
