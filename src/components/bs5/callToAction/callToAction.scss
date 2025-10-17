@@ -1,75 +1,56 @@
 // QGDS QOL CallTOAction
+@use "../../../css/mixins" as m;
 
-.qld-cta-link {    
-    color: var(--qld-link-color);
-    text-decoration-color: var(--qld-link-underline);
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    align-self: flex-start;
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 2rem;
-    border-radius: 4px;
-    gap: 0.5rem;
-    padding-inline-end: 0.5rem;
-    transition: gap 0.3s ease, padding-inline-end 0.3s ease;
-    &.small {
-        font-size: .875rem;
-        line-height: 1rem;
-        align-items: center;
-        .icon{
-            &::after{
-                width: 1.25rem;
-                height: 1.25rem;
-                mask-position: center;
-                mask-size: 1.25rem;
-            }
-        }
-    }
-    .icon {
-        &::after {
-            content: "";
-            display: flex;
-            width: 2rem;
-            height: 2rem;
-            mask-repeat: no-repeat;
-            mask-position: 0;
-            mask-image: var(--qgds-icon-arrow-right);
-            background-color: var(--qld-action-icon-color);
-        }
-    }
-    &:hover {
-        text-decoration-color: inherit;
-    }
-    &:focus {
-        outline: 3px solid var(--qld-focus-color);
-    }
-    &:focus, &:hover {
-        gap: 1rem;
-        padding-inline-end: 0;
-        transition: gap 0.3s ease, padding-inline-end 0.3s ease;
-        .icon {
-            &::after {
-                background-color: var(--qld-action-icon-hover-color);
-            }
-        }
-    }
+.qld-cta-link {
+  color: var(--qld-link-color);
+  text-decoration-color: var(--qld-link-underline);
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  align-self: flex-start;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+  border-radius: 4px;
+  gap: 0.5rem;
+  padding-inline-end: 0.5rem;
+  transition:
+    gap 0.3s ease,
+    padding-inline-end 0.3s ease;
+
+  .icon {
+    @include m.make-icon("arrow-right", "lg", "after");
+  }
+
+  &.small {
+    font-size: 0.875rem;
+    line-height: 1rem;
+    --icon-size: 1.25rem;
+  }
+
+  &:hover {
+    text-decoration-color: inherit;
+  }
+  &:focus {
+    outline: 3px solid var(--qld-focus-color);
+  }
+  &:focus,
+  &:hover {
+    gap: 1rem;
+    padding-inline-end: 0;
+    transition:
+      gap 0.3s ease,
+      padding-inline-end 0.3s ease;
+    --qld-icon-color: var(--qld-action-icon-hover-color);
+  }
 }
 .view-all {
-    .icon {
-        &::after {
-            mask-image: var(--qgds-icon-view-all);
-            mask-size: 2rem;
-        }
-    }
+  .icon {
+    @include m.make-icon("view-all", "lg", "after");
+  }
 }
 a[aria-disabled="true"] {
-    pointer-events: none;
-    color: var(--qld-dark-grey-muted);
-    .icon {
-        &::after {
-            background-color: var(--qld-dark-grey-muted);
-        }
-    }
+  pointer-events: none;
+  color: var(--qld-dark-grey-muted);
+  --qld-icon-color: currentColor;
 }

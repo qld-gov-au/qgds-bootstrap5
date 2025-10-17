@@ -1,5 +1,7 @@
 // Accordions: https://getbootstrap.com/docs/5.3/components/accordion/#sass-variables
 
+@use "../../../css/mixins" as m;
+
 //SASS variables;
 $accordion-padding: 1rem;
 $accordion-icon-color: $color-default-color-light-action-primary;
@@ -8,7 +10,6 @@ $accordion-icon-dark-color: $color-default-color-dark-action-primary;
 $accordion-icon-color: $qld-brand-secondary-dark;
 $accordion-icon-active-color: $qld-brand-secondary-dark;
 $accordion-icon-dark-color: $qld-brand-accent;
-
 // CSS Scoped Variables
 
 .accordion-group {
@@ -80,7 +81,6 @@ $accordion-icon-dark-color: $qld-brand-accent;
 // Component styles
 .accordion {
   margin-bottom: 2rem;
-  
 
   &-button {
     font-size: 1.25rem;
@@ -105,18 +105,8 @@ $accordion-icon-dark-color: $qld-brand-accent;
       outline-offset: 2px;
     }
 
-    &.accordion-button:not(.collapsed)::after, &::after {
-      background-image: none;
-      mask-image: var(--qgds-icon-chevron-down);
-      background-color: var(--#{$prefix}light-action-secondary);
-      width: 1.5rem;
-      aspect-ratio: 1;
-    }
-    .dark &,
-    .dark-alt & {
-      &.accordion-button:not(.collapsed)::after, &::after {
-        background-color: var(--#{$prefix}dark-action-secondary);
-      }
+    @include m.make-icon("chevron-down", "md", "after") {
+      background-image: none !important; // bootstrap vanilla override
     }
   }
 
@@ -161,20 +151,11 @@ div .accordion-body {
       text-decoration: none;
     }
 
-    &:after {
-      content: "";
-      mask-image: var(--qgds-icon-chevron-down);
-      background-color: var(--#{$prefix}action-icon-color);
+    @include m.make-icon("chevron-down", "xs", "after") {
       transition: transform 0.25s ease-in;
-      height: 1rem;
-      aspect-ratio: 1 / 1;
       margin-block: 1px;
-
-      .dark &,
-      .dark-alt & {
-        background-color: var(--#{$prefix}dark-action-secondary);
-      }
     }
+
     &:focus {
       outline: 2px solid var(--#{$prefix}focus);
       border-radius: 1px;
