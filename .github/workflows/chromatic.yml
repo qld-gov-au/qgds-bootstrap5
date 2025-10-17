@@ -34,7 +34,7 @@ jobs:
         node: ["22"]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -58,7 +58,7 @@ jobs:
         run: npm list
 
       - name: Use Node.js
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: "npm"
