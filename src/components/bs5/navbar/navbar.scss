@@ -549,6 +549,7 @@
     column-gap: 2rem;
     row-gap: 0;
     z-index: 10;
+    border-width: 0;
     @include media-breakpoint-up(xl) {
       column-gap: 4rem;
       row-gap: 0;
