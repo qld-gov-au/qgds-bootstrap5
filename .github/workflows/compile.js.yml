@@ -46,7 +46,7 @@ jobs:
         run: npm list
 
       - name: Use Node.js
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'

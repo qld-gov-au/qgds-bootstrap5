@@ -53,7 +53,7 @@ jobs:
         run: npm list
 
 
-      - uses: actions/setup-node@v4 #setup registry to github package repo
+      - uses: actions/setup-node@v6 #setup registry to github package repo
         with:
           node-version: 22
 
