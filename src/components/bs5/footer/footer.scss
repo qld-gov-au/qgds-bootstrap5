@@ -321,6 +321,10 @@
     align-items: flex-start;
     justify-content: flex-end;
 
+    @include media-breakpoint-down(sm) {
+      padding-block-end: 1.5rem;
+    }
+
     .btn {
       min-width: 10rem;
       width: fit-content;
