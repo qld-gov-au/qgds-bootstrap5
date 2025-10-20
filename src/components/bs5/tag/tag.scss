@@ -224,6 +224,23 @@
         height: calc(var(--_icon-size) - 2px);
       }
     }
+    // &:hover {
+    //   &::before {
+    //     mask-image: none;
+    //     background-color: transparent;
+    //     background-image: var(--qgds-icon-status-cancel);
+    //     background-size: 27.5px;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     height: var(--_icon-size);
+    //     width: var(--_icon-size);
+    //     margin-block: calc(var(--_padding-y) * -1);
+    //     filter: sepia(0.3) hue-rotate(213deg) saturate(1.5) contrast(1.25); // this is not a good move as changing colours will be an issue.
+    //   }
+    //   &::after {
+    //     border: none;
+    //   }
+    // }
   }
 
   &.tag-status {
