@@ -6,9 +6,9 @@
   "successMessageText": "Success message",
   "errorMessageText": "Error message",
   "isValid": null,
+  "type": "radio",
   "listitems": [
     {
-      "type": "radio",
       "id": "radioItem1",
       "name": "radioOption",
       "label": "Option 1",
@@ -17,7 +17,6 @@
       "isChecked": false
     },
     {
-      "type": "radio",
       "id": "radioItem2",
       "name": "radioOption",
       "label": "Option 2",
@@ -26,7 +25,6 @@
       "isChecked": false
     },
     {
-      "type": "radio",
       "id": "radioItem3",
       "name": "radioOption",
       "label": "Option 3",
@@ -35,7 +33,6 @@
       "isChecked": true
     },
     {
-      "type": "radio",
       "id": "radioItem4",
       "name": "radioOption",
       "label": "Option 4",

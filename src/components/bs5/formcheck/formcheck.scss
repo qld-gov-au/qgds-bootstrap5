@@ -313,7 +313,10 @@ $form-check-inline-margin-end: 1rem;
 
 %_form-check-input-valid,
 %_form-check-input-invalid {
-  &:focus + label::before {
+  + .form-check-label {
+    color: var(--body-color);
+  }
+  &:focus + .form-check-label::before {
     outline: $form-check-input-outline;
     outline-offset: 2px;
     box-shadow: none;
@@ -321,13 +324,13 @@ $form-check-inline-margin-end: 1rem;
 }
 
 %_form-check-input-valid {
-  + label::before {
+  + .form-check-label::before {
     outline: $form-check-valid-color solid 2px;
   }
 }
 
 %_form-check-input-invalid {
-  + label::before {
+  + .form-check-label::before {
     outline: $form-check-invalid-color solid 2px;
   }
 }
@@ -376,11 +379,11 @@ $form-check-inline-margin-end: 1rem;
 }
 
 // Feedback is placed before the validated input element, so CSS sibling doesn't work here.
-// We can use has() on the immediate parent instead.
-:has(.is-valid) > .valid-feedback,
-:has(.is-invalid) > .invalid-feedback,
-.was-validated :has(:valid) > .valid-feedback,
-.was-validated :has(:invalid) > .invalid-feedback,
+// We can has() to check for the existence of next siblings instead.
+.valid-feedback:has(~ .is-valid),
+.invalid-feedback:has(~ .is-invalid),
+.was-validated .valid-feedback:has(~ :where(input, select, textarea):valid, ~ * > :valid), // need to scope to input:valid within has(), :valid seems to match non inputs. the form-check input is wrapped in a div, so * > :input-valid
+.was-validated .invalid-feedback:has(~ :invalid, ~ * > :invalid),
 .valid .valid-feedback,
 .invalid .invalid-feedback {
   display: flex;

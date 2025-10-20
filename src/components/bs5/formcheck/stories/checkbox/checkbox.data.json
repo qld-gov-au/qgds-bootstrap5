@@ -6,9 +6,9 @@
   "successMessageText": "Success message",
   "errorMessageText": "Error message",
   "isValid": null,
+  "type": "checkbox",
   "listitems": [
     {
-      "type": "checkbox",
       "id": "checkboxItem1",
       "name": "checkboxOption",
       "label": "Option 1",
@@ -17,7 +17,6 @@
       "isChecked": false
     },
     {
-      "type": "checkbox",
       "id": "checkboxItem2",
       "name": "checkboxOption",
       "label": "Option 2",
@@ -26,7 +25,6 @@
       "isChecked": false
     },
     {
-      "type": "checkbox",
       "id": "checkboxItem3",
       "name": "checkboxOption",
       "label": "Option 3",
@@ -35,7 +33,6 @@
       "isChecked": false
     },
     {
-      "type": "checkbox",
       "id": "checkboxItem4",
       "name": "checkboxOption",
       "label": "Option 4",
@@ -44,7 +41,6 @@
       "isChecked": true
     },
     {
-      "type": "checkbox",
       "id": "checkboxItem5",
       "name": "checkboxOption",
       "label": "Disabled",
