@@ -1,30 +1,37 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  #to help with chromatic turbo-snapshot which relies on package-lock.json
-  versioning-strategy: auto
-  directory: "/"
-  target-branch: "develop"
-  schedule:
-    interval: daily
-    time: "8:30"
-    timezone:  "Australia/Brisbane"
-  groups:
-    storybook:
-      patterns:
-        - "@storybook/*"
-        - storybook
-        - "@chromatic-com/storybook"
-        - "@whitespace/storybook-addon-html"
-        - "chromatic"
-    eslint:
-      patterns:
-        - "eslint*"
-        - "@stylistic/eslint-plugin-js"
-        - "esbuild-plugin-eslint"
-    esbuild:
-      patterns:
-        - "esbuild*"
-  open-pull-requests-limit: 10
-  reviewers:
-  - qld-gov-au/qld-online-dev-team
+  - package-ecosystem: github-actions
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: daily
+      time: "08:30"
+      timezone: "Australia/Brisbane"
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: npm
+    #to help with chromatic turbo-snapshot which relies on package-lock.json
+    versioning-strategy: auto
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: daily
+      time: "08:30"
+      timezone: "Australia/Brisbane"
+    groups:
+      storybook:
+        patterns:
+          - "@storybook/*"
+          - storybook
+          - "@chromatic-com/storybook"
+          - "@whitespace/storybook-addon-html"
+          - "chromatic"
+      eslint:
+        patterns:
+          - "eslint*"
+          - "@stylistic/eslint-plugin-js"
+          - "esbuild-plugin-eslint"
+      esbuild:
+        patterns:
+          - "esbuild*"
+    open-pull-requests-limit: 10
