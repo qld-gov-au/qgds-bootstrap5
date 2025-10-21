@@ -201,7 +201,6 @@ $video-icon-color-dark: $qld-dark-action-text;
       vertical-align: middle;
     }
   }
-
   &-watch {
     background-color: var(--#{$prefix}video-nav-bg);
     text-decoration-color: transparent;
@@ -212,7 +211,7 @@ $video-icon-color-dark: $qld-dark-action-text;
     align-items: center;
     gap: 0.5rem;
     height: 100%;
-    span.qld-icon {
+    .qld-icon {
       color: inherit;
     }
   }
@@ -227,9 +226,6 @@ $video-icon-color-dark: $qld-dark-action-text;
         margin-bottom: 0;
       }
     }
-  }
-  .icon {
-    background-image: none;
   }
   .accordion {
     margin-bottom: 0;
