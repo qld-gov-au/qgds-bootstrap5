@@ -27,7 +27,7 @@ jobs:
       HAVE_GIT_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY != '' }}
     steps:
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
@@ -53,7 +53,7 @@ jobs:
         run: npm list
 
 
-      - uses: actions/setup-node@v4 #setup registry to github package repo
+      - uses: actions/setup-node@v6 #setup registry to github package repo
         with:
           node-version: 22
 
