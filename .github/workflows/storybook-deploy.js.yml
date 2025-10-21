@@ -27,11 +27,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '20' ]
+        node: [ '22' ]
     name: Deploy with Node ${{ matrix.node }}
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Cache node modules
         id: cache-npm
@@ -53,7 +53,7 @@ jobs:
         run: npm list
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -62,7 +62,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install
         run: | # Install packages
-          npm install --prefer-offline --no-audit --ignore-scripts
+          npm ci --prefer-offline --no-audit --ignore-scripts
         #env:
         #  NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
 
@@ -82,9 +82,9 @@ jobs:
           path: storybook-static
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: "./storybook-static"
       - name: Deploy to GitHub Pages

@@ -33,7 +33,9 @@ export default {
       type: "figma",
       url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98115&mode=design&t=Ue7c77KjVYU1eTGj-0",
     },
+    backgrounds: { disable: false },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
@@ -41,6 +43,7 @@ export default {
  */
 export const Default = {
   args: defaultdata.default,
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
@@ -55,12 +58,7 @@ export const NoTitle = {
  */
 export const Light = {
   args: defaultdata.default,
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "light" } },
   decorators: [
     (Story) => {
       return `
@@ -79,12 +77,7 @@ export const Light = {
  */
 export const Alternative = {
   args: defaultdata.default,
-  parameters: {
-    backgrounds: {
-      default: "Alternative",
-      values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
-    },
-  },
+  globals: { backgrounds: { value: "alt" } },
   decorators: [
     (Story) => {
       return `
@@ -103,12 +96,7 @@ export const Alternative = {
  */
 export const Dark = {
   args: defaultdata.default,
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -127,14 +115,7 @@ export const Dark = {
  */
 export const DarkAlternative = {
   args: defaultdata.default,
-  parameters: {
-    backgrounds: {
-      default: "Dark alternative",
-      values: [
-        { name: "Dark alternative", value: "var(--qld-dark-alt-background)" },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "darkAlt" } },
   decorators: [
     (Story) => {
       return `

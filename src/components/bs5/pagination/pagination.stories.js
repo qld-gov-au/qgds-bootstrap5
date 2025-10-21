@@ -14,13 +14,14 @@ export default {
         hideNoControlsWarning: true,
       },
     },
+    backgrounds: { disable: false },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
  * Pagination (Default)
  */
-
 export const Default = {
   args: defaultdata,
 };
@@ -28,21 +29,18 @@ export const Default = {
 /**
  * Pagination when used inside a <code>.light</code> container
  */
-
 export const Light = {
   args: defaultdata,
-
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
+      value: "light",
     },
   },
 
   decorators: [
     (Story) => {
       return `
-      <div class="">
+      <div class="light">
           ${Story()}
       </div>
       `;
@@ -51,18 +49,15 @@ export const Light = {
 };
 
 /**
- * Pagination when used inside a <code>.light-alternative</code> container
+ * Pagination when used inside a <code>.alt</code> container
  */
 
 export const LightAlternative = {
   args: defaultdata,
 
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Light Alternative",
-      values: [
-        { name: "Light Alternative", value: "var(--qld-light-alt-background)" },
-      ],
+      value: "alt",
     },
   },
 
@@ -84,10 +79,9 @@ export const LightAlternative = {
 export const Dark = {
   args: defaultdata,
 
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+      value: "dark",
     },
   },
 
@@ -109,12 +103,9 @@ export const Dark = {
 export const DarkAlternative = {
   args: defaultdata,
 
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Dark Alternative",
-      values: [
-        { name: "Dark Alternative", value: "var(--qld-dark-alt-background)" },
-      ],
+      value: "darkAlt",
     },
   },
 

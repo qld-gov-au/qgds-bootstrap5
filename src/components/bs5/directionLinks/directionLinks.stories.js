@@ -10,6 +10,11 @@ import defaultdata from "./directionLinks.data.json";
 export default {
   tags: ["autodocs"],
   title: "3. Components/Direction Links",
+  globals: {
+    backgrounds: {
+      value: "default",
+    },
+  },
   render: (args) => {
     return `
     <!-- Grid container -->
@@ -51,6 +56,7 @@ export default {
     label: { control: "text" },
   },
   parameters: {
+    backgrounds: { disable: false },
     controls: { disable: true },
     design: {
       name: "QGDS Figma Reference",
@@ -69,10 +75,9 @@ export const Default = {};
  * Direction Link - Light
  * */
 export const Light = {
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
+      value: "light",
     },
   },
   decorators: [
@@ -90,10 +95,9 @@ export const Light = {
  * Direction Link - Light-Alt
  * */
 export const LightAlt = {
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "LightAlt",
-      values: [{ name: "LightAlt", value: "var(--qld-light-alt-background)" }],
+      value: "alt",
     },
   },
   decorators: [
@@ -111,10 +115,9 @@ export const LightAlt = {
  * Direction Link - Dark
  * */
 export const Dark = {
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-dark-background)" }],
+      value: "dark",
     },
   },
   decorators: [
@@ -132,10 +135,9 @@ export const Dark = {
  * Direction Link - Dark-Alt
  * */
 export const DarkAlt = {
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "DarkAlt",
-      values: [{ name: "DarkAlt", value: "var(--qld-dark-alt-background)" }],
+      value: "darkAlt",
     },
   },
   decorators: [

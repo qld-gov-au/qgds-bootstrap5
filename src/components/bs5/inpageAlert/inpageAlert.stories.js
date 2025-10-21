@@ -3,7 +3,7 @@ import defaultdata from "./inpageAlert.data.json";
 
 /**
  * The Inpage Alert is also known as Page Alert or Alert
- * 
+ *
  * Inpage alert accepts the following classes: <code>.alert-success</code>, <code>.alert-info</code>, <code>.alert-warning</code>, and <code>.alert-danger</code>
  */
 
@@ -32,7 +32,8 @@ export default {
   render: (args) => {
     return new InpageAlert({ ...defaultdata, ...args }).html;
   },
-
+  globals: { backgrounds: { value: "default" } },
+  parameters: { backgrounds: { disable: false } },
   argTypes: {
     variantClass: {
       name: "Classes",
@@ -46,12 +47,7 @@ export default {
           "alert-error": "Error",
         },
       },
-      options: [
-        "alert-success",
-        "alert-info",
-        "alert-warning",
-        "alert-error",
-      ],
+      options: ["alert-success", "alert-info", "alert-warning", "alert-error"],
     },
     alertType: {
       name: "Alert Type",
@@ -59,14 +55,13 @@ export default {
     },
     headingTag: {
       name: "Heading Tag",
-      description: 'Heading tag for the In-page Alert component. Can be h2, h3, h4, h5 or h6.',
+      description:
+        "Heading tag for the In-page Alert component. Can be h2, h3, h4, h5 or h6.",
       control: "select",
       options: ["h2", "h3", "h4", "h5", "h6"],
     },
   },
-
 };
-
 
 /**
  * Default In-page Alert component.
@@ -76,23 +71,12 @@ export const Default = {
   args: defaultdata,
 };
 
-
-
-
 /**
  * In-page Alert when presented inside a <code>.dark</code> or <code>.dark-alt</code> container.
  */
 
-
 export const Dark = {
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-dark-background)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
 
   decorators: [
     (Story) => {
