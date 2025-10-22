@@ -137,6 +137,7 @@ $form-check-inline-margin-end: 1rem;
   display: flex;
   align-items: center;
   margin-block: f.remify(8px 16px);
+  padding-left: 0; // override bootstrap default - icon is now attached to <label>.
 }
 
 .form-check-input {
@@ -159,7 +160,6 @@ $form-check-inline-margin-end: 1rem;
     vertical-align: bottom;
     line-height: 2rem;
     padding-left: 2.5rem;
-    margin-left: -1.5em;
 
     // before is the outer box with border,
     // after is the check or radio icon
@@ -274,20 +274,19 @@ $form-check-inline-margin-end: 1rem;
 
   .dark &,
   .dark-alt & {
-    &:hover + label {
-      --_background-color: $form-check-hover;
-    }
-    &:hover + label::after {
-      background-color: $form-check-hover;
-    }
     + label::before,
     + label::after {
       border-color: $form-check-input-border-dark;
     }
-    &:checked {
-      & + label::after {
-        background-color: $form-check-input-checked-color-dark;
+    &:hover + label {
+      --_background-color: $form-check-hover;
+
+      &::after {
+        background-color: $form-check-hover;
       }
+    }
+    &:checked + label::after {
+      background-color: $form-check-input-checked-color-dark;
     }
 
     &:focus + label::before {

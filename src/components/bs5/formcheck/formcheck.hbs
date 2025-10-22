@@ -22,7 +22,7 @@
   
   {{#each listitems}}
   <div class="form-check {{#if ../isValid}}is-valid{{else}}{{#ifCond ../isValid "===" false}}is-invalid{{/ifCond}}{{/if}}">
-    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{type}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
+    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{#if type}}{{type}}{{else}}checkbox{{/if}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
     <label class="form-check-label" for="{{id}}">
       {{label}}
     </label>

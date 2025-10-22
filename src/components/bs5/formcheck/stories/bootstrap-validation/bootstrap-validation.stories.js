@@ -1,5 +1,5 @@
 // Bootstrap5Validation.stories.js
-import { Formcheck } from "../../Formcheck.js";
+import { Formcheck, argTypes } from "../../Formcheck.js";
 import checkboxData from "../checkbox/checkbox.data.json";
 
 const defaultData = { ...checkboxData, optionalLabel: null };
@@ -21,20 +21,7 @@ export default {
     return `${new Formcheck(args).html}`;
   },
   args: defaultData,
-  argTypes: {
-    type: {
-      options: ["radio", "checkbox"],
-      control: "radio",
-      description: "The type of input.",
-    },
-    isValid: {
-      options: [null, true, false],
-
-      control: "radio",
-      description:
-        "Should be set only when the input is to be validated server-side. Adds class `is-valid` or `is-invalid` to the form control. For client-side validation.",
-    },
-  },
+  argTypes,
   parameters: {
     controls: {
       include: ["isValid", "successMessageText", "errorMessageText", "type"],
