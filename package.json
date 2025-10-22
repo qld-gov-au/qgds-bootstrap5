@@ -68,7 +68,7 @@
     "autoprefixer": "^10.4.20",
     "chai": "^5.2.0",
     "chalk": "^5.3.0",
-    "chromatic": "^11.28.2",
+    "chromatic": "^13.3.1",
     "esbuild": "0.25.5",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-eslint": "^0.3.7",
