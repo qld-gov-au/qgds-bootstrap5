@@ -47,6 +47,10 @@ export const ParentContextComparison = {
       variant: "",
       tagItems: [
         {
+          content: "default",
+          classes: "",
+        },
+        {
           content: "Information",
           classes: "tag-info",
         },
@@ -61,7 +65,11 @@ export const ParentContextComparison = {
         },
         {
           content: "Large",
-          classes: "tag-large",
+          classes: "tag-info tag-large",
+        },
+        {
+          content: "Large",
+          classes: "tag-link tag-large",
         },
       ],
     };
