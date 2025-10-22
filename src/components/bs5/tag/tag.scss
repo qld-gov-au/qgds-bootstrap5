@@ -90,16 +90,16 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
 // General styling rules.
 .tag-list {
-  --_padding-y: 0;
-  --_padding-x: 0.5rem;
   list-style-type: none;
   margin: 0.5rem 0;
   padding: 30px;
   display: flex;
   align-items: center;
-  gap: calc(var(--_padding-x) * 2);
+  gap: 1rem;
 
   .tag-item {
+    --_padding-y: 0;
+    --_padding-x: 0.5rem;
     --_height: 1.5rem;
     --_border-width: 1px;
     --_icon-size: 1rem;
@@ -111,7 +111,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     // margin: 0 1rem 1rem 0;
     padding: var(--_padding-y) var(--_padding-x);
     list-style-type: none;
-    border: var(--_border-width) solid #09acfe;
+    border: var(--_border-width) solid var(--#{$prefix}neutral-lighter);
     border-radius: 1rem;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -129,7 +129,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 
     &.tag-link {
       color: var(--#{$prefix}brand-primary);
-      border-color: #09acfe;
+      border-color: var(--#{$prefix}light-link);
 
       a {
         text-decoration: none;
@@ -146,13 +146,13 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       &:focus,
       &:focus-within {
         background-color: var(--#{$prefix}textbox-border-color);
-        color: var(--#{$prefix}white);
+        color: var(--#{$prefix}light-link-on-action);
         background-color: var(--#{$prefix}light-action-primary-hover);
         text-decoration: underline;
         text-underline-offset: var(--#{$prefix}link-underline-offset);
 
         a {
-          color: var(--#{$prefix}white);
+          color: var(--#{$prefix}light-link-on-action);
         }
       }
     }
@@ -276,12 +276,12 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
       color: var(--#{$prefix}dark-text);
 
       &.tag-large {
-        color: var(--#{$prefix}white);
+        color: var(--#{$prefix}dark-link);
       }
     }
 
     .tag-link {
-      color: var(--#{$prefix}white);
+      color: var(--#{$prefix}dark-link);
       border-color: #09acfe;
 
       a {
