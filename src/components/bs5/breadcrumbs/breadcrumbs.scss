@@ -139,7 +139,7 @@ $expander-icon-color: $qld-light-link;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    &:focus-within {
+    &:focus {
       overflow: initial;
     }
   }
