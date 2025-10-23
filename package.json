@@ -98,7 +98,7 @@
     "selenium-webdriver": "^4.33.0",
     "storybook": "^9.1.13",
     "storybook-addon-deep-controls": "^0.9.5",
-    "vite": "^6.3.5",
+    "vite": "^7.1.11",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
