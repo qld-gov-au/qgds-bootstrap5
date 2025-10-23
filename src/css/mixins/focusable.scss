@@ -3,6 +3,7 @@
 /// @param {Boolean} $offsetOutline [true] - Offset the focus ring by 2px.
 /// @param {Boolean} $isFocusWithin [false] - Optionally apply styles via :focus-within rather than :focus-visible
 /// @param {String} $customSelector [null] - If passed, will override $isFocusWithin and apply focus styles instead to a custom selector string. @see SearchInput
+/// @content
 @mixin focusable(
   $offsetOutline: true,
   $isFocusWithin: false,
@@ -38,5 +39,7 @@
       ); // --qld-focus-color defined in qld-type.scss
       offset: $offsetOutline;
     }
+
+    @content;
   }
 }

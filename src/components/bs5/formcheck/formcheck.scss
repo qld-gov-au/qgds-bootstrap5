@@ -111,25 +111,22 @@ $form-check-inline-margin-end: 1rem;
 
 .form-control,
 .form-select {
-  // CSS Custom properties scoped to .form-control components
-  // Settable via frontend or JS if required. Related to theme.
+  @extend %form-control-variables;
 
-  --#{$prefix}input-bg: transparent;
-  --#{$prefix}input-border-color: #{$form-check-input-checked-border-color};
-  --#{$prefix}input-color: var(--#{$prefix}dark-grey-muted);
-  --#{$prefix}input-border-color-hover: var(--#{$prefix}button-dark-blue);
-
+  color: var(--#{$prefix}form-control-color);
+  background-color: var(--#{$prefix}form-control-bg);
+  border: solid $input-border-width var(--#{$prefix}form-control-border-color);
   padding: $input-padding-y $input-padding-x;
-  border: solid $input-border-width var(--#{$prefix}input-border-color);
   border-radius: $input-border-radius;
   font-size: $input-font-size;
 
-  &:active,
-  &:focus {
-    border-color: var(--#{$prefix}input-border-color-hover);
-    outline: $form-check-input-outline;
-    outline-offset: 2px;
+  @include m.focusable() {
     box-shadow: none;
+  }
+
+  &:hover {
+    background-color: var(--#{$prefix}form-control-bg-hover);
+    border-color: var(--#{$prefix}form-control-border-color-hover);
   }
 }
 

@@ -1,7 +1,36 @@
 // Expand this file with all themable shared form variables
 // @extend %form-variables in all input and form components.
-%form-variables {
-  //
+%form-control-variables {
+  &,
+  .default &,
+  .light &,
+  .alt & {
+    --#{$prefix}form-control-bg: #{$qld-color-background};
+    --#{$prefix}form-control-bg-hover: #{$qld-extra-light-grey};
+    --#{$prefix}form-control-border-color: #{$qld-light-border-alt};
+    --#{$prefix}form-control-border-color-hover: #{$qld-light-action-primary-hover};
+    --#{$prefix}form-control-color: #{$qld-text-grey};
+
+    &.is-valid {
+      --#{$prefix}form-control-bg: #{$qld-color-success-light};
+      --#{$prefix}form-control-bg-hover: #{$core-default-color-status-success-lighter};
+      --#{$prefix}form-control-border-color: #{$qld-notify-success};
+      --#{$prefix}form-control-border-color-hover: #{$qld-notify-success};
+    }
+
+    &.is-invalid {
+      --#{$prefix}form-control-bg: #{$qld-color-error-light};
+      --#{$prefix}form-control-bg-hover: #{$core-default-color-status-error-lighter};
+      --#{$prefix}form-control-border-color: #{$qld-notify-warning};
+      --#{$prefix}form-control-border-color-hover: #{$qld-notify-success};
+    }
+  }
+
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}form-control-bg: #{$qld-color-dark-background};
+    --#{$prefix}form-control-bg-hover: #{$qld-color-dark-background--shade};
+  }
 }
 
 %form-valid-feedback-variables {
