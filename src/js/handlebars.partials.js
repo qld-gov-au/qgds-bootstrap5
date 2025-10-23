@@ -62,7 +62,6 @@ import textbox from "../components/bs5/textbox/textbox.hbs?raw";
 import typography from "../components/bs5/typography/typography.hbs?raw";
 import video from "../components/bs5/video/video.hbs?raw";
 
-
 /**
  * Registers Handlebars Partials
  * @param {Handlebars} handlebars Templating engine
@@ -83,7 +82,10 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("contentFooter", contentFooter);
   handlebars.registerPartial("contentFooterWrapper", contentFooterWrapper);
   handlebars.registerPartial("contentPageWithForm", contentPageWithForm);
-  handlebars.registerPartial("contentPageWithSideNavigation", contentPageWithSideNavigation);
+  handlebars.registerPartial(
+    "contentPageWithSideNavigation",
+    contentPageWithSideNavigation,
+  );
   handlebars.registerPartial("contentWrapper", contentWrapper);
   handlebars.registerPartial("correctincorrect", correctincorrect);
   handlebars.registerPartial("customLinks", customLinks);
@@ -129,8 +131,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("textbox", textbox);
   handlebars.registerPartial("typography", typography);
   handlebars.registerPartial("video", video);
-
 }
-if(typeof(Handlebars) !== 'undefined') {
+if (typeof Handlebars !== "undefined") {
   handlebarsPartials(Handlebars);
 }
