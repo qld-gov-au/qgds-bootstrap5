@@ -17,35 +17,35 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-neutral-lightest);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-neutral-light);
 
   //Status - Low -- Success
   $tag-type: "success";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-success-lighter);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-success-default);
 
   //Status - Low -- Warning
   $tag-type: "warning";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-caution-lightest);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-caution-default);
 
   //Status - Low -- Error
   $tag-type: "error";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-error-lighter);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-error-default);
 
   //Status - Low -- Information
   $tag-type: "information";
   /* prettier-ignore */
   --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-bg: var(--#{$prefix}core-default-color-status-info-lighter);
   /* prettier-ignore */
-  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: #09ACFE;
+  --#{$prefix}tag-status-#{$tag-emphasis}-#{$tag-type}-border-color: var(--#{$prefix}core-default-color-status-info-default);
 
   //Status - High emphasis
   $tag-emphasis: "high";
