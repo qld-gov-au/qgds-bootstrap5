@@ -331,8 +331,8 @@ $form-check-inline-margin-end: 1rem;
   @extend %_form-check-input-invalid;
 }
 
-.valid-feedback,
-.invalid-feedback {
+%_valid-feedback,
+%_invalid-feedback {
   font-size: f.remify(14px);
   line-height: f.snap-line-height(1.5);
   display: none;
@@ -341,7 +341,7 @@ $form-check-inline-margin-end: 1rem;
   margin-block: f.remify(8px);
 }
 
-.valid-feedback {
+%_valid-feedback {
   @extend %form-valid-feedback-variables;
   color: var(--color-text);
 
@@ -354,12 +354,23 @@ $form-check-inline-margin-end: 1rem;
   }
 }
 
-.invalid-feedback {
+%_invalid-feedback {
   @extend %form-invalid-feedback-variables;
   color: var(--color-text);
   @include m.make-icon($name: "status-error", $size: "sm", $pseudo: "before") {
     flex-shrink: 0;
   }
+}
+
+// .qld-input-success legacy class which is applied to both inputs and feedback text >:(
+.valid-feedback,
+.qld-input-success:not(select, textarea, input[type="text"]) {
+  @extend %_valid-feedback;
+}
+
+.invalid-feedback,
+.qld-input-error:not(select, textarea, input[type="text"]) {
+  @extend %_invalid-feedback;
 }
 
 // Bootstrap default styles already support placing feedback after the input element.
@@ -370,6 +381,8 @@ $form-check-inline-margin-end: 1rem;
 .was-validated .valid-feedback:has(~ :where(input, select, textarea):valid, ~ * > :valid), // need to scope to input:valid within has(), :valid seems to match non inputs. the form-check input is wrapped in a div, so * > :input-valid
 .was-validated .invalid-feedback:has(~ :invalid, ~ * > :invalid),
 .valid .valid-feedback,
-.invalid .invalid-feedback {
+.invalid .invalid-feedback,
+.qld-input-success:not(select, textarea, input[type="text"]),
+.qld-input-error:not(select, textarea, input[type="text"]) {
   display: flex;
 }

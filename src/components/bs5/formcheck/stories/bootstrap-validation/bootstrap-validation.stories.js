@@ -231,11 +231,7 @@ export const BootstrapValidationDark = {
       },
     ],
   },
-  globals: {
-    backgrounds: {
-      value: "dark",
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   render: (args) => {
     return `
       <div class="dark row">

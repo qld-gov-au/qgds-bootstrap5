@@ -1,13 +1,15 @@
 {
-	"isDisabled": false,
-	"isRequired": true,
-	"isFilled": false,
-	"customClass": "",
-	"rows": 3,
-	"label-text": "Label",
-	"placeholder": "Leave a comment here",
-	"optional-text": "optional",
-	"hint-text": "Hint",
-	"successMessageText": "Success message",
-	"errorMessageText": "Error message"
+  "id": "example-1",
+  "isDisabled": false,
+  "isRequired": true,
+  "isValid": null,
+  "isFilled": false,
+  "customClass": "",
+  "rows": 3,
+  "label-text": "Label",
+  "placeholder": "Leave a comment here",
+  "optional-text": "optional",
+  "hint-text": "Hint",
+  "successMessageText": "Success message",
+  "errorMessageText": "Error message"
 }
