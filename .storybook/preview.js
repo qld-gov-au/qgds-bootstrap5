@@ -42,7 +42,7 @@ const preview = {
       },
     },
     viewport: {
-      viewports: {
+      options: {
         //QLD-media Breakpoints
         small: { name: "Small", styles: { width: "400px", height: "800px" } },
         medium: { name: "Medium", styles: { width: "700px", height: "800px" } },
