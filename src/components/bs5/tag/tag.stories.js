@@ -13,16 +13,16 @@ export default {
         type: "radio",
         labels: {
           "tag-default": "Default",
-          "tag-alt": "Alt",
           "tag-light": "Light",
+          "tag-alt": "Alt",
           "tag-dark": "Dark",
           "tag-dark-alt": "Dark-alt",
         },
       },
       options: [
         "tag-default",
-        "tag-alt",
         "tag-light",
+        "tag-alt",
         "tag-dark",
         "tag-dark-alt",
       ],
@@ -76,18 +76,18 @@ export const ParentContextComparison = {
 
     return `
       <div class="mb-4">
-        <h6>Default (Light Theme)</h6>
+        <h6>Default</h6>
         ${new Tag(testTags).html}
-      </div>
-
-      <div class="mb-4">
-        <h6>Component Variant: tag-alt</h6>
-        ${new Tag({ ...testTags, variant: "tag-alt" }).html}
       </div>
 
       <div class="mb-4">
         <h6>Component Variant: tag-light</h6>
         ${new Tag({ ...testTags, variant: "tag-light" }).html}
+      </div>
+
+      <div class="mb-4">
+        <h6>Component Variant: tag-alt</h6>
+        ${new Tag({ ...testTags, variant: "tag-alt" }).html}
       </div>
 
       <div class="mb-4">
