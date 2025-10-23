@@ -1,5 +1,22 @@
 // Guidelines for this setup: https://getbootstrap.com/docs/5.3/customize/sass/
 
+@use "sass:meta";
+
+//
+// Default Theme Token Setup
+//
+// This block establishes the default theme by creating a SASS map named `$qld-tokens`.
+//
+// 1. It loads variables from the default `qld-tokens.scss` file.
+// 2. It converts these variables into the `$qld-tokens` map.
+// 3. The `!default` flag is the core of the theming system: it allows an upstream
+//    entry point (e.g., `main.legacy.scss`) to define its own `$qld-tokens` map
+//    first, which will be used instead of these defaults.
+//
+@use "./qld-tokens";
+@import "./qld-tokens";
+$qld-tokens: meta.module-variables("qld-tokens") !default;
+
 // External fonts
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;900&display=swap");
 $font-family-sans-serif:

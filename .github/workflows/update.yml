@@ -27,7 +27,7 @@ jobs:
       HAVE_GIT_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY != '' }}
     steps:
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
@@ -53,9 +53,9 @@ jobs:
         run: npm list
 
 
-      - uses: actions/setup-node@v4 #setup registry to github package repo
+      - uses: actions/setup-node@v6 #setup registry to github package repo
         with:
-          node-version: 20
+          node-version: 22
 
       - name: npm ci (don't run prepare)
         run: npm ci --ignore-scripts
@@ -69,16 +69,16 @@ jobs:
           if [ "$bump" = "" ]; then
             bump="patch"
           fi
-          
+
           # Fetch the latest tags
           git fetch --tags
-          
+
           # Get the latest tag
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
-          
+
           # Get the current commit hash
           CURRENT_COMMIT=$(git rev-parse HEAD)
-          
+
           # Check if there are changes between the latest tag and the current commit
           if git diff --quiet $LATEST_TAG $CURRENT_COMMIT; then
             if [ "$force" != "1" ]; then
@@ -90,7 +90,7 @@ jobs:
           else
             echo "Changes detected between the latest tag ($LATEST_TAG) and the current commit ($CURRENT_COMMIT)."  >> $GITHUB_STEP_SUMMARY
           fi
-  
+
           # Bump Version
           npm version "$bump"
 

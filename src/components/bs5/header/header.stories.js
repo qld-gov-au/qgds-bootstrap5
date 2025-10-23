@@ -38,20 +38,14 @@ export default {
       },
       story: { height: "400px" },
     },
+    backgrounds: { disable: true },
   },
 };
 
-// Navbar story with 'Light' color theme
 export const MasterBrand = {
   args: {
     ...masterbrand_variant,
     ...menu_state,
-  },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
   },
   decorators: [
     (Story) => {
@@ -62,17 +56,10 @@ export const MasterBrand = {
   ],
 };
 
-// Navbar story with 'Dark' color theme
 export const SubBrand = {
   args: {
     ...subbrand_variant,
     ...menu_state,
-  },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
   },
   decorators: [
     (Story) => {
@@ -89,12 +76,6 @@ export const CoBrand = {
     ...cobrand_variant,
     ...menu_state,
   },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story) => {
       return `
@@ -107,15 +88,8 @@ export const CoBrand = {
 // Endorsed brand
 export const EndorsedBrand = {
   args: { ...endorsed_variant, ...menu_state },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story) => {
-      // This can be cleaned up but might require introducing raw loader
       return `
           ${Story()}
       `;
@@ -126,15 +100,8 @@ export const EndorsedBrand = {
 // Standalone
 export const StandaloneBrand = {
   args: { ...standalone_variant, ...menu_state },
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
   decorators: [
     (Story) => {
-      // This can be cleaned up but might require introducing raw loader
       return `
           ${Story()}
       `;

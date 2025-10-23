@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '20' ]
+        node: [ '22' ]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v5
 
       - name: Cache node modules
         id: cache-npm
@@ -48,7 +48,7 @@ jobs:
         run: npm list
 
       - name: Use Node.js
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -87,7 +87,7 @@ jobs:
       packages: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Cache node modules
         id: cache-npm
@@ -108,9 +108,9 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           registry-url: https://npm.pkg.github.com/
           # Defaults to the user or organization that owns the workflow file
           #scope: '@${username:lowercase}'
@@ -129,7 +129,7 @@ jobs:
       - name: Build 🔧
         run: | # build the files
           npm run build
-    
+
 
       - name: "Update package scope, export package name"
         id: package_details
@@ -174,4 +174,4 @@ jobs:
         run: |
           echo "### Publish skipped" >> $GITHUB_STEP_SUMMARY
           echo "DO_DEPLOYMENT( ${{ env.DO_DEPLOYMENT }} ): github.event_name: ${{ github.event_name != 'workflow_dispatch'}} || github.event.inputs.force: ${{ github.event.inputs.force == 'Yes' }}"  >> $GITHUB_STEP_SUMMARY
-          
+

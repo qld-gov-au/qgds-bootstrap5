@@ -2,6 +2,42 @@
 import { Tabs } from "./tabs.js";
 import defaultdata from "./tabs.data.json";
 
+// Generate argTypes for tab items dynamically
+const generateTabItemArgTypes = () => {
+  const argTypes = {};
+  const tabCount = defaultdata.data.items.length;
+
+  for (let i = 0; i < tabCount; i++) {
+    argTypes[`data.items.${i}.tab_text`] = {
+      name: `tabs item ${i} tab_text`,
+      description: `Tab ${i + 1} label text`,
+      control: "text",
+    };
+    argTypes[`data.items.${i}.title`] = {
+      name: `tabs item ${i} title`,
+      description: `Tab ${i + 1} section heading`,
+      control: "text",
+    };
+    argTypes[`data.items.${i}.icon`] = {
+      name: `tabs item ${i} icon`,
+      description: `Tab ${i + 1} icon classes`,
+      control: "text",
+    };
+    argTypes[`data.items.${i}.content`] = {
+      name: `tabs item ${i} content`,
+      description: `Tab ${i + 1} content HTML`,
+      control: "text",
+    };
+    argTypes[`data.items.${i}.disabled`] = {
+      name: `tabs item ${i} disabled`,
+      description: `Tab ${i + 1} disabled state`,
+      control: "boolean",
+    };
+  }
+
+  return argTypes;
+};
+
 export default {
   tags: ["autodocs"],
   title: "3. Components/Tabs",
@@ -32,6 +68,8 @@ export default {
       control: "text",
       defaultValue: "12345",
     },
+    // Dynamically generated tab item controls
+    ...generateTabItemArgTypes(),
   },
 };
 
@@ -52,49 +90,6 @@ export const ContainerTabsDefault = {
     type_variant: "container-tabs",
     unique_id: "234566",
     variant: "default",
-    data: {
-      items: [
-        {
-          tab_text: "Tab label 1",
-          title: "Section Heading (H3)",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 2",
-          title: "Section Heading Item 2",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 3",
-          title: "Section Heading Item 3",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 4",
-          title: "Section Heading Item 4",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-          disabled: true,
-        },
-        {
-          tab_text: "Tab label 5",
-          title: "Section Heading Item 5",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 6",
-          title: "Section Heading Item 6",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-      ],
-    },
   },
 };
 
@@ -107,49 +102,6 @@ export const ContainerTabsLight = {
     type_variant: "container-tabs",
     unique_id: "345678",
     variant: "light",
-    data: {
-      items: [
-        {
-          tab_text: "Tab label 1",
-          title: "Section Heading (H3)",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 2",
-          title: "Section Heading Item 2",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 3",
-          title: "Section Heading Item 3",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 4",
-          title: "Section Heading Item 4",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-          disabled: true,
-        },
-        {
-          tab_text: "Tab label 5",
-          title: "Section Heading Item 5",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 6",
-          title: "Section Heading Item 6",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-      ],
-    },
   },
 };
 
@@ -162,49 +114,6 @@ export const ContainerTabsAlt = {
     type_variant: "container-tabs",
     unique_id: "456789",
     variant: "alt",
-    data: {
-      items: [
-        {
-          tab_text: "Tab label 1",
-          title: "Section Heading (H3)",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 2",
-          title: "Section Heading Item 2",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 3",
-          title: "Section Heading Item 3",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 4",
-          title: "Section Heading Item 4",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-          disabled: true,
-        },
-        {
-          tab_text: "Tab label 5",
-          title: "Section Heading Item 5",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 6",
-          title: "Section Heading Item 6",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-      ],
-    },
   },
 };
 
@@ -217,49 +126,6 @@ export const ContainerTabsDark = {
     type_variant: "container-tabs",
     unique_id: "567890",
     variant: "dark",
-    data: {
-      items: [
-        {
-          tab_text: "Tab label 1",
-          title: "Section Heading (H3)",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 2",
-          title: "Section Heading Item 2",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 3",
-          title: "Section Heading Item 3",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 4",
-          title: "Section Heading Item 4",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-          disabled: true,
-        },
-        {
-          tab_text: "Tab label 5",
-          title: "Section Heading Item 5",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 6",
-          title: "Section Heading Item 6",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-      ],
-    },
   },
 };
 
@@ -272,48 +138,5 @@ export const ContainerTabsDarkAlt = {
     type_variant: "container-tabs",
     unique_id: "123456",
     variant: "dark-alt",
-    data: {
-      items: [
-        {
-          tab_text: "Tab label 1",
-          title: "Section Heading (H3)",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 2",
-          title: "Section Heading Item 2",
-          icon: "qld-icon qld-icon-md qld-icon-calendar",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 3",
-          title: "Section Heading Item 3",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 4",
-          title: "Section Heading Item 4",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-          disabled: true,
-        },
-        {
-          tab_text: "Tab label 5",
-          title: "Section Heading Item 5",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-        {
-          tab_text: "Tab label 6",
-          title: "Section Heading Item 6",
-          content:
-            "<p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>",
-        },
-      ],
-    },
   },
 };

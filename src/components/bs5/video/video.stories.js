@@ -84,7 +84,9 @@ export default {
     controls: {
       exclude: ["transcriptAccordion"],
     },
+    backgrounds: { disable: false },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
@@ -110,12 +112,7 @@ export const Custom = {
  * Light colour Video
  */
 export const Light = {
-  parameters: {
-    backgrounds: {
-      default: "Light",
-      values: [{ name: "Light", value: "var(--qld-light-background)" }],
-    },
-  },
+  globals: { backgrounds: { value: "light" } },
   decorators: [
     (Story) => {
       return `
@@ -131,12 +128,7 @@ export const Light = {
  * Alternative Video
  */
 export const Alternative = {
-  parameters: {
-    backgrounds: {
-      default: "Alternative",
-      values: [{ name: "Alternative", value: "var(--qld-light-grey-alt)" }],
-    },
-  },
+  globals: { backgrounds: { value: "alt" } },
   decorators: [
     (Story) => {
       return `
@@ -152,12 +144,7 @@ export const Alternative = {
  * Dark Video
  */
 export const Dark = {
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -173,12 +160,7 @@ export const Dark = {
  * Dark alternative Video
  */
 export const DarkAlternative = {
-  parameters: {
-    backgrounds: {
-      default: "Dark alternative",
-      values: [{ name: "Dark alternative", value: "var(--qld-dark-blue)" }],
-    },
-  },
+  globals: { backgrounds: { value: "darkAlt" } },
   decorators: [
     (Story) => {
       return `

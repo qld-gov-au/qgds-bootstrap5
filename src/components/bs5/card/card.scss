@@ -50,9 +50,9 @@
   // Video styled card
   .video-overlay {
     --#{$prefix}video-nav-bg: var(--#{$prefix}light-action-primary);
-    --#{$prefix}video-nav-bg-rgb: 9, 84, 159;
+    --#{$prefix}video-nav-bg-rgb: 0, 94, 184;
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}light-action-primary-hover);
-    --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 125;
+    --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 150;
     --#{$prefix}video-nav-bg-opacity: 0.9;
     --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
     --#{$prefix}video-clock-icon-size: 1.25rem;
@@ -144,11 +144,11 @@
     }
     .video-overlay {
       --#{$prefix}video-nav-bg: var(--#{$prefix}dark-action-primary);
-      --#{$prefix}video-nav-bg-rgb: 120, 186, 0;
+      --#{$prefix}video-nav-bg-rgb: 132, 211, 255;
       --#{$prefix}video-nav-bg-hover: var(
         --#{$prefix}dark-action-primary-hover
       );
-      --#{$prefix}video-nav-bg-hover-rgb: 173, 211, 63;
+      --#{$prefix}video-nav-bg-hover-rgb: 166, 247, 255;
       --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
       --#{$prefix}video-play-icon-color: var(--#{$prefix}text-darkest);
     }
@@ -162,7 +162,7 @@
     --#{$prefix}card-footer-border: var(--#{$prefix}dark-border);
   }
   &-dark-alt {
-    --#{$prefix}card-bg: var(--#{$prefix}dark-blue);
+    --#{$prefix}card-bg: var(--#{$prefix}dark-alt-background);
     --#{$prefix}card-icon-background-color: var(
       --#{$prefix}dark-alt-background-shade
     );
@@ -429,6 +429,21 @@
       flex-wrap: wrap;
       .tag-item {
         margin: 0;
+      }
+    }
+    /////////////////////////////////////////////
+    // Override default spacing on link list component for icon links
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+      padding: 0;
+      gap: 0.75rem;
+      .link-item {
+        margin: 0;
+        a {
+          gap: 12px;
+        }
       }
     }
   }
