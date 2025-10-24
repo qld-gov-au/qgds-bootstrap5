@@ -10,7 +10,7 @@
         header-brand-divider-color:
           #{$color-default-color-light-accent-design-accent},
         header-logo-color: #{$core-default-color-neutral-black},
-        header-logo-color-hover: #{$color-default-color-light-link-default},
+        header-logo-color-hover: #{$core-default-color-neutral-black},
         header-subline-color: #{$color-default-color-light-text-default},
         site-title-color: #{$color-default-color-light-site-title},
       )
@@ -26,7 +26,7 @@
         header-brand-divider-color:
           #{$color-default-color-dark-accent-design-accent},
         header-logo-color: #{$color-default-color-dark-site-title},
-        header-logo-color-hover: #{$color-default-color-dark-link-default},
+        header-logo-color-hover: #{$color-default-color-dark-site-title},
         header-subline-color: #{$color-default-color-dark-text-default},
         site-title-color: #{$color-default-color-dark-site-title},
       )
