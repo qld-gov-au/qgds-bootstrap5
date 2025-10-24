@@ -8,12 +8,13 @@
   --qld-icon-color: var(--#{$prefix}light-text-lighter);
   --text-color: var(--#{$prefix}light-text-text);
   --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
-  
-  .dark &, .dark-alt & {
+
+  .dark &,
+  .dark-alt & {
     --text-heading: var(--#{$prefix}dark-text-lighter);
     --qld-focus-color: var(--#{$prefix}dark-focus);
   }
-  
+
   // Suggestions variables
   --suggestions-shadow:
     0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
@@ -40,12 +41,12 @@
   $border-radius: 0.25rem;
   --_size: 3rem;
 
-
   display: flex;
   position: relative;
   border-radius: $border-radius;
 
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
+  @include mixins.focusable($customSelector: " .btn:focus");
 
   &:has(.form-control:focus) {
     > button {
@@ -363,5 +364,4 @@
       }
     }
   }
-  
 }
