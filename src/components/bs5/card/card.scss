@@ -429,6 +429,7 @@
       flex-wrap: wrap;
       .tag-item {
         margin: 0;
+        font-weight: normal;
       }
     }
     /////////////////////////////////////////////
@@ -458,7 +459,6 @@
       li.tag-link {
         border-color: var(--#{$prefix}card-link-color);
         font-size: 0.875rem;
-        font-weight: normal;
         &:hover {
           border-color: var(--#{$prefix}link-hover-colour);
           background-color: var(--#{$prefix}link-hover-colour);
