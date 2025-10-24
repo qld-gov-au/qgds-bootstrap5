@@ -4,7 +4,10 @@
 <div class="qld-search-input {{customClass}}">
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
-
+    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
+        <span class="btn-icon"></span>
+        <span class="btn-label">{{ buttonLabel }}</span>
+    </button>
     {{#if suggestions}}
     <div class="suggestions suggestions__group d-none">
         <div class="default-suggestions">
@@ -36,8 +39,5 @@
         <div class="dynamic-suggestions"></div>
     </div>
     {{/if}}
-    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
-        <span class="btn-icon"></span>
-        <span class="btn-label">{{ buttonLabel }}</span>
-    </button>
+    
 </div>
