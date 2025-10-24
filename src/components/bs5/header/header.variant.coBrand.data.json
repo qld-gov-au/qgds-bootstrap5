@@ -1,6 +1,6 @@
 {
   "isCoBrand": true,
-  "hasDeliveringForQLDLogo": false,
+  "hasDeliveringForQLDLogo": true,
   "preHeader": {
     "palette": "default",
     "globalLink": {

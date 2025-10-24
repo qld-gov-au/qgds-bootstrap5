@@ -1,6 +1,6 @@
 {
   "isSubBrand": true,
-  "hasDeliveringForQLDLogo": false,
+  "hasDeliveringForQLDLogo": true,
   "preHeader": {
     "palette": "dark",
     "globalLink": {

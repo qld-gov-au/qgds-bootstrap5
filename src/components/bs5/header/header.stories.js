@@ -12,6 +12,17 @@ import cobrand_variant from "./header.variant.coBrand.data.json";
 import endorsed_variant from "./header.variant.endorsed.data.json";
 import standalone_variant from "./header.variant.standAlone.data.json";
 
+/**
+ * #### Regarding the "Delivering for Queensland" logo.
+ *
+ * The `hasDeliveringForQLDLogo` option should always be set to `true` for all brand configurations.
+ * This overrides the standard Coat Of Arms logo, and will always be displayed in the preheader region on mobile and table screens regardless of brand configuration.
+ *
+ * The "Delivering for QLD" logo is also displayed on desktop screens in the main content region except under these conditions:
+ * - When `mainContent.siteTitle` has a value, the displayed logo will default to a standard COA stacked logo for space reasons.
+ * - When `mainContent.logo.src` has a value, will display the chosen custom logo.
+ *
+ */
 export default {
   tags: ["autodocs"],
   title: "2. Layout/Header",

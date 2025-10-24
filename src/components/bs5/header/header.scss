@@ -157,8 +157,6 @@
 
     a:hover & {
       color: var(--#{$prefix}header-logo-color-hover);
-      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08))
-        drop-shadow(0 13px 20px rgba(0, 0, 0, 0.08));
     }
 
     .qld-header-pre-header & {
@@ -171,6 +169,12 @@
       @include media-breakpoint-up(lg) {
         display: none;
       }
+    }
+
+    // delivering for qld custom colors.
+    &.is-delivering-for-qld {
+      --#{$prefix}header-logo-color: var(--qld-site-title-color);
+      --#{$prefix}header-logo-color-hover: var(--qld-site-title-color);
     }
   }
 
