@@ -7,8 +7,10 @@
   color: var(--qld-body-color);
   --qld-action-icon-color: var(--qld-light-action-secondary);
   --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
+  --qld-body-bg: var(--qld-default-background);
   --qld-body-color: #{$body-color};
   --qld-body-font-weight: #{$body-font-weight};
+  --qld-border-color: var(--qld-light-border);
   --qld-focus-color: var(--qld-light-focus);
   --qld-headings-color: #{$headings-color};
   --qld-link-color: #{$link-color};
@@ -56,8 +58,6 @@
 :root,
 .default {
   @include light-theme-properties;
-  --qld-body-bg: var(--qld-default-background);
-  --qld-border-color: var(--qld-light-border);
 }
 
 // Light theme
