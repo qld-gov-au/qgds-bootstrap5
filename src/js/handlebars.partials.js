@@ -38,6 +38,7 @@ import inpagenav from "../components/bs5/inpagenav/inpagenav.hbs?raw";
 import link from "../components/bs5/link/link.hbs?raw";
 import linkColumns from "../components/bs5/linkColumns/linkColumns.hbs?raw";
 import logo from "../components/bs5/logo/logo.hbs?raw";
+import logoCOADeliveringForQLD from "../components/bs5/logo/logoCOADeliveringForQLD.hbs?raw";
 import logoCOALandscape from "../components/bs5/logo/logoCOALandscape.hbs?raw";
 import logoCOALandscape2Lines from "../components/bs5/logo/logoCOALandscape2Lines.hbs?raw";
 import mainContainerWrapper from "../components/bs5/mainContainerWrapper/mainContainerWrapper.hbs?raw";
@@ -106,6 +107,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("link", link);
   handlebars.registerPartial("linkColumns", linkColumns);
   handlebars.registerPartial("logo", logo);
+  handlebars.registerPartial("logoCOADeliveringForQLD", logoCOADeliveringForQLD);
   handlebars.registerPartial("logoCOALandscape", logoCOALandscape);
   handlebars.registerPartial("logoCOALandscape2Lines", logoCOALandscape2Lines);
   handlebars.registerPartial("mainContainerWrapper", mainContainerWrapper);

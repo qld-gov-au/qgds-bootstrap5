@@ -1,4 +1,4 @@
-import { Header } from "./Header.js";
+import { Header, argTypes } from "./Header.js";
 import { Navbar } from "../navbar/Navbar.js";
 import { SearchInput } from "../searchInput/SearchInput.js";
 
@@ -18,10 +18,10 @@ export default {
   render: (args) => {
     return `
         ${new Header({ ...args, searchInput: new SearchInput(searchData).html }).html}
-        ${new Navbar(args).html}
+        ${new Navbar(menu_state).html}
         `;
   },
-  argTypes: {},
+  argTypes,
   parameters: {
     layout: "fullscreen",
     docs: {
@@ -45,7 +45,6 @@ export default {
 export const MasterBrand = {
   args: {
     ...masterbrand_variant,
-    ...menu_state,
   },
   decorators: [
     (Story) => {
@@ -59,7 +58,6 @@ export const MasterBrand = {
 export const SubBrand = {
   args: {
     ...subbrand_variant,
-    ...menu_state,
   },
   decorators: [
     (Story) => {
@@ -74,7 +72,6 @@ export const SubBrand = {
 export const CoBrand = {
   args: {
     ...cobrand_variant,
-    ...menu_state,
   },
   decorators: [
     (Story) => {
@@ -87,7 +84,9 @@ export const CoBrand = {
 
 // Endorsed brand
 export const EndorsedBrand = {
-  args: { ...endorsed_variant, ...menu_state },
+  args: {
+    ...endorsed_variant,
+  },
   decorators: [
     (Story) => {
       return `
@@ -99,7 +98,9 @@ export const EndorsedBrand = {
 
 // Standalone
 export const StandaloneBrand = {
-  args: { ...standalone_variant, ...menu_state },
+  args: {
+    ...standalone_variant,
+  },
   decorators: [
     (Story) => {
       return `

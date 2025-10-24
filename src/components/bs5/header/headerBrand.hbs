@@ -4,12 +4,12 @@
         <div class="qld-header-brand-image qld-header-logo align-self-center">
             {{#if logo}}
             <img src="{{logo.src}}" height="56" alt="{{#if logo.altText}}{{logo.altText}}{{else}}Queensland government{{/if}}" />
-            {{else}}
-            {{#if siteTitle}}
+            {{else if hasDeliveringForQLDLogo}}
+            {{>logo logo="coa-delivering-for-qld" height="56" fill="currentColor"}}
+            {{else if siteTitle}}
             {{>logo logo="coa-landscape-2lines" height="56" fill="currentColor"}}
             {{else}}
             {{>logo height="56" fill="currentColor"}}
-            {{/if}}
             {{/if}}
         </div>
         {{#if secondaryLogo}}
