@@ -1,4 +1,11 @@
 // CSS utilities for fixed-ratio specific QGDS images
+//
+// Accessibility Notes:
+// - Static images don't require keyboard focus (not interactive)
+// - Use semantic <figure> and <figcaption> elements for proper screen reader support
+// - Alt text describes visual content; caption/description provides context
+// - Both are read by screen readers, so they should complement each other
+// - Caption text is keyboard accessible as standard HTML text (no special handling needed)
 
 /* prettier-ignore-start */
 .image-ratio-1x1 { --image-ratio: calc(1 / 1); }
@@ -20,28 +27,33 @@ img[class*="image-ratio-"] {
 
 figure {
   --figure-bg: var(--qld-neutral-lightest);
-  --figure-color: var(--qld-light-text-lighter);
+  --figure-description-color: var(--qld-light-text-text);
+  --figure-credit-color: var(--qld-light-text-lighter);
 
   display: table;
 
   &.light {
     --figure-bg: var(--qld-light-background-shade);
-    --figure-color: var(--qld-light-text-lighter);
+    --figure-description-color: var(--qld-light-text-text);
+    --figure-credit-color: var(--qld-light-text-lighter);
   }
 
   &.light-alt {
     --figure-bg: var(--qld-light-alt-background-shade);
-    --figure-color: var(--qld-light-text-lighter);
+    --figure-description-color: var(--qld-light-text-text);
+    --figure-credit-color: var(--qld-light-text-lighter);
   }
 
   &.dark {
     --figure-bg: var(--qld-dark-background-shade);
-    --figure-color: var(--qld-dark-text-text);
+    --figure-description-color: var(--qld-dark-text-text);
+    --figure-credit-color: var(--qld-dark-text-lighter);
   }
 
   &.dark-alt {
     --figure-bg: var(--qld-dark-alt-background-shade);
-    --figure-color: var(--qld-dark-text-text);
+    --figure-description-color: var(--qld-dark-text-text);
+    --figure-credit-color: var(--qld-dark-text-lighter);
   }
 
   > img {
@@ -50,11 +62,28 @@ figure {
 
   > figcaption {
     background: var(--figure-bg);
-    color: var(--figure-color);
+    color: var(--figure-description-color);
+    font-size: 1rem;
+    line-height: 24px;
 
     display: table-caption;
     caption-side: bottom;
-    padding: 0.5rem;
+    padding: 1rem;
+  }
+
+  .figure-description {
+    display: block;
+    font-size: 1rem;
+    line-height: 24px;
+    color: var(--figure-description-color);
+  }
+
+  .figure-credit {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 20px;
+    color: var(--figure-credit-color);
+    margin-top: 0.5rem;
   }
 
   //Reset bootstrap's figure margin

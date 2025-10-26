@@ -141,6 +141,27 @@ export default {
       options: ["px", "%"],
     },
 
+    "description": {
+      name: "Description",
+      description:
+        "Optional. Main description text for the image caption (16px, line-height 24px). When provided along with credit, creates a structured caption. For backwards compatibility, use 'caption' field for simple text.",
+      control: "text",
+    },
+
+    "credit": {
+      name: "Credit",
+      description:
+        "Optional. Credit text for the image (14px, line-height 20px, lighter color). Displays below the description text.",
+      control: "text",
+    },
+
+    "caption": {
+      name: "Caption (Legacy)",
+      description:
+        "Optional. Simple caption text for backwards compatibility. If description or credit are provided, this field is ignored. Use description/credit for structured captions.",
+      control: "text",
+    },
+
     // Disabled controls, not needed in Storybook UI
     // "tabindex", "role", "storycolumn"
     "tabindex": {
@@ -242,12 +263,16 @@ export const UtilityClasses = {
 
 /**
  * Figure with Image and caption
+ *
+ * This example demonstrates the structured caption with description and credit fields.
+ * The description uses 16px font with 24px line-height, while the credit uses 14px font with 20px line-height and lighter color.
  */
 export const FigureWithImageCaption = {
   args: {
     ...imagedata,
-    caption:
+    description:
       "This is a caption for the image. It can be long or short. Longer captions, like this one, should wrap to the next line.",
+    credit: "Photo by Queensland Government",
   },
 };
 
