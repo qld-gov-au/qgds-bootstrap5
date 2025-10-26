@@ -38,6 +38,7 @@ import inpagenav from "../components/bs5/inpagenav/inpagenav.hbs?raw";
 import link from "../components/bs5/link/link.hbs?raw";
 import linkColumns from "../components/bs5/linkColumns/linkColumns.hbs?raw";
 import logo from "../components/bs5/logo/logo.hbs?raw";
+import logoCOADeliveringForQLD from "../components/bs5/logo/logoCOADeliveringForQLD.hbs?raw";
 import logoCOALandscape from "../components/bs5/logo/logoCOALandscape.hbs?raw";
 import logoCOALandscape2Lines from "../components/bs5/logo/logoCOALandscape2Lines.hbs?raw";
 import mainContainerWrapper from "../components/bs5/mainContainerWrapper/mainContainerWrapper.hbs?raw";
@@ -62,6 +63,7 @@ import textbox from "../components/bs5/textbox/textbox.hbs?raw";
 import typography from "../components/bs5/typography/typography.hbs?raw";
 import video from "../components/bs5/video/video.hbs?raw";
 
+
 /**
  * Registers Handlebars Partials
  * @param {Handlebars} handlebars Templating engine
@@ -82,10 +84,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("contentFooter", contentFooter);
   handlebars.registerPartial("contentFooterWrapper", contentFooterWrapper);
   handlebars.registerPartial("contentPageWithForm", contentPageWithForm);
-  handlebars.registerPartial(
-    "contentPageWithSideNavigation",
-    contentPageWithSideNavigation,
-  );
+  handlebars.registerPartial("contentPageWithSideNavigation", contentPageWithSideNavigation);
   handlebars.registerPartial("contentWrapper", contentWrapper);
   handlebars.registerPartial("correctincorrect", correctincorrect);
   handlebars.registerPartial("customLinks", customLinks);
@@ -108,6 +107,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("link", link);
   handlebars.registerPartial("linkColumns", linkColumns);
   handlebars.registerPartial("logo", logo);
+  handlebars.registerPartial("logoCOADeliveringForQLD", logoCOADeliveringForQLD);
   handlebars.registerPartial("logoCOALandscape", logoCOALandscape);
   handlebars.registerPartial("logoCOALandscape2Lines", logoCOALandscape2Lines);
   handlebars.registerPartial("mainContainerWrapper", mainContainerWrapper);
@@ -131,7 +131,8 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("textbox", textbox);
   handlebars.registerPartial("typography", typography);
   handlebars.registerPartial("video", video);
+
 }
-if (typeof Handlebars !== "undefined") {
+if(typeof(Handlebars) !== 'undefined') {
   handlebarsPartials(Handlebars);
 }

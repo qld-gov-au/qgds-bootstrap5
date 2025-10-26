@@ -4,17 +4,11 @@
 //All alerts have the same text and background color, even on darker themes
 //To account for this, we redefine the global vars at the .alert scope
 
-.alert,
-.light .alert,
-.light-alt .alert,
-.dark .alert,
-.dark-alt .alert {
+.alert {
+  @include light-theme-properties();
   --qld-headings-color: var(--#{$prefix}light-text-text);
-  --qld-body-color: var(--#{$prefix}light-text-text);
   --qld-alert-color: var(--#{$prefix}light-text-text);
   --qld-alert-bg: #fff;
-  --qld-selection-color: var(--qld-white);
-  --qld-selection-bg: var(--qld-brand-primary);
 }
 
 .alert {
