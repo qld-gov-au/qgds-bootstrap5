@@ -81,7 +81,7 @@ jobs:
         run: | # build the files
           npm run build
 
-      - uses: actions/upload-artifact@v4.3.1
+      - uses: actions/upload-artifact@v5
         with:
           name: Package
           path: ./dist
@@ -131,7 +131,7 @@ jobs:
           npm run build-storybook
 
       - name: Package storybook files
-        uses: actions/upload-artifact@v4 #provide nice artifact
+        uses: actions/upload-artifact@v5 #provide nice artifact
         with:
           name: Storybook
           path: storybook-static
