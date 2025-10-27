@@ -27,32 +27,32 @@ img[class*="image-ratio-"] {
 
 figure {
   --figure-bg: var(--qld-neutral-lightest);
-  --figure-description-color: var(--qld-light-text-text);
+  --figure-caption-color: var(--qld-light-text-text);
   --figure-credit-color: var(--qld-light-text-lighter);
 
   display: table;
 
   &.light {
     --figure-bg: var(--qld-light-background-shade);
-    --figure-description-color: var(--qld-light-text-text);
+    --figure-caption-color: var(--qld-light-text-text);
     --figure-credit-color: var(--qld-light-text-lighter);
   }
 
   &.light-alt {
     --figure-bg: var(--qld-light-alt-background-shade);
-    --figure-description-color: var(--qld-light-text-text);
+    --figure-caption-color: var(--qld-light-text-text);
     --figure-credit-color: var(--qld-light-text-lighter);
   }
 
   &.dark {
     --figure-bg: var(--qld-dark-background-shade);
-    --figure-description-color: var(--qld-dark-text-text);
+    --figure-caption-color: var(--qld-dark-text-text);
     --figure-credit-color: var(--qld-dark-text-lighter);
   }
 
   &.dark-alt {
     --figure-bg: var(--qld-dark-alt-background-shade);
-    --figure-description-color: var(--qld-dark-text-text);
+    --figure-caption-color: var(--qld-dark-text-text);
     --figure-credit-color: var(--qld-dark-text-lighter);
   }
 
@@ -62,20 +62,13 @@ figure {
 
   > figcaption {
     background: var(--figure-bg);
-    color: var(--figure-description-color);
+    color: var(--figure-caption-color);
     font-size: 1rem;
     line-height: 24px;
 
     display: table-caption;
     caption-side: bottom;
     padding: 1rem;
-  }
-
-  .figure-description {
-    display: block;
-    font-size: 1rem;
-    line-height: 24px;
-    color: var(--figure-description-color);
   }
 
   .figure-credit {

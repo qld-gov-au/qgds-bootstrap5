@@ -43,7 +43,7 @@ export default {
   },
 
   argTypes: {
-    "ratioClass": {
+    ratioClass: {
       name: "Fixed image ratio",
       description: "Set the ratio class for the image component.",
       control: {
@@ -67,21 +67,21 @@ export default {
       ],
     },
 
-    "otherClass": {
+    otherClass: {
       name: "Other Classes",
       description:
         "Optional. Any additional classes to apply to the image element for custom styling.",
       control: "text",
     },
 
-    "figureClass": {
+    figureClass: {
       name: "Figure Class",
       description:
         "Optional. Any custom class to pass to the figure element for additional styling.",
       control: "text",
     },
 
-    "positionX": {
+    positionX: {
       name: "Position X",
       description:
         "Optional. Adjust the horizontal image placement within the aspect ratio crop.",
@@ -96,7 +96,7 @@ export default {
       options: ["position-x-left", "position-x-center", "position-x-right"],
     },
 
-    "positionY": {
+    positionY: {
       name: "Position Y",
       description:
         "Optional. Adjust the vertical image placement within the aspect ratio crop.",
@@ -111,14 +111,14 @@ export default {
       options: ["position-y-top", "position-y-center", "position-y-bottom"],
     },
 
-    "width": {
+    width: {
       name: "Width",
       description:
         "Optional. Set the width of the image (e.g., '350', '100'). Use the unit fields to specify px or %.",
       control: "text",
     },
 
-    "widthUnit": {
+    widthUnit: {
       name: "Width Unit",
       description:
         "Select the unit for the width of the image. Choose 'px' for pixels or '%' for percentage.",
@@ -126,14 +126,14 @@ export default {
       options: ["px", "%"],
     },
 
-    "height": {
+    height: {
       name: "Height",
       description:
         "Optional. Set the height of the image (optional - note responsive images will scale their height). Use the unit field to specify px or %.",
       control: "text",
     },
 
-    "heightUnit": {
+    heightUnit: {
       name: "Height Unit",
       description:
         "Optional. Select the unit for the height of the image. Choose 'px' for pixels or '%' for percentage.",
@@ -141,38 +141,31 @@ export default {
       options: ["px", "%"],
     },
 
-    "description": {
-      name: "Description",
+    caption: {
+      name: "Caption",
       description:
-        "Optional. Main description text for the image caption (16px, line-height 24px). When provided along with credit, creates a structured caption. For backwards compatibility, use 'caption' field for simple text.",
+        "Optional. Main caption text for the image (16px, line-height 24px). Provides context or additional information about the image. For accessibility: caption should complement (not duplicate) the alt text. Alt text describes what's in the image; caption provides context or additional information. Both are read by screen readers.",
       control: "text",
     },
 
-    "credit": {
+    credit: {
       name: "Credit",
       description:
-        "Optional. Credit text for the image (14px, line-height 20px, lighter color). Displays below the description text.",
-      control: "text",
-    },
-
-    "caption": {
-      name: "Caption (Legacy)",
-      description:
-        "Optional. Simple caption text for backwards compatibility. If description or credit are provided, this field is ignored. Use description/credit for structured captions.",
+        "Optional. Credit/attribution text for the image (14px, line-height 20px, lighter color). Displays below the caption text.",
       control: "text",
     },
 
     // Disabled controls, not needed in Storybook UI
     // "tabindex", "role", "storycolumn"
-    "tabindex": {
+    tabindex: {
       table: { disable: true },
     },
 
-    "role": {
+    role: {
       table: { disable: true },
     },
 
-    "storycolumn": {
+    storycolumn: {
       table: { disable: true },
     },
   },
@@ -264,13 +257,13 @@ export const UtilityClasses = {
 /**
  * Figure with Image and caption
  *
- * This example demonstrates the structured caption with description and credit fields.
- * The description uses 16px font with 24px line-height, while the credit uses 14px font with 20px line-height and lighter color.
+ * This example demonstrates the structured caption with caption and credit fields.
+ * The caption uses 16px font with 24px line-height, while the credit uses 14px font with 20px line-height and lighter color.
  */
 export const FigureWithImageCaption = {
   args: {
     ...imagedata,
-    description:
+    caption:
       "This is a caption for the image. It can be long or short. Longer captions, like this one, should wrap to the next line.",
     credit: "Photo by Queensland Government",
   },
@@ -292,7 +285,6 @@ export const FloatedImage = {
   },
 
   render: (args) => {
-    
     args.src = "assets/img/image-example-couple-beach-md.jpg";
 
     let imageTag = Handlebars.compile(template)({ ...args, caption: null });
