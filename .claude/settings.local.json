@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(md5sum:*)",
+      "Bash(git checkout:*)",
+      "Bash(/dev/null)",
+      "Bash(git stash:*)",
+      "Bash(npm run build-storybook:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh api:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm test:*)",
+      "Bash(for i in {1..3})",
+      "Bash(do echo \"=== Run $i ===\")",
+      "Bash(done)",
+      "Read(//Users/draonglong/Library/**)",
+      "Bash(cat ~/Library/Application Support/Claude/claude_desktop_config.json)",
+      "Read(//Users/draonglong/.config/**)",
+      "Bash(cat ~/Library/Application Support/Code/User/settings.json)",
+      "Bash(gh pr diff 865 --repo qld-gov-au/qgds-bootstrap5)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
