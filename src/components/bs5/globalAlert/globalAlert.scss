@@ -1,27 +1,25 @@
 .global-alert {
   line-height: 1.25rem;
   border-radius: 0;
-  border-top-style: solid;
+  border-block-start-style: solid;
   border-width: 0;
-
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  padding-left: 2rem;
-  margin-bottom: 0;
+  padding-block: 0.75rem;
+  padding-inline-start: 2rem;
+  padding-inline-end: 1.25rem;
+  margin-block-end: 0;
 
   &:first-child:not(:only-child) {
-    border-top-width: 1px;
+    border-block-start-width: 1px;
   }
 
   & + & {
-    border-top-width: 1px;
+    border-block-start-width: 1px;
   }
 
   &.alert {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 2rem;
-    margin-bottom: 0;
+    padding-block: 0.75rem;
+    padding-inline-start: 2rem;
+    margin-block-end: 0;
   }
 
   .qld-global-alert-main {
@@ -36,7 +34,8 @@
   .global-alert-icon {
     width: 1.25rem;
     height: 1.25rem;
-    padding: 0.5rem 0;
+    padding-block: 0.5rem;
+    padding-inline: 0;
   }
 
   .global-alert-content {
@@ -44,7 +43,8 @@
     flex-direction: column;
     gap: 0.5rem;
     flex-grow: 1;
-    padding: 0.5rem 0;
+    padding-block: 0.5rem;
+    padding-inline: 0;
 
     // Link styling placed outside the 'action link', to include all links within the content as well.
     a,
@@ -62,6 +62,7 @@
       display: flex;
       gap: 0.5rem;
     }
+
     // Action link styling
     .global-alert-action a {
       display: flex;
@@ -81,9 +82,9 @@
 
     .btn-close {
       position: relative;
-      top: 0;
-      right: 0;
-      background-color: rgba(19, 18, 18, 0.1);
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      background-color: rgba(19, 18, 18, 0.1); // add CSS variable for black with 10% opacity?
       border-radius: 50%;
       width: 2rem;
       height: 2rem;
@@ -100,9 +101,8 @@
         display: block;
         width: 1.25rem;
         height: 1.25rem;
-        background-color: #000000;
+        background-color: #000000; // add CSS variable for black?
         mask-image: var(--qgds-icon-close);
-        -webkit-mask-image: var(--qgds-icon-close);
         mask-position: center center;
         mask-repeat: no-repeat;
         mask-size: contain;
@@ -124,11 +124,10 @@
 
   &.global-alert-critical {
     --#{$prefix}icon-color: #{$core-default-color-neutral-white};
-    //
     background-color: $qld-notify-warning;
     color: var(--#{$prefix}white);
     font-size: 0.875em;
-    border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
+    border-block-start-color: var(--#{$prefix}core-default-color-status-error-darker);
 
     .qld-icon {
       background-color: var(--#{$prefix}white);
@@ -136,7 +135,7 @@
 
     a {
       &:focus {
-        outline-color: #fff;
+        outline-color: var(--#{$prefix}white);
       }
     }
 
@@ -151,21 +150,20 @@
 
     .global-alert-close .btn-close {
       &:focus {
-        outline-color: #ffffff;
+        outline-color: var(--#{$prefix}white);
       }
       &::before {
-        background-color: #ffffff;
+        background-color: var(--#{$prefix}white);
       }
     }
   }
 
   &.global-alert-warning {
     --#{$prefix}icon-color: #{$core-default-color-neutral-black};
-    //
     background-color: $qld-notify-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
-    border-top-color: var(--#{$prefix}core-default-color-status-caution-darker);
+    border-block-start-color: var(--#{$prefix}core-default-color-status-caution-darker);
 
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
@@ -175,11 +173,10 @@
 
   &.global-alert-info {
     --#{$prefix}icon-color: #{$core-default-color-neutral-black};
-    //
     background-color: $qld-general-info-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
-    border-top-color: var(--#{$prefix}core-default-color-status-info-darker);
+    border-block-start-color: var(--#{$prefix}core-default-color-status-info-darker);
 
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
@@ -197,12 +194,14 @@
     }
 
     &.global-alert-message {
-      padding: 0 3rem 0 1rem; // Also: 0 48px 0 16px, according to Health DS
+      padding-block: 0;
+      padding-inline-start: 1rem; // Also: 0 48px 0 16px, according to Health DS
+      padding-inline-end: 3rem; // Also: 0 48px 0 16px, according to Health DS
     }
 
     &.global-alert-action {
       flex-shrink: 0; //  Prevent action link from shrinking/collapsing
-      margin-left: 2rem;
+      margin-inline-start: 2rem;
     }
   }
 }
