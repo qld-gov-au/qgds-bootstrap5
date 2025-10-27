@@ -26,6 +26,6 @@
 <div class="invalid-feedback">{{errorMessageText}}</div>
 {{/if}}{{/contains}}
 
-<input id={{id}} class="qld-text-input form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+<input id={{id}} class="form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     type="text" placeholder="{{placeholder}}" {{#if isDisabled}}disabled{{/if}} {{#if
     isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />

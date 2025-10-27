@@ -17,9 +17,8 @@ export default {
 
     return new Textbox(args).html;
   },
-
   parameters: { backgrounds: { disable: false } },
-
+  globals: { backgrounds: { value: "default" } },
   //https://storybook.js.org/docs/api/arg-types
   argTypes,
 };
@@ -39,12 +38,7 @@ export const Dark = {
     ...defaultdata,
     ...{ isDisabled: false },
   },
-  parameters: {
-    backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -62,7 +56,7 @@ export const Dark = {
 export const Filled = {
   args: {
     ...defaultdata,
-    ...{ customClass: "form-style-filled" },
+    customClass: "form-style-filled",
   },
 };
 
@@ -72,7 +66,7 @@ export const Filled = {
 export const Disabled = {
   args: {
     ...defaultdata,
-    ...{ isDisabled: true },
+    isDisabled: true,
   },
 };
 
@@ -82,7 +76,8 @@ export const Disabled = {
 export const Valid = {
   args: {
     ...defaultdata,
-    ...{ customClass: "qld-input-success" },
+    isValid: true,
+    // ...{ customClass: "qld-input-success" },
   },
 };
 
@@ -92,6 +87,7 @@ export const Valid = {
 export const Invalid = {
   args: {
     ...defaultdata,
-    ...{ customClass: "qld-input-error" },
+    isValid: false,
+    // ...{ customClass: "qld-input-error" },
   },
 };

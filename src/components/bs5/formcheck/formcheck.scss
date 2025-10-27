@@ -19,7 +19,7 @@ $input-padding-y-lg: $input-padding-y;
 $input-padding-x-lg: $input-padding-x;
 $input-font-size-lg: 1rem;
 
-$input-border-width: 3px;
+$input-border-width: 2px;
 $input-border-radius: $border-radius;
 $input-transition:
   border-color 0.15s ease-in-out,
@@ -109,25 +109,68 @@ $form-check-inline-margin-end: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.form-control,
-.form-select {
+%form-control {
+  $_padding: $input-padding-y $input-padding-x;
   @extend %form-control-variables;
 
-  color: var(--#{$prefix}form-control-color);
-  background-color: var(--#{$prefix}form-control-bg);
-  border: solid $input-border-width var(--#{$prefix}form-control-border-color);
-  padding: $input-padding-y $input-padding-x;
+  color: var(--#{$prefix}color);
+  background-color: var(--#{$prefix}bg);
+  border: solid $input-border-width var(--#{$prefix}border-color);
+  padding: $_padding;
   border-radius: $input-border-radius;
   font-size: $input-font-size;
 
-  @include m.focusable() {
-    box-shadow: none;
+  &::placeholder {
+    color: var(--#{$prefix}placeholder-color);
   }
 
   &:hover {
-    background-color: var(--#{$prefix}form-control-bg-hover);
-    border-color: var(--#{$prefix}form-control-border-color-hover);
+    // color: var(--#{$prefix}color-hover);
+    background-color: var(--#{$prefix}bg-hover);
+    border-color: var(--#{$prefix}border-color-hover);
+    --#{$prefix}placeholder-color: var(--#{$prefix}placeholder-color-hover);
   }
+
+  @include m.focusable() {
+    color: var(--#{$prefix}color-focus);
+    background-color: var(--#{$prefix}bg-focus);
+    border-color: var(--#{$prefix}border-color-focus);
+    --#{$prefix}placeholder-color: var(--#{$prefix}placeholder-color-focus);
+    box-shadow: none !important;
+  }
+
+  &:disabled {
+    &,
+    &:hover {
+      cursor: not-allowed;
+      opacity: 0.5;
+      // color: var(--#{$prefix}form-control-color);
+      background-color: var(--#{$prefix}form-control-bg);
+      border-color: var(--#{$prefix}form-control-border-color);
+    }
+  }
+
+  // Bootstrap base styling overrides
+  &.is-valid,
+  &.is-invalid {
+    border-color: var(
+      --#{$prefix}border-color
+    ); // already scoped to .valid/.invalid.
+    // USe the same padding value as default state, and remove the background image icon.
+    padding: $_padding;
+    background-image: none;
+
+    &:focus {
+      border-color: var(
+        --#{$prefix}border-color-focus
+      ); // This value already scoped to valid/invalid.
+    }
+  }
+}
+
+.form-control,
+.form-select {
+  @extend %form-control;
 }
 
 .form-check {
