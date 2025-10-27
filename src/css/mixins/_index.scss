@@ -3,5 +3,6 @@
 @forward "make-icon" with (
   $prefix: "qld-"
 );
+@forward "make-link";
 @forward "register-vars";
 @forward "unset-button-styles";

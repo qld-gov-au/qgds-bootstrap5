@@ -92,6 +92,9 @@
   list-style-type: none;
   margin: 0.5rem 0;
   padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
   .tag-item {
     --_padding-y: 0;
@@ -103,12 +106,11 @@
   
     display: inline-flex;
     align-items: center;
-    color: var(--#{$prefix}dark-grey-muted);
-    margin-top: 0.5rem;
-    gap: calc(var(--_padding-x) / 2);
+    color: var(--#{$prefix}light-text-lighter);
+    // margin: 0 1rem 1rem 0;
     padding: var(--_padding-y) var(--_padding-x);
     list-style-type: none;
-    border: var(--_border-width) solid var(--#{$prefix}light-grey);
+    border: var(--_border-width) solid var(--#{$prefix}neutral-lighter);
     border-radius: 1rem;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -120,14 +122,13 @@
       --_padding-x: 1rem;
       --_height: 2.5rem;
       --_icon-size: 1.5rem;
-      margin: 0 1rem 1rem 0;
       font-size: 1rem;
       border-radius: calc(var(--_height) / 2);
     }
 
     &.tag-link {
-      color: var(--#{$prefix}sapphire-blue);
-      border-color: var(--#{$prefix}sapphire-blue);
+      color: var(--#{$prefix}light-link);
+      border-color: var(--#{$prefix}light-link);
 
       a {
         text-decoration: none;
@@ -143,14 +144,13 @@
       &:active,
       &:focus,
       &:focus-within {
-        background-color: var(--#{$prefix}textbox-border-color);
-        color: var(--#{$prefix}white);
-        background-color: var(--#{$prefix}button-dark-blue);
+        color: var(--#{$prefix}light-link-on-action);
+        background-color: var(--#{$prefix}light-action-primary-hover);
         text-decoration: underline;
         text-underline-offset: var(--#{$prefix}link-underline-offset);
 
         a {
-          color: var(--#{$prefix}white);
+          color: var(--#{$prefix}light-link-on-action);
         }
       }
     }
@@ -165,9 +165,9 @@
     }
 
     &.tag-info {
-      color: var(--#{$prefix}dark-grey-muted);
+      color: var(--#{$prefix}light-text-lighter);
       border: 0;
-      background-color: var(--#{$prefix}extra-light-grey);
+      background-color: var(--#{$prefix}neutral-lightest);
     }
   }
 
@@ -300,20 +300,22 @@
     }
   }
 
-  &.tag-dark {
-    background-color: var(--#{$prefix}sapphire-blue);
+  &.tag-dark,
+  .dark &:not(.tag-dark):not(.tag-dark-alt):not(.tag-alt) {
+    background-color: var(--#{$prefix}dark-background);
 
     .tag-item {
       --qld-focus-color: #{$qld-dark-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color correctly here.
-      color: var(--#{$prefix}dark-text);
+      color: var(--#{$prefix}dark-text-lighter);
+      border-color: var(--#{$prefix}dark-alt-border);
     }
 
     .tag-link {
-      color: var(--#{$prefix}white);
-      border-color: var(--#{$prefix}white);
+      color: var(--#{$prefix}dark-link);
+      border-color: var(--#{$prefix}dark-link);
 
       a {
-        color: white;
+        color: var(--#{$prefix}dark-link);
       }
 
       &:hover,
@@ -321,17 +323,18 @@
       &:focus,
       &:focus-within {
         background-color: var(--#{$prefix}dark-action-primary-hover);
-        border-color: var(--#{$prefix}light-green-dark);
-        color: var(--#{$prefix}text-darkest);
+        border-color: var(--#{$prefix}dark-action-primary-hover);
+        color: var(--#{$prefix}dark-link-on-action);
 
         a {
-          color: var(--#{$prefix}text-darkest);
+          color: var(--#{$prefix}dark-link-on-action);
         }
       }
     }
 
     .tag-info {
-      background-color: var(--#{$prefix}color-dark-background--shade);
+      background-color: var(--#{$prefix}dark-background-shade);
+      color: var(--#{$prefix}dark-text-lighter);
     }
 
     .tag-clear-filter-button {
@@ -344,11 +347,11 @@
   }
 
   &.tag-alt {
-    background-color: var(--#{$prefix}light-grey-alt);
+    background-color: var(--#{$prefix}light-alt-background);
 
     .tag-item {
-      color: var(--#{$prefix}dark-grey-muted);
-      border-color: var(--#{$prefix}soft-grey);
+      color: var(--#{$prefix}light-text-lighter);
+      border-color: var(--#{$prefix}light-alt-border);
     }
 
     .tag-link:hover,
@@ -358,27 +361,55 @@
     }
 
     .tag-link {
-      color: var(--#{$prefix}sapphire-blue);
-      border-color: var(--#{$prefix}sapphire-blue);
+      color: var(--#{$prefix}light-link);
+      border-color: var(--#{$prefix}light-link);
     }
   }
 
-  &.tag-dark-alt {
-    background-color: var(--#{$prefix}dark-blue);
+  &.tag-light {
+    background-color: var(--#{$prefix}light-background);
+
+    .tag-item {
+      color: var(--#{$prefix}light-text-lighter);
+      border-color: var(--#{$prefix}light-border);
+    }
+
+    .tag-link {
+      color: var(--#{$prefix}light-link);
+      border-color: var(--#{$prefix}light-link);
+    }
+
+    .tag-info {
+      background-color: var(--#{$prefix}light-background-shade);
+    }
+
+    .tag-clear-filter-button {
+      color: var(--#{$prefix}light-action-secondary);
+
+      &:hover {
+        color: var(--#{$prefix}light-action-secondary-hover);
+      }
+    }
+  }
+
+  &.tag-dark-alt,
+  .dark-alt &:not(.tag-dark, .tag-dark-alt, .tag-alt) {
+    background-color: var(--#{$prefix}dark-alt-background);
 
     .tag-item {
       --qld-focus-color: #{$qld-dark-focus}; // because we use component-scoped context (.tag-dark) not global .dark, need to set focus color correctly here.
 
       a {
-        color: var(--#{$prefix}dark-text);
+        color: var(--#{$prefix}dark-text-lighter);
       }
 
-      color: var(--#{$prefix}dark-text);
+      color: var(--#{$prefix}dark-text-lighter);
       border-color: var(--#{$prefix}dark-border);
     }
 
     .tag-info {
-      background-color: var(--#{$prefix}dark-blue-shade);
+      background-color: var(--#{$prefix}dark-alt-background-shade);
+      color: var(--#{$prefix}dark-text-lighter);
     }
 
     .tag-link {
@@ -387,11 +418,11 @@
       &:focus,
       &:focus-within {
         background-color: var(--#{$prefix}dark-action-primary-hover);
-        border-color: var(--#{$prefix}light-green-dark);
-        color: var(--#{$prefix}text-darkest);
+        border-color: var(--#{$prefix}dark-link-on-action);
+        color: var(--#{$prefix}dark-link-on-action);
 
         a {
-          color: var(--#{$prefix}text-darkest);
+          color: var(--#{$prefix}dark-link-on-action);
         }
       }
     }

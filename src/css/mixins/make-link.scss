@@ -1,0 +1,40 @@
+@use "focusable" as *;
+@use "../variables/animation";
+
+///
+/// Apply generic links styles. Ensures consistent styles including transition effects.
+@mixin make-link() {
+  color: var(--qld-link-color);
+  transition: {
+    property:
+      color, background-color, border-color, outline-color, outline-offset,
+      outline-width, text-decoration-color, text-decoration-line,
+      text-decoration-thickness, text-underline-offset, opacity;
+    duration: animation.$duration-fast;
+    timing-function: animation.$timing-function;
+  }
+
+  text-underline-offset: var(--qld-link-underline-offset);
+  text-decoration-thickness: var(--qld-link-underline-thickness);
+  text-decoration-color: var(--qld-link-underline);
+
+  @include focusable($offsetOutline: true, $outlineWidth: 2px);
+
+  &:hover {
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    text-decoration-color: var(--qld-link-underline-hover);
+  }
+
+  &:visited {
+    color: var(--qld-link-visited-color);
+    text-decoration-color: var(--qld-link-underline-visited);
+
+    &:hover {
+      text-decoration-color: var(--qld-link-underline-visited-hover);
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: none;
+  }
+}
