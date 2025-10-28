@@ -1,3 +1,5 @@
+import { createFocusTrap } from "../../../js/utils.js";
+
 export function initializeNavbar() {
   const navbarCollapse = document.getElementById("main-nav");
   const overlay = document.getElementById("overlay");
@@ -8,13 +10,46 @@ export function initializeNavbar() {
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
-  // Close navbar when overlay is clicked
-  overlay?.addEventListener("click", () => {
+  // Helper to set aria-hidden
+  const setAriaHidden = (hidden) => {
+    hideTargets.forEach((el) => {
+      if (hidden) {
+        el.setAttribute("aria-hidden", "true");
+      } else {
+        el.removeAttribute("aria-hidden");
+      }
+    });
+  };
+
+  // Helper function to close navbar
+  function closeNavbar() {
     if (navbarCollapse?.classList.contains("show")) {
       navbarCollapse.classList.remove("show");
-      overlay.classList.remove("show");
+      overlay?.classList.remove("show");
       document.body.style.overflow = "";
+      setAriaHidden(false);
+
+      // Deactivate focus trap
+      if (focusTrap) {
+        focusTrap.deactivate();
+      }
     }
+  }
+
+  // Create focus trap for navbar
+  let focusTrap = null;
+  if (navbarCollapse) {
+    focusTrap = createFocusTrap(navbarCollapse, {
+      returnFocusElement: burgerBtn,
+      onEscape: () => {
+        closeNavbar();
+      },
+    });
+  }
+
+  // Close navbar when overlay is clicked
+  overlay?.addEventListener("click", () => {
+    closeNavbar();
   });
 
   const resetNavbarState = () => {
@@ -42,23 +77,24 @@ export function initializeNavbar() {
   window.addEventListener("resize", resetNavbarState);
   resetNavbarState();
 
-  // Helper to set aria-hidden
-  const setAriaHidden = (hidden) => {
-    hideTargets.forEach((el) => {
-      if (hidden) {
-        el.setAttribute("aria-hidden", "true");
-      } else {
-        el.removeAttribute("aria-hidden");
-      }
-    });
-  };
-
-  // Burger buttons
-  [burgerBtn, burgerCloseBtn].forEach((btn) => {
-    if (btn) {
-      btn.addEventListener("click", () => {
+  // Burger buttons - handle open
+  burgerBtn?.addEventListener("click", () => {
+    // Check if navbar is opening
+    setTimeout(() => {
+      if (navbarCollapse?.classList.contains("show")) {
         setAriaHidden(true);
-      });
-    }
+
+        // Activate focus trap when navbar opens (mobile only)
+        const isMobile = window.innerWidth < 992;
+        if (focusTrap && isMobile) {
+          focusTrap.activate();
+        }
+      }
+    }, 0);
+  });
+
+  // Close button
+  burgerCloseBtn?.addEventListener("click", () => {
+    closeNavbar();
   });
 }
