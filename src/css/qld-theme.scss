@@ -7,22 +7,25 @@
   color: var(--qld-body-color);
   --qld-action-icon-color: var(--qld-light-action-secondary);
   --qld-action-icon-hover-color: var(--qld-light-action-secondary-hover);
+  --qld-body-bg: var(--qld-default-background);
   --qld-body-color: #{$body-color};
   --qld-body-font-weight: #{$body-font-weight};
+  --qld-border-color: var(--qld-light-border);
   --qld-focus-color: var(--qld-light-focus);
   --qld-headings-color: #{$headings-color};
   --qld-link-color: #{$link-color};
   --qld-link-color-rgb: #{to-rgb($link-color)};
   --qld-link-font-weight: 400;
   --qld-link-hover-color: var(--qld-link-color);
+  --qld-link-visited-color: #{$color-default-color-light-link-visited};
   --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
   --qld-link-underline: #{$color-default-color-light-underline-default};
   --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
+  --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
+  --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
   --qld-link-underline-offset: 0.3rem;
   --qld-link-underline-thickness: 0.5px;
   --qld-link-underline-thickness-hover: 2px;
-  --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
-  --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
   --qld-selection-bg: var(--qld-brand-primary);
   --qld-selection-color: var(--qld-white);
 }
@@ -34,12 +37,19 @@
   --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
   --qld-body-color: #fff;
   --qld-focus-color: var(--qld-dark-focus);
-  --qld-headings-color: #fff;
-  --qld-link-color: #fff;
+  --qld-headings-color: #{$color-default-color-dark-text-heading};
+  --qld-link-color: #{$color-default-color-dark-link-default};
   --qld-link-color-rgb: 255, 255, 255;
-  --qld-link-hover-color: #fff;
+  --qld-link-hover-color: #{$color-default-color-dark-link-default};
   --qld-link-hover-color-rgb: 255, 255, 255;
-  --qld-link-visited: var(--qld-link-visited-dark);
+  --qld-link-visited-color: #{$color-default-color-dark-link-visited};
+  --qld-link-visited: var(
+    --qld-link-visited-dark
+  ); // TODO tidy up these variables, we should only use --qld-link-visited-color
+  --qld-link-underline: #{$qld-link-underline-dark};
+  --qld-link-underline-hover: #{$qld-link-underline-hover-dark};
+  --qld-link-underline-visited: #{$qld-link-underline-visited-dark};
+  --qld-link-underline-visited-hover: #{$qld-link-underline-hover-dark};
   --qld-selection-bg: var(--qld-white);
   --qld-selection-color: var(--qld-brand-primary);
 }
@@ -48,8 +58,6 @@
 :root,
 .default {
   @include light-theme-properties;
-  --qld-body-bg: var(--qld-default-background);
-  --qld-border-color: var(--qld-light-border);
 }
 
 // Light theme

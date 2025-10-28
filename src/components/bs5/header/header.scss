@@ -1,6 +1,6 @@
-@use "./header-variables" with (
-  $prefix: $prefix
-);
+@use "../../../css/mixins";
+@use "../../../css/variables/animation";
+@import "./header-variables";
 
 // Play nice with navbar header.
 :root {
@@ -16,8 +16,6 @@
 }
 
 .qld-header {
-  @extend %header-variables;
-
   font-size: 1rem;
 
   @include media-breakpoint-up(sm) {
@@ -25,21 +23,20 @@
   }
 
   &-pre-header {
+    @extend %preheader-variables;
     //
     display: flex;
     align-items: center;
     font-size: 0.875rem; // set here so whitespace doesn't add extra height.
-    color: var(--#{$prefix}header-pre-header-color-text);
-    background-color: var(--#{$prefix}header-pre-header-color-bg);
-    box-shadow: var(--#{$prefix}header-pre-header-boxshadow);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 1px 3px 1px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
     height: var(--qld-header-preheader-height);
 
-    .qld-header-main-nav-controls {
+    .qld-header-mobile-controls {
       display: flex;
-      flex-direction: row;
-      justify-content: end;
       position: absolute;
       right: 0;
       top: 0;
@@ -49,100 +46,90 @@
       }
     }
 
-    .qld-header-toggle-main-nav {
+    .qld-header-mobile-button {
       align-items: center;
       appearance: none;
-      background-color: transparent;
+      background-color: var(--#{$prefix}header-mobile-button-bg);
       border: 0;
-      border-left: 1px solid
-        var(--#{$prefix}header__toggle-main-nav_border_color);
-      color: var(--#{$prefix}header__toggle-main-nav_text_color);
+      border-left: 1px solid var(--qld-border-color);
+      color: var(--qld-link-color);
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      font-size: 0.875rem;
-      line-height: 1.14;
-      padding: 0.5rem 1rem;
+      justify-content: center;
+      height: var(--qld-header-preheader-height);
+      width: var(--qld-header-preheader-height);
+      font-size: 0.625rem;
+      line-height: 1.25;
+      padding: 0;
+      text-decoration: underline solid transparent 0px;
+      text-underline-offset: 0.3em;
+
+      transition: {
+        property:
+          color, background-color, outline, outline-offset, text-decoration;
+        duration: animation.$duration-fast;
+        timing-function: animation.$timing-function;
+      }
 
       &:hover {
-        background-color: var(--#{$prefix}header__toggle-main-nav__hover_bg);
+        background-color: var(--#{$prefix}header-mobile-button-bg-hover);
+        text-decoration: underline solid currentColor 0.5px;
+        --qld-icon-color: var(--qld-action-icon-hover-color);
+      }
 
-        svg {
-          color: var(--#{$prefix}header__toggle-main-nav__hover_svg_color);
+      @include mixins.focusable($offsetOutline: false);
+
+      &:before {
+        content: "";
+        margin-bottom: 0.25rem;
+        @include mixins.make-icon();
+      }
+
+      &.is-search-toggle {
+        &,
+        &.is-closed {
+          &::before {
+            @include mixins.make-icon($name: "search", $include-base: false);
+          }
+        }
+        &.is-open::before {
+          @include mixins.make-icon($name: "close", $include-base: false);
         }
       }
 
-      &:focus {
-        outline: 3px solid
-          var(--#{$prefix}header__toggle-main-nav__focus_outline_color);
-        outline-offset: 2px;
+      &.is-menu-toggle::before {
+        @include mixins.make-icon($name: "menu", $include-base: false);
       }
 
       @include media-breakpoint-up(md) {
-        padding: 0.75rem 1rem 0.625rem 1rem;
+        font-size: 0.875rem;
+        line-height: 1.14;
+        --icon-size: 2rem;
       }
 
-      &-text {
-        font-size: 0.625rem;
-        margin-top: 0.125rem;
-
-        @include media-breakpoint-up(md) {
-          font-size: 0.875rem;
-          line-height: 1.14;
-        }
-
-        @include media-breakpoint-up(lg) {
-          font-size: 1rem;
-          line-height: 1.5;
-        }
+      @include media-breakpoint-up(lg) {
+        display: none;
       }
+    }
 
-      &:before {
-        display: block;
-        font-size: 1rem;
-        line-height: 1;
-        margin-bottom: 0.25rem;
-        text-align: center;
-      }
-
-      svg {
-        height: 1.25rem;
-        margin: 1px auto;
-        width: 1.25rem;
-        color: var(--#{$prefix}header__toggle-main-nav__svg_color);
-
-        @include media-breakpoint-up(md) {
-          height: 2rem;
-          margin: 0 auto;
-          width: 2rem;
-        }
-      }
+    .qld-header-link + .dropdown {
+      margin-left: 0.5rem;
     }
   }
 
   &-link {
+    @include mixins.make-link();
     font-size: 0.875rem;
     line-height: 1;
 
     &,
     &:visited {
-      color: var(--qld-header-pre-header-color-link) !important;
-      text-decoration: none;
-      text-decoration-color: var(
-        --#{$prefix}header-pre-header-color-link-decoration
-      ) !important;
-      text-decoration-thickness: 0.5px;
-      text-underline-offset: 0.3em;
-      text-decoration-skip-ink: auto;
-    }
+      text-decoration: underline solid transparent 0px;
 
-    &:focus,
-    &:hover {
-      text-decoration: underline;
-      text-decoration-color: var(
-        --#{$prefix}header-pre-header-color-link-decoration-focus
-      ) !important;
-      text-decoration-thickness: 2px;
+      &:hover {
+        text-decoration-color: currentColor;
+      }
     }
 
     &:disabled,
@@ -159,19 +146,21 @@
   }
 
   &-link-icon {
-    height: 1.25rem;
-    width: 1.25rem;
     margin-right: 0.5rem;
-    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
   }
 
   &-logo {
     display: block;
     width: auto;
+    transition: {
+      property: filter, color, outline, outline-offset;
+      duration: animation.$duration-fast;
+      timing-function: animation.$timing-function;
+    }
+    color: var(--#{$prefix}header-logo-color);
 
     a:hover & {
-      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08))
-        drop-shadow(0 13px 20px rgba(0, 0, 0, 0.08));
+      color: var(--#{$prefix}header-logo-color-hover);
     }
 
     .qld-header-pre-header & {
@@ -185,11 +174,44 @@
         display: none;
       }
     }
+
+    // delivering for qld custom colors.
+    &.is-delivering-for-qld {
+      --#{$prefix}header-logo-color: var(--qld-site-title-color);
+      --#{$prefix}header-logo-color-hover: var(--qld-site-title-color);
+    }
   }
 
-  // Preheader CTA dropdown - custom functionality:
   .dropdown {
     line-height: 1.5;
+    display: flex;
+  }
+
+  .dropdown-toggle {
+    padding-inline: 0.5rem;
+    display: flex;
+    align-items: center;
+    height: var(--qld-header-preheader-height);
+    background-color: var(--dropdown-bg);
+
+    &:focus {
+      outline-offset: -2px;
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      @include mixins.make-icon($name: "chevron-down", $size: "xs");
+      margin-left: 0.5rem;
+      transition: transform 0.2s;
+    }
+
+    &.show {
+      background-color: var(--dropdown-bg-active);
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
   }
 
   .dropdown-menu {
@@ -199,32 +221,19 @@
     //
     width: 20.25rem;
     min-height: 1rem;
-    padding: 0rem 2rem 1.75rem;
+    padding: 1rem 1.75rem 1rem;
     border-radius: 0 0 0.75rem 0.75rem;
     border: 0;
-    background-color: var(
-      --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
-    );
-    box-shadow: var(--#{$prefix}header-pre-header-boxshadow);
-    margin-top: 0.8rem !important; // Overrides the default bs-popper margin
-
-    &::before {
-      position: absolute;
-      content: " ";
-      height: 6px;
-      top: -6px;
-      left: 0;
-      right: 0px;
-      background-color: var(
-        --#{$prefix}header__cta-wrapper__cta-link_dropdown_bg_color
-      );
-      pointer-events: none; // so that pseudo-element isn't clickable
-    }
+    background-color: var(--dropdown-menu-bg);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 1px 3px 1px rgba(0, 0, 0, 0.1);
+    transform: translate(0px, var(--qld-header-preheader-height)) !important;
 
     hr {
       margin: 1.5rem 0;
-      color: var(--#{$prefix}header__CTA_border_color);
-      border-color: var(--#{$prefix}header__CTA_border_color);
+      color: var(--qld-border-color);
+      border-color: var(--qld-border-color);
       opacity: 1;
     }
 
@@ -238,18 +247,6 @@
       text-decoration-color: inherit;
       text-decoration-thickness: inherit;
     }
-
-    .group {
-      a {
-        font-weight: 600;
-        color: var(--#{$prefix}header__CTA_text_color);
-        text-decoration: underline var(--#{$prefix}header__CTA_text_color);
-
-        &:visited {
-          color: var(--#{$prefix}header__CTA_text_color);
-        }
-      }
-    }
   }
 
   ul.dropdown-menu.show:has(> li) {
@@ -258,13 +255,31 @@
 
   .dropdown-item {
     position: relative;
-    border-bottom: solid 1px var(--#{$prefix}header__CTA_border_color);
+    border-bottom: solid 1px var(--qld-border-color);
     padding: 1rem 1.75rem 1rem 0;
     line-height: 1.5;
     white-space: normal; // allow text to wrap
+    --_icon-translateX: 0rem;
 
-    &:visited {
-      color: var(--#{$prefix}header__CTA_text_color);
+    &:hover {
+      --_icon-translateX: 0.25rem;
+      color: var(--qld-link-visited-color);
+    }
+
+    @include mixins.make-icon(
+      $name: "arrow-right",
+      $pseudo: "after",
+      $size: "sm"
+    ) {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(var(--_icon-translateX), -50%);
+      transition: {
+        property: color, background-color, transform;
+        duration: animation.$duration-fast;
+        timing-function: animation.$timing-function;
+      }
     }
 
     span,
@@ -276,64 +291,40 @@
   &-dropdown-icon {
     vertical-align: middle;
     margin-left: 0.5rem;
-    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
     height: 1rem;
     width: 1rem;
   }
 
-  &-dropdown-item-icon {
-    color: var(--#{$prefix}header__cta-wrapper__cta-link-icon_color);
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
   &-main {
+    @extend %header-main-variables;
     position: relative;
-    color: var(--#{$prefix}header-color-text);
-    background: var(--#{$prefix}header-color-bg);
+    border-bottom: 0.25rem solid var(--#{$prefix}header-border-color);
 
-    // Patch for v2.0.5. Redundant after header QGDS-266 is merged
-    border-bottom: 0.25rem solid var(--qld-light-accent);
-
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up("lg") {
       border-bottom: none;
     }
-    // End patch for v2.0.5
   }
 
   &-brand {
     font-variant-numeric: lining-nums;
     text-decoration: none;
 
-    a:hover {
-      color: var(--#{$prefix}header__brand__anchor__hover_text_color);
-
-      .qld-header-brand-image {
-        color: var(
-          --#{$prefix}header__brand__anchor__hover_brand-image__text_color
-        );
-      }
-
-      .qld-header-heading,
-      .qld-header-subline {
-        color: var(
-          --#{$prefix}header__brand__anchor__hover_headingsubline__text_color
-        );
-        text-decoration: underline;
-        text-decoration-color: currentColor !important;
-      }
+    @include media-breakpoint-up(lg) {
+      padding-block: 2rem;
     }
 
-    @include media-breakpoint-up(lg) {
-      padding-block: 1.5rem;
+    &:not(:has(.qld-header-secondary-content)) {
+      @include media-breakpoint-down(lg) {
+        // prevent tabbing into empty link on smaller screens.
+        display: none;
+      }
     }
   }
 
+  // qld-header-brand-image controls sizing and layout specific to the Brand lock up image.
+  // See qld-header-logo for color and behaviour of the logo itself.
   &-brand-image {
     display: none;
-    color: var(--#{$prefix}header__brand-image__crest_fill);
 
     @include media-breakpoint-up(lg) {
       display: block;
@@ -346,11 +337,12 @@
 
     svg {
       vertical-align: text-bottom;
+      pointer-events: none;
     }
   }
 
   &-secondary-content {
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
     align-items: baseline;
     text-wrap: balance;
@@ -361,12 +353,12 @@
     }
 
     @include media-breakpoint-up(lg) {
+      display: flex;
       padding-block: 0;
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: center;
-      border-left: 2px solid
-        var(--#{$prefix}header__brand-image__subtype__border_color);
+      border-left: 2px solid var(--#{$prefix}header-brand-divider-color);
       margin-left: 1.5rem;
       padding-left: 1.5rem;
     }
@@ -384,10 +376,20 @@
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.25;
-    margin: 0 1ch 0 0;
+    // margin: 0 1ch 0 0;
     padding: 0;
     font-family: $font-family-sitename;
-    color: var(--#{$prefix}header__site-name__heading__text_color);
+    color: var(--#{$prefix}site-title-color);
+    text-decoration: underline solid 0px transparent;
+    transition-property: text-decoration, color;
+    transition-duration: animation.$duration-fast;
+    transition-timing-function: animation.$timing-function;
+
+    a:hover & {
+      color: var(--#{$prefix}site-title-color);
+      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+      text-decoration-color: currentColor !important;
+    }
 
     @include media-breakpoint-up(md) {
       font-size: 1.25rem;
@@ -396,10 +398,20 @@
   }
 
   &-subline {
-    color: var(--#{$prefix}header__site-name__subline__text_color);
+    color: var(--#{$prefix}header-subline-color);
     font-size: 0.875rem;
     line-height: 1.14;
     max-width: 80ch;
+    text-decoration: underline solid 0px transparent;
+    transition-property: text-decoration, color;
+    transition-duration: animation.$duration-fast;
+    transition-timing-function: animation.$timing-function;
+
+    a:hover & {
+      color: var(--#{$prefix}header-subline-color);
+      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+      text-decoration-color: currentColor !important;
+    }
 
     @include media-breakpoint-up(md) {
       font-size: 1rem;

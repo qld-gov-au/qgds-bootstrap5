@@ -1,6 +1,5 @@
-//Links - default root variables moved to qld-theme.scss
+@use "../css/mixins";
 
-//Content and links
 body {
   -webkit-font-smoothing: antialiased;
 }
@@ -60,93 +59,24 @@ dl.qld-content-dates {
   }
 }
 
-// Light, Light alt
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: var(--#{$prefix}color-default-color-light-text-heading);
+  color: var(--qld-headings-color);
 }
 
 a,
 a.nav-link {
-  text-underline-offset: var(--qld-link-underline-offset);
-  text-decoration-thickness: var(--qld-link-underline-thickness);
-  text-decoration-color: var(
-    --#{$prefix}color-default-color-light-underline-default
-  );
-
-  &:hover {
-    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
-    text-decoration-color: var(
-      --#{$prefix}color-default-color-light-underline-default-hover
-    );
-  }
-
-  &:visited {
-    color: var(--#{$prefix}color-default-color-light-link-visited);
-    text-decoration-color: var(
-      --#{$prefix}color-default-color-light-underline-visited
-    );
-
-    &:hover {
-      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
-      text-decoration-color: var(
-        --#{$prefix}color-default-color-light-underline-visited-hover
-      );
-    }
-  }
-
-  &:focus {
-    outline: 2px solid var(--qld-focus-color);
-    outline-offset: 2px;
-  }
+  @include mixins.make-link();
 }
 
 figure > figcaption {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-}
-
-// Theme-specific typography styles
-.dark,
-.dark-alt {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--#{$prefix}color-default-color-dark-text-heading);
-  }
-
-  body & {
-    color: var(--qld-body-color);
-  }
-
-  a,
-  a.nav-link {
-    text-decoration-color: var(
-      --#{$prefix}color-default-color-dark-underline-default
-    );
-
-    &:visited {
-      color: var(--#{$prefix}color-default-color-dark-link-visited);
-      text-decoration-color: var(
-        --#{$prefix}color-default-color-dark-underline-visited
-      );
-
-      &:hover {
-        text-decoration-color: var(
-          --#{$prefix}color-default-color-dark-underline-default-hover
-        );
-      }
-    }
-  }
 }
 
 a.nostyle {

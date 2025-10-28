@@ -283,7 +283,7 @@
     }
   }
 
-  /* 
+  /*
     Banner Images are static hero images that sit with the content.
 
     Banner Images have several variants:
@@ -482,7 +482,7 @@
   }
 
   .banner-abstract {
-    margin: 1rem 0 0 0;
+    margin: 1.25rem 0 0 0;
     max-width: 50rem; //To make readable. Clips line length for very wide viewports.
     color: var(--#{$prefix}banner-abstract-color);
 

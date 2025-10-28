@@ -19,7 +19,7 @@ jobs:
   updateLibs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           ref: "develop"
@@ -49,7 +49,7 @@ jobs:
           pwd
           ls -ltr
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: 'npm'
@@ -101,7 +101,7 @@ jobs:
 
         # todo work out how to extract 'outdated' to be commit message
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "update storybook js libraries \r\n ${{ steps.what-changed-data.outputs.OUTDATED_LIST }}"
           title: "update storybook ${{ steps.what-changed-data.outputs.OUTDATED_VERSION }}"
