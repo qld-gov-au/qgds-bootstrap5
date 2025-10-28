@@ -6,7 +6,7 @@
   "isFilled": false,
   "customClass": "",
   "label-text": "Label",
-  "placeholder": "Hello World",
+  "placeholder": "",
   "optional-text": "optional",
   "hint-text": "Hint",
   "successMessageText": "Success message",

@@ -27,7 +27,7 @@
     &.is-filled,
     &.form-style-filled {
       --#{$prefix}bg: #{$core-default-color-neutral-lightest};
-      --#{$prefix}border-radius: 0.25rem 0.25rem, 0 0;
+      --#{$prefix}border-radius: 0.25rem 0.25rem 0 0;
       --#{$prefix}border-width: 0 0 0.125rem;
 
       &:focus {

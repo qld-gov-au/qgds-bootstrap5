@@ -123,6 +123,13 @@ $form-check-inline-margin-end: 1rem;
   padding: $_padding;
   border-radius: var(--#{$prefix}border-radius);
   font-size: $input-font-size;
+  min-height: f.remify(52px);
+
+  transition: {
+    property: border, background-color, color, outline, outline-offset;
+    duration: 0.2s;
+    timing-function: ease-out;
+  }
 
   &::placeholder {
     color: var(--#{$prefix}placeholder-color);
