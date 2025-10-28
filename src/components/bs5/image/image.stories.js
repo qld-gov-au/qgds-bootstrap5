@@ -3,10 +3,8 @@
  * Image utilities to create responsive, fixed-ratio images.
  */
 
-import Handlebars from "handlebars";
-
 import imagedata from "./image.data.json";
-import template from "./image.hbs?raw";
+import { ImageComponent } from "./Image";
 
 /**
  *
@@ -39,7 +37,7 @@ export default {
   title: "3. Components/Image",
 
   render: (args) => {
-    return Handlebars.compile(template)(args);
+    return new ImageComponent(args).html;
   },
 
   argTypes: {
@@ -201,54 +199,59 @@ export const DefaultImage = {
  */
 export const UtilityClasses = {
   // Render several images, each with different ratios
-  args: {
-    image1x1: Handlebars.compile(template)({
-      ...imagedata,
-      ratioClass: "image-ratio-1x1",
-      positionX: "position-x-left",
-      positionY: "position-y-30",
-    }),
-    image3x2: Handlebars.compile(template)({
-      ...imagedata,
-      ratioClass: "image-ratio-3x2",
-    }),
-    image2x3: Handlebars.compile(template)({
-      ...imagedata,
-      ratioClass: "image-ratio-2x3",
-    }),
-    image4x3: Handlebars.compile(template)({
-      ...imagedata,
-      ratioClass: "image-ratio-4x3",
-    }),
-    image3x4: Handlebars.compile(template)({
-      ...imagedata,
-      ratioClass: "image-ratio-3x4",
-      positionX: "position-x-40",
-      positionY: "position-y-top",
-    }),
-    image16x9: Handlebars.compile(template)({
-      ...imagedata,
-      ratioClass: "image-ratio-16x9",
-    }),
-  },
+  args: imagedata,
 
   render: (args) => {
     return `
       <h2>Fixed Ratio Images with utility classes</h2>
       <div class="row">
         <strong>Default</strong><br><br>
-        <div class="col-12 col-md-6 mb-4">${args.image3x2} <br><small>.image-ratio-3x2 (Default)</small></div>
+        <div class="col-12 col-md-6 mb-4">${
+          new ImageComponent({
+            ...args,
+            ratioClass: "image-ratio-3x2",
+          }).html
+        } <br><small>.image-ratio-3x2 (Default)</small></div>
       </div>
       <div class="row">
         <strong>Horizontal</strong><br><br>
-        <div class="col-12 col-md-4 mb-4">${args.image1x1} <br><small>.image-ratio-1x1<br>.position-x-left<br>.position-y-30</small></div>
-        <div class="col-12 col-md-4 mb-4">${args.image4x3} <br><small>.image-ratio-4x3</small></div>
-        <div class="col-12 col-md-4 mb-4">${args.image16x9} <br><small>.image-ratio-16x9</small></div>
+        <div class="col-12 col-md-4 mb-4">${
+          new ImageComponent({
+            ...imagedata,
+            ratioClass: "image-ratio-1x1",
+            positionX: "position-x-left",
+            positionY: "position-y-30",
+          }).html
+        } <br><small>.image-ratio-1x1<br>.position-x-left<br>.position-y-30</small></div>
+        <div class="col-12 col-md-4 mb-4">${
+          new ImageComponent({
+            ...imagedata,
+            ratioClass: "image-ratio-4x3",
+          }).html
+        }<br><small>.image-ratio-4x3</small></div>
+        <div class="col-12 col-md-4 mb-4">${
+          new ImageComponent({
+            ...imagedata,
+            ratioClass: "image-ratio-16x9",
+          }).html
+        } <br><small>.image-ratio-16x9</small></div>
       </div>
       <div class="row">
         <strong>Vertical</strong><br><br>
-        <div class="col-12 col-md-4 mb-4">${args.image2x3} <br><small>.image-ratio-2x3</small></div>
-        <div class="col-12 col-md-4 mb-4">${args.image3x4} <br><small>.image-ratio-3x4<br>.position-x-40<br>.position-y-top</small></div>
+        <div class="col-12 col-md-4 mb-4">${
+          new ImageComponent({
+            ...imagedata,
+            ratioClass: "image-ratio-3x2",
+          }).html
+        } <br><small>.image-ratio-2x3</small></div>
+        <div class="col-12 col-md-4 mb-4">${
+          new ImageComponent({
+            ...imagedata,
+            ratioClass: "image-ratio-3x4",
+            positionX: "position-x-40",
+            positionY: "position-y-top",
+          }).html
+        } <br><small>.image-ratio-3x4<br>.position-x-40<br>.position-y-top</small></div>
       </div>
     `;
   },
@@ -287,8 +290,8 @@ export const FloatedImage = {
   render: (args) => {
     args.src = "assets/img/image-example-couple-beach-md.jpg";
 
-    let imageTag = Handlebars.compile(template)({ ...args, caption: null });
-    let imageTagWithCaption = Handlebars.compile(template)(args);
+    let imageTag = new ImageComponent({ ...args, caption: null }).html;
+    let imageTagWithCaption = new ImageComponent(args).html;
 
     let customTemplate = `
     <h2>Example image with caption, right aligned</h2>
@@ -299,13 +302,13 @@ export const FloatedImage = {
     </div>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    
+
     <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
 
     <h2>Example image without caption, left aligned</h2>
-    
+
     <!-- Bootstrap classes control layout -->
     <div class="mb-32 float-md-start me-md-32">
       ${imageTag}
