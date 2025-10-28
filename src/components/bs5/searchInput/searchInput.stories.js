@@ -2,8 +2,8 @@
 import { SearchInput } from "./SearchInput.js";
 import defaultdata from "./searchInput.data.json";
 
-// Save the initial defaultSuggestions data
-const initData = defaultdata.defaultSuggestions;
+// Save the initial defaultSuggestions data with fallback
+const initData = defaultdata.defaultSuggestions || null;
 
 export default {
   tags: ["autodocs"],
@@ -20,13 +20,19 @@ export default {
       args.showDefaultSuggestions === undefined
     ) {
       // Restore from initData when toggling back to true or when undefined (default state)
-      componentArgs.defaultSuggestions = initData;
+      componentArgs.defaultSuggestions =
+        initData || defaultdata.defaultSuggestions || null;
     }
 
     // Remove the control property as it's not needed in the component
     delete componentArgs.showDefaultSuggestions;
 
-    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(componentArgs).html}</form>`;
+    try {
+      return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(componentArgs).html}</form>`;
+    } catch (error) {
+      console.error("Error rendering SearchInput:", error);
+      return `<div>Error rendering SearchInput: ${error.message}</div>`;
+    }
   },
 
   argTypes: {
