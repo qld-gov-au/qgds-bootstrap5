@@ -68,11 +68,11 @@ export default {
       story: { height: "400px" },
     },
   },
-  globals: {
-    backgrounds: {
-      value: "default",
-    },
-  },
+  // globals: {
+  //   backgrounds: {
+  //     value: "default",
+  //   },
+  // },
 };
 
 export const Default = {
