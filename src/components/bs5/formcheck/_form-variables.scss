@@ -5,6 +5,7 @@
   .default &,
   .light &,
   .alt & {
+    // colors
     --#{$prefix}bg: #{$core-default-color-neutral-white};
     --#{$prefix}bg-hover: #{$core-default-color-neutral-lightest};
     --#{$prefix}bg-focus: #{$core-default-color-neutral-white};
@@ -18,14 +19,34 @@
     --#{$prefix}placeholder-color-hover: var(--#{$prefix}placeholder-color);
     --#{$prefix}placeholder-color-focus: var(--#{$prefix}placeholder-color);
 
-    &.is-valid {
+    // other properties
+    --#{$prefix}border-width: 0.125rem;
+    --#{$prefix}border-radius: 0.25rem;
+
+    // .form-style-filled legacy class
+    &.is-filled,
+    &.form-style-filled {
+      --#{$prefix}bg: #{$core-default-color-neutral-lightest};
+      --#{$prefix}border-radius: 0.25rem 0.25rem, 0 0;
+      --#{$prefix}border-width: 0 0 0.125rem;
+
+      &:focus {
+        --#{$prefix}border-radius: 0.25rem;
+      }
+    }
+
+    // .qld-input-success legacy class
+    &.is-valid,
+    &.qld-input-success {
       --#{$prefix}bg: #{$core-default-color-status-success-lightest};
       --#{$prefix}bg-hover: #{$core-default-color-status-success-lighter};
       --#{$prefix}border-color: #{$core-default-color-status-success-default};
       --#{$prefix}border-color-hover: var(--#{$prefix}border-color);
     }
 
-    &.is-invalid {
+    // .qld-input-error legacy class
+    &.is-invalid,
+    &.qld-input-error {
       --#{$prefix}bg: #{$qld-color-error-light};
       --#{$prefix}bg-hover: #{$core-default-color-status-error-lighter};
       --#{$prefix}border-color: #{$qld-notify-warning};
@@ -37,14 +58,21 @@
   .dark-alt & {
     --#{$prefix}bg: #{$qld-color-dark-background};
     --#{$prefix}bg-hover: #{$qld-color-dark-background--shade};
-    --#{$prefix}border-color: #{$qld-dark-alt-border};
+    --#{$prefix}border-color: #{$core-default-color-neutral-lighter};
     --#{$prefix}border-color-hover: var(--#{$prefix}border-color);
+    --#{$prefix}border-color-focus: #{$core-default-color-neutral-lighter};
     --#{$prefix}color: #{$color-default-color-dark-text-default};
     --#{$prefix}color-focus: #{$color-default-color-light-text-lighter};
     --#{$prefix}placeholder-color: #{$color-default-color-dark-text-lighter};
     --#{$prefix}placeholder-color-focus: #{$color-default-color-light-text-lighter};
 
-    &.is-valid {
+    &.is-filled,
+    &.form-style-filled {
+      --#{$prefix}bg: #{$qld-color-dark-background--shade};
+    }
+
+    &.is-valid,
+    &.qld-input-success {
       --#{$prefix}bg: #{$core-default-color-status-success-lightest};
       --#{$prefix}bg-hover: #{$core-default-color-status-success-lighter};
       --#{$prefix}border-color: #{$core-default-color-status-success-default};
@@ -53,7 +81,8 @@
       --#{$prefix}placeholder-color: #{$color-default-color-light-text-lighter};
     }
 
-    &.is-invalid {
+    &.is-invalid,
+    &.qld-input-error {
       --#{$prefix}bg: #{$qld-color-error-light};
       --#{$prefix}bg-hover: #{$core-default-color-status-error-lighter};
       --#{$prefix}border-color: #{$qld-notify-warning};

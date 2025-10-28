@@ -18,6 +18,7 @@ export default {
     return new Textarea(args).html;
   },
   parameters: { backgrounds: { disable: false } },
+  globals: { backgrounds: { value: "default" } },
   //https://storybook.js.org/docs/api/arg-types
   argTypes,
 };

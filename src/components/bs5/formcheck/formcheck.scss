@@ -115,9 +115,13 @@ $form-check-inline-margin-end: 1rem;
 
   color: var(--#{$prefix}color);
   background-color: var(--#{$prefix}bg);
-  border: solid $input-border-width var(--#{$prefix}border-color);
+  border: {
+    style: solid;
+    width: var(--#{$prefix}border-width);
+    color: var(--#{$prefix}border-color);
+  }
   padding: $_padding;
-  border-radius: $input-border-radius;
+  border-radius: var(--#{$prefix}border-radius);
   font-size: $input-font-size;
 
   &::placeholder {
@@ -128,15 +132,21 @@ $form-check-inline-margin-end: 1rem;
     // color: var(--#{$prefix}color-hover);
     background-color: var(--#{$prefix}bg-hover);
     border-color: var(--#{$prefix}border-color-hover);
-    --#{$prefix}placeholder-color: var(--#{$prefix}placeholder-color-hover);
+
+    &::placeholder {
+      color: var(--#{$prefix}placeholder-color-hover);
+    }
   }
 
   @include m.focusable() {
     color: var(--#{$prefix}color-focus);
     background-color: var(--#{$prefix}bg-focus);
     border-color: var(--#{$prefix}border-color-focus);
-    --#{$prefix}placeholder-color: var(--#{$prefix}placeholder-color-focus);
     box-shadow: none !important;
+
+    &::placeholder {
+      color: var(--#{$prefix}placeholder-color-focus);
+    }
   }
 
   &:disabled {
@@ -144,12 +154,10 @@ $form-check-inline-margin-end: 1rem;
     &:hover {
       cursor: not-allowed;
       opacity: 0.5;
-      // color: var(--#{$prefix}form-control-color);
       background-color: var(--#{$prefix}form-control-bg);
       border-color: var(--#{$prefix}form-control-border-color);
     }
   }
-
   // Bootstrap base styling overrides
   &.is-valid,
   &.is-invalid {
