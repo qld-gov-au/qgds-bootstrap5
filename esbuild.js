@@ -86,7 +86,7 @@ const buildConfig = {
       ],
       indentType: "space",
       indentWidth: 2,
-      includePaths: ["./node_modules"],
+      loadPaths: ["./node_modules"],
     }),
     QDGSbuildLog(),
   ],

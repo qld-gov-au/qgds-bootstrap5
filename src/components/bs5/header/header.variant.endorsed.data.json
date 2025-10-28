@@ -1,6 +1,8 @@
 {
   "isEndorsedBrand": true,
+  "hasDeliveringForQLDLogo": true,
   "preHeader": {
+    "palette": "default",
     "globalLink": {
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
@@ -108,6 +110,7 @@
     ]
   },
   "mainContent": {
+    "palette": "dark-alt",
     "url": "https://qld.gov.au",
     "logo": {
       "src": "assets/img/endorsed.svg",
@@ -121,18 +124,12 @@
     "subline": ""
   },
   "assets": {
-    "SVGSpritePath": "./assets/img/icons-sprite.svg",
     "siteSearch": {
       "value": "#",
       "placeholder": "",
       "label": "",
       "formAction": {
         "url": "https://www.forgov.qld.gov.au/search"
-      },
-      "options": {
-        "borderStyle": {
-          "full": true
-        }
       }
     }
   }

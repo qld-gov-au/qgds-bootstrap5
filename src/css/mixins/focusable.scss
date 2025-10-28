@@ -2,16 +2,17 @@
 /// Default focus styles for use in buttons etc. Resets :focus and uses :focus-visible instead which only appears on keyboard interaction.
 /// @param {Boolean} $offsetOutline [true] - Offset the focus ring by 2px.
 /// @param {Boolean} $isFocusWithin [false] - Optionally apply styles via :focus-within rather than :focus-visible
+/// @param {String} $outlineWidth: [3px] The width of the outline.
 /// @param {String} $customSelector [null] - If passed, will override $isFocusWithin and apply focus styles instead to a custom selector string. @see SearchInput
+
 @mixin focusable(
   $offsetOutline: true,
   $isFocusWithin: false,
+  $outlineWidth: 3px,
   $customSelector: null
 ) {
   // outline styles without the pseudo state to allow for transition animations.
-
-  $outline-width: 3px;
-  $initial-offset: 0 - $outline-width;
+  $initial-offset: 0 - $outlineWidth;
 
   @if $offsetOutline == true {
     $offsetOutline: 2px;
@@ -19,7 +20,7 @@
     $offsetOutline: $initial-offset;
   }
 
-  outline: $outline-width solid transparent;
+  outline: $outlineWidth solid transparent;
   outline-offset: $initial-offset;
 
   $selector: if(
@@ -30,7 +31,7 @@
 
   &#{$selector} {
     outline: {
-      width: $outline-width;
+      width: $outlineWidth;
       style: solid;
       color: var(
         --qld-focus-color,
