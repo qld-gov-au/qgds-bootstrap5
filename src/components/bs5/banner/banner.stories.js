@@ -98,15 +98,15 @@ export default {
       // Provide cards or buttons if callToAction is set to true
       switch (args.callToAction) {
         case "buttons":
-          args.buttons = exampleButtonData;
+          args.buttons = args.buttons ?? exampleButtonData;
           args.cards = false;
           break;
         case "cards":
-          args.cards = exampleCardData;
+          args.cards = args.cards ?? exampleCardData;
           args.buttons = false;
           break;
         case "cardsMixed":
-          args.cards = exampleMixedCardData;
+          args.cards = args.cards ?? exampleMixedCardData;
           args.buttons = false;
           break;
         case "none":
@@ -172,7 +172,7 @@ export default {
       options: ["none", "with-texture", "with-bg-image", "with-hero-image"],
     },
 
-    "image.classes": {
+    ["image.classes"]: {
       name: "Image Classes",
       description: `Settable classes for the hero image placement. Background Type must be set to "with-hero-image"`,
       control: {
@@ -254,7 +254,7 @@ export const NoBanner = {
     title: { table: { disable: true } },
     abstract: { table: { disable: true } },
     backgroundType: { table: { disable: true } },
-    "image.classes": { table: { disable: true } },
+    ["image.classes"]: { table: { disable: true } },
   },
 };
 
@@ -279,7 +279,7 @@ export const BannerBasic = {
     //Remove default controls that aren't needed here
     callToAction: { table: { disable: true } },
     image: { table: { disable: true } },
-    "image.classes": { table: { disable: true } },
+    ["image.classes"]: { table: { disable: true } },
     backgroundType: {
       //Remove "with-hero-image" option
       options: ["none", "with-texture", "with-bg-image"],
@@ -327,7 +327,7 @@ export const BannerBasicBackgrounds = {
       options: ["none", "with-texture", "with-bg-image"],
     },
     image: { table: { disable: true } },
-    "image.classes": { table: { disable: true } },
+    ["image.classes"]: { table: { disable: true } },
   },
 };
 
@@ -344,7 +344,7 @@ export const BannerAdvancedButtons = {
     subtitle: "",
     titleClasses: [],
     backgroundType: "with-hero-image",
-    "image.classes": "align-grid",
+    ["image.classes"]: "align-grid",
     abstract:
       "Renew your licence at a customer service centre, government office or police station.",
     callToAction: "buttons",
@@ -416,7 +416,7 @@ export const BannerAdvancedHeroImage = {
     backgroundType: "with-hero-image",
     abstract:
       "Renew your licence at a customer service centre, government office or police station.",
-    "image.classes": ["align-right", "with-gradient"],
+    ["image.classes"]: ["align-right", "with-gradient"],
   },
 
   argTypes: {
@@ -445,16 +445,25 @@ export const BannerAdvancedBlockTitle = {
     ...defaultdata,
     variantClass: "dark",
     bannerType: "banner-advanced",
-    title: "Queensland Government",
-    subtitle: "Design System",
+    title: "Disaster recovery",
+    subtitle: "and support",
+    abstract:
+      "Financial help and support services to help you recover if you're affected by a disaster.",
     titleClasses: ["as-block"],
     backgroundType: "with-texture",
-    abstract:
-      "Renew your licence at a customer service centre, government office or police station.",
-    callToAction: "cards",
-    cards: [],
+    callToAction: "buttons",
+    breadcrumbs: {
+      breadcrumbs: [
+        { link: "#", linktext: "Home" },
+        { link: "#", linktext: "Community support" },
+        { link: "#", linktext: "Disaster support and recovery" },
+        { link: "#", linktext: "Example page title 1" },
+        { link: "#", linktext: "Example page title 2" },
+        { link: "#", linktext: "Current page" },
+      ],
+    },
+    ["image.classes"]: "align-grid",
   },
-
   argTypes: {
     backgroundType: {
       name: "Background Type",

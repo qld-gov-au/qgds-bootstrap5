@@ -407,52 +407,55 @@
   .banner-title-wrap {
     display: block;
     margin: 1.5rem 0 0 0;
-    font-size: 2.5rem;
-    line-height: 3.25rem;
+    font-size: $h1-font-size-mobile;
+    line-height: $h1-line-height-mobile;
 
-    // Target xs - md viewports
-    @include media-breakpoint-down(lg) {
-      font-size: $h1-font-size-mobile;
-      line-height: $h1-line-height-mobile;
+    // LG and above
+    @include media-breakpoint-up(lg) {
+      font-size: $h1-font-size;
+      line-height: $headings-line-height;
     }
 
-    //Spans inside the .banner-title-wrap H1
+    //SPANS inside H1.banner-title-wrap
     .banner-title,
     .banner-subtitle {
       display: block;
       color: var(--#{$prefix}banner-title-color);
     }
 
+    //"Block-title" visual styles
     &.as-block {
       padding: 0.5rem 1.25rem;
+      line-height: 1.5;
 
-      //Both spans
+      //Allow line breaking on both spans
       .banner-title,
       .banner-subtitle {
-        display: unset;
         box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        position: static; // required to allow breadcrumb dropdown to overlap
       }
 
       // First headline span
       .banner-title {
         display: inline;
-        font-weight: 600;
-        color: var(--qld-white);
-        background-color: var(--qld-dark-background);
+        color: var(--qld-dark-text-heading);
+        background-color: var(--qld-dark-background-shade);
         box-shadow:
-          8px 0px 0 6px var(--qld-dark-background),
-          -8px 0px 0 6px var(--qld-dark-background),
+          8px 0px 0 6px var(--qld-dark-background-shade),
+          -8px 0px 0 6px var(--qld-dark-background-shade),
           -12px 0px 0 6px var(--qld-light-accent),
           0px 4px 16px rgba(0, 0, 0, 0.3);
       }
 
       // Second headline span
       .banner-subtitle {
-        display: table;
+        display: block;
+        width: fit-content;
         font-weight: 400;
         color: var(--qld-light-text-text);
-        background-color: var(--qld-default-background);
-        margin-top: 0.75rem;
+        background-color: var(--qld-neutral-white);
+        margin-top: 0.5rem;
         box-shadow:
           8px 0px 0 6px var(--qld-default-background),
           -8px 0px 0 6px var(--qld-default-background),
@@ -464,14 +467,15 @@
 
   // Handles block style dark (banner-title) on dark (banner) clash
   // Changes banner-title to use a shade of the dark background
-  &.dark {
+  &.dark,
+  &.dark-alt {
     .banner-title-wrap.as-block {
       .banner-title {
         background-color: var(--qld-dark-background-shade);
         box-shadow:
           8px 0px 0 6px var(--qld-dark-background-shade),
           -8px 0px 0 6px var(--qld-dark-background-shade),
-          -12px 0px 0 6px var(--qld-light-accent),
+          -12px 0px 0 6px var(--qld-dark-accent),
           0px 4px 16px rgba(0, 0, 0, 0.3);
       }
     }
@@ -521,6 +525,11 @@
       //Redefine the breadcrumb component variable
       --#{$prefix}breadcrumb-padding-y: 0;
       color: var(--#{$prefix}banner-breadcrumb-color);
+    }
+
+    // Re-scope focus color for breadcrumb vertical variant inside banners
+    .breadcrumb .breadcrumb-vertical {
+      --qld-focus-color: var(--qld-light-focus);
     }
   }
 
