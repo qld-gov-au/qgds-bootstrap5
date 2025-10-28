@@ -6,6 +6,11 @@ import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { waitFor, isElementVisible } from "../../../js/testingutils.js";
+import Handlebars from "handlebars";
+import handlebarsHelpers from "../../../js/handlebars.helpers.js";
+
+// Register Handlebars helpers for tests
+handlebarsHelpers(Handlebars);
 
 /**
  *
@@ -67,7 +72,7 @@ describe("SearchInput", () => {
     await waitFor(100);
 
     // Additional wait to ensure all scripts are fully initialized
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     form = d.querySelector(".site-search");
     searchInput = form?.querySelector(".qld-search-input input");
