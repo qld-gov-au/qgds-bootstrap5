@@ -87,9 +87,13 @@ export async function showSuggestions(value = "", isDefault = false, form) {
 
   // Hide/show default suggestions
   if (isDefault) {
-    defaultSuggestionsContainer.classList.remove("d-none");
-    dynamicSuggestionsContainer.innerHTML = "";
-    dynamicSuggestionsContainer.classList.add("d-none");
+    if (defaultSuggestionsContainer) {
+      defaultSuggestionsContainer.classList.remove("d-none");
+    }
+    if (dynamicSuggestionsContainer) {
+      dynamicSuggestionsContainer.innerHTML = "";
+      dynamicSuggestionsContainer.classList.add("d-none");
+    }
     createPopper(searchInput, suggestions, {
       placement: "bottom-start",
     });
@@ -97,27 +101,32 @@ export async function showSuggestions(value = "", isDefault = false, form) {
     return;
   }
 
-  if (value.length === 0) {
-    dynamicSuggestionsContainer.innerHTML = "";
-    dynamicSuggestionsContainer.classList.add("d-none");
-    return;
+  if (dynamicSuggestionsContainer) {
+    if (value.length === 0) {
+      dynamicSuggestionsContainer.innerHTML = "";
+      dynamicSuggestionsContainer.classList.add("d-none");
+      return;
+    }
   }
 
-  defaultSuggestionsContainer.classList.add("d-none");
+  if (defaultSuggestionsContainer) {
+    defaultSuggestionsContainer.classList.add("d-none");
+  }
 
   // Fetch dynamic suggestions if available
-  const suggestUrl = searchInput.getAttribute("data-suggestions");
-  if (suggestUrl) {
-    const collection =
-      searchInput.getAttribute("data-collection") || "qgov~sp-search";
-    const profile = searchInput.getAttribute("data-profile") || "qld";
-    const fetchedSuggestions = await fetchData(
-      `${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`,
-      "suggestions",
-    );
+  if (dynamicSuggestionsContainer) {
+    const suggestUrl = searchInput.getAttribute("data-suggestions");
+    if (suggestUrl) {
+      const collection =
+        searchInput.getAttribute("data-collection") || "qgov~sp-search";
+      const profile = searchInput.getAttribute("data-profile") || "qld";
+      const fetchedSuggestions = await fetchData(
+        `${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`,
+        "suggestions",
+      );
 
-    if (fetchedSuggestions.length > 0) {
-      dynamicSuggestionsContainer.innerHTML = `
+      if (fetchedSuggestions.length > 0) {
+        dynamicSuggestionsContainer.innerHTML = `
         <div class="suggestions-category mt-16">
           <strong class="suggestions-category-label d-block">Suggestions</strong>
           <ul class="mt-2">${fetchedSuggestions
@@ -131,40 +140,40 @@ export async function showSuggestions(value = "", isDefault = false, form) {
             })
             .join("")}</ul>
         </div>`;
-      dynamicSuggestionsContainer.classList.remove("d-none");
-      createPopper(searchInput, suggestions, {
-        placement: "bottom-start",
-      });
-      suggestions.classList.remove("d-none");
+        dynamicSuggestionsContainer.classList.remove("d-none");
+        createPopper(searchInput, suggestions, {
+          placement: "bottom-start",
+        });
+        suggestions.classList.remove("d-none");
 
-      // Attach click event listeners to each suggestion item
-      form.querySelectorAll(".suggestions li").forEach((item) => {
-        item.addEventListener("click", () =>
-          selectSuggestion(item.innerText, form),
-        );
-      });
-    } else {
-      dynamicSuggestionsContainer.innerHTML = "";
-      dynamicSuggestionsContainer.classList.add("d-none");
-      suggestions.classList.add("d-none");
+        // Attach click event listeners to each suggestion item
+        form.querySelectorAll(".suggestions li").forEach((item) => {
+          item.addEventListener("click", () =>
+            selectSuggestion(item.innerText, form),
+          );
+        });
+      } else {
+        dynamicSuggestionsContainer.innerHTML = "";
+        dynamicSuggestionsContainer.classList.add("d-none");
+        suggestions.classList.add("d-none");
+      }
     }
-  }
 
-  const resultsUrl = searchInput.getAttribute("data-results-url");
-  if (resultsUrl) {
-    const collection =
-      searchInput.getAttribute("data-collection") || "qgov~sp-search";
-    const profile = searchInput.getAttribute("data-profile") || "qld";
-    const fetchedServices = await fetchData(
-      `${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`,
-      "services",
-    );
+    const resultsUrl = searchInput.getAttribute("data-results-url");
+    if (resultsUrl) {
+      const collection =
+        searchInput.getAttribute("data-collection") || "qgov~sp-search";
+      const profile = searchInput.getAttribute("data-profile") || "qld";
+      const fetchedServices = await fetchData(
+        `${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`,
+        "services",
+      );
 
-    if (
-      fetchedServices.response.resultPacket &&
-      fetchedServices.response.resultPacket.results.length > 0
-    ) {
-      dynamicSuggestionsContainer.innerHTML += `
+      if (
+        fetchedServices.response.resultPacket &&
+        fetchedServices.response.resultPacket.results.length > 0
+      ) {
+        dynamicSuggestionsContainer.innerHTML += `
         <div class="suggestions-category feature pt-16">
           <strong class="suggestions-category-label d-block">Services</strong>
           <ul class="mt-2">${fetchedServices.response.resultPacket.results
@@ -174,18 +183,19 @@ export async function showSuggestions(value = "", isDefault = false, form) {
             )
             .join("")}</ul>
         </div>`;
-      dynamicSuggestionsContainer.classList.remove("d-none");
-      createPopper(searchInput, suggestions, {
-        placement: "bottom-start",
-      });
-      suggestions.classList.remove("d-none");
+        dynamicSuggestionsContainer.classList.remove("d-none");
+        createPopper(searchInput, suggestions, {
+          placement: "bottom-start",
+        });
+        suggestions.classList.remove("d-none");
 
-      // Attach click event listeners to each suggestion item
-      form.querySelectorAll(".suggestions li").forEach((item) => {
-        item.addEventListener("click", () =>
-          selectSuggestion(item.innerText, form),
-        );
-      });
+        // Attach click event listeners to each suggestion item
+        form.querySelectorAll(".suggestions li").forEach((item) => {
+          item.addEventListener("click", () =>
+            selectSuggestion(item.innerText, form),
+          );
+        });
+      }
     }
   }
 }

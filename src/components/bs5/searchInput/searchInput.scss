@@ -1,6 +1,8 @@
 @use "../../../css/mixins";
 
 .qld-search-input {
+  // timming-function: ease-out;
+  --duration: 0.25s;
   // Input variables
   --background-color: var(--#{$prefix}white);
   --border-color: var(--#{$prefix}light-border-alt);
@@ -9,23 +11,6 @@
   --text-color: var(--#{$prefix}light-text-text);
   --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
   
-  .dark &, .dark-alt & {
-    --text-heading: var(--#{$prefix}dark-text-lighter);
-    --qld-focus-color: var(--#{$prefix}dark-focus);
-  }
-  
-  .suggestions.d-none {
-    display: unset !important; // !important to override bootstrap d-none
-  }
-  .suggestions.d-none {
-    display: none !important; // !important to override bootstrap d-none
-  }
-  &:focus-within {
-    .suggestions.d-none {
-      display: block !important; // !important to override bootstrap d-none
-    }
-  }
-
   // Suggestions variables
   --suggestions-shadow:
     0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
@@ -52,10 +37,22 @@
   $border-radius: 0.25rem;
   --_size: 3rem;
 
-
   display: flex;
   position: relative;
   border-radius: $border-radius;
+
+
+  .suggestions.d-none {
+    display: unset !important; // !important to override bootstrap d-none
+  }
+  .suggestions.d-none {
+    display: none !important; // !important to override bootstrap d-none
+  }
+  &:focus-within {
+    .suggestions.d-none {
+      display: block !important; // !important to override bootstrap d-none
+    }
+  }
 
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
 
@@ -83,7 +80,7 @@
     transition: {
       property: border-color, background-color, color;
       timing-function: ease-out;
-      duration: 0.2s;
+      duration: var(--duration);
     }
 
     &::placeholder {
@@ -156,7 +153,6 @@
       top: 50%;
       transform: translateY(-50%);
       left: calc(1rem - 0.125rem);
-      pointer-events: none;
     }
   }
 
@@ -170,8 +166,10 @@
     border-radius: 0.5rem;
     background: var(--suggestions-bg);
     box-shadow: var(--suggestions-shadow);
-    border-bottom: solid 0.25rem var(--suggestions-hover-border-color);
-
+    &>div {
+      border-radius: 0.5rem;
+      border-bottom: solid 0.25rem var(--suggestions-hover-border-color);
+    }
     .suggestions-category {
       &-view-more {
         text-decoration: underline;
@@ -263,21 +261,35 @@
           a {
             vertical-align: middle;
             vertical-align: -webkit-baseline-middle;
-
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            text-decoration-thickness: 0.5px;
+            transition: text-decoration-color var(--duration) ease-out, text-decoration-thickness var(--duration) ease-out;
             &:hover {
-              text-decoration: underline;
+              text-decoration-color: var(--qld-link-hover-color);
+              text-decoration-thickness: 2px;
+              transition: text-decoration-color var(--duration) ease-out, text-decoration-thickness var(--duration) ease-out;
+            }
+            &:visited {
+              text-decoration-color: var(--#{$prefix}link-underline-visited);
+              &:hover {
+                text-decoration-color: var(--#{$prefix}link-underline-visited-hover);
+              }
+            }
+            &:focus {
+              outline-color: var(--#{$prefix}light-focus);
             }
           }
 
           &:hover {
             background-color: var(--suggestions-hover);
 
-            a {
-              text-decoration: underline;
-              text-decoration-thickness: var(
-                --#{$prefix}link-underline-thickness-hover
-              );
-            }
+            // a {
+            //   text-decoration: underline;
+            //   text-decoration-thickness: var(
+            //     --#{$prefix}link-underline-thickness-hover
+            //   );
+            // }
           }
         }
       }
@@ -319,6 +331,8 @@
     --placeholder-color: var(--${prefix}dark-text-lighter);
     --qld-icon-color: var(--#{$prefix}white);
     --text-color: var(--#{$prefix}dark-text-text);
+    --text-heading: var(--#{$prefix}dark-text-lighter);
+    --qld-focus-color: var(--#{$prefix}dark-focus);
 
     // Suggestions variables
     --suggestions-bg: var(
@@ -375,6 +389,90 @@
         }
       }
     }
+
+    &.alt-color {
+      .suggestions__group {
+        --suggestions-bg: var(
+          --#{$prefix}color-default-color-light-background-default-shade
+        );
+        --suggestions-hover: var(
+          --#{$prefix}color-default-color-light-border-default
+        );
+        --suggestions-hover-border-color: var(
+          --#{$prefix}color-default-color-light-accent-design-accent
+        );
+        --suggestions-feature-bg: var(
+          --#{$prefix}color-default-color-dark-background-default
+        );
+        --suggestions-feature-hover: var(
+          --#{$prefix}color-default-color-dark-background-default-shade
+        );
+        --suggestions-feature-text-color: var(
+          --#{$prefix}color-default-color-dark-text-default
+        );
+        strong {
+          color: var(--#{$prefix}color-default-color-light-text-heading);
+        }
+        a {
+          color: var(--#{$prefix}light-link);
+          &:hover {
+            text-decoration-color: var(--#{$prefix}link-underline-hover);
+          }
+          &:visited {
+            color: #{$qld-link-visited};
+            text-decoration-color: var(--#{$prefix}link-underline-visited);
+            &:hover {
+              text-decoration-color: var(--#{$prefix}link-underline-visited-hover);
+            }
+          }
+          &:focus {
+            outline-color: var(--#{$prefix}light-focus);
+          }
+        }
+      }
+    }
   }
   
+  &.alt-color {
+    .suggestions__group {
+      --suggestions-bg: var(
+        --#{$prefix}color-default-color-dark-background-default-shade
+      );
+      --suggestions-hover: var(
+        --#{$prefix}color-default-color-dark-background-default
+      );
+      --suggestions-hover-border-color: var(
+        --#{$prefix}color-default-color-dark-accent-design-accent
+      );
+      --suggestions-feature-bg: var(
+        --#{$prefix}color-default-color-dark-background-alt
+      );
+      --suggestions-feature-hover: var(
+        --#{$prefix}color-default-color-dark-background-alt-shade
+      );
+      --suggestions-feature-text-color: var(
+        --#{$prefix}color-default-color-dark-text-default
+      );
+      strong {
+        color: var(--#{$prefix}dark-text-lighter);
+      }
+      a {
+        color: var(--#{$prefix}dark-link);
+        &:hover {
+          text-decoration-color: var(--#{$prefix}dark-link-underline-hover);
+        }
+        &:visited {
+          color: #{$qld-link-visited-dark};
+          text-decoration-color: var(--#{$prefix}dark-link-underline-visited);
+          &:hover {
+            text-decoration-color: var(--#{$prefix}dark-link-underline-visited-hover);
+          }
+        }
+        &:focus {
+          outline-color: var(--#{$prefix}dark-focus);
+        }
+      }
+    }
+  }
+
 }

@@ -2,23 +2,64 @@
 import { SearchInput } from "./SearchInput.js";
 import defaultdata from "./searchInput.data.json";
 
+// Save the initial defaultSuggestions data
+const initData = defaultdata.defaultSuggestions;
+
 export default {
   tags: ["autodocs"],
   title: "3. Components/Search Input",
   render: (args) => {
-    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(args).html}</form>`;
+    // Create a copy of args and handle the defaultSuggestions logic
+    const componentArgs = { ...args };
+
+    // Toggle defaultSuggestions based on showDefaultSuggestions
+    if (args.showDefaultSuggestions === false) {
+      componentArgs.defaultSuggestions = false;
+    } else if (
+      args.showDefaultSuggestions === true ||
+      args.showDefaultSuggestions === undefined
+    ) {
+      // Restore from initData when toggling back to true or when undefined (default state)
+      componentArgs.defaultSuggestions = initData;
+    }
+
+    // Remove the control property as it's not needed in the component
+    delete componentArgs.showDefaultSuggestions;
+
+    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(componentArgs).html}</form>`;
   },
 
-  argTypes: {},
+  argTypes: {
+    buttonLabel: {
+      description: "The label for the search button",
+      control: { type: "text" },
+    },
+    altDropdownColor: {
+      description:
+        "If true, applies an alternative color scheme to the suggestions dropdown",
+      control: { type: "boolean" },
+    },
+    dynamicSuggestions: {
+      description: "This produces dynamic suggestions as the user types",
+      control: { type: "boolean" },
+    },
+    showDefaultSuggestions: {
+      description:
+        "This manipulates defaultSuggestions to on focus, shows default suggestions below the search input",
+      control: { type: "boolean" },
+    },
+  },
   parameters: {
     docs: {
       controls: {
-        include: ["buttonLabel", "suggestions"],
+        include: [
+          "buttonLabel",
+          "altDropdownColor",
+          "dynamicSuggestions",
+          "showDefaultSuggestions",
+        ],
       },
       story: { height: "400px" },
-    },
-    backgrounds: {
-      disable: false,
     },
   },
   globals: {
@@ -29,7 +70,7 @@ export default {
 };
 
 export const Default = {
-  args: defaultdata,
+  args: { ...defaultdata, showDefaultSuggestions: true },
   name: "Default - Outline Variant",
 };
 

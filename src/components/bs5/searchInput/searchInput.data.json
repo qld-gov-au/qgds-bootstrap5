@@ -6,7 +6,6 @@
   "buttonType": "submit",
   "buttonLabel": "Search",
   "ariaLabel": "Search website",
-  "suggestions": true,
   "tags": {
     "collection": "qgov~sp-search",
     "profile": "qld",
@@ -15,10 +14,12 @@
     "suggestions": "https://discover.search.qld.gov.au/s/suggest.json",
     "results-url": "https://discover.search.qld.gov.au/s/search.json"
   },
-  "default_suggestions": {
+  "altDropdownColor": false,
+  "dynamicSuggestions": true,
+  "defaultSuggestions": {
     "popular_services": [
       {
-        "title": "Apply for leave",
+        "title": "Apply for leave now",
         "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application"
       },
       {
