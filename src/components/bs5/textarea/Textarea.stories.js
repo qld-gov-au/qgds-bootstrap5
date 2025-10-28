@@ -48,7 +48,7 @@ export const Dark = {
 export const Filled = {
   args: {
     ...defaultdata,
-    customClass: "form-style-filled",
+    isFilled: true,
   },
 };
 

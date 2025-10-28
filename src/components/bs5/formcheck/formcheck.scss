@@ -149,13 +149,15 @@ $form-check-inline-margin-end: 1rem;
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.disabled,
+  &.is-disabled {
     &,
     &:hover {
       cursor: not-allowed;
       opacity: 0.5;
-      background-color: var(--#{$prefix}form-control-bg);
-      border-color: var(--#{$prefix}form-control-border-color);
+      background-color: var(--#{$prefix}bg);
+      border-color: var(--#{$prefix}border-color);
     }
   }
   // Bootstrap base styling overrides
@@ -176,9 +178,47 @@ $form-check-inline-margin-end: 1rem;
   }
 }
 
-.form-control,
-.form-select {
+.form-control {
   @extend %form-control;
+}
+
+// .qld-select legacy class
+.form-select,
+.qld-select {
+  @extend %form-control;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23008635' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  appearance: none;
+  background-position: right 1rem center;
+  background-size: f.remify(20px);
+  width: 100%;
+
+  &.disabled,
+  &:disabled,
+  &.is-disabled {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23636363' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+  }
+
+  &.qld-input-error,
+  &.is-invalid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23E22339' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+
+    &:not([multiple]):not([size]),
+    &:not([multiple])[size="1"] {
+      background-size: 1rem auto;
+    }
+  }
+
+  &.qld-input-success,
+  &.is-valid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23339d37' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+
+    &:not([multiple]):not([size]),
+    &:not([multiple])[size="1"] {
+      background-size: 1rem auto;
+    }
+  }
 }
 
 .form-check {
@@ -410,14 +450,14 @@ $form-check-inline-margin-end: 1rem;
   }
 }
 
-// .qld-input-success legacy class which is applied to both inputs and feedback text >:(
+// .qld-input-success legacy class which is applied to both inputs, and feedback text >:(
 .valid-feedback,
-.qld-input-success:not(select, textarea, input[type="text"]) {
+.qld-input-success:not(select, textarea, input[type="text"], .date-container) {
   @extend %_valid-feedback;
 }
 
 .invalid-feedback,
-.qld-input-error:not(select, textarea, input[type="text"]) {
+.qld-input-error:not(select, textarea, input[type="text"], .date-container) {
   @extend %_invalid-feedback;
 }
 

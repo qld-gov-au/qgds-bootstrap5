@@ -18,6 +18,7 @@ export default {
     return new Select(args).html;
   },
   parameters: { backgrounds: { disable: false } },
+  globals: { backgrounds: { value: "default" } },
 
   //https://storybook.js.org/docs/api/arg-types
   argTypes,
@@ -39,8 +40,7 @@ export const Dark = {
     isDisabled: false,
   },
   globals: { backgrounds: { value: "dark" } },
-  render: (args) => `<div class="dark">
-  ${new Select(args).html}</div>`,
+  render: (args) => `<div class="dark">${new Select(args).html}</div>`,
 };
 
 /**
@@ -49,7 +49,7 @@ export const Dark = {
 export const Filled = {
   args: {
     ...defaultdata,
-    customClass: "form-style-filled",
+    isFilled: "true",
   },
 };
 
