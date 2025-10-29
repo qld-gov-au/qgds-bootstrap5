@@ -115,6 +115,11 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           #scope: '@${username:lowercase}'
           cache: 'npm'
+          scope: '@qld-gov-au'
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - name: npm config output (including .npmrc file)
         run: |
