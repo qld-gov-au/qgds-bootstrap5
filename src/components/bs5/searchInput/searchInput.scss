@@ -10,7 +10,25 @@
   --qld-icon-color: var(--#{$prefix}light-text-lighter);
   --text-color: var(--#{$prefix}light-text-text);
   --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
-  
+
+  .dark &,
+  .dark-alt & {
+    --text-heading: var(--#{$prefix}dark-text-lighter);
+    --qld-focus-color: var(--#{$prefix}dark-focus);
+  }
+
+  .suggestions.d-none {
+    display: unset !important; // !important to override bootstrap d-none
+  }
+  .suggestions.d-none {
+    display: none !important; // !important to override bootstrap d-none
+  }
+  &:focus-within {
+    .suggestions.d-none {
+      display: block !important; // !important to override bootstrap d-none
+    }
+  }
+
   // Suggestions variables
   --suggestions-shadow:
     0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
