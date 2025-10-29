@@ -169,7 +169,9 @@ $form-check-inline-margin-end: 1rem;
   }
   // Bootstrap base styling overrides
   &.is-valid,
-  &.is-invalid {
+  &.is-invalid,
+  .was-validated &:valid,
+  .was-validated &:invalid {
     border-color: var(
       --#{$prefix}border-color
     ); // already scoped to .valid/.invalid.
@@ -471,10 +473,10 @@ $form-check-inline-margin-end: 1rem;
 // Bootstrap default styles already support placing feedback after the input element.
 // However for QGDS Feedback is placed before the validated input element, so CSS sibling doesn't work here.
 // We can has() to check for the existence of next siblings instead.
-.valid-feedback:has(~ .is-valid),
-.invalid-feedback:has(~ .is-invalid),
-.was-validated .valid-feedback:has(~ :where(input, select, textarea):valid, ~ * > :valid), // need to scope to input:valid within has(), :valid seems to match non inputs. the form-check input is wrapped in a div, so * > :input-valid
-.was-validated .invalid-feedback:has(~ :invalid, ~ * > :invalid),
+.valid-feedback:has(~ .is-valid, ~ * .is-valid ),
+.invalid-feedback:has(~ .is-invalid, ~ * .is-invalid),
+.was-validated .valid-feedback:has(~ :where(input, select, textarea):valid, ~ * :where(input, select, textarea):valid), // need to scope to input:valid within has(), :valid seems to match non inputs. the form-check input is wrapped in a div, so * > :input-valid
+.was-validated .invalid-feedback:has(~ :invalid, ~ * :invalid),
 .valid .valid-feedback,
 .invalid .invalid-feedback,
 .qld-input-success:not(select, textarea, input[type="text"]),

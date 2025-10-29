@@ -1,8 +1,20 @@
 // Bootstrap5Validation.stories.js
 import { Formcheck, argTypes } from "../../Formcheck.js";
+import { Textarea } from "../../../textarea/Textarea.js";
+import { Textbox } from "../../../textbox/Textbox.js";
+import { Select } from "../../../select/Select.js";
+import { Dateinput } from "../../../dateinput/Dateinput.js";
 import checkboxData from "../checkbox/checkbox.data.json";
+import textAreaData from "../../../textarea/textarea.data.json";
+import textInputData from "../../../textbox/textbox.data.json";
+import dateInputData from "../../../dateinput/dateinput.data.json";
+import selectData from "../../../select/select.data.json";
 
-const defaultData = { ...checkboxData, optionalLabel: null };
+checkboxData.optionalLabel = null;
+textAreaData.optionalLabel = null;
+textInputData.optionalLabel = null;
+selectData.optionalLabel = null;
+dateInputData.optionalLabel = null;
 
 /**
  * This page tests and compares various validation styling methods.
@@ -13,22 +25,46 @@ const defaultData = { ...checkboxData, optionalLabel: null };
  *
  * Client side validation:
  * - via `.was-validated` class on the `<form>` element targeting html5 `:valid` and `:invalid` input element pseudoclasses.
+ *
+ * #### Multiple input forms and validation feedback
+ * Because validation feedback (error or success messages) styles rely on sibling input selectors,
+ * it is important to wrap individual form components in a containing div when also providing validation feedback.
  */
 export default {
   tags: ["autodocs"],
   title: "3. Components/Forms/Form Validation",
-  render: (args) => {
-    return `${new Formcheck(args).html}`;
+  args: {
+    ...checkboxData, // There is no shared form element abstract args, only use controls common to all inputs (isValid, successMessage, errorMessage)
+    _storyId: "default", // make it easier to create unique ids for each input.
   },
-  args: defaultData,
+
+  render: (args) => `
+<div class="mb-32">${new Formcheck({ ...args, listitems: [{ ...checkboxData.listitems[0], id: `${args._storyId}Checkbox1` }] }).html}</div>
+<div class="mb-32">${
+    new Formcheck({
+      ...checkboxData,
+      isValid: args.isValid,
+      type: "radio",
+      listitems: [
+        { ...checkboxData.listitems[0], id: `${args._storyId}Radio1` },
+        { ...checkboxData.listitems[1], id: `${args._storyId}Radio2` },
+      ],
+    }).html
+  }</div>
+<div class="mb-32">${new Textarea({ ...textAreaData, isValid: args.isValid, id: `${args._storyId}Textarea`, isRequired: true, successMessageText: args.successMessageText, errorMessageText: args.errorMessageText }).html}</div>
+<div class="mb-32">${new Textbox({ ...textInputData, isValid: args.isValid, id: `${args._storyId}TextInput`, isRequired: true, successMessageText: args.successMessageText, errorMessageText: args.errorMessageText }).html}</div>
+<div class="mb-32">${new Select({ ...selectData, isValid: args.isValid, id: `${args._storyId}SelectInvalid`, isRequired: true, successMessageText: args.successMessageText, errorMessageText: args.errorMessageText }).html}</div>
+<div class="mb-32">${new Dateinput({ ...dateInputData, isValid: args.isValid, id: `${args._storyId}DateInvalid`, isRequired: true, successMessageText: args.successMessageText, errorMessageText: args.errorMessageText }).html}</div>
+`,
+
   argTypes,
   parameters: {
     controls: {
-      include: ["isValid", "successMessageText", "errorMessageText", "type"],
+      include: ["isValid", "successMessageText", "errorMessageText"],
     },
-
     backgrounds: { disable: false },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**
@@ -37,17 +73,8 @@ export default {
 export const BootstrapIsInvalid = {
   name: "Server side - invalid",
   args: {
-    ...defaultData,
     isValid: false,
-    questionLabel: "Bootstrap .is-invalid validation",
-    listitems: [
-      {
-        ...checkboxData.listitems[0],
-        id: "bootstrap-invalid-1",
-        label: "Invalid checkbox option",
-        isChecked: false,
-      },
-    ],
+    _storyId: "BootstrapIsInvalid",
   },
 };
 
@@ -57,17 +84,8 @@ export const BootstrapIsInvalid = {
 export const BootstrapIsValid = {
   name: "Server side - valid",
   args: {
-    ...defaultData,
     isValid: true,
-    questionLabel: "Bootstrap .is-valid validation",
-    listitems: [
-      {
-        ...checkboxData.listitems[0],
-        id: "bootstrap-valid-1",
-        label: "Valid checkbox option",
-        isChecked: true,
-      },
-    ],
+    _storyId: "BootstrapIsValid",
   },
 };
 
@@ -77,23 +95,26 @@ export const BootstrapIsValid = {
  * This disables the browser default feedback tooltips, but still provides access to the form validation APIs in JavaScript.
  * Try to submit the form below; our JavaScript will intercept the submit button and relay feedback to you.
  * Validation styles using built-in HTML5 validation require class `was-validated` to be added to the `<form>` and rely on the `:invalid` and `:valid` pseudoclasses.
+ * #### Multiple input forms and validation feedback
+ * Because validation feedback (error or success messages) styles rely on sibling input selectors,
+ * it is important to wrap individual form components in a containing div when also providing validation feedback.
  */
 export const HTML5NeedsValidation = {
   name: "Client side validation",
+
   args: {
-    ...defaultData,
-    questionLabel: "HTML5 validation with .needs-validation",
-    hintLabel: "Click the button to trigger validation",
+    ...checkboxData,
+    _storyId: "HTML5NeedsValidation",
     listitems: [
       {
-        ...defaultData.listitems[0],
+        ...checkboxData.listitems[0],
         id: "needs-validation-1",
         label: "Required checkbox (unchecked will be invalid)",
         isChecked: false,
         isRequired: true,
       },
       {
-        ...defaultData.listitems[1],
+        ...checkboxData.listitems[1],
         id: "needs-validation-2",
         label: "Required checkbox (checked will be valid)",
         isChecked: true,
@@ -103,157 +124,96 @@ export const HTML5NeedsValidation = {
   },
   render: (args) => {
     return `
-      <form class="needs-validation" novalidate>
-        <div class="row">
-          <div class="col">${new Formcheck({ ...args, listitems: [args.listitems[0]] }).html}</div>
-          <div class="col">${new Formcheck({ ...args, listitems: [args.listitems[1]] }).html}</div>
-        </div>
-          
-        <button class="btn btn-primary mt-3" type="submit" onclick="validateForm(event)">Validate</button>
-      </form>
-      <script>
-        function validateForm(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const form = event.target.closest('form');
-        const check1 = form.elements["needs-validation-1"];
-        const check2 = form.elements["needs-validation-2"];
-        check1.checked = false;
-        check2.checked = true;
-        form.classList.add('was-validated');
-        }
-      </script>
-    `;
-  },
-};
-
-// Radio buttons with Bootstrap validation
-export const BootstrapRadioValidation = {
-  args: {
-    ...defaultData,
-    type: "radio",
-    questionLabel: "Radio inputs",
-    listitems: [
-      {
-        type: "radio",
-        id: "radio-1",
-        name: "radioGroup",
-        label: "Radio Option 1",
-        value: "1",
-        isDisabled: false,
-        isChecked: true,
-      },
-      {
-        type: "radio",
-        id: "radio-2",
-        name: "radioGroup",
-        label: "Radio Option 2",
-        value: "2",
-        isDisabled: false,
-        isChecked: false,
-      },
-    ],
-  },
-  render: (args) => {
-    return `
-    <div class="row">
-      <div class="col">
-      ${
-        new Formcheck({
-          ...args,
-          isValid: true,
-          questionLabel: "Valid radio inputs",
-          listitems: [
-            {
-              ...args.listitems[0],
-              id: "radio-valid-1",
-              isChecked: true,
-            },
-            {
-              ...args.listitems[1],
-              id: "radio-valid-2",
-              name: args.listitems[0].name,
-              isChecked: false,
-            },
-          ],
-        }).html
-      }</div>
-      <div class="col">
-      
-      ${
-        new Formcheck({
-          ...args,
-          isValid: false,
-          questionLabel: "Invalid radio inputs",
-          listitems: [
-            {
-              ...args.listitems[0],
-              id: "radio-invalid-1",
-              name: "invalidRadio",
-              isChecked: true,
-            },
-            {
-              ...args.listitems[1],
-              id: "radio-invalid-2",
-              name: "invalidRadio",
-              isChecked: false,
-            },
-          ],
-        }).html
-      }</div>
+<form class="needs-validation" novalidate>
+  <div class="row">
+    <div class="col">
+      <div class="mb-32">${new Formcheck({ ...args, listitems: [{ ...checkboxData.listitems[0], id: `${args._storyId}CheckboxInvalid` }] }).html}</div>
+      <div class="mb-32">${new Textarea({ ...textAreaData, id: `${args._storyId}TextareaInvalid`, value: "", isRequired: true }).html}</div>
+      <div class="mb-32">${new Textbox({ ...textInputData, id: `${args._storyId}TextInputInvalid`, value: "", isRequired: true }).html}</div>
+      <div class="mb-32">${new Select({ ...selectData, id: `${args._storyId}SelectInvalid`, isRequired: true }).html}</div>
+      <div class="mb-32">${new Dateinput({ ...dateInputData, id: `${args._storyId}DateInvalid`, isRequired: true }).html}</div>
     </div>
-    `;
+    <div class="col">
+      <div class="mb-32">${new Formcheck({ ...args, listitems: [{ ...checkboxData.listitems[1], id: `${args._storyId}CheckboxValid` }] }).html}</div>
+      <div class="mb-32">${new Textarea({ ...textAreaData, id: `${args._storyId}TextareaValid`, value: "I have value!", isRequired: true }).html}</div>
+      <div class="mb-32">${new Textbox({ ...textInputData, id: `${args._storyId}TextInputValid`, value: "I have value also!", isRequired: true }).html}</div>
+      <div class="mb-32">${new Select({ ...selectData, id: `${args._storyId}SelectValid`, isRequired: true }).html}</div>
+      <div class="mb-32">${new Dateinput({ ...dateInputData, id: `${args._storyId}DateValid`, isRequired: true }).html}</div>
+    </div>
+  </div>
+          
+  <button class="btn btn-primary mt-3" type="submit" onclick="validateForm(event)">Validate</button>
+</form>
+<script>
+function validateForm(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const form = event.target.closest('form');
+
+  form.elements["${args._storyId}CheckboxInvalid"].checked = false;
+  form.elements["${args._storyId}CheckboxValid"].checked = true;
+
+  form.elements["${args._storyId}TextareaInvalid"].value = "";
+  form.elements["${args._storyId}TextareaValid"].value = "I have value!";
+
+  form.elements["${args._storyId}TextInputInvalid"].value = "";
+  form.elements["${args._storyId}TextInputValid"].value = "I have value also!";
+
+  form.elements["${args._storyId}SelectInvalid"].value = null;
+  form.elements["${args._storyId}SelectValid"].value = "2";
+
+  form.elements["${args._storyId}DateInvalid-dayinput"].value = "";
+
+  form.elements["${args._storyId}DateValid-dayinput"].value = "2";
+  form.elements["${args._storyId}DateValid-monthinput"].value = "2";
+  form.elements["${args._storyId}DateValid-yearinput"].value = "2222";
+  
+  form.classList.add('was-validated');
+}
+</script>`;
   },
 };
 
-export const BootstrapValidationDark = {
-  name: "Dark Palette",
+export const BootstrapInvalidDark = {
+  name: "Dark Palette - Invalid",
   args: {
-    ...defaultData,
-    questionLabel: "Bootstrap validation in dark mode",
-    listitems: [
-      {
-        ...checkboxData.listitems[0],
-        id: "dark-valid-1",
-        label: "Valid checkbox in dark mode",
-        isChecked: true,
+    isValid: false,
+    _storyId: "BootstrapInvalidDark",
+  },
+  parameters: {
+    docs: {
+      source: {
+        excludeDecorators: false,
       },
-      {
-        ...checkboxData.listitems[1],
-        id: "dark-invalid-1",
-        label: "Invalid checkbox in dark mode",
-        isChecked: false,
-      },
-    ],
+    },
   },
   globals: { backgrounds: { value: "dark" } },
-  render: (args) => {
-    return `
-      <div class="dark row">
-        <div class="col">${
-          new Formcheck({
-            ...args,
-            isValid: true,
-            listitems: [args.listitems[0]],
-          }).html
-        }</div>
-        <div class="col">${
-          new Formcheck({
-            ...args,
-            isValid: false,
-            listitems: [args.listitems[1]],
-          }).html
-        }</div>
-      </div>
-    `;
-  },
   decorators: [
     (Story) => {
       return `
-      <div class="dark">
-          ${Story()}
-      </div>
-      `;
+<div class="dark">${Story()}</div>`;
+    },
+  ],
+};
+
+export const BootstrapValidDark = {
+  name: "Dark Palette - Valid",
+  args: {
+    isValid: true,
+    _storyId: "BootstrapValidDark",
+  },
+  parameters: {
+    docs: {
+      source: {
+        excludeDecorators: false,
+      },
+    },
+  },
+  globals: { backgrounds: { value: "dark" } },
+  decorators: [
+    (Story) => {
+      return `
+<div class="dark">${Story()}</div>`;
     },
   ],
 };
@@ -264,7 +224,7 @@ export const BootstrapValidationDark = {
 export const ValidationComparison = {
   name: "Legacy Validation Comparison",
   args: {
-    ...defaultData,
+    ...checkboxData,
     questionLabel: "Comparison of validation methods",
     listitems: [
       {

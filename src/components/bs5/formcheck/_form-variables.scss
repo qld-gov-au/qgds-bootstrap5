@@ -37,7 +37,8 @@
 
     // .qld-input-success legacy class
     &.is-valid,
-    &.qld-input-success {
+    &.qld-input-success,
+    .was-validated &:valid {
       --#{$prefix}bg: #{$core-default-color-status-success-lightest};
       --#{$prefix}bg-hover: #{$core-default-color-status-success-lighter};
       --#{$prefix}border-color: #{$core-default-color-status-success-default};
@@ -46,7 +47,8 @@
 
     // .qld-input-error legacy class
     &.is-invalid,
-    &.qld-input-error {
+    &.qld-input-error,
+    .was-validated &:invalid {
       --#{$prefix}bg: #{$qld-color-error-light};
       --#{$prefix}bg-hover: #{$core-default-color-status-error-lighter};
       --#{$prefix}border-color: #{$qld-notify-warning};
@@ -72,7 +74,8 @@
     }
 
     &.is-valid,
-    &.qld-input-success {
+    &.qld-input-success,
+    .was-validated &:valid {
       --#{$prefix}bg: #{$core-default-color-status-success-lightest};
       --#{$prefix}bg-hover: #{$core-default-color-status-success-lighter};
       --#{$prefix}border-color: #{$core-default-color-status-success-default};
@@ -82,7 +85,8 @@
     }
 
     &.is-invalid,
-    &.qld-input-error {
+    &.qld-input-error,
+    .was-validated &:invalid {
       --#{$prefix}bg: #{$qld-color-error-light};
       --#{$prefix}bg-hover: #{$core-default-color-status-error-lighter};
       --#{$prefix}border-color: #{$qld-notify-warning};

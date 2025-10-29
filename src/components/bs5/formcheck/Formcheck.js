@@ -15,29 +15,29 @@ export class Formcheck {
  */
 export const argTypes = {
   questionLabel: {
-    type: "string | undefined",
+    type: "string",
     description: `The heading label for the for the set of checks/radios.`,
   },
   optionalLabel: {
-    type: "string | undefined",
+    type: "string",
     description: "Additional text used to denote an optional field.",
   },
   hintLabel: {
-    type: "string | undefined",
+    type: "string",
     description:
       "Extra informational text which can be used to give the input more context.",
   },
   listClasses: {
-    type: "string | undefined",
+    type: "string",
     description: "CSS class names to be added to the topmost element.",
   },
   successMessageText: {
-    type: "string | undefined",
+    type: "string",
     description:
       "Informational text which appears when the input passes validation, or if `isValid` is true.",
   },
   errorMessageText: {
-    type: "string | undefined",
+    type: "string",
     description:
       "Informational text which appears when the input fails validation, or if `isValid` is false.",
   },
@@ -52,8 +52,8 @@ export const argTypes = {
     },
   },
   isValid: {
-    options: [undefined, true, false],
-    type: "boolean | undefined",
+    options: [null, true, false],
+    type: "boolean | null",
     control: "radio",
     description:
       "Should be set only when the input is to be validated server-side. Adds class `is-valid` or `is-invalid` to the form control. For client-side validation.",
