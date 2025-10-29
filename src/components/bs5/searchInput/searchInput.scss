@@ -8,12 +8,13 @@
   --qld-icon-color: var(--#{$prefix}light-text-lighter);
   --text-color: var(--#{$prefix}light-text-text);
   --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
-  
-  .dark &, .dark-alt & {
+
+  .dark &,
+  .dark-alt & {
     --text-heading: var(--#{$prefix}dark-text-lighter);
     --qld-focus-color: var(--#{$prefix}dark-focus);
   }
-  
+
   .suggestions.d-none {
     display: unset !important; // !important to override bootstrap d-none
   }
@@ -51,7 +52,6 @@
   // local variables
   $border-radius: 0.25rem;
   --_size: 3rem;
-
 
   display: flex;
   position: relative;
@@ -376,5 +376,4 @@
       }
     }
   }
-  
 }
