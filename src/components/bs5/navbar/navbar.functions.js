@@ -78,7 +78,7 @@ export function initializeNavbar() {
   resetNavbarState();
 
   // Burger buttons - handle open
-  burgerBtn?.addEventListener("click", () => {
+  navbarCollapse.addEventListener("shown.bs.collapse", () => {
     // Check if navbar is opening
     setTimeout(() => {
       if (navbarCollapse?.classList.contains("show")) {
