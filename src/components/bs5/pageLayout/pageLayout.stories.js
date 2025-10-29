@@ -137,7 +137,7 @@ export const Home = {
       abstract: "Your gateway to government services and information.",
       bannerType: "banner-advanced",
       backgroundType: "with-hero-image",
-      "image.classes": "align-grid",
+      ["image.classes"]: "align-grid",
       callToAction: "buttons",
       buttons: [
         {

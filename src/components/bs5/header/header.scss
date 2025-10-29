@@ -112,6 +112,10 @@
         display: none;
       }
     }
+
+    .qld-header-link + .dropdown {
+      margin-left: 0.5rem;
+    }
   }
 
   &-link {
