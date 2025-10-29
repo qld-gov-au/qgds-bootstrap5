@@ -202,11 +202,6 @@ export const BootstrapRadioValidation = {
         }).html
       }</div>
     </div>
-      
-          
-
-          
-  
     `;
   },
 };

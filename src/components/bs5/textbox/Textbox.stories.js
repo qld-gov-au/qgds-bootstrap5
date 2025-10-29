@@ -4,7 +4,7 @@ import defaultdata from "./textbox.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "3. Components/Forms/Textbox",
+  title: "3. Components/Forms/Text input",
   render: (args) => {
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.
     //We can't use commas on our class="..." attribute, so we need to replace the commas with spaces.
