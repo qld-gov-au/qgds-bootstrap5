@@ -14,7 +14,7 @@
     --text-heading: var(--#{$prefix}dark-text-lighter);
     --qld-focus-color: var(--#{$prefix}dark-focus);
   }
-  
+
   .suggestions.d-none {
     display: unset !important; // !important to override bootstrap d-none
   }
@@ -58,7 +58,6 @@
   border-radius: $border-radius;
 
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
-  @include mixins.focusable($customSelector: " .btn:focus");
 
   &:has(.form-control:focus) {
     > button {
