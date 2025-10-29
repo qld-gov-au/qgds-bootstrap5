@@ -176,7 +176,7 @@ a.btn,
   }
 
   &:focus {
-    outline: var(--#{$prefix}light-blue) solid 3px;
+    outline: var(--#{$prefix}focus-color) solid 3px;
     outline-offset: 2px;
   }
 
@@ -223,12 +223,6 @@ a.btn,
 
     .btn-label-progress {
       display: inline;
-    }
-
-    // Maintain focus styles for screen readers
-    &:focus {
-      outline: var(--#{$prefix}light-blue) solid 3px;
-      outline-offset: 2px;
     }
 
     // Remove hover effects
