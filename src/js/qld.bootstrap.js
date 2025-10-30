@@ -15,8 +15,6 @@ import { toggleSearch } from "./../components/bs5/header/header.functions";
 import {
   showSuggestions,
   submitSearchForm,
-  hideSuggestions,
-  initializeFocusTrap,
 } from "./../components/bs5/searchInput/search.functions";
 import { backToTop } from "./../components/bs5/backToTop/backToTop.functions";
 import { initTabsScroll } from "./../components/bs5/tabs/tabs.functions";
@@ -91,11 +89,8 @@ window.addEventListener("DOMContentLoaded", () => {
         const suggestions = form.querySelector(".suggestions");
         // If there is no suggestions renderred, do not add event listener to the document
         if (suggestions) {
-          // Initialize focus trap for this form
-          initializeFocusTrap(form);
-
           // Helper function to determine if suggestions should be hidden on focus change
-          const shouldHideSuggestionsCheck = (newFocusTarget) => {
+          const shouldHideSuggestions = (newFocusTarget) => {
             if (!newFocusTarget) return true;
 
             const isFocusInsideInput =
@@ -111,8 +106,8 @@ window.addEventListener("DOMContentLoaded", () => {
           const handleFocusOut = (event) => {
             const newFocusTarget = event.relatedTarget;
 
-            if (shouldHideSuggestionsCheck(newFocusTarget)) {
-              hideSuggestions(form);
+            if (shouldHideSuggestions(newFocusTarget)) {
+              suggestions.classList.add("d-none");
             }
           };
 

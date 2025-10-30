@@ -1,57 +1,4 @@
 import { createPopper } from "@popperjs/core";
-import { createFocusTrap } from "../../../js/utils.js";
-
-// Store focus trap instances for each form
-const focusTraps = new WeakMap();
-
-/**
- * Initialize focus trap for a search form's suggestions dropdown
- * @param {HTMLFormElement} form - The form element
- * @returns {Object} Focus trap controller
- */
-export function initializeFocusTrap(form) {
-  const searchInput = form.querySelector(".qld-search-input input");
-  const suggestions = form.querySelector(".suggestions");
-
-  if (!suggestions || !searchInput) {
-    return null;
-  }
-
-  // Check if focus trap already exists for this form
-  if (focusTraps.has(form)) {
-    return focusTraps.get(form);
-  }
-
-  // Create focus trap
-  const focusTrap = createFocusTrap(suggestions, {
-    returnFocusElement: searchInput,
-    onEscape: () => {
-      hideSuggestions(form);
-    },
-  });
-
-  // Store the focus trap for this form
-  focusTraps.set(form, focusTrap);
-
-  return focusTrap;
-}
-
-/**
- * Hide suggestions dropdown
- * @param {HTMLFormElement} form - The form element
- */
-export function hideSuggestions(form) {
-  const suggestions = form.querySelector(".suggestions");
-  if (suggestions) {
-    suggestions.classList.add("d-none");
-
-    // Deactivate focus trap
-    const focusTrap = focusTraps.get(form);
-    if (focusTrap && focusTrap.isActive()) {
-      focusTrap.deactivate();
-    }
-  }
-}
 
 /**
  * Fetches data from the provided URL.
@@ -83,12 +30,11 @@ async function fetchData(url, type) {
  */
 export function selectSuggestion(value, form) {
   const searchInput = form.querySelector(".qld-search-input input");
+  const suggestions = form.querySelector(".suggestions");
 
-  if (searchInput) {
+  if (searchInput && suggestions) {
     searchInput.value = value.trim();
-
-    // Hide suggestions and deactivate focus trap
-    hideSuggestions(form);
+    suggestions.classList.add("d-none");
 
     // Retrieve additional params
     const collection =
@@ -148,13 +94,6 @@ export async function showSuggestions(value = "", isDefault = false, form) {
       placement: "bottom-start",
     });
     suggestions.classList.remove("d-none");
-
-    // Activate focus trap when suggestions are shown
-    const focusTrap = initializeFocusTrap(form);
-    if (focusTrap) {
-      // Use setTimeout to allow DOM to update before activating trap
-      setTimeout(() => focusTrap.activate(), 0);
-    }
     return;
   }
 
@@ -198,13 +137,6 @@ export async function showSuggestions(value = "", isDefault = false, form) {
       });
       suggestions.classList.remove("d-none");
 
-      // Activate focus trap when suggestions are shown
-      const focusTrap = initializeFocusTrap(form);
-      if (focusTrap) {
-        // Use setTimeout to allow DOM to update before activating trap
-        setTimeout(() => focusTrap.activate(), 0);
-      }
-
       // Attach click event listeners to each suggestion item
       form.querySelectorAll(".suggestions li").forEach((item) => {
         item.addEventListener("click", () =>
@@ -214,7 +146,7 @@ export async function showSuggestions(value = "", isDefault = false, form) {
     } else {
       dynamicSuggestionsContainer.innerHTML = "";
       dynamicSuggestionsContainer.classList.add("d-none");
-      hideSuggestions(form);
+      suggestions.classList.add("d-none");
     }
   }
 
@@ -247,13 +179,6 @@ export async function showSuggestions(value = "", isDefault = false, form) {
         placement: "bottom-start",
       });
       suggestions.classList.remove("d-none");
-
-      // Activate focus trap when suggestions are shown
-      const focusTrapServices = initializeFocusTrap(form);
-      if (focusTrapServices) {
-        // Use setTimeout to allow DOM to update before activating trap
-        setTimeout(() => focusTrapServices.activate(), 0);
-      }
 
       // Attach click event listeners to each suggestion item
       form.querySelectorAll(".suggestions li").forEach((item) => {
