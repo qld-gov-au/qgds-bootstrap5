@@ -60,7 +60,7 @@
   .dark-alt & {
     --#{$prefix}bg: #{$qld-color-dark-background};
     --#{$prefix}bg-hover: #{$qld-color-dark-background--shade};
-    --#{$prefix}border-color: #{$core-default-color-neutral-lighter};
+    --#{$prefix}border-color: #{$color-default-color-dark-border-alt};
     --#{$prefix}border-color-hover: var(--#{$prefix}border-color);
     --#{$prefix}border-color-focus: #{$core-default-color-neutral-lighter};
     --#{$prefix}color: #{$color-default-color-dark-text-default};
