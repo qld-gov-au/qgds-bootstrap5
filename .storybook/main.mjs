@@ -70,6 +70,14 @@ const config = {
           // Allow access to assets
           path.resolve(process.cwd(), "../src/assets"),
           path.resolve(process.cwd(), "../src/img"),
+          // Allow access to the entire project directory for Storybook
+          path.resolve(process.cwd()),
+          // Allow access to node_modules for Storybook addons
+          path.resolve(process.cwd(), "node_modules"),
+          // Allow access to .storybook directory
+          path.resolve(process.cwd(), ".storybook"),
+          // Allow access to dist directory
+          path.resolve(process.cwd(), "dist"),
         ],
       },
     };
