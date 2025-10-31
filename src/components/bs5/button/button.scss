@@ -1,5 +1,7 @@
-// QGDS QOL Button
+// QGDS Button
 // extends https://getbootstrap.com/docs/5.3/components/buttons/#variables
+
+@use "../../../css/mixins" as m;
 
 // QGDS specific button variables.
 .btn {
@@ -176,8 +178,7 @@ a.btn,
   }
 
   &:focus {
-    outline: var(--#{$prefix}focus-color) solid 3px;
-    outline-offset: 2px;
+    @include m.focusable();
   }
 
   &:visited {
