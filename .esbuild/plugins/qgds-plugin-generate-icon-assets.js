@@ -17,6 +17,7 @@ export function QGDSgenerateIconAssetsPlugin(
   inputDir = "./src/img/icons",
   outputIconSprite = "./src/img/icons-sprite.svg",
   outputIconVars = "./src/components/bs5/icons/_icons.variables.scss",
+  // outputIconSassVars = "./src/components/bs5/icons/_icons.sassvars.scss",
   outputIconNames = "./src/components/bs5/icons/_icons.list.scss",
   outputIconJs = "./src/components/bs5/icons/_icons.list.js",
 ) {
@@ -75,9 +76,11 @@ export function QGDSgenerateIconAssetsPlugin(
 
           cssVariables += `  --${PREFIX_QGDS}${sanitisedName}: url("${dataUri}");\n`;
 
-          sassVariables += `  ${sanitisedName},\n`;
+          sassVariables += `  ${sanitisedName}: '${svgContent.replace(/\n|\r/g, "")}',\n`;
 
           jsVariables.push(sanitisedName);
+
+          // write all svg strings as scss variables.
         }
         spriteContent += `</svg>\n`;
         cssVariables += `}\n`;
