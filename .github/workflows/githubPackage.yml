@@ -116,20 +116,15 @@ jobs:
           #scope: '@${username:lowercase}'
           cache: 'npm'
 
-      - name: npm config output (including .npmrc file)
-        run: |
-          npm -v
-          node -v
-          cat /home/runner/work/_temp/.npmrc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - run: npm ci
 
       - name: Build 🔧
         run: | # build the files
           npm run build
-
 
       - name: "Update package scope, export package name"
         id: package_details

@@ -21,6 +21,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         node: [ '22' ]
@@ -52,9 +54,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
-          #always-auth: 'true'
-          #registry-url: 'https://nexus.tools.services.qld.gov.au/nexus/repository/npm_all/'
           registry-url: 'https://registry.npmjs.org'
+
       - name: Install #run on lint step (Which is cached)
         run: | # Install packages per package-lock.json only
           npm ci
@@ -70,22 +71,22 @@ jobs:
       - name: Build 🔧
         run: | # build the files
           npm run build
-      #      - name: Build storybook 🔧
-      #        run: | # build the Storybook files
-      #          npm run build-storybook
 
   publish-npm:
     needs: build
     env:
-      HAVE_DEPLOY_KEY: ${{ secrets.NPM_TOKEN != '' }}
+      HAVE_DEPLOY_KEY: ${{ github.repository == 'qld-gov-au/qgds-bootstrap5' }}
       #When run on push tags, force is '', default for workflow_dispatch is No so you can't trigger without a double action
       WORKFLOW_DEPLOYMENT: ${{ github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' }}
-      DO_DEPLOYMENT: ${{ secrets.NPM_TOKEN != '' && ( github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' ) }}
+      DO_DEPLOYMENT: ${{ github.repository == 'qld-gov-au/qgds-bootstrap5' && ( github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' ) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-      id-token: write
+      id-token: write # Required for OIDC
+    environment:
+      name: npmjs
+      url: https://www.npmjs.com/package/@qld-gov-au/qgds-bootstrap5
     steps:
       - uses: actions/checkout@v5
 
@@ -111,7 +112,13 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+          registry-url: https://registry.npmjs.org/
           cache: 'npm'
+          scope: '@qld-gov-au'
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - run: npm ci
 
@@ -139,37 +146,17 @@ jobs:
 #        id: latest_tag
 #        with:
 #          package-json: ./package.json
-#
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org/
-          # Defaults to the user or organization that owns the workflow file
-          #scope: '@${username:lowercase}'
-          cache: 'npm'
-
-      - name: npm config output (including .npmrc file)
-        run: |
-          npm -v
-          node -v
-          cat /home/runner/work/_temp/.npmrc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish
         if: ${{ env.DO_DEPLOYMENT == 'true' }}
         run: |
             npm publish --provenance --access=public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
       - name: NPM Publish - Is Skipped
         if: ${{ env.HAVE_DEPLOY_KEY != 'true' }}
         run: |
-            echo "### Deployment config not configured" >> $GITHUB_STEP_SUMMARY
-            echo "secrets.NPM_TOKEN not existing, npm publish can't be pushed" >> $GITHUB_STEP_SUMMARY
-            echo "If this is a fork, please setup your own personal service account to publish to your own npmjs.org prefix" >> $GITHUB_STEP_SUMMARY
-            echo "## We recommend using a service account with the least permissions necessary."  >> $GITHUB_STEP_SUMMARY
-            echo "[npm Access Tokens](https://www.npmjs.com/settings/duttonw/tokens)"  >> $GITHUB_STEP_SUMMARY
+            echo "## This is a fork" >> $GITHUB_STEP_SUMMARY
+            echo "If you wish to publish to npmjs.org. Please change package prefix name and update this file to new repo location."  >> $GITHUB_STEP_SUMMARY
 
       - name: Publish - Skipped
         if: ${{ env.DO_DEPLOYMENT != 'true' }}
