@@ -1,18 +1,16 @@
 // Accordions: https://getbootstrap.com/docs/5.3/components/accordion/#sass-variables
-// #{$prefix} defined in main.css
+
+@use "../../../css/mixins" as m;
 
 //SASS variables;
 $accordion-padding: 1rem;
 $accordion-icon-color: $color-default-color-light-action-primary;
 $accordion-icon-active-color: $color-default-color-light-action-primary;
-$accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-$accordion-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 $accordion-icon-dark-color: $color-default-color-dark-action-primary;
-$accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-$accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-
+$accordion-icon-color: $qld-brand-secondary-dark;
+$accordion-icon-active-color: $qld-brand-secondary-dark;
+$accordion-icon-dark-color: $qld-brand-accent;
 // CSS Scoped Variables
-//--#{$prefix}{component}-{property}
 
 .accordion-group {
   --#{$prefix}focus: var(--#{$prefix}light-focus);
@@ -35,12 +33,8 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   --#{$prefix}accordion-btn-padding-y: 1rem;
   --#{$prefix}accordion-btn-color: var(--#{$prefix}link-color);
   --#{$prefix}accordion-btn-bg: var(--#{$prefix}extra-light-grey);
-  --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon)};
-  --#{$prefix}accordion-btn-active-icon: #{escape-svg(
-      $accordion-button-active-icon
-    )};
   --#{$prefix}accordion-btn-icon-width: 1.5rem;
-  --#{$prefix}accordion-btn-icon-transform: rotate(180deg);
+  --#{$prefix}accordion-btn-icon-transform: rotate(-180deg);
   --#{$prefix}accordion-btn-icon-transition: transform 0.25s ease-in;
   --#{$prefix}accordion-btn-focus-box-shadow: none;
   --#{$prefix}accordion-active-bg: var(--#{$prefix}accordion-btn-bg);
@@ -64,10 +58,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   // Shared 'Dark' theme variables
   .dark &,
   .dark-alt & {
-    --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon-dark)};
-    --#{$prefix}accordion-btn-active-icon: #{escape-svg(
-        $accordion-button-active-icon-dark
-      )};
     --#{$prefix}accordion-color: var(--#{$prefix}white);
     --#{$prefix}accordion-btn-color: var(--#{$prefix}white);
     --#{$prefix}accordion-active-color: var(--#{$prefix}white);
@@ -114,6 +104,10 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
       outline: 3px solid var(--#{$prefix}focus);
       outline-offset: 2px;
     }
+
+    @include m.make-icon("chevron-down", "md", "after") {
+      background-image: none !important; // bootstrap vanilla override
+    }
   }
 
   &-header {
@@ -157,18 +151,11 @@ div .accordion-body {
       text-decoration: none;
     }
 
-    &:after {
-      content: #{escape-svg($accordion-button-icon)};
+    @include m.make-icon("chevron-down", "xs", "after") {
       transition: transform 0.25s ease-in;
-      height: 1rem;
-      aspect-ratio: 1 / 1;
       margin-block: 1px;
-
-      .dark &,
-      .dark-alt & {
-        content: #{escape-svg($accordion-button-icon-dark)};
-      }
     }
+
     &:focus {
       outline: 2px solid var(--#{$prefix}focus);
       border-radius: 1px;
@@ -179,7 +166,7 @@ div .accordion-body {
     }
 
     &--open:after {
-      transform: rotate(180deg);
+      transform: rotate(-180deg);
     }
   }
 }

@@ -1,18 +1,8 @@
 // QGDS QOL Video Component
 
 // Video variables.
-
 $video-icon-color: $qld-dark-text;
-// Material Symbols 'Play Circle'
-$video-play-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color}'><path d='m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z' /></svg>");
-// Material Symbols 'Schedule'
-$video-clock-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color}'><path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z' /></svg>");
-
 $video-icon-color-dark: $qld-dark-action-text;
-// Material Symbols 'Play Circle'
-$video-play-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color-dark}'><path d='m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z' /></svg>");
-// Material Symbols 'Schedule'
-$video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='#{$video-icon-color-dark}'><path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z' /></svg>");
 
 // Default
 .video {
@@ -23,10 +13,8 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
   --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 150;
   --#{$prefix}video-nav-bg-opacity: 0.9;
   --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
-  --#{$prefix}video-play-icon: #{escape-svg($video-play-icon)};
   --#{$prefix}video-play-icon-size: 2rem;
   --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
-  --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon)};
   --#{$prefix}video-clock-icon-size: 1.25rem;
 
   .dark &,
@@ -36,8 +24,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}dark-action-primary-hover);
     --#{$prefix}video-nav-bg-hover-rgb: 166, 247, 255;
     --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
-    --#{$prefix}video-play-icon: #{escape-svg($video-play-icon-dark)};
-    --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon-dark)};
   }
 }
 
@@ -214,32 +200,19 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     span {
       vertical-align: middle;
     }
-
-    .icon {
-      background-repeat: no-repeat;
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: -2rem;
-      margin-right: 0.5rem;
-    }
   }
-
-  &-duration {
-    .icon {
-      background-image: var(--#{$prefix}video-clock-icon);
-      height: var(--#{$prefix}video-clock-icon-size);
-      width: var(--#{$prefix}video-clock-icon-size);
-    }
-  }
-
   &-watch {
     background-color: var(--#{$prefix}video-nav-bg);
     text-decoration-color: transparent;
-
-    .icon {
-      background-image: var(--#{$prefix}video-play-icon);
-      height: var(--#{$prefix}video-play-icon-size);
-      width: var(--#{$prefix}video-play-icon-size);
+  }
+  &-duration, &-watch {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 100%;
+    .qld-icon {
+      color: inherit;
     }
   }
 
@@ -254,7 +227,6 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
       }
     }
   }
-
   .accordion {
     margin-bottom: 0;
     grid-area: transcript;
