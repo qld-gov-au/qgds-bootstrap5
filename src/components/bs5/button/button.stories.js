@@ -113,6 +113,9 @@ export default {
       type: "figma",
       url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98058&mode=design&t=YBUAJHIxqF46Um9y-0",
     },
+    backgrounds: {
+      disabled: false,
+    },
   },
 };
 
@@ -125,11 +128,6 @@ export const Default = {};
  * Dark Button story
  * */
 export const Dark = {
-  parameters: {
-    backgrounds: {
-      disabled: false,
-    },
-  },
   globals: {
     backgrounds: {
       value: "dark",
