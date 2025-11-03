@@ -45,31 +45,37 @@ export const ParentContextComparison = {
   render: () => {
     const testTags = {
       variant: "",
+      classes: "p-4 my-2",
       tagItems: [
         {
           content: "default",
-          classes: "",
+          variants: "",
         },
         {
           content: "Information",
-          classes: "tag-info",
+          variants: "tag-info",
         },
         {
           content: "<a href='javascript:void(0)'>Action</a>",
-          classes: "tag-link",
+          variants: "tag-link",
         },
         {
           content: "Filter",
-          classes: "tag-large",
+          variants: "tag-large",
           "applied-filter": true,
         },
         {
           content: "Large",
-          classes: "tag-info tag-large",
+          variants: "tag-info tag-large",
         },
         {
           content: "Large",
-          classes: "tag-link tag-large",
+          variants: "tag-link tag-large",
+        },
+        {
+          content:
+            "<a href='javascript:void(0)'>Large action link with wrapping text <br/> to demonstrate behaviour </a>",
+          variants: "tag-link tag-large",
         },
       ],
     };

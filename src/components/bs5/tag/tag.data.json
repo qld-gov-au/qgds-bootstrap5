@@ -1,145 +1,151 @@
 {
-	"default": {
-		"variant": "tag-default",
-		"tagItems": [
-			{
-				"id": "One",
-				"content": "Tag text"
-			},
-			{
-				"id": "Two",
-				"content": "Tag text"
-			},
-			{
-				"id": "Three",
-				"content": "Tag text"
-			},
-			{
-				"id": "Four",
-				"content": "Tag text"
-			}
-		]
-	},
-	"large": {
-		"variant": "",
-		"tagItems": [
-			{
-				"id": "One",
-				"content": "Tag text",
-				"classes": "tag-large"
-			},
-			{
-				"id": "Two",
-				"content": "Tag text",
-				"classes": "tag-large"
-			},
-			{
-				"id": "Three",
-				"content": "Tag text",
-				"classes": "tag-large"
-			}
-		]
-	},
-	"action": {
-		"variant": "",
-		"tagItems": [
-			{
-				"id": "One",
-				"content": "<a href='javascript:void(0)'>Tag text</a>",
-				"classes": "tag-link"
-			},
-			{
-				"id": "Two",
-				"content": "<a href='javascript:void(0)'>Tag text</a>",
-				"classes": "tag-link"
-			},
-			{
-				"id": "Three",
-				"content": "<a href='javascript:void(0)'>Tag text</a>",
-				"classes": "tag-link"
-			}
-		]
-	},
-	"dark": {
-		"classes": "",
-		"variant": "tag-dark",
-		"tagItems": [
-			{
-				"id": "One",
-				"content": "Tag text"
-			},
-			{
-				"id": "Two",
-				"content": "Tag text"
-			},
-			{
-				"id": "Three",
-				"content": "Tag text"
-			}
-		]
-	},
-	"info": {
-		"variant": "",
-		"tagItems": [
-			{
-				"id": "One",
-				"content": "Tag text",
-				"classes": "tag-info"
-			},
-			{
-				"id": "Two",
-				"content": "Tag text",
-				"classes": "tag-info"
-			},
-			{
-				"id": "Three",
-				"content": "Tag text",
-				"classes": "tag-info"
-			}
-		]
-	},
-	"filter": {
-		"variant": "",
-		"tagItems": [
-			{
-				"id": "One",
-				"content": "Policies and procedures",
-				"classes": "tag-large",
-				"applied-filter": true
-			},
-			{
-				"id": "Two",
-				"content": "Publications",
-				"classes": "tag-large",
-				"applied-filter": true
-			}
-		]
-	},
-	"status": {
-		"variant": "tag-status",
-		"tagItems": [
-			{
-				"content": "Neutral",
-				"classes": "tag-neutral"
-			},
-			{
-				"content": "Success",
-				"classes": "tag-success"
-			},
-			{
-				"content": "Warning",
-				"classes": "tag-warning"
-			},
-			{
-				"content": "Error",
-				"classes": "tag-error"
-			},
-			{
-				"content": "Information",
-				"classes": "tag-information"
-			}
-		],
-		"size": "tag-small",
-		"emphasis": "tag-low"
-	}
+  "default": {
+    "variant": "tag-default",
+    "classes": "p-4 my-2",
+    "tagItems": [
+      {
+        "id": "One",
+        "content": "Tag text"
+      },
+      {
+        "id": "Two",
+        "content": "Tag text"
+      },
+      {
+        "id": "Three",
+        "content": "Tag text"
+      },
+      {
+        "id": "Four",
+        "content": "Tag text"
+      }
+    ]
+  },
+  "large": {
+    "variant": "",
+    "classes": "p-4 my-2",
+    "tagItems": [
+      {
+        "id": "One",
+        "content": "Tag text",
+        "variants": "tag-large"
+      },
+      {
+        "id": "Two",
+        "content": "Tag text",
+        "variants": "tag-large"
+      },
+      {
+        "id": "Three",
+        "content": "Tag text",
+        "variants": "tag-large"
+      }
+    ]
+  },
+  "action": {
+    "variant": "",
+    "classes": "p-4 my-2",
+    "tagItems": [
+      {
+        "id": "One",
+        "content": "<a href='javascript:void(0)'>Tag text</a>",
+        "variants": "tag-link"
+      },
+      {
+        "id": "Two",
+        "content": "<a href='javascript:void(0)'>Tag text</a>",
+        "variants": "tag-link"
+      },
+      {
+        "id": "Three",
+        "content": "<a href='javascript:void(0)'>Tag text</a>",
+        "variants": "tag-link"
+      }
+    ]
+  },
+  "dark": {
+    "classes": "p-4 my-2",
+    "variant": "tag-dark",
+    "tagItems": [
+      {
+        "id": "One",
+        "content": "Tag text"
+      },
+      {
+        "id": "Two",
+        "content": "Tag text"
+      },
+      {
+        "id": "Three",
+        "content": "Tag text"
+      }
+    ]
+  },
+  "info": {
+    "variant": "",
+    "classes": "p-4 my-2",
+    "tagItems": [
+      {
+        "id": "One",
+        "content": "Tag text",
+        "variants": "tag-info"
+      },
+      {
+        "id": "Two",
+        "content": "Tag text",
+        "variants": "tag-info"
+      },
+      {
+        "id": "Three",
+        "content": "Tag text",
+        "variants": "tag-info"
+      }
+    ]
+  },
+  "filter": {
+    "variant": "",
+    "classes": "p-4 my-2",
+    "tagItems": [
+      {
+        "id": "One",
+        "content": "Policies and procedures",
+        "variants": "tag-large",
+        "applied-filter": true
+      },
+      {
+        "id": "Two",
+        "content": "Publications",
+        "variants": "tag-large",
+        "applied-filter": true
+      }
+    ]
+  },
+  "status": {
+    "variant": "tag-status",
+    "classes": "p-4 my-2",
+    "tagItems": [
+      {
+        "content": "Neutral",
+        "variants": "tag-neutral"
+      },
+      {
+        "content": "Success",
+        "variants": "tag-success"
+      },
+      {
+        "content": "Warning",
+        "variants": "tag-warning"
+      },
+      {
+        "content": "Error",
+        "variants": "tag-error"
+      },
+      {
+        "content": "Information",
+        "variants": "tag-information"
+      }
+    ],
+    "size": "tag-small",
+    "emphasis": "tag-low"
+  }
 }

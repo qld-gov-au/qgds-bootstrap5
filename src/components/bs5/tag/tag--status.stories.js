@@ -35,13 +35,14 @@ function statusVariantsMarkup() {
           Object.entries(types).map(([typeClass, typeLabel]) => {
             tagItems.push({
               content: `${typeLabel}`,
-              classes: `${typeClass}`,
+              variants: `${typeClass}`,
             });
           });
 
           //Generate Tag component markup from all possible tag types.
           const tagHtml = new Tag({
             variant: defaultdata.status.variant,
+            classes: "p-4 my-2",
             tagItems: tagItems,
             size: sizeClass,
             emphasis: emClass,
