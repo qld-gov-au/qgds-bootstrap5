@@ -21,6 +21,10 @@ export function initializeNavbar() {
     });
   };
 
+  // Focus trap instances (created on-demand)
+  let mobileFocusTrap = null;
+  const dropdownFocusTraps = new Map();
+
   // Helper function to close navbar
   function closeNavbar() {
     if (navbarCollapse?.classList.contains("show")) {
@@ -29,22 +33,84 @@ export function initializeNavbar() {
       document.body.style.overflow = "";
       setAriaHidden(false);
 
-      // Deactivate focus trap
-      if (focusTrap) {
-        focusTrap.deactivate();
+      // Deactivate and destroy mobile focus trap
+      if (mobileFocusTrap) {
+        mobileFocusTrap.deactivate();
+        mobileFocusTrap = null;
       }
     }
   }
 
-  // Create focus trap for navbar
-  let focusTrap = null;
-  if (navbarCollapse) {
-    focusTrap = createFocusTrap(navbarCollapse, {
-      returnFocusElement: burgerBtn,
-      onEscape: () => {
-        closeNavbar();
-      },
+  // Create mobile focus trap on-demand (when mobile menu opens)
+  function createMobileFocusTrap() {
+    if (!mobileFocusTrap && navbarCollapse) {
+      mobileFocusTrap = createFocusTrap(navbarCollapse, {
+        returnFocusElement: burgerBtn,
+        onEscape: () => {
+          closeNavbar();
+        },
+      });
+    }
+    return mobileFocusTrap;
+  }
+
+  // Create dropdown focus trap on-demand (when dropdown opens)
+  function getOrCreateDropdownFocusTrap(dropdown, toggle) {
+    if (!dropdownFocusTraps.has(dropdown)) {
+      const dropdownTrap = createFocusTrap(dropdown, {
+        returnFocusElement: toggle,
+        onEscape: () => {
+          // Close the dropdown using Bootstrap's API
+          const bsDropdown = bootstrap.Dropdown.getInstance(toggle);
+          if (bsDropdown) {
+            bsDropdown.hide();
+          }
+        },
+      });
+      dropdownFocusTraps.set(dropdown, dropdownTrap);
+    }
+    return dropdownFocusTraps.get(dropdown);
+  }
+
+  // Setup dropdown event listeners
+  function setupDropdownListeners() {
+    // Find all dropdown toggles (elements with data-bs-toggle="dropdown")
+    const dropdownToggles = navbarCollapse?.querySelectorAll(
+      '[data-bs-toggle="dropdown"]',
+    );
+
+    dropdownToggles?.forEach((toggle) => {
+      // Find the associated dropdown menu within the same parent container
+      const parentItem =
+        toggle.closest(".dropdown") || toggle.closest(".nav-item");
+      if (!parentItem) return;
+
+      const dropdown = parentItem.querySelector(".dropdown-menu");
+      if (!dropdown) return;
+
+      // Listen for dropdown show event (desktop only)
+      toggle.addEventListener("shown.bs.dropdown", () => {
+        const isMobile = window.innerWidth < 992;
+        if (!isMobile) {
+          // Create and activate focus trap on-demand
+          const dropdownTrap = getOrCreateDropdownFocusTrap(dropdown, toggle);
+          setTimeout(() => dropdownTrap.activate(), 0);
+        }
+      });
+
+      // Listen for dropdown hide event
+      toggle.addEventListener("hidden.bs.dropdown", () => {
+        const dropdownTrap = dropdownFocusTraps.get(dropdown);
+        if (dropdownTrap && dropdownTrap.isActive()) {
+          dropdownTrap.deactivate();
+        }
+      });
     });
+  }
+
+  // Setup dropdown listeners on load
+  if (navbarCollapse) {
+    setupDropdownListeners();
   }
 
   // Close navbar when overlay is clicked
@@ -77,17 +143,18 @@ export function initializeNavbar() {
   window.addEventListener("resize", resetNavbarState);
   resetNavbarState();
 
-  // Burger buttons - handle open
+  // Burger buttons - handle open (mobile only)
   navbarCollapse?.addEventListener("shown.bs.collapse", () => {
     // Check if navbar is opening
     setTimeout(() => {
       if (navbarCollapse?.classList.contains("show")) {
         setAriaHidden(true);
 
-        // Activate focus trap when navbar opens (mobile only)
+        // Create and activate focus trap when navbar opens (mobile only - whole navbar)
         const isMobile = window.innerWidth < 992;
-        if (focusTrap && isMobile) {
-          focusTrap.activate();
+        if (isMobile) {
+          const trap = createMobileFocusTrap();
+          trap.activate();
         }
       }
     }, 0);

@@ -98,7 +98,10 @@ export function createFocusTrap(container, options = {}) {
 
     // Shift + Tab (backward)
     if (event.shiftKey) {
-      if (activeElement === firstElement || !container.contains(activeElement)) {
+      if (
+        activeElement === firstElement ||
+        !container.contains(activeElement)
+      ) {
         event.preventDefault();
         lastElement.focus();
       }
