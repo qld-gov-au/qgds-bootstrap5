@@ -127,8 +127,12 @@ export const Default = {};
 export const Dark = {
   parameters: {
     backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-background-dark)" }],
+      disabled: false,
+    },
+  },
+  globals: {
+    backgrounds: {
+      value: "dark",
     },
   },
   decorators: [

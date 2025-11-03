@@ -177,9 +177,7 @@ a.btn,
     color: var(--#{$prefix}btn-active-color);
   }
 
-  &:focus {
-    @include m.focusable();
-  }
+  @include m.focusable();
 
   &:visited {
     color: var(--#{$prefix}btn-color);
