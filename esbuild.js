@@ -21,6 +21,9 @@ import handlebarsPlugin from "esbuild-plugin-handlebars";
 import minimist from "minimist";
 const argv = minimist(process.argv.slice(2));
 
+//Package Name and Version
+const versionString = `${process.env.npm_package_name} - v${process.env.npm_package_version}`;
+
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
   bundle: true,
@@ -58,6 +61,11 @@ const buildConfig = {
       out: "./assets/js/handlebars.init.min",
     },
   ],
+
+  footer: {
+    css: `/*# ${versionString} */`,
+    js: `//# ${versionString}`,
+  },
 
   loader: {
     ".html": "text",

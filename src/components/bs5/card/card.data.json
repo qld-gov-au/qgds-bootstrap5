@@ -1,6 +1,7 @@
 {
   "noAction": {
     "title": "Card title",
+    "headingTag": "h3",
     "description": "Card body text",
     "date": "",
     "variantClass": "default",
@@ -20,6 +21,7 @@
   },
   "singleAction": {
     "title": "Card title",
+    "headingTag": "h3",
     "description": "Card body text",
     "date": "",
     "variantClass": "default",
@@ -39,6 +41,7 @@
   },
   "multiAction": {
     "title": "Card title",
+    "headingTag": "h3",
     "description": "Card body text <a href='javascript:void(0)'>lorem ipsum</a> dolor sit amet.",
     "date": "",
     "variantClass": "default",
