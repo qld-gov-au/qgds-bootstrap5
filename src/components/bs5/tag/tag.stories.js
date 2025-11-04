@@ -49,33 +49,28 @@ export const ParentContextComparison = {
       tagItems: [
         {
           content: "default",
-          variants: "",
+          classes: "",
         },
         {
           content: "Information",
-          variants: "tag-info",
+          classes: "tag-info",
         },
         {
           content: "<a href='javascript:void(0)'>Action</a>",
-          variants: "tag-link",
+          classes: "tag-link",
         },
         {
           content: "Filter",
-          variants: "tag-large",
+          classes: "tag-large",
           "applied-filter": true,
         },
         {
           content: "Large",
-          variants: "tag-info tag-large",
+          classes: "tag-info tag-large",
         },
         {
           content: "Large",
-          variants: "tag-link tag-large",
-        },
-        {
-          content:
-            "<a href='javascript:void(0)'>Large action link with wrapping text <br/> to demonstrate behaviour </a>",
-          variants: "tag-link tag-large",
+          classes: "tag-link tag-large",
         },
       ],
     };

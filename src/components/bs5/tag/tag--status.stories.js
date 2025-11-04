@@ -35,7 +35,7 @@ function statusVariantsMarkup() {
           Object.entries(types).map(([typeClass, typeLabel]) => {
             tagItems.push({
               content: `${typeLabel}`,
-              variants: `${typeClass}`,
+              classes: `${typeClass}`,
             });
           });
 

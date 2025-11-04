@@ -35,7 +35,7 @@ export const LargeInformation = {
     ...defaultdata.info,
     tagItems: defaultdata.info.tagItems.map((item) => ({
       ...item,
-      variants: `${item.variants} tag-large`,
+      classes: `${item.classes} tag-large`,
     })),
   },
 };
@@ -47,7 +47,7 @@ export const LargeAction = {
     ...defaultdata.action,
     tagItems: defaultdata.action.tagItems.map((item) => ({
       ...item,
-      variants: `${item.variants} tag-large`,
+      classes: `${item.classes} tag-large`,
     })),
   },
 };

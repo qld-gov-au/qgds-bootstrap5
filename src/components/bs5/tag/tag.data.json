@@ -28,17 +28,17 @@
       {
         "id": "One",
         "content": "Tag text",
-        "variants": "tag-large"
+        "classes": "tag-large"
       },
       {
         "id": "Two",
         "content": "Tag text",
-        "variants": "tag-large"
+        "classes": "tag-large"
       },
       {
         "id": "Three",
         "content": "Tag text",
-        "variants": "tag-large"
+        "classes": "tag-large"
       }
     ]
   },
@@ -49,17 +49,17 @@
       {
         "id": "One",
         "content": "<a href='javascript:void(0)'>Tag text</a>",
-        "variants": "tag-link"
+        "classes": "tag-link"
       },
       {
         "id": "Two",
         "content": "<a href='javascript:void(0)'>Tag text</a>",
-        "variants": "tag-link"
+        "classes": "tag-link"
       },
       {
         "id": "Three",
         "content": "<a href='javascript:void(0)'>Tag text</a>",
-        "variants": "tag-link"
+        "classes": "tag-link"
       }
     ]
   },
@@ -88,17 +88,17 @@
       {
         "id": "One",
         "content": "Tag text",
-        "variants": "tag-info"
+        "classes": "tag-info"
       },
       {
         "id": "Two",
         "content": "Tag text",
-        "variants": "tag-info"
+        "classes": "tag-info"
       },
       {
         "id": "Three",
         "content": "Tag text",
-        "variants": "tag-info"
+        "classes": "tag-info"
       }
     ]
   },
@@ -109,13 +109,13 @@
       {
         "id": "One",
         "content": "Policies and procedures",
-        "variants": "tag-large",
+        "classes": "tag-large",
         "applied-filter": true
       },
       {
         "id": "Two",
         "content": "Publications",
-        "variants": "tag-large",
+        "classes": "tag-large",
         "applied-filter": true
       }
     ]
@@ -126,23 +126,23 @@
     "tagItems": [
       {
         "content": "Neutral",
-        "variants": "tag-neutral"
+        "classes": "tag-neutral"
       },
       {
         "content": "Success",
-        "variants": "tag-success"
+        "classes": "tag-success"
       },
       {
         "content": "Warning",
-        "variants": "tag-warning"
+        "classes": "tag-warning"
       },
       {
         "content": "Error",
-        "variants": "tag-error"
+        "classes": "tag-error"
       },
       {
         "content": "Information",
-        "variants": "tag-information"
+        "classes": "tag-information"
       }
     ],
     "size": "tag-small",
