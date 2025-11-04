@@ -254,8 +254,8 @@
     @include media-breakpoint-down(md) {
       background-image: none;
 
-      .banner-image {
-        margin-top: 0.75rem;
+      .banner-breadcrumbs {
+        margin-bottom: 0.75rem;
       }
 
       //On mobile, create a gap at top of .banner-inner for the background image
@@ -289,6 +289,10 @@
   */
 
   &.with-hero-image {
+    .banner-breadcrumbs {
+      margin-bottom: 0.75rem;
+    }
+
     .banner-image {
       // Pins .banner-image frame to top and bottom rails of the banner
       margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
@@ -333,6 +337,10 @@
     // Specific image treatments above medium viewports
     @include media-breakpoint-up(md) {
       overflow: hidden;
+
+      .banner-breadcrumbs {
+        margin-bottom: 0;
+      }
 
       .banner-image {
         &.align-right {
