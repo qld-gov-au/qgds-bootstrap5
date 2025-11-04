@@ -1,6 +1,6 @@
 // card--no-action.stories.js
-import { Card } from './Card.js';
-import defaultdata from './card.data.json';
+import { Card, argTypes } from "./Card.js";
+import defaultdata from "./card.data.json";
 
 export default {
   tags: ["autodocs"],
@@ -15,7 +15,7 @@ export default {
       ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-left", footer: "Footer content" }).html}
       <div class="col" id="placeholder"></div>
       ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-top" }).html}
-      ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-top", footer: "Footer content"}).html}
+      ${new Card({ ...args, iconClasses: "qld-icon-design", iconPosition: "icon-top", footer: "Footer content" }).html}
       <div class="col" id="placeholder"></div>
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre." }).html}
       ${new Card({ ...args, image: "./assets/img/image-placeholder.png", imageAlt: "A grey placeholder image with an icon in the centre.", footer: "Footer content" }).html}
@@ -23,32 +23,10 @@ export default {
     `;
   },
   args: defaultdata.noAction,
-  argTypes: {
-    date: {
-      control: "text",
-    },
-    variantClass: {
-      control: "select",
-      options: {
-        Default: "default",
-        Light: "light",
-        Alternative: "alt",
-        Dark: "dark",
-        "Dark alternative": "dark-alt",
-      },
-    },
-    action: {
-      control: "select",
-      options: {
-        None: "no",
-        Single: "single",
-        Multi: "multi",
-      },
-    },
-  },
+  argTypes,
 };
 
-export const Default = { };
+export const Default = {};
 export const Light = {
   name: "Light theme",
   args: {
