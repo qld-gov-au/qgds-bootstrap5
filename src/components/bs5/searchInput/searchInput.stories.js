@@ -9,50 +9,25 @@ export default {
   tags: ["autodocs"],
   title: "3. Components/Search Input",
   render: (args) => {
-    // Create a copy of args and handle the defaultSuggestions logic
-    const componentArgs = { ...args };
-
-    // Toggle defaultSuggestions based on showDefaultSuggestions
-    if (args.showDefaultSuggestions === false) {
-      componentArgs.defaultSuggestions = false;
-    } else if (
-      args.showDefaultSuggestions === true ||
-      args.showDefaultSuggestions === undefined
-    ) {
-      // Restore from initData when toggling back to true or when undefined (default state)
-      componentArgs.defaultSuggestions =
-        initData || defaultdata.defaultSuggestions || null;
-    }
-
-    // Remove the control property as it's not needed in the component
-    delete componentArgs.showDefaultSuggestions;
-
-    try {
-      return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(componentArgs).html}</form>`;
-    } catch (error) {
-      console.error("Error rendering SearchInput:", error);
-      return `<div>Error rendering SearchInput: ${error.message}</div>`;
-    }
+    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(args).html}</form>`;
   },
-
   argTypes: {
     buttonLabel: {
       description: "The label for the search button",
       control: { type: "text" },
     },
-    altDropdownColor: {
-      description:
-        "If true, applies an alternative color scheme to the suggestions dropdown",
-      control: { type: "boolean" },
-    },
-    dynamicSuggestions: {
-      description: "This produces dynamic suggestions as the user types",
-      control: { type: "boolean" },
-    },
-    showDefaultSuggestions: {
+    hasDefaultSuggestions: {
       description:
         "This manipulates defaultSuggestions to on focus, shows default suggestions below the search input",
       control: { type: "boolean" },
+    },
+    hasDynamicSuggestions: {
+      description: "This produces dynamic suggestions as the user types",
+      control: { type: "boolean" },
+    },
+    "dynamicSuggestionsServiceLink.href": {
+      description: "URL for the dynamic suggestions Related Services link",
+      control: { type: "text" },
     },
   },
   parameters: {
@@ -60,12 +35,12 @@ export default {
       controls: {
         include: [
           "buttonLabel",
-          "altDropdownColor",
-          "dynamicSuggestions",
-          "showDefaultSuggestions",
+          "hasDynamicSuggestions",
+          "hasDefaultSuggestions",
+          "dynamicSuggestionsServiceLink.href",
         ],
       },
-      story: { height: "400px" },
+      story: { height: "800px" },
     },
   },
   // globals: {

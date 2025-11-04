@@ -14,10 +14,18 @@
     "suggestions": "https://discover.search.qld.gov.au/s/suggest.json",
     "results-url": "https://discover.search.qld.gov.au/s/search.json"
   },
-  "altDropdownColor": false,
-  "dynamicSuggestions": true,
+  "hasDynamicSuggestions": true,
+  "hasDefaultSuggestions": true,
+  "dynamicSuggestionsServiceLink": {
+    "href": "/queenslanders"
+  },
   "defaultSuggestions": {
-    "popular_services": [
+    "popularServicesTitle": "Popular",
+    "popularServicesLink": {
+      "label": "View more",
+      "href": "/queenslanders"
+    },
+    "popularServices": [
       {
         "title": "Apply for leave now",
         "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application"
@@ -35,6 +43,11 @@
         "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment"
       }
     ],
+    "categoriesTitle": "Collection",
+    "categoriesLink": {
+      "label": "View all",
+      "href": "/queenslanders"
+    },
     "categories": [
       {
         "title": "Search for directives, policies, circulars, and guidelines",
@@ -52,11 +65,6 @@
         "title": "Career development",
         "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development"
       }
-    ],
-    "options": {
-      "label": "Browse all categories",
-      "view_more": true,
-      "href": "/queenslanders"
-    }
+    ]
   }
 }

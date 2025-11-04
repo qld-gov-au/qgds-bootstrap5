@@ -34,7 +34,7 @@ export function selectSuggestion(value, form) {
 
   if (searchInput && suggestions) {
     searchInput.value = value.trim();
-    suggestions.classList.add("d-none");
+    // suggestions.classList.add("d-none");
 
     // Retrieve additional params
     const collection =
@@ -127,9 +127,8 @@ export async function showSuggestions(value = "", isDefault = false, form) {
 
       if (fetchedSuggestions.length > 0) {
         dynamicSuggestionsContainer.innerHTML = `
-        <div class="suggestions-category mt-16">
-          <strong class="suggestions-category-label d-block">Suggestions</strong>
-          <ul class="mt-2">${fetchedSuggestions
+        <div class="suggestions-category">
+          <ul>${fetchedSuggestions
             .slice(0, 4)
             .map((item) => {
               const highlightedText = item.replace(
@@ -173,15 +172,20 @@ export async function showSuggestions(value = "", isDefault = false, form) {
         fetchedServices.response.resultPacket &&
         fetchedServices.response.resultPacket.results.length > 0
       ) {
+        const viewMoreUrl =
+          dynamicSuggestionsContainer.getAttribute("data-view-more");
+        const viewMoreLink = viewMoreUrl
+          ? `<li><a href="${viewMoreUrl}" class="view-more">View more</a></li>`
+          : "";
         dynamicSuggestionsContainer.innerHTML += `
-        <div class="suggestions-category feature pt-16">
-          <strong class="suggestions-category-label d-block">Services</strong>
-          <ul class="mt-2">${fetchedServices.response.resultPacket.results
+        <div class="suggestions-category feature">
+          <strong class="suggestions-category-label d-block">Related services</strong>
+          <ul>${fetchedServices.response.resultPacket.results
             .slice(0, 4)
             .map(
               (item) => `<li><a href="${item.liveUrl}">${item.title}</a></li>`,
             )
-            .join("")}</ul>
+            .join("")}${viewMoreLink}</ul>
         </div>`;
         dynamicSuggestionsContainer.classList.remove("d-none");
         createPopper(searchInput, suggestions, {

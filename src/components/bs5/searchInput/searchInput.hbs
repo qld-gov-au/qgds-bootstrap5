@@ -1,45 +1,44 @@
 <!-- 
     QGDS Component: Search input 
 -->
-<div class="qld-search-input{{#if altDropdownColor}} alt-color {{/if}} {{customClass}}">
+<div class="qld-search-input {{customClass}}">
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
     <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
         <span class="btn-icon"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
-    {{#ifCond dynamicSuggestions '||' defaultSuggestions}}
-    <div class="suggestions suggestions__group d-none">
-        {{#if defaultSuggestions}}
+    {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
+    <div class="suggestions suggestions__group d-none default">
+        {{#if hasDefaultSuggestions}}
             <div class="default-suggestions">
-                <div class="suggestions-category mt-16">
-                    <strong class="suggestions-category-label d-block">Popular services</strong>
-                    <ul class="mt-2">
-                        {{#each defaultSuggestions.popular_services}}
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
+                    <ul>
+                        {{#each defaultSuggestions.popularServices}}
                         <li><a href="{{link}}">{{title}}</a></li>
                         {{/each}}
+                        {{#if defaultSuggestions.popularServicesLink}}
+                            <li><a href="{{defaultSuggestions.popularServicesLink.href}}" class="view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
                     </ul>
                 </div>
 
-                <div class="suggestions-category mt-16">
-                    <strong class="suggestions-category-label d-block">Browse by category</strong>
-                    <ul class="mt-12 mb-0">
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
+                    <ul>
                         {{#each defaultSuggestions.categories}}
                         <li><a href="{{link}}">{{title}}</a></li>
                         {{/each}}
+                        {{#if defaultSuggestions.categoriesLink}}
+                            <li><a href="{{defaultSuggestions.categoriesLink.href}}" class="view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
                     </ul>
                 </div>
-
-                {{#if defaultSuggestions.options.view_more}}
-                <div class="suggestions-category">
-                    <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more"
-                        href="{{defaultSuggestions.options.href}}">{{defaultSuggestions.options.label}}</a>
-                </div>
-                {{/if}}
             </div>
         {{/if}}
-        {{#if dynamicSuggestions}}
-            <div class="dynamic-suggestions"></div>
+        {{#if hasDynamicSuggestions}}
+            <div class="dynamic-suggestions" {{#if dynamicSuggestionsServiceLink.href}}data-view-more="{{dynamicSuggestionsServiceLink.href}}"{{/if}}></div>
         {{/if}}
     </div>
     {{/ifCond}}    
