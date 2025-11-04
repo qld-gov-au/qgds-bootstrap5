@@ -69,8 +69,8 @@ export default {
       },
     ],
     backgrounds: { disable: false },
-    globals: { backgrounds: { value: "default" } },
   },
+  globals: { backgrounds: { value: "default" } },
 };
 
 /**

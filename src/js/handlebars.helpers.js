@@ -3,7 +3,7 @@
 /**
  *
  * @param {*} v1 The left value
- * @param { "==" | "===" | "!=" | "!==" | "<" | "<=" | ">" | ">=" | "&&"  | "||" | "contains"} operator the operator to handle comparison
+ * @param { "==" | "===" | "!=" | "!==" | "<" | "<=" | ">" | ">=" | "&&"  | "||" | "in" | "contains"} operator the operator to handle comparison
  * @param {*} v2 The right value
  * @returns {Boolean} the result of comparison
  * @example
@@ -90,6 +90,14 @@ export default function handlebarsHelpers(handlebars) {
   handlebars.registerHelper("ifAny", function (...args) {
     const options = args.pop(); // The last argument is the options object
     return args.some((arg) => !!arg) ? options.fn(this) : options.inverse(this);
+  });
+
+  // ifAll - {{{#ifAll variable1 variable2 variable3 variable4 etc}}, if all true return true
+  handlebars.registerHelper("ifAll", function (...args) {
+    const options = args.pop(); // The last argument is the options object
+    return args.every((arg) => !!arg)
+      ? options.fn(this)
+      : options.inverse(this);
   });
 
   // now - return current timestamp i.e {{now}}

@@ -68,8 +68,8 @@ const config = {
       fs: {
         allow: [
           // Allow access to assets
-          path.resolve(process.cwd(), "../src/assets"),
-          path.resolve(process.cwd(), "../src/img"),
+          path.resolve(process.cwd(), "src/assets"),
+          path.resolve(process.cwd(), "src/img"),
         ],
       },
     };
