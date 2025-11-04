@@ -45,7 +45,7 @@ function buttonVariantsMarkup() {
         )
         .join("");
 
-      return `<div class="d-grid mb-4">
+      return `<div class="d-grid p-32">
               <div class="fw-bold">${variantLabel}</div>
               <div class="d-flex gap-3">
                 ${variantButtons}
@@ -61,7 +61,7 @@ export default {
   args: defaultdata,
   render: (args) => {
     return `
-    <div class="d-flex gap-3">
+    <div class="d-flex gap-3 p-32">
       ${new Button(args).html}
       ${new Button({ ...args, isdisabled: true }).html}
       ${new Button({ ...args, isprogress: true, iconClass: "", label: "Loading button", progressLabel: "Loading...", islink: false, dataatts: 'data-loading-btn="true"' }).html}
@@ -113,6 +113,9 @@ export default {
       type: "figma",
       url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98058&mode=design&t=YBUAJHIxqF46Um9y-0",
     },
+    backgrounds: {
+      disabled: false,
+    },
   },
 };
 
@@ -125,10 +128,9 @@ export const Default = {};
  * Dark Button story
  * */
 export const Dark = {
-  parameters: {
+  globals: {
     backgrounds: {
-      default: "Dark",
-      values: [{ name: "Dark", value: "var(--qld-sapphire-blue)" }],
+      value: "dark",
     },
   },
   decorators: [
@@ -208,7 +210,7 @@ export const LongLabelsWrapping = {
           isdisabled: true,
         }).html;
 
-        return `<div class="d-grid mb-4" style="max-width: 300px;">
+        return `<div class="d-grid mb-4 " style="max-width: 300px;">
                 <div class="fw-bold">${variantLabel} - Long Labels</div>
                 <div class="d-grid gap-2">
                   ${longLabelButton}
@@ -219,7 +221,7 @@ export const LongLabelsWrapping = {
       .join("");
 
     return `
-      <div class="d-grid gap-4">
+      <div class="d-grid gap-4 p-32">
         <div>
           <h5 class="mb-3">Buttons with Long Labels (300px container)</h5>
           <div class="d-flex flex-wrap gap-4">
@@ -229,14 +231,14 @@ export const LongLabelsWrapping = {
         <div style="max-width: 200px;">
           <h5 class="mb-3">Even Narrower Container (200px)</h5>
           ${
-  new Button({
-    ...defaultdata,
-    iconClass: "", // no icon for this demo
-    variantClass: "btn-primary",
-    label: "Long button text in a narrow container",
-    isdisabled: false,
-  }).html
-}
+            new Button({
+              ...defaultdata,
+              iconClass: "", // no icon for this demo
+              variantClass: "btn-primary",
+              label: "Long button text in a narrow container",
+              isdisabled: false,
+            }).html
+          }
         </div>
       </div>
     `;

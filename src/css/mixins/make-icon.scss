@@ -11,7 +11,7 @@ $prefix: "qld-" !default;
 /// @param {String} $name [null] - The name of icon
 /// @param {String} $size ["sm"] - The icon size, valid values are "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
 /// @param {String | null} $pseudo [null] - Whether the mixin applies styles as a pseudo-element. Valid string values are "before" | "after"
-/// @param {false} $is-inline - Applies extra styles to assist with vertical alignent when used inline with text.
+/// @param {Boolean} $is-inline [false] - Applies extra styles to assist with vertical alignent when used inline with text.
 /// @param {Boolean} $include-base [true] - Apply all base styles. Set to false when reusing this mixin to create modifier classes where base styles are already applied (For instance qld-icon-{name})
 /// @content
 @mixin make-icon(
