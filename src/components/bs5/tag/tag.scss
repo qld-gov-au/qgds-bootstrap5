@@ -92,6 +92,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 .tag-list {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
 
