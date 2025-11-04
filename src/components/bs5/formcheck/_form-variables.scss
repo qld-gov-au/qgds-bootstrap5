@@ -20,7 +20,13 @@
     --#{$prefix}placeholder-color-focus: var(--#{$prefix}placeholder-color);
 
     // other properties
-    --#{$prefix}border-width: 0.125rem;
+    --#{$prefix}border-top-width: 0.125rem;
+    --#{$prefix}border-right-width: 0.125rem;
+    --#{$prefix}border-bottom-width: 0.125rem;
+    --#{$prefix}border-left-width: 0.125rem;
+    --#{$prefix}border-width: var(--#{$prefix}border-top-width)
+      var(--#{$prefix}border-right-width) var(--#{$prefix}border-bottom-width)
+      var(--#{$prefix}border-left-width);
     --#{$prefix}border-radius: 0.25rem;
 
     // .form-style-filled legacy class
@@ -28,9 +34,14 @@
     &.form-style-filled {
       --#{$prefix}bg: #{$core-default-color-neutral-lightest};
       --#{$prefix}border-radius: 0.25rem 0.25rem 0 0;
-      --#{$prefix}border-width: 0 0 0.125rem;
+      --#{$prefix}border-top-width: 0px; // px unit required for use in calc()
+      --#{$prefix}border-right-width: 0px; // px unit required for use in calc()
+      --#{$prefix}border-left-width: 0px; // px unit required for use in calc()
 
       &:focus {
+        --#{$prefix}border-top-width: 0.125rem;
+        --#{$prefix}border-right-width: 0.125rem;
+        --#{$prefix}border-left-width: 0.125rem;
         --#{$prefix}border-radius: 0.25rem;
       }
     }

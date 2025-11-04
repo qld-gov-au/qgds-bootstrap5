@@ -107,7 +107,10 @@ $form-check-inline-margin-end: 1rem;
 }
 
 %form-control {
-  $_padding: $input-padding-y $input-padding-x;
+  $_padding: calc(#{$input-padding-y} - var(--#{$prefix}border-top-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px))
+    calc(#{$input-padding-y} - var(--#{$prefix}border-bottom-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px));
   @extend %form-control-variables;
 
   color: var(--#{$prefix}color);
@@ -122,14 +125,13 @@ $form-check-inline-margin-end: 1rem;
   font-size: $input-font-size;
   min-height: f.remify(52px);
 
-  transition: none;
+  transition: none; // no transitions until a holistic decision at design system level
 
   &::placeholder {
     color: var(--#{$prefix}placeholder-color);
   }
 
   &:hover {
-    // color: var(--#{$prefix}color-hover);
     background-color: var(--#{$prefix}bg-hover);
     border-color: var(--#{$prefix}border-color-hover);
 
@@ -194,6 +196,7 @@ $form-check-inline-margin-end: 1rem;
   appearance: none;
   background-position: right 1rem center;
   background-size: f.remify(20px);
+  background-origin: border-box;
   width: 100%;
 
   &.disabled,
