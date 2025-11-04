@@ -174,18 +174,21 @@ export async function showSuggestions(value = "", isDefault = false, form) {
       ) {
         const viewMoreUrl =
           dynamicSuggestionsContainer.getAttribute("data-view-more");
-        const viewMoreLink = viewMoreUrl
+
+        // Build the services HTML safely
+        const servicesItems = fetchedServices.response.resultPacket.results
+          .slice(0, 4)
+          .map((item) => `<li><a href="${item.liveUrl}">${item.title}</a></li>`)
+          .join("");
+
+        const viewMoreItem = viewMoreUrl
           ? `<li><a href="${viewMoreUrl}" class="view-more">View more</a></li>`
           : "";
+
         dynamicSuggestionsContainer.innerHTML += `
         <div class="suggestions-category feature">
           <strong class="suggestions-category-label d-block">Related services</strong>
-          <ul>${fetchedServices.response.resultPacket.results
-            .slice(0, 4)
-            .map(
-              (item) => `<li><a href="${item.liveUrl}">${item.title}</a></li>`,
-            )
-            .join("")}${viewMoreLink}</ul>
+          <ul>${servicesItems}${viewMoreItem}</ul>
         </div>`;
         dynamicSuggestionsContainer.classList.remove("d-none");
         createPopper(searchInput, suggestions, {

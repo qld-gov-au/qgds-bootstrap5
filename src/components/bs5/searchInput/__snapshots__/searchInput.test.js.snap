@@ -11,34 +11,31 @@ exports[`SearchInput > Renders as expected 1`] = `
         <span class="btn-icon"></span>
         <span class="btn-label">Search</span>
     </button>
-    <div class="suggestions suggestions__group d-none">
+    <div class="suggestions suggestions__group d-none default">
             <div class="default-suggestions">
-                <div class="suggestions-category mt-16">
-                    <strong class="suggestions-category-label d-block">Popular services</strong>
-                    <ul class="mt-2">
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">Popular</strong>
+                    <ul>
                         <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application">Apply for leave now</a></li>
                         <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level">Apply for higher duties or relieving at level</a></li>
                         <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment/extending-my-job/extend-a-temporary-or-casual-employee">Extend a temporary or casual employee</a></li>
                         <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment">Hire a staff member (recruitment)</a></li>
-                    </ul>
-                </div>
-
-                <div class="suggestions-category mt-16">
-                    <strong class="suggestions-category-label d-block">Browse by category</strong>
-                    <ul class="mt-12 mb-0">
-                        <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines">Search for directives, policies, circulars, and guidelines</a></li>
-                        <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits">Employee pay and benefits</a></li>
-                        <li><a href="https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services">Queensland Shared Services</a></li>
-                        <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development">Career development</a></li>
+                            <li><a href="/queenslanders" class="view-more">View more</a></li>
                     </ul>
                 </div>
 
                 <div class="suggestions-category">
-                    <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more"
-                        href="/queenslanders">Browse all categories</a>
+                    <strong class="suggestions-category-label d-block">Collection</strong>
+                    <ul>
+                        <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines">Search for directives, policies, circulars, and guidelines</a></li>
+                        <li><a href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits">Employee pay and benefits</a></li>
+                        <li><a href="https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services">Queensland Shared Services</a></li>
+                        <li><a href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development">Career development</a></li>
+                            <li><a href="/queenslanders" class="view-more">View all</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="dynamic-suggestions"></div>
+            <div class="dynamic-suggestions" data-view-more="/queenslanders"></div>
     </div>
 </div>"
 `;
