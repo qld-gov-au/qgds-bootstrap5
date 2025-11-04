@@ -21,9 +21,6 @@ $input-font-size-lg: 1rem;
 
 $input-border-width: 2px;
 $input-border-radius: $border-radius;
-$input-transition:
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
 
 // Checks and radios (LARGE)
 $form-check-input-width: 2rem;
@@ -125,11 +122,7 @@ $form-check-inline-margin-end: 1rem;
   font-size: $input-font-size;
   min-height: f.remify(52px);
 
-  transition: {
-    property: border, background-color, color, outline, outline-offset;
-    duration: 0.2s;
-    timing-function: ease-out;
-  }
+  transition: none;
 
   &::placeholder {
     color: var(--#{$prefix}placeholder-color);
