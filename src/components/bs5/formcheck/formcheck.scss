@@ -137,7 +137,6 @@ $form-check-inline-margin-end: 1rem;
   }
 
   &:hover {
-    // color: var(--#{$prefix}color-hover);
     background-color: var(--#{$prefix}bg-hover);
     border-color: var(--#{$prefix}border-color-hover);
 
@@ -250,6 +249,24 @@ $form-check-inline-margin-end: 1rem;
 
   &:focus {
     --#{$prefix}icon-url: var(--#{$prefix}icon-focus-url);
+  }
+
+  // A select doesn't have a `placeholder` attribute, instead it may have an option with a null or empty string value, which is used instead.
+  &:has(option[value=""]:checked) {
+    color: var(--#{$prefix}placeholder-color);
+
+    .dark &:focus {
+      --#{$prefix}placeholder-color: #{$color-default-color-light-text-lighter};
+    }
+  }
+
+  > option {
+    color: $color-default-color-light-text-default;
+    // background-color: var(--#{$prefix}bg);
+
+    &[value=""] {
+      color: $color-default-color-light-text-lighter;
+    }
   }
 }
 

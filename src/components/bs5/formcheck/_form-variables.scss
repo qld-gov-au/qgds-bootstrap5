@@ -2,8 +2,8 @@
 // @extend %form-variables in all input and form components.
 @use "../../../css/functions" as f;
 
-// Custom colored icons for dropdown chevron in all states.
-// Select input cannot use ::before or ::after so
+/// Custom colored icons for dropdown chevron in all states.
+/// Select input cannot use ::before or ::after so need a svg cbackground image via url(data);
 @function _dropdown-icon($color) {
   @return url(f.svg-encode(f.color-icon("chevron-down", $color)));
 }
