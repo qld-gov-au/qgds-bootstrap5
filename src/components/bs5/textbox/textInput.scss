@@ -14,11 +14,13 @@
 .qld-text-input-label {
   color: var(--#{$prefix}text-grey);
   display: block;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: $input-line-height;
   margin-bottom: f.remify(8px);
 
   .label-text-optional {
+    font-size: f.remify(14px);
     color: $qld-dark-grey-muted;
     font-weight: 400;
   }
@@ -43,8 +45,8 @@
 .qld-hint-text {
   color: $qld-hint-text-color;
   display: block;
-  font-size: 1em;
-  line-height: 1.5;
+  font-size: f.remify(14px);
+  line-height: f.snap-line-height(1.5);
   margin-block: f.remify(8px);
 }
 
