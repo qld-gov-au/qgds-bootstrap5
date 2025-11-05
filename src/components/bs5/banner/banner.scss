@@ -17,7 +17,6 @@
   --#{$prefix}banner-bg-color: var(--#{$prefix}default-background);
   --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-default.png);
   --#{$prefix}banner-bg-image: url(../img/banner-desktop-default.jpg);
-  --#{$prefix}banner-bg-custom-color: #ebebeb;
 
   //Drop shadow for "block style" banner title
   --#{$prefix}title-box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.06);
@@ -28,14 +27,12 @@
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-light.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-light.jpg);
-    --#{$prefix}banner-bg-custom-color: #e6edf5;
   }
 
   &.light-alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-alt-background);
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-light-alt.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-light-alt.jpg);
-    --#{$prefix}banner-bg-custom-color: #dadada;
   }
 
   // .dark only
@@ -45,7 +42,6 @@
     );
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark.jpg);
-    --#{$prefix}banner-bg-custom-color: #09549f;
   }
 
   // .dark-alt only
@@ -55,7 +51,6 @@
     );
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark-alt.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark-alt.jpg);
-    --#{$prefix}banner-bg-custom-color: #0c3b71;
   }
 
   &.dark,
@@ -259,8 +254,8 @@
     @include media-breakpoint-down(md) {
       background-image: none;
 
-      .banner-image {
-        margin-top: 0.75rem;
+      .banner-breadcrumbs {
+        margin-bottom: 0.75rem;
       }
 
       //On mobile, create a gap at top of .banner-inner for the background image
@@ -294,6 +289,10 @@
   */
 
   &.with-hero-image {
+    .banner-breadcrumbs {
+      margin-bottom: 0.75rem;
+    }
+
     .banner-image {
       // Pins .banner-image frame to top and bottom rails of the banner
       margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
@@ -338,6 +337,10 @@
     // Specific image treatments above medium viewports
     @include media-breakpoint-up(md) {
       overflow: hidden;
+
+      .banner-breadcrumbs {
+        margin-bottom: 0;
+      }
 
       .banner-image {
         &.align-right {

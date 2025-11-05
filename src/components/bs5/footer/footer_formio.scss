@@ -141,7 +141,7 @@
         border-color: $qld-textbox-border-color;
       }
       &:focus {
-        outline: 3px solid var(--#{$prefix}light-blue);
+        outline: 3px solid var(--#{$prefix}focus-color);
         outline-offset: 2px;
         background-color: var(--#{$prefix}white);
         border: 2px solid var(--#{$prefix}light-grey);
@@ -157,7 +157,7 @@
         box-shadow: none; // Overrides Bootstrap5 styling for invalid input.
 
         &:focus {
-          outline: 3px solid var(--#{$prefix}light-blue);
+          outline: 3px solid var(--#{$prefix}focus-color);
         }
       }
     }
@@ -255,7 +255,7 @@
         outline: none;
 
         &:focus {
-          outline: 3px solid var(--#{$prefix}light-blue);
+          outline: 3px solid var(--#{$prefix}focus-color);
           outline-offset: 3px;
         }
       }
@@ -273,7 +273,7 @@
           border-color: $qld-textbox-border-color;
         }
         &:focus {
-          outline: 3px solid var(--#{$prefix}light-blue);
+          outline: 3px solid var(--#{$prefix}focus-color);
           outline-offset: 2px;
           background-color: var(--#{$prefix}white);
           border: 2px solid var(--#{$prefix}light-grey);
@@ -289,7 +289,7 @@
           box-shadow: none; // Overrides Bootstrap5 styling for invalid input.
 
           &:focus {
-            outline: 3px solid var(--#{$prefix}light-blue);
+            outline: 3px solid var(--#{$prefix}focus-color);
           }
         }
 

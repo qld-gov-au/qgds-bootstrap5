@@ -1,8 +1,5 @@
-// Banner.stories.js
-import Handlebars from "handlebars";
-
-import template from "./banner.hbs?raw";
 import defaultdata from "./banner.data.json";
+import { Banner } from "./Banner";
 
 //Import data objects required for the banner and any nested components
 import breadcrumbdata from "../breadcrumbs/breadcrumbs.data.json";
@@ -74,7 +71,7 @@ export default {
   render: (args) => {
     //Adds breadcrumbs to all banner stories, if it isn't already defined or false
     args.breadcrumbs = args.breadcrumbs || breadcrumbdata["default"];
-    return new Handlebars.compile(template)(args);
+    return new Banner(args).html;
   },
 
   decorators: [

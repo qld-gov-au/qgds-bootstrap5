@@ -22,9 +22,6 @@ $input-font-size-lg: 1rem;
 
 $input-border-width: 2px;
 $input-border-radius: $border-radius;
-$input-transition:
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
 
 // Checks and radios (LARGE)
 $form-check-input-width: 2rem;
@@ -111,7 +108,10 @@ $form-check-inline-margin-end: 1rem;
 }
 
 %form-control {
-  $_padding: $input-padding-y $input-padding-x;
+  $_padding: calc(#{$input-padding-y} - var(--#{$prefix}border-top-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px))
+    calc(#{$input-padding-y} - var(--#{$prefix}border-bottom-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px));
   @extend %form-control-variables;
 
   color: var(--#{$prefix}color);
@@ -126,11 +126,7 @@ $form-check-inline-margin-end: 1rem;
   font-size: $input-font-size;
   min-height: f.remify(52px);
 
-  transition: {
-    property: border, background-color, color, outline, outline-offset;
-    duration: 0.2s;
-    timing-function: ease-out;
-  }
+  transition: none; // no transitions until a holistic decision at design system level
 
   &::placeholder {
     color: var(--#{$prefix}placeholder-color);
@@ -209,6 +205,7 @@ $form-check-inline-margin-end: 1rem;
   appearance: none;
   background-position: $_background-position;
   background-size: $_background-size;
+  background-origin: border-box;
   width: 100%;
 
   &:hover {
