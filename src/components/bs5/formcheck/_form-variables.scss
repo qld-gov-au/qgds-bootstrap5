@@ -6,11 +6,7 @@
 /// Select input cannot use ::before or ::after so need a svg cbackground image via url(data);
 @function _dropdown-icon($color) {
   @return url(f.svg-encode(f.color-icon("chevron-down", $color)));
-}
-$form-select-dark-icon-default: _dropdown-icon($qld-dark-action-secondary);
-$form-select-dark-icon-disabled: _dropdown-icon(
-  $color-default-color-light-text-lighter
-);
+
 
 %form-control-variables {
   &,
