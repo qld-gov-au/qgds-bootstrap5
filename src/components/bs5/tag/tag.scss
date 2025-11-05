@@ -91,9 +91,8 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
 // General styling rules.
 .tag-list {
   list-style-type: none;
-  margin: 0.5rem 0;
-  padding: 30px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
 
@@ -114,9 +113,7 @@ $_icon-status-cancel: url('data:image/svg+xml,<svg width="32" height="32" viewBo
     border: var(--_border-width) solid var(--#{$prefix}neutral-lighter);
     border-radius: 1rem;
     font-size: 0.875rem;
-    line-height: 1.5;
-
-    height: var(--_height);
+    line-height: 1.4;
 
     &.tag-large {
       --_padding-y: 0.5rem;

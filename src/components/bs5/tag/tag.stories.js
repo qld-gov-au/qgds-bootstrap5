@@ -45,6 +45,7 @@ export const ParentContextComparison = {
   render: () => {
     const testTags = {
       variant: "",
+      classes: "p-4 my-2",
       tagItems: [
         {
           content: "default",
