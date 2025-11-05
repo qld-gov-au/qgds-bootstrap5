@@ -88,3 +88,54 @@ export const Dark = {
     },
   ],
 };
+
+/**
+ * All alert variants with proper accessibility using DOM-based icons.
+ * Each alert includes a qld-icon span with aria-hidden and a visually-hidden span for screen readers.
+ */
+export const AllVariants = {
+  name: "All Alert Types (Accessibility)",
+  render: () => {
+    const alerts = [
+      {
+        variantClass: "alert-success",
+        alertType: "Success",
+        heading: "Success Alert",
+        content: "<p>This action was completed successfully.</p>",
+      },
+      {
+        variantClass: "alert-info",
+        alertType: "Information",
+        heading: "Information Alert",
+        content: "<p>Here is some important information for you to know.</p>",
+      },
+      {
+        variantClass: "alert-warning",
+        alertType: "Warning",
+        heading: "Warning Alert",
+        content: "<p>Please be aware of this potential issue.</p>",
+      },
+      {
+        variantClass: "alert-error",
+        alertType: "Error",
+        heading: "Error Alert",
+        content: "<p>An error occurred. Please try again.</p>",
+      },
+    ];
+
+    return alerts
+      .map(
+        (alertData) => `
+      <div class="mb-4">
+        ${new InpageAlert(alertData).html}
+      </div>
+    `
+      )
+      .join("");
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
+};

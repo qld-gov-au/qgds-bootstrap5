@@ -306,6 +306,27 @@ export default function handlebarsHelpers(handlebars) {
       )
       .replace(/\s+/g, ""); // Remove all spaces
   });
+
+  /**
+   * Maps alert type to the corresponding icon class name
+   * Handles special case where "Error" maps to "danger" icon
+   *
+   * @param {string} alertType - The alert type (Success, Information, Warning, Error, etc.)
+   * @returns {string} - The lowercase icon name (success, information, warning, danger)
+   */
+  handlebars.registerHelper("alertTypeToIcon", function (alertType) {
+    if (typeof alertType !== "string") return "";
+
+    const mapping = {
+      Success: "success",
+      Information: "information",
+      Warning: "warning",
+      Error: "danger",
+      Danger: "danger",
+    };
+
+    return mapping[alertType] || alertType.toLowerCase();
+  });
 }
 
 if (typeof Handlebars !== "undefined") {
