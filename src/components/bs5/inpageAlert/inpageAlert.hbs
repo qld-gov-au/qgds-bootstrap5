@@ -1,11 +1,19 @@
-<div class="alert {{variantClass}} {{customClass}}" role="alert" 
+<div class="alert {{variantClass}} {{customClass}}" role="alert"
     {{#if alertType}}aria-label="{{alertType}}"{{/if}}>
-    {{#if heading}}
-        {{#if headingTag}}
-            <{{headingTag}} class="alert-heading">{{{ heading }}}</{{headingTag}}>
-        {{else}}
-            <h2 class="alert-heading">{{{ heading }}}</h2>
-        {{/if}}
+    {{#if alertType}}
+    <span class="alert-icon">
+        <span class="qld-icon qld-icon-md qld-icon-alert-{{alertTypeToIcon alertType}}" aria-hidden="true"></span>
+        <span class="sr-only">{{alertType}} alert: </span>
+    </span>
     {{/if}}
-    {{{ content }}}
+    <div class="alert-content">
+        {{#if heading}}
+            {{#if headingTag}}
+                <{{headingTag}} class="alert-heading">{{{ heading }}}</{{headingTag}}>
+            {{else}}
+                <h2 class="alert-heading">{{{ heading }}}</h2>
+            {{/if}}
+        {{/if}}
+        {{{ content }}}
+    </div>
 </div>
