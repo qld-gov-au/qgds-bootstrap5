@@ -1,0 +1,131 @@
+// Expand this file with all themable shared form variables
+// @extend %form-variables in all input and form components.
+%form-control-variables {
+  &,
+  .default &,
+  .light &,
+  .alt & {
+    // colors
+    --#{$prefix}bg: #{$core-default-color-neutral-white};
+    --#{$prefix}bg-hover: #{$core-default-color-neutral-lightest};
+    --#{$prefix}bg-focus: #{$core-default-color-neutral-white};
+    --#{$prefix}border-color: #{$color-default-color-light-border-alt};
+    --#{$prefix}border-color-hover: #{$qld-light-action-primary-hover};
+    --#{$prefix}border-color-focus: #{$core-default-color-neutral-lighter};
+    --#{$prefix}color: #{$color-default-color-light-text-default};
+    --#{$prefix}color-hover: var(--#{$prefix}color);
+    --#{$prefix}color-focus: var(--#{$prefix}color);
+    --#{$prefix}placeholder-color: #{$color-default-color-light-text-lighter};
+    --#{$prefix}placeholder-color-hover: var(--#{$prefix}placeholder-color);
+    --#{$prefix}placeholder-color-focus: var(--#{$prefix}placeholder-color);
+
+    // other properties
+    --#{$prefix}border-top-width: 0.125rem;
+    --#{$prefix}border-right-width: 0.125rem;
+    --#{$prefix}border-bottom-width: 0.125rem;
+    --#{$prefix}border-left-width: 0.125rem;
+    --#{$prefix}border-width: var(--#{$prefix}border-top-width)
+      var(--#{$prefix}border-right-width) var(--#{$prefix}border-bottom-width)
+      var(--#{$prefix}border-left-width);
+    --#{$prefix}border-radius: 0.25rem;
+
+    // .form-style-filled legacy class
+    &.is-filled,
+    &.form-style-filled {
+      --#{$prefix}bg: #{$core-default-color-neutral-lightest};
+      --#{$prefix}border-radius: 0.25rem 0.25rem 0 0;
+      --#{$prefix}border-top-width: 0px; // px unit required for use in calc()
+      --#{$prefix}border-right-width: 0px; // px unit required for use in calc()
+      --#{$prefix}border-left-width: 0px; // px unit required for use in calc()
+
+      &:focus {
+        --#{$prefix}border-top-width: 0.125rem;
+        --#{$prefix}border-right-width: 0.125rem;
+        --#{$prefix}border-left-width: 0.125rem;
+        --#{$prefix}border-radius: 0.25rem;
+      }
+    }
+
+    // .qld-input-success legacy class
+    &.is-valid,
+    &.qld-input-success,
+    .was-validated &:valid {
+      --#{$prefix}bg: #{$core-default-color-status-success-lightest};
+      --#{$prefix}bg-hover: #{$core-default-color-status-success-lighter};
+      --#{$prefix}border-color: #{$core-default-color-status-success-default};
+      --#{$prefix}border-color-hover: var(--#{$prefix}border-color);
+    }
+
+    // .qld-input-error legacy class
+    &.is-invalid,
+    &.qld-input-error,
+    .was-validated &:invalid {
+      --#{$prefix}bg: #{$qld-color-error-light};
+      --#{$prefix}bg-hover: #{$core-default-color-status-error-lighter};
+      --#{$prefix}border-color: #{$qld-notify-warning};
+      --#{$prefix}border-color-hover: var(--#{$prefix}border-color);
+    }
+  }
+
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}bg: #{$qld-color-dark-background};
+    --#{$prefix}bg-hover: #{$qld-color-dark-background--shade};
+    --#{$prefix}border-color: #{$color-default-color-dark-border-alt};
+    --#{$prefix}border-color-hover: #{$color-default-color-dark-action-primary-hover};
+    --#{$prefix}border-color-focus: #{$core-default-color-neutral-lighter};
+    --#{$prefix}color: #{$color-default-color-dark-text-default};
+    --#{$prefix}color-focus: #{$color-default-color-light-text-lighter};
+    --#{$prefix}placeholder-color: #{$color-default-color-dark-text-lighter};
+    --#{$prefix}placeholder-color-focus: #{$color-default-color-light-text-lighter};
+
+    &.is-filled,
+    &.form-style-filled {
+      --#{$prefix}bg: #{$qld-color-dark-background--shade};
+    }
+
+    &.is-valid,
+    &.qld-input-success,
+    .was-validated &:valid {
+      --#{$prefix}bg: #{$core-default-color-status-success-lightest};
+      --#{$prefix}bg-hover: #{$core-default-color-status-success-lighter};
+      --#{$prefix}border-color: #{$core-default-color-status-success-default};
+      --#{$prefix}border-color-hover: #{$core-default-color-status-success-default};
+      --#{$prefix}color: #{$color-default-color-light-text-default};
+      --#{$prefix}placeholder-color: #{$color-default-color-light-text-lighter};
+    }
+
+    &.is-invalid,
+    &.qld-input-error,
+    .was-validated &:invalid {
+      --#{$prefix}bg: #{$qld-color-error-light};
+      --#{$prefix}bg-hover: #{$core-default-color-status-error-lighter};
+      --#{$prefix}border-color: #{$qld-notify-warning};
+      --#{$prefix}border-color-hover: #{$qld-notify-warning};
+      --#{$prefix}color: #{$color-default-color-light-text-default};
+      --#{$prefix}placeholder-color: #{$color-default-color-light-text-lighter};
+    }
+  }
+}
+
+%form-valid-feedback-variables {
+  &,
+  :is(.default, .light, .alt) & {
+    --color-text: #{$color-default-color-light-text-default};
+  }
+
+  :is(.dark, .dark-alt) & {
+    --color-text: #{$color-default-color-dark-text-default};
+  }
+}
+
+%form-invalid-feedback-variables {
+  &,
+  :is(.default, .light, .alt) & {
+    --color-text: #{$core-default-color-status-error-default};
+  }
+
+  :is(.dark, .dark-alt) & {
+    --color-text: #{$core-default-color-status-error-lighter};
+  }
+}

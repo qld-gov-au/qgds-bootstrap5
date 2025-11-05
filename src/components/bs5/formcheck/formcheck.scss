@@ -1,3 +1,6 @@
+@use "../../../css/mixins" as m;
+@use "../../../css/functions" as f;
+@import "form-variables";
 // NTGOV Form Controls, radios, checkboxes and input groups
 // https://getbootstrap.com/docs/5.2/forms/form-control/#variables
 
@@ -16,11 +19,8 @@ $input-padding-y-lg: $input-padding-y;
 $input-padding-x-lg: $input-padding-x;
 $input-font-size-lg: 1rem;
 
-$input-border-width: 3px;
+$input-border-width: 2px;
 $input-border-radius: $border-radius;
-$input-transition:
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
 
 // Checks and radios (LARGE)
 $form-check-input-width: 2rem;
@@ -29,8 +29,9 @@ $form-check-input-width: 2rem;
 $form-check-input-width-small: 1.375rem;
 
 $form-check-min-height: $font-size-base * $line-height-base;
-$form-check-padding-start: $form-check-input-width + 0.5rem;
-$form-check-margin-bottom: 1rem;
+$form-check-padding-start: $form-check-input-width + f.remify(8px);
+$form-check-margin-top: f.remify(8px);
+$form-check-margin-bottom: f.remify(16px);
 $form-check-label-color: $body-color;
 $form-check-label-cursor: null;
 $form-check-transition: null;
@@ -52,8 +53,7 @@ $form-check-valid-color: var(--#{$prefix}notify-success);
 $form-check-invalid-color: var(--#{$prefix}notify-warning);
 
 // OUTLINES
-$form-check-input-outline: 3px solid var(--#{$prefix}light-blue);
-$form-check-input-outline-dark: 3px solid var(--#{$prefix}dark-focus);
+$form-check-input-outline: 3px solid var(--#{$prefix}focus-color);
 
 // SMALL BORDER WIDTH
 $form-check-input-border-width-small: 2px;
@@ -80,9 +80,7 @@ $form-check-bg-image-dark: url("data:image/svg+xml,%3Csvg width='18' height='14'
 // ESCAPE SVGs FOR ICONS
 $form-radio-button: #{escape-svg($form-radio-bg-image)};
 $form-radio-button-small: #{escape-svg($form-radio-bg-image-small)};
-$form-radio-button-dark: #{escape-svg($form-radio-bg-image-dark)};
 $form-checkbox-button: #{escape-svg($form-check-bg-image)};
-$form-checkbox-button-dark: #{escape-svg($form-check-bg-image-dark)};
 
 $form-check-input-indeterminate-color: $component-active-color;
 $form-check-input-indeterminate-bg-color: $component-active-bg;
@@ -108,28 +106,131 @@ $form-check-inline-margin-end: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.form-control,
-.form-select {
-  // CSS Custom properties scoped to .form-control components
-  // Settable via frontend or JS if required. Related to theme.
+%form-control {
+  $_padding: calc(#{$input-padding-y} - var(--#{$prefix}border-top-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px))
+    calc(#{$input-padding-y} - var(--#{$prefix}border-bottom-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px));
+  @extend %form-control-variables;
 
-  --#{$prefix}input-bg: transparent;
-  --#{$prefix}input-border-color: #{$form-check-input-checked-border-color};
-  --#{$prefix}input-color: var(--#{$prefix}dark-grey-muted);
-  --#{$prefix}input-border-color-hover: var(--#{$prefix}button-dark-blue);
-
-  padding: $input-padding-y $input-padding-x;
-  border: solid $input-border-width var(--#{$prefix}input-border-color);
-  border-radius: $input-border-radius;
-  font-size: $input-font-size;
-
-  &:active,
-  &:focus {
-    border-color: var(--#{$prefix}input-border-color-hover);
-    outline: $form-check-input-outline;
-    outline-offset: 2px;
-    box-shadow: none;
+  color: var(--#{$prefix}color);
+  background-color: var(--#{$prefix}bg);
+  border: {
+    style: solid;
+    width: var(--#{$prefix}border-width);
+    color: var(--#{$prefix}border-color);
   }
+  padding: $_padding;
+  border-radius: var(--#{$prefix}border-radius);
+  font-size: $input-font-size;
+  min-height: f.remify(52px);
+
+  transition: none; // no transitions until a holistic decision at design system level
+
+  &::placeholder {
+    color: var(--#{$prefix}placeholder-color);
+  }
+
+  &:hover {
+    background-color: var(--#{$prefix}bg-hover);
+    border-color: var(--#{$prefix}border-color-hover);
+
+    &::placeholder {
+      color: var(--#{$prefix}placeholder-color-hover);
+    }
+  }
+
+  @include m.focusable() {
+    color: var(--#{$prefix}color-focus);
+    background-color: var(--#{$prefix}bg-focus);
+    border-color: var(--#{$prefix}border-color-focus);
+    box-shadow: none !important;
+
+    &::placeholder {
+      color: var(--#{$prefix}placeholder-color-focus);
+    }
+  }
+
+  &:disabled,
+  &.disabled,
+  &.is-disabled {
+    &,
+    &:hover {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: var(--#{$prefix}bg);
+      border-color: var(--#{$prefix}border-color);
+    }
+  }
+  // Bootstrap base styling overrides
+  &.is-valid,
+  &.is-invalid,
+  .was-validated &:valid,
+  .was-validated &:invalid {
+    border-color: var(
+      --#{$prefix}border-color
+    ); // already scoped to .valid/.invalid.
+    // USe the same padding value as default state, and remove the background image icon.
+    padding: $_padding;
+    background-image: none;
+
+    &:focus {
+      border-color: var(
+        --#{$prefix}border-color-focus
+      ); // This value already scoped to valid/invalid.
+    }
+  }
+}
+
+.form-control {
+  @extend %form-control;
+}
+
+// .qld-select legacy class
+.form-select,
+.qld-select {
+  @extend %form-control;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23008635' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  appearance: none;
+  background-position: right 1rem center;
+  background-size: f.remify(20px);
+  background-origin: border-box;
+  width: 100%;
+
+  &.disabled,
+  &:disabled,
+  &.is-disabled {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23636363' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+  }
+
+  &.qld-input-error,
+  &.is-invalid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23E22339' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+
+    &:not([multiple]):not([size]),
+    &:not([multiple])[size="1"] {
+      background-size: 1rem auto;
+    }
+  }
+
+  &.qld-input-success,
+  &.is-valid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23339d37' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+
+    &:not([multiple]):not([size]),
+    &:not([multiple])[size="1"] {
+      background-size: 1rem auto;
+    }
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-block: f.remify(8px 16px);
+  padding-left: 0; // override bootstrap default - icon is now attached to <label>.
 }
 
 .form-check-input {
@@ -152,7 +253,6 @@ $form-check-inline-margin-end: 1rem;
     vertical-align: bottom;
     line-height: 2rem;
     padding-left: 2.5rem;
-    margin-left: -1.5em;
 
     // before is the outer box with border,
     // after is the check or radio icon
@@ -236,26 +336,6 @@ $form-check-inline-margin-end: 1rem;
     }
   }
 
-  // DEFAULT VALID & INVALID
-  .valid &,
-  .invalid & {
-    &:focus + label::before {
-      outline: $form-check-input-outline;
-      outline-offset: 2px;
-      box-shadow: none;
-    }
-  }
-  .valid & {
-    + label::before {
-      outline: $form-check-valid-color solid 2px;
-    }
-  }
-  .invalid & {
-    + label::before {
-      outline: $form-check-invalid-color solid 2px;
-    }
-  }
-
   .small & {
     &:checked + label::before {
       background-size: 22px 22px;
@@ -287,32 +367,115 @@ $form-check-inline-margin-end: 1rem;
 
   .dark &,
   .dark-alt & {
-    &:hover + label {
-      --_background-color: $form-check-hover;
-    }
-    &:hover + label::after {
-      background-color: $form-check-hover;
-    }
     + label::before,
     + label::after {
       border-color: $form-check-input-border-dark;
     }
-    &:checked {
-      & + label::after {
-        background-color: $form-check-input-checked-color-dark;
+    &:hover + label {
+      --_background-color: $form-check-hover;
+
+      &::after {
+        background-color: $form-check-hover;
       }
     }
-    :focus {
-      outline: $form-check-input-outline-dark;
+    &:checked + label::after {
+      background-color: $form-check-input-checked-color-dark;
+    }
+
+    &:focus + label::before {
+      outline: $form-check-input-outline;
     }
   }
 }
 
-.form-check {
-  display: flex;
-  align-items: center;
-  margin-bottom: $form-check-margin-bottom;
-  &-label {
-    margin-left: 0.5rem;
+%_form-check-input-valid,
+%_form-check-input-invalid {
+  + .form-check-label {
+    color: var(--body-color);
   }
+  &:focus + .form-check-label::before {
+    outline: $form-check-input-outline;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+
+%_form-check-input-valid {
+  + .form-check-label::before {
+    outline: $form-check-valid-color solid 2px;
+  }
+}
+
+%_form-check-input-invalid {
+  + .form-check-label::before {
+    outline: $form-check-invalid-color solid 2px;
+  }
+}
+
+.valid .form-check-input,
+.is-valid .form-check-input,
+.was-validated .form-check-input:valid {
+  @extend %_form-check-input-valid;
+}
+
+.invalid .form-check-input,
+.is-invalid .form-check-input,
+.was-validated .form-check-input:invalid {
+  @extend %_form-check-input-invalid;
+}
+
+%_valid-feedback,
+%_invalid-feedback {
+  font-size: f.remify(14px);
+  line-height: f.snap-line-height(1.5);
+  display: none;
+  gap: f.remify(4px);
+  flex-wrap: nowrap;
+  margin-block: f.remify(8px);
+}
+
+%_valid-feedback {
+  @extend %form-valid-feedback-variables;
+  color: var(--color-text);
+
+  @include m.make-icon(
+    $name: "status-success",
+    $size: "sm",
+    $pseudo: "before"
+  ) {
+    flex-shrink: 0;
+  }
+}
+
+%_invalid-feedback {
+  @extend %form-invalid-feedback-variables;
+  color: var(--color-text);
+  @include m.make-icon($name: "status-error", $size: "sm", $pseudo: "before") {
+    flex-shrink: 0;
+  }
+}
+
+// .qld-input-success legacy class which is applied to both inputs, and feedback text >:(
+.valid-feedback,
+.qld-input-success:not(select, textarea, input[type="text"], .date-container) {
+  @extend %_valid-feedback;
+}
+
+.invalid-feedback,
+.qld-input-error:not(select, textarea, input[type="text"], .date-container) {
+  @extend %_invalid-feedback;
+}
+
+// Bootstrap default styles already support placing feedback after the input element.
+// However for QGDS Feedback is placed before the validated input element, so CSS sibling doesn't work here.
+// We can has() to check for the existence of next siblings instead.
+.valid-feedback:has(~ .is-valid, ~ * .is-valid ),
+.invalid-feedback:has(~ .is-invalid, ~ * .is-invalid),
+.was-validated .valid-feedback:has(~ :where(input, select, textarea):valid, ~ * :where(input, select, textarea):valid), // need to scope to input:valid within has(), :valid seems to match non inputs. the form-check input is wrapped in a div, so * > :input-valid
+.was-validated .invalid-feedback:has(~ :invalid, ~ * :invalid),
+.valid .valid-feedback,
+.invalid .invalid-feedback,
+.qld-input-success:not(select, textarea, input[type="text"]),
+.qld-input-error:not(select, textarea, input[type="text"]) {
+  display: flex;
 }

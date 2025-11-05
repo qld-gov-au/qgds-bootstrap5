@@ -1,12 +1,14 @@
 {
-	"isDisabled": false,
-	"isRequired": true,
-	"isFilled": false,
-	"customClass": "",
-	"label-text": "Label",
-	"placeholder": "Please select",
-	"optional-text": "optional",
-	"hint-text": "Hint",
-	"successMessageText": "Success message",
-	"errorMessageText": "Error message"
+  "id": "example-1",
+  "isDisabled": false,
+  "isRequired": true,
+  "isFilled": false,
+  "isValid": null,
+  "customClass": "",
+  "label-text": "Label",
+  "placeholder": "Please select",
+  "optional-text": "optional",
+  "hint-text": "Hint",
+  "successMessageText": "Success message",
+  "errorMessageText": "Error message"
 }
