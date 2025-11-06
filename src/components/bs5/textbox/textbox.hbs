@@ -1,32 +1,31 @@
 <!-- QGDS Component: Textbox -->
 
-<!-- Label for the first input field -->
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
-    for="example-1">
+    for="{{id}}">
     {{label-text}}
     {{#if optional-text}}
     <span class="label-text-optional">({{optional-text}})</span>
     {{/if}}
 </label>
 
-<!-- Hint text for the first input field -->
 {{#if hint-text}}
-<span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
+<span class="qld-hint-text" id="{{id}}-hint">{{hint-text}}</span>
 {{/if}}
 
-{{#contains "qld-input-success" customClass}}
-<span id="text-field-success" class="qld-input-success">
-    {{successMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-success" customClass}}{{! legacy support for feedback classes `qld-input-success`}}
+<span class="qld-input-success">{{successMessageText}}</span>
+{{else}}
+{{#if successMessageText}}{{! updated bootstrap style classes - `valid-feedback`}}
+<div class="valid-feedback">{{successMessageText}}</div>
+{{/if}}{{/contains}}
 
-{{#contains "qld-input-error" customClass}}
-<span id="text-field-error" class="qld-input-error">
-    {{errorMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-error" customClass}}{{! legacy support for feedback classes `qld-input-error`}}
+<span class="qld-input-error">{{errorMessageText}}</span>
+{{else}}
+{{#if errorMessageText}}{{! updated bootstrap style classes - `invalid-feedback`}}
+<div class="invalid-feedback">{{errorMessageText}}</div>
+{{/if}}{{/contains}}
 
-<!-- First text input field, described by the hint text above -->
-<input id="example-1" class="qld-text-input form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}}"
-    type="text" placeholder="{{placeholder}}" aria-label="Text input example" {{#if isDisabled}}disabled{{/if}} {{#if
-    isRequired}}required aria-required="true" {{/if}} />
+<input id={{id}} {{#if value}}value="{{value}}"{{/if}}  class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+    type="text" placeholder="{{placeholder}}" {{#if isDisabled}}disabled{{/if}} {{#if
+    isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />
