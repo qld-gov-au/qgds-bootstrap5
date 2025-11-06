@@ -12,4 +12,3 @@ dist/
 docs/storybook-static
 prettier.json
 /debug-storybook.log
-src/js/handlebars.partials.js
