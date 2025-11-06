@@ -6,11 +6,10 @@ import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { waitFor, isElementVisible } from "../../../js/testingutils.js";
-import Handlebars from "handlebars";
-import handlebarsHelpers from "../../../js/handlebars.helpers.js";
 
-// Register Handlebars helpers for tests
-handlebarsHelpers(Handlebars);
+import init from "../src/js/handlebars.init.js";
+import Handlebars from "handlebars";
+init(Handlebars);
 
 /**
  *

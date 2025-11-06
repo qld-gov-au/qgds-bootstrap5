@@ -1,5 +1,4 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import "../src/js/qld.bootstrap.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
 // import { allBackgrounds } from "./modes.js";
@@ -11,8 +10,13 @@ import {
 // Check if dynamic theme should be enabled via environment variable
 const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
+
+// Initialize Handlebars helpers IMMEDIATELY, before any stories load
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
+init(Handlebars);
+
+import "../src/js/qld.bootstrap.js";
 
 // NOTE: TurboSnap Performance Warning
 // The handlebars.init.js import above loads handlebars.partials.js which is
@@ -129,7 +133,6 @@ const preview = {
       defaultTheme: "None",
     }),
     (Story, { parameters }) => {
-      init(Handlebars);
       const { pageLayout, wrapperClasses } = parameters;
       switch (pageLayout) {
         case "with-wrapper":
