@@ -1,45 +1,26 @@
 // ComponentExample.stories.js
-import { Textbox } from "./Textbox.js";
+import { Textbox, argTypes } from "./Textbox.js";
 import defaultdata from "./textbox.data.json";
 
 export default {
   tags: ["autodocs"],
-  title: "3. Components/Forms/Textbox",
+  title: "3. Components/Forms/Text input",
   render: (args) => {
-    
-    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 
+    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.
     //We can't use commas on our class="..." attribute, so we need to replace the commas with spaces.
 
-    if( typeof(args.customClass) === 'string' ) {
-      args.customClass = args.customClass.replaceAll(","," ");
-    } else if ( typeof(args.customClass) === 'object' ) {
+    if (typeof args.customClass === "string") {
+      args.customClass = args.customClass.replaceAll(",", " ");
+    } else if (typeof args.customClass === "object") {
       args.customClass = args.customClass.join(" ");
     }
-  
-    return new Textbox(args).html;
-  
-  },
 
-  //https://storybook.js.org/docs/api/arg-types
-  argTypes: {
-    states: {
-      name: "States",
-      description: `Valid/Invalid states`,
-      control: {
-        type: "radio",
-        labels: {
-          "default": "Default",
-          "qld-input-success": "Success",
-          "qld-input-error": "Error",
-        },
-      },
-      options: [
-        "default",
-        "qld-input-success",
-        "qld-input-error",
-      ],
-    },
+    return new Textbox(args).html;
   },
+  parameters: { backgrounds: { disable: false } },
+  globals: { backgrounds: { value: "default" } },
+  //https://storybook.js.org/docs/api/arg-types
+  argTypes,
 };
 
 /**
@@ -53,18 +34,11 @@ export const Default = {
  * Dark themed textbox
  */
 export const Dark = {
-  args: { 
-	  ...defaultdata,
-	  ...{isDisabled: false},
+  args: {
+    ...defaultdata,
+    ...{ isDisabled: false },
   },
-  parameters: {
-    backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-brand-primary)' },
-      ],
-    },
-  },
+  globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
       return `
@@ -80,20 +54,19 @@ export const Dark = {
  * Filled style textbox
  */
 export const Filled = {
-  args: { 
-	  ...defaultdata,
-	  ...{customClass: "form-style-filled"},
+  args: {
+    ...defaultdata,
+    customClass: "form-style-filled",
   },
 };
-
 
 /**
  * Disabled textbox
  */
 export const Disabled = {
-  args: { 
-	  ...defaultdata,
-	  ...{isDisabled: true},
+  args: {
+    ...defaultdata,
+    isDisabled: true,
   },
 };
 
@@ -102,8 +75,9 @@ export const Disabled = {
  */
 export const Valid = {
   args: {
-	  ...defaultdata,
-    ...{customClass: "qld-input-success"},
+    ...defaultdata,
+    isValid: true,
+    // ...{ customClass: "qld-input-success" },
   },
 };
 
@@ -112,7 +86,8 @@ export const Valid = {
  */
 export const Invalid = {
   args: {
-	  ...defaultdata,
-    ...{customClass: "qld-input-error"},
+    ...defaultdata,
+    isValid: false,
+    // ...{ customClass: "qld-input-error" },
   },
 };
