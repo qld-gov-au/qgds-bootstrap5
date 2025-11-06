@@ -206,6 +206,7 @@ $form-check-inline-margin-end: 1rem;
   background-size: $_background-size;
   background-origin: border-box;
   width: 100%;
+  cursor: pointer;
 
   &:hover {
     --#{$prefix}icon-url: var(--#{$prefix}icon-hover-url);
