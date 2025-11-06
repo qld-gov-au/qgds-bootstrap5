@@ -5,7 +5,7 @@
 //To account for this, we redefine the global vars at the .alert scope
 
 .alert {
-  @include light-theme-properties();
+  @extend %qld-palette-default;
   --qld-headings-color: var(--#{$prefix}light-text-text);
   --qld-alert-color: var(--#{$prefix}light-text-text);
   --qld-alert-bg: #fff;
