@@ -8,36 +8,38 @@
         <span class="btn-icon"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
-    {{#if suggestions}}
-    <div class="suggestions suggestions__group d-none">
-        <div class="default-suggestions">
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Popular services</strong>
-                <ul class="mt-2">
-                    {{#each default_suggestions.popular_services}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+    {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
+    <div class="suggestions suggestions__group d-none default">
+        {{#if hasDefaultSuggestions}}
+            <div class="default-suggestions">
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
+                    <ul>
+                        {{#each defaultSuggestions.popularServices}}
+                        <li><a href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                        {{#if defaultSuggestions.popularServicesLink}}
+                            <li><a href="{{defaultSuggestions.popularServicesLink.href}}" class="view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
 
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Browse by category</strong>
-                <ul class="mt-12 mb-0">
-                    {{#each default_suggestions.categories}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
+                    <ul>
+                        {{#each defaultSuggestions.categories}}
+                        <li><a href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                        {{#if defaultSuggestions.categoriesLink}}
+                            <li><a href="{{defaultSuggestions.categoriesLink.href}}" class="view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
             </div>
-
-            {{#if default_suggestions.options.view_more}}
-            <div class="suggestions-category">
-                <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more"
-                    href="{{default_suggestions.options.href}}">{{default_suggestions.options.label}}</a>
-            </div>
-            {{/if}}
-        </div>
-        <div class="dynamic-suggestions"></div>
+        {{/if}}
+        {{#if hasDynamicSuggestions}}
+            <div class="dynamic-suggestions" {{#if dynamicSuggestionsServiceLink.href}}data-view-more="{{dynamicSuggestionsServiceLink.href}}"{{/if}}></div>
+        {{/if}}
     </div>
-    {{/if}}
-    
+    {{/ifCond}}    
 </div>
