@@ -68,9 +68,13 @@ h6 {
   color: var(--qld-headings-color);
 }
 
-a,
+a {
+  @include mixins.make-link();
+}
+
 a.nav-link {
   @include mixins.make-link();
+  border-radius: 0;
 }
 
 figure > figcaption {
