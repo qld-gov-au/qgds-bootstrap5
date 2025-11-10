@@ -1,7 +1,7 @@
 <div class="alert {{variantClass}} {{customClass}}" role="alert"
     {{#if alertType}}aria-label="{{alertType}}"{{/if}}>
     <span class="alert-icon">
-        <span class="qld-icon qld-icon-md qld-icon-{{#ifCond variantClass '==' 'alert-error'}}alert-danger{{else}}{{variantClass}}{{/ifCond}}" aria-hidden="true"></span>
+        <span class="qld-icon qld-icon-md qld-icon-{{#ifCond variantClass '==' 'alert-error'}}alert-danger{{else}}{{#ifCond variantClass '==' 'alert-info'}}alert-information{{else}}{{variantClass}}{{/ifCond}}{{/ifCond}}" aria-hidden="true"></span>
         <span class="visually-hidden">{{variantClass}} alert: </span>
     </span>
     <div class="alert-content">
