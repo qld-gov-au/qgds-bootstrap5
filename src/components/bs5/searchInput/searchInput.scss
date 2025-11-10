@@ -5,7 +5,7 @@
   // Input variables
   --background-color: var(--#{$prefix}white);
   --border-color: var(--#{$prefix}light-border-alt);
-  --border-color-focus: var(--#{$prefix}light-border-alt);
+  --border-color-focus: var(--#{$prefix}default-border);
   --border-color-hover: var(--#{$prefix}light-action-primary-hover);
   --placeholder-color: var(--#{$prefix}light-text-lighter);
   --qld-icon-color: var(--#{$prefix}light-text-lighter);
@@ -137,7 +137,6 @@
     z-index: 1;
     border-radius: 0.5rem;
     background: var(--#{$prefix}color-default-color-light-background-default-shade);
-    box-shadow: var(--suggestions-shadow);
 
     &>div {
       border-radius: 0.5rem;
@@ -167,18 +166,19 @@
             color: var(--#{$prefix}light-text-text);
             width: 100%;
             text-decoration: underline;
-            text-decoration-color: transparent;
             text-decoration-thickness: 0.5px;
+            text-decoration-color: transparent;
             transition:
-              text-decoration-color animation.$duration-fast animation.$timing-function,
-              text-decoration-thickness animation.$duration-fast animation.$timing-function;
+              text-decoration-thickness animation.$duration-fast animation.$timing-function,
+              text-decoration-color animation.$duration-fast animation.$timing-function;
+              
 
             &:hover {
               text-decoration-color: inherit;
               text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
               transition:
-                text-decoration-color animation.$duration-fast animation.$timing-function,
-                text-decoration-thickness animation.$duration-fast animation.$timing-function;
+                text-decoration-thickness animation.$duration-fast animation.$timing-function,
+                text-decoration-color animation.$duration-fast animation.$timing-function;
             }
 
             &:not(.view-more) {
@@ -213,8 +213,11 @@
     &:has(.dynamic-suggestions:not(.d-none)) {
       background-color: var(--#{$prefix}default-background);
     }
-
+    .default-suggestions {
+      box-shadow: var(--suggestions-shadow);
+    }
     .dynamic-suggestions {
+      box-shadow: var(--suggestions-shadow);
       .suggestions-category:not(.feature) {
         ul {
           li {
@@ -250,7 +253,6 @@
       a,
       strong {
         font-size: 1rem;
-        text-decoration: none;
       }
 
       strong {
@@ -272,11 +274,8 @@
             vertical-align: middle;
             vertical-align: -webkit-baseline-middle;
 
-            &:focus {
-              text-decoration-color: inherit;
-              text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+            &:focus, strong:focus {
               outline-color: var(--#{$prefix}light-focus);
-              outline-offset: -4px;
               background-color: var(--#{$prefix}color-default-color-light-border-default);
             }
           }
@@ -290,6 +289,9 @@
       .dynamic-suggestions .suggestions-category:not(.feature) {
         strong {
           color: var(--#{$prefix}light-text-text);
+        }
+        ul li:hover {
+          background-color: var(--#{$prefix}default-background-shade);
         }
       }
     }
