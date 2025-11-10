@@ -7,6 +7,10 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { waitFor, isElementVisible } from "../../../js/testingutils.js";
 
+import init from "../src/js/handlebars.init.js";
+import Handlebars from "handlebars";
+init(Handlebars);
+
 /**
  *
  * Test suite for the SearchInput component.
@@ -67,7 +71,7 @@ describe("SearchInput", () => {
     await waitFor(100);
 
     // Additional wait to ensure all scripts are fully initialized
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     form = d.querySelector(".site-search");
     searchInput = form?.querySelector(".qld-search-input input");

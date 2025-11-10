@@ -1,5 +1,5 @@
 // FormcheckCheckbox.stories.js
-import { Formcheck } from "../../Formcheck.js";
+import { Formcheck, argTypes } from "../../Formcheck.js";
 import defaultdata from "./checkbox.data.json";
 
 export default {
@@ -11,7 +11,7 @@ export default {
   globals: { backgrounds: { value: "default" } },
   parameters: { backgrounds: { disable: false } },
   //https://storybook.js.org/docs/api/arg-types
-  argTypes: {},
+  argTypes,
 };
 
 export const Default = {
@@ -22,158 +22,66 @@ export const Default = {
 export const CheckboxDark = {
   args: { ...defaultdata },
   globals: { backgrounds: { value: "dark" } },
-  decorators: [
-    (Story) => {
-      return `
-      <div class="dark">
-          ${Story()}
-      </div>
-      `;
-    },
-  ],
+  render: (args) => `<div class="dark">${new Formcheck(args).html}</div>`,
 };
 
 export const CheckboxSmall = {
   args: { ...defaultdata, id: "checkboxSmall" },
-  decorators: [
-    (Story) => {
-      return `
-      <div class="small">
-          ${Story()}
-      </div>
-      `;
-    },
-  ],
+  render: (args) => `<div class="small">${new Formcheck(args).html}</div>`,
 };
 
 export const CheckboxSmallDark = {
   args: { ...defaultdata, id: "checkboxSmallDark" },
   globals: { backgrounds: { value: "dark" } },
-  decorators: [
-    (Story) => {
-      return `
-      <div class="dark">
-      <div class="small">
-          ${Story()}
-      </div>
-      </div>
-      `;
-    },
-  ],
+  render: (args) => `<div class="dark small">${new Formcheck(args).html}</div>`,
 };
 
 export const CheckboxValid = {
   args: { ...defaultdata, id: "checkboxValid" },
-  render: (args) => {
-    return `
-    <div class="valid">${new Formcheck(args).html}</div>
-    `;
-  },
+  render: (args) => `${new Formcheck({ ...args, isValid: true }).html}`,
 };
 
 export const CheckboxValidSmall = {
   args: { ...defaultdata, id: "checkboxValidSmall" },
-  render: (args) => {
-    return `
-    <div class="small"><div class="valid">${new Formcheck(args).html}</div></div>
-    `;
-  },
+  render: (args) =>
+    `<div class="small">${new Formcheck({ ...args, isValid: true }).html}</div>`,
 };
 
 export const CheckboxValidDark = {
   args: { ...defaultdata, id: "checkboxValidDark" },
-  render: (args) => {
-    return `
-    <div class="dark">
-    <div class="valid">${new Formcheck(args).html}</div></div>
-    `;
-  },
+  render: (args) =>
+    `<div class="dark">${new Formcheck({ ...args, isValid: true }).html}</div>`,
   globals: { backgrounds: { value: "dark" } },
-  decorators: [
-    (Story) => {
-      return `
-      <div class="dark"><div class="valid">
-          ${Story()}
-      </div></div>
-      `;
-    },
-  ],
 };
 
 export const CheckboxValidSmallDark = {
   args: { ...defaultdata, id: "checkboxValidSmallDark" },
-  render: (args) => {
-    return `
-    <div class="dark">
-    <div class="valid">${new Formcheck(args).html}</div></div>
-    `;
-  },
+  render: (args) =>
+    `<div class="dark small">${new Formcheck({ ...args, isValid: true }).html}</div>`,
   globals: { backgrounds: { value: "dark" } },
-  decorators: [
-    (Story) => {
-      return `
-      <div class="dark"><div class="small"><div class="valid">
-          ${Story()}
-      </div></div></div>
-      `;
-    },
-  ],
 };
 
 export const CheckboxInvalid = {
   args: { ...defaultdata, id: "checkboxInvalid" },
-  render: (args) => {
-    return `
-    <div class="invalid">${new Formcheck(args).html}</div>
-    `;
-  },
+  render: (args) => `${new Formcheck({ ...args, isValid: false }).html}`,
 };
 
 export const CheckboxInvalidSmall = {
   args: { ...defaultdata, id: "checkboxInvalidSmall" },
-  render: (args) => {
-    return `
-    <div class="small"><div class="invalid">${new Formcheck(args).html}</div></div>
-    `;
-  },
+  render: (args) =>
+    `<div class="small">${new Formcheck({ ...args, isValid: false }).html}</div>`,
 };
 
 export const CheckboxInvalidDark = {
   args: { ...defaultdata, id: "checkboxInvalidDark" },
-  render: (args) => {
-    return `
-    <div class="dark">
-    <div class="invalid">${new Formcheck(args).html}</div></div>
-    `;
-  },
+  render: (args) =>
+    `<div class="dark">${new Formcheck({ ...args, isValid: false }).html}</div>`,
   globals: { backgrounds: { value: "dark" } },
-  decorators: [
-    (Story) => {
-      return `
-      <div class="dark"><div class="invalid">
-          ${Story()}
-      </div></div>
-      `;
-    },
-  ],
 };
 
 export const CheckboxInvalidSmallDark = {
   args: { ...defaultdata, id: "checkboxInvalidSmallDark" },
-  render: (args) => {
-    return `
-    <div class="dark">
-    <div class="invalid">${new Formcheck(args).html}</div></div>
-    `;
-  },
+  render: (args) =>
+    `<div class="dark small">${new Formcheck({ ...args, isValid: false }).html}</div>`,
   globals: { backgrounds: { value: "dark" } },
-  decorators: [
-    (Story) => {
-      return `
-      <div class="dark"><div class="small"><div class="invalid">
-          ${Story()}
-      </div></div></div>
-      `;
-    },
-  ],
 };

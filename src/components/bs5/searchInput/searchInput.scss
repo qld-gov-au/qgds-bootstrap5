@@ -1,89 +1,63 @@
 @use "../../../css/mixins";
+@use "../../../css/variables/animation";
 
 .qld-search-input {
   // Input variables
   --background-color: var(--#{$prefix}white);
   --border-color: var(--#{$prefix}light-border-alt);
+  --border-color-focus: var(--#{$prefix}light-border-alt);
+  --border-color-hover: var(--#{$prefix}light-action-primary-hover);
   --placeholder-color: var(--#{$prefix}light-text-lighter);
   --qld-icon-color: var(--#{$prefix}light-text-lighter);
   --text-color: var(--#{$prefix}light-text-text);
   --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
+  --suggestions-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
 
   .dark &,
   .dark-alt & {
-    --text-heading: var(--#{$prefix}dark-text-lighter);
-    --qld-focus-color: var(--#{$prefix}dark-focus);
+    --border-color: var(--#{$prefix}dark-border-alt);
+    --border-color-focus: var(--#{$prefix}dark-border-alt);
+    --border-color-hover: var(--#{$prefix}dark-action-primary-hover);
   }
 
-  .suggestions.d-none {
-    display: unset !important; // !important to override bootstrap d-none
-  }
-  .suggestions.d-none {
-    display: none !important; // !important to override bootstrap d-none
-  }
+  --border-radius: 0.25rem;
+  --_size: 3rem;
+
+  display: flex;
+  position: relative;
+  border-radius: var(--border-radius);
+
   &:focus-within {
     .suggestions.d-none {
       display: block !important; // !important to override bootstrap d-none
     }
   }
 
-  // Suggestions variables
-  --suggestions-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
-  --suggestions-bg: var(
-    --#{$prefix}color-default-color-light-background-default-shade
-  );
-  --suggestions-hover: var(
-    --#{$prefix}color-default-color-light-border-default
-  );
-  --suggestions-hover-border-color: var(
-    --#{$prefix}color-default-color-light-accent-design-accent
-  );
-  --suggestions-feature-bg: var(
-    --#{$prefix}color-default-color-dark-background-default
-  );
-  --suggestions-feature-hover: var(
-    --#{$prefix}color-default-color-dark-background-default-shade
-  );
-  --suggestions-feature-text-color: var(
-    --#{$prefix}color-default-color-dark-text-default
-  );
-
-  // local variables
-  $border-radius: 0.25rem;
-  --_size: 3rem;
-
-  display: flex;
-  position: relative;
-  border-radius: $border-radius;
-
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
 
   &:has(.form-control:focus) {
-    > button {
-      border-bottom-right-radius: $border-radius;
+    >button {
+      border-bottom-right-radius: var(--border-radius);
     }
   }
 
   .form-control {
     min-height: var(--_size);
     padding: 0 4rem 0 1rem;
-    border: {
-      color: var(--border-color);
-      style: solid;
-      top-width: 0.125rem;
-      right-width: 0;
-      bottom-width: 0.125rem;
-      left-width: 0.125rem;
-      radius: $border-radius 0 0 $border-radius;
-    }
+    border: var(--border-color) solid 0.125rem;
+    border-inline-end-width: 0;
+    border-radius: 0;
+    border-start-start-radius: var(--border-radius);
+    border-end-start-radius: var(--border-radius);
     background: var(--background-color);
-    padding-right: 7.5rem;
+    padding-inline-end: 7.5rem;
     color: var(--text-color);
+
     transition: {
       property: border-color, background-color, color;
-      timing-function: ease-out;
-      duration: 0.2s;
+      timing-function: animation.$timing-function;
+      duration: animation.$duration-fast;
     }
 
     &::placeholder {
@@ -92,19 +66,19 @@
 
     &:hover {
       --background-color: var(--#{$prefix}neutral-lightest);
-      --border-color: var(--#{$prefix}light-action-primary-hover);
+      --border-color: var(--border-color-hover);
     }
 
     &:active,
     &:focus {
-      --border-color: var(--#{$prefix}light-border-alt);
+      --border-color: var(--border-color-focus);
       --background-color: var(--#{$prefix}white);
       outline: none;
     }
   }
 
-  > button {
-    border-radius: 0 $border-radius $border-radius 0;
+  >button {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
     padding: 0;
     margin: 0;
     width: var(--_size);
@@ -132,8 +106,9 @@
   @include media-breakpoint-up(md) {
     --_size: 3.25rem;
 
-    > button {
-      padding: calc(0.75rem - 0.125rem) var(--qld-btn-padding-x);
+    >button {
+      padding-block: calc(0.75rem - 0.125rem);
+      padding-inline: var(--qld-btn-padding-x);
       margin: 0;
       width: auto;
 
@@ -143,65 +118,113 @@
 
       .btn-icon {
         display: none;
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     }
 
     .form-control {
-      padding: 0.75rem 1rem 0.75rem 2.5rem;
-    }
-
-    @include mixins.make-icon($name: "search", $size: "xs", $pseudo: "before") {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: calc(1rem - 0.125rem);
-      pointer-events: none;
+      padding-block: 0.75rem;
+      padding-inline: 1rem;
     }
   }
 
   //Search dropdown
   .suggestions {
     position: absolute;
-    left: 0;
-    top: 100%;
+    inset-inline-start: 0;
     width: 100%;
+    inset-block-start: 7px !important; // to override bootstrap's popperjs default top value
     z-index: 1;
     border-radius: 0.5rem;
-    background: var(--suggestions-bg);
+    background: var(--#{$prefix}color-default-color-light-background-default-shade);
     box-shadow: var(--suggestions-shadow);
-    border-bottom: solid 0.25rem var(--suggestions-hover-border-color);
+
+    &>div {
+      border-radius: 0.5rem;
+      border-bottom: 0.25rem solid var(--#{$prefix}color-default-color-light-accent-design-accent);
+    }
 
     .suggestions-category {
-      &-view-more {
-        text-decoration: underline;
-        text-decoration-thickness: 0.5px;
-        text-decoration-color: rgba(
-          $color-default-color-light-text-default,
-          0.5
-        );
-        &:hover {
-          background-color: var(--suggestions-hover);
-          text-decoration-color: rgba(
-            $color-default-color-light-text-default,
-            1
-          );
-          text-decoration-thickness: var(
-            --#{$prefix}link-underline-thickness-hover
-          );
-        }
+      padding-block: 0.75rem;
+
+      &:not(:first-of-type) {
+        border-block-start: 1px solid var(--#{$prefix}light-alt-background-shade);
       }
 
+      // Question
       &-label {
-        padding: 0 1rem;
+        padding-block: 0.75rem;
+        padding-inline: 1rem;
       }
 
       ul {
         li {
           a {
-            padding: 0.75rem 1rem;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            padding-block: 0.75rem;
+            padding-inline: 1rem;
+            color: var(--#{$prefix}light-text-text);
             width: 100%;
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            text-decoration-thickness: 0.5px;
+            transition:
+              text-decoration-color animation.$duration-fast animation.$timing-function,
+              text-decoration-thickness animation.$duration-fast animation.$timing-function;
+
+            &:hover {
+              text-decoration-color: inherit;
+              text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+              transition:
+                text-decoration-color animation.$duration-fast animation.$timing-function,
+                text-decoration-thickness animation.$duration-fast animation.$timing-function;
+            }
+
+            &:not(.view-more) {
+              &::before {
+                content: "";
+                height: 1.25rem;
+                width: 1.25rem;
+                min-width: 1.25rem;
+                margin-inline-end: 0.5rem;
+                mask-image: var(--qgds-icon-arrow-right);
+                mask-position: center center;
+                mask-repeat: no-repeat;
+                mask-size: contain;
+                background-color: var(--#{$prefix}light-action-secondary);
+              }
+
+              &:hover {
+                &::before {
+                  background-color: var(--#{$prefix}light-action-secondary-hover);
+                }
+              }
+            }
+
+            &.view-more {
+              text-decoration-color: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    &:has(.dynamic-suggestions:not(.d-none)) {
+      background-color: var(--#{$prefix}default-background);
+    }
+
+    .dynamic-suggestions {
+      .suggestions-category:not(.feature) {
+        ul {
+          li {
+            a {
+              &:not(.view-more) {
+                &::before {
+                  mask-image: var(--qgds-icon-search);
+                }
+              }
+            }
           }
         }
       }
@@ -213,23 +236,7 @@
 
     // Featured search result styles
     .feature {
-      background-color: var(--suggestions-feature-bg);
-
-      strong {
-        color: var(--suggestions-feature-text-color);
-      }
-
-      ul {
-        li {
-          &:hover {
-            background-color: var(--suggestions-feature-hover);
-          }
-
-          a {
-            color: var(--suggestions-feature-text-color);
-          }
-        }
-      }
+      background-color: var(--#{$prefix}color-default-color-light-background-default-shade);
     }
 
     // Show when active
@@ -254,31 +261,35 @@
       ul {
         padding: 0;
         margin: 0;
+
         li {
           min-height: 3rem;
           list-style: none;
           cursor: pointer;
-          margin-top: 0;
+          margin-block-start: 0;
 
           a {
             vertical-align: middle;
             vertical-align: -webkit-baseline-middle;
 
-            &:hover {
-              text-decoration: underline;
+            &:focus {
+              text-decoration-color: inherit;
+              text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+              outline-color: var(--#{$prefix}light-focus);
+              outline-offset: -4px;
+              background-color: var(--#{$prefix}color-default-color-light-border-default);
             }
           }
 
           &:hover {
-            background-color: var(--suggestions-hover);
-
-            a {
-              text-decoration: underline;
-              text-decoration-thickness: var(
-                --#{$prefix}link-underline-thickness-hover
-              );
-            }
+            background-color: var(--#{$prefix}color-default-color-light-border-default);
           }
+        }
+      }
+
+      .dynamic-suggestions .suggestions-category:not(.feature) {
+        strong {
+          color: var(--#{$prefix}light-text-text);
         }
       }
     }
@@ -292,88 +303,21 @@
     --background-color: var(--#{$prefix}neutral-lightest);
 
     .form-control {
-      border: {
-        top-width: 0;
-        right-width: 0;
-        bottom-width: 0.125rem;
-        left-width: 0;
-        radius: $border-radius 0 0 0;
-      }
+      border-width: 0;
+      border-block-end-width: 0.125rem;
+      border-radius: 0;
+      border-start-start-radius: var(--border-radius);
 
       &:active,
       &:focus {
         --border-color: var(--#{$prefix}neutral-lighter);
-        border-bottom-left-radius: $border-radius;
+        border-bottom-left-radius: var(--border-radius);
       }
     }
 
-    > button {
-      border-radius: 0 $border-radius 0 0;
-    }
-  }
-
-  .dark &,
-  .dark-alt & {
-    --background-color: var(--#{$prefix}dark-background-background);
-    --border-color: var(--#{$prefix}dark-alt-border);
-    --placeholder-color: var(--${prefix}dark-text-lighter);
-    --qld-icon-color: var(--#{$prefix}white);
-    --text-color: var(--#{$prefix}dark-text-text);
-
-    // Suggestions variables
-    --suggestions-bg: var(
-      --#{$prefix}color-default-color-dark-background-default-shade
-    );
-    --suggestions-hover: var(
-      --#{$prefix}color-default-color-dark-background-default
-    );
-    --suggestions-hover-border-color: var(
-      --#{$prefix}color-default-color-dark-accent-design-accent
-    );
-    --suggestions-feature-bg: var(
-      --#{$prefix}color-default-color-dark-background-alt
-    );
-    --suggestions-feature-hover: var(
-      --#{$prefix}color-default-color-dark-background-alt-shade
-    );
-    --suggestions-feature-text-color: var(
-      --#{$prefix}color-default-color-dark-text-default
-    );
-
-    &:has(.form-control:focus) {
-      --qld-icon-color: var(--#{$prefix}light-text-lighter);
-      --text-color: var(--#{$prefix}light-text-text);
-    }
-
-    .form-control {
-      &:hover {
-        --background-color: var(--#{$prefix}dark-background-shade);
-        --border-color: var(--#{$prefix}dark-action-primary-hover);
-      }
-
-      &:active,
-      &:focus {
-        --text-color: var(--#{$prefix}light-text-text);
-        --border-color: var(--#{$prefix}neutral-lighter);
-        --background-color: var(--#{$prefix}white);
-      }
-    }
-
-    &.is-filled {
-      --background-color: var(--#{$prefix}dark-background-shade);
-
-      .form-control {
-        &:hover {
-          --background-color: var(--#{$prefix}dark-background-shade);
-          --border-color: var(--#{$prefix}dark-action-primary-hover);
-        }
-
-        &:active,
-        &:focus {
-          --background-color: var(--#{$prefix}white);
-          --border-color: var(--#{$prefix}neutral-lighter);
-        }
-      }
+    >button {
+      border-radius: 0;
+      border-start-end-radius: var(--border-radius);
     }
   }
 }

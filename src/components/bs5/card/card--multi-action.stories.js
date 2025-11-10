@@ -11,7 +11,10 @@ export default {
   tags: ["autodocs"],
   title: "3. Components/Card/Multi action",
   render: (args) => {
-    const tags = new Tag(tagdata.action).html;
+    const tags = new Tag({
+      ...tagdata.action,
+      classes: "",
+    }).html;
     const cta = new CallToAction({ label: "View all", href: "#" }).html;
 
     return `
