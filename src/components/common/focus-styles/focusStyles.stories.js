@@ -17,7 +17,7 @@ const cardArgs = cardData.singleAction;
  * @type { Meta<Args> }
  */
 export default {
-  title: "Focus Styles",
+  title: "1. Core Styles/Focus Styles",
   tags: ["autodocs"],
   argTypes: {
     utilityClass: {

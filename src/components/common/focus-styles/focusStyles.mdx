@@ -1,10 +1,4 @@
-import {
-  Canvas,
-  Meta,
-  Story,
-  Source,
-  Controls,
-} from "@storybook/addon-docs/blocks";
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
 import * as Stories from "./focusStyles.stories";
 
 <Meta of={Stories} />
@@ -16,10 +10,10 @@ Use the mixin `focusable()` to keep focus styles consistent across all elements 
 ## Focus ring color and palette context
 
 Focus ring color is palette context-aware via CSS custom property `--qld-focus-color`. This means it changes color based on the classes `default`, `alt`, `light`, `dark`, and `dark-alt`.
-Because a focus ring is offset beyond an element's boundaries, when a themable component such as a Card is also focusable, it must retain the palette color if its parent.
-For this reason `--qld-focus-color` is set on the first child of palette classes. Change the values of `paletteClass` and `cardPaletteClass` to see this in effect.
+Because a focus ring is offset beyond an element's boundaries, when a themable component such as a Card is also focusable, it must retain the palette color of its parent.
+For this reason `--qld-focus-color` is set on children of elements with palette classes, not the element itself. Change the values of `paletteClass` and `cardPaletteClass` to see this in effect.
 
-To otherwise force a focus-ring's palette context, you may use utility classes `qld-focus-light` and `qld-focus-dark`. This should only be done as a final resort however.
+To otherwise force a focus-ring's palette context, you may also use utility classes `qld-focus-light` and `qld-focus-dark`. This should only be done as a final resort however.
 
 <Canvas of={Stories.Default} />
 
