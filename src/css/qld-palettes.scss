@@ -2,7 +2,7 @@
 // Provides complete theme styling including color, background-color, and CSS variables
 
 // Theme properties mixins to avoid duplication
-@mixin light-theme-properties {
+%qld-palette-default {
   background-color: var(--qld-body-bg);
   color: var(--qld-body-color);
   --qld-action-icon-color: var(--qld-light-action-secondary);
@@ -15,7 +15,6 @@
   --qld-headings-color: #{$headings-color};
   --qld-link-color: #{$link-color};
   --qld-link-color-rgb: #{to-rgb($link-color)};
-  --qld-link-font-weight: 400;
   --qld-link-hover-color: var(--qld-link-color);
   --qld-link-visited-color: #{$color-default-color-light-link-visited};
   --qld-link-hover-color-rgb: var(--qld-link-color-rgb);
@@ -30,12 +29,26 @@
   --qld-selection-color: var(--qld-white);
 }
 
-@mixin dark-theme-properties {
+%qld-palette-light {
+  @extend %qld-palette-default;
+  --qld-body-bg: var(--qld-light-background);
+  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
+}
+
+%qld-palette-alt {
+  @extend %qld-palette-default;
+  --qld-body-bg: var(--qld-light-alt-background);
+  --qld-border-color: var(--qld-soft-grey);
+}
+
+%qld-palette-dark {
   background-color: var(--qld-body-bg);
   color: var(--qld-body-color);
   --qld-action-icon-color: var(--qld-dark-action-secondary);
   --qld-action-icon-hover-color: var(--qld-dark-action-secondary-hover);
+  --qld-body-bg: var(--qld-dark-background);
   --qld-body-color: #fff;
+  --qld-border-color: var(--qld-dark-border);
   --qld-focus-color: var(--qld-dark-focus);
   --qld-headings-color: #{$color-default-color-dark-text-heading};
   --qld-link-color: #{$color-default-color-dark-link-default};
@@ -54,42 +67,36 @@
   --qld-selection-color: var(--qld-brand-primary);
 }
 
-// Default theme (inherits :root variables) and root variables
-:root,
-.default {
-  @include light-theme-properties;
-}
-
-// Light theme
-.light {
-  @include light-theme-properties;
-  --qld-body-bg: var(--qld-light-background);
-  --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
-}
-
-// Alt theme (light alternative)
-.alt {
-  @include light-theme-properties;
-  --qld-body-bg: var(--qld-light-alt-background);
-  --qld-border-color: var(--qld-soft-grey);
-}
-
-// Dark theme
-.dark {
-  @include dark-theme-properties;
-  --qld-body-bg: var(--qld-dark-background);
-  --qld-border-color: var(--qld-dark-border);
-}
-
-// Dark alt theme
-.dark-alt {
-  @include dark-theme-properties;
+%qld-palette-dark-alt {
+  @extend %qld-palette-dark;
   --qld-body-bg: var(--qld-dark-alt-background);
   --qld-border-color: var(--qld-dark-alt-border);
 }
 
+// Default theme (inherits :root variables) and root variables
+:root,
+.default {
+  @extend %qld-palette-default;
+}
+
+// Light theme
+.light {
+  @extend %qld-palette-light;
+}
+
+// Alt theme (light alternative)
+.alt {
+  @extend %qld-palette-alt;
+}
+
+// Dark theme
 // Bootstrap dark mode support
+.dark,
 :root[data-bs-theme="dark"] {
-  @include dark-theme-properties;
-  --qld-body-bg: var(--qld-brand-primary);
+  @extend %qld-palette-dark;
+}
+
+// Dark alt theme
+.dark-alt {
+  @extend %qld-palette-dark-alt;
 }
