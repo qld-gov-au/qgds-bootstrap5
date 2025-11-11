@@ -67,59 +67,6 @@ window.addEventListener("DOMContentLoaded", () => {
           }, 300);
         });
 
-        // Add focus event listener to the search input
-        searchInput.addEventListener("focus", function () {
-          const suggestions = form.querySelector(".suggestions");
-          const dynamicSuggestionsContainer = form.querySelector(
-            ".dynamic-suggestions",
-          );
-
-          if (this.value.trim() === "") {
-            showSuggestions("", true, form);
-          } else if (
-            suggestions &&
-            dynamicSuggestionsContainer &&
-            dynamicSuggestionsContainer.innerHTML.trim() !== ""
-          ) {
-            // Only show existing suggestions if there are actual dynamic suggestions populated
-            suggestions.classList.remove("d-none");
-          }
-        });
-
-        const suggestions = form.querySelector(".suggestions");
-        // If there is no suggestions renderred, do not add event listener to the document
-        if (suggestions) {
-          // Helper function to determine if suggestions should be hidden on focus change
-          const shouldHideSuggestions = (newFocusTarget) => {
-            if (!newFocusTarget) return true;
-
-            const isFocusInsideInput =
-              searchInput.contains(newFocusTarget) ||
-              searchInput === newFocusTarget;
-            const isFocusInsideSuggestions =
-              suggestions.contains(newFocusTarget);
-
-            return !isFocusInsideInput && !isFocusInsideSuggestions;
-          };
-
-          // Handle focusout event for keyboard accessibility
-          const handleFocusOut = (event) => {
-            const newFocusTarget = event.relatedTarget;
-
-            if (shouldHideSuggestions(newFocusTarget)) {
-              suggestions.classList.add("d-none");
-            }
-          };
-
-          // Attach focusout event listener to search input
-          searchInput.addEventListener("focusout", handleFocusOut);
-
-          // Attach focusout event listener to suggestions container
-          suggestions.addEventListener("focusout", handleFocusOut);
-        } else {
-          console.warn("Required suggestions elements not found.");
-        }
-
         // Attach event listener to form submit
         form.addEventListener("submit", function (event) {
           event.preventDefault();

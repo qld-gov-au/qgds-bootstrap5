@@ -1,5 +1,3 @@
-import { createPopper } from "@popperjs/core";
-
 /**
  * Fetches data from the provided URL.
  *
@@ -34,7 +32,6 @@ export function selectSuggestion(value, form) {
 
   if (searchInput && suggestions) {
     searchInput.value = value.trim();
-    // suggestions.classList.add("d-none");
 
     // Retrieve additional params
     const collection =
@@ -94,10 +91,6 @@ export async function showSuggestions(value = "", isDefault = false, form) {
       dynamicSuggestionsContainer.innerHTML = "";
       dynamicSuggestionsContainer.classList.add("d-none");
     }
-    createPopper(searchInput, suggestions, {
-      placement: "bottom-start",
-    });
-    suggestions.classList.remove("d-none");
     return;
   }
 
@@ -140,10 +133,6 @@ export async function showSuggestions(value = "", isDefault = false, form) {
             .join("")}</ul>
         </div>`;
         dynamicSuggestionsContainer.classList.remove("d-none");
-        createPopper(searchInput, suggestions, {
-          placement: "bottom-start",
-        });
-        suggestions.classList.remove("d-none");
 
         // Attach click event listeners to each suggestion item
         form.querySelectorAll(".suggestions li").forEach((item) => {
@@ -154,7 +143,6 @@ export async function showSuggestions(value = "", isDefault = false, form) {
       } else {
         dynamicSuggestionsContainer.innerHTML = "";
         dynamicSuggestionsContainer.classList.add("d-none");
-        suggestions.classList.add("d-none");
       }
     }
 
@@ -191,10 +179,6 @@ export async function showSuggestions(value = "", isDefault = false, form) {
           <ul>${servicesItems}${viewMoreItem}</ul>
         </div>`;
         dynamicSuggestionsContainer.classList.remove("d-none");
-        createPopper(searchInput, suggestions, {
-          placement: "bottom-start",
-        });
-        suggestions.classList.remove("d-none");
 
         // Attach click event listeners to each suggestion item
         form.querySelectorAll(".suggestions li").forEach((item) => {

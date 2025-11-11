@@ -13,24 +13,35 @@
   --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
   --suggestions-shadow:
     0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
-
+  --border-radius: 0.25rem;
+  --hover-background-color: var(--#{$prefix}color-default-color-light-border-default);
+  --_size: 3rem;
+  
   .dark &,
   .dark-alt & {
     --border-color: var(--#{$prefix}dark-border-alt);
     --border-color-focus: var(--#{$prefix}dark-border-alt);
     --border-color-hover: var(--#{$prefix}dark-action-primary-hover);
+    // --placeholder-color: var(--#{$prefix}dark-text-lighter);
   }
-
-  --border-radius: 0.25rem;
-  --_size: 3rem;
 
   display: flex;
   position: relative;
   border-radius: var(--border-radius);
 
+  .suggestions {
+    transition-behavior: allow-discrete;
+    opacity: 0;
+    // visibility: hidden;
+    transition: opacity 0.5s, display 0.5s;
+  }
+
   &:focus-within {
-    .suggestions.d-none {
-      display: block !important; // !important to override bootstrap d-none
+
+    .suggestions {
+      display: block; // !important to override bootstrap d-none
+      opacity: 1;
+      transition: opacity 0.5s, display 0.5s;
     }
   }
 
@@ -133,7 +144,7 @@
     position: absolute;
     inset-inline-start: 0;
     width: 100%;
-    inset-block-start: 7px !important; // to override bootstrap's popperjs default top value
+    inset-block-start: 4rem !important;
     z-index: 1;
     border-radius: 0.5rem;
     background: var(--#{$prefix}color-default-color-light-background-default-shade);
@@ -170,8 +181,7 @@
             text-decoration-color: transparent;
             transition:
               text-decoration-thickness animation.$duration-fast animation.$timing-function,
-              text-decoration-color animation.$duration-fast animation.$timing-function;
-              
+              text-decoration-color animation.$duration-fast animation.$timing-function;              
 
             &:hover {
               text-decoration-color: inherit;
@@ -274,14 +284,15 @@
             vertical-align: middle;
             vertical-align: -webkit-baseline-middle;
 
-            &:focus, strong:focus {
+            &:focus {
               outline-color: var(--#{$prefix}light-focus);
-              background-color: var(--#{$prefix}color-default-color-light-border-default);
+              background-color: var(--hover-background-color);
+              outline-offset: -2px;
             }
           }
 
           &:hover {
-            background-color: var(--#{$prefix}color-default-color-light-border-default);
+            background-color: var(--hover-background-color);
           }
         }
       }
@@ -290,8 +301,14 @@
         strong {
           color: var(--#{$prefix}light-text-text);
         }
-        ul li:hover {
-          background-color: var(--#{$prefix}default-background-shade);
+        ul li{
+          &:hover {
+            --hover-background-color: var(--#{$prefix}default-background-shade);
+          }
+          a:focus {
+            // background-color: var(--#{$prefix}default-background-shade);
+            --hover-background-color: var(--#{$prefix}default-background-shade);
+          }
         }
       }
     }
