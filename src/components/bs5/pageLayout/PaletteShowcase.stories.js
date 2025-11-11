@@ -232,9 +232,6 @@ export const PaletteComparison = {
             <div class="bg-dark p-2 text-center rounded text-white">.bg-dark</div>
           </div>
           <div class="col-md-3">
-            <div class="bg-dark-alt p-2 text-center rounded text-white">.bg-dark-alt</div>
-          </div>
-          <div class="col-md-3">
             <div class="bg-default-shade p-2 text-center rounded">.bg-default-shade</div>
           </div>
           <div class="col-md-3">
@@ -243,6 +240,10 @@ export const PaletteComparison = {
           <div class="col-md-3">
             <div class="bg-light-alt-shade p-2 text-center rounded">.bg-light-alt-shade</div>
           </div>
+          <div class="col-md-3">
+            <div class="bg-dark-alt p-2 text-center rounded text-white">.bg-dark-alt</div>
+          </div>
+
         </div>
       </div>
     `,
