@@ -88,6 +88,7 @@ $expander-icon-color: $qld-light-link;
       @include m.focusable($offsetOutline: 3px);
       &:focus {
         outline-offset: -3px;
+        outline-color: var(--#{$prefix}color-default-color-dark-focus-default);
       }
     }
   }
