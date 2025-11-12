@@ -49,9 +49,9 @@ export default {
       },
       options: ["alert-success", "alert-info", "alert-warning", "alert-error"],
     },
-    alertType: {
-      name: "Alert Type",
-      description: `Type of the alert. i.g "Success", "Information", "Warning", "Error".`,
+    ariaLabel: {
+      name: "ARIA Label",
+      description: `Accessible label for the alert announced to screen readers. e.g "Success alert", "Information alert", "Warning alert", "Error alert".`,
     },
     headingTag: {
       name: "Heading Tag",
@@ -90,8 +90,8 @@ export const Dark = {
 };
 
 /**
- * All alert variants with proper accessibility using DOM-based icons.
- * Each alert includes a qld-icon span with aria-hidden and a visually-hidden span for screen readers.
+ * All alert variants with proper accessibility.
+ * Each alert includes CSS-based icons and a visually-hidden span for screen readers.
  */
 export const AllVariants = {
   name: "All Alert Types (Accessibility)",
@@ -99,25 +99,25 @@ export const AllVariants = {
     const alerts = [
       {
         variantClass: "alert-success",
-        alertType: "Success",
+        ariaLabel: "Success alert",
         heading: "Success Alert",
         content: "<p>This action was completed successfully.</p>",
       },
       {
         variantClass: "alert-info",
-        alertType: "Information",
+        ariaLabel: "Information alert",
         heading: "Information Alert",
         content: "<p>Here is some important information for you to know.</p>",
       },
       {
         variantClass: "alert-warning",
-        alertType: "Warning",
+        ariaLabel: "Warning alert",
         heading: "Warning Alert",
         content: "<p>Please be aware of this potential issue.</p>",
       },
       {
         variantClass: "alert-error",
-        alertType: "Error",
+        ariaLabel: "Error alert",
         heading: "Error Alert",
         content: "<p>An error occurred. Please try again.</p>",
       },
