@@ -42,6 +42,7 @@
   .suggestions {
     transition-behavior: allow-discrete;
     opacity: 0;
+    display: none;
     transition: opacity 0.5s, display 0.5s;
   }
 
