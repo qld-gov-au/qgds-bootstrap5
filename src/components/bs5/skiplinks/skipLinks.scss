@@ -14,11 +14,17 @@
     border: 0;
 
     &,
-    &:visited,
-    &:visited:hover {
+    &:visited {
       color: var(--#{$prefix}color-default-color-dark-link-default);
       text-decoration-color: var(
-        --#{$prefix}-color-default-color-light-underline-default
+        --#{$prefix}color-default-color-dark-underline-default
+      );
+    }
+
+    &:hover,
+    &:visited:hover {
+      text-decoration-color: var(
+        --#{$prefix}color-default-color-dark-underline-default-hover
       );
     }
 
@@ -38,6 +44,8 @@
       );
       z-index: 999;
       @include m.focusable();
+      outline-offset: -6px;
+      outline-color: var(--#{$prefix}color-default-color-light-focus-default);
     }
   }
 }
