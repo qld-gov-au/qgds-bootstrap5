@@ -1,5 +1,6 @@
 // QLD Desing System Bootstrap 5 library
 // Extends: https://getbootstrap.com/docs/5.3/components/alerts/#variables
+@use "../../../css/mixins" as m;
 
 //All alerts have the same text and background color, even on darker themes
 //To account for this, we redefine the global vars at the .alert scope
@@ -15,29 +16,6 @@
   position: relative;
   padding-left: 4rem;
   overflow-wrap: break-word;
-
-  // Alert icon container - absolute positioned sidebar
-  .alert-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-
-    .qld-icon {
-      color: #fff;
-    }
-  }
-
-  // Alert content wrapper
-  .alert-content {
-    flex: 1;
-    min-width: 0;
-  }
 
   .alert-heading {
     line-height: 1.5;
@@ -69,25 +47,75 @@
       no-repeat center center;
   }
 
-  //alerts color map - simplified to only set border and icon background colors
-  $alert-colors-map: (
-    "success": var(--#{$prefix}success),
-    "info": var(--#{$prefix}info),
-    "warning": var(--#{$prefix}warning),
-    "danger": var(--#{$prefix}danger),
-    "error": var(--#{$prefix}danger),
-    "light": var(--#{$prefix}light-grey),
-    "dark": var(--#{$prefix}dark-grey),
+  //alerts color map with icons
+  $alert-icons-map: (
+    "success": (
+      "color": var(--#{$prefix}success),
+      "icon": "alert-success",
+    ),
+    "info": (
+      "color": var(--#{$prefix}info),
+      "icon": "alert-information",
+    ),
+    "warning": (
+      "color": var(--#{$prefix}warning),
+      "icon": "alert-warning",
+    ),
+    "danger": (
+      "color": var(--#{$prefix}danger),
+      "icon": "alert-danger",
+    ),
+    "error": (
+      "color": var(--#{$prefix}danger),
+      "icon": "alert-danger",
+    ),
+    "light": (
+      "color": var(--#{$prefix}light-grey),
+      "icon": null,
+    ),
+    "dark": (
+      "color": var(--#{$prefix}dark-grey),
+      "icon": null,
+    ),
   );
 
-  //Sets border color and icon background color for each alert type
-  @each $key, $color in $alert-colors-map {
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    color: #fff;
+  }
+
+  &:before {
+    width: 3rem;
+  }
+
+  //Sets border color and icon for each alert type
+  @each $key, $values in $alert-icons-map {
     &-#{$key} {
-      border-color: $color;
+      border-color: map-get($values, "color");
       border-width: 2px;
 
-      .alert-icon {
-        background-color: $color;
+      &:before {
+        background-color: map-get($values, "color");
+      }
+
+      @if map-get($values, "icon") {
+        @include m.make-icon(
+          $name: map-get($values, "icon"),
+          $size: "md",
+          $pseudo: "after"
+        ) {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          margin: 0 0.75rem;
+        }
       }
     }
   }
