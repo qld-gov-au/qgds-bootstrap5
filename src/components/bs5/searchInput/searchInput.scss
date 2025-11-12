@@ -19,10 +19,9 @@
   
   .dark &,
   .dark-alt & {
-    --border-color: var(--#{$prefix}dark-border-alt);
-    --border-color-focus: var(--#{$prefix}dark-border-alt);
+    --border-color: var(--#{$prefix}dark-alt-border);
+    --border-color-focus: var(--#{$prefix}dark-alt-border);
     --border-color-hover: var(--#{$prefix}dark-action-primary-hover);
-    // --placeholder-color: var(--#{$prefix}dark-text-lighter);
   }
 
   display: flex;
@@ -32,7 +31,6 @@
   .suggestions {
     transition-behavior: allow-discrete;
     opacity: 0;
-    // visibility: hidden;
     transition: opacity 0.5s, display 0.5s;
   }
 
@@ -149,7 +147,8 @@
     border-radius: 0.5rem;
     background: var(--#{$prefix}color-default-color-light-background-default-shade);
 
-    &>div {
+    &>div:has(>div) {
+      box-shadow: var(--suggestions-shadow);
       border-radius: 0.5rem;
       border-bottom: 0.25rem solid var(--#{$prefix}color-default-color-light-accent-design-accent);
     }
@@ -223,11 +222,7 @@
     &:has(.dynamic-suggestions:not(.d-none)) {
       background-color: var(--#{$prefix}default-background);
     }
-    .default-suggestions {
-      box-shadow: var(--suggestions-shadow);
-    }
     .dynamic-suggestions {
-      box-shadow: var(--suggestions-shadow);
       .suggestions-category:not(.feature) {
         ul {
           li {
@@ -306,7 +301,6 @@
             --hover-background-color: var(--#{$prefix}default-background-shade);
           }
           a:focus {
-            // background-color: var(--#{$prefix}default-background-shade);
             --hover-background-color: var(--#{$prefix}default-background-shade);
           }
         }
@@ -340,3 +334,4 @@
     }
   }
 }
+
