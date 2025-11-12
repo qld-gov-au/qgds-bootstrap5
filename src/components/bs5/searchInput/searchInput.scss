@@ -4,6 +4,7 @@
 .qld-search-input {
   // Input variables
   --background-color: var(--#{$prefix}white);
+  --background-color-hover:var(--#{$prefix}neutral-lightest);
   --border-color: var(--#{$prefix}light-border-alt);
   --border-color-focus: var(--#{$prefix}default-border);
   --border-color-hover: var(--#{$prefix}light-action-primary-hover);
@@ -22,6 +23,16 @@
     --border-color: var(--#{$prefix}dark-alt-border);
     --border-color-focus: var(--#{$prefix}dark-alt-border);
     --border-color-hover: var(--#{$prefix}dark-action-primary-hover);
+    --background-color: var(--#{$prefix}dark-background);
+    --background-color-hover:var(--#{$prefix}dark-background-shade);
+    .btn:active {
+      background-color:var(--#{$prefix}neutral-lightest);
+      border-color:var(--#{$prefix}neutral-lightest);
+      text-decoration: underline;
+    }
+    .form-control:focus {
+      border-color: var(--#{$prefix}neutral-lighter);
+    }
   }
 
   display: flex;
@@ -74,7 +85,7 @@
     }
 
     &:hover {
-      --background-color: var(--#{$prefix}neutral-lightest);
+      --background-color: var(--background-color-hover);
       --border-color: var(--border-color-hover);
     }
 
@@ -313,7 +324,7 @@
   }
 
   &.is-filled {
-    --background-color: var(--#{$prefix}neutral-lightest);
+    --background-color: var(--background-color-hover);
 
     .form-control {
       border-width: 0;
