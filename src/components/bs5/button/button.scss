@@ -340,11 +340,6 @@ a.btn,
     }
   }
 
-  &:focus {
-    outline: var(--#{$prefix}dark-focus) solid 3px;
-    outline-offset: 2px;
-  }
-
   // Progress state focus for dark mode
   &.btn-progress:focus {
     outline: var(--#{$prefix}dark-focus) solid 3px;
