@@ -25,8 +25,8 @@
   --qld-link-underline-offset: 0.3rem;
   --qld-link-underline-thickness: 0.5px;
   --qld-link-underline-thickness-hover: 2px;
-  --qld-selection-bg: var(--qld-brand-primary);
-  --qld-selection-color: var(--qld-white);
+  --qld-selection-bg: var(--qld-dark-background);
+  --qld-selection-color: var(--qld-neutral-white);
 }
 
 %qld-palette-light {
@@ -63,8 +63,8 @@
   --qld-link-underline-hover: #{$qld-link-underline-hover-dark};
   --qld-link-underline-visited: #{$qld-link-underline-visited-dark};
   --qld-link-underline-visited-hover: #{$qld-link-underline-hover-dark};
-  --qld-selection-bg: var(--qld-white);
-  --qld-selection-color: var(--qld-brand-primary);
+  --qld-selection-bg: var(--qld-neutral-white);
+  --qld-selection-color: var(--qld-dark-background);
 }
 
 %qld-palette-dark-alt {

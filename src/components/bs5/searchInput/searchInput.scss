@@ -26,6 +26,10 @@
     --background-color: var(--#{$prefix}dark-background);
     --text-color: var(--#{$prefix}dark-text-default);
     --background-color-hover: var(--#{$prefix}dark-background-shade);
+
+    --qld-selection-bg: var(--qld-dark-background);
+    --qld-selection-color: var(--qld-neutral-white);
+
     .btn:active {
       background-color: var(--#{$prefix}neutral-lightest);
       border-color: var(--#{$prefix}neutral-lightest);
