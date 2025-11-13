@@ -149,6 +149,11 @@ $form-check-inline-margin-end: 1rem;
     &::placeholder {
       color: var(--#{$prefix}placeholder-color-focus);
     }
+
+    .dark &,
+    .dark-alt & {
+      @extend %qld-palette-default;
+    }
   }
 
   &:disabled,
