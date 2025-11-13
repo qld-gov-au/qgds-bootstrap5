@@ -1,4 +1,3 @@
-// ComponentExample.stories.js
 import { Dateinput } from "./Dateinput.js";
 import defaultdata from "./dateinput.data.json";
 

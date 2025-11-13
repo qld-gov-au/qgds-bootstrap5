@@ -1,8 +1,6 @@
 export function initDateInput() {
   const dateContainers = document.querySelectorAll(".date-container");
 
-  console.log(`Found ${dateContainers?.length || 0} datecontainers`);
-
   /**
    * @param {InputEvent} e
    * @returns void
@@ -58,7 +56,6 @@ export function initDateInput() {
 
     // Only pad positive integer values
     if (digitTarget && raw.length < digitTarget) {
-      console.log("yep");
       // update previousValue dataset so validation/inputHandler keeps in sync
       input.dataset.previousValue = input.value = raw.padStart(
         digitTarget,

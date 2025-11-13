@@ -53,7 +53,7 @@
         <label id="{{id}}-yearinput-label" for="{{id}}-yearinput" class="date-label qld-text-input-label">Year</label>
         <div class="year-label">
             <input id="{{id}}-yearinput" aria-labelledby="{{id}}-label {{id}}-yearinput-label"
-                placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]*"
+                placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]*" {{#if yearMin}}min="{{yearMin}}"{{/if}} {{#if yearMax}}max="{{yearMax}}"{{/if}}
                 class="form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
                 ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
         </div>
