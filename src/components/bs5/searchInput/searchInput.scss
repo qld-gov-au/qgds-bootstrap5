@@ -207,7 +207,8 @@
               text-decoration-color animation.$duration-fast
                 animation.$timing-function;
 
-            &:hover {
+            &:hover,
+            &:hover strong {
               text-decoration-color: inherit;
               text-decoration-thickness: var(
                 --#{$prefix}link-underline-thickness-hover

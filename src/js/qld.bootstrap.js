@@ -51,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Get all forms with the class 'site-search'
     let forms = document.querySelectorAll(".site-search");
+
     forms.forEach((form) => {
       // Get the search input within the current form
       let searchInput = form.querySelector(".qld-search-input input");
@@ -76,9 +77,9 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    //Header
-    // Get the <header> element
+    //Header - get the <header> element
     let header = document.querySelector("header");
+
     if (header) {
       // Get the current page URL without query string parameters
       let url = window.location.origin + window.location.pathname;
