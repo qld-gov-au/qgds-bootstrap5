@@ -19,7 +19,7 @@ export default {
           ${new CallToAction({ ...args }).html}
         </div>
         <div class="col">
-          ${new CallToAction({ ...args, label: "Label", class: [{ small: false }, { "view-all": false }] }).html}
+          ${new CallToAction({ ...args, label: "Label", arialabel: "View more information", class: [{ small: false }, { "view-all": false }] }).html}
         </div>
       </div>
     </div>
@@ -134,7 +134,7 @@ export const Small = {
           ${new CallToAction({ ...args }).html}
         </div>
         <div class="col">
-          ${new CallToAction({ ...args, label: "Label", class: [{ small: true }, { "view-all": false }] }).html}
+          ${new CallToAction({ ...args, label: "Label", arialabel: "View more information", class: [{ small: true }, { "view-all": false }] }).html}
         </div>
       </div>
     </div>
