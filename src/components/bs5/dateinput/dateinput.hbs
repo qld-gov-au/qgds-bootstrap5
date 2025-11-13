@@ -34,7 +34,8 @@
         <div>
             <input id="{{id}}-dayinput" aria-labelledby="{{id}}-label {{id}}-dayinput-label" placeholder="{{day-placeholder}}" type="text"
                 inputmode="numeric" maxlength="2" minlength="2" pattern="^(0?[1-9]|[12][0-9]|3[01])$"
-                class="form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="day"
+                class="form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
+                {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="day"
                 aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
         </div>
     </div>
@@ -44,7 +45,8 @@
         <div>
             <input id="{{id}}-monthinput" aria-labelledby="{{id}}-label {{id}}-monthinput-label" placeholder="{{month-placeholder}}"
                 type="text" inputmode="numeric" maxlength="2" minlength="2" pattern="^(0?[1-9]|[1][0-2])$"
-                class="form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="month"
+                class="form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
+                {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="month"
                 aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
         </div>
     </div>
@@ -53,7 +55,8 @@
         <label id="{{id}}-yearinput-label" for="{{id}}-yearinput" class="date-label qld-text-input-label">Year</label>
         <div class="year-label">
             <input id="{{id}}-yearinput" aria-labelledby="{{id}}-label {{id}}-yearinput-label"
-                placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]*" {{#if yearMin}}min="{{yearMin}}"{{/if}} {{#if yearMax}}max="{{yearMax}}"{{/if}}
+                placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]*" 
+                {{#if yearMin}}min="{{yearMin}}"{{/if}} {{#if yearMax}}max="{{yearMax}}"{{/if}}
                 class="form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
                 ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
         </div>
