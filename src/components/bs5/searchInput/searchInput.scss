@@ -311,7 +311,7 @@
             &:focus {
               outline-color: var(--#{$prefix}light-focus);
               background-color: var(--hover-background-color);
-              outline-offset: -2px;
+              outline-offset: -4px;
             }
           }
 
