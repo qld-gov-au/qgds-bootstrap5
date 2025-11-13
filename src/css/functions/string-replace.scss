@@ -1,0 +1,49 @@
+@use "sass:string";
+@use "sass:meta";
+
+///
+/// Adapted from Kitty Giraudel https://kittygiraudel.com/2014/01/13/string-replacement-function-in-sass/
+/// @param {type} $string - The string to be searched, with substring $replace replaced with $replaceWith
+/// @param {type} $replace - The substring to be replaced by $replaceWith
+/// @param {type} $replaceWith - The string to replace $replace
+/// @return {string} - A new string with $replace replaced by $replaceWith
+@function string-replace($string, $replace, $replaceWith) {
+  // validate strings
+  @if meta.type-of($string) !=
+    string or
+    meta.type-of($replace) !=
+    string or
+    meta.type-of($replaceWith) !=
+    string
+  {
+    @warn "One of the 3 arguments is not a string.";
+    @return $string;
+  }
+
+  // avoid infinite recursion
+  @if string.index($replaceWith, $replace) {
+    @warn "The string to be replaced is contained in the new string. Infinite recursion avoided.";
+    @return $string;
+  }
+
+  // Find the index of the string to replace
+  $index: string.index($string, $replace);
+
+  // If $replace string is found
+  @if ($index) and ($replaceWith != $replace) {
+    // Create a new string. Then we loop through each character in the string, and append them to the new string only if they are not part of the $replace string.
+    $newString: string.quote(string.slice($string, 1, $index - 1));
+
+    @for $i from $index through string.length($string) {
+      @if $i < $index or $i >= $index + string.length($replace) {
+        $newString: $newString + string.slice($string, $i, $i);
+      }
+    }
+
+    $newString: string.insert($newString, $replaceWith, $index);
+    @return string-replace($newString, $replace, $replaceWith);
+  }
+
+  // else nothing to do - return original $string
+  @return $string;
+}

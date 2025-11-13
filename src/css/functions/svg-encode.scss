@@ -1,0 +1,22 @@
+@use "../functions/string-replace" as *;
+
+///
+/// A simpler version of bootstrap's escape-svg, which cannot be used with sass module system.
+/// Unlike bootstraps' version, this function cannot be used to wrap `url()` function.
+/// It only works on strings!
+/// Based on the same original source at https://codepen.io/kevinweber/pen/dXWoRw
+/// @param {type} $svg -
+/// @return {string} - the encoded svg prefixed with "data:image/svg+xml,", ready to be used within `url()` for background images.
+@function svg-encode($svg) {
+  $encoding-reference: (
+    ("<", "%3c"),
+    (">", "%3e"),
+    ("#", "%23"),
+    ("(", "%28"),
+    (")", "%29")
+  );
+  @each $char, $encoded in $encoding-reference {
+    $svg: string-replace($svg, $char, $encoded);
+  }
+  @return "data:image/svg+xml," + $svg;
+}
