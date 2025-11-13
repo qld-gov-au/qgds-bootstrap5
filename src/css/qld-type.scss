@@ -73,12 +73,6 @@ a.nav-link {
   @include mixins.make-link();
 }
 
-figure > figcaption {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-}
-
 a.nostyle {
   text-decoration: unset;
   text-underline-offset: unset;
@@ -89,9 +83,10 @@ a.nostyle {
   }
 }
 
-::-moz-selection {
-  background: var(--qld-selection-bg);
-  text-shadow: none;
+figure > figcaption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 ::selection {

@@ -2,6 +2,11 @@
 import { Dateinput } from "./Dateinput.js";
 import defaultdata from "./dateinput.data.json";
 
+/**
+ * @import { Meta, StoryObject} from "@storybook/html";
+ */
+
+/** @type {Meta} */
 export default {
   tags: ["autodocs"],
   title: "3. Components/Forms/Dateinput",
@@ -17,11 +22,12 @@ export default {
 
     return new Dateinput(args).html;
   },
-
-  //https://storybook.js.org/docs/api/arg-types
   argTypes: {},
   globals: { backgrounds: { value: "default" } },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    docs: { story: { inline: false, height: "220px" } }, // inline:false to run in iframe so each story gets its own DOMContentLoaded event.
+    backgrounds: { disable: false },
+  },
 };
 
 /**
