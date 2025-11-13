@@ -10,7 +10,7 @@
 
 {{#unless islink}}
 
-  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}} {{label}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}}>
+  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}}>
     {{#if isprogress}}
       {{~>progressSpinner~}}
     {{else}}
