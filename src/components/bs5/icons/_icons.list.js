@@ -1,10 +1,4 @@
 export default [
-  "spinner-step-1",
-  "spinner-step-2",
-  "spinner-step-3",
-  "spinner-step-4",
-  "x",
-  "youtube",
   "accessibility",
   "alert-cancel",
   "alert-danger",
@@ -94,6 +88,10 @@ export default [
   "show",
   "sort-alpha",
   "speech",
+  "spinner-step-1",
+  "spinner-step-2",
+  "spinner-step-3",
+  "spinner-step-4",
   "spreadsheet",
   "status-cancel",
   "status-danger",
@@ -110,5 +108,7 @@ export default [
   "video",
   "view-all",
   "wheelchair",
-  "zoom",
+  "x",
+  "youtube",
+  "zoom"
 ];
