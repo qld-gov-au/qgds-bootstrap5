@@ -15,9 +15,7 @@
   --suggestions-shadow:
     0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
   --border-radius: 0.25rem;
-  --hover-background-color: var(
-    --#{$prefix}color-default-color-light-border-default
-  );
+  --hover-background-color: var(--#{$prefix}neutral-light);
   --_size: 3rem;
 
   .dark &,
@@ -36,10 +34,6 @@
     .form-control:focus {
       border-color: var(--#{$prefix}neutral-lighter);
       --text-color: var(--#{$prefix}light-text-text);
-    }
-    .form-control:focus::selection,
-    .form-control:active::selection {
-      background-color: var(--#{$prefix}background-dark);
     }
   }
 
@@ -165,12 +159,10 @@
     position: absolute;
     inset-inline-start: 0;
     width: 100%;
-    inset-block-start: 4rem !important;
+    inset-block-start: calc(3.25rem + 7px) !important;
     z-index: 1;
     border-radius: 0.5rem;
-    background: var(
-      --#{$prefix}color-default-color-light-background-default-shade
-    );
+    background: var(--#{$prefix}neutral-lightest);
 
     & > div:has(> div) {
       box-shadow: var(--suggestions-shadow);
@@ -254,7 +246,7 @@
       }
     }
 
-    &:has(.dynamic-suggestions:not(.d-none)) {
+    &:has(.dynamic-suggestions > div) {
       background-color: var(--#{$prefix}default-background);
     }
     .dynamic-suggestions {
