@@ -24,7 +24,7 @@
                         {{/if}}
                     </ul>
                 </div>
-
+                {{#if defaultSuggestions.categories}}
                 <div class="suggestions-category">
                     <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
                     <ul>
@@ -36,6 +36,7 @@
                         {{/if}}
                     </ul>
                 </div>
+                {{/if}}
             </div>
         {{/if}}
         {{#if hasDynamicSuggestions}}

@@ -62,6 +62,12 @@
         opacity 0.5s,
         display 0.5s;
     }
+
+    // &:has(#search-button:active) {
+    //   .suggestions {
+    //     display: none;
+    //   }
+    // }
   }
 
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
@@ -180,9 +186,9 @@
 
       &:not(:first-of-type) {
         border-block-start: 1px solid
-          var(--#{$prefix}light-alt-background-shade);
+        var(--#{$prefix}light-alt-background-shade);
       }
-
+      
       // Question
       &-label {
         padding-block: 0.75rem;
