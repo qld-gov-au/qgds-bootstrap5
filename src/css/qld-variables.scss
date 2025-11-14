@@ -5,7 +5,7 @@
 
 //QLD Names Colours
 $qld-dark-blue: $core-default-color-brand-primary-dark-blue;
-$qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
+// $qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
 $qld-light-blue: $core-default-color-brand-primary-light-blue;
 $qld-light-green: $core-default-color-brand-primary-light-green;
 $qld-dark-green: $core-default-color-brand-secondary-darkgreen;
@@ -143,6 +143,10 @@ $qld-dark-action-secondary: $color-default-color-dark-action-secondary;
 $qld-dark-action-secondary-hover: $color-default-color-dark-action-secondary-hover;
 $qld-dark-action-text: $color-default-color-dark-link-on-action;
 
+/* Site Title */
+$qld-light-site-title: $color-default-color-light-site-title;
+$qld-dark-site-title: $color-default-color-dark-site-title;
+
 $primary: $qld-brand-primary;
 $primary-dark: $qld-brand-primary-dark;
 $secondary: $qld-dark-green;
@@ -158,9 +162,6 @@ $qld-fluid-width-3-quarters: 75%;
 $qld-fluid-width-half: 48.5%;
 $qld-fluid-width-1-quarter: 25%;
 
-$color-default-color-dark-underline-default: #ffffff;
-$color-default-color-dark-underline-default-hover: #ffffff;
-
 // Project-specific colors map for generating CSS custom properties only
 // These will NOT create utility classes, only CSS variables on :root
 // Available as var(--qld-[color-name])
@@ -174,9 +175,10 @@ $project-colors: (
   "brand-secondary-dark": $qld-brand-secondary-dark,
   "brand-secondary-light": $qld-brand-secondary,
   "brand-accent": $qld-brand-accent,
+
   //...
   "dark-blue": $qld-dark-blue,
-  "sapphire-blue": $qld-sapphire-blue,
+  // "sapphire-blue": $qld-sapphire-blue,
   "light-blue": $qld-light-blue,
   "light-green": $qld-light-green,
   "dark-green": $qld-dark-green,
@@ -285,6 +287,10 @@ $project-colors: (
   "dark-underline-default": $color-default-color-dark-underline-default,
   "dark-underline-default-hover":
     $color-default-color-dark-underline-default-hover,
+
+  //Site Title
+  "light-site-title": $color-default-color-light-site-title,
+  "dark-site-title": $color-default-color-dark-site-title,
 );
 
 // Generate CSS custom properties for qld-tokens & project colours on :root to prevent utility class generation
@@ -313,7 +319,7 @@ $project-base-colors: (
   "dark-blue-shade": $qld-dark-blue-shade,
   "dark-focus": $qld-dark-focus,
   "light-focus": $qld-light-focus,
-  "text-light-blue-dark": $qld-text-light-blue-dark,
+  //"text-light-blue-dark": $qld-text-light-blue-dark,
   "light-green-dark": $qld-light-green-dark,
   "dark-green-dark": $qld-dark-green-dark,
   "light-yellow": $qld-light-yellow,

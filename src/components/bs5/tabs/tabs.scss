@@ -18,7 +18,9 @@
   --nav-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill=''><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
   // bootstrap variables
   --#{$prefix}nav-tabs-border-radius: var(--border-radius);
-  --#{$prefix}nav-tabs-link-hover-border-color: var(--#{$prefix}tab-background-hover);
+  --#{$prefix}nav-tabs-link-hover-border-color: var(
+    --#{$prefix}tab-background-hover
+  );
   --#{$prefix}nav-tabs-link-active-color: var(--#{$prefix}tab-hover-text-color);
   --#{$prefix}nav-tabs-link-active-bg: var(--#{$prefix}tab-background);
   --#{$prefix}nav-tabs-link-active-border-color: var(--#{$prefix}border-color);
@@ -42,10 +44,10 @@
   .light &,
   .light,
   &.light {
-    --qld-body-bg: #eff4f9;
+    --qld-body-bg: var(--#{$prefix}light-background);
     --qld-border-color: var(--#{$prefix}color-default-color-light-border-light);
     --qld-tab-background: var(--#{$prefix}light-background-shade);
-    --qld-tab-background-hover: var(--#{$prefix}button-dark-blue);
+    --qld-tab-background-hover: var(--#{$prefix}light-action-primary-hover);
   }
   .dark &,
   .dark,
