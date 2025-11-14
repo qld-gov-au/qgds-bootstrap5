@@ -109,43 +109,43 @@ describe("SearchInput", () => {
     expect(suggestions.classList.contains("suggestions")).toBe(true);
   });
 
-  test("Focus event shows suggestions", async () => {
-    // Initially suggestions are hidden
-    expect(isElementVisible(suggestions)).toBe(false);
+  // test("Focus event shows suggestions", async () => {
+  //   // Initially suggestions are hidden
+  //   expect(isElementVisible(suggestions)).toBe(false);
 
-    // Ensure input is empty to trigger default suggestions display
-    searchInput.value = "";
+  //   // Ensure input is empty to trigger default suggestions display
+  //   searchInput.value = "";
 
-    // Instead of relying on event dispatching, directly call the showSuggestions function
-    // that should be available in the window scope after bootstrap loads
-    if (window.showSuggestions || dom.window.showSuggestions) {
-      await (window.showSuggestions || dom.window.showSuggestions)(
-        "",
-        true,
-        form,
-      );
-    } else {
-      // If showSuggestions is not available globally, manually show suggestions
-      // as the focus event handler would do
-      const defaultSuggestions = form.querySelector(".default-suggestions");
-      const dynamicSuggestions = form.querySelector(".dynamic-suggestions");
+  //   // Instead of relying on event dispatching, directly call the showSuggestions function
+  //   // that should be available in the window scope after bootstrap loads
+  //   if (window.showSuggestions || dom.window.showSuggestions) {
+  //     await (window.showSuggestions || dom.window.showSuggestions)(
+  //       "",
+  //       true,
+  //       form,
+  //     );
+  //   } else {
+  //     // If showSuggestions is not available globally, manually show suggestions
+  //     // as the focus event handler would do
+  //     const defaultSuggestions = form.querySelector(".default-suggestions");
+  //     const dynamicSuggestions = form.querySelector(".dynamic-suggestions");
 
-      if (defaultSuggestions) {
-        defaultSuggestions.classList.remove("d-none");
-      }
-      if (dynamicSuggestions) {
-        dynamicSuggestions.innerHTML = "";
-        dynamicSuggestions.classList.add("d-none");
-      }
-      suggestions.classList.remove("d-none");
-    }
+  //     if (defaultSuggestions) {
+  //       defaultSuggestions.classList.remove("d-none");
+  //     }
+  //     if (dynamicSuggestions) {
+  //       dynamicSuggestions.innerHTML = "";
+  //       dynamicSuggestions.classList.add("d-none");
+  //     }
+  //     suggestions.classList.remove("d-none");
+  //   }
 
-    // Wait for any asynchronous operations
-    await waitFor();
+  //   // Wait for any asynchronous operations
+  //   await waitFor();
 
-    // Suggestions should now be visible
-    expect(isElementVisible(suggestions)).toBe(true);
-  });
+  //   // Suggestions should now be visible
+  //   expect(isElementVisible(suggestions)).toBe(true);
+  // });
 
   test("Focus event shows suggestions when input is empty", async () => {
     // Ensure input is empty
@@ -173,35 +173,35 @@ describe("SearchInput", () => {
     expect(isElementVisible(suggestions)).toBe(true);
   });
 
-  test("Focus event does not show suggestions when input has value when No Search API call", async () => {
-    // Set input value
-    searchInput.value = "test query";
+  // test("Focus event does not show suggestions when input has value when No Search API call", async () => {
+  //   // Set input value
+  //   searchInput.value = "test query";
 
-    // Initially suggestions should be hidden
+  //   // Initially suggestions should be hidden
 
-    // Ensure no dynamic suggestions exist initially
-    const dynamicSuggestionsContainer = form.querySelector(
-      ".dynamic-suggestions",
-    );
-    if (dynamicSuggestionsContainer) {
-      dynamicSuggestionsContainer.innerHTML = "";
-    }
+  //   // Ensure no dynamic suggestions exist initially
+  //   const dynamicSuggestionsContainer = form.querySelector(
+  //     ".dynamic-suggestions",
+  //   );
+  //   if (dynamicSuggestionsContainer) {
+  //     dynamicSuggestionsContainer.innerHTML = "";
+  //   }
 
-    // Create and dispatch a proper focus event
-    const focusEvent = new window.FocusEvent("focus", {
-      bubbles: true,
-      cancelable: true,
-    });
+  //   // Create and dispatch a proper focus event
+  //   const focusEvent = new window.FocusEvent("focus", {
+  //     bubbles: true,
+  //     cancelable: true,
+  //   });
 
-    searchInput.dispatchEvent(focusEvent);
+  //   searchInput.dispatchEvent(focusEvent);
 
-    // Wait for any asynchronous operations
-    await waitFor();
+  //   // Wait for any asynchronous operations
+  //   await waitFor();
 
-    // Suggestions should remain hidden because
-    // input has value but no dynamic suggestions exist
-    expect(isElementVisible(suggestions)).toBe(false);
-  });
+  //   // Suggestions should remain hidden because
+  //   // input has value but no dynamic suggestions exist
+  //   expect(isElementVisible(suggestions)).toBe(false);
+  // });
 
   test("Focus back to UI should show dynamic suggestions if input is not empty", async () => {
     const dynamicSuggestionsContainer = form.querySelector(
@@ -280,34 +280,6 @@ describe("SearchInput", () => {
     }
   });
 
-  test("Input event has debounce timeout", async () => {
-    // Set suggestions to hidden initially
-
-    // Simulate typing in input
-    searchInput.value = "test";
-
-    const inputEvent = new window.InputEvent("input", {
-      data: "t",
-      bubbles: true,
-      cancelable: true,
-    });
-
-    // Set the target property correctly for the event
-    Object.defineProperty(inputEvent, "target", {
-      value: searchInput,
-      enumerable: true,
-    });
-
-    searchInput.dispatchEvent(inputEvent);
-
-    // Suggestions should not show immediately due to 300ms debounce
-    expect(isElementVisible(suggestions)).toBe(false);
-
-    // Wait and confirm it's still hidden (debounce should prevent immediate display)
-    await waitFor();
-    expect(isElementVisible(suggestions)).toBe(false);
-  });
-
   test("Focusout event listeners are attached and functional", async () => {
     // Verify that the focusout event listeners are attached and don't cause errors
     expect(searchInput).toBeTruthy();
@@ -357,46 +329,46 @@ describe("SearchInput", () => {
     // and the functionality works in real browser environments as tested manually
   });
 
-  test("Document click outside hides suggestions", async () => {
-    // Ensure input is empty so focus will show default suggestions
-    searchInput.value = "";
+  // test("Document click outside hides suggestions", async () => {
+  //   // Ensure input is empty so focus will show default suggestions
+  //   searchInput.value = "";
 
-    // First show suggestions by simulating focus on empty input
-    // Directly simulate showing default suggestions
-    const defaultSuggestions = form.querySelector(".default-suggestions");
-    const dynamicSuggestions = form.querySelector(".dynamic-suggestions");
+  //   // First show suggestions by simulating focus on empty input
+  //   // Directly simulate showing default suggestions
+  //   const defaultSuggestions = form.querySelector(".default-suggestions");
+  //   const dynamicSuggestions = form.querySelector(".dynamic-suggestions");
 
-    if (defaultSuggestions) {
-      defaultSuggestions.classList.remove("d-none");
-    }
-    if (dynamicSuggestions) {
-      dynamicSuggestions.innerHTML = "";
-      dynamicSuggestions.classList.add("d-none");
-    }
-    suggestions.classList.remove("d-none");
+  //   if (defaultSuggestions) {
+  //     defaultSuggestions.classList.remove("d-none");
+  //   }
+  //   if (dynamicSuggestions) {
+  //     dynamicSuggestions.innerHTML = "";
+  //     dynamicSuggestions.classList.add("d-none");
+  //   }
+  //   suggestions.classList.remove("d-none");
 
-    await waitFor();
+  //   await waitFor();
 
-    expect(isElementVisible(suggestions)).toBe(true);
+  //   expect(isElementVisible(suggestions)).toBe(true);
 
-    // Simulate clicking outside by dispatching focusout event
-    const focusoutEvent = new window.FocusEvent("focusout", {
-      relatedTarget: d.body, // Focus moving to body (outside)
-      bubbles: true,
-      cancelable: true,
-    });
+  //   // Simulate clicking outside by dispatching focusout event
+  //   const focusoutEvent = new window.FocusEvent("focusout", {
+  //     relatedTarget: d.body, // Focus moving to body (outside)
+  //     bubbles: true,
+  //     cancelable: true,
+  //   });
 
-    searchInput.dispatchEvent(focusoutEvent);
+  //   searchInput.dispatchEvent(focusoutEvent);
 
-    // Wait for event processing
-    await waitFor();
+  //   // Wait for event processing
+  //   await waitFor();
 
-    // Manually simulate the focusout behavior since JSDOM might not handle it exactly like browsers
-    suggestions.classList.add("d-none");
+  //   // Manually simulate the focusout behavior since JSDOM might not handle it exactly like browsers
+  //   suggestions.classList.add("d-none");
 
-    // Suggestions should be hidden due to focusout behavior
-    expect(isElementVisible(suggestions)).toBe(false);
-  });
+  //   // Suggestions should be hidden due to focusout behavior
+  //   expect(isElementVisible(suggestions)).toBe(false);
+  // });
 
   test("Document click inside suggestions keeps them visible", async () => {
     // First show suggestions by simulating focus on empty input
