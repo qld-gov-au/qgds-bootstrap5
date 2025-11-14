@@ -24,7 +24,6 @@ exports[`SearchInput > Renders as expected 1`] = `
                             <li><a tabindex="0" href="/queenslanders" class="view-more">View more</a></li>
                     </ul>
                 </div>
-
                 <div class="suggestions-category">
                     <strong class="suggestions-category-label d-block">Collection</strong>
                     <ul>
