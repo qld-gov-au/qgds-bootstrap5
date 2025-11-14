@@ -85,11 +85,14 @@ $expander-icon-color: $qld-light-link;
         );
         background-color: $core-default-color-neutral-lighter;
       }
-      @include m.focusable($offsetOutline: 3px);
-      &:focus {
-        outline-offset: -3px;
-        outline-color: var(--#{$prefix}color-default-color-dark-focus-default);
-      }
+
+      --qld-focus-color: var(--qld-light-focus);
+      @include m.focusable($offsetOutline: -6px);
+
+      // &:focus {
+      //   outline-offset: -3px;
+      //   outline-color: var(--#{$prefix}color-default-color-dark-focus-default);
+      // }
     }
   }
   .breadcrumb-collapse-wrapper {

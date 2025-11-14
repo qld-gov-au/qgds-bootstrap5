@@ -43,9 +43,9 @@
         --#{$prefix}color-default-color-dark-background-default-shade
       );
       z-index: 999;
-      @include m.focusable();
-      outline-offset: -6px;
-      outline-color: var(--#{$prefix}color-default-color-light-focus-default);
     }
+
+    --qld-focus-color: var(--qld-dark-focus);
+    @include m.focusable($offsetOutline: -6px);
   }
 }
