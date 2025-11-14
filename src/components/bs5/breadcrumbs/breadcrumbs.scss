@@ -88,11 +88,6 @@ $expander-icon-color: $qld-light-link;
 
       --qld-focus-color: var(--qld-light-focus);
       @include m.focusable($offsetOutline: -6px);
-
-      // &:focus {
-      //   outline-offset: -3px;
-      //   outline-color: var(--#{$prefix}color-default-color-dark-focus-default);
-      // }
     }
   }
   .breadcrumb-collapse-wrapper {
