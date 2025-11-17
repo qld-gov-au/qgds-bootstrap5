@@ -7,8 +7,8 @@
 $qld-dark-blue: $core-default-color-brand-primary-dark-blue;
 // $qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
 $qld-light-blue: $core-default-color-brand-primary-light-blue;
-$qld-light-green: $core-default-color-brand-primary-light-green;
-$qld-dark-green: $core-default-color-brand-secondary-darkgreen;
+//$qld-light-green: $core-default-color-brand-primary-light-green;
+//$qld-dark-green: $core-default-color-brand-secondary-darkgreen;
 $qld-golden-yellow: $core-default-color-brand-secondary-golden-yellow;
 $qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
 $qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
@@ -44,19 +44,11 @@ $qld-link-visited-dark: $color-default-color-dark-underline-visited;
 $qld-text-darkest: $color-default-color-dark-link-on-action;
 $qld-dark-hover: $color-default-color-dark-background-default-shade;
 
-$qld-text-light-blue-dark: $core-default-color-brand-primary-dark-blue;
-$qld-light-green-dark: $core-default-color-brand-primary-light-green;
-$qld-dark-green-dark: $color-default-color-dark-action-primary;
-$qld-light-yellow: $core-default-color-status-caution-lightest;
-$qld-button-dark-blue: $color-default-color-light-action-primary-hover;
-
-//QGOV Brand Mapping - QLD.GOV.AU
-// $qld-brand-primary-dark: $qld-dark-blue;
-// $qld-brand-primary: $qld-sapphire-blue;
-// $qld-brand-primary-light: $qld-light-blue;
-// $qld-brand-secondary-dark: $qld-dark-green;
-// $qld-brand-secondary: $qld-light-green;
-// $qld-brand-accent: $qld-golden-yellow;
+//$qld-text-light-blue-dark: $core-default-color-brand-primary-dark-blue;
+//$qld-light-green-dark: $core-default-color-brand-primary-light-green;
+//$qld-dark-green-dark: $color-default-color-dark-action-primary;
+//$qld-light-yellow: $core-default-color-status-caution-lightest;
+//$qld-button-dark-blue: $color-default-color-light-action-primary-hover;
 
 // Remapped legacy brand color values to align with correct UI Kit variables
 $qld-brand-primary: $color-default-color-light-action-primary;
@@ -107,14 +99,19 @@ $qld-white-underline: $core-default-color-status-underline-light;
 $qld-dark-underline: $core-default-color-status-underline-dark;
 $qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
 $qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
+
+//Notifications and Alerts
 $qld-notify-warning: $core-default-color-status-error-default;
 $qld-notify-information: $core-default-color-status-info-default;
 $qld-notify-success: $core-default-color-status-success-default;
 $qld-notify-alert: $core-default-color-status-caution-default;
-$qld-syntax-values: $core-default-color-brand-primary-light-green;
+
+//Syntax highlighting
+$qld-syntax-values: $core-default-color-code-green;
 $qld-syntax-elements: $core-default-color-code-light-blue;
 $qld-syntax-properties: $core-default-color-code-violet;
 $qld-syntax-comments: $core-default-color-code-muted;
+
 $qld-textbox-border-color: $color-default-color-light-action-primary-hover;
 $qld-color-error-light: $core-default-color-status-error-lightest;
 $qld-color-success-light: $core-default-color-status-success-lightest;
@@ -149,7 +146,7 @@ $qld-dark-site-title: $color-default-color-dark-site-title;
 
 $primary: $qld-brand-primary;
 $primary-dark: $qld-brand-primary-dark;
-$secondary: $qld-dark-green;
+//$secondary: $qld-dark-green;
 $success: $qld-notify-success;
 $info: $qld-notify-information;
 $warning: $qld-notify-alert;
@@ -319,10 +316,6 @@ $project-base-colors: (
   "dark-blue-shade": $qld-dark-blue-shade,
   "dark-focus": $qld-dark-focus,
   "light-focus": $qld-light-focus,
-  //"text-light-blue-dark": $qld-text-light-blue-dark,
-  "light-green-dark": $qld-light-green-dark,
-  "dark-green-dark": $qld-dark-green-dark,
-  "light-yellow": $qld-light-yellow,
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
   "dark-hover": $qld-dark-hover
