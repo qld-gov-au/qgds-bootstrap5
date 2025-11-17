@@ -31,7 +31,9 @@ export function selectDynamicSuggestion(value, form) {
   const suggestions = form.querySelector(".suggestions");
 
   if (searchInput && suggestions) {
-    searchInput.value = value.trim();
+    // Assign queryValue, and cleanup string before submission
+    let queryValue = value.replace(/\s+/g, " ").trim();
+    searchInput.value = queryValue;
 
     // Form action
     const actionUrl = form.getAttribute("action");
@@ -41,7 +43,7 @@ export function selectDynamicSuggestion(value, form) {
 
     // Construct the URL with proper parameters
     const params = new URLSearchParams({
-      query: value.trim(),
+      query: queryValue,
       collection: atts.collection || "qgov~sp-search",
       profile: atts.profile || "qld",
       num_ranks: atts.numRanks || "10",
@@ -143,7 +145,7 @@ export async function showSuggestions(value = "", isDefault = false, form) {
             let linkItem = event.target.closest("a");
             if (linkItem) {
               event.preventDefault();
-              selectDynamicSuggestion(linkItem.innerText, form);
+              selectDynamicSuggestion(linkItem.textContent, form);
             }
           });
       } else {
@@ -198,7 +200,7 @@ export async function showSuggestions(value = "", isDefault = false, form) {
             let linkItem = event.target.closest("a");
             if (linkItem) {
               event.preventDefault();
-              selectDynamicSuggestion(linkItem.innerText, form);
+              selectDynamicSuggestion(linkItem.textContent, form);
             }
           });
       }
@@ -217,8 +219,10 @@ export function submitSearchForm(query = "", form) {
   const searchInput = form.querySelector(".qld-search-input input");
   const atts = searchInput ? searchInput.dataset : null;
 
+  const queryValue = query.trim().replace(/\s+/g, " ");
+
   const params = new URLSearchParams({
-    query: query.trim(),
+    query: queryValue,
     collection: atts.collection || "qgov~sp-search",
     profile: atts.profile || "qld",
     num_ranks: atts.numRanks || "10",
