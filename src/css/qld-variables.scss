@@ -9,9 +9,9 @@ $qld-dark-blue: $core-default-color-brand-primary-dark-blue;
 $qld-light-blue: $core-default-color-brand-primary-light-blue;
 //$qld-light-green: $core-default-color-brand-primary-light-green;
 //$qld-dark-green: $core-default-color-brand-secondary-darkgreen;
-$qld-golden-yellow: $core-default-color-brand-secondary-golden-yellow;
-$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
-$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
+//$qld-golden-yellow: $core-default-color-brand-secondary-golden-yellow;
+//$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
+//$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
 $qld-dark-text: $color-default-color-dark-text-default;
 $qld-dark-border: $color-default-color-dark-border-default;
 $qld-dark-alt-border: $color-default-color-dark-border-alt;
@@ -97,8 +97,8 @@ $qld-extra-light-grey: $core-default-color-neutral-lightest;
 $qld-white: $core-default-color-neutral-white;
 $qld-white-underline: $core-default-color-status-underline-light;
 $qld-dark-underline: $core-default-color-status-underline-dark;
-$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
-$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
+//$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
+//$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
 
 //Notifications and Alerts
 $qld-notify-warning: $core-default-color-status-error-default;
@@ -179,7 +179,7 @@ $project-colors: (
   "light-blue": $qld-light-blue,
   "light-green": $qld-light-green,
   "dark-green": $qld-dark-green,
-  "golden-yellow": $qld-golden-yellow,
+  //"golden-yellow": $qld-golden-yellow,
   "system-darkest": $qld-system-darkest,
   "text-grey": $qld-text-grey,
   "dark-grey": $qld-dark-grey,
@@ -194,9 +194,8 @@ $project-colors: (
   "white": $qld-white,
   "white-underline": $qld-white-underline,
   "dark-underline": $qld-dark-underline,
-  "maroon-traditional": $qld-maroon-traditional,
-  "maroon-modern": $qld-maroon-modern,
-
+  //"maroon-traditional": $qld-maroon-traditional,
+  //"maroon-modern": $qld-maroon-modern,
   // Syntax and warnings
   "notify-warning": $qld-notify-warning,
   "notify-information": $qld-notify-information,
