@@ -8,7 +8,7 @@
   --alt-bg-colour: var(--#{$prefix}light-alt-background);
   --dark-bg-colour: var(--#{$prefix}dark-background);
   --dark-alt-bg-colour: var(--#{$prefix}dark-alt-background);
-  --light-border-colour: var(--#{$prefix}soft-grey);
+  --light-border-colour: var(--#{$prefix}light-border-alt);
   --light-colour: var(--#{$prefix}light-text-heading);
   --dark-border-colour: var(--#{$prefix}dark-alt-border);
   --dark-colour: var(--#{$prefix}dark-text);
@@ -38,7 +38,7 @@
   .alt,
   &.alt {
     --qld-body-bg: var(--#{$prefix}light-alt-background);
-    --qld-border-color: var(--#{$prefix}soft-grey);
+    --qld-border-color: var(--#{$prefix}light-border-alt);
     --qld-tab-background: var(--#{$prefix}light-alt-background-shade);
   }
   .light &,

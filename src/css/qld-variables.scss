@@ -74,7 +74,7 @@ $core-default-color-neutral-white: #ffffff;
 //Greys
 $qld-system-darkest: $core-default-color-neutral-darkest;
 $qld-dark-grey: $core-default-color-neutral-darker;
-$qld-medium-grey: $core-default-color-neutral-dark;
+//$qld-medium-grey: $core-default-color-neutral-dark;
 $qld-alt-grey: $core-default-color-neutral-light;
 
 //Links
@@ -84,7 +84,7 @@ $qld-light-link-on-action: $color-default-color-light-link-on-action;
 $qld-dark-link-on-action: $color-default-color-dark-link-on-action;
 
 //Should be core color rather than second hand reference (no match)
-$qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
+//$qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
 
 $qld-dark-grey-muted: $color-default-color-light-text-lighter;
 $qld-text-grey: $color-default-color-light-text-default;
@@ -186,8 +186,8 @@ $project-colors: (
   "text-grey": $qld-text-grey,
   "dark-grey": $qld-dark-grey,
   "dark-grey-muted": $qld-dark-grey-muted,
-  "soft-grey": $qld-soft-grey,
-  "medium-grey": $qld-medium-grey,
+  //"soft-grey": $qld-soft-grey,
+  //"medium-grey": $qld-medium-grey,
   "grey": $qld-grey,
   "alt-grey": $qld-alt-grey,
   "light-grey": $qld-light-grey,
@@ -317,7 +317,7 @@ $project-base-colors: (
   "dark-blue-shade": $qld-dark-blue-shade,
   "dark-focus": $qld-dark-focus,
   "light-focus": $qld-light-focus,
-  "button-dark-blue": $qld-button-dark-blue,
+  //"button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
   "dark-hover": $qld-dark-hover
 );

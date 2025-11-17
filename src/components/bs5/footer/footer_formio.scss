@@ -133,7 +133,7 @@
     }
 
     textarea {
-      border: 2px solid var(--#{$prefix}soft-grey);
+      border: 2px solid var(--#{$prefix}light-border-alt);
       border-radius: 4px;
 
       &:hover {
