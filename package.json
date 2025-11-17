@@ -98,7 +98,7 @@
     "storybook": "^9.1.13",
     "storybook-addon-deep-controls": "^0.9.5",
     "vite": "^6.3.5",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.10"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
