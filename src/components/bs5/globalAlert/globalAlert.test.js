@@ -124,8 +124,13 @@ describe("initGlobalAlerts", () => {
       beforeParse(window) {
         // Ensure console methods exist
         window.console = console;
-        // Mock localStorage before any scripts run
-        window.localStorage = localStorageMock;
+        // Mock localStorage by redefining localStorage property entirely
+        Object.defineProperty(window, "localStorage", {
+          value: localStorageMock,
+          configurable: true,
+          enumerable: true,
+          writable: true,
+        });
         Object.defineProperty(window, "localStorage", {
           value: localStorageMock,
           writable: true,
@@ -139,11 +144,11 @@ describe("initGlobalAlerts", () => {
     localStorage = localStorageMock;
 
     // Set global references for initGlobalAlerts
-     
+
     global.document = d;
-     
+
     global.window = window;
-     
+
     global.localStorage = localStorageMock;
 
     // Clear localStorage before each test
