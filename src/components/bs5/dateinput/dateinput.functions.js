@@ -7,7 +7,7 @@ export function initDateInput() {
    */
   const inputHandler = (e) => {
     // verify the event target is what we expect.
-    if (e.target.tagName !== "INPUT" && e.target.type !== "text") {
+    if (!(e.target.tagName === "INPUT" && e.target.type === "text")) {
       return;
     }
 
@@ -54,7 +54,7 @@ export function initDateInput() {
   const focusOutHandler = (e) => {
     // Because format is dd/mm/yyyy we want to add leading zeroes to single digits
     // verify the event target is what we expect
-    if (e.target.tagName !== "INPUT" && e.target.type !== "text") {
+    if (!(e.target.tagName === "INPUT" && e.target.type === "text")) {
       return;
     }
 
