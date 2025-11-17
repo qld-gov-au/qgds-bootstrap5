@@ -12,7 +12,7 @@
   },
   "scripts": {
     "prepare": "husky && npm run build",
-    "ci:all": "npm ci && npm run lint && npm run test:ci && npm run test:integration && npm run build && npm run build-storybook",
+    "ci:all": "npm ci && npm run lint && npm run test:run && npm run test:integration && npm run build && npm run build-storybook",
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' --ignore-pattern 'src/js/handlebars.partials.js' .",
     "build": "node esbuild.js",
@@ -65,7 +65,7 @@
     "@storybook/addon-themes": "^10.0.8",
     "@storybook/cli": "^10.0.8",
     "@storybook/html-vite": "^10.0.8",
-    "@vitest/ui": "^3.2.4",
+    "@vitest/ui": "^4.0.10",
     "autoprefixer": "^10.4.20",
     "chai": "^6.2.0",
     "chalk": "^5.3.0",
@@ -100,7 +100,7 @@
     "storybook": "^10.0.8",
     "storybook-addon-deep-controls": "^0.10.0",
     "vite": "^7.1.11",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.10"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
