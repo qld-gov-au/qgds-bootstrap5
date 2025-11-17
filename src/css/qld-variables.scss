@@ -5,8 +5,9 @@
 
 //QLD Names Colours
 $qld-dark-blue: $core-default-color-brand-primary-dark-blue;
-// $qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
-$qld-light-blue: $core-default-color-brand-primary-light-blue;
+//$qld-light-blue: $core-default-color-brand-primary-light-blue;
+
+//$qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
 //$qld-light-green: $core-default-color-brand-primary-light-green;
 //$qld-dark-green: $core-default-color-brand-secondary-darkgreen;
 //$qld-golden-yellow: $core-default-color-brand-secondary-golden-yellow;
@@ -177,10 +178,10 @@ $project-colors: (
   //...
   "dark-blue": $qld-dark-blue,
   // "sapphire-blue": $qld-sapphire-blue,
-  "light-blue": $qld-light-blue,
-  "light-green": $qld-light-green,
-  "dark-green": $qld-dark-green,
-  //"golden-yellow": $qld-golden-yellow,
+  // "light-blue": $qld-light-blue,
+  // "light-green": $qld-light-green,
+  // "dark-green": $qld-dark-green,
+  // "golden-yellow": $qld-golden-yellow,
   "system-darkest": $qld-system-darkest,
   "text-grey": $qld-text-grey,
   "dark-grey": $qld-dark-grey,
