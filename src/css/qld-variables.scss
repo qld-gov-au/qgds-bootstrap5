@@ -17,9 +17,10 @@ $qld-dark-border: $color-default-color-dark-border-default;
 $qld-dark-alt-border: $color-default-color-dark-border-alt;
 $qld-alt-button-hover: $color-default-color-light-action-secondary-hover;
 $qld-general-info-alert: $core-default-color-status-info-lighter;
-$qld-red-border: $core-default-color-status-error-darker;
-$qld-blue-border: $color-default-color-light-border-light;
-$qld-yellow-border: $core-default-color-status-caution-darker;
+//$qld-red-border: $core-default-color-status-error-darker;
+//$qld-blue-border: $color-default-color-light-border-light;
+//$qld-yellow-border: $core-default-color-status-caution-darker;
+
 $qld-dark-blue-shade: $color-default-color-dark-background-alt-shade;
 $qld-light-background: $color-default-color-light-background-light;
 $qld-light-background-shade: $color-default-color-light-background-light-shade;
@@ -28,7 +29,7 @@ $qld-light-border-alt: $color-default-color-light-border-alt;
 $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-light-focus: $color-default-color-light-focus-default;
 
-////
+//
 $qld-link-underline: $color-default-color-light-underline-default;
 $qld-link-underline-hover: $color-default-color-light-underline-default-hover;
 $qld-link-underline-visited: $color-default-color-light-underline-visited;
