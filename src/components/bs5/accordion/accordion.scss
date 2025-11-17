@@ -56,7 +56,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   }
 
   .alt & {
-    --#{$prefix}accordion-bg: var(--#{$prefix}light-background-alt);
+    --#{$prefix}accordion-bg: var(--#{$prefix}light-alt-background);
     --#{$prefix}accordion-btn-bg: var(--#{$prefix}light-alt-background-shade);
     --#{$prefix}accordion-border-color: var(--#{$prefix}light-border-alt);
   }
