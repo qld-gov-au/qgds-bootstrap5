@@ -34,6 +34,7 @@ export default {
 
       if (args.variant && storyName === "Default") {
         args.alertItems[0].variant = args.variant || "global-alert-critical";
+        args.alertItems[0].ariaLabel = "";
       }
 
       // Render the story with the updated args.
