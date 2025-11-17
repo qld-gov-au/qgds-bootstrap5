@@ -12,6 +12,7 @@
   },
   "scripts": {
     "prepare": "husky && npm run build",
+    "ci:all": "npm ci && npm run npm run lint && npm run test && npm run test:integration && npm run build && npm run npm run build-storybook",
     "start": "npm run build",
     "lint": "eslint --fix --ext .js,.json --ignore-pattern 'docs/*' --ignore-pattern 'dist/*' --ignore-pattern 'storybook-static/*' --ignore-pattern 'src/js/handlebars.partials.js' .",
     "build": "node esbuild.js",
@@ -80,7 +81,7 @@
     "handlebars": "4.7.8",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
-    "jsdom": "^26.1.0",
+    "jsdom": "^27.2.0",
     "mini-svg-data-uri": "^1.4.4",
     "minimist": "^1.2.8",
     "mocha": "^11.6.0",
