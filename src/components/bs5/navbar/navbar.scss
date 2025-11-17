@@ -52,7 +52,7 @@
           }
           & > a {
             width: calc(100% - 3rem);
-            border-start-end-radius: 1rem;            
+            border-start-end-radius: 1rem;
           }
           &:has(.show) {
             background-color: var(--background-color-hover);
@@ -64,7 +64,6 @@
               }
             }
             .nav-link {
-              
               background-color: var(--dropdown-show-bg);
               border-inline-start-color: var(--dropdown-show-bg);
             }
@@ -152,7 +151,11 @@
               position: absolute;
               left: -9999px;
             }
-            h2,h3,h4,h5,h6 {
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
               color: var(--text-color);
             }
             div {
@@ -197,7 +200,7 @@
         border-inline-start: 0.25rem solid var(--link-border-color-hover);
         text-decoration: underline;
         text-underline-offset: 0.3rem;
-        text-decoration-thickness: 0.125rem;        
+        text-decoration-thickness: 0.125rem;
       }
     }
     a.dropdown-item {
@@ -217,7 +220,7 @@
         border-inline-start: 5px solid var(--link-border-color);
         left: -5px;
         top: 0;
-        bottom: calc(var(--border-width) *  -1);      
+        bottom: calc(var(--border-width) * -1);
       }
       &:hover,
       &.active {
@@ -226,15 +229,15 @@
           margin-block-end: 0;
           border-block-end: 0;
         }
-      &::before {
-        border-inline-start: 0.25rem solid var(--link-border-color-hover);
-      }
+        &::before {
+          border-inline-start: 0.25rem solid var(--link-border-color-hover);
+        }
       }
       &:hover {
         .qld-icon {
           background-color: var(--link-border-color-hover);
-        }       
-      }     
+        }
+      }
       &.dropdown-toggle {
         &::after {
           display: none;
@@ -312,7 +315,8 @@
     height: 2rem;
   }
   /* colours */
-  &.dark, &.dark-alt  {
+  &.dark,
+  &.dark-alt {
     --vert-background-color: var(--#{$prefix}default-background);
     --background-color: var(--#{$prefix}dark-background-shade);
     --background-color-hover: var(--#{$prefix}dark-alt-background);
@@ -345,7 +349,7 @@
       --header-color: var(--#{$prefix}light-text-heading);
       --action-icon-color: var(--#{$prefix}alt-button-hover);
       --dropdown-show-btn-bg: var(--#{$prefix}default-background);
-      --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);    
+      --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);
       --nav-header-color: var(--#{$prefix}dark-text-text);
       --nav-header-border-color: var(--#{$prefix}dark-border);
       --nav-header-icon-color: var(--#{$prefix}brand-accent);
@@ -388,7 +392,7 @@
       --nav-header-icon-color: var(--#{$prefix}alt-button-hover);
       --navbar-collapse-bg: var(--#{$prefix}default-background-shade);
       --action-icon-color_active: var(--text-color);
-      
+
       .alt {
         --vert-background-color: var(--#{$prefix}dark-background);
         --background-color: var(--#{$prefix}default-background);
@@ -441,7 +445,8 @@
     }
   }
   background-color: var(--background-color);
-  border-block-end: var(--horizontal-bar-border-width) solid var(--link-border-color);
+  border-block-end: var(--horizontal-bar-border-width) solid
+    var(--link-border-color);
   padding-block: 0;
   button.dropdown-toggle,
   .nav-header {
@@ -463,28 +468,33 @@
   }
   .navbar-nav a.nav-link {
     background-color: var(--background-color);
-    border-block-end: var(--horizontal-bar-border-width) solid var(--link-border-color);
+    border-block-end: var(--horizontal-bar-border-width) solid
+      var(--link-border-color);
     margin-block-end: calc(var(--horizontal-bar-border-width) * -1);
     &.show {
       color: var(--link-color);
       background-color: var(--dropdown-bg-color);
-      border-block-end: var(--horizontal-bar-border-width) solid var(--dropdown-bg-color);
+      border-block-end: var(--horizontal-bar-border-width) solid
+        var(--dropdown-bg-color);
       font-weight: 600;
       z-index: 20;
       &:hover {
         background-color: var(--dropdown-bg-color);
-        border-block-end: var(--horizontal-bar-border-width) solid var(--link-border-color-hover);
+        border-block-end: var(--horizontal-bar-border-width) solid
+          var(--link-border-color-hover);
       }
     }
     &.active {
       color: var(--link-color);
       background-color: var(--background-color);
-      border-block-end: var(--horizontal-bar-border-width) solid var(--background-color);
+      border-block-end: var(--horizontal-bar-border-width) solid
+        var(--background-color);
     }
     &:hover,
     &.active:hover {
       background-color: var(--background-color-hover);
-      border-block-end: var(--horizontal-bar-border-width) solid var(--link-border-color-hover);
+      border-block-end: var(--horizontal-bar-border-width) solid
+        var(--link-border-color-hover);
     }
     .qld-icon {
       background-color: var(--action-icon-color);
@@ -492,7 +502,7 @@
   }
   .navbar-nav a.nav-link,
   a.dropdown-item {
-    color: var(--link-color);
+    color: var(--text-color);
     padding-block: var(--nav-link-padding-block);
     padding-inline: 0.75rem;
     display: flex;
@@ -500,6 +510,7 @@
     gap: 0.5rem;
     align-items: center;
     &:hover {
+      color: var(--link-color);
       text-decoration: underline;
       text-underline-offset: 0.3rem;
       text-decoration-thickness: 0.125rem;
@@ -535,7 +546,9 @@
     }
   }
   .dropdown-menu.show {
-    margin-block-start: calc(var(--horizontal-bar-border-width) - var(--border-width));
+    margin-block-start: calc(
+      var(--horizontal-bar-border-width) - var(--border-width)
+    );
     inset-inline: 0;
     background-color: var(--dropdown-bg-color);
     padding: 4rem;
@@ -732,9 +745,9 @@
     transition: max-width var(--animation-time) ease-in;
     .navbar-collapse {
       background-color: var(--navbar-collapse-bg);
-    }    
+    }
     a.dropdown-item {
-      font-size: .875rem;
+      font-size: 0.875rem;
     }
     @include repeatedVerticalStyles;
     .nav-header .navbar-brand {
@@ -783,7 +796,7 @@
       }
       .nav-header {
         display: flex;
-      }    
+      }
       &.collapse > .container {
         animation-name: slideToRight;
         animation-duration: var(--animation-time);
@@ -825,4 +838,3 @@
 body:has(.navbar.show) {
   overflow: hidden;
 }
-

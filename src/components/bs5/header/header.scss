@@ -425,9 +425,8 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 0.4rem;
     padding: 1rem var(--qld-container-padding-x);
-    background-color: var(--#{$prefix}header-color-bg);
+    background-color: var(--#{$prefix}body-bg);
 
     &.is-open {
       display: block;

@@ -55,8 +55,6 @@ import sidenav from "../components/bs5/sidenav/sidenav.hbs?raw";
 import sidenavWrapper from "../components/bs5/sidenavWrapper/sidenavWrapper.hbs?raw";
 import skipLinks from "../components/bs5/skiplinks/skipLinks.hbs?raw";
 import spinner from "../components/bs5/spinner/spinner.hbs?raw";
-import squizContentNestedDivs from "../components/bs5/pageLayout/templates/squizContentNestedDivs.hbs?raw";
-import squizContentSingleDiv from "../components/bs5/pageLayout/templates/squizContentSingleDiv.hbs?raw";
 import table from "../components/bs5/table/table.hbs?raw";
 import tabs from "../components/bs5/tabs/tabs.hbs?raw";
 import tag from "../components/bs5/tag/tag.hbs?raw";
@@ -126,8 +124,6 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("sidenavWrapper", sidenavWrapper);
   handlebars.registerPartial("skipLinks", skipLinks);
   handlebars.registerPartial("spinner", spinner);
-  handlebars.registerPartial("squizContentNestedDivs", squizContentNestedDivs);
-  handlebars.registerPartial("squizContentSingleDiv", squizContentSingleDiv);
   handlebars.registerPartial("table", table);
   handlebars.registerPartial("tabs", tabs);
   handlebars.registerPartial("tag", tag);

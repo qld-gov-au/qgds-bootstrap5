@@ -1,34 +1,35 @@
 export default {
-  title: "5. Templates/Theme Showcase",
+  title: "5. Templates/Palette Showcase",
   render: (args) => {
     return args.content;
   },
   argTypes: {
-    themeClass: {
-      control: { type: 'select' },
-      options: ['', 'default', 'light', 'alt', 'dark', 'dark-alt'],
-      description: 'Theme class to apply to the content area',
+    paletteClass: {
+      control: { type: "select" },
+      options: ["", "default", "light", "alt", "dark", "dark-alt"],
+      description: "Palette class to apply to the content area",
     },
   },
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        story: 'This showcase demonstrates the theme palette classes (.default, .light, .alt, .dark, .dark-alt) that automatically apply color and background-color styling.',
+        story:
+          "This showcase demonstrates the theme palette classes (.default, .light, .alt, .dark, .dark-alt) that automatically apply color and background-color styling.",
       },
     },
   },
 };
 
 /**
- * Default Theme
- * The default theme uses the base color scheme without additional background styling
+ * Default Palette
+ * The default palette uses the base color scheme without additional background styling
  */
-export const DefaultTheme = {
+export const DefaultPalette = {
   args: {
     content: `
       <div class="default p-4 mb-4 border">
-        <h2>Default Theme</h2>
+        <h2>Default Palette</h2>
         <p>This demonstrates the default theme palette. It provides a clean, neutral appearance suitable for most content.</p>
         <a href="#" class="btn btn-primary me-2">Primary Button</a>
         <a href="#" class="btn btn-secondary">Secondary Button</a>
@@ -60,19 +61,19 @@ export const DefaultTheme = {
 };
 
 /**
- * Light Theme
- * The light theme provides a bright, clean appearance
+ * Light Palette
+ * The light palette provides a bright, clean appearance
  */
-export const LightTheme = {
+export const LightPalette = {
   args: {
     content: `
       <div class="light p-4 mb-4 border">
-        <h2>Light Theme</h2>
+        <h2>Light Palette</h2>
         <p>This demonstrates the light theme palette. It provides enhanced readability with a light background.</p>
         <a href="#" class="btn btn-primary me-2">Primary Button</a>
         <a href="#" class="btn btn-secondary">Secondary Button</a>
         
-        <h3 class="mt-4">Theme Features</h3>
+        <h3 class="mt-4">Palette Features</h3>
         <ul>
           <li>Automatic color and background-color application</li>
           <li>Optimized contrast ratios</li>
@@ -84,14 +85,14 @@ export const LightTheme = {
 };
 
 /**
- * Alt Theme
+ * Alt Palette
  * The alt theme provides an alternative light styling
  */
-export const AltTheme = {
+export const AltPalette = {
   args: {
     content: `
       <div class="alt p-4 mb-4 border">
-        <h2>Alt Theme</h2>
+        <h2>Alt Palette</h2>
         <p>This demonstrates the alt theme palette. It provides a subtle alternative to the standard light theme.</p>
         <a href="#" class="btn btn-primary me-2">Primary Button</a>
         <a href="#" class="btn btn-secondary">Secondary Button</a>
@@ -106,14 +107,14 @@ export const AltTheme = {
 };
 
 /**
- * Dark Theme
+ * Dark Palette
  * The dark theme provides a bold, high-contrast appearance
  */
-export const DarkTheme = {
+export const DarkPalette = {
   args: {
     content: `
       <div class="dark p-4 mb-4 border">
-        <h2>Dark Theme</h2>
+        <h2>Dark Palette</h2>
         <p>This demonstrates the dark theme palette. It provides excellent contrast and a modern appearance.</p>
         <a href="#" class="btn btn-primary me-2">Primary Button</a>
         <a href="#" class="btn btn-secondary">Secondary Button</a>
@@ -128,14 +129,14 @@ export const DarkTheme = {
 };
 
 /**
- * Dark Alt Theme
+ * Dark Alt Palette
  * The dark alt theme provides an alternative dark styling
  */
-export const DarkAltTheme = {
+export const DarkAltPalette = {
   args: {
     content: `
       <div class="dark-alt p-4 mb-4 border">
-        <h2>Dark Alt Theme</h2>
+        <h2>Dark Alt Palette</h2>
         <p>This demonstrates the dark alt theme palette. It provides a variation of the dark theme with different background styling.</p>
         <a href="#" class="btn btn-primary me-2">Primary Button</a>
         <a href="#" class="btn btn-secondary">Secondary Button</a>
@@ -161,21 +162,21 @@ export const DarkAltTheme = {
 };
 
 /**
- * Theme Comparison
- * Shows all themes in a single view for comparison
+ * Palette Comparison
+ * Shows all palettes in a single view for comparison
  */
-export const ThemeComparison = {
+export const PaletteComparison = {
   args: {
     content: `
       <div class="mb-4">
-        <h2>Theme Palette Comparison</h2>
-        <p>Compare all available theme classes side by side. Each theme automatically applies appropriate color and background-color styling.</p>
+        <h2>Palette Comparison</h2>
+        <p>Compare all available palette classes side by side. Each theme automatically applies appropriate color and background-color styling.</p>
       </div>
       
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="default p-3 border">
-            <h3>Default Theme</h3>
+            <h3>Default Palette</h3>
             <p>Base theme with neutral styling.</p>
             <a href="#" class="btn btn-sm btn-primary">Button</a>
           </div>
@@ -183,7 +184,7 @@ export const ThemeComparison = {
         
         <div class="col-lg-6">
           <div class="light p-3 border">
-            <h3>Light Theme</h3>
+            <h3>Light Palette</h3>
             <p>Clean, bright appearance.</p>
             <a href="#" class="btn btn-sm btn-primary">Button</a>
           </div>
@@ -191,7 +192,7 @@ export const ThemeComparison = {
         
         <div class="col-lg-6">
           <div class="alt p-3 border">
-            <h3>Alt Theme</h3>
+            <h3>Alt Palette</h3>
             <p>Alternative light styling.</p>
             <a href="#" class="btn btn-sm btn-primary">Button</a>
           </div>
@@ -199,7 +200,7 @@ export const ThemeComparison = {
         
         <div class="col-lg-6">
           <div class="dark p-3 border">
-            <h3>Dark Theme</h3>
+            <h3>Dark Palette</h3>
             <p>High contrast, modern look.</p>
             <a href="#" class="btn btn-sm btn-primary">Button</a>
           </div>
@@ -207,7 +208,7 @@ export const ThemeComparison = {
         
         <div class="col-12">
           <div class="dark-alt p-3 border">
-            <h3>Dark Alt Theme</h3>
+            <h3>Dark Alt Palette</h3>
             <p>Alternative dark styling with different background treatment.</p>
             <a href="#" class="btn btn-sm btn-primary">Button</a>
           </div>
@@ -216,7 +217,7 @@ export const ThemeComparison = {
       
       <div class="mt-5">
         <h3>Background Utility Classes</h3>
-        <p>These utilities can be used independently of theme classes for specific background styling:</p>
+        <p>These utilities can be used independently of palette classes for specific background styling:</p>
         <div class="row g-3">
           <div class="col-md-3">
             <div class="bg-default p-2 text-center rounded">.bg-default</div>
@@ -231,9 +232,6 @@ export const ThemeComparison = {
             <div class="bg-dark p-2 text-center rounded text-white">.bg-dark</div>
           </div>
           <div class="col-md-3">
-            <div class="bg-dark-alt p-2 text-center rounded text-white">.bg-dark-alt</div>
-          </div>
-          <div class="col-md-3">
             <div class="bg-default-shade p-2 text-center rounded">.bg-default-shade</div>
           </div>
           <div class="col-md-3">
@@ -242,6 +240,10 @@ export const ThemeComparison = {
           <div class="col-md-3">
             <div class="bg-light-alt-shade p-2 text-center rounded">.bg-light-alt-shade</div>
           </div>
+          <div class="col-md-3">
+            <div class="bg-dark-alt p-2 text-center rounded text-white">.bg-dark-alt</div>
+          </div>
+
         </div>
       </div>
     `,
