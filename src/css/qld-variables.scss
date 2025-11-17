@@ -95,7 +95,7 @@ $qld-text-headings: $color-default-color-light-text-heading;
 $qld-grey: $core-default-color-neutral-light;
 $qld-light-grey: $core-default-color-neutral-lighter;
 $qld-light-grey-alt: $color-default-color-light-background-alt;
-$qld-extra-light-grey: $core-default-color-neutral-lightest;
+//$qld-extra-light-grey: $core-default-color-neutral-lightest;
 $qld-white: $core-default-color-neutral-white;
 $qld-white-underline: $core-default-color-status-underline-light;
 $qld-dark-underline: $core-default-color-status-underline-dark;
@@ -153,8 +153,8 @@ $success: $qld-notify-success;
 $info: $qld-notify-information;
 $warning: $qld-notify-alert;
 $danger: $qld-notify-warning;
-$light: $qld-extra-light-grey;
-$dark: $qld-dark-grey;
+$light: $core-default-color-neutral-lightest;
+$dark: $core-default-color-neutral-darker;
 
 $qld-fluid-width-full: 100%;
 $qld-fluid-width-3-quarters: 75%;
@@ -192,7 +192,7 @@ $project-colors: (
   "alt-grey": $qld-alt-grey,
   "light-grey": $qld-light-grey,
   "light-grey-alt": $qld-light-grey-alt,
-  "extra-light-grey": $qld-extra-light-grey,
+  //"extra-light-grey": $qld-extra-light-grey,
   "white": $qld-white,
   "white-underline": $qld-white-underline,
   "dark-underline": $qld-dark-underline,
@@ -224,6 +224,12 @@ $project-colors: (
   "default-background-shade": $qld-color-background--shade,
   "light-background": $qld-light-background,
   "light-background-shade": $qld-light-background-shade,
+  "light-alt-background": $qld-color-light-alt-background,
+  "light-alt-background-shade": $qld-color-light-alt-background--shade,
+  "dark-background": $qld-color-dark-background,
+  "dark-background-shade": $qld-color-dark-background--shade,
+  "dark-alt-background": $qld-color-dark-alt-background,
+  "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
 
   //Borders
   //"light-border": $qld-light-border,
@@ -248,13 +254,6 @@ $project-colors: (
   "dark-link-underline-hover": $qld-link-underline-hover-dark,
   "dark-link-underline-visited": $qld-link-underline-visited-dark,
   "dark-link-underline-visited-hover": $qld-link-underline-visited-hover-dark,
-
-  "light-alt-background": $qld-color-light-alt-background,
-  "light-alt-background-shade": $qld-color-light-alt-background--shade,
-  "dark-background": $qld-color-dark-background,
-  "dark-background-shade": $qld-color-dark-background--shade,
-  "dark-alt-background": $qld-color-dark-alt-background,
-  "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
 
   //Text
   "light-text-heading": $color-default-color-light-text-heading,
@@ -308,8 +307,8 @@ $project-base-colors: (
   "info": $qld-notify-information,
   "warning": $qld-notify-alert,
   "danger": $qld-notify-warning,
-  "light": $qld-extra-light-grey,
-  "dark": $qld-dark-grey,
+  "light": $core-default-color-neutral-lightest,
+  "dark": $core-default-color-neutral-darker,
   "dark-text": $qld-dark-text,
   "dark-border": $qld-dark-border,
   "dark-alt-border": $qld-dark-alt-border,

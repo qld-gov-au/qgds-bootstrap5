@@ -21,7 +21,7 @@
   &-primary {
     --#{$prefix}btn-bg: var(--#{$prefix}light-action-primary);
     --#{$prefix}btn-hover-bg: var(--#{$prefix}light-action-primary-hover);
-    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
+    --#{$prefix}btn-active-bg: var(--#{$prefix}neutral-lightest);
     --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
     --#{$prefix}btn-disabled-bg: var(--#{$prefix}grey);
     --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
@@ -46,8 +46,8 @@
     --#{$prefix}btn-hover-color: var(--#{$prefix}light-action-primary);
     --#{$prefix}btn-hover-bg: transparent;
     --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
-    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}btn-active-border-color: var(--#{$prefix}extra-light-grey);
+    --#{$prefix}btn-active-bg: var(--#{$prefix}neutral-lightest);
+    --#{$prefix}btn-active-border-color: var(--#{$prefix}neutral-lightest);
     --#{$prefix}btn-active-shadow: none;
     --#{$prefix}btn-disabled-bg: transparent;
     --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
@@ -64,7 +64,7 @@
     --#{$prefix}btn-color: #{$primary};
     --#{$prefix}btn-border-color: transparent;
     --#{$prefix}btn-hover-color: #{$primary};
-    --#{$prefix}btn-hover-bg: var(--#{$prefix}extra-light-grey);
+    --#{$prefix}btn-hover-bg: var(--#{$prefix}neutral-lightest);
     --#{$prefix}btn-hover-border-color: transparent;
     --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
     --#{$prefix}btn-active-bg: transparent;
@@ -90,7 +90,7 @@
       --#{$prefix}dark-action-primary-hover
     );
     --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
-    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
+    --#{$prefix}btn-active-bg: var(--#{$prefix}neutral-lightest);
     --#{$prefix}btn-disabled-bg: rgba(224, 224, 224, 0.1);
     --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-text-lighter);
     --#{$prefix}btn-disabled-border-color: transparent;
@@ -110,8 +110,8 @@
     );
     --#{$prefix}btn-hover-bg: transparent;
     --#{$prefix}btn-hover-color: var(--#{$prefix}white);
-    --#{$prefix}btn-active-bg: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}btn-active-border-color: var(--#{$prefix}extra-light-grey);
+    --#{$prefix}btn-active-bg: var(--#{$prefix}neutral-lightest);
+    --#{$prefix}btn-active-border-color: var(--#{$prefix}neutral-lightest);
     --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
     --#{$prefix}btn-disabled-bg: transparent;
     --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-text-lighter);

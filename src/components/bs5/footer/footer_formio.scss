@@ -127,7 +127,7 @@
 
       &:hover,
       &:focus {
-        background-color: var(--#{$prefix}extra-light-grey);
+        background-color: var(--#{$prefix}neutral-lightest);
         cursor: pointer;
       }
     }
@@ -137,7 +137,7 @@
       border-radius: 4px;
 
       &:hover {
-        background-color: var(--#{$prefix}extra-light-grey);
+        background-color: var(--#{$prefix}neutral-lightest);
         border-color: $qld-textbox-border-color;
       }
       &:focus {
@@ -269,7 +269,7 @@
         background-color: var(--#{$prefix}formIO-bg-colour);
 
         &:hover {
-          background-color: var(--#{$prefix}extra-light-grey);
+          background-color: var(--#{$prefix}neutral-lightest);
           border-color: $qld-textbox-border-color;
         }
         &:focus {

@@ -34,7 +34,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
   --#{$prefix}accordion-btn-padding-x: 1rem;
   --#{$prefix}accordion-btn-padding-y: 1rem;
   --#{$prefix}accordion-btn-color: var(--#{$prefix}link-color);
-  --#{$prefix}accordion-btn-bg: var(--#{$prefix}extra-light-grey);
+  --#{$prefix}accordion-btn-bg: var(--#{$prefix}neutral-lightest);
   --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon)};
   --#{$prefix}accordion-btn-active-icon: #{escape-svg(
       $accordion-button-active-icon
