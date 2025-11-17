@@ -119,17 +119,17 @@ $qld-color-error-light: $core-default-color-status-error-lightest;
 $qld-color-success-light: $core-default-color-status-success-lightest;
 
 // Define new figma variables as SASS variables
-$qld-color-background: $core-default-color-neutral-white;
-$qld-color-background--shade: $color-default-color-light-background-default-shade;
-$qld-color-light-background: $core-default-color-status-info-lightest;
-$qld-color-light-background--shade: $color-default-color-light-background-light-shade;
-$qld-color-light-alt-background: $color-default-color-light-background-alt;
-$qld-color-light-alt-background--shade: $color-default-color-light-background-alt-shade;
+//$qld-color-background: $core-default-color-neutral-white;
+//$qld-color-background--shade: $color-default-color-light-background-default-shade;
+//$qld-color-light-background: $core-default-color-status-info-lightest;
+//$qld-color-light-background--shade: $color-default-color-light-background-light-shade;
+//$qld-color-light-alt-background: $color-default-color-light-background-alt;
+//$qld-color-light-alt-background--shade: $color-default-color-light-background-alt-shade;
 
-$qld-color-dark-background: $color-default-color-dark-background-default;
-$qld-color-dark-background--shade: $color-default-color-dark-background-default-shade;
-$qld-color-dark-alt-background: $color-default-color-dark-background-alt;
-$qld-color-dark-alt-background--shade: $color-default-color-dark-background-alt-shade;
+//$qld-color-dark-background: $color-default-color-dark-background-default;
+//$qld-color-dark-background--shade: $color-default-color-dark-background-default-shade;
+//$qld-color-dark-alt-background: $color-default-color-dark-background-alt;
+//$qld-color-dark-alt-background--shade: $color-default-color-dark-background-alt-shade;
 
 $qld-light-action-primary: $color-default-color-light-action-primary;
 $qld-light-action-primary-hover: $color-default-color-light-action-primary-hover;
@@ -219,17 +219,28 @@ $project-colors: (
   "dark-action-secondary": $qld-dark-action-secondary,
   "dark-action-secondary-hover": $qld-dark-action-secondary-hover,
 
-  //Backgrounds
-  "default-background": $qld-color-background,
-  "default-background-shade": $qld-color-background--shade,
-  "light-background": $qld-light-background,
-  "light-background-shade": $qld-light-background-shade,
-  "light-alt-background": $qld-color-light-alt-background,
-  "light-alt-background-shade": $qld-color-light-alt-background--shade,
-  "dark-background": $qld-color-dark-background,
-  "dark-background-shade": $qld-color-dark-background--shade,
-  "dark-alt-background": $qld-color-dark-alt-background,
-  "dark-alt-background-shade": $qld-color-dark-alt-background--shade,
+  /* 
+
+$color-default-color-light-background-alt-shade: #d6dce0 !default;
+$color-default-color-light-background-alt: #e3e7ea !default;
+$color-default-color-light-background-default-shade: #f5f5f5 !default;
+$color-default-color-light-background-default: #ffffff !default;
+$color-default-color-light-background-light-shade: #ceedff !default;
+$color-default-color-light-background-light: #e6f6ff !default;
+
+*/
+    //Backgrounds
+  "default-background": $color-default-color-light-background-default,
+  "default-background-shade":
+    $color-default-color-light-background-default-shade,
+  "light-background": $color-default-color-light-background-light,
+  "light-background-shade": $color-default-color-light-background-light-shade,
+  "light-alt-background": $color-default-color-light-background-alt,
+  "light-alt-background-shade": $color-default-color-light-background-alt-shade,
+  "dark-background": $color-default-color-dark-background-default,
+  "dark-background-shade": $color-default-color-dark-background-default-shade,
+  "dark-alt-background": $color-default-color-dark-background-alt,
+  "dark-alt-background-shade": $color-default-color-dark-background-alt-shade,
 
   //Borders
   //"light-border": $qld-light-border,

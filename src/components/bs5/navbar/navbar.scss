@@ -273,7 +273,7 @@
 .navbar {
   --vert-background-color: var(--#{$prefix}dark-background);
   --background-color: var(--#{$prefix}default-background-shade);
-  --background-color-hover: var(--#{$prefix}light-grey-alt);
+  --background-color-hover: var(--#{$prefix}light-alt-background);
   --dropdown-show-bg: var(--#{$prefix}default-background);
   --link-border-color: var(--#{$prefix}light-accent);
   --link-border-color-hover: var(--#{$prefix}light-action-primary-hover);
@@ -339,7 +339,7 @@
     .qld-header:has(.qld-header-pre-header.dark) ~ & {
       --vert-background-color: var(--#{$prefix}dark-background);
       --background-color: var(--#{$prefix}default-background-shade);
-      --background-color-hover: var(--#{$prefix}light-grey-alt);
+      --background-color-hover: var(--#{$prefix}light-alt-background);
       --dropdown-show-bg: var(--#{$prefix}default-background);
       --link-border-color: var(--#{$prefix}light-accent);
       --link-border-color-hover: var(--#{$prefix}light-action-primary-hover);

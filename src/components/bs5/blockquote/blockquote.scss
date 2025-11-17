@@ -1,15 +1,10 @@
 //PREP REUSABLE VARIABLES, SCOPED TO .blockquote
 .blockquote {
   // Colours
-  --#{$prefix}quote-border-color: var(
-    --#{$prefix}color-default-color-light-accent-design-accent
-  );
-  --#{$prefix}quote-text-color: var(
-    --#{$prefix}color-default-color-light-text-heading
-  );
-  --#{$prefix}quote-ref-text-color: var(
-    --#{$prefix}color-default-color-light-text-default
-  );
+  --#{$prefix}quote-border-color: var(--#{$prefix}light-accent);
+  --#{$prefix}quote-text-color: var(--#{$prefix}light-text-heading);
+  --#{$prefix}quote-ref-text-color: var(--#{$prefix}light-text-text);
+
   //Measurements
   --#{$prefix}quote-spacing: 1rem;
   --#{$prefix}quote-border-width: 0.25rem;
@@ -24,21 +19,21 @@
   }
 
   .alt & {
-    --#{$prefix}blockquote-bg: var(--#{$prefix}light-grey-alt);
+    --#{$prefix}blockquote-bg: var(--#{$prefix}light-alt-background);
   }
 
   .dark & {
-    --#{$prefix}blockquote-bg: var(--#{$prefix}brand-primary);
+    --#{$prefix}blockquote-bg: var(--#{$prefix}dark-background);
   }
 
   .dark-alt & {
-    --#{$prefix}blockquote-bg: var(--#{$prefix}dark-blue);
+    --#{$prefix}blockquote-bg: var(--#{$prefix}dark-alt-background);
   }
 
   .dark &,
   .dark-alt & {
-    --#{$prefix}quote-text-color: var(--#{$prefix}white);
-    --#{$prefix}quote-ref-text-color: var(--#{$prefix}white);
+    --#{$prefix}quote-text-color: var(--#{$prefix}neutral-white);
+    --#{$prefix}quote-ref-text-color: var(--#{$prefix}neutral-white);
   }
 }
 
