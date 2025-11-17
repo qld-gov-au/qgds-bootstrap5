@@ -25,122 +25,120 @@ import { validateSkipLinks } from "./../components/bs5/skiplinks/skipLinks.funct
 window.addEventListener("click", initQuickexit, true);
 window.addEventListener("keydown", initQuickexit, true);
 window.addEventListener("DOMContentLoaded", () => {
-  (() => {
-    backToTop();
+  backToTop();
 
-    initTabsScroll();
+  initTabsScroll();
 
-    initGlobalAlerts();
+  initGlobalAlerts();
 
-    // Footer FormIO Action
-    // Note: This is added here, as there is an issue with breadcrumbShorten() function.
-    //       Will move this once that issue is fixed.
-    /*   
+  // Footer FormIO Action
+  // Note: This is added here, as there is an issue with breadcrumbShorten() function.
+  //       Will move this once that issue is fixed.
+  /*   
       const footerFormio = document.getElementById("qg-feedback-toggle");
       if (footerFormio) {
         displayFeedbackForm();
       }
    */
-    //Header search
-    let headerSearchButton = document.getElementById(
-      "qld-header-toggle-search-button",
-    );
-    if (headerSearchButton) {
-      headerSearchButton.addEventListener("click", toggleSearch);
-    }
+  //Header search
+  let headerSearchButton = document.getElementById(
+    "qld-header-toggle-search-button",
+  );
+  if (headerSearchButton) {
+    headerSearchButton.addEventListener("click", toggleSearch);
+  }
 
-    // Get all forms with the class 'site-search'
-    let forms = document.querySelectorAll(".site-search");
+  // Get all forms with the class 'site-search'
+  let forms = document.querySelectorAll(".site-search");
 
-    forms.forEach((form) => {
-      // Get the search input within the current form
-      let searchInput = form.querySelector(".qld-search-input input");
+  forms.forEach((form) => {
+    // Get the search input within the current form
+    let searchInput = form.querySelector(".qld-search-input input");
 
-      if (searchInput) {
-        let timeout;
+    if (searchInput) {
+      let timeout;
 
-        // Add keyup event listener to the search input
-        searchInput.addEventListener("input", function (e) {
-          clearTimeout(timeout);
-          timeout = setTimeout(() => {
-            const value = e.target.value.trim();
-            showSuggestions(value, value === "", form);
-          }, 300);
-        });
-
-        // Attach event listener to form submit
-        form.addEventListener("submit", function (event) {
-          event.preventDefault();
-          const query = searchInput.value.trim();
-          submitSearchForm(query, form);
-        });
-      }
-    });
-
-    //Header
-    // Get the <header> element
-    let header = document.querySelector("header");
-    if (header) {
-      // Get the current page URL without query string parameters
-      let url = window.location.origin + window.location.pathname;
-      // Set the data-page-url attribute on the <header> element
-      header.setAttribute("data-page-url", url);
-    }
-
-    // Navbar
-    initializeNavbar();
-
-    // Breadcrumb
-    initBreadcrumb();
-
-    // Quick exit
-    window.addEventListener("click", initQuickexit, true);
-    window.addEventListener("keydown", initQuickexit, true);
-    initQuickexit();
-
-    // Accordion
-    let accordionToggleButton = document.querySelectorAll(
-      ".accordion-toggle-btn",
-    );
-
-    accordionToggleButton.forEach(function (toggleButton) {
-      toggleButton.addEventListener("click", accordionToggleAll);
-
-      let accordionButtons = toggleButton
-        .closest(".accordion-group")
-        .querySelectorAll(".accordion-button");
-
-      accordionButtons.forEach(function (button) {
-        button.addEventListener("click", accordionToggleAllButtonState);
+      // Add keyup event listener to the search input
+      searchInput.addEventListener("input", function (e) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          const value = e.target.value.trim();
+          showSuggestions(value, value === "", form);
+        }, 300);
       });
+
+      // Attach event listener to form submit
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const query = searchInput.value.trim();
+        submitSearchForm(query, form);
+      });
+    }
+  });
+
+  //Header
+  // Get the <header> element
+  let header = document.querySelector("header");
+  if (header) {
+    // Get the current page URL without query string parameters
+    let url = window.location.origin + window.location.pathname;
+    // Set the data-page-url attribute on the <header> element
+    header.setAttribute("data-page-url", url);
+  }
+
+  // Navbar
+  initializeNavbar();
+
+  // Breadcrumb
+  initBreadcrumb();
+
+  // Quick exit
+  window.addEventListener("click", initQuickexit, true);
+  window.addEventListener("keydown", initQuickexit, true);
+  initQuickexit();
+
+  // Accordion
+  let accordionToggleButton = document.querySelectorAll(
+    ".accordion-toggle-btn",
+  );
+
+  accordionToggleButton.forEach(function (toggleButton) {
+    toggleButton.addEventListener("click", accordionToggleAll);
+
+    let accordionButtons = toggleButton
+      .closest(".accordion-group")
+      .querySelectorAll(".accordion-button");
+
+    accordionButtons.forEach(function (button) {
+      button.addEventListener("click", accordionToggleAllButtonState);
     });
+  });
 
-    let inPageLinks = document.querySelectorAll('a[href^="#"]');
+  let inPageLinks = document.querySelectorAll('a[href^="#"]');
 
-    accordionHashLinks();
-    window.onhashchange = accordionHashLinks;
-    inPageLinks.forEach(function (link) {
-      link.addEventListener("click", accordionHashLinks);
-    });
+  accordionHashLinks();
+  window.onhashchange = accordionHashLinks;
+  inPageLinks.forEach(function (link) {
+    link.addEventListener("click", accordionHashLinks);
+  });
 
-    // Video
-    let videoThumbnails = document.querySelectorAll(".video-thumbnail");
+  // Video
+  let videoThumbnails = document.querySelectorAll(".video-thumbnail");
 
-    videoThumbnails.forEach(function (thumbnail) {
-      thumbnail.addEventListener("click", videoEmbedPlay);
-    });
+  videoThumbnails.forEach(function (thumbnail) {
+    thumbnail.addEventListener("click", videoEmbedPlay);
+  });
 
-    let videoTranscripts = document.querySelectorAll(
-      ".video .accordion .accordion-button",
-    );
+  let videoTranscripts = document.querySelectorAll(
+    ".video .accordion .accordion-button",
+  );
 
-    videoTranscripts.forEach(function (transcript) {
-      transcript.addEventListener("click", videoTranscriptTitle);
-    });
+  videoTranscripts.forEach(function (transcript) {
+    transcript.addEventListener("click", videoTranscriptTitle);
+  });
 
-    initDateInput();
+  initDateInput();
 
-    // Skip Links
-    validateSkipLinks();
-  })();
+  // Skip Links
+  validateSkipLinks();
 });
