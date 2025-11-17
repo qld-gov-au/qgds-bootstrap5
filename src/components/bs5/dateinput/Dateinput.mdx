@@ -1,0 +1,27 @@
+import {
+  Canvas,
+  Controls,
+  Meta,
+  Story,
+  Stories,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import * as dateinputStories from "./Dateinput.stories";
+
+<Meta of={dateinputStories} />
+
+# Date input
+
+The Date input consists of 3 separate text inputs.
+
+## Behaviour
+
+- Only numeric values may be typed into each these, and any out-of-range value will be converted into an in-range value.
+- Additionally, on blur the value will be padded with leading zeroes if needed.
+- If a min and/or max value is passed via `yearMin` and `yearMax`, these are also used to constrain the input value.
+
+<Canvas of={dateinputStories.Default} />
+
+<Controls />
+
+<Stories />

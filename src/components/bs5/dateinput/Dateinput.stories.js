@@ -28,6 +28,7 @@ export default {
  * Default Date inputs
  */
 export const Default = {
+  tags: ["!autodocs"],
   args: defaultdata,
   globals: { backgrounds: { value: "default" } },
 };
