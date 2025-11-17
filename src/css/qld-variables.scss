@@ -4,7 +4,7 @@
 // GLOBALLY SCOPED VARIABLES defined via qld-tokens.scss sass map, imported at top of main.scss
 
 //QLD Names Colours
-$qld-dark-blue: $core-default-color-brand-primary-dark-blue;
+//$qld-dark-blue: $core-default-color-brand-primary-dark-blue;
 //$qld-light-blue: $core-default-color-brand-primary-light-blue;
 
 //$qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
@@ -16,13 +16,13 @@ $qld-dark-blue: $core-default-color-brand-primary-dark-blue;
 $qld-dark-text: $color-default-color-dark-text-default;
 $qld-dark-border: $color-default-color-dark-border-default;
 $qld-dark-alt-border: $color-default-color-dark-border-alt;
-$qld-alt-button-hover: $color-default-color-light-action-secondary-hover;
+//$qld-alt-button-hover: $color-default-color-light-action-secondary-hover;
 $qld-general-info-alert: $core-default-color-status-info-lighter;
 //$qld-red-border: $core-default-color-status-error-darker;
 //$qld-blue-border: $color-default-color-light-border-light;
 //$qld-yellow-border: $core-default-color-status-caution-darker;
 
-$qld-dark-blue-shade: $color-default-color-dark-background-alt-shade;
+//$qld-dark-blue-shade: $color-default-color-dark-background-alt-shade;
 $qld-light-background: $color-default-color-light-background-light;
 $qld-light-background-shade: $color-default-color-light-background-light-shade;
 $qld-light-border: $color-default-color-light-border-default;
@@ -176,7 +176,7 @@ $project-colors: (
   "brand-accent": $qld-brand-accent,
 
   //...
-  "dark-blue": $qld-dark-blue,
+  //"dark-blue": $qld-dark-blue,
   // "sapphire-blue": $qld-sapphire-blue,
   // "light-blue": $qld-light-blue,
   // "light-green": $qld-light-green,
@@ -323,8 +323,8 @@ $project-base-colors: (
   "dark-text": $qld-dark-text,
   "dark-border": $qld-dark-border,
   "dark-alt-border": $qld-dark-alt-border,
-  "alt-button-hover": $qld-alt-button-hover,
-  "dark-blue-shade": $qld-dark-blue-shade,
+  //"alt-button-hover": $qld-alt-button-hover,
+  //"dark-blue-shade": $qld-dark-blue-shade,
   "dark-focus": $qld-dark-focus,
   "light-focus": $qld-light-focus,
   //"button-dark-blue": $qld-button-dark-blue,

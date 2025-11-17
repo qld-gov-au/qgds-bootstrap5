@@ -286,7 +286,7 @@
   --mobile-only-display: none;
   --visibility-display: hidden;
   --dropdown-show-btn-bg: var(--#{$prefix}default-background);
-  --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);
+  --dropdown-show-btn-icon-color: var(--#{$prefix}light-action-secondary);
   /* general */
   --button-bg-color: var(--#{$prefix}default-background);
   --animation-time: 0.2s;
@@ -347,9 +347,9 @@
       --text-color: var(--#{$prefix}light-text-text);
       --border-color: var(--#{$prefix}default-border);
       --header-color: var(--#{$prefix}light-text-heading);
-      --action-icon-color: var(--#{$prefix}alt-button-hover);
+      --action-icon-color: var(--#{$prefix}light-action-secondary);
       --dropdown-show-btn-bg: var(--#{$prefix}default-background);
-      --dropdown-show-btn-icon-color: var(--#{$prefix}alt-button-hover);
+      --dropdown-show-btn-icon-color: var(--#{$prefix}light-action-secondary);
       --nav-header-color: var(--#{$prefix}dark-text-text);
       --nav-header-border-color: var(--#{$prefix}dark-border);
       --nav-header-icon-color: var(--#{$prefix}brand-accent);
@@ -389,7 +389,7 @@
       --action-icon-color: var(--#{$prefix}brand-accent);
       --nav-header-color: var(--#{$prefix}light-text-text);
       --nav-header-border-color: var(--#{$prefix}light-border);
-      --nav-header-icon-color: var(--#{$prefix}alt-button-hover);
+      --nav-header-icon-color: var(--#{$prefix}light-action-secondary);
       --navbar-collapse-bg: var(--#{$prefix}default-background-shade);
       --action-icon-color_active: var(--text-color);
 
@@ -404,7 +404,7 @@
         --text-color: var(--#{$prefix}light-text-text);
         --border-color: var(--#{$prefix}default-border);
         --header-color: var(--#{$prefix}default-background);
-        --action-icon-color: var(--#{$prefix}alt-button-hover);
+        --action-icon-color: var(--#{$prefix}light-action-secondary);
         --action-icon-color_active: var(--text-color);
         .nav-link {
           border-inline-start: 0;

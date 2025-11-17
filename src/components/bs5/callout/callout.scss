@@ -4,7 +4,7 @@
 .callout {
   --#{$prefix}callout-padding: 1.5rem 1rem 1.5rem 1.5rem;
   --#{$prefix}callout-bg-color: var(--#{$prefix}neutral-lightest);
-  --#{$prefix}callout-border-color: var(--#{$prefix}brand-secondary);
+  --#{$prefix}callout-border-color: var(--#{$prefix}light-accent);
   --#{$prefix}callout-border-width: 0.25rem;
   --#{$prefix}callout-title-color: var(--#{$prefix}headings-color);
   --#{$prefix}callout-text-color: var(--#{$prefix}body-color);
@@ -15,13 +15,13 @@
   }
 
   .alt & {
-    --#{$prefix}callout-bg-color: var(--#{$prefix}grey);
+    --#{$prefix}callout-bg-color: var(--#{$prefix}light-alt-background-shade);
   }
 
   .dark &,
   .dark-alt & {
-    --#{$prefix}callout-title-color: var(--#{$prefix}white);
-    --#{$prefix}callout-text-color: var(--#{$prefix}white);
+    --#{$prefix}callout-title-color: var(--#{$prefix}neutral-white);
+    --#{$prefix}callout-text-color: var(--#{$prefix}neutral-white);
   }
 
   .dark & {
@@ -29,7 +29,7 @@
   }
 
   .dark-alt & {
-    --#{$prefix}callout-bg-color: var(--#{$prefix}dark-blue-shade);
+    --#{$prefix}callout-bg-color: var(--#{$prefix}dark-alt-background-shade);
   }
 }
 
