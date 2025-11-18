@@ -303,6 +303,7 @@
     a {
       color: var(--#{$prefix}card-link-color);
       text-decoration-color: var(--#{$prefix}card-link-color);
+      outline-style: none;
 
       &:visited,
       &:hover,
@@ -311,6 +312,7 @@
         text-decoration-color: var(--#{$prefix}card-link-color);
       }
       &:focus {
+        outline-style: none;
         text-decoration-color: var(--#{$prefix}card-link-color);
       }
     }
