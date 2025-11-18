@@ -183,4 +183,9 @@ $enable-dark-mode: true;
   .card.card-arrow:hover .qld-icon {
     transform: translateX(0rem);
   }
+  @media (max-width: 991.98px) {
+    .navbar.show > .container, .navbar.vertical.show > .container {
+      transform: translateX(0);
+    }
+  }
 }
