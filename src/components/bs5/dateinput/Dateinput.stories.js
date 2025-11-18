@@ -1,6 +1,6 @@
-// ComponentExample.stories.js
 import { Dateinput } from "./Dateinput.js";
 import defaultdata from "./dateinput.data.json";
+import { expect } from "storybook/test";
 
 export default {
   tags: ["autodocs"],
@@ -17,17 +17,18 @@ export default {
 
     return new Dateinput(args).html;
   },
-
-  //https://storybook.js.org/docs/api/arg-types
   argTypes: {},
   globals: { backgrounds: { value: "default" } },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    backgrounds: { disable: false },
+  },
 };
 
 /**
  * Default Date inputs
  */
 export const Default = {
+  tags: ["!autodocs"],
   args: defaultdata,
   globals: { backgrounds: { value: "default" } },
 };
@@ -89,5 +90,48 @@ export const Invalid = {
   args: {
     ...defaultdata,
     ...{ customClass: "qld-input-error" },
+  },
+};
+
+export const InputValuesArePaddedWithLeadingZeroesOnBlur = {
+  tags: ["!autodocs"],
+  args: defaultdata,
+  play: async ({ canvas, userEvent }) => {
+    const dayInput = document.getElementById(`${defaultdata.id}-dayinput`);
+    const monthInput = document.getElementById(`${defaultdata.id}-monthinput`);
+    const yearInput = document.getElementById(`${defaultdata.id}-yearinput`);
+
+    await userEvent.type(dayInput, "4");
+    await userEvent.tab();
+    await userEvent.type(monthInput, "4");
+    await userEvent.tab();
+    await userEvent.type(yearInput, "42");
+    await userEvent.tab();
+
+    await expect(dayInput.value).toBe("04");
+    await expect(monthInput.value).toBe("04");
+    await expect(yearInput.value).toBe("0042");
+  },
+};
+
+export const OutOfRangeValuesAreCorrected = {
+  tags: ["!autodocs"],
+  args: {
+    ...defaultdata,
+    ...{ yearMin: "1000", yearMax: "2000" },
+  },
+  play: async ({ canvas, userEvent }) => {
+    const dayInput = document.getElementById(`${defaultdata.id}-dayinput`);
+    const monthInput = document.getElementById(`${defaultdata.id}-monthinput`);
+    const yearInput = document.getElementById(`${defaultdata.id}-yearinput`);
+
+    await userEvent.type(dayInput, "42");
+    await userEvent.type(monthInput, "42");
+    await userEvent.type(yearInput, "42");
+    await userEvent.tab();
+
+    await expect(dayInput.value).toBe("31");
+    await expect(monthInput.value).toBe("12");
+    await expect(yearInput.value).toBe("1000");
   },
 };
