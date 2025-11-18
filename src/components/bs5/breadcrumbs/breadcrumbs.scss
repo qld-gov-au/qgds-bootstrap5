@@ -57,6 +57,7 @@ $expander-icon-color: $qld-light-link;
       box-shadow: var(--#{$prefix}dropdown-box-shadow);
       pointer-events: all;
       transition: max-height 0.5s ease-in;
+      z-index: 1;
     }
   }
 
