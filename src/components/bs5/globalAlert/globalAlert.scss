@@ -166,6 +166,12 @@
       color: var(--#{$prefix}body-color);
       text-decoration-color: var(--#{$prefix}body-color);
     }
+
+    .global-alert-close .btn-close {
+      &:focus {
+        outline-color: var(--#{$prefix}color-default-color-light-focus-default);
+      }
+    }
   }
 
   &.global-alert-info {
@@ -179,6 +185,12 @@
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
       text-decoration-color: var(--#{$prefix}body-color);
+    }
+
+    .global-alert-close .btn-close {
+      &:focus {
+        outline-color: var(--#{$prefix}color-default-color-light-focus-default);
+      }
     }
   }
 }
