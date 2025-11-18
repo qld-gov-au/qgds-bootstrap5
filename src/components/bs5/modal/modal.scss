@@ -51,7 +51,7 @@
       --#{$prefix}color-default-color-light-text-heading
     );
     --#{$prefix}btn-close-focus-shadow: none;
-    --#{$prefix}btn-close-focus-border: var(--#{$prefix}focus-color) solid 3px;
+    --#{$prefix}btn-close-focus-border: var(--#{$prefix}color-default-color-light-focus-default) solid 3px;
   }
 }
 
