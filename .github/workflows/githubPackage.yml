@@ -65,7 +65,7 @@ jobs:
 
       - name: Test
         run: |
-          npm run test
+          npm run test:run
 
       - name: Build 🔧
         run: | # build the files

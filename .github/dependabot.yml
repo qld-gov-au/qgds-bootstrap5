@@ -34,4 +34,8 @@ updates:
       esbuild:
         patterns:
           - "esbuild*"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
     open-pull-requests-limit: 10
