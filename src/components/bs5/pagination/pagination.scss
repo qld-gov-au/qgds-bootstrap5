@@ -148,7 +148,7 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
   .next {
     margin-left: 0.25rem;
   }
-  .active a {
+  .active .page-link {
     font-weight: 700;
   }
 
