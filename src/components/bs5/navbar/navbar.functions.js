@@ -1,7 +1,7 @@
 import { createFocusTrap } from "../../../js/utils.js";
 
 export function initializeNavbar() {
-  const navbarCollapse = document.getElementById("main-nav");
+  const navbar = document.getElementById("main-nav");
   const overlay = document.getElementById("overlay");
   const burgerBtn = document.getElementById("burgerBtn");
   const burgerCloseBtn = document.getElementById("burgerCloseBtn");
@@ -21,33 +21,21 @@ export function initializeNavbar() {
     });
   };
 
+  function hideNavBar() {
+    bootstrap.Collapse.getInstance(navbar)?.hide();
+  }
+
   // Focus trap instances (created on-demand)
   let mobileFocusTrap = null;
   const dropdownFocusTraps = new Map();
 
-  // Helper function to close navbar
-  function closeNavbar() {
-    if (navbarCollapse?.classList.contains("show")) {
-      navbarCollapse.classList.remove("show");
-      overlay?.classList.remove("show");
-      document.body.style.overflow = "";
-      setAriaHidden(false);
-
-      // Deactivate and destroy mobile focus trap
-      if (mobileFocusTrap) {
-        mobileFocusTrap.deactivate();
-        mobileFocusTrap = null;
-      }
-    }
-  }
-
   // Create mobile focus trap on-demand (when mobile menu opens)
   function createMobileFocusTrap() {
-    if (!mobileFocusTrap && navbarCollapse) {
-      mobileFocusTrap = createFocusTrap(navbarCollapse, {
+    if (!mobileFocusTrap && navbar) {
+      mobileFocusTrap = createFocusTrap(navbar, {
         returnFocusElement: burgerBtn,
         onEscape: () => {
-          closeNavbar();
+          hideNavBar();
         },
       });
     }
@@ -75,7 +63,7 @@ export function initializeNavbar() {
   // Setup dropdown event listeners
   function setupDropdownListeners() {
     // Find all dropdown toggles (elements with data-bs-toggle="dropdown")
-    const dropdownToggles = navbarCollapse?.querySelectorAll(
+    const dropdownToggles = navbar?.querySelectorAll(
       '[data-bs-toggle="dropdown"]',
     );
 
@@ -109,13 +97,13 @@ export function initializeNavbar() {
   }
 
   // Setup dropdown listeners on load
-  if (navbarCollapse) {
+  if (navbar) {
     setupDropdownListeners();
   }
 
   // Close navbar when overlay is clicked
   overlay?.addEventListener("click", () => {
-    closeNavbar();
+    hideNavBar();
   });
 
   const resetNavbarState = () => {
@@ -143,11 +131,27 @@ export function initializeNavbar() {
   window.addEventListener("resize", resetNavbarState);
   resetNavbarState();
 
+  //All associated side effects of navbar collapse beginning belong here
+  navbar?.addEventListener("hide.bs.collapse", () => {
+    overlay?.classList.remove("show");
+  });
+
+  // All associated side effects of navbar collapse completion belong here.
+  navbar?.addEventListener("hidden.bs.collapse", () => {
+    setAriaHidden(false);
+
+    // Deactivate and destroy mobile focus trap
+    if (mobileFocusTrap) {
+      mobileFocusTrap.deactivate();
+      mobileFocusTrap = null;
+    }
+  });
+
   // Burger buttons - handle open (mobile only)
-  navbarCollapse?.addEventListener("shown.bs.collapse", () => {
+  navbar?.addEventListener("shown.bs.collapse", () => {
     // Check if navbar is opening
     setTimeout(() => {
-      if (navbarCollapse?.classList.contains("show")) {
+      if (navbar?.classList.contains("show")) {
         setAriaHidden(true);
 
         // Create and activate focus trap when navbar opens (mobile only - whole navbar)
@@ -161,7 +165,5 @@ export function initializeNavbar() {
   });
 
   // Close button
-  burgerCloseBtn?.addEventListener("click", () => {
-    closeNavbar();
-  });
+  // burgerCloseBtn?.addEventListener("click", closeNavbar);
 }
