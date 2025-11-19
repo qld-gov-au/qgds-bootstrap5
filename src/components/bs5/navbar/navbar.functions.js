@@ -2,7 +2,7 @@ import { createFocusTrap } from "../../../js/utils.js";
 import { breakpoints } from "../../../js/constants.js";
 
 export function initializeNavbar() {
-  const navbarCollapse = document.getElementById("main-nav");
+  const navbar = document.getElementById("main-nav");
   const overlay = document.getElementById("overlay");
   const burgerBtn = document.getElementById("burgerBtn");
   const burgerCloseBtn = document.getElementById("burgerCloseBtn");
@@ -28,8 +28,8 @@ export function initializeNavbar() {
 
   // Helper function to close navbar
   function closeNavbar() {
-    if (navbarCollapse?.classList.contains("show")) {
-      navbarCollapse.classList.remove("show");
+    if (navbar?.classList.contains("show")) {
+      navbar.classList.remove("show");
       overlay?.classList.remove("show");
       document.body.style.overflow = "";
       setAriaHidden(false);
@@ -44,8 +44,8 @@ export function initializeNavbar() {
 
   // Create mobile focus trap on-demand (when mobile menu opens)
   function createMobileFocusTrap() {
-    if (!mobileFocusTrap && navbarCollapse) {
-      mobileFocusTrap = createFocusTrap(navbarCollapse, {
+    if (!mobileFocusTrap && navbar) {
+      mobileFocusTrap = createFocusTrap(navbar, {
         returnFocusElement: burgerBtn,
         onEscape: () => {
           closeNavbar();
@@ -76,7 +76,7 @@ export function initializeNavbar() {
   // Setup dropdown event listeners
   function setupDropdownListeners() {
     // Find all dropdown toggles (elements with data-bs-toggle="dropdown")
-    const dropdownToggles = navbarCollapse?.querySelectorAll(
+    const dropdownToggles = navbar?.querySelectorAll(
       '[data-bs-toggle="dropdown"]',
     );
 
@@ -110,7 +110,7 @@ export function initializeNavbar() {
   }
 
   // Setup dropdown listeners on load
-  if (navbarCollapse) {
+  if (navbar) {
     setupDropdownListeners();
   }
 
@@ -145,10 +145,10 @@ export function initializeNavbar() {
   resetNavbarState();
 
   // Burger buttons - handle open (mobile only)
-  navbarCollapse?.addEventListener("shown.bs.collapse", () => {
+  navbar?.addEventListener("shown.bs.collapse", () => {
     // Check if navbar is opening
     setTimeout(() => {
-      if (navbarCollapse?.classList.contains("show")) {
+      if (navbar?.classList.contains("show")) {
         setAriaHidden(true);
 
         // Create and activate focus trap when navbar opens (mobile only - whole navbar)
