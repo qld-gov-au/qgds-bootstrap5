@@ -22,7 +22,7 @@ $prefix: "qld-" !default;
   $include-base: true
 ) {
   // validate $name
-  @if ($name and not f.in-list($name, $icon-names)) {
+  @if ($name and not f.in-list($name, map.keys($icon-names))) {
     @error "Invalid parameter $name: " + $name;
   }
   // validate $include-base

@@ -12,5 +12,7 @@
   "optional-text": "optional",
   "hint-text": "(dd/mm/yyyy)",
   "successMessageText": "Success message",
-  "errorMessageText": "Error message"
+  "errorMessageText": "Error message",
+  "yearMin": "",
+  "yearMax": ""
 }

@@ -30,6 +30,14 @@ $utilities: map-merge(
           "dark-alt": var(--qld-dark-alt-background),
           "dark-alt-shade": var(--qld-dark-alt-background-shade),
         ),
-      )
+      ),
+    "focus": (
+      class: "qld-focus",
+      property: --qld-focus-color,
+      values: (
+        "light": var(--#{$prefix}light-focus),
+        "dark": var(--#{$prefix}dark-focus),
+      ),
+    )
   )
 );

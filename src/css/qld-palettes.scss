@@ -1,7 +1,6 @@
-// QLD Theme Palette Classes
+// QLD Palette Classes
 // Provides complete theme styling including color, background-color, and CSS variables
 
-// Theme properties mixins to avoid duplication
 %qld-palette-default {
   background-color: var(--qld-body-bg);
   color: var(--qld-body-color);
@@ -11,7 +10,6 @@
   --qld-body-color: #{$body-color};
   --qld-body-font-weight: #{$body-font-weight};
   --qld-border-color: var(--qld-light-border);
-  --qld-focus-color: var(--qld-light-focus);
   --qld-headings-color: #{$headings-color};
   --qld-link-color: #{$link-color};
   --qld-link-color-rgb: #{to-rgb($link-color)};
@@ -22,11 +20,20 @@
   --qld-link-underline-hover: #{$color-default-color-light-underline-default-hover};
   --qld-link-underline-visited: #{$color-default-color-light-underline-visited};
   --qld-link-underline-visited-hover: #{$color-default-color-light-underline-visited-hover};
-  --qld-link-underline-offset: 0.3rem;
+  --qld-link-underline-offset: 0.3em;
   --qld-link-underline-thickness: 0.5px;
   --qld-link-underline-thickness-hover: 2px;
-  --qld-selection-bg: var(--qld-brand-primary);
-  --qld-selection-color: var(--qld-white);
+  --qld-selection-bg: var(--qld-dark-background);
+  --qld-selection-color: var(--qld-neutral-white);
+ 
+
+  // Because a focus ring generally is offset outside of an element, at the boundary between palette themes,
+  // its color should inherit the parent's palette, not the focussed element's palette, so defer setting
+  // focus color until first descendant, unless this is :root
+  &:root,
+  > :where(*) {
+    --qld-focus-color: var(--qld-light-focus);
+  }
 }
 
 %qld-palette-light {
@@ -49,22 +56,23 @@
   --qld-body-bg: var(--qld-dark-background);
   --qld-body-color: #fff;
   --qld-border-color: var(--qld-dark-border);
-  --qld-focus-color: var(--qld-dark-focus);
   --qld-headings-color: #{$color-default-color-dark-text-heading};
   --qld-link-color: #{$color-default-color-dark-link-default};
   --qld-link-color-rgb: 255, 255, 255;
   --qld-link-hover-color: #{$color-default-color-dark-link-default};
   --qld-link-hover-color-rgb: 255, 255, 255;
   --qld-link-visited-color: #{$color-default-color-dark-link-visited};
-  --qld-link-visited: var(
-    --qld-link-visited-dark
-  ); // TODO tidy up these variables, we should only use --qld-link-visited-color
   --qld-link-underline: #{$qld-link-underline-dark};
   --qld-link-underline-hover: #{$qld-link-underline-hover-dark};
   --qld-link-underline-visited: #{$qld-link-underline-visited-dark};
   --qld-link-underline-visited-hover: #{$qld-link-underline-hover-dark};
-  --qld-selection-bg: var(--qld-white);
-  --qld-selection-color: var(--qld-brand-primary);
+  --qld-selection-bg: var(--qld-neutral-white);
+  --qld-selection-color: var(--qld-dark-background);
+
+  &:root,
+  > :where(*) {
+    --qld-focus-color: var(--qld-dark-focus);
+  }
 }
 
 %qld-palette-dark-alt {

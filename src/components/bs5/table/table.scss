@@ -92,8 +92,8 @@
 
     caption,
     .sub-caption {
-      background-color: #09549f;
-      color: #fff;
+      background-color: var(--qld-dark-background);
+      color: var(--qld-dark-text-text);
     }
 
     thead th {

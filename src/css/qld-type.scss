@@ -68,15 +68,13 @@ h6 {
   color: var(--qld-headings-color);
 }
 
-a,
-a.nav-link {
+a {
   @include mixins.make-link();
 }
 
-figure > figcaption {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
+a.nav-link {
+  @include mixins.make-link();
+  border-radius: 0;
 }
 
 a.nostyle {
@@ -89,9 +87,10 @@ a.nostyle {
   }
 }
 
-::-moz-selection {
-  background: var(--qld-selection-bg);
-  text-shadow: none;
+figure > figcaption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 ::selection {

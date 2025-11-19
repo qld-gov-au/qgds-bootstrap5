@@ -3,7 +3,13 @@
 <div class="global-alert-include">
   {{#each alertItems}}
   <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"
-    aria-label="{{ariaLabel}}" {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
+    {{#if ariaLabel}} aria-label="{{ ariaLabel }}"
+    {{~else ifCond variant "==" "global-alert-critical"}} aria-label="Critical alert"
+    {{~else ifCond variant "==" "global-alert-info"}} aria-label="Informational alert"
+    {{~else ifCond variant "==" "global-alert-warning"}} aria-label="Warning alert"
+    {{~else}} aria-label="Informational alert"
+    {{~/if}}
+    {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
     data-expiry-days="{{dismissedExpiryDays}}" {{/if}}>
     <div class="qld-global-alert-main">
       <div class="global-alert-icon">
@@ -13,6 +19,7 @@
         <span class="qld-icon qld-icon-sm qld-icon-alert-information" aria-hidden="true"></span>
         {{else ifCond variant '==' 'global-alert-warning'}}
         <span class="qld-icon qld-icon-sm qld-icon-alert-warning" aria-hidden="true"></span>
+        {{else}}<span class="qld-icon qld-icon-sm qld-icon-alert-information" aria-hidden="true"></span>
         {{/ifCond}}
       </div>
 

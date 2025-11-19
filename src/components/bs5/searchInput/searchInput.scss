@@ -4,8 +4,9 @@
 .qld-search-input {
   // Input variables
   --background-color: var(--#{$prefix}white);
+  --background-color-hover: var(--#{$prefix}neutral-lightest);
   --border-color: var(--#{$prefix}light-border-alt);
-  --border-color-focus: var(--#{$prefix}light-border-alt);
+  --border-color-focus: var(--#{$prefix}default-border);
   --border-color-hover: var(--#{$prefix}light-action-primary-hover);
   --placeholder-color: var(--#{$prefix}light-text-lighter);
   --qld-icon-color: var(--#{$prefix}light-text-lighter);
@@ -13,31 +14,67 @@
   --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
   --suggestions-shadow:
     0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+  --border-radius: 0.25rem;
+  --hover-background-color: var(--#{$prefix}neutral-light);
+  --_size: 3rem;
 
   .dark &,
   .dark-alt & {
-    --border-color: var(--#{$prefix}dark-border-alt);
-    --border-color-focus: var(--#{$prefix}dark-border-alt);
+    --border-color: var(--#{$prefix}dark-alt-border);
+    --border-color-focus: var(--#{$prefix}dark-alt-border);
     --border-color-hover: var(--#{$prefix}dark-action-primary-hover);
-  }
+    --background-color: var(--#{$prefix}dark-background);
+    --text-color: var(--#{$prefix}dark-text-default);
+    --background-color-hover: var(--#{$prefix}dark-background-shade);
 
-  --border-radius: 0.25rem;
-  --_size: 3rem;
+    --qld-selection-bg: var(--qld-dark-background);
+    --qld-selection-color: var(--qld-neutral-white);
+
+    .btn:active {
+      background-color: var(--#{$prefix}neutral-lightest);
+      border-color: var(--#{$prefix}neutral-lightest);
+      text-decoration: underline;
+    }
+    .form-control:focus {
+      border-color: var(--#{$prefix}neutral-lighter);
+      --text-color: var(--#{$prefix}light-text-text);
+    }
+  }
 
   display: flex;
   position: relative;
   border-radius: var(--border-radius);
 
+  .suggestions {
+    transition-behavior: allow-discrete;
+    opacity: 0;
+    display: none;
+    transition:
+      opacity 0.5s,
+      display 0.5s;
+  }
+
   &:focus-within {
-    .suggestions.d-none {
-      display: block !important; // !important to override bootstrap d-none
+    .suggestions {
+      display: block; // !important to override bootstrap d-none
+      opacity: 1;
+      z-index: 9999; // Added z-index to ensure suggestions appear above other elements
+      transition:
+        opacity 0.5s,
+        display 0.5s;
     }
+
+    // &:has(#search-button:active) {
+    //   .suggestions {
+    //     display: none;
+    //   }
+    // }
   }
 
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
 
   &:has(.form-control:focus) {
-    >button {
+    > button {
       border-bottom-right-radius: var(--border-radius);
     }
   }
@@ -65,7 +102,7 @@
     }
 
     &:hover {
-      --background-color: var(--#{$prefix}neutral-lightest);
+      --background-color: var(--background-color-hover);
       --border-color: var(--border-color-hover);
     }
 
@@ -77,7 +114,7 @@
     }
   }
 
-  >button {
+  > button {
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     padding: 0;
     margin: 0;
@@ -106,7 +143,7 @@
   @include media-breakpoint-up(md) {
     --_size: 3.25rem;
 
-    >button {
+    > button {
       padding-block: calc(0.75rem - 0.125rem);
       padding-inline: var(--qld-btn-padding-x);
       margin: 0;
@@ -133,24 +170,26 @@
     position: absolute;
     inset-inline-start: 0;
     width: 100%;
-    inset-block-start: 7px !important; // to override bootstrap's popperjs default top value
+    inset-block-start: calc(3.25rem + 7px) !important;
     z-index: 1;
     border-radius: 0.5rem;
-    background: var(--#{$prefix}color-default-color-light-background-default-shade);
-    box-shadow: var(--suggestions-shadow);
+    background: var(--#{$prefix}neutral-lightest);
 
-    &>div {
+    & > div:has(> div) {
+      box-shadow: var(--suggestions-shadow);
       border-radius: 0.5rem;
-      border-bottom: 0.25rem solid var(--#{$prefix}color-default-color-light-accent-design-accent);
+      border-bottom: 0.25rem solid
+        var(--#{$prefix}color-default-color-light-accent-design-accent);
     }
 
     .suggestions-category {
       padding-block: 0.75rem;
 
       &:not(:first-of-type) {
-        border-block-start: 1px solid var(--#{$prefix}light-alt-background-shade);
+        border-block-start: 1px solid
+        var(--#{$prefix}light-alt-background-shade);
       }
-
+      
       // Question
       &-label {
         padding-block: 0.75rem;
@@ -167,18 +206,25 @@
             color: var(--#{$prefix}light-text-text);
             width: 100%;
             text-decoration: underline;
-            text-decoration-color: transparent;
             text-decoration-thickness: 0.5px;
+            text-decoration-color: transparent;
             transition:
-              text-decoration-color animation.$duration-fast animation.$timing-function,
-              text-decoration-thickness animation.$duration-fast animation.$timing-function;
+              text-decoration-thickness animation.$duration-fast
+                animation.$timing-function,
+              text-decoration-color animation.$duration-fast
+                animation.$timing-function;
 
-            &:hover {
+            &:hover,
+            &:hover strong {
               text-decoration-color: inherit;
-              text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
+              text-decoration-thickness: var(
+                --#{$prefix}link-underline-thickness-hover
+              );
               transition:
-                text-decoration-color animation.$duration-fast animation.$timing-function,
-                text-decoration-thickness animation.$duration-fast animation.$timing-function;
+                text-decoration-thickness animation.$duration-fast
+                  animation.$timing-function,
+                text-decoration-color animation.$duration-fast
+                  animation.$timing-function;
             }
 
             &:not(.view-more) {
@@ -197,7 +243,9 @@
 
               &:hover {
                 &::before {
-                  background-color: var(--#{$prefix}light-action-secondary-hover);
+                  background-color: var(
+                    --#{$prefix}light-action-secondary-hover
+                  );
                 }
               }
             }
@@ -210,10 +258,9 @@
       }
     }
 
-    &:has(.dynamic-suggestions:not(.d-none)) {
+    &:has(.dynamic-suggestions > div) {
       background-color: var(--#{$prefix}default-background);
     }
-
     .dynamic-suggestions {
       .suggestions-category:not(.feature) {
         ul {
@@ -236,7 +283,9 @@
 
     // Featured search result styles
     .feature {
-      background-color: var(--#{$prefix}color-default-color-light-background-default-shade);
+      background-color: var(
+        --#{$prefix}color-default-color-light-background-default-shade
+      );
     }
 
     // Show when active
@@ -250,7 +299,6 @@
       a,
       strong {
         font-size: 1rem;
-        text-decoration: none;
       }
 
       strong {
@@ -273,16 +321,14 @@
             vertical-align: -webkit-baseline-middle;
 
             &:focus {
-              text-decoration-color: inherit;
-              text-decoration-thickness: var(--#{$prefix}link-underline-thickness-hover);
               outline-color: var(--#{$prefix}light-focus);
+              background-color: var(--hover-background-color);
               outline-offset: -4px;
-              background-color: var(--#{$prefix}color-default-color-light-border-default);
             }
           }
 
           &:hover {
-            background-color: var(--#{$prefix}color-default-color-light-border-default);
+            background-color: var(--hover-background-color);
           }
         }
       }
@@ -290,6 +336,14 @@
       .dynamic-suggestions .suggestions-category:not(.feature) {
         strong {
           color: var(--#{$prefix}light-text-text);
+        }
+        ul li {
+          &:hover {
+            --hover-background-color: var(--#{$prefix}default-background-shade);
+          }
+          a:focus {
+            --hover-background-color: var(--#{$prefix}default-background-shade);
+          }
         }
       }
     }
@@ -300,7 +354,7 @@
   }
 
   &.is-filled {
-    --background-color: var(--#{$prefix}neutral-lightest);
+    --background-color: var(--background-color-hover);
 
     .form-control {
       border-width: 0;
@@ -315,7 +369,7 @@
       }
     }
 
-    >button {
+    > button {
       border-radius: 0;
       border-start-end-radius: var(--border-radius);
     }

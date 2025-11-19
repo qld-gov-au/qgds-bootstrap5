@@ -1,5 +1,13 @@
 // Expand this file with all themable shared form variables
 // @extend %form-variables in all input and form components.
+@use "../../../css/functions" as f;
+
+/// Custom colored icons for dropdown chevron in all states.
+/// Select input cannot use ::before or ::after so need a svg cbackground image via url(data);
+@function _dropdown-icon($color) {
+  @return url(f.svg-encode(f.color-icon("chevron-down", $color)));
+}
+
 %form-control-variables {
   &,
   .default &,
@@ -105,6 +113,34 @@
       --#{$prefix}color: #{$color-default-color-light-text-default};
       --#{$prefix}placeholder-color: #{$color-default-color-light-text-lighter};
     }
+  }
+}
+
+%form-select-variables {
+  &,
+  .default &,
+  .light &,
+  .alt & {
+    --#{$prefix}icon-url: #{_dropdown-icon($qld-light-action-secondary)};
+    --#{$prefix}icon-hover-url: #{_dropdown-icon(
+        $qld-light-action-secondary-hover
+      )};
+    --#{$prefix}icon-disabled-url: #{_dropdown-icon(
+        $color-default-color-light-text-lighter
+      )};
+    --#{$prefix}icon-error-url: #{_dropdown-icon($qld-notify-warning)};
+    --#{$prefix}icon-success-url: #{_dropdown-icon($qld-notify-success)};
+    --#{$prefix}icon-focus-url: #{_dropdown-icon($qld-light-action-secondary)};
+  }
+
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}icon-url: #{_dropdown-icon($qld-dark-action-secondary)};
+    --#{$prefix}icon-hover-url: #{_dropdown-icon($qld-dark-action-secondary)};
+    --#{$prefix}icon-disabled-url: #{_dropdown-icon(
+        $color-default-color-dark-text-lighter
+      )};
+    --#{$prefix}icon-focus-url: #{_dropdown-icon($qld-light-action-secondary)};
   }
 }
 
