@@ -29,12 +29,9 @@ export function initializeNavbar() {
     console.log("navbar: ", navbar);
     console.log("bootstrap: ", bootstrap);
     // return;
-    try {
-      console.log("why?");
-      // bootstrap?.Collapse.getInstance(navbar)?.hide();
-    } catch (e) {
-      console.warn("That didn't work! ", e);
-    }
+    console.log("why?");
+
+    // bootstrap?.Collapse.getInstance(navbar)?.hide();
   }
 
   // Create mobile focus trap on-demand (when mobile menu opens)
