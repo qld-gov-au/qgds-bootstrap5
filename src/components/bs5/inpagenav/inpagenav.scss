@@ -14,7 +14,7 @@
   --#{$prefix}inpage-nav-border-color: var(--#{$prefix}dark-action-primary);
 
   .nav {
-    --#{$prefix}nav-link-color: var(--#{$prefix}white);
+    --#{$prefix}nav-link-color: var(--#{$prefix}neutral-white);
     --#{$prefix}nav-link-hover-color: var(--#{$prefix}brand-accent);
   }
 }
@@ -40,12 +40,20 @@
 
   .nav-item {
     margin-top: 0;
+    display: inline-flex;
+
     .nav-link {
       padding-top: var(--#{$prefix}inpage-nav-link-padding-y);
       padding-bottom: var(--#{$prefix}inpage-nav-link-padding-y);
       padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
+      padding-right: 0;
       color: var(--#{$prefix}nav-link-color);
       text-decoration-line: underline;
+
+      &:hover,
+      &:visited {
+        text-decoration-color: var(--qld-link-underline);
+      }
     }
 
     &:first-child .nav-link {
