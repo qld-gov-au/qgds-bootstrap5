@@ -27,11 +27,13 @@ export function initializeNavbar() {
   const dropdownFocusTraps = new Map();
 
   function closeNavbar() {
-    return;
+    console.log("navbar: ", navbar);
+    console.log("bootstrap: ", bootstrap);
+    // return;
     try {
-      bootstrap.Collapse.getInstance(navbar)?.hide();
+      bootstrap?.Collapse.getInstance(navbar)?.hide();
     } catch (e) {
-      console.error(e);
+      console.warn("That didn't work! ", e);
     }
   }
 
