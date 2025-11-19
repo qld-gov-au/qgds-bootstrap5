@@ -148,6 +148,22 @@ export function initializeNavbar() {
   window.addEventListener("resize", resetNavbarState);
   resetNavbarState();
 
+  //All associated side effects of navbar collapse beginning belong here
+  navbar?.addEventListener("hide.bs.collapse", () => {
+    overlay?.classList.remove("show");
+  });
+
+  // All associated side effects of navbar collapse completion belong here.
+  navbar?.addEventListener("hidden.bs.collapse", () => {
+    setAriaHidden(false);
+
+    // Deactivate and destroy mobile focus trap
+    if (mobileFocusTrap) {
+      mobileFocusTrap.deactivate();
+      mobileFocusTrap = null;
+    }
+  });
+
   // Burger buttons - handle open (mobile only)
   navbar?.addEventListener("shown.bs.collapse", () => {
     // Check if navbar is opening
