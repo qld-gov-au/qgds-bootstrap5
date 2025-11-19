@@ -170,6 +170,7 @@ a.btn,
     color: var(--#{$prefix}btn-color);
     text-decoration: underline;
     text-decoration-color: inherit;
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover, 2px);
     text-underline-offset: 0.3em;
   }
 
