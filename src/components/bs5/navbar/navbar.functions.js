@@ -22,6 +22,10 @@ export function initializeNavbar() {
     });
   };
 
+  function hideNavBar() {
+    bootstrap.Collapse.getInstance(navbar)?.hide();
+  }
+
   // Focus trap instances (created on-demand)
   let mobileFocusTrap = null;
   const dropdownFocusTraps = new Map();
