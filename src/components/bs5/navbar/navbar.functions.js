@@ -133,7 +133,7 @@ export function initializeNavbar() {
     });
 
     if (!isMobile) {
-      hideNavBar();
+      closeNavbar();
     }
   };
 
