@@ -164,7 +164,7 @@ export default {
           }
           
           /* Mobile-only items - hide on desktop with unique class names */
-          @media (min-width: 992px) { 
+          @media (min-width: ${breakpoints.lg}px) { 
             .qgds-mobile-only,
             .qgds-hide-desktop,
             .navbar-nav .qgds-mobile-only,
@@ -504,7 +504,7 @@ export const Default = {
           justify-content: flex-end;
           align-items: center;
         }
-        @media (width <= 992px) {
+        @media (width <= ${breakpoints.lg}px) {
           
           #burgerBtn {
             --nav-header-icon-color: #ffe500;
@@ -533,7 +533,7 @@ export const Default = {
             background-color: var(--nav-header-icon-color, #ffe500);
           }
         }
-        @media (width >= 992px) {
+        @media (width >= ${breakpoints.lg}px) {
           #burgerBtn, #storybook-only-header {
             display: none !important;
           }

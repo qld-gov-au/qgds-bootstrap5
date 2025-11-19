@@ -1,4 +1,5 @@
 import { createFocusTrap } from "../../../js/utils.js";
+import { breakpoints } from "../../../js/constants.js";
 
 export function initializeNavbar() {
   const navbar = document.getElementById("main-nav");
@@ -78,7 +79,7 @@ export function initializeNavbar() {
 
       // Listen for dropdown show event (desktop only)
       toggle.addEventListener("shown.bs.dropdown", () => {
-        const isMobile = window.innerWidth < 992;
+        const isMobile = window.innerWidth < breakpoints.lg;
         if (!isMobile) {
           // Create and activate focus trap on-demand
           const dropdownTrap = getOrCreateDropdownFocusTrap(dropdown, toggle);
@@ -89,7 +90,7 @@ export function initializeNavbar() {
       // Listen for dropdown hide event
       toggle.addEventListener("hidden.bs.dropdown", () => {
         const dropdownTrap = dropdownFocusTraps.get(dropdown);
-        if (dropdownTrap && dropdownTrap.isActive()) {
+        if (dropdownTrap && dropdownTrap.isActive) {
           dropdownTrap.deactivate();
         }
       });
@@ -107,7 +108,7 @@ export function initializeNavbar() {
   });
 
   const resetNavbarState = () => {
-    const isMobile = window.innerWidth < 992;
+    const isMobile = window.innerWidth < breakpoints.lg;
     const dropdownToggles = document.querySelectorAll(
       ".navbar a.dropdown-toggle, .navbar a.no-dropdown-toggle",
     );
@@ -126,6 +127,10 @@ export function initializeNavbar() {
         toggle.setAttribute("data-bs-toggle", "dropdown");
       }
     });
+
+    if (!isMobile) {
+      hideNavBar();
+    }
   };
 
   window.addEventListener("resize", resetNavbarState);
@@ -155,7 +160,7 @@ export function initializeNavbar() {
         setAriaHidden(true);
 
         // Create and activate focus trap when navbar opens (mobile only - whole navbar)
-        const isMobile = window.innerWidth < 992;
+        const isMobile = window.innerWidth < breakpoints.lg;
         if (isMobile) {
           const trap = createMobileFocusTrap();
           trap.activate();
@@ -163,7 +168,4 @@ export function initializeNavbar() {
       }
     }, 0);
   });
-
-  // Close button
-  // burgerCloseBtn?.addEventListener("click", closeNavbar);
 }
