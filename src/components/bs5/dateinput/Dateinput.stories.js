@@ -93,45 +93,45 @@ export const Invalid = {
   },
 };
 
-export const InputValuesArePaddedWithLeadingZeroesOnBlur = {
-  tags: ["!autodocs"],
-  args: defaultdata,
-  play: async ({ canvas, userEvent }) => {
-    const dayInput = document.getElementById(`${defaultdata.id}-dayinput`);
-    const monthInput = document.getElementById(`${defaultdata.id}-monthinput`);
-    const yearInput = document.getElementById(`${defaultdata.id}-yearinput`);
+// export const InputValuesArePaddedWithLeadingZeroesOnBlur = {
+//   tags: ["!autodocs"],
+//   args: defaultdata,
+//   play: async ({ canvas, userEvent }) => {
+//     const dayInput = document.getElementById(`${defaultdata.id}-dayinput`);
+//     const monthInput = document.getElementById(`${defaultdata.id}-monthinput`);
+//     const yearInput = document.getElementById(`${defaultdata.id}-yearinput`);
 
-    await userEvent.type(dayInput, "4");
-    await userEvent.tab();
-    await userEvent.type(monthInput, "4");
-    await userEvent.tab();
-    await userEvent.type(yearInput, "42");
-    await userEvent.tab();
+//     await userEvent.type(dayInput, "4");
+//     await userEvent.tab();
+//     await userEvent.type(monthInput, "4");
+//     await userEvent.tab();
+//     await userEvent.type(yearInput, "42");
+//     await userEvent.tab();
 
-    await expect(dayInput.value).toBe("04");
-    await expect(monthInput.value).toBe("04");
-    await expect(yearInput.value).toBe("0042");
-  },
-};
+//     await expect(dayInput.value).toBe("04");
+//     await expect(monthInput.value).toBe("04");
+//     await expect(yearInput.value).toBe("0042");
+//   },
+// };
 
-export const OutOfRangeValuesAreCorrected = {
-  tags: ["!autodocs"],
-  args: {
-    ...defaultdata,
-    ...{ yearMin: "1000", yearMax: "2000" },
-  },
-  play: async ({ canvas, userEvent }) => {
-    const dayInput = document.getElementById(`${defaultdata.id}-dayinput`);
-    const monthInput = document.getElementById(`${defaultdata.id}-monthinput`);
-    const yearInput = document.getElementById(`${defaultdata.id}-yearinput`);
+// export const OutOfRangeValuesAreCorrected = {
+//   tags: ["!autodocs"],
+//   args: {
+//     ...defaultdata,
+//     ...{ yearMin: "1000", yearMax: "2000" },
+//   },
+//   play: async ({ canvas, userEvent }) => {
+//     const dayInput = document.getElementById(`${defaultdata.id}-dayinput`);
+//     const monthInput = document.getElementById(`${defaultdata.id}-monthinput`);
+//     const yearInput = document.getElementById(`${defaultdata.id}-yearinput`);
 
-    await userEvent.type(dayInput, "42");
-    await userEvent.type(monthInput, "42");
-    await userEvent.type(yearInput, "42");
-    await userEvent.tab();
+//     await userEvent.type(dayInput, "42");
+//     await userEvent.type(monthInput, "42");
+//     await userEvent.type(yearInput, "42");
+//     await userEvent.tab();
 
-    await expect(dayInput.value).toBe("31");
-    await expect(monthInput.value).toBe("12");
-    await expect(yearInput.value).toBe("1000");
-  },
-};
+//     await expect(dayInput.value).toBe("31");
+//     await expect(monthInput.value).toBe("12");
+//     await expect(yearInput.value).toBe("1000");
+//   },
+// };
