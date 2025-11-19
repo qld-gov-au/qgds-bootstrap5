@@ -1,4 +1,5 @@
 import { createFocusTrap } from "../../../js/utils.js";
+import { breakpoints } from "../../../js/constants.js";
 
 export function initializeNavbar() {
   const navbarCollapse = document.getElementById("main-nav");
@@ -90,7 +91,7 @@ export function initializeNavbar() {
 
       // Listen for dropdown show event (desktop only)
       toggle.addEventListener("shown.bs.dropdown", () => {
-        const isMobile = window.innerWidth < 992;
+        const isMobile = window.innerWidth < breakpoints.lg;
         if (!isMobile) {
           // Create and activate focus trap on-demand
           const dropdownTrap = getOrCreateDropdownFocusTrap(dropdown, toggle);
@@ -119,7 +120,7 @@ export function initializeNavbar() {
   });
 
   const resetNavbarState = () => {
-    const isMobile = window.innerWidth < 992;
+    const isMobile = window.innerWidth < breakpoints.lg;
     const dropdownToggles = document.querySelectorAll(
       ".navbar a.dropdown-toggle, .navbar a.no-dropdown-toggle",
     );
@@ -151,7 +152,7 @@ export function initializeNavbar() {
         setAriaHidden(true);
 
         // Create and activate focus trap when navbar opens (mobile only - whole navbar)
-        const isMobile = window.innerWidth < 992;
+        const isMobile = window.innerWidth < breakpoints.lg;
         if (isMobile) {
           const trap = createMobileFocusTrap();
           trap.activate();
