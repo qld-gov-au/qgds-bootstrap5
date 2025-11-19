@@ -1,3 +1,5 @@
+@use "../../../css/mixins" as m;
+
 .global-alert {
   line-height: 1.25rem;
   border-radius: 0;
@@ -103,11 +105,8 @@
         mask-size: contain;
       }
 
-      &:focus {
-        outline: 3px solid;
-        outline-offset: 0;
-        box-shadow: none;
-      }
+      @include m.focusable($offsetOutline: 0);
+      box-shadow: none;
 
       @include media-breakpoint-down(lg) {
         &:hover {
@@ -119,7 +118,8 @@
 
   &.global-alert-critical {
     --#{$prefix}icon-color: #{$core-default-color-neutral-white};
-    //
+    --qld-focus-color: #ffffff;
+
     background-color: $qld-notify-warning;
     color: var(--#{$prefix}white);
     font-size: 0.875em;
@@ -127,12 +127,6 @@
 
     .qld-icon {
       background-color: var(--#{$prefix}white);
-    }
-
-    a {
-      &:focus {
-        outline-color: #fff;
-      }
     }
 
     .global-alert-action a {
@@ -145,9 +139,6 @@
     }
 
     .global-alert-close .btn-close {
-      &:focus {
-        outline-color: #ffffff;
-      }
       &::before {
         background-color: #ffffff;
       }
@@ -156,7 +147,7 @@
 
   &.global-alert-warning {
     --#{$prefix}icon-color: #{$core-default-color-neutral-black};
-    //
+
     background-color: $qld-notify-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
@@ -166,17 +157,11 @@
       color: var(--#{$prefix}body-color);
       text-decoration-color: var(--#{$prefix}body-color);
     }
-
-    .global-alert-close .btn-close {
-      &:focus {
-        outline-color: var(--#{$prefix}color-default-color-light-focus-default);
-      }
-    }
   }
 
   &.global-alert-info {
     --#{$prefix}icon-color: #{$core-default-color-neutral-black};
-    //
+
     background-color: $qld-general-info-alert;
     color: var(--#{$prefix}body-color);
     font-size: 0.875em;
@@ -185,12 +170,6 @@
     .global-alert-action a {
       color: var(--#{$prefix}body-color);
       text-decoration-color: var(--#{$prefix}body-color);
-    }
-
-    .global-alert-close .btn-close {
-      &:focus {
-        outline-color: var(--#{$prefix}color-default-color-light-focus-default);
-      }
     }
   }
 }
