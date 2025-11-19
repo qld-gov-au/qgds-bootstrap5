@@ -22,28 +22,12 @@ export function initializeNavbar() {
     });
   };
 
-  function hideNavBar() {
-    bootstrap.Collapse.getInstance(navbar)?.hide();
-  }
-
   // Focus trap instances (created on-demand)
   let mobileFocusTrap = null;
   const dropdownFocusTraps = new Map();
 
-  // Helper function to close navbar
-  function closeNavbar() {
-    if (navbar?.classList.contains("show")) {
-      navbar.classList.remove("show");
-      overlay?.classList.remove("show");
-      document.body.style.overflow = "";
-      setAriaHidden(false);
-
-      // Deactivate and destroy mobile focus trap
-      if (mobileFocusTrap) {
-        mobileFocusTrap.deactivate();
-        mobileFocusTrap = null;
-      }
-    }
+  function closeNavBar() {
+    bootstrap.Collapse.getInstance(navbar)?.hide();
   }
 
   // Create mobile focus trap on-demand (when mobile menu opens)
@@ -143,6 +127,10 @@ export function initializeNavbar() {
         toggle.setAttribute("data-bs-toggle", "dropdown");
       }
     });
+
+    if (!isMobile) {
+      hideNavBar();
+    }
   };
 
   window.addEventListener("resize", resetNavbarState);
@@ -179,10 +167,5 @@ export function initializeNavbar() {
         }
       }
     }, 0);
-  });
-
-  // Close button
-  burgerCloseBtn?.addEventListener("click", () => {
-    closeNavbar();
   });
 }
