@@ -5,7 +5,6 @@ export function initializeNavbar() {
   const navbar = document.getElementById("main-nav");
   const overlay = document.getElementById("overlay");
   const burgerBtn = document.getElementById("burgerBtn");
-  const burgerCloseBtn = document.getElementById("burgerCloseBtn");
   const addHideTo = ["head", "main", "footer"];
   const hideTargets = addHideTo
     .map((id) => document.getElementById(id))
@@ -31,7 +30,8 @@ export function initializeNavbar() {
     console.log("bootstrap: ", bootstrap);
     // return;
     try {
-      bootstrap?.Collapse.getInstance(navbar)?.hide();
+      console.log("why?");
+      // bootstrap?.Collapse.getInstance(navbar)?.hide();
     } catch (e) {
       console.warn("That didn't work! ", e);
     }
