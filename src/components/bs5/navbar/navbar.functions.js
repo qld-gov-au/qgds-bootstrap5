@@ -27,7 +27,7 @@ export function initializeNavbar() {
 
   function closeNavbar() {
     console.log("navbar: ", navbar);
-    console.log("bootstrap: ", bootstrap);
+    // console.log("bootstrap: ", bootstrap);
     // return;
     console.log("why?");
 
