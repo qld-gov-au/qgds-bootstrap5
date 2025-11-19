@@ -1,7 +1,6 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
-// import { allBackgrounds } from "./modes.js";
 import {
   withDynamicTheme,
   dynamicThemeGlobalTypes,
