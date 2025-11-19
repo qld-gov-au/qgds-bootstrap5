@@ -48,7 +48,10 @@ function buttonVariantsMarkup() {
       return `<div class="d-grid p-32">
               <div class="fw-bold">${variantLabel}</div>
               <div class="d-flex gap-3">
+
+                <!-- Example buttons -->
                 ${variantButtons}
+
               </div>
             </div>`;
     })
@@ -61,11 +64,20 @@ export default {
   args: defaultdata,
   render: (args) => {
     return `
+    <!-- Wrapper div for storybook only -->
     <div class="d-flex gap-3 p-32">
-      ${new Button(args).html}
-      ${new Button({ ...args, isdisabled: true }).html}
-      ${new Button({ ...args, isprogress: true, iconClass: "", label: "Loading button", progressLabel: "Loading...", islink: false, dataatts: 'data-loading-btn="true"' }).html}
-    </div>
+
+      <!-- Example link presented as QGDS button -->
+      ${new Button(args).html.trim()}
+
+      <!-- Example link presented as QGDS button -->
+      ${new Button({ ...args, isdisabled: true }).html.trim()}
+
+      <!-- Example button presented as QGDS button -->
+      ${new Button({ ...args, isprogress: true, iconClass: "", label: "Loading button", progressLabel: "Loading...", islink: false, dataatts: 'data-loading-btn="true"' }).html.trim()}
+    
+    
+      </div>
     `; //expand arguments, specifically turn isdisabled into true
   },
 
