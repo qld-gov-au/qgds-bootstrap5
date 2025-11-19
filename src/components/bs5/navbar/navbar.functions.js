@@ -27,6 +27,7 @@ export function initializeNavbar() {
   const dropdownFocusTraps = new Map();
 
   function closeNavbar() {
+    return;
     try {
       bootstrap.Collapse.getInstance(navbar)?.hide();
     } catch (e) {
