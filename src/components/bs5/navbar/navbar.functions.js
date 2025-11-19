@@ -5,6 +5,7 @@ export function initializeNavbar() {
   const navbar = document.getElementById("main-nav");
   const overlay = document.getElementById("overlay");
   const burgerBtn = document.getElementById("burgerBtn");
+  const burgerCloseBtn = document.getElementById("burgerCloseBtn");
   const addHideTo = ["head", "main", "footer"];
   const hideTargets = addHideTo
     .map((id) => document.getElementById(id))
@@ -26,12 +27,14 @@ export function initializeNavbar() {
   const dropdownFocusTraps = new Map();
 
   function closeNavbar() {
-    console.log("navbar: ", navbar);
-    // console.log("bootstrap: ", bootstrap);
-    // return;
-    console.log("why?");
-
-    // bootstrap?.Collapse.getInstance(navbar)?.hide();
+    // Do not call static method bootstrap.Collapse.getInstance(navbar).hide()
+    // because storybook has a problem with referencing global bootstrap object in production build.
+    // Instead simulate the close button click - same thing.
+    // Do not put side effects of closing menu here (eg clearing menu focus trap), instead use "hidden.bs.collapse" or "hide.bs.collapse" event handlers declared below.
+    // Need to check if menu is actually set to show, otherwise cick will open instead.
+    if (navbar?.classList.contains("show")) {
+      burgerCloseBtn?.click();
+    }
   }
 
   // Create mobile focus trap on-demand (when mobile menu opens)
