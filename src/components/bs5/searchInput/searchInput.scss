@@ -58,6 +58,7 @@
     .suggestions {
       display: block; // !important to override bootstrap d-none
       opacity: 1;
+      z-index: 9999; // Added z-index to ensure suggestions appear above other elements
       transition:
         opacity 0.5s,
         display 0.5s;
