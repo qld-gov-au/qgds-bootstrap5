@@ -834,7 +834,10 @@
     }
   }
 }
+
 //Prevent double scrollbar when navabr is open
-body:has(.navbar.show) {
-  overflow: hidden;
+@include media-breakpoint-down("lg") {
+  body:has(.navbar.show) {
+    overflow: hidden;
+  }
 }
