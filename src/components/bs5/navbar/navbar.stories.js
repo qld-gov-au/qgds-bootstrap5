@@ -1,5 +1,6 @@
 import { Navbar } from "./Navbar.js";
 import defaultdata from "./navbar.data.json";
+import { breakpoints } from "../../../js/constants.js";
 
 //Default story
 export default {
