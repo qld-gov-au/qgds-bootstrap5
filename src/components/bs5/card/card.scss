@@ -29,7 +29,7 @@
   --#{$prefix}card-group-margin: #{$card-group-margin};
   --#{$prefix}card-link-color: var(--#{$prefix}light-link);
   --#{$prefix}card-date-color: var(--#{$prefix}dark-grey-muted);
-  --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
+  --#{$prefix}card-footer-border: var(--#{$prefix}neutral-lighter);
   --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
   --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
   --#{$prefix}link-hover-colour: var(--#{$prefix}light-action-primary-hover);
@@ -113,7 +113,7 @@
   }
   &-alt {
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
-    --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
+    --#{$prefix}card-footer-border: var(--#{$prefix}light-border-alt);
     --#{$prefix}card-icon-background-color: var(
       --#{$prefix}light-alt-background-shade
     );
