@@ -26,8 +26,12 @@ export function initializeNavbar() {
   let mobileFocusTrap = null;
   const dropdownFocusTraps = new Map();
 
-  function closeNavBar() {
-    bootstrap.Collapse.getInstance(navbar)?.hide();
+  function closeNavbar() {
+    try {
+      bootstrap.Collapse.getInstance(navbar)?.hide();
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   // Create mobile focus trap on-demand (when mobile menu opens)
@@ -90,7 +94,7 @@ export function initializeNavbar() {
       // Listen for dropdown hide event
       toggle.addEventListener("hidden.bs.dropdown", () => {
         const dropdownTrap = dropdownFocusTraps.get(dropdown);
-        if (dropdownTrap && dropdownTrap.isActive()) {
+        if (dropdownTrap && dropdownTrap.isActive) {
           dropdownTrap.deactivate();
         }
       });
