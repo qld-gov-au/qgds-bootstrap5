@@ -144,7 +144,7 @@
         outline: 3px solid var(--#{$prefix}focus-color);
         outline-offset: 2px;
         background-color: var(--#{$prefix}white);
-        border: 2px solid var(--#{$prefix}light-grey);
+        border: 2px solid var(--#{$prefix}neutral-lighter);
       }
       &.is-valid {
         outline: none;
@@ -276,7 +276,7 @@
           outline: 3px solid var(--#{$prefix}focus-color);
           outline-offset: 2px;
           background-color: var(--#{$prefix}white);
-          border: 2px solid var(--#{$prefix}light-grey);
+          border: 2px solid var(--#{$prefix}neutral-lighter);
         }
         &.is-valid {
           outline: none;

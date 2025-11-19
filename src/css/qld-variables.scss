@@ -93,7 +93,7 @@ $qld-hint-text-color-muted: $color-default-color-dark-text-lighter;
 
 $qld-text-headings: $color-default-color-light-text-heading;
 $qld-grey: $core-default-color-neutral-light;
-$qld-light-grey: $core-default-color-neutral-lighter;
+//$qld-light-grey: $core-default-color-neutral-lighter;
 $qld-light-grey-alt: $color-default-color-light-background-alt;
 //$qld-extra-light-grey: $core-default-color-neutral-lightest;
 $qld-white: $core-default-color-neutral-white;
@@ -190,7 +190,7 @@ $project-colors: (
   //"medium-grey": $qld-medium-grey,
   "grey": $qld-grey,
   "alt-grey": $qld-alt-grey,
-  "light-grey": $qld-light-grey,
+  //"light-grey": $qld-light-grey,
   "light-grey-alt": $qld-light-grey-alt,
   //"extra-light-grey": $qld-extra-light-grey,
   "white": $qld-white,
