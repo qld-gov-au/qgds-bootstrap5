@@ -7,8 +7,8 @@ exports[`SearchInput > Renders as expected 1`] = `
 <div class="qld-search-input ">
     <input id="search" name="query" class="form-control" type="text" autocomplete="off"
         aria-label="Search website"  data-collection="qgov~sp-search"  data-profile="qld"  data-numranks="10"  data-tiers="off"  data-suggestions="https://discover.search.qld.gov.au/s/suggest.json"  data-results-url="https://discover.search.qld.gov.au/s/search.json"  placeholder="" />
-    <button class="btn btn-primary" type="submit" id="search-button">
-        <span class="btn-icon"></span>
+    <button class="btn btn-primary" type="submit" id="search-button" aria-label="Search">
+        <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">Search</span>
     </button>
     
