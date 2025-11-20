@@ -23,8 +23,13 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
             {{! More button }}
             <span></span>
             {{else}}
-            {{! Page button }}
-            <a class="page-link" href="{{href}}" aria-label="{{arialabel}}">{{ linktext }}</a>
+                {{#ifCond "active" "in" customClasses}}
+                {{! Active page - not a link }}
+                <span class="page-link" aria-current="page" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}, current page{{/if}}">{{ linktext }}</span>
+                {{else}}
+                {{! Page button }}
+                <a class="page-link" href="{{href}}" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}{{/if}}">{{ linktext }}</a>
+                {{/ifCond}}
             {{/if}}
         </li>
 
