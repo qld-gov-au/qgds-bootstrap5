@@ -186,6 +186,8 @@ export function createFocusTrap(container, options = {}) {
     activate,
     deactivate,
     update: updateFocusableElements,
-    isActive: () => isActive,
+    get isActive() {
+      return isActive;
+    },
   };
 }

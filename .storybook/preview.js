@@ -1,11 +1,11 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
-// import { allBackgrounds } from "./modes.js";
 import {
   withDynamicTheme,
   dynamicThemeGlobalTypes,
 } from "./dynamicThemeDecorator.js";
+import { breakpoints } from "../src/js/constants.js";
 
 // Check if dynamic theme should be enabled via environment variable
 const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;
@@ -48,12 +48,21 @@ const preview = {
     viewport: {
       options: {
         //QLD-media Breakpoints
-        small: { name: "Small", styles: { width: "400px", height: "800px" } },
-        medium: { name: "Medium", styles: { width: "700px", height: "800px" } },
-        large: { name: "Large", styles: { width: "992px", height: "800px" } },
+        small: {
+          name: "Small",
+          styles: { width: `${breakpoints.sm}px`, height: "800px" },
+        },
+        medium: {
+          name: "Medium",
+          styles: { width: `${breakpoints.md}px`, height: "800px" },
+        },
+        large: {
+          name: "Large",
+          styles: { width: `${breakpoints.lg}px`, height: "800px" },
+        },
         xlarge: {
           name: "Extra Large",
-          styles: { width: "1312px", height: "1000px" },
+          styles: { width: `${breakpoints.xl}px`, height: "1000px" },
         },
         xxlarge: {
           name: "Extra Extra Large",
@@ -61,7 +70,7 @@ const preview = {
         },
         navbreakpoint: {
           name: "Nave Breakpoint",
-          styles: { width: "992px", height: "800px" },
+          styles: { width: `${breakpoints.lg}px`, height: "800px" },
         },
         ...INITIAL_VIEWPORTS,
       },
