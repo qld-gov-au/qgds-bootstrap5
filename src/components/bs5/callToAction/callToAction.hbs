@@ -2,7 +2,7 @@
     {{#if id}}id="{{id}}"{{/if}}
     href="{{href}}"
     target="{{target}}"
-    aria-label="{{#if arialabel}}{{arialabel}}{{else}}{{label}}{{/if}}"
+    {{#if arialabel}}aria-label="{{arialabel}}"{{/if}}
     >
      {{label}}
     <span class="icon" aria-hidden="true"></span>

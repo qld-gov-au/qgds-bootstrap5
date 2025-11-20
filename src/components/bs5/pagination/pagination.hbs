@@ -21,9 +21,9 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
         <li class="page-item {{customClasses}}">
             {{#if more}}
             {{! More button }}
-            <span class="page-link">...</span>
+            <span></span>
             {{else}}
-                {{#ifCond customClasses "includes" "active"}}
+                {{#ifCond "active" "in" customClasses}}
                 {{! Active page - not a link }}
                 <span class="page-link" aria-current="page" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}, current page{{/if}}">{{ linktext }}</span>
                 {{else}}
