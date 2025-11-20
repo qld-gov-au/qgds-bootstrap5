@@ -561,7 +561,7 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 2rem;
     row-gap: 0;
-    z-index: 10;
+    z-index: 999;
     border-width: 0;
     @include media-breakpoint-up(xl) {
       column-gap: 4rem;
