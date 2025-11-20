@@ -37,6 +37,7 @@
   }
 
   .global-alert-content {
+    --qld-focus-color: #000;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -51,8 +52,8 @@
       text-underline-offset: 0.3rem;
     }
 
-    a:focus {
-      outline-color: #000;
+    a {
+      @include m.focusable($outlineWidth: 2px);
     }
 
     .global-alert-action {
@@ -105,7 +106,7 @@
         mask-size: contain;
       }
 
-      @include m.focusable($offsetOutline: 0);
+      @include m.focusable($outlineWidth: 2px);
       box-shadow: none;
 
       @include media-breakpoint-down(lg) {
@@ -118,7 +119,6 @@
 
   &.global-alert-critical {
     --#{$prefix}icon-color: #{$core-default-color-neutral-white};
-    --qld-focus-color: #ffffff;
 
     background-color: $qld-notify-warning;
     color: var(--#{$prefix}white);
@@ -142,6 +142,10 @@
       &::before {
         background-color: #ffffff;
       }
+    }
+
+    a {
+      --qld-focus-color: #ffffff;
     }
   }
 
