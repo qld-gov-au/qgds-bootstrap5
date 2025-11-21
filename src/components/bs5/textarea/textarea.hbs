@@ -28,5 +28,5 @@
 
 <!-- First text input field, described by the hint text above -->
 <textarea id="{{id}}" class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-    placeholder="{{placeholder}}" rows="{{rows}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
+    placeholder="{{placeholder}}" rows="{{rows}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
     {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>

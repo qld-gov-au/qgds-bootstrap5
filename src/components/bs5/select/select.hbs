@@ -26,7 +26,7 @@
 {{/if}}{{/contains}}
 
 <select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
-    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
     <option selected value="">{{placeholder}}</option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
