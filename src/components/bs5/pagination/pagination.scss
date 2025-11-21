@@ -45,7 +45,7 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
   --#{$prefix}pagination-focus-border-color: var(
     --#{$prefix}dark-action-secondary
   );
-  --#{$prefix}pagination-focus-outline-color: var(--#{$prefix}light-link);
+  --#{$prefix}pagination-focus-outline-color: var(--#{$prefix}light-focus);
   --#{$prefix}pagination-focus-bg: transparent;
 
   //Hover
@@ -166,8 +166,6 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
         border-color: var(--#{$prefix}pagination-hover-border-color);
-        box-shadow: inset 0 0 0 1px
-          var(--#{$prefix}pagination-hover-border-color);
         background-color: var(--#{$prefix}pagination-hover-bg);
       }
 
