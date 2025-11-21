@@ -10,6 +10,5 @@
   "optional-text": "optional",
   "hint-text": "Hint",
   "successMessageText": "Success message",
-  "errorMessageText": "Error message",
-  "tabindex": "0"
+  "errorMessageText": "Error message"
 }

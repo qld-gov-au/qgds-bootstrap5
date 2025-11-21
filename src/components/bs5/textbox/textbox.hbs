@@ -27,5 +27,5 @@
 {{/if}}{{/contains}}
 
 <input id={{id}} {{#if value}}value="{{value}}"{{/if}}  class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-    type="text" placeholder="{{placeholder}}" tabindex="{{isdefined tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if
+    type="text" placeholder="{{placeholder}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if
     isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />

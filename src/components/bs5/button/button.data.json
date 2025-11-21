@@ -8,6 +8,5 @@
   "iconPosition": "leading",
   "label": "Call to action",
   "href": "https://google.com",
-  "target": "_blank",
-  "tabindex": "0"
+  "target": "_blank"
 }

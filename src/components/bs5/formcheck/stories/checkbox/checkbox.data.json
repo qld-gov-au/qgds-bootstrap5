@@ -7,7 +7,6 @@
   "errorMessageText": "Error message",
   "isValid": null,
   "type": "checkbox",
-  "tabindex": "0",
   "listitems": [
     {
       "id": "checkboxItem1",

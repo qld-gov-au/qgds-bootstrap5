@@ -7,7 +7,6 @@
   "errorMessageText": "Error message",
   "isValid": null,
   "type": "radio",
-  "tabindex": "0",
   "listitems": [
     {
       "id": "radioItem1",
