@@ -14,5 +14,8 @@
   "successMessageText": "Success message",
   "errorMessageText": "Error message",
   "yearMin": "",
-  "yearMax": ""
+  "yearMax": "",
+  "day-tabindex": "0",
+  "month-tabindex": "0",
+  "year-tabindex": "0"
 }
