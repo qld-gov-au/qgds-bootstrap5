@@ -144,11 +144,14 @@
               border-inline-start-color: var(--dropdown-show-bg);
               gap: 0;
               &::after {
-                content: "";
                 content: none;
               }
               &:hover {
                 transition: none;
+              }
+
+              &:focus {
+                outline-offset: -3px;
               }
             }
             p {
@@ -176,7 +179,6 @@
                 text-decoration-color: inherit;
                 padding: 0;
                 &:after {
-                  content: "";
                   content: none;
                 }
               }
@@ -797,9 +799,7 @@
     .nav-header .navbar-brand {
       color: var(--nav-header-color);
     }
-    .dropdown-menu.show li a:focus {
-      outline-offset: -3px;
-    }
+
     #burgerCloseBtn {
       --qld-btn-close-bg: none;
       --qld-btn-close-opacity: 1;
