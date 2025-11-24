@@ -3,26 +3,11 @@
 
 // GLOBALLY SCOPED VARIABLES defined via qld-tokens.scss sass map, imported at top of main.scss
 
-//QLD Names Colours
-//$qld-dark-blue: $core-default-color-brand-primary-dark-blue;
-//$qld-light-blue: $core-default-color-brand-primary-light-blue;
-
-//$qld-sapphire-blue: $core-default-color-brand-primary-sapphire-blue;
-//$qld-light-green: $core-default-color-brand-primary-light-green;
-//$qld-dark-green: $core-default-color-brand-secondary-darkgreen;
-//$qld-golden-yellow: $core-default-color-brand-secondary-golden-yellow;
-//$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
-//$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
 $qld-dark-text: $color-default-color-dark-text-default;
 $qld-dark-border: $color-default-color-dark-border-default;
 $qld-dark-alt-border: $color-default-color-dark-border-alt;
-//$qld-alt-button-hover: $color-default-color-light-action-secondary-hover;
 $qld-general-info-alert: $core-default-color-status-info-lighter;
-//$qld-red-border: $core-default-color-status-error-darker;
-//$qld-blue-border: $color-default-color-light-border-light;
-//$qld-yellow-border: $core-default-color-status-caution-darker;
 
-//$qld-dark-blue-shade: $color-default-color-dark-background-alt-shade;
 $qld-light-background: $color-default-color-light-background-light;
 $qld-light-background-shade: $color-default-color-light-background-light-shade;
 $qld-light-border: $color-default-color-light-border-default;
@@ -30,7 +15,7 @@ $qld-light-border-alt: $color-default-color-light-border-alt;
 $qld-dark-focus: $color-default-color-dark-focus-default;
 $qld-light-focus: $color-default-color-light-focus-default;
 
-//
+//Underlines
 $qld-link-underline: $color-default-color-light-underline-default;
 $qld-link-underline-hover: $color-default-color-light-underline-default-hover;
 $qld-link-underline-visited: $color-default-color-light-underline-visited;
@@ -40,19 +25,13 @@ $qld-link-underline-hover-dark: $color-default-color-dark-underline-default-hove
 $qld-link-underline-visited-dark: $color-default-color-dark-underline-visited;
 $qld-link-underline-visited-hover-dark: $color-default-color-dark-underline-visited-hover;
 
-///
+// Link states
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
-//$qld-text-darkest: $color-default-color-dark-link-on-action;
 $qld-dark-hover: $color-default-color-dark-background-default-shade;
 
-//$qld-text-light-blue-dark: $core-default-color-brand-primary-dark-blue;
-//$qld-light-green-dark: $core-default-color-brand-primary-light-green;
-//$qld-dark-green-dark: $color-default-color-dark-action-primary;
-//$qld-light-yellow: $core-default-color-status-caution-lightest;
-//$qld-button-dark-blue: $color-default-color-light-action-primary-hover;
-
 // Remapped legacy brand color values to align with correct UI Kit variables
+// (Legacy only - do not use)
 $qld-brand-primary: $color-default-color-light-action-primary;
 $qld-brand-primary-light: $color-default-color-light-action-primary;
 $qld-brand-primary-dark: $color-default-color-dark-action-primary;
@@ -60,22 +39,7 @@ $qld-brand-secondary: $color-default-color-light-action-secondary;
 $qld-brand-secondary-dark: $color-default-color-dark-action-secondary;
 $qld-brand-accent: $color-default-color-light-accent-design-accent;
 
-// Resolves @qgds-tokens V1 gap between (_variables.scss and _map.scss).
-// Nuetrals were dropped from _variables.scss, but retained in _map.scss.
-$core-default-color-neutral-black: #131212;
-$core-default-color-neutral-darkest: #222020;
-$core-default-color-neutral-darker: #595959;
-$core-default-color-neutral-dark: #78797e;
-$core-default-color-neutral-light: #e0e0e0;
-$core-default-color-neutral-lighter: #ebebeb;
-$core-default-color-neutral-lightest: #f5f5f5;
-$core-default-color-neutral-white: #ffffff;
-
-//Greys
-//$qld-system-darkest: $core-default-color-neutral-darkest;
-//$qld-dark-grey: $core-default-color-neutral-darker;
-//$qld-medium-grey: $core-default-color-neutral-dark;
-//$qld-alt-grey: $core-default-color-neutral-light;
+// @ neutrals ported to qld-tokens.scss
 
 //Links
 $qld-light-link: $color-default-color-light-link-default;
@@ -83,24 +47,13 @@ $qld-dark-link: $color-default-color-dark-link-default;
 $qld-light-link-on-action: $color-default-color-light-link-on-action;
 $qld-dark-link-on-action: $color-default-color-dark-link-on-action;
 
-//Should be core color rather than second hand reference (no match)
-//$qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
-
 $qld-dark-grey-muted: $color-default-color-light-text-lighter;
-//$qld-text-grey: $color-default-color-light-text-default;
 $qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $color-default-color-dark-text-lighter;
 
 $qld-text-headings: $color-default-color-light-text-heading;
 $qld-grey: $core-default-color-neutral-light;
-//$qld-light-grey: $core-default-color-neutral-lighter;
-//$qld-light-grey-alt: $color-default-color-light-background-alt;
-//$qld-extra-light-grey: $core-default-color-neutral-lightest;
 $qld-white: $core-default-color-neutral-white;
-//$qld-white-underline: $core-default-color-status-underline-light;
-//$qld-dark-underline: $core-default-color-status-underline-dark;
-//$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
-//$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
 
 //Notifications and Alerts
 $qld-notify-warning: $core-default-color-status-error-default;
@@ -118,19 +71,7 @@ $qld-textbox-border-color: $color-default-color-light-action-primary-hover;
 $qld-color-error-light: $core-default-color-status-error-lightest;
 $qld-color-success-light: $core-default-color-status-success-lightest;
 
-// Define new figma variables as SASS variables
-//$qld-color-background: $core-default-color-neutral-white;
-//$qld-color-background--shade: $color-default-color-light-background-default-shade;
-//$qld-color-light-background: $core-default-color-status-info-lightest;
-//$qld-color-light-background--shade: $color-default-color-light-background-light-shade;
-//$qld-color-light-alt-background: $color-default-color-light-background-alt;
-//$qld-color-light-alt-background--shade: $color-default-color-light-background-alt-shade;
-
-//$qld-color-dark-background: $color-default-color-dark-background-default;
-//$qld-color-dark-background--shade: $color-default-color-dark-background-default-shade;
-//$qld-color-dark-alt-background: $color-default-color-dark-background-alt;
-//$qld-color-dark-alt-background--shade: $color-default-color-dark-background-alt-shade;
-
+//Action colors
 $qld-light-action-primary: $color-default-color-light-action-primary;
 $qld-light-action-primary-hover: $color-default-color-light-action-primary-hover;
 $qld-light-action-secondary: $color-default-color-light-action-secondary;
@@ -140,12 +81,12 @@ $qld-dark-action-primary: $color-default-color-dark-action-primary;
 $qld-dark-action-primary-hover: $color-default-color-dark-action-primary-hover;
 $qld-dark-action-secondary: $color-default-color-dark-action-secondary;
 $qld-dark-action-secondary-hover: $color-default-color-dark-action-secondary-hover;
-//$qld-dark-action-text: $color-default-color-dark-link-on-action;
 
 /* Site Title */
 $qld-light-site-title: $color-default-color-light-site-title;
 $qld-dark-site-title: $color-default-color-dark-site-title;
 
+// Legacy Bootstrap variables
 $primary: $qld-brand-primary;
 $primary-dark: $qld-brand-primary-dark;
 //$secondary: $qld-dark-green;
@@ -155,11 +96,6 @@ $warning: $qld-notify-alert;
 $danger: $qld-notify-warning;
 $light: $core-default-color-neutral-lightest;
 $dark: $core-default-color-neutral-darker;
-
-$qld-fluid-width-full: 100%;
-$qld-fluid-width-3-quarters: 75%;
-$qld-fluid-width-half: 48.5%;
-$qld-fluid-width-1-quarter: 25%;
 
 // Project-specific colors map for generating CSS custom properties only
 // These will NOT create utility classes, only CSS variables on :root
@@ -174,32 +110,9 @@ $project-colors: (
   "brand-secondary-dark": $qld-brand-secondary-dark,
   "brand-secondary-light": $qld-brand-secondary,
   "brand-accent": $qld-brand-accent,
-
-  //...
-  //"dark-blue": $qld-dark-blue,
-  // "sapphire-blue": $qld-sapphire-blue,
-  // "light-blue": $qld-light-blue,
-  // "light-green": $qld-light-green,
-  // "dark-green": $qld-dark-green,
-  // "golden-yellow": $qld-golden-yellow,
-  //"system-darkest": $qld-system-darkest,
-  //"text-grey": $qld-text-grey,
-  //"dark-grey": $qld-dark-grey,
   "dark-grey-muted": $qld-dark-grey-muted,
   //retain, future rescope with token
-  //"soft-grey": $qld-soft-grey,
-  //"medium-grey": $qld-medium-grey,
-  //"grey": $qld-grey,
-  //"alt-grey": $qld-alt-grey,
-  //"light-grey": $qld-light-grey,
-  //"light-grey-alt": $qld-light-grey-alt,
-  //"extra-light-grey": $qld-extra-light-grey,
   "white": $core-default-color-neutral-white,
-  //"white-underline": $core-default-color-status-underline-light,
-  //"dark-underline": $core-default-color-status-underline-dark,
-  //"maroon-traditional": $qld-maroon-traditional,
-  //"maroon-modern": $qld-maroon-modern,
-  // Syntax and warnings
   "notify-warning": $qld-notify-warning,
   "notify-information": $qld-notify-information,
   "notify-success": $qld-notify-success,
@@ -223,18 +136,7 @@ $project-colors: (
   "dark-action-secondary-hover":
     $color-default-color-dark-action-secondary-hover,
 
-  //"dark-action-text": $color-default-color-dark-link-on-action,
-  /* 
-
-$color-default-color-light-background-alt-shade: #d6dce0 !default;
-$color-default-color-light-background-alt: #e3e7ea !default;
-$color-default-color-light-background-default-shade: #f5f5f5 !default;
-$color-default-color-light-background-default: #ffffff !default;
-$color-default-color-light-background-light-shade: #ceedff !default;
-$color-default-color-light-background-light: #e6f6ff !default;
-
-*/
-    //Backgrounds
+  // Backgrounds
   "default-background": $color-default-color-light-background-default,
   "default-background-shade":
     $color-default-color-light-background-default-shade,
@@ -248,7 +150,6 @@ $color-default-color-light-background-light: #e6f6ff !default;
   "dark-alt-background-shade": $color-default-color-dark-background-alt-shade,
 
   //Borders
-  //"light-border": $qld-light-border,
   "default-border": $qld-light-border,
   "light-border": $color-default-color-light-border-light,
   "light-border-alt": $qld-light-border-alt,
@@ -328,12 +229,8 @@ $project-base-colors: (
   "dark-text": $color-default-color-dark-text-default,
   "dark-border": $qld-dark-border,
   "dark-alt-border": $qld-dark-alt-border,
-  //"alt-button-hover": $qld-alt-button-hover,
-  //"dark-blue-shade": $qld-dark-blue-shade,
   "dark-focus": $qld-dark-focus,
   "light-focus": $qld-light-focus,
-  //"button-dark-blue": $qld-button-dark-blue,
-  //"text-darkest": $qld-text-darkest,
   "dark-hover": $qld-dark-hover
 );
 
@@ -351,6 +248,12 @@ $grid-breakpoints: (
 
 // Map merge to include custom breakpoints
 $breakpoints: map-merge($grid-breakpoints, ());
+
+// Fluid width percentages
+$qld-fluid-width-full: 100%;
+$qld-fluid-width-3-quarters: 75%;
+$qld-fluid-width-half: 48.5%;
+$qld-fluid-width-1-quarter: 25%;
 
 // Gutters inside rows (column gutters)
 $grid-gutter-width: 2rem;
