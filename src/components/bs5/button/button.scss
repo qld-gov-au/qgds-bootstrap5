@@ -83,8 +83,8 @@
   &-primary {
     --#{$prefix}btn-bg: var(--#{$prefix}dark-action-secondary);
     --#{$prefix}btn-border-color: var(--#{$prefix}dark-action-secondary);
-    --#{$prefix}btn-color: var(--#{$prefix}text-darkest);
-    --#{$prefix}btn-hover-color: var(--#{$prefix}text-darkest);
+    --#{$prefix}btn-color: var(--#{$prefix}dark-link-on-action);
+    --#{$prefix}btn-hover-color: var(--#{$prefix}dark-link-on-action);
     --#{$prefix}btn-hover-bg: var(--#{$prefix}dark-action-primary-hover);
     --#{$prefix}btn-hover-border-color: var(
       --#{$prefix}dark-action-primary-hover

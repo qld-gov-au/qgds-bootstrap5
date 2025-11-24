@@ -43,7 +43,7 @@ $qld-link-underline-visited-hover-dark: $color-default-color-dark-underline-visi
 ///
 $qld-link-visited: $color-default-color-light-underline-visited;
 $qld-link-visited-dark: $color-default-color-dark-underline-visited;
-$qld-text-darkest: $color-default-color-dark-link-on-action;
+//$qld-text-darkest: $color-default-color-dark-link-on-action;
 $qld-dark-hover: $color-default-color-dark-background-default-shade;
 
 //$qld-text-light-blue-dark: $core-default-color-brand-primary-dark-blue;
@@ -140,7 +140,7 @@ $qld-dark-action-primary: $color-default-color-dark-action-primary;
 $qld-dark-action-primary-hover: $color-default-color-dark-action-primary-hover;
 $qld-dark-action-secondary: $color-default-color-dark-action-secondary;
 $qld-dark-action-secondary-hover: $color-default-color-dark-action-secondary-hover;
-$qld-dark-action-text: $color-default-color-dark-link-on-action;
+//$qld-dark-action-text: $color-default-color-dark-link-on-action;
 
 /* Site Title */
 $qld-light-site-title: $color-default-color-light-site-title;
@@ -209,17 +209,21 @@ $project-colors: (
   "syntax-properties": $qld-syntax-properties,
   "syntax-comments": $qld-syntax-comments,
 
-  //Actions
-  "light-action-primary": $qld-light-action-primary,
-  "light-action-primary-hover": $qld-light-action-primary-hover,
-  "light-action-secondary": $qld-light-action-secondary,
-  "light-action-secondary-hover": $qld-light-action-secondary-hover,
-  "dark-action-primary": $qld-dark-action-primary,
-  "dark-action-primary-hover": $qld-dark-action-primary-hover,
-  "dark-action-text": $qld-dark-action-text,
-  "dark-action-secondary": $qld-dark-action-secondary,
-  "dark-action-secondary-hover": $qld-dark-action-secondary-hover,
+  //Actions (Light)
+  "light-action-primary": $color-default-color-light-action-primary,
+  "light-action-primary-hover": $color-default-color-light-action-primary-hover,
+  "light-action-secondary": $color-default-color-light-action-secondary,
+  "light-action-secondary-hover":
+    $color-default-color-light-action-secondary-hover,
 
+  //Actions (Dark)
+  "dark-action-primary": $color-default-color-dark-action-primary,
+  "dark-action-primary-hover": $color-default-color-dark-action-primary-hover,
+  "dark-action-secondary": $color-default-color-dark-action-secondary,
+  "dark-action-secondary-hover":
+    $color-default-color-dark-action-secondary-hover,
+
+  //"dark-action-text": $color-default-color-dark-link-on-action,
   /* 
 
 $color-default-color-light-background-alt-shade: #d6dce0 !default;
@@ -329,7 +333,7 @@ $project-base-colors: (
   "dark-focus": $qld-dark-focus,
   "light-focus": $qld-light-focus,
   //"button-dark-blue": $qld-button-dark-blue,
-  "text-darkest": $qld-text-darkest,
+  //"text-darkest": $qld-text-darkest,
   "dark-hover": $qld-dark-hover
 );
 

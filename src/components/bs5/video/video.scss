@@ -35,7 +35,7 @@ $video-clock-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     --#{$prefix}video-nav-bg-rgb: 132, 211, 255;
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}dark-action-primary-hover);
     --#{$prefix}video-nav-bg-hover-rgb: 166, 247, 255;
-    --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
+    --#{$prefix}video-nav-color: var(--#{$prefix}dark-link-on-action);
     --#{$prefix}video-play-icon: #{escape-svg($video-play-icon-dark)};
     --#{$prefix}video-clock-icon: #{escape-svg($video-clock-icon-dark)};
   }

@@ -78,12 +78,12 @@
   &.dark,
   &.dark-alt {
     --qld-tab-background-hover: var(--#{$prefix}dark-action-primary-hover);
-    --qld-tab-hover-text-color: var(--#{$prefix}text-darkest);
+    --qld-tab-hover-text-color: var(--#{$prefix}dark-link-on-action);
     --qld-tab-icon-color: var(--#{$prefix}dark-action-secondary);
     --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
     --qld-tab-text-colour-heading: var(--#{$prefix}dark-text-text);
     --qld-border-color: var(--#{$prefix}dark-alt-border);
-    --qld-tab-icon-color-hover: var(--#{$prefix}dark-action-text);
+    --qld-tab-icon-color-hover: var(--#{$prefix}dark-link-on-action);
     --qld-tab-focus-colour: var(--#{$prefix}dark-focus);
     --qld-tab-active-focus-colour: var(--#{$prefix}dark-focus);
     --qld-scroll-bg-color: var(--default-bg-colour);
@@ -587,13 +587,13 @@
     }
     .dark ~ & {
       --qld-tab-background-hover: var(--qld-dark-action-primary-hover);
-      --qld-tab-hover-text-color: var(--qld-text-darkest);
+      --qld-tab-hover-text-color: var(--qld-dark-link-on-action);
       --qld-tab-icon-color: var(--qld-dark-action-secondary);
       --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
       --qld-tab-text-colour-heading: var(--qld-dark-text);
       --qld-scroll-bg-color: var(--default-bg-colour);
       --qld-scroll-area-bg-color: var(--dark-bg-colour);
-      --qld-tab-icon-color-hover: var(--qld-dark-action-text);
+      --qld-tab-icon-color-hover: var(--qld-dark-link-on-action);
       --nav-link-color: var(--#{$prefix}dark-text-text);
       .tabs-area {
         background-color: var(--dark-bg-colour);
@@ -601,12 +601,12 @@
     }
     .dark-alt ~ & {
       --qld-tab-background-hover: var(--qld-dark-action-primary-hover);
-      --qld-tab-hover-text-color: var(--qld-text-darkest);
+      --qld-tab-hover-text-color: var(--qld-dark-link-on-action);
       --qld-tab-icon-color: var(--qld-dark-action-secondary);
       --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
       --qld-tab-text-colour-heading: var(--qld-dark-text);
       --qld-scroll-bg-color: var(--default-bg-colour);
-      --qld-tab-icon-color-hover: var(--qld-dark-action-text);
+      --qld-tab-icon-color-hover: var(--qld-dark-link-on-action);
       --nav-link-color: var(--#{$prefix}dark-text-text);
       color: var(--qld-body-color);
       background-color: var(--qld-dark-alt-background);

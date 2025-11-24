@@ -133,7 +133,7 @@
     --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary);
     --#{$prefix}card-border-color: var(--#{$prefix}dark-border);
     --#{$prefix}link-hover-colour: var(--#{$prefix}dark-action-primary-hover);
-    --#{$prefix}link-hover-text-colour: var(--#{$prefix}text-darkest);
+    --#{$prefix}link-hover-text-colour: var(--#{$prefix}dark-link-on-action);
     &:hover {
       --#{$prefix}card-arrow-color: var(
         --#{$prefix}dark-action-secondary-hover
@@ -149,8 +149,8 @@
         --#{$prefix}dark-action-primary-hover
       );
       --#{$prefix}video-nav-bg-hover-rgb: 166, 247, 255;
-      --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
-      --#{$prefix}video-play-icon-color: var(--#{$prefix}text-darkest);
+      --#{$prefix}video-nav-color: var(--#{$prefix}dark-link-on-action);
+      --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-link-on-action);
     }
   }
   &-dark {
