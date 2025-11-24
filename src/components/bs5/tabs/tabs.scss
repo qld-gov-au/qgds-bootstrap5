@@ -11,7 +11,7 @@
   --light-border-colour: var(--#{$prefix}light-border-alt);
   --light-colour: var(--#{$prefix}light-text-heading);
   --dark-border-colour: var(--#{$prefix}dark-alt-border);
-  --dark-colour: var(--#{$prefix}dark-text);
+  --dark-colour: var(--#{$prefix}dark-text-text);
   --icon-dropshadow:
     0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
   --focus-default-colour: var(--#{$prefix}light-focus);
@@ -81,13 +81,13 @@
     --qld-tab-hover-text-color: var(--#{$prefix}text-darkest);
     --qld-tab-icon-color: var(--#{$prefix}dark-action-secondary);
     --qld-tab-disabled-colour: #{$qld-hint-text-color-muted};
-    --qld-tab-text-colour-heading: var(--#{$prefix}dark-text);
+    --qld-tab-text-colour-heading: var(--#{$prefix}dark-text-text);
     --qld-border-color: var(--#{$prefix}dark-alt-border);
     --qld-tab-icon-color-hover: var(--#{$prefix}dark-action-text);
     --qld-tab-focus-colour: var(--#{$prefix}dark-focus);
     --qld-tab-active-focus-colour: var(--#{$prefix}dark-focus);
     --qld-scroll-bg-color: var(--default-bg-colour);
-    --nav-link-color: var(--#{$prefix}dark-text);
+    --nav-link-color: var(--#{$prefix}dark-text-text);
   }
   &.container-tabs {
     --scroll-distance: 0;
@@ -594,7 +594,7 @@
       --qld-scroll-bg-color: var(--default-bg-colour);
       --qld-scroll-area-bg-color: var(--dark-bg-colour);
       --qld-tab-icon-color-hover: var(--qld-dark-action-text);
-      --nav-link-color: var(--#{$prefix}dark-text);
+      --nav-link-color: var(--#{$prefix}dark-text-text);
       .tabs-area {
         background-color: var(--dark-bg-colour);
       }
@@ -607,7 +607,7 @@
       --qld-tab-text-colour-heading: var(--qld-dark-text);
       --qld-scroll-bg-color: var(--default-bg-colour);
       --qld-tab-icon-color-hover: var(--qld-dark-action-text);
-      --nav-link-color: var(--#{$prefix}dark-text);
+      --nav-link-color: var(--#{$prefix}dark-text-text);
       color: var(--qld-body-color);
       background-color: var(--qld-dark-alt-background);
       .tabs-area {

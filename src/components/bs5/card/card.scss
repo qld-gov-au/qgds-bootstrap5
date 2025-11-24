@@ -54,9 +54,9 @@
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}light-action-primary-hover);
     --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 150;
     --#{$prefix}video-nav-bg-opacity: 0.9;
-    --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
+    --#{$prefix}video-nav-color: var(--#{$prefix}dark-text-text);
     --#{$prefix}video-clock-icon-size: 1.25rem;
-    --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-text);
+    --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-text-text);
   }
   .icon-top {
     --#{$prefix}card-icon-height: 8rem;
@@ -126,10 +126,10 @@
   }
   &-dark,
   &-dark-alt {
-    --#{$prefix}card-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-link-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-date-color: var(--#{$prefix}dark-text);
+    --#{$prefix}card-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}card-title-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}card-link-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}card-date-color: var(--#{$prefix}dark-text-text);
     --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary);
     --#{$prefix}card-border-color: var(--#{$prefix}dark-border);
     --#{$prefix}link-hover-colour: var(--#{$prefix}dark-action-primary-hover);

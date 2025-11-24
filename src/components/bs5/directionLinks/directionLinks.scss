@@ -45,7 +45,7 @@ a[aria-disabled="true"] {
 .dark,
 .dark-alt {
   .qld-dir-link {
-    --link-colour: var(--#{$prefix}dark-text);
+    --link-colour: var(--#{$prefix}dark-text-text);
     --icon-colour: var(--#{$prefix}dark-action-secondary);
     --icon-colour-hover: var(--#{$prefix}dark-action-secondary-hover);
   }
