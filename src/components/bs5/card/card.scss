@@ -5,7 +5,7 @@
 
 .card {
   --#{$prefix}card-bg: var(--#{$prefix}default-background);
-  --#{$prefix}card-color: var(--#{$prefix}text-grey);
+  --#{$prefix}card-color: var(--#{$prefix}light-text-text);
   --#{$prefix}card-title-color: var(--#{$prefix}light-text-heading);
   --#{$prefix}card-spacer-x: #{$card-spacer-x};
   --#{$prefix}card-spacer-y: #{$card-spacer-y};

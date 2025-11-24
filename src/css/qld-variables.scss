@@ -72,8 +72,8 @@ $core-default-color-neutral-lightest: #f5f5f5;
 $core-default-color-neutral-white: #ffffff;
 
 //Greys
-$qld-system-darkest: $core-default-color-neutral-darkest;
-$qld-dark-grey: $core-default-color-neutral-darker;
+//$qld-system-darkest: $core-default-color-neutral-darkest;
+//$qld-dark-grey: $core-default-color-neutral-darker;
 //$qld-medium-grey: $core-default-color-neutral-dark;
 //$qld-alt-grey: $core-default-color-neutral-light;
 
@@ -87,7 +87,7 @@ $qld-dark-link-on-action: $color-default-color-dark-link-on-action;
 //$qld-soft-grey: $color-default-color-light-border-alt; //todo, replace soft-greys across the system with the below color
 
 $qld-dark-grey-muted: $color-default-color-light-text-lighter;
-$qld-text-grey: $color-default-color-light-text-default;
+//$qld-text-grey: $color-default-color-light-text-default;
 $qld-hint-text-color: $color-default-color-light-text-lighter;
 $qld-hint-text-color-muted: $color-default-color-dark-text-lighter;
 
@@ -97,8 +97,8 @@ $qld-grey: $core-default-color-neutral-light;
 //$qld-light-grey-alt: $color-default-color-light-background-alt;
 //$qld-extra-light-grey: $core-default-color-neutral-lightest;
 $qld-white: $core-default-color-neutral-white;
-$qld-white-underline: $core-default-color-status-underline-light;
-$qld-dark-underline: $core-default-color-status-underline-dark;
+//$qld-white-underline: $core-default-color-status-underline-light;
+//$qld-dark-underline: $core-default-color-status-underline-dark;
 //$qld-maroon-traditional: $core-default-color-brand-other-gov-maroon;
 //$qld-maroon-modern: $core-default-color-brand-other-modern-maroon;
 
@@ -182,20 +182,21 @@ $project-colors: (
   // "light-green": $qld-light-green,
   // "dark-green": $qld-dark-green,
   // "golden-yellow": $qld-golden-yellow,
-  "system-darkest": $qld-system-darkest,
-  "text-grey": $qld-text-grey,
-  "dark-grey": $qld-dark-grey,
+  //"system-darkest": $qld-system-darkest,
+  //"text-grey": $qld-text-grey,
+  //"dark-grey": $qld-dark-grey,
   "dark-grey-muted": $qld-dark-grey-muted,
+  //retain, future rescope with token
   //"soft-grey": $qld-soft-grey,
   //"medium-grey": $qld-medium-grey,
-  "grey": $qld-grey,
+  //"grey": $qld-grey,
   //"alt-grey": $qld-alt-grey,
   //"light-grey": $qld-light-grey,
   //"light-grey-alt": $qld-light-grey-alt,
   //"extra-light-grey": $qld-extra-light-grey,
-  "white": $qld-white,
-  "white-underline": $qld-white-underline,
-  "dark-underline": $qld-dark-underline,
+  "white": $core-default-color-neutral-white,
+  //"white-underline": $core-default-color-status-underline-light,
+  //"dark-underline": $core-default-color-status-underline-dark,
   //"maroon-traditional": $qld-maroon-traditional,
   //"maroon-modern": $qld-maroon-modern,
   // Syntax and warnings
@@ -320,7 +321,7 @@ $project-base-colors: (
   "danger": $qld-notify-warning,
   "light": $core-default-color-neutral-lightest,
   "dark": $core-default-color-neutral-darker,
-  "dark-text": $qld-dark-text,
+  "dark-text": $color-default-color-dark-text-default,
   "dark-border": $qld-dark-border,
   "dark-alt-border": $qld-dark-alt-border,
   //"alt-button-hover": $qld-alt-button-hover,

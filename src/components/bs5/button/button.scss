@@ -23,7 +23,7 @@
     --#{$prefix}btn-hover-bg: var(--#{$prefix}light-action-primary-hover);
     --#{$prefix}btn-active-bg: var(--#{$prefix}neutral-lightest);
     --#{$prefix}btn-active-color: var(--#{$prefix}light-text-heading);
-    --#{$prefix}btn-disabled-bg: var(--#{$prefix}grey);
+    --#{$prefix}btn-disabled-bg: var(--#{$prefix}neutral-light);
     --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
     --#{$prefix}btn-disabled-opacity: 1;
     --#{$prefix}btn-disabled-border-color: transparent;
@@ -52,7 +52,7 @@
     --#{$prefix}btn-disabled-bg: transparent;
     --#{$prefix}btn-disabled-color: var(--#{$prefix}dark-grey-muted);
     --#{$prefix}btn-disabled-opacity: 1;
-    --#{$prefix}btn-disabled-border-color: var(--#{$prefix}grey);
+    --#{$prefix}btn-disabled-border-color: var(--#{$prefix}neutral-light);
     --#{$prefix}gradient: none;
     --#{$prefix}btn-focus-border-color: var(
       --#{$prefix}light-action-secondary-hover
