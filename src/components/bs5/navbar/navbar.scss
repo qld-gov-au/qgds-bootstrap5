@@ -1,3 +1,5 @@
+@use "../../../css/mixins" as m;
+
 @mixin repeatedVerticalStyles {
   .nav-header {
     min-height: var(--qld-header-preheader-height, 4rem);
@@ -18,6 +20,8 @@
       border-radius: 0;
       display: block;
       padding-inline: 1.5rem;
+
+      @include m.focusable($offsetOutline: -3px);
     }
   }
   > .container {
@@ -82,6 +86,9 @@
             box-shadow:
               0px 1px 2px rgba(0, 0, 0, 0.2),
               0px 1px 3px rgba(0, 0, 0, 0.1);
+
+            @include m.focusable();
+
             &:hover {
               box-shadow:
                 0px 4px 8px 3px rgba(0, 0, 0, 0.1),
@@ -99,9 +106,6 @@
               margin-left: 0;
               transform: rotate(0deg);
               transition: transform var(--animation-time) ease-in;
-            }
-            &:focus {
-              outline: 2px solid var(--qld-focus-color);
             }
           }
           .nav-link {
@@ -140,11 +144,14 @@
               border-inline-start-color: var(--dropdown-show-bg);
               gap: 0;
               &::after {
-                content: "";
                 content: none;
               }
               &:hover {
                 transition: none;
+              }
+
+              &:focus {
+                outline-offset: -3px;
               }
             }
             p {
@@ -172,7 +179,6 @@
                 text-decoration-color: inherit;
                 padding: 0;
                 &:after {
-                  content: "";
                   content: none;
                 }
               }
@@ -214,6 +220,8 @@
       border-block-end: 0;
       margin-block-end: 0;
       position: relative;
+      outline-offset: -3px;
+
       &::before {
         content: "";
         position: absolute;
@@ -248,8 +256,9 @@
           background-color: transparent;
         }
       }
-      &:focus {
-        outline-offset: 0;
+
+      &:focus::before {
+        z-index: -1;
       }
     }
   }
@@ -336,6 +345,7 @@
     --mobile-only-display: block;
     --visibility-display: visible;
     --nav-header-border-color: var(--#{$prefix}dark-border);
+
     .qld-header:has(.qld-header-pre-header.dark) ~ & {
       --vert-background-color: var(--#{$prefix}dark-background);
       --background-color: var(--#{$prefix}default-background-shade);
@@ -355,6 +365,15 @@
       --nav-header-icon-color: var(--#{$prefix}brand-accent);
       --navbar-collapse-bg: var(--#{$prefix}dark-background-shade);
       --action-icon-color_active: var(--text-color);
+
+      > :where(*) {
+        --qld-focus-color: var(--qld-light-focus);
+      }
+
+      .nav-header {
+        --qld-focus-color: var(--qld-dark-focus);
+      }
+
       .alt {
         --vert-background-color: var(--#{$prefix}default-background);
         --background-color: var(--#{$prefix}sapphire-blue);
@@ -369,6 +388,11 @@
         --dropdown-bg-color: var(--#{$prefix}dark-background);
         --action-icon-color: var(--#{$prefix}brand-accent);
         --action-icon-color_active: var(--text-color);
+
+        > :where(*) {
+          --qld-focus-color: var(--qld-dark-focus);
+        }
+
         .nav-link {
           border-inline-start: 0;
         }
@@ -393,6 +417,14 @@
       --navbar-collapse-bg: var(--#{$prefix}default-background-shade);
       --action-icon-color_active: var(--text-color);
 
+      > :where(*) {
+        --qld-focus-color: var(--qld-dark-focus);
+      }
+
+      .nav-header {
+        --qld-focus-color: var(--qld-light-focus);
+      }
+
       .alt {
         --vert-background-color: var(--#{$prefix}dark-background);
         --background-color: var(--#{$prefix}default-background);
@@ -406,11 +438,13 @@
         --header-color: var(--#{$prefix}default-background);
         --action-icon-color: var(--#{$prefix}alt-button-hover);
         --action-icon-color_active: var(--text-color);
+
         .nav-link {
           border-inline-start: 0;
         }
       }
     }
+
     .qld-header:has(.qld-header-pre-header.dark-alt) ~ & {
       --background-color: var(--#{$prefix}dark-background-shade);
       --background-color-hover: var(--#{$prefix}dark-alt-background);
@@ -429,6 +463,15 @@
       --nav-header-border-color: var(--#{$prefix}dark-border);
       --nav-header-icon-color: var(--#{$prefix}dark-action-secondary);
       --action-icon-color_active: var(--text-color);
+
+      > :where(*) {
+        --qld-focus-color: var(--qld-dark-focus);
+      }
+
+      .nav-header {
+        --qld-focus-color: var(--qld-dark-focus);
+      }
+
       .alt {
         --background-color: var(--#{$prefix}dark-alt-background-shade);
         --background-color-hover: var(--#{$prefix}dark-alt-background-shade);
@@ -438,6 +481,11 @@
         --action-icon-color: var(--#{$prefix}brand-accent);
         --link-border-color-hover: var(--#{$prefix}dark-action-secondary-hover);
         --action-icon-color_active: var(--text-color);
+
+        > :where(*) {
+          --qld-focus-color: var(--qld-dark-focus);
+        }
+
         .nav-link {
           border-inline-start: 0;
         }
@@ -515,8 +563,7 @@
       text-underline-offset: 0.3rem;
       text-decoration-thickness: 0.125rem;
     }
-    &:focus {
-      outline-offset: -2px;
+    @include m.focusable($offsetOutline: -3px) {
       box-shadow: none;
     }
   }
@@ -624,8 +671,7 @@
             padding-inline-end var(--animation-time) ease-in-out,
             gap var(--animation-time) ease-in-out;
         }
-        &:focus {
-          outline-offset: 2px;
+        @include m.focusable() {
           box-shadow: none;
         }
       }
@@ -753,6 +799,7 @@
     .nav-header .navbar-brand {
       color: var(--nav-header-color);
     }
+
     #burgerCloseBtn {
       --qld-btn-close-bg: none;
       --qld-btn-close-opacity: 1;

@@ -78,7 +78,7 @@
         --qld-icon-color: var(--qld-action-icon-hover-color);
       }
 
-      @include mixins.focusable($offsetOutline: false);
+      @include mixins.focusable($offsetOutline: -3px);
 
       &:before {
         content: "";

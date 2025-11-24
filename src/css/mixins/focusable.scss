@@ -18,7 +18,7 @@
   @if $offsetOutline == true {
     $offsetOutline: 2px;
   } @else if $offsetOutline == false {
-    $offsetOutline: $initial-offset;
+    $offsetOutline: 0px;
   }
 
   outline: $outlineWidth solid transparent;
