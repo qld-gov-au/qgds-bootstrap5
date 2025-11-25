@@ -1,4 +1,5 @@
 @use "../../../css/mixins" as m;
+@use "../../../css/functions" as f;
 
 @mixin repeatedVerticalStyles {
   .nav-header {
@@ -128,6 +129,7 @@
           display: block;
           padding: 0;
           box-shadow: none;
+          columns: unset;
           &::before {
             display: none;
           }
@@ -211,6 +213,7 @@
     }
     a.dropdown-item {
       background-color: transparent;
+      border-radius: 0;
       &:hover {
         background-color: transparent;
       }
@@ -548,19 +551,23 @@
       background-color: var(--action-icon-color);
     }
   }
+
   .navbar-nav a.nav-link {
     color: var(--text-color);
     padding-block: var(--nav-link-padding-block);
     padding-inline: 0.75rem;
     display: flex;
-    line-height: 2rem;
+    line-height: f.snap-line-height(1.4);
     gap: 0.5rem;
     align-items: center;
     &:hover {
       color: var(--link-color);
-      text-decoration: underline;
-      text-underline-offset: 0.3rem;
-      text-decoration-thickness: 0.125rem;
+      text-decoration-line: underline;
+      text-decoration-color: currentColor;
+    }
+    &:focus {
+      z-index: 1;
+      outline-offset: -3px;
     }
   }
 
@@ -569,17 +576,18 @@
     padding-block: var(--nav-link-padding-block);
     padding-inline: 0.75rem;
     display: flex;
-    line-height: 2rem;
+    line-height: f.snap-line-height(1.4);
     gap: 0.5rem;
-    align-items: center;
+    align-items: flex-start;
+    border-radius: 0.25rem;
     &:hover {
       color: var(--link-color);
-      text-decoration: underline;
-      text-underline-offset: 0.3rem;
-      text-decoration-thickness: 0.125rem;
+      text-decoration-line: underline;
+      text-decoration-color: currentColor;
     }
     @include m.focusable($offsetOutline: -3px) {
       box-shadow: none;
+      background-color: transparent;
     }
   }
   a.dropdown-toggle {
@@ -608,6 +616,8 @@
     }
   }
   .dropdown-menu.show {
+    display: block;
+    columns: 3;
     margin-block-start: calc(
       var(--horizontal-bar-border-width) - var(--border-width)
     );
@@ -617,21 +627,20 @@
     border-radius: 0.75rem;
     border-start-start-radius: 0;
     border-start-end-radius: 0;
+    border-width: 0;
     color: var(--text-color);
     box-shadow: var(--shadow-dropdown);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     column-gap: 2rem;
-    row-gap: 0;
     z-index: 999;
-    border-width: 0;
-    @include media-breakpoint-up(xl) {
-      column-gap: 4rem;
-      row-gap: 0;
-    }
+
     @include media-breakpoint-up(md) {
       padding-block: 3rem;
     }
+
+    @include media-breakpoint-up(xl) {
+      column-gap: 4rem;
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -640,21 +649,26 @@
       inset-block-start: 0;
       background-color: var(--dropdown-bg-color);
     }
+
     li {
-      display: flex;
+      break-inside: avoid-column;
+
       &.mobile-only {
         display: var(--mobile-only-display);
       }
-      &:has(p) {
-        flex-direction: column;
-        row-gap: 20px;
-        p {
-          font-size: 0.875rem;
+
+      p {
+        font-size: 0.875rem;
+        margin-block: f.remify(16px);
+
+        &:first-of-type {
+          margin-block-start: f.remify(20px);
         }
       }
+
       a {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         padding-inline-start: 0;
         padding-inline-end: 0.5rem;
         white-space: normal;
@@ -672,7 +686,7 @@
           mask-repeat: no-repeat;
           mask-position: 0;
           background-color: var(--action-icon-color);
-          height: 1.25rem;
+          height: 1lh;
           width: 1.25rem;
           min-width: 1.25rem;
           margin-inline-start: auto;
@@ -690,24 +704,18 @@
           box-shadow: none;
         }
       }
-      p {
-        text-align: start;
-        margin-block-start: 1rem;
-      }
-      p:first-of-type {
-        margin-block-start: 0;
-      }
-      p:last-of-type {
-        margin-block-end: 0;
-      }
     }
+
     li:has(.parent-link) {
       border-block-end: 2px solid var(--border-color);
       padding-block-end: 2rem;
       margin-block-end: 2rem;
       gap: 1rem;
-      grid-column: 1 / -1;
+      column-span: all;
+
       .dropdown-item {
+        width: auto;
+        display: inline-flex;
         border-block-end: 0;
         padding-block: 0;
         gap: 1rem;
@@ -733,11 +741,16 @@
       border-block-start: 2px solid var(--border-color);
       padding-block-start: 2rem;
       margin-block-start: 2rem;
-      grid-column: 1 / -1;
+      text-align: end;
+      // grid-column: 1 / -1;
+      column-span: all;
+
       .dropdown-item {
         border-block-end: 0;
-        display: flex;
+        display: inline-flex;
+        width: auto;
         flex-direction: row-reverse;
+        align-items: center;
         padding-inline-end: 0.5rem;
         gap: 0.5rem;
         font-size: 1.25rem;
@@ -755,7 +768,6 @@
           transform: scaleX(var(--icon-dir));
         }
         &::after {
-          content: "";
           content: none;
         }
         &:hover {
