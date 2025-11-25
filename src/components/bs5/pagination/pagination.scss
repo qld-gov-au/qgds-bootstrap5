@@ -262,7 +262,6 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
         border-color: var(--#{$prefix}pagination-active-bg);
-        box-shadow: var(--#{$prefix}pagination-active-dropshadow);
         background-color: var(--#{$prefix}pagination-active-hover-bg);
       }
 
@@ -270,7 +269,6 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
         // --qld-focus-color: var(--#{$prefix}pagination-focus-outline-color);
         @include m.focusable($offsetOutline: 2px);
         border-color: var(--#{$prefix}pagination-active-bg);
-        box-shadow: var(--#{$prefix}pagination-active-dropshadow);
         background-color: var(--#{$prefix}pagination-active-focus-bg);
       }
     }
