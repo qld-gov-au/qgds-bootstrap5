@@ -2,28 +2,16 @@ import { createFocusTrap } from "../../../js/utils.js";
 import { breakpoints } from "../../../js/constants.js";
 import { getFocusableElements } from "../../../js/utils.js";
 
-const isMobile = () => window.innerWidth < breakpoints.lg;
+const getIsMobile = () => window.innerWidth < breakpoints.lg;
 
 export function initializeNavbar() {
   const navbar = document.getElementById("main-nav");
   const overlay = document.getElementById("overlay");
   const burgerBtn = document.getElementById("burgerBtn");
   const burgerCloseBtn = document.getElementById("burgerCloseBtn");
-  const addHideTo = ["head", "main", "footer"];
-  const hideTargets = addHideTo
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
 
-  // Helper to set aria-hidden
-  const setAriaHidden = (hidden) => {
-    hideTargets.forEach((el) => {
-      if (hidden) {
-        el.setAttribute("aria-hidden", "true");
-      } else {
-        el.removeAttribute("aria-hidden");
-      }
-    });
-  };
+  /** @type {HTMLElement[]} */
+  let inertTargets = [];
 
   // Focus trap instances (created on-demand)
   let mobileFocusTrap = null;
@@ -34,7 +22,7 @@ export function initializeNavbar() {
     // because storybook has a problem with referencing global bootstrap object in production build.
     // Instead simulate the close button click - same thing.
     // Do not put side effects of closing menu here (eg clearing menu focus trap), instead use "hidden.bs.collapse" or "hide.bs.collapse" event handlers declared below.
-    // Need to check if menu is actually set to show, otherwise cick will open instead.
+    // Need to check if menu is actually set to show, otherwise click will open instead.
     if (navbar?.classList.contains("show")) {
       burgerCloseBtn?.click();
     }
@@ -96,48 +84,34 @@ export function initializeNavbar() {
         });
       }
 
-      // Listen for click event. If using keyboard, and the menu has been opened, move focus to the first item within.
+      // For keyboard users, if the menu has been opened, move focus to the first item within.
       // Do not create a focus trap.
       toggle.addEventListener("click", (/** @type {PointerEvent} */ e) => {
         // e.detail is the number of mouse clicks, so keyboard click === 0;
         // See https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail
         const shouldMoveFocusToMenuItem =
-          e.detail === 0 && Array.from(e.target.classList).includes("show");
+          !getIsMobile() && // not mobile
+          !navbar.classList.includes("vertical") && // not vertical configuration
+          e.detail === 0 && // only kayboard triggered
+          Array.from(e.target.classList).includes("show"); // and only if menu has been opened
+
         if (shouldMoveFocusToMenuItem) {
           const dropdownItems = getFocusableElements(dropdown);
           if (dropdownItems) dropdownItems[0].focus();
         }
       });
 
-      toggle.addEventListener("shown.bs.dropdown", (e) => {
-        // console.log("shown", e.target.classList);
-      });
-
-      toggle.addEventListener("show.bs.dropdown", (e) => {
-        // console.log("show", e.target.classList);
-      });
-
       // There are two separate toggle elements for desktop and mobile. Bootstrap only keeps one registered for these events,
-      // which is the mobile button, hidden on desktop. Therefore, we need to handle desktop reset manually. The event is caught on the
+      // which is the mobile button, hidden on desktop. Therefore, we need to handle any `a.dropdown-toggle` updates manually. The event is caught on the
       // mobile toggle, so traverse back up find the desktop toggle.
       toggle.addEventListener("hidden.bs.dropdown", (e) => {
-        if (dropdown?.contains(document.activeElement)) {
-          if (!isMobile()) {
-            const _toggle = parentItem.querySelector(
-              'a[data-bs-toggle="dropdown"]',
-            );
-            _toggle?.classList.remove("show");
-            _toggle?.focus();
-          }
+        const _toggle = parentItem.querySelector(
+          'a[data-bs-toggle="dropdown"]',
+        );
+        _toggle?.classList.remove("show");
+        if (dropdown?.contains(document.activeElement && !getIsMobile())) {
+          _toggle?.focus();
         }
-      });
-
-      toggle.addEventListener("hide.bs.dropdown", (e) => {
-        // console.log("hide", e);
-        // const dropdownTrap = dropdownFocusTraps.get(dropdown);
-        // if (dropdownTrap && dropdownTrap.isActive) {
-        //   dropdownTrap.deactivate();
-        // }
       });
     });
   }
@@ -153,7 +127,7 @@ export function initializeNavbar() {
   });
 
   const resetNavbarState = () => {
-    const isMobile = window.innerWidth < breakpoints.lg;
+    const isMobile = getIsMobile();
     const dropdownToggles = navbar?.querySelectorAll(
       "a.dropdown-toggle, a.no-dropdown-toggle",
     );
@@ -188,8 +162,9 @@ export function initializeNavbar() {
 
   // All associated side effects of navbar collapse completion belong here.
   navbar?.addEventListener("hidden.bs.collapse", () => {
-    setAriaHidden(false);
-
+    inertTargets.forEach((target) => {
+      target.inert = false;
+    });
     // Deactivate and destroy mobile focus trap
     if (mobileFocusTrap) {
       mobileFocusTrap.deactivate();
@@ -197,21 +172,24 @@ export function initializeNavbar() {
     }
   });
 
-  // Burger buttons - handle open (mobile only)
+  //  All associated side effects of navbar opening belong here.
   navbar?.addEventListener("shown.bs.collapse", () => {
-    console.log("shown");
-    // Check if navbar is opening
-    setTimeout(() => {
-      if (navbar?.classList.contains("show")) {
-        setAriaHidden(true);
+    if (getIsMobile) {
+      // Check if navbar is opening
+      setTimeout(() => {
+        if (navbar?.classList.contains("show")) {
+          // set all siblings to inert
+          inertTargets = Array.from(navbar.parentElement.children).filter(
+            (child) => child !== navbar,
+          );
+          inertTargets.forEach((target) => {
+            target.inert = true;
+          });
 
-        // Create and activate focus trap when navbar opens (mobile only - whole navbar)
-        const isMobile = window.innerWidth < breakpoints.lg;
-        if (isMobile) {
           const trap = createMobileFocusTrap();
           trap.activate();
         }
-      }
-    }, 0);
+      }, 0);
+    }
   });
 }
