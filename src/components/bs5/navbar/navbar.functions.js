@@ -1,5 +1,8 @@
 import { createFocusTrap } from "../../../js/utils.js";
 import { breakpoints } from "../../../js/constants.js";
+import { getFocusableElements } from "../../../js/utils.js";
+
+const isMobile = () => window.innerWidth < breakpoints.lg;
 
 export function initializeNavbar() {
   const navbar = document.getElementById("main-nav");
@@ -68,7 +71,7 @@ export function initializeNavbar() {
     return dropdownFocusTraps.get(dropdown);
   }
 
-  // Setup dropdown event listeners
+  // Setup dropdown event listeners.
   function setupDropdownListeners() {
     // Find all dropdown toggles (elements with data-bs-toggle="dropdown")
     const dropdownToggles = navbar?.querySelectorAll(
@@ -84,22 +87,49 @@ export function initializeNavbar() {
       const dropdown = parentItem.querySelector(".dropdown-menu");
       if (!dropdown) return;
 
-      // Listen for dropdown show event (desktop only)
-      toggle.addEventListener("shown.bs.dropdown", () => {
-        const isMobile = window.innerWidth < breakpoints.lg;
-        if (!isMobile) {
-          // Create and activate focus trap on-demand
-          const dropdownTrap = getOrCreateDropdownFocusTrap(dropdown, toggle);
-          setTimeout(() => dropdownTrap.activate(), 0);
+      // Listen for click event. If using keyboard, and the menu has been opened, move focus to the first item within.
+      // Do not create a focus trap.
+      toggle.addEventListener("click", (e /** @type {PointerEvent} */) => {
+        // e.detail is the number of mouse clicks, so keyboard click === 0;
+        // See https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail
+        const shouldMoveFocusToMenuItem =
+          e.detail === 0 && Array.from(e.target.classList).includes("show");
+
+        if (shouldMoveFocusToMenuItem) {
+          const dropdownItems = getFocusableElements(dropdown);
+          if (dropdownItems) dropdownItems[0].focus();
         }
       });
 
-      // Listen for dropdown hide event
-      toggle.addEventListener("hidden.bs.dropdown", () => {
-        const dropdownTrap = dropdownFocusTraps.get(dropdown);
-        if (dropdownTrap && dropdownTrap.isActive) {
-          dropdownTrap.deactivate();
+      toggle.addEventListener("shown.bs.dropdown", (e) => {
+        // console.log("shown", e.target.classList);
+      });
+
+      toggle.addEventListener("show.bs.dropdown", (e) => {
+        // console.log("show", e.target.classList);
+      });
+
+      // There are two separate toggle elements for desktop and mobile. Bootstrap only keeps one registered for these events,
+      // which is the mobile button, hidden on desktop. Therefore, we need to handle desktop reset manually. The event is caught on the
+      // mobile toggle, so traverse back up find the desktop toggle.
+      toggle.addEventListener("hidden.bs.dropdown", (e) => {
+        if (dropdown?.contains(document.activeElement)) {
+          if (!isMobile()) {
+            const _toggle = parentItem.querySelector(
+              'a[data-bs-toggle="dropdown"]',
+            );
+            _toggle?.classList.remove("show");
+            _toggle?.focus();
+          }
         }
+      });
+
+      toggle.addEventListener("hide.bs.dropdown", (e) => {
+        // console.log("hide", e);
+        // const dropdownTrap = dropdownFocusTraps.get(dropdown);
+        // if (dropdownTrap && dropdownTrap.isActive) {
+        //   dropdownTrap.deactivate();
+        // }
       });
     });
   }
@@ -116,12 +146,12 @@ export function initializeNavbar() {
 
   const resetNavbarState = () => {
     const isMobile = window.innerWidth < breakpoints.lg;
-    const dropdownToggles = document.querySelectorAll(
-      ".navbar a.dropdown-toggle, .navbar a.no-dropdown-toggle",
+    const dropdownToggles = navbar?.querySelectorAll(
+      "a.dropdown-toggle, a.no-dropdown-toggle",
     );
 
     // Toggle dropdown functionality based on screen size
-    dropdownToggles.forEach((toggle) => {
+    dropdownToggles?.forEach((toggle) => {
       if (isMobile) {
         // Skip toggle items with hasNoLink class
         if (toggle.classList.contains("hasNoLink")) {
@@ -161,6 +191,7 @@ export function initializeNavbar() {
 
   // Burger buttons - handle open (mobile only)
   navbar?.addEventListener("shown.bs.collapse", () => {
+    console.log("shown");
     // Check if navbar is opening
     setTimeout(() => {
       if (navbar?.classList.contains("show")) {
