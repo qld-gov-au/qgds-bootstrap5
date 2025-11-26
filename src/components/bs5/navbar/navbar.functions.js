@@ -87,14 +87,22 @@ export function initializeNavbar() {
       const dropdown = parentItem.querySelector(".dropdown-menu");
       if (!dropdown) return;
 
+      // Add spacebar click for <a> tags, <buttons> already have this.
+      if (toggle?.tagName === "A") {
+        toggle.addEventListener("keydown", (/** @type KeyboardEvent*/ e) => {
+          if (e.key === " ") {
+            toggle.click();
+          }
+        });
+      }
+
       // Listen for click event. If using keyboard, and the menu has been opened, move focus to the first item within.
       // Do not create a focus trap.
-      toggle.addEventListener("click", (e /** @type {PointerEvent} */) => {
+      toggle.addEventListener("click", (/** @type {PointerEvent} */ e) => {
         // e.detail is the number of mouse clicks, so keyboard click === 0;
         // See https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail
         const shouldMoveFocusToMenuItem =
           e.detail === 0 && Array.from(e.target.classList).includes("show");
-
         if (shouldMoveFocusToMenuItem) {
           const dropdownItems = getFocusableElements(dropdown);
           if (dropdownItems) dropdownItems[0].focus();
