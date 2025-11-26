@@ -171,9 +171,7 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
         background-color: var(--#{$prefix}pagination-hover-bg);
       }
 
-      &:focus {
-        // --qld-focus-color: var(--#{$prefix}pagination-focus-outline-color);
-        @include m.focusable($offsetOutline: 2px);
+      @include m.focusable($offsetOutline: 2px) {
         border-color: var(--#{$prefix}pagination-hover-border-color);
         box-shadow: inset 0 0 0 1px
           var(--#{$prefix}pagination-hover-border-color);
@@ -245,9 +243,7 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
           box-shadow: none;
         }
 
-        &:focus {
-          // --qld-focus-color: var(--#{$prefix}pagination-focus-outline-color);
-          @include m.focusable($offsetOutline: 2px);
+        @include m.focusable($offsetOutline: 2px) {
           border: none;
           box-shadow: none;
         }
@@ -260,16 +256,14 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
       background-color: var(--#{$prefix}pagination-active-bg);
       border-color: var(--#{$prefix}pagination-active-border-color);
 
+      @include m.focusable($offsetOutline: 2px) {
+        border-color: var(--#{$prefix}pagination-active-bg);
+        background-color: var(--#{$prefix}pagination-active-focus-bg);
+      }
+
       &:hover {
         border-color: var(--#{$prefix}pagination-active-bg);
         background-color: var(--#{$prefix}pagination-active-hover-bg);
-      }
-
-      &:focus {
-        // --qld-focus-color: var(--#{$prefix}pagination-focus-outline-color);
-        @include m.focusable($offsetOutline: 2px);
-        border-color: var(--#{$prefix}pagination-active-bg);
-        background-color: var(--#{$prefix}pagination-active-focus-bg);
       }
     }
 
