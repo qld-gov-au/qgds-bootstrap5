@@ -168,6 +168,8 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
 
       &:hover {
         border-color: var(--#{$prefix}pagination-hover-border-color);
+        box-shadow: inset 0 0 0 1px
+          var(--#{$prefix}pagination-hover-border-color);
         background-color: var(--#{$prefix}pagination-hover-bg);
       }
 
@@ -257,12 +259,14 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
       border-color: var(--#{$prefix}pagination-active-border-color);
 
       @include m.focusable($offsetOutline: 2px) {
-        border-color: var(--#{$prefix}pagination-active-bg);
+        box-shadow: none;
+        border-color: var(--#{$prefix}pagination-active-focus-bg);
         background-color: var(--#{$prefix}pagination-active-focus-bg);
       }
 
       &:hover {
-        border-color: var(--#{$prefix}pagination-active-bg);
+        box-shadow: none;
+        border-color: var(--#{$prefix}pagination-active-hover-bg);
         background-color: var(--#{$prefix}pagination-active-hover-bg);
       }
     }
