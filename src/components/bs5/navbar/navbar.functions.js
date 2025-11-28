@@ -15,7 +15,6 @@ export function initializeNavbar() {
 
   // Focus trap instances (created on-demand)
   let mobileFocusTrap = null;
-  const dropdownFocusTraps = new Map();
 
   function closeNavbar() {
     // Do not call static method bootstrap.Collapse.getInstance(navbar).hide()
@@ -41,24 +40,6 @@ export function initializeNavbar() {
     return mobileFocusTrap;
   }
 
-  // Create dropdown focus trap on-demand (when dropdown opens)
-  function getOrCreateDropdownFocusTrap(dropdown, toggle) {
-    if (!dropdownFocusTraps.has(dropdown)) {
-      const dropdownTrap = createFocusTrap(dropdown, {
-        returnFocusElement: toggle,
-        onEscape: () => {
-          // Close the dropdown using Bootstrap's API
-          const bsDropdown = bootstrap.Dropdown.getInstance(toggle);
-          if (bsDropdown) {
-            bsDropdown.hide();
-          }
-        },
-      });
-      dropdownFocusTraps.set(dropdown, dropdownTrap);
-    }
-    return dropdownFocusTraps.get(dropdown);
-  }
-
   // Setup dropdown event listeners.
   function setupDropdownListeners() {
     // Find all dropdown toggles (elements with data-bs-toggle="dropdown")
@@ -79,6 +60,7 @@ export function initializeNavbar() {
       if (toggle?.tagName === "A") {
         toggle.addEventListener("keydown", (/** @type KeyboardEvent*/ e) => {
           if (e.key === " ") {
+            e.preventDefault();
             toggle.click();
           }
         });
@@ -91,13 +73,13 @@ export function initializeNavbar() {
         // See https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail
         const shouldMoveFocusToMenuItem =
           !getIsMobile() && // not mobile
-          !navbar.classList.includes("vertical") && // not vertical configuration
-          e.detail === 0 && // only kayboard triggered
-          Array.from(e.target.classList).includes("show"); // and only if menu has been opened
+          !navbar.classList.contains("vertical") && // not vertical configuration
+          e.detail === 0 && // only keyboard triggered
+          e.target.classList.contains("show"); // and only if menu has been opened
 
         if (shouldMoveFocusToMenuItem) {
           const dropdownItems = getFocusableElements(dropdown);
-          if (dropdownItems) dropdownItems[0].focus();
+          if (dropdownItems?.length) dropdownItems[0].focus();
         }
       });
 
@@ -109,7 +91,10 @@ export function initializeNavbar() {
           'a[data-bs-toggle="dropdown"]',
         );
         _toggle?.classList.remove("show");
-        if (dropdown?.contains(document.activeElement && !getIsMobile())) {
+        if (
+          dropdown?.contains(document.activeElement) &&
+          !(getIsMobile() || navbar.classList.contains("vertical"))
+        ) {
           _toggle?.focus();
         }
       });
