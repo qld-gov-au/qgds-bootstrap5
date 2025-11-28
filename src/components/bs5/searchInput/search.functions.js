@@ -145,7 +145,30 @@ export async function showSuggestions(value = "", isDefault = false, form) {
             let linkItem = event.target.closest("a");
             if (linkItem) {
               event.preventDefault();
-              selectDynamicSuggestion(linkItem.textContent, form);
+
+              // Check if the link has a valid absolute URL
+              const href = linkItem.getAttribute("href");
+              const isValidUrl =
+                href &&
+                href !== "#" &&
+                (() => {
+                  try {
+                    const url = new URL(href, window.location.origin);
+                    return (
+                      url.protocol === "http:" || url.protocol === "https:"
+                    );
+                  } catch {
+                    return false;
+                  }
+                })();
+
+              if (isValidUrl) {
+                // Navigate directly to the URL
+                window.location.href = href;
+              } else {
+                // Use the search suggestion flow
+                selectDynamicSuggestion(linkItem.textContent, form);
+              }
             }
           });
       } else {
@@ -200,7 +223,30 @@ export async function showSuggestions(value = "", isDefault = false, form) {
             let linkItem = event.target.closest("a");
             if (linkItem) {
               event.preventDefault();
-              selectDynamicSuggestion(linkItem.textContent, form);
+
+              // Check if the link has a valid absolute URL
+              const href = linkItem.getAttribute("href");
+              const isValidUrl =
+                href &&
+                href !== "#" &&
+                (() => {
+                  try {
+                    const url = new URL(href, window.location.origin);
+                    return (
+                      url.protocol === "http:" || url.protocol === "https:"
+                    );
+                  } catch {
+                    return false;
+                  }
+                })();
+
+              if (isValidUrl) {
+                // Navigate directly to the URL
+                window.location.href = href;
+              } else {
+                // Use the search suggestion flow
+                selectDynamicSuggestion(linkItem.textContent, form);
+              }
             }
           });
       }
