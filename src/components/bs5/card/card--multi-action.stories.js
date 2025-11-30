@@ -8,7 +8,7 @@ import tagdata from "../tag/tag.data.json";
 import { CallToAction } from "../callToAction/callToAction.js";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Card/Multi action",
   render: (args) => {
     const tags = new Tag({

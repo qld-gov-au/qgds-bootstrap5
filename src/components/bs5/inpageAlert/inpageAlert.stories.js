@@ -13,7 +13,7 @@ export default {
    *
    * @type {string[]}
    */
-  tags: ["autodocs"],
+  tags: ["autodocs", "core", "aka:Page Alert", "aka:Alert"],
 
   /**
    * Name of the story.

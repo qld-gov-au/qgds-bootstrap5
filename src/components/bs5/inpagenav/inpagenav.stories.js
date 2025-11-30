@@ -3,7 +3,7 @@ import { Inpagenav } from "./Inpagenav.js";
 import defaultdata from "./inpagenav.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/In-page Nav",
   render: (args) => new Inpagenav(args).html,
 

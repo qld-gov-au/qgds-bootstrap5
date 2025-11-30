@@ -8,7 +8,7 @@ import { Link } from "./link.js";
 import defaultdata from "./link.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Link",
 
   render: (args) => new Link(args).html,

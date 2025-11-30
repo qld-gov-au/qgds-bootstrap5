@@ -3,7 +3,7 @@ import { Pagination } from "./Pagination.js";
 import defaultdata from "./pagination.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Pagination",
   render: (args) => new Pagination(args).html,
 

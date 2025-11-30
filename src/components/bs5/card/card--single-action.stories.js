@@ -3,7 +3,7 @@ import { Card, argTypes } from "./Card.js";
 import defaultdata from "./card.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Card/Single action",
   render: (args) => {
     return `

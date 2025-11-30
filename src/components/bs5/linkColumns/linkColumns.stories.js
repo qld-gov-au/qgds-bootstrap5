@@ -9,7 +9,7 @@ import { LinkColumns } from "./linkColumns.js";
 import defaultdata from "./linkColumns.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Link Columns",
   
   render: (args) => new LinkColumns(args).html,

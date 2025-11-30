@@ -3,7 +3,7 @@ import { Callout } from "./Callout.js";
 import defaultdata from "./callout.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Callout",
   render: (args) => new Callout(args).html,
 

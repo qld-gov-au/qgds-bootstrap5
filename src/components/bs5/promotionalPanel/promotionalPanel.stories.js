@@ -9,7 +9,7 @@ import { PromotionalPanel } from "./promotionalPanel.js";
 import defaultdata from "./promotionalPanel.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Promotional Panel",
   
   render: (args) => new PromotionalPanel(args).html,

@@ -3,7 +3,7 @@ import defaultdata from "./dateinput.data.json";
 import { expect } from "storybook/test";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Forms/Dateinput",
   render: (args) => {
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.

@@ -3,7 +3,7 @@ import { Spinner } from "./Spinner.js";
 import defaultdata from "./spinner.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Spinner",
   render: (args) => {
     

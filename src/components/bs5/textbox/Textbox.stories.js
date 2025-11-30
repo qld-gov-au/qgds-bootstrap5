@@ -3,7 +3,7 @@ import { Textbox, argTypes } from "./Textbox.js";
 import defaultdata from "./textbox.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Forms/Text input",
   render: (args) => {
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.

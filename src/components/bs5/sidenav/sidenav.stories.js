@@ -3,7 +3,7 @@ import { Sidenav } from "./Sidenav.js";
 import defaultdata from "./sidenav.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "2. Layout/Side navigation",
   render: (args) => {
     return new Sidenav(args).html;

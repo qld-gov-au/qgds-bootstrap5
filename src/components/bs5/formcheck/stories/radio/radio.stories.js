@@ -3,7 +3,7 @@ import { Formcheck, argTypes } from "../../Formcheck.js";
 import defaultdata from "./radio.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Forms/Radio",
   render: (args) => {
     return `${new Formcheck(args).html}`;

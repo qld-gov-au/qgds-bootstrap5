@@ -3,7 +3,7 @@
 // import defaultdata from "./typography.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "core"],
   title: "1. Core Styles/Typography",
   render: () => {
     return `
