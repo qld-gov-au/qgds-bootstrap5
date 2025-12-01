@@ -165,7 +165,8 @@ describe("initGlobalAlerts", () => {
 
     const alerts = d.querySelectorAll(".global-alert");
     alerts.forEach((alert) => {
-      expect(alert.classList.contains("alert")).toBe(true);
+      expect(alert.classList.contains("global-alert")).toBe(true);
+      expect(alert.classList.contains("container-full")).toBe(true);
     });
   });
 
