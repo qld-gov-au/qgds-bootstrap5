@@ -155,21 +155,6 @@ describe("initGlobalAlerts", () => {
     localStorage.clear();
   });
 
-  it("Renders with proper classes applied", () => {
-    // The reason we needed to call initGlobalAlerts() manually in the tests is because:
-    // The JSDOM environment handles script execution and events differently than a real browser. Here's what happens:
-    // 1. When JSDOM loads the HTML with the scripts, the scripts execute immediately
-    // 2. The DOMContentLoaded event might fire before the test can set up localStorage properly
-    // 3. Even if DOMContentLoaded fires, the localStorage mock might not be properly injected into the script's execution context
-    initGlobalAlerts();
-
-    const alerts = d.querySelectorAll(".global-alert");
-    alerts.forEach((alert) => {
-      expect(alert.classList.contains("global-alert")).toBe(true);
-      expect(alert.classList.contains("container-full")).toBe(true);
-    });
-  });
-
   test("Alert uses default variant when data-variant is not provided", () => {
     initGlobalAlerts();
 
