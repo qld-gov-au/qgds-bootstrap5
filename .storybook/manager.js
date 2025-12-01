@@ -12,8 +12,10 @@ addons.setConfig({
       tags: "core",
       badge: {
         text: "Core",
-        bgColor: "#0A6C38", // Queensland green
-        fgColor: "#FFFFFF",
+        style: {
+          backgroundColor: "#0A6C38", // Queensland green
+          color: "#FFFFFF",
+        },
         tooltip:
           "Core component - Available in the Queensland Government Design System Figma UI kit",
       },
@@ -28,28 +30,12 @@ addons.setConfig({
       tags: "extended",
       badge: {
         text: "Extended",
-        bgColor: "#7C3D94", // Queensland purple
-        fgColor: "#FFFFFF",
+        style: {
+          backgroundColor: "#7C3D94", // Queensland purple
+          color: "#FFFFFF",
+        },
         tooltip:
-          "Extended component - Queensland-specific component not available in the core Figma UI kit",
-      },
-      display: {
-        sidebar: ["component"],
-        toolbar: true,
-      },
-    },
-
-    // Alias badge for "also known as" component names
-    {
-      tags: /^aka:/,
-      badge: ({ tag }) => {
-        const alias = tag.replace("aka:", "");
-        return {
-          text: `Also: ${alias}`,
-          bgColor: "#4D96D2", // Queensland blue
-          fgColor: "#FFFFFF",
-          tooltip: `This component is also known as "${alias}"`,
-        };
+          "Extended component - Available in this library only / yet to be added to Queensland Government Design System Figma UI kit",
       },
       display: {
         sidebar: ["component"],
