@@ -1,0 +1,12 @@
+# Build outputs
+dist/
+storybook-static/
+
+# Dependencies
+node_modules/
+
+# Minified files
+*.min.css
+
+# Docs
+docs/

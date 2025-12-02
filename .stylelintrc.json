@@ -1,0 +1,44 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-pattern": null,
+    "scss/at-mixin-pattern": null,
+    "scss/at-function-pattern": null,
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "no-descending-specificity": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "scss/comment-no-empty": null,
+    "scss/double-slash-comment-whitespace-inside": null,
+    "scss/load-partial-extension": null,
+    "scss/dollar-variable-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "color-function-notation": "legacy",
+    "alpha-value-notation": "number",
+    "value-keyword-case": null,
+    "annotation-no-unknown": null,
+    "import-notation": null,
+    "no-invalid-position-at-import-rule": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "export"]
+      }
+    ]
+  },
+  "ignoreFiles": [
+    "dist/**/*",
+    "storybook-static/**/*",
+    "node_modules/**/*",
+    "**/*.min.css"
+  ]
+}

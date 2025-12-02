@@ -1,7 +1,11 @@
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 import json from "@eslint/json";
-import storybookPlugin from "eslint-plugin-storybook"; // Storybook plugin
+import storybookPlugin from "eslint-plugin-storybook";
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsparser from "@typescript-eslint/parser";
+import litPlugin from "eslint-plugin-lit";
+import wcPlugin from "eslint-plugin-wc";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default defineConfig([
@@ -9,6 +13,9 @@ export default defineConfig([
     plugins: {
       json,
       storybook: storybookPlugin,
+      "@typescript-eslint": tseslint,
+      lit: litPlugin,
+      wc: wcPlugin,
     },
   },
   {
@@ -16,9 +23,12 @@ export default defineConfig([
       "*.min.js",
       "storybook-static/**",
       "dist/**",
+      "docs/**",
       "src/js/handlebars.init.cjs",
+      "src/js/handlebars.partials.js",
       "package-lock.json",
-    ], // Ensure this is at the top level
+      "node_modules/**",
+    ],
   },
   {
     files: ["*.js", "*.mjs"],
@@ -67,6 +77,33 @@ export default defineConfig([
     files: [".eslintrc.{js,cjs}"],
     languageOptions: {
       sourceType: "script", // For CommonJS files
+    },
+  },
+  // TypeScript configuration
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parser: tsparser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: "./tsconfig.json",
+      },
+    },
+    rules: {
+      ...tseslint.configs.recommended.rules,
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+    },
+  },
+  // Lit/Web Components configuration
+  {
+    files: ["**/*.ts", "**/*.js"],
+    rules: {
+      ...litPlugin.configs.recommended.rules,
+      ...wcPlugin.configs.recommended.rules,
     },
   },
 ]);
