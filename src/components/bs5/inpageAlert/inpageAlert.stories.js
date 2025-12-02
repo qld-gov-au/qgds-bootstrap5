@@ -13,7 +13,7 @@ export default {
    *
    * @type {string[]}
    */
-  tags: ["autodocs", "core", "aka:Page Alert", "aka:Alert"],
+  tags: ["autodocs", "core"],
 
   /**
    * Name of the story.
@@ -129,7 +129,7 @@ export const AllVariants = {
       <div class="mb-4">
         ${new InpageAlert(alertData).html}
       </div>
-    `
+    `,
       )
       .join("");
   },

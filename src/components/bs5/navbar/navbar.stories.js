@@ -4,7 +4,7 @@ import { breakpoints } from "../../../js/constants.js";
 
 //Default story
 export default {
-  tags: ["autodocs", "core", "aka:Mega Menu"],
+  tags: ["autodocs", "core"],
   title: "3. Components/Navbar",
   render: (args) => {
     // Create a copy of default data
