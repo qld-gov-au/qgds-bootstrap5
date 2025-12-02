@@ -66,23 +66,6 @@ export function initializeNavbar() {
         });
       }
 
-      // For keyboard users, if the menu has been opened, move focus to the first item within.
-      // Do not create a focus trap.
-      toggle.addEventListener("click", (/** @type {PointerEvent} */ e) => {
-        // e.detail is the number of mouse clicks, so keyboard click === 0;
-        // See https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail
-        const shouldMoveFocusToMenuItem =
-          !getIsMobile() && // not mobile
-          !navbar.classList.contains("vertical") && // not vertical configuration
-          e.detail === 0 && // only keyboard triggered
-          e.target.classList.contains("show"); // and only if menu has been opened
-
-        if (shouldMoveFocusToMenuItem) {
-          const dropdownItems = getFocusableElements(dropdown);
-          if (dropdownItems?.length) dropdownItems[0].focus();
-        }
-      });
-
       // There are two separate toggle elements for desktop and mobile. Bootstrap only keeps one registered for these events,
       // which is the mobile button, hidden on desktop. Therefore, we need to handle any `a.dropdown-toggle` updates manually. The event is caught on the
       // mobile toggle, so traverse back up find the desktop toggle.
