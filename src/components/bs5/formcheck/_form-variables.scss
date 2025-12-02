@@ -77,8 +77,8 @@
 
   .dark &,
   .dark-alt & {
-    --#{$prefix}bg: #{$qld-color-dark-background};
-    --#{$prefix}bg-hover: #{$qld-color-dark-background--shade};
+    --#{$prefix}bg: #{$color-default-color-dark-background-default};
+    --#{$prefix}bg-hover: #{$color-default-color-dark-background-default-shade};
     --#{$prefix}border-color: #{$color-default-color-dark-border-alt};
     --#{$prefix}border-color-hover: #{$color-default-color-dark-action-primary-hover};
     --#{$prefix}border-color-focus: #{$core-default-color-neutral-lighter};
@@ -89,7 +89,7 @@
 
     &.is-filled,
     &.form-style-filled {
-      --#{$prefix}bg: #{$qld-color-dark-background--shade};
+      --#{$prefix}bg: #{$color-default-color-dark-background-default-shade};
     }
 
     &.is-valid,

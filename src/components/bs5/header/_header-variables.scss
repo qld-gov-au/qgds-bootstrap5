@@ -45,13 +45,15 @@
       (
         header-logo-color: #{$core-default-color-neutral-black},
         header-logo-color-hover: #{$color-default-color-light-link-default},
-        header-mobile-button-bg: #{$qld-color-background},
-        header-mobile-button-bg-hover: #{$qld-color-background--shade},
+        header-mobile-button-bg:
+          #{$color-default-color-light-background-default},
+        header-mobile-button-bg-hover:
+          #{$color-default-color-light-background-default-shade},
       )
     );
-    --dropdown-bg: #{$qld-color-background};
-    --dropdown-bg-active: #{$qld-color-background--shade};
-    --dropdown-menu-bg: #{$qld-color-background--shade};
+    --dropdown-bg: #{$color-default-color-light-background-default};
+    --dropdown-bg-active: #{$color-default-color-light-background-default-shade};
+    --dropdown-menu-bg: #{$color-default-color-light-background-default-shade};
   }
 
   &.dark {
@@ -60,13 +62,14 @@
       (
         header-logo-color: #{$color-default-color-dark-site-title},
         header-logo-color-hover: #{$color-default-color-dark-link-default},
-        header-mobile-button-bg: #{$qld-color-dark-background},
-        header-mobile-button-bg-hover: #{$qld-color-dark-background--shade},
+        header-mobile-button-bg: #{$color-default-color-dark-background-default},
+        header-mobile-button-bg-hover:
+          #{$color-default-color-dark-background-default-shade},
       )
     );
-    --dropdown-bg: #{$qld-color-dark-background};
-    --dropdown-bg-active: #{$qld-color-dark-background--shade};
-    --dropdown-menu-bg: #{$qld-color-dark-background--shade};
+    --dropdown-bg: #{$color-default-color-dark-background-default};
+    --dropdown-bg-active: #{$color-default-color-dark-background-default-shade};
+    --dropdown-menu-bg: #{$color-default-color-dark-background-default-shade};
   }
 
   &.dark-alt {
@@ -75,12 +78,13 @@
       (
         header-logo-color: #{$color-default-color-dark-site-title},
         header-logo-color-hover: #{$color-default-color-dark-link-default},
-        header-mobile-button-bg: #{$qld-color-dark-alt-background},
-        header-mobile-button-bg-hover: #{$qld-color-dark-alt-background--shade},
+        header-mobile-button-bg: #{$color-default-color-dark-background-alt},
+        header-mobile-button-bg-hover:
+          #{$color-default-color-dark-background-alt-shade},
       )
     );
-    --dropdown-bg: #{$qld-color-dark-alt-background};
-    --dropdown-bg-active: #{$qld-color-dark-alt-background--shade};
-    --dropdown-menu-bg: #{$qld-color-dark-alt-background--shade};
+    --dropdown-bg: #{$color-default-color-dark-background-alt};
+    --dropdown-bg-active: #{$color-default-color-dark-background-alt-shade};
+    --dropdown-menu-bg: #{$color-default-color-dark-background-alt-shade};
   }
 }

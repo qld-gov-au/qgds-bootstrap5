@@ -4,15 +4,15 @@
   @extend %form-control;
 
   @media (prefers-color-scheme: dark) {
-    --table-row-border-color: var(--qld-white);
+    --table-row-border-color: var(--#{$prefix}neutral-white);
   }
 
   //Table dark
-  @include table-variant("dark", $qld-brand-primary);
+  @include table-variant("dark", $color-default-color-dark-background-default);
 }
 
 .qld-text-input-label {
-  color: var(--#{$prefix}text-grey);
+  color: var(--#{$prefix}light-text-text);
   display: block;
   font-size: 1rem;
   font-weight: 600;
@@ -87,6 +87,6 @@
   }
 
   .form-style-filled {
-    background-color: $qld-color-dark-background--shade;
+    background-color: $color-default-color-dark-background-default-shade;
   }
 }

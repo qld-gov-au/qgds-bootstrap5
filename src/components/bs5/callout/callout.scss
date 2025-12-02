@@ -2,68 +2,69 @@
 
 // Default
 .callout {
-    --#{$prefix}callout-padding: 1.5rem 1rem 1.5rem 1.5rem;
-    --#{$prefix}callout-bg-color: var(--#{$prefix}extra-light-grey);
-    --#{$prefix}callout-border-color: var(--#{$prefix}brand-secondary);
-    --#{$prefix}callout-border-width: 0.25rem;
-    --#{$prefix}callout-title-color: var(--#{$prefix}headings-color);
-    --#{$prefix}callout-text-color: var(--#{$prefix}body-color);
-    --#{$prefix}callout-spacer: 1rem;
+  --#{$prefix}callout-padding: 1.5rem 1rem 1.5rem 1.5rem;
+  --#{$prefix}callout-bg-color: var(--#{$prefix}neutral-lightest);
+  --#{$prefix}callout-border-color: var(--#{$prefix}light-accent);
+  --#{$prefix}callout-border-width: 0.25rem;
+  --#{$prefix}callout-title-color: var(--#{$prefix}headings-color);
+  --#{$prefix}callout-text-color: var(--#{$prefix}body-color);
+  --#{$prefix}callout-spacer: 1rem;
 
-    .light & {
-        --#{$prefix}callout-bg-color: var(--#{$prefix}light-background-shade);
-    }
+  .light & {
+    --#{$prefix}callout-bg-color: var(--#{$prefix}light-background-shade);
+  }
 
-    .alt & {
-        --#{$prefix}callout-bg-color: var(--#{$prefix}grey);
-    }
+  .alt & {
+    --#{$prefix}callout-bg-color: var(--#{$prefix}light-alt-background-shade);
+  }
 
-    .dark &,
-    .dark-alt & {
-        --#{$prefix}callout-title-color: var(--#{$prefix}white);
-        --#{$prefix}callout-text-color: var(--#{$prefix}white);
-    }
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}callout-title-color: var(--#{$prefix}neutral-white);
+    --#{$prefix}callout-text-color: var(--#{$prefix}neutral-white);
+  }
 
-    .dark & {
-        --#{$prefix}callout-bg-color: var(--#{$prefix}dark-background-shade);
-    }
+  .dark & {
+    --#{$prefix}callout-bg-color: var(--#{$prefix}dark-background-shade);
+  }
 
-    .dark-alt & {
-        --#{$prefix}callout-bg-color: var(--#{$prefix}dark-blue-shade);
-    }
+  .dark-alt & {
+    --#{$prefix}callout-bg-color: var(--#{$prefix}dark-alt-background-shade);
+  }
 }
 
 //Dark theme
 //https://getbootstrap.com/docs/5.3/customize/color-modes/#enable-dark-mode
 
 @include color-mode(dark) {
-
 }
 
 //Define component styles
 .callout {
+  background-color: var(--#{$prefix}callout-bg-color);
+  border-left: solid var(--#{$prefix}callout-border-width)
+    var(--#{$prefix}callout-border-color);
+  padding: var(--#{$prefix}callout-padding);
 
-    background-color: var(--#{$prefix}callout-bg-color);
-    border-left: solid var(--#{$prefix}callout-border-width) var(--#{$prefix}callout-border-color);
-    padding: var(--#{$prefix}callout-padding);
+  &-title {
+    color: var(--#{$prefix}callout-title-color);
+    margin-bottom: 0;
+  }
 
-    &-title {
-        color: var(--#{$prefix}callout-title-color);
+  &-text {
+    color: var(--#{$prefix}callout-text-color);
+
+    p,
+    ul,
+    ol {
+      &:last-child {
         margin-bottom: 0;
+      }
     }
+  }
 
-    &-text {
-        color: var(--#{$prefix}callout-text-color);
-
-        p, ul, ol {
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    &-title + &-text {
-        // Add space above text only if there is a title
-        margin-top: var(--#{$prefix}callout-spacer);
-    }
+  &-title + &-text {
+    // Add space above text only if there is a title
+    margin-top: var(--#{$prefix}callout-spacer);
+  }
 }

@@ -32,7 +32,7 @@
     line-height: 1.5;
   }
 
-  &> :last-child {
+  & > :last-child {
     margin-bottom: 0;
   }
   // Close button for dismissible alerts
@@ -69,11 +69,11 @@
       "icon": "alert-danger",
     ),
     "light": (
-      "color": var(--#{$prefix}light-grey),
+      "color": var(--#{$prefix}neutral-lighter),
       "icon": null,
     ),
     "dark": (
-      "color": var(--#{$prefix}dark-grey),
+      "color": var(--#{$prefix}neutral-darker),
       "icon": null,
     ),
   );

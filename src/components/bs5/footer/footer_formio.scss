@@ -127,24 +127,24 @@
 
       &:hover,
       &:focus {
-        background-color: var(--#{$prefix}extra-light-grey);
+        background-color: var(--#{$prefix}neutral-lightest);
         cursor: pointer;
       }
     }
 
     textarea {
-      border: 2px solid var(--#{$prefix}soft-grey);
+      border: 2px solid var(--#{$prefix}light-border-alt);
       border-radius: 4px;
 
       &:hover {
-        background-color: var(--#{$prefix}extra-light-grey);
+        background-color: var(--#{$prefix}neutral-lightest);
         border-color: $qld-textbox-border-color;
       }
       &:focus {
         outline: 3px solid var(--#{$prefix}focus-color);
         outline-offset: 2px;
         background-color: var(--#{$prefix}white);
-        border: 2px solid var(--#{$prefix}light-grey);
+        border: 2px solid var(--#{$prefix}neutral-lighter);
       }
       &.is-valid {
         outline: none;
@@ -269,14 +269,14 @@
         background-color: var(--#{$prefix}formIO-bg-colour);
 
         &:hover {
-          background-color: var(--#{$prefix}extra-light-grey);
+          background-color: var(--#{$prefix}neutral-lightest);
           border-color: $qld-textbox-border-color;
         }
         &:focus {
           outline: 3px solid var(--#{$prefix}focus-color);
           outline-offset: 2px;
           background-color: var(--#{$prefix}white);
-          border: 2px solid var(--#{$prefix}light-grey);
+          border: 2px solid var(--#{$prefix}neutral-lighter);
         }
         &.is-valid {
           outline: none;

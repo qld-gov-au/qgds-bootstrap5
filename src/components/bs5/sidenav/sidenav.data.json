@@ -8,6 +8,12 @@
       "label": "Sibling page",
       "class": "",
       "target": "",
+      "children": []
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "class": "",
       "children": [
         {
           "link": "#",
@@ -42,12 +48,6 @@
           ]
         }
       ]
-    },
-    {
-      "link": "#",
-      "label": "Sibling page",
-      "class": "",
-      "children": []
     },
     {
       "link": "#",

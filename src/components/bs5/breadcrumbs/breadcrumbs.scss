@@ -73,7 +73,7 @@ $expander-icon-color: $qld-light-link;
       padding: 0.75rem 1rem;
       display: block;
       width: 100%;
-      color: $qld-text-grey;
+      color: var(--#{$prefix}light-text-text);
       white-space: nowrap; /* Prevents text from wrapping to the next line */
       overflow: hidden; /* Hides any content that overflows the element's box */
       text-overflow: ellipsis;
@@ -84,7 +84,7 @@ $expander-icon-color: $qld-light-link;
         text-decoration-thickness: var(
           --#{$prefix}link-underline-thickness-hover
         );
-        background-color: $core-default-color-neutral-lighter;
+        background-color: var(--#{$prefix}neutral-lighter);
       }
 
       --qld-focus-color: var(--qld-light-focus);

@@ -56,8 +56,8 @@
   &.dark,
   &.dark-alt {
     // Dark and Dark Alt share the same text color
-    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text);
-    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text);
+    --#{$prefix}banner-title-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}banner-abstract-color: var(--#{$prefix}dark-text-text);
 
     .breadcrumb {
       // Variables scoped in the .breadcrumbs.scss component

@@ -337,7 +337,7 @@ $form-check-inline-margin-end: 1rem;
   }
 
   &:hover + label {
-    --_background-color: var(--#{$prefix}extra-light-grey);
+    --_background-color: var(--#{$prefix}neutral-lightest);
   }
 
   &:checked {

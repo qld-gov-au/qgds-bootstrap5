@@ -5,7 +5,7 @@
 
 .card {
   --#{$prefix}card-bg: var(--#{$prefix}default-background);
-  --#{$prefix}card-color: var(--#{$prefix}text-grey);
+  --#{$prefix}card-color: var(--#{$prefix}light-text-text);
   --#{$prefix}card-title-color: var(--#{$prefix}light-text-heading);
   --#{$prefix}card-spacer-x: #{$card-spacer-x};
   --#{$prefix}card-spacer-y: #{$card-spacer-y};
@@ -54,9 +54,9 @@
     --#{$prefix}video-nav-bg-hover: var(--#{$prefix}light-action-primary-hover);
     --#{$prefix}video-nav-bg-hover-rgb: 0, 62, 150;
     --#{$prefix}video-nav-bg-opacity: 0.9;
-    --#{$prefix}video-nav-color: var(--#{$prefix}dark-text);
+    --#{$prefix}video-nav-color: var(--#{$prefix}dark-text-text);
     --#{$prefix}video-clock-icon-size: 1.25rem;
-    --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-text);
+    --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-text-text);
   }
   .icon-top {
     --#{$prefix}card-icon-height: 8rem;
@@ -126,14 +126,14 @@
   }
   &-dark,
   &-dark-alt {
-    --#{$prefix}card-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-title-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-link-color: var(--#{$prefix}dark-text);
-    --#{$prefix}card-date-color: var(--#{$prefix}dark-text);
+    --#{$prefix}card-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}card-title-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}card-link-color: var(--#{$prefix}dark-text-text);
+    --#{$prefix}card-date-color: var(--#{$prefix}dark-text-text);
     --#{$prefix}card-arrow-color: var(--#{$prefix}dark-action-secondary);
     --#{$prefix}card-border-color: var(--#{$prefix}dark-border);
     --#{$prefix}link-hover-colour: var(--#{$prefix}dark-action-primary-hover);
-    --#{$prefix}link-hover-text-colour: var(--#{$prefix}text-darkest);
+    --#{$prefix}link-hover-text-colour: var(--#{$prefix}dark-link-on-action);
     &:hover {
       --#{$prefix}card-arrow-color: var(
         --#{$prefix}dark-action-secondary-hover
@@ -149,8 +149,8 @@
         --#{$prefix}dark-action-primary-hover
       );
       --#{$prefix}video-nav-bg-hover-rgb: 166, 247, 255;
-      --#{$prefix}video-nav-color: var(--#{$prefix}dark-action-text);
-      --#{$prefix}video-play-icon-color: var(--#{$prefix}text-darkest);
+      --#{$prefix}video-nav-color: var(--#{$prefix}dark-link-on-action);
+      --#{$prefix}video-play-icon-color: var(--#{$prefix}dark-link-on-action);
     }
   }
   &-dark {
@@ -413,6 +413,8 @@
       var(--#{$prefix}card-spacer-x);
     width: 100%;
     flex: 0 1 auto;
+
+    //Pseudo used for footer border
     &:before {
       content: "";
       display: block;

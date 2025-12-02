@@ -45,7 +45,7 @@
 %qld-palette-alt {
   @extend %qld-palette-default;
   --qld-body-bg: var(--qld-light-alt-background);
-  --qld-border-color: var(--qld-soft-grey);
+  --qld-border-color: var(--qld-light-border-alt);
 }
 
 %qld-palette-dark {
