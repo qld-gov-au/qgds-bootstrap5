@@ -8,7 +8,7 @@ import { CallToAction } from "./callToAction.js";
 import defaultdata from "./callToAction.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/CallToAction",
   args: defaultdata,
   render: (args) => {

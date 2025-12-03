@@ -24,7 +24,7 @@ import standalone_variant from "./header.variant.standAlone.data.json";
  *
  */
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "2. Layout/Header",
   render: (args) => {
     return `

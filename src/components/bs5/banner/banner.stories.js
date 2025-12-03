@@ -66,7 +66,7 @@ const exampleButtonData = [
 ];
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Banners",
   render: (args) => {
     //Adds breadcrumbs to all banner stories, if it isn't already defined or false

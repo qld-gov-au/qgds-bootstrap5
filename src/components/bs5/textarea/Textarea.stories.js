@@ -3,7 +3,7 @@ import { Textarea, argTypes } from "./Textarea.js";
 import defaultdata from "./textarea.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Forms/Text Area",
   render: (args) => {
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.

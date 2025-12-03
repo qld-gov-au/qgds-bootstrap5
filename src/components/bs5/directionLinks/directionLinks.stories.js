@@ -8,7 +8,7 @@ import { DirectionLinks } from "./directionLinks.js";
 import defaultdata from "./directionLinks.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Direction Links",
   globals: {
     backgrounds: {

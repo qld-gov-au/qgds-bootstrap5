@@ -7,24 +7,6 @@ import { defaultConfig } from "storybook-addon-tag-badges/manager-helpers";
  */
 addons.setConfig({
   tagBadges: [
-    // Core component badge - indicates component exists in Figma UI kit
-    {
-      tags: "core",
-      badge: {
-        text: "Core",
-        style: {
-          backgroundColor: "#0A6C38", // Queensland green
-          color: "#FFFFFF",
-        },
-        tooltip:
-          "Core component - Available in the Queensland Government Design System Figma UI kit",
-      },
-      display: {
-        sidebar: ["component"],
-        toolbar: true,
-      },
-    },
-
     // Extended component badge - Queensland-specific components not in core Figma kit
     {
       tags: "extended",

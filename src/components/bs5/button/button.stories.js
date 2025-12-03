@@ -59,7 +59,7 @@ function buttonVariantsMarkup() {
 }
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Button",
   args: defaultdata,
   render: (args) => {

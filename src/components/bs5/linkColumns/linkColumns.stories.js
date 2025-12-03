@@ -9,25 +9,26 @@ import { LinkColumns } from "./linkColumns.js";
 import defaultdata from "./linkColumns.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Link Columns",
-  
+
   render: (args) => new LinkColumns(args).html,
   //   args: defaultdata,
   argTypes: {
     columns: {
-      description: 'Number of coloumns of links to display',
-      control: { type: 'number', min: 1, max: 3, step: 1 },
+      description: "Number of coloumns of links to display",
+      control: { type: "number", min: 1, max: 3, step: 1 },
     },
-    id: { control: 'text' },
+    id: { control: "text" },
     theme: {
-      description: 'The types of themes that this component supports',
+      description: "The types of themes that this component supports",
       control: "select",
-      options: ["default","light", "alt", "dark", "dark-alt"],
+      options: ["default", "light", "alt", "dark", "dark-alt"],
     },
     data: {
-      description: 'The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.',
-      control: 'object',
+      description:
+        "The data for the link columns. Each link has a url, id, value, and target. The all_link option if available, displays a single link at the end of the list, with a optional class property.",
+      control: "object",
     },
   },
 
@@ -46,8 +47,8 @@ export default {
       type: "figma",
       url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563&t=RyMlGjeuzgl8p5Gx-0",
     },
-    pageLayout: 'with-wrapper',
-    wrapperClasses:'qld-content-body',
+    pageLayout: "with-wrapper",
+    wrapperClasses: "qld-content-body",
   },
 };
 

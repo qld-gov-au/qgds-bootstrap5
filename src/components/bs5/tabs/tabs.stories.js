@@ -39,7 +39,7 @@ const generateTabItemArgTypes = () => {
 };
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Tabs",
   render: (args) => {
     return new Tabs(args).html;

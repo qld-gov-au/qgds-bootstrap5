@@ -3,7 +3,7 @@ import { Formcheck, argTypes } from "../../Formcheck.js";
 import defaultdata from "./checkbox.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Forms/Checkbox",
   render: (args) => {
     return `${new Formcheck(args).html}`;

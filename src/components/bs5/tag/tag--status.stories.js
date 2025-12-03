@@ -62,7 +62,7 @@ function statusVariantsMarkup() {
 }
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Tag/Status",
   render: (args) => new Tag(args).html,
   argTypes: {

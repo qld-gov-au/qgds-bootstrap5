@@ -4,7 +4,7 @@ import { Link } from "../link/link.js";
 import defaultdata from "./card.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Card/Icon List Footer",
   render: (args) => {
     // Create icon list for card footer following Figma design pattern

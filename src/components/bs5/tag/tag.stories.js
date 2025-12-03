@@ -3,7 +3,7 @@ import { Tag } from "./Tag.js";
 import defaultdata from "./tag.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Tag",
   render: (args) => new Tag(args).html,
   argTypes: {

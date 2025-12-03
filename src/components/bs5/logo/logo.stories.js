@@ -9,7 +9,7 @@ import { Logo } from "./Logo";
 import data from "./logo.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Logo",
 
   render: (args) => new Logo(args).html,

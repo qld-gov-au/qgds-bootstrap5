@@ -8,7 +8,7 @@ import { BackToTop } from "./backToTop.js";
 import defaultdata from "./backToTop.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Back to Top",
   render: (args) => new BackToTop(args).html,
   args: defaultdata,

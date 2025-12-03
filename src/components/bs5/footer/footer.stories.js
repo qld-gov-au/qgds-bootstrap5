@@ -4,7 +4,7 @@ import { Footer } from "./Footer.js";
 import defaultdata from "./footer.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "2. Layout/Footer",
   render: (args) => new Footer(args).html,
   argTypes: {

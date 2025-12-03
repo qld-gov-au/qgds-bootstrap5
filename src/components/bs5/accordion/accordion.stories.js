@@ -8,7 +8,7 @@ import { Accordion } from "./Accordion.js";
 import defaultdata from "./accordion.data.json";
 
 export default {
-  tags: ["autodocs", "core"],
+  tags: ["autodocs"],
   title: "3. Components/Accordion",
   render: (args) => new Accordion(args).html,
   args: defaultdata,
