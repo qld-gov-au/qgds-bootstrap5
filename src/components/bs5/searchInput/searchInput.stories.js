@@ -6,7 +6,7 @@ import defaultdata from "./searchInput.data.json";
 const initData = defaultdata.defaultSuggestions || null;
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "extended"],
   title: "3. Components/Search Input",
   render: (args) => {
     return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(args).html}</form>`;

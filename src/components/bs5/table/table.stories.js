@@ -3,7 +3,7 @@ import { Table } from "./Table.js";
 import defaultdata from "./table.data.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "extended"],
   title: "3. Components/Table",
   render: (args) => {
     

@@ -99,6 +99,7 @@
     "selenium-webdriver": "^4.38.0",
     "storybook": "^10.0.8",
     "storybook-addon-deep-controls": "^0.10.0",
+    "storybook-addon-tag-badges": "^3.0.2",
     "vite": "^7.1.11",
     "vitest": "^4.0.10"
   },
