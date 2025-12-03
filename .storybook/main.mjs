@@ -21,6 +21,7 @@ const config = {
     "@chromatic-com/storybook",
     "storybook-addon-deep-controls",
     "@storybook/addon-docs",
+    "storybook-addon-tag-badges",
   ],
 
   framework: {

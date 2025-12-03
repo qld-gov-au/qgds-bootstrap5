@@ -129,7 +129,7 @@ export const AllVariants = {
       <div class="mb-4">
         ${new InpageAlert(alertData).html}
       </div>
-    `
+    `,
       )
       .join("");
   },
