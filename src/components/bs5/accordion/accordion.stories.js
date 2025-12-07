@@ -7,6 +7,9 @@
 import { Accordion } from "./Accordion.js";
 import defaultdata from "./accordion.data.json";
 
+// Create a single instance for accessing metadata and template
+const accordionInstance = new Accordion();
+
 export default {
   tags: ["autodocs"],
   title: "3. Components/Accordion",
@@ -24,23 +27,19 @@ export default {
     backgrounds: { value: "default" },
   },
 
-  /**
-   * Additional parameters for the story.
-   *
-   * @type {Object}
-   * @property {Object} design - Configuration for the design parameter.
-   * @property {string} design.name - Name of the design parameter.
-   * @property {string} design.type - Type of the design parameter.
-   * @property {string} design.url - URL of the design parameter.
-   */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=6276-45691&mode=design&t=crJKtPwMG2IcZf5E-4",
-    },
     backgrounds: {
       disable: false,
+    },
+    docs: {
+      componentMetadata: accordionInstance.metadata,
+      componentTemplate: accordionInstance.template,
+      componentData: [
+        {
+          title: "Accordion Group",
+          data: defaultdata,
+        },
+      ],
     },
   },
 };
@@ -112,6 +111,7 @@ export const Alternative = {
 
 /**
  * Accordion in 'Dark' colour theme.
+ *
  */
 export const Dark = {
   args: {
