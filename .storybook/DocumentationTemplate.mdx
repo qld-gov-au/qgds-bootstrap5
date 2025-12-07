@@ -1,0 +1,75 @@
+import {
+  Meta,
+  Title,
+  Primary,
+  Controls,
+  Stories,
+  Source,
+  useOf,
+} from "@storybook/addon-docs/blocks";
+
+import {
+  ComponentDataSources,
+  ComponentTemplate,
+  ComponentMeta,
+  DesignResources,
+  Tabs,
+  Tab,
+} from "./customMDXComponents.jsx";
+
+<Meta isTemplate />
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: "1rem",
+    marginBottom: "2rem",
+  }}
+>
+  <div>
+    <Title />
+    <DesignResources />
+  </div>
+  
+  <div>
+    <ComponentMeta />
+  </div>
+
+</div>
+
+<Primary />
+
+<Stories title="Examples" includePrimary={false} />
+
+## Code
+
+<Tabs>
+  <Tab label="Handlebars">
+    <ComponentTemplate />
+  </Tab>
+  <Tab label="JSON examples">
+    <ComponentDataSources />
+  </Tab>
+  <Tab label="Rendered HTML">
+    <Source dark />
+  </Tab>
+</Tabs>
+
+## How to use
+
+The QGDS library uses [Handlebars](https://handlebarsjs.com/) partials for HTML rendering.
+
+See the [Getting Started guide](/docs/getting-started--docs) for detailed setup instructions and resource loading.
+
+```javascript
+// Load Handlebars, and component partials and helpers. See getting-started guide
+
+const componentData = {
+  /* Your custom component data object - refer JSON example above */
+};
+
+//Produce a HTML string by compiling the relevant Handlebars partial with your data
+const element = Handlebars.compile({{> accordion }})(componentData);
+```

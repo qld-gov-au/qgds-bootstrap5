@@ -1,3 +1,16 @@
+import * as React from "react";
+import DocumentationTemplate from "./DocumentationTemplate.mdx";
+
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Markdown,
+} from "@storybook/addon-docs/blocks";
+
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
@@ -90,9 +103,29 @@ const preview = {
       },
     },
     docs: {
+      page: DocumentationTemplate,
+      toc: {
+        disable: false,
+        headingSelector: "h2, h3",
+        title: "",
+      },
       source: {
         excludeDecorators: true,
+        state: "open",
+        type: "dynamic",
       },
+      codePanel: true,
+      // page: () =>
+      //   React.createElement(
+      //     React.Fragment,
+      //     null,
+      //     React.createElement(Title),
+      //     React.createElement(Subtitle),
+      //     React.createElement(Description),
+      //     React.createElement(Primary),
+      //     React.createElement(Controls),
+      //     React.createElement(Stories),
+      //   ),
     },
     backgrounds: {
       options: {
@@ -126,6 +159,10 @@ const preview = {
     initialGlobals: {
       backgrounds: { value: "default" },
     },
+  },
+
+  sidebar: {
+    showRoots: false,
   },
 
   decorators: [
