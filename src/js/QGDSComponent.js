@@ -7,10 +7,10 @@ export default class Component {
    * @param {object} data - The data to be used in the template.
    */
 
-  constructor(template, data = {}) {
-
+  constructor(template, data = {}, metadata = {}) {
     this.template = template;
     this.data = data;
+    this.metadata = metadata;
     this.compiled = Handlebars.compile(this.template)(this.data);
 
     // Debug via storybook and browser console
@@ -21,6 +21,7 @@ export default class Component {
     return {
       template: this.template,
       data: this.data,
+      metadata: this.metadata,
       html: this.compiled,
     };
   }
