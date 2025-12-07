@@ -6,9 +6,7 @@
 
 import { Accordion } from "./Accordion.js";
 import defaultdata from "./accordion.data.json";
-
-// Create a single instance for accessing metadata and template
-const accordionInstance = new Accordion();
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -32,8 +30,8 @@ export default {
       disable: false,
     },
     docs: {
-      componentMetadata: accordionInstance.metadata,
-      componentTemplate: accordionInstance.template,
+      componentMetadata: metadata,
+      componentTemplate: new Accordion().template,
       componentData: [
         {
           title: "Accordion Group",
