@@ -22,7 +22,6 @@
   inset-inline-start: 0;
   inset-block-end: 0;
   padding-block: var(--#{$prefix}quick-exit-spacing);
-  padding-inline: var(--#{$prefix}gutter-x);
   position: fixed;
   width: 100%;
   z-index: 200;
@@ -35,6 +34,7 @@
     &.container-fluid {
       gap: calc(var(--#{$prefix}body-font-size) * 1.25);
     }
+
     .qld-quick-exit-input:checked + .qld-tooltip-parent .qld-tooltip-wrapper {
       display: block;
     }
@@ -168,10 +168,7 @@
     inset-block-start: 0;
     z-index: 500;
     padding-block: 20px;
-    padding-inline: 40px;
-    .container {
-      padding-inline: calc(var(--#{$prefix}gutter-x) * 0.5);
-    }
+
     &-inner {
       justify-content: space-between;
       .qld-quick-exit-tip-link {
@@ -182,7 +179,7 @@
         display: flex;
       }
       &.container-fluid {
-        padding-inline: calc(var(--#{$prefix}gutter-x) * 0.333);
+        padding-inline: 0;
       }
       .qld-quick-exit-tip-title {
         font-size: var(--#{$prefix}body-font-size);

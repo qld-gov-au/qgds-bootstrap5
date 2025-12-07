@@ -1,7 +1,7 @@
 {
     "hasIconInfo": true,
     "hasTooltip": true,
-	"exitMessage": "Select 'Close<span class='very-small-mobile'> this site</span>'<span class='not-mobile'> or press 'ESC' on your keyboard</span> to go to google.com.au.",
+	  "exitMessage": "Select 'Close<span class='very-small-mobile'> this site</span>'<span class='not-mobile'> or press 'ESC' on your keyboard</span> to go to google.com.au.",
     "exitMessageLinkText": "View more tips to browse safely online.",
     "quickExitButtonText": "Close<span class='very-small-mobile'> this site</span>",
     "qldTooltipPrompt": "What is this?",

@@ -25,6 +25,7 @@ import selectData from "../select/select.data.json";
 import buttonData from "../button/button.data.json";
 import buttondata from "../button/button.data.json";
 import accordionData from "../accordion/accordion.data.json";
+import quickexit from "../quickexit/quickexit.data.json";
 
 import { SearchInput } from "../searchInput/SearchInput.js";
 
@@ -71,6 +72,10 @@ const defaultData = {
   },
   contentFooter: contentFooterData,
   sidenav: sideNavData,
+  quickexit: {
+    enableQuickExit: true,
+    ...quickexit,
+  },
 };
 
 export default {
