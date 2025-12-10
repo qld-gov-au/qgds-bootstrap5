@@ -1,0 +1,16 @@
+{
+  "id": "qgds-video",
+  "title": "Video player",
+  "title_uikit": "Video player",
+  "type": "Component",
+  "scope": "Extended",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=13297-214065&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "",
+    "storybook": ""
+  }
+}

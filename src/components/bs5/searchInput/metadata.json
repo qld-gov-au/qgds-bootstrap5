@@ -1,0 +1,16 @@
+{
+  "id": "qgds-search-input",
+  "title": "Search input",
+  "title_uikit": "Input field (Search-box)",
+  "type": "Component",
+  "scope": "Core",
+  "group": "Forms",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97871&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/input-fields-select-box",
+    "storybook": ""
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "qgds-select-box",
+  "title": "Select input",
+  "title_uikit": "Input field (Select/Dropdown)",
+  "type": "Component",
+  "scope": "Core",
+  "group": "Forms",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/side-navigation",
+    "storybook": ""
+  }
+}

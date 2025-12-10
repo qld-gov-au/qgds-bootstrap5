@@ -1,0 +1,16 @@
+{
+  "id": "qgds-quick-exit",
+  "title": "Quick exit",
+  "title_uikit": "Quick exit",
+  "type": "Pattern",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321318&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/radio-buttons",
+    "storybook": ""
+  }
+}

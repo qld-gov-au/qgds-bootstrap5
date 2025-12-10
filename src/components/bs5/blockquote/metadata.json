@@ -1,0 +1,16 @@
+{
+  "id": "qgds-blockquote",
+  "title": "Block quote",
+  "title_uikit": "Callout and Blockquote",
+  "type": "Component",
+  "scope": "Core",
+  "group": "Callouts",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=120360-73541&t=yBoHyNGNM1kMkPfC-0",
+    "website": "https://www.designsystem.qld.gov.au/components/callouts",
+    "storybook": ""
+  }
+}

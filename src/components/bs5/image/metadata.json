@@ -1,0 +1,16 @@
+{
+  "id": "qgds-image",
+  "title": "Image",
+  "title_uikit": "Imagery",
+  "type": "Pattern",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23805-301812&t=1hdwEIoZGw3tawaE-0",
+    "website": "",
+    "storybook": ""
+  }
+}

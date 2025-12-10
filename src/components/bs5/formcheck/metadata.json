@@ -1,0 +1,16 @@
+{
+  "id": "qgds-checkbox",
+  "title": "Checkbox",
+  "title_uikit": "Checkboxes",
+  "type": "Component",
+  "scope": "Core",
+  "group": "Forms",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/checkboxes",
+    "storybook": ""
+  }
+}

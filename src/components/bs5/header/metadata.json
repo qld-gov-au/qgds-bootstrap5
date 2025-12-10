@@ -1,0 +1,16 @@
+{
+  "id": "qgds-header",
+  "title": "Header",
+  "title_uikit": "Header",
+  "type": "Pattern",
+  "scope": "Core",
+  "group": "Layout",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/header",
+    "storybook": ""
+  }
+}

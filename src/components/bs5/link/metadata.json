@@ -1,0 +1,16 @@
+{
+  "id": "qgds-icon-links",
+  "title": "Icon Links",
+  "title_uikit": "Icon links",
+  "type": "Component",
+  "scope": "Extended",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=12900-201779&p=f&t=lX0AsFvCDF1u9JbC-0",
+    "website": "",
+    "storybook": ""
+  }
+}

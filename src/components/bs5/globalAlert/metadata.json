@@ -1,0 +1,16 @@
+{
+  "id": "qgds-alert-global",
+  "title": "Global alert",
+  "title_uikit": "Alerts (global)",
+  "type": "Component",
+  "scope": "Core",
+  "group": "Callouts",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97590&p=f&t=GROIooMNoyn7sZDF-0",
+    "website": "https://www.designsystem.qld.gov.au/components/alerts-global",
+    "storybook": ""
+  }
+}
