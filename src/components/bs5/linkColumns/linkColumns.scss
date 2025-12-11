@@ -31,12 +31,14 @@
   .col-vert-1 {
     display: block;
     column-count: 1;
-    column-gap: 1rem;
   }
   .col-vert-2 {
     display: block;
     column-count: 2;
-    column-gap: 1rem;
+    column-gap: 2rem;
+    @include media-breakpoint-down(lg) {
+      column-gap: 1.5rem;
+    }
     @include media-breakpoint-down(md) {
       column-count: 1;
     }
@@ -44,10 +46,11 @@
   .col-vert-3 {
     display: block;
     column-count: 3;
-    column-gap: 1rem;
+    column-gap: 2rem;
     @include media-breakpoint-down(lg) {
         column-count: 2;
-    }
+        column-gap: 1.5rem;
+    }    
     @include media-breakpoint-down(md) {
       column-count: 1;
     }
