@@ -1,7 +1,23 @@
 .link-column {
   --max-column-width: 46rem;
+  --color-border: var(--#{$prefix}neutral-lighter);
+
   background-color: var(--#{$prefix}body-bg);
   
+  &.light {
+    --color-border: var(--#{$prefix}light-border);
+  }
+
+  &.alt {
+    --color-border: var(--#{$prefix}light-border-alt);
+  }
+  &.dark {
+    --color-border: var(--#{$prefix}dark-border);
+  }
+  &.dark-alt {
+    --color-border: var(--#{$prefix}dark-alt-border);
+  }
+
   &:has(.col-1) {
     max-width: var(--max-column-width);
   }
@@ -31,12 +47,14 @@
   .col-vert-1 {
     display: block;
     column-count: 1;
-    column-gap: 1rem;
   }
   .col-vert-2 {
     display: block;
     column-count: 2;
-    column-gap: 1rem;
+    column-gap: 2rem;
+    @include media-breakpoint-down(lg) {
+      column-gap: 1.5rem;
+    }
     @include media-breakpoint-down(md) {
       column-count: 1;
     }
@@ -44,10 +62,11 @@
   .col-vert-3 {
     display: block;
     column-count: 3;
-    column-gap: 1rem;
+    column-gap: 2rem;
     @include media-breakpoint-down(lg) {
         column-count: 2;
-    }
+        column-gap: 1.5rem;
+    }    
     @include media-breakpoint-down(md) {
       column-count: 1;
     }
@@ -58,7 +77,7 @@
     gap: 1rem;
     align-items: center;
     align-content: center;
-    border-block-end: 1px solid var(--#{$prefix}light-grey);
+    border-block-end: 1px solid var(--color-border);
     // Required to reset styles from .qld-content-body li
     margin-block: 0;
     //Reset the line height too to override styles from .qld-content-body li
