@@ -1,7 +1,23 @@
 .link-column {
   --max-column-width: 46rem;
+  --color-border: var(--#{$prefix}neutral-lighter);
+
   background-color: var(--#{$prefix}body-bg);
   
+  &.light {
+    --color-border: var(--#{$prefix}light-border);
+  }
+
+  &.alt {
+    --color-border: var(--#{$prefix}light-border-alt);
+  }
+  &.dark {
+    --color-border: var(--#{$prefix}dark-border);
+  }
+  &.dark-alt {
+    --color-border: var(--#{$prefix}dark-alt-border);
+  }
+
   &:has(.col-1) {
     max-width: var(--max-column-width);
   }
@@ -61,7 +77,7 @@
     gap: 1rem;
     align-items: center;
     align-content: center;
-    border-block-end: 1px solid var(--#{$prefix}light-grey);
+    border-block-end: 1px solid var(--color-border);
     // Required to reset styles from .qld-content-body li
     margin-block: 0;
     //Reset the line height too to override styles from .qld-content-body li
