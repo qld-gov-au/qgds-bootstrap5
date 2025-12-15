@@ -1,4 +1,7 @@
 import * as React from "react";
+import { useEffect } from "storybook/preview-api";
+import { addons } from "storybook/preview-api";
+
 import DocumentationTemplate from "./DocumentationTemplate.mdx";
 
 import {
@@ -114,18 +117,7 @@ const preview = {
         state: "open",
         type: "dynamic",
       },
-      codePanel: true,
-      // page: () =>
-      //   React.createElement(
-      //     React.Fragment,
-      //     null,
-      //     React.createElement(Title),
-      //     React.createElement(Subtitle),
-      //     React.createElement(Description),
-      //     React.createElement(Primary),
-      //     React.createElement(Controls),
-      //     React.createElement(Stories),
-      //   ),
+      codePanel: false,
     },
     backgrounds: {
       options: {
@@ -166,6 +158,76 @@ const preview = {
   },
 
   decorators: [
+    /**
+     * Channel Communication Decorator
+     *
+     * Establishes a channel connection between the Storybook preview (inner iframe)
+     * and Storybook manager (outer frame) to send coderefs data to the
+     * "Code References" panel whenever a story is rendered or updated.
+     *
+     * @fires CODEREFS_UPDATE - Emits payload to manager with template, json, html, name, notes, and metadata
+     */
+
+    (Story, context) => {
+      const { args, parameters } = context;
+      const coderefs = parameters.coderefs || {};
+      const metadata = parameters.metadata || {};
+
+      useEffect(() => {
+        const channel = addons.getChannel();
+
+        // If coderefs.show is explicitly false, send "hide" signal and exit
+        if (coderefs.show === false) {
+          channel.emit("CODEREFS_UPDATE", { showPanel: false });
+          return;
+        }
+
+        // Default tabs to show
+        const showtabs = {
+          html: coderefs.tabs?.html !== false,
+          json: coderefs.tabs?.json !== false,
+          template: coderefs.tabs?.template !== false,
+          notes: coderefs.tabs?.notes !== undefined,
+        };
+
+        // Check if any tabs are visible
+        const hasVisibleTabs = Object.values(showtabs).some(Boolean);
+
+        // If no tabs to show, send "hide" signal and exit
+        if (!hasVisibleTabs) {
+          channel.emit("CODEREFS_UPDATE", { showPanel: false });
+          return;
+        }
+
+        // Get the story's rendered HTML
+        const htmlmarkup = (
+          coderefs.includeDecorators ? Story : context.originalStoryFn || Story
+        )(args, context);
+
+        // Get the story's hbs template
+        const hbstemplate =
+          Handlebars.partials[coderefs.partialname] ||
+          "Missing partialname in story config";
+
+        // Data we're sending from preview frame to manager frame
+        const payload = {
+          showPanel: true,
+          showTabs: showtabs,
+          template: hbstemplate,
+          json: args,
+          html: typeof htmlmarkup === "string" ? htmlmarkup : "",
+          notes: coderefs.notes || "Nil",
+          name: context.name || "Unknown",
+          metadata: metadata,
+        };
+
+        console.log("[PREVIEW] Sending CODEREFS_UPDATE:", payload);
+        channel.emit("CODEREFS_UPDATE", payload);
+      }, [args, parameters.coderefs]);
+
+      return Story();
+    },
+
     ...(ENABLE_DYNAMIC_THEME ? [withDynamicTheme] : []),
     // data-bs-theme="dark" won't be used
     withThemeByClassName({
