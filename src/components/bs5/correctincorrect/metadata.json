@@ -7,9 +7,8 @@
 "status": "Published",
 "tags": [""],
 "description": "The correct/incorrect pattern is used to inform responses or actions the user should take.",
-"urls": {
+"refs": {
   "uikit": "",
-  "website": "",
-  "storybook": "https://qld-gov-au.github.io/qgds-bootstrap5/?path=/docs/3-components-correctincorrect--overview"
+  "website": ""
   }
 }

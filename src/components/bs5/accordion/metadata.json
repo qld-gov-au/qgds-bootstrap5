@@ -1,15 +1,15 @@
 {
   "id": "qgds-accordion",
   "title": "Accordion",
-  "type": "component",
-  "category": "Core",
+  "title_uikit": "Accordion",
+  "type": "Component",
+  "scope": "Core",
   "group": "",
   "status": "Published",
-  "tags": [""],
-  "description": "Accordions expand and collapse sections of content.",
-  "urls": {
-    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=120348-3558&m=dev",
-    "website": "https://designsystem.qld.gov.au/components/accordion",
-    "storybook": "https://qld-gov-au.github.io/qgds-bootstrap5/?path=/docs/3-components-accordion"
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98109&p=f&t=GROIooMNoyn7sZDF-0",
+    "website": "https://www.designsystem.qld.gov.au/components/accordion"
   }
 }
