@@ -2,6 +2,7 @@ import {
   Meta,
   Title,
   Primary,
+  Canvas,
   Controls,
   Stories,
   Source,
@@ -9,10 +10,10 @@ import {
 } from "@storybook/addon-docs/blocks";
 
 import {
-  ComponentDataSources,
-  ComponentTemplate,
   ComponentMeta,
+  CodeReferences,
   DesignResources,
+  HowToUse,
   Tabs,
   Tab,
 } from "./customMDXComponents.jsx";
@@ -28,48 +29,24 @@ import {
     marginBottom: "2rem",
   }}
 >
-  <div>
-    <Title />
-    <DesignResources />
-  </div>
-  
-  <div>
-    <ComponentMeta />
-  </div>
+
+<Title />
+
+<div>
+  <ComponentMeta />
+</div>
 
 </div>
 
+## Default
+
 <Primary />
+<Source />
 
-<Stories title="Examples" includePrimary={false} />
+<Stories title="Other Variants" includePrimary={false} />
 
-## Code references
+<CodeReferences title="Code references" />
 
-<Tabs>
-  <Tab label="Handlebars">
-    <ComponentTemplate />
-  </Tab>
-  <Tab label="JSON data">
-    <ComponentDataSources />
-  </Tab>
-  <Tab label="Compiled HTML">
-    <Source dark />
-  </Tab>
-</Tabs>
+<HowToUse title="How to use" />
 
-## How to use
-
-The QGDS library uses [Handlebars](https://handlebarsjs.com/) partials for HTML rendering.
-
-See the [Getting Started guide](/docs/getting-started--docs) for detailed setup instructions and resource loading.
-
-```javascript
-// Load Handlebars, and component partials and helpers. See getting-started guide
-
-const componentData = {
-  /* Your custom component data object - refer JSON example above */
-};
-
-//Produce a HTML string by compiling the relevant Handlebars partial with your data
-const element = Handlebars.compile({{> accordion }})(componentData);
-```
+<DesignResources title="Design resources" />

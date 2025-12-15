@@ -1,5 +1,11 @@
-import { Source, useOf } from "@storybook/addon-docs/blocks";
+import { Source, useOf, Markdown } from "@storybook/addon-docs/blocks";
 import React, { useState } from "react";
+
+// Import prettier and specific parsers
+// import prettier from "prettier/standalone";
+// import parserBabel from "prettier/parser-babel";
+// import parserHtml from "prettier/parser-html";
+// import parserPostcss from "prettier/parser-postcss";
 
 /**
  * Custom hook to fetch and provide documentation data from story parameters.
@@ -10,12 +16,11 @@ const useDocsData = () => {
   // useOf must be called inside a functional component or another hook.
   const resolvedOf = useOf("meta", ["meta"]);
   const docs = resolvedOf.preparedMeta?.parameters?.docs || {};
-  //const design = resolvedOf.preparedMeta?.parameters?.design;
 
   return {
-    componentData: docs.componentData,
-    componentTemplate: docs.componentTemplate || docs.hbsTemplate, // Support both names
     componentMetadata: docs.componentMetadata,
+    codeReferences: docs.codeReferences,
+    howToUse: docs.howToUse,
     hasData: (key) => docs[key] !== undefined && docs[key] !== null,
   };
 };
@@ -38,19 +43,22 @@ export const Tab = ({ children }) => {
  * @param {object} props
  * @param {React.ReactElement<typeof Tab>[]} props.children One or more <Tab> components.
  */
-export const Tabs = ({ children }) => {
+export const Tabs = ({ title, children }) => {
   const [activeTab, setActiveTab] = useState(0);
   const tabs = React.Children.toArray(children).filter(
     (child) => child.type === Tab,
   );
 
   return (
-    <div className="qgds-tabs-container" style={{ marginTop: "1.5rem" }}>
+    <div className="qgds-tabs-container d-flex" style={{ marginTop: "1.5rem" }}>
       <div
         className="qgds-tabs-nav"
         style={{
-          borderBottom: "1px solid #e0e0e0",
-          marginBottom: "1rem",
+          borderRight: "1px solid #e0e0e0",
+          marginRight: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
         }}
       >
         {tabs.map((tab, index) => (
@@ -82,54 +90,53 @@ export const Tabs = ({ children }) => {
 };
 
 /**
- * Renders JSON data sources from `parameters.docs.componentData`.
+ * Conditional wrapper for code reference tabs with granular control
+ * @param {object} props
+ * @param {string} props.title - Title for the section
  * @returns {JSX.Element|null}
  */
-export const ComponentDataSources = () => {
-  const { componentData } = useDocsData();
+export const CodeReferences = ({ title = "Code references" }) => {
+  const { codeReferences } = useDocsData();
 
-  if (!componentData) return null;
-
-  const dataArray = Array.isArray(componentData)
-    ? componentData
-    : [{ title: "Component Data", data: componentData }];
+  // Don't render if no codeReferences array is provided
+  if (
+    !codeReferences ||
+    !Array.isArray(codeReferences) ||
+    codeReferences.length === 0
+  ) {
+    return null;
+  }
 
   return (
     <>
-      {dataArray.map((item, index) => (
-        <div key={index} style={{ marginBottom: "2rem" }}>
-          {item.title && <h4>{item.title}</h4>}
-          <Source
-            format="dedent"
-            dark
-            language="json"
-            code={JSON.stringify(item.data, null, 2)}
-          />
-        </div>
-      ))}
-    </>
-  );
-};
+      <h2 id="code-references">{title}</h2>
+      <Tabs>
+        {codeReferences.map((item, index) => {
+          // Handle different content types
+          let sourceContent;
+          let language = item.language || "text";
+          let label = item.label || `Tab ${index + 1}`;
 
-/**
- * Renders the Handlebars template from `parameters.docs.componentTemplate`.
- * @returns {JSX.Element|null}
- */
-export const ComponentTemplate = () => {
-  const { componentTemplate } = useDocsData();
+          if (item.language === "json" && typeof item.content === "object") {
+            // JSON objects need to be stringified
+            sourceContent = JSON.stringify(item.content, null, 2);
+          } else {
+            // For strings (handlebars, html, etc.) or other content
+            sourceContent = item.content;
+          }
 
-  if (!componentTemplate) return null;
-
-  return (
-    <>
-      <div style={{ marginBottom: "2rem" }}>
-        <Source
-          format="dedent"
-          dark
-          language="handlebars"
-          code={componentTemplate}
-        />
-      </div>
+          return (
+            <Tab key={index} label={label}>
+              <Source
+                format="dedent"
+                dark
+                language={language}
+                code={sourceContent}
+              />
+            </Tab>
+          );
+        })}
+      </Tabs>
     </>
   );
 };
@@ -147,8 +154,9 @@ export const ComponentMeta = () => {
   const metadataItems = [
     { key: "ID", value: componentMetadata.id },
     { key: "Version", value: componentMetadata.version },
+    { key: "Category", value: `${componentMetadata.scope}` },
+    { key: "Type", value: componentMetadata.type },
     { key: "Status", value: componentMetadata.status },
-    { key: "Category", value: componentMetadata.category },
     { key: "Tags", value: componentMetadata.tags?.join(", ") },
   ].filter((item) => item.value);
 
@@ -158,15 +166,17 @@ export const ComponentMeta = () => {
 
   return (
     <table className="table">
-      {metadataItems.map((item) => (
-        // Use a React.Fragment for each TR
-        <>
-          <tr>
+      <tbody>
+        {metadataItems.map((item, index) => (
+          <tr key={index}>
             <th className="fw-bold fst-normal m-0 p-2">{item.key}</th>
-            <td className="m-0 p-2">{item.value}</td>
+            <td
+              className="m-0 p-2"
+              dangerouslySetInnerHTML={{ __html: item.value }}
+            ></td>
           </tr>
-        </>
-      ))}
+        ))}
+      </tbody>
     </table>
   );
 };
@@ -175,20 +185,95 @@ export const ComponentMeta = () => {
  * Renders links to design resources like Figma.
  * @returns {JSX.Element|null}
  */
-
 export const DesignResources = () => {
   const { componentMetadata } = useDocsData();
-  const figmaUrl = componentMetadata?.urls?.uikit || null;
-  const description = componentMetadata?.description || null;
+  const title_uikit = componentMetadata?.title_uikit || "";
+  const url_uikit = componentMetadata?.refs?.uikit || null;
+  const url_website = componentMetadata?.refs?.website || null;
 
-  if (!figmaUrl) return null;
+  if (!url_uikit && !url_website) return null;
 
   return (
     <>
-      <p>{description}</p>
-      <a href={figmaUrl} target="_blank" rel="noopener noreferrer">
-        View component in Figma
-      </a>
+      <h2 className="mb-16" id="design-resources">
+        Design resources
+      </h2>
+
+      {/* Link to Figma */}
+      {url_uikit && (
+        <a
+          href={url_uikit}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "block", marginBottom: "0.5rem" }}
+        >
+          QGDS UI Kit (Figma) - {title_uikit}
+        </a>
+      )}
+
+      {/* Link to Design System website */}
+      {url_website && (
+        <a
+          href={url_website}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "block", marginBottom: "0.5rem" }}
+        >
+          View component on Design System website
+        </a>
+      )}
+    </>
+  );
+};
+
+/**
+ * Renders usage instructions, either default or custom markdown content.
+ * @param {object} props
+ * @param {string} props.title - The title/heading for this section
+ * @returns {JSX.Element|null}
+ */
+export const HowToUse = ({ title = "How to use" }) => {
+  const { howToUse, componentMetadata } = useDocsData();
+
+  const partialName = componentMetadata?.refs?.partialName || "partialname";
+
+  // Hide the section entirely if explicitly set to false
+  if (howToUse?.show === false) return null;
+
+  // Unless custom content was provided, render default usage instructions
+  if (!howToUse?.customMarkdown || howToUse.customMarkdown.trim() === "") {
+    return (
+      <>
+        <h2 id="how-to-use">{title}</h2>
+        <p>
+          The QGDS library uses{" "}
+          <a href="https://handlebarsjs.com/">Handlebars</a> partials for HTML
+          rendering. See the{" "}
+          <a href="/docs/getting-started--docs">Getting Started guide</a> for
+          detailed setup instructions and resource loading.
+        </p>
+
+        <Source
+          format="dedent"
+          light
+          language="javascript"
+          code={`// Ensure Handlebars, component partials and helpers are already loaded in your project. See getting-started guide 
+
+const componentData = {
+  /* Provide a data object for this component - refer to examples above */
+};
+
+// Generate HTML string by compiling the relevant Handlebars partial with your data 
+const htmlString = Handlebars.compile('{{> ${partialName}}}')(componentData);`}
+        />
+      </>
+    );
+  }
+
+  // Render custom markdown content from story parameters
+  return (
+    <>
+      <Markdown>{howToUse.customMarkdown}</Markdown>
     </>
   );
 };
