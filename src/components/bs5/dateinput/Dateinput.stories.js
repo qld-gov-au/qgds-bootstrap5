@@ -1,6 +1,7 @@
 import { Dateinput } from "./Dateinput.js";
 import defaultdata from "./dateinput.data.json";
 import { expect } from "storybook/test";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -21,6 +22,11 @@ export default {
   globals: { backgrounds: { value: "default" } },
   parameters: {
     backgrounds: { disable: false },
+    coderefs: {
+      metadata,
+      partialname: "dateinput",
+    },
+    docs: {},
   },
 };
 
