@@ -1,7 +1,7 @@
 {
-  "id": "qgds-checkbox",
-  "title": "Checkbox",
-  "title_uikit": "Checkboxes",
+  "id": "qgds-input-formcheck",
+  "title": "Formcheck",
+  "title_uikit": "Radio and checkbox buttons",
   "type": "Component",
   "scope": "Core",
   "group": "Forms",
@@ -10,7 +10,6 @@
   "description": "",
   "refs": {
     "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=1PNeXYXdepnDeW4g-0",
-    "website": "https://www.designsystem.qld.gov.au/components/checkboxes",
-    "storybook": ""
+    "website": "https://www.designsystem.qld.gov.au/components/checkboxes"
   }
 }

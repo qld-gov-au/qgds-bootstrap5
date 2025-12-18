@@ -10,7 +10,6 @@
   "description": "",
   "refs": {
     "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5702-89540&t=loDOHfqaVy8bH9Qa-0",
-    "website": "https://www.designsystem.qld.gov.au/components/input-fields-text-box-and-area",
-    "storybook": ""
+    "website": "https://www.designsystem.qld.gov.au/components/input-fields-text-box-and-area"
   }
 }

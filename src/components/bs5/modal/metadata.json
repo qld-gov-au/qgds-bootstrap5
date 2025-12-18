@@ -1,1 +1,15 @@
-{}
+{
+  "id": "qgds-modal",
+  "title": "Modal",
+  "title_uikit": "Modals",
+  "type": "Pattern",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "",
+    "website": ""
+  }
+}
