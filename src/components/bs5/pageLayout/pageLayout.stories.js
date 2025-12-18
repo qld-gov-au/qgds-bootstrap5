@@ -83,6 +83,7 @@ export default {
   parameters: {
     layout: "fullscreen",
     docs: {
+      page: null, //null overrides our custom DocumentationTemplate, forces the autodocs default instead
       controls: {},
     },
   },

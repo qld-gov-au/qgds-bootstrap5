@@ -6,6 +6,8 @@
 import imagedata from "./image.data.json";
 import { ImageComponent } from "./Image";
 
+import metadata from "./metadata.json";
+
 /**
  *
  * Images in the Design System should use a standard aspect ratio (below). More guidance is available at <a href="https://www.designsystem.qld.gov.au/styles/images">https://www.designsystem.qld.gov.au/styles/images</a>.
@@ -181,6 +183,13 @@ export default {
       `;
     },
   ],
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "image", //{{> image }}
+    },
+  },
 };
 
 /**

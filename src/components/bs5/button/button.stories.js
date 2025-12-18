@@ -1,6 +1,9 @@
 // Button.stories.js
 import { Button } from "./Button.js";
 import defaultdata from "./button.data.json";
+import metadata from "./metadata.json";
+
+import buttonSchema from "./button.schema.json";
 
 /**
  * Define the variants for Button component.
@@ -120,13 +123,18 @@ export default {
   },
 
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98058&mode=design&t=YBUAJHIxqF46Um9y-0",
-    },
     backgrounds: {
       disabled: false,
+    },
+    coderefs: {
+      metadata,
+      partialname: "button", //{{> button }}
+      tabs: {
+        custom: {
+          label: "Schema",
+          content: new Button(defaultdata).html,
+        },
+      },
     },
   },
 };

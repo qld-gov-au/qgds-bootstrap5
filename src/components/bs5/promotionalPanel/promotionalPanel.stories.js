@@ -7,37 +7,39 @@
 
 import { PromotionalPanel } from "./promotionalPanel.js";
 import defaultdata from "./promotionalPanel.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
   title: "3. Components/Promotional Panel",
-  
+
   render: (args) => new PromotionalPanel(args).html,
   args: defaultdata,
   argTypes: {
     type: {
-      description: 'The types of layouts that this component supports',
+      description: "The types of layouts that this component supports",
       control: "select",
       options: ["promo", "contained", "indent-text", "indent-img"],
     },
     variantClass: {
-      description: 'The types of themes that this component supports',
+      description: "The types of themes that this component supports",
       control: "select",
       options: ["light", "alt", "dark", "dark-alt"],
-    },  
+    },
     promoImage: {
       control: "text",
       description: "The image to be displayed in the promotional panel.",
-      defaultValue:"./assets/img/banner-example-3-to-2.jpg",
+      defaultValue: "./assets/img/banner-example-3-to-2.jpg",
     },
     contentAlignment: {
-      description: 'Position of the content in the panel within this component',
+      description: "Position of the content in the panel within this component",
       control: "select",
-      options: ["content-left","content-right"],
+      options: ["content-left", "content-right"],
     },
     icon: {
       control: "select",
-      description: "Current list of usable icons available in the icon component.",
+      description:
+        "Current list of usable icons available in the icon component.",
       options: ["icon-dot-grid", "icon-phone", "icon-email", "icon-search"],
     },
     title: {
@@ -48,20 +50,22 @@ export default {
     abstract: {
       control: "text",
       description: "The abstract of the promotional panel.",
-      defaultValue:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis.",
+      defaultValue:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis.",
     },
     body: {
       control: "text",
       description: "The body of the promotional panel.",
-      defaultValue:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis. Vel suspendisse mi quisque consequat aliquet egestas.",
+      defaultValue:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis. Vel suspendisse mi quisque consequat aliquet egestas.",
     },
     cta: {
-      description: 'The call to action objects for the promotional panel.',
-      control: 'object',
+      description: "The call to action objects for the promotional panel.",
+      control: "object",
     },
     btn: {
-      description: 'The button objects for the promotional panel.',
-      control: 'object',
+      description: "The button objects for the promotional panel.",
+      control: "object",
     },
   },
 
@@ -75,10 +79,9 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=oML8wlVSAg2496sB-0",
+    coderefs: {
+      metadata,
+      partialname: "promotionalPanel", //{{> promotionalPanel }}
     },
   },
 };
@@ -120,4 +123,3 @@ export const DarkAlternative = {
     variantClass: "dark-alt",
   },
 };
-

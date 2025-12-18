@@ -2,6 +2,7 @@
 import { Card, argTypes } from "./Card.js";
 import { Link } from "../link/link.js";
 import defaultdata from "./card.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -106,10 +107,9 @@ export default {
         exclude: ["link", "arrow", "iconPosition", "footer"],
       },
     },
-    design: {
-      name: "QGDS Figma Reference - Cards",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=card-component",
+    coderefs: {
+      metadata,
+      partialname: "card", //{{> card }}
     },
   },
 };

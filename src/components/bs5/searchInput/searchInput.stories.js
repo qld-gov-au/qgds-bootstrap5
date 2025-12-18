@@ -1,6 +1,7 @@
 // SearchInput.stories.js
 import { SearchInput } from "./SearchInput.js";
 import defaultdata from "./searchInput.data.json";
+import metadata from "./metadata.json";
 
 // Save the initial defaultSuggestions data with fallback
 const initData = defaultdata.defaultSuggestions || null;
@@ -31,6 +32,10 @@ export default {
     },
   },
   parameters: {
+    coderefs: {
+      metadata,
+      partialname: "searchInput", //{{> searchInput }}
+    },
     docs: {
       controls: {
         include: [

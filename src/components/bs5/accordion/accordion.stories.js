@@ -26,19 +26,14 @@ export default {
   },
 
   parameters: {
+    coderefs: {
+      metadata,
+      partialname: "accordion", //{{> accordion }}
+    },
     backgrounds: {
       disable: false,
     },
-    docs: {
-      componentMetadata: metadata,
-      componentTemplate: new Accordion().template,
-      componentData: [
-        {
-          title: "Accordion Group",
-          data: defaultdata,
-        },
-      ],
-    },
+    docs: {},
   },
 };
 

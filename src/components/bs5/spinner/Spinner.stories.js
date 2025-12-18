@@ -1,23 +1,29 @@
 // ComponentExample.stories.js
 import { Spinner } from "./Spinner.js";
 import defaultdata from "./spinner.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
   title: "3. Components/Spinner",
   render: (args) => {
-    
-    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 
+    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.
     //We can't use commas on our class="..." attribute, so we need to replace the commas with spaces.
 
-    if( typeof(args.customClass) === 'string' ) {
-      args.customClass = args.customClass.replaceAll(","," ");
-    } else if ( typeof(args.customClass) === 'object' ) {
+    if (typeof args.customClass === "string") {
+      args.customClass = args.customClass.replaceAll(",", " ");
+    } else if (typeof args.customClass === "object") {
       args.customClass = args.customClass.join(" ");
     }
-  
+
     return new Spinner(args).html;
-  
+  },
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "spinner", //{{> spinner }}
+    },
   },
 };
 
@@ -32,15 +38,13 @@ export const Default = {
  * Dark themed Loading Spinner
  */
 export const Dark = {
-  args: { 
-	  ...defaultdata,
+  args: {
+    ...defaultdata,
   },
   parameters: {
     backgrounds: {
-      default: 'Dark',
-      values: [
-        { name: 'Dark', value: 'var(--qld-brand-primary)' },
-      ],
+      default: "Dark",
+      values: [{ name: "Dark", value: "var(--qld-brand-primary)" }],
     },
   },
   decorators: [
@@ -59,8 +63,8 @@ export const Dark = {
  */
 export const Minimal = {
   args: {
-	  ...defaultdata,
-	  ...{minimal: true},
+    ...defaultdata,
+    ...{ minimal: true },
   },
 };
 
@@ -68,9 +72,8 @@ export const Minimal = {
  * Stacked Loading Spinner
  */
 export const Stacked = {
-  args: { 
-	  ...defaultdata,
-	  ...{stacked: true},
+  args: {
+    ...defaultdata,
+    ...{ stacked: true },
   },
 };
-

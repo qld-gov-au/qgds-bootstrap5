@@ -1,10 +1,11 @@
 // tag--standard.stories.js
-import { Tag } from './Tag.js';
-import defaultdata from './tag.data.json';
+import { Tag } from "./Tag.js";
+import defaultdata from "./tag.data.json";
+import metadata from "./metadata.json";
 
 export default {
-  tags: ['autodocs'],
-  title: '3. Components/Tag/Standard',
+  tags: ["autodocs"],
+  title: "3. Components/Tag/Standard",
   render: (args) => new Tag(args).html,
   argTypes: {
     variant: {
@@ -19,6 +20,12 @@ export default {
         },
       },
       options: ["tag-default", "tag-alt", "tag-dark", "tag-dark-alt"],
+    },
+  },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "tag", //{{> tag }}
     },
   },
 };

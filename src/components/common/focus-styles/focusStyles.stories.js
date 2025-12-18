@@ -19,6 +19,16 @@ const cardArgs = cardData.singleAction;
 export default {
   title: "1. Core Styles/Focus Styles",
   tags: ["autodocs"],
+
+  render: (args) => {
+    return `<div class="p-24 ${args.paletteClass || ""}" style="display: flex; gap: 48px; align-items: flex-start">
+<a href=javascript:void()" class="${args.utilityClass || ""}">Here is a link</a>
+${new Button({ ...buttonArgs, variantClass: `${buttonArgs.variantClass} ${args.utilityClass || ""}` }).html}
+${new Card({ ...cardArgs, variantClass: `${args.cardPaletteClass} ${args.utilityClass || ""}` }).html}
+</div>
+`;
+  },
+
   argTypes: {
     utilityClass: {
       description:
@@ -35,15 +45,9 @@ export default {
       options: ["default", "light", "alt", "dark", "dark-alt"],
     },
   },
-  parameters: { layout: "fullscreen" },
-
-  render: (args) => {
-    return `<div class="p-24 ${args.paletteClass || ""}" style="display: flex; gap: 48px; align-items: flex-start">
-<a href=javascript:void()" class="${args.utilityClass || ""}">Here is a link</a>
-${new Button({ ...buttonArgs, variantClass: `${buttonArgs.variantClass} ${args.utilityClass || ""}` }).html}
-${new Card({ ...cardArgs, variantClass: `${args.cardPaletteClass} ${args.utilityClass || ""}` }).html}
-</div>
-`;
+  parameters: {
+    layout: "fullscreen",
+    coderefs: { show: false },
   },
 };
 

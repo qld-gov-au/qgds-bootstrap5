@@ -1,6 +1,7 @@
 // tag--large.stories.js
 import { Tag } from "./Tag.js";
 import defaultdata from "./tag.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -19,6 +20,12 @@ export default {
         },
       },
       options: ["tag-default", "tag-alt", "tag-dark", "tag-dark-alt"],
+    },
+  },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "tag", //{{> tag }}
     },
   },
 };

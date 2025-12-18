@@ -1,8 +1,9 @@
 import defaultdata from "./contentFooter.data.json";
 import { ContentFooter } from "./contentFooter.js";
+import metadata from "./metadata.json";
 
 export default {
-  title: "4. Wrappers/Components/Content Footer",
+  title: "3. Components/Content Footer",
   render: (args) => {
     return new ContentFooter(args).html;
   },
@@ -11,22 +12,28 @@ export default {
     lastUpdated: {
       name: "Last updated",
       description: `Date page was Last Updated`,
-      control: { type: 'text'  },
+      control: { type: "text" },
     },
   },
 
   parameters: {
-    docs: {
-      controls: {
-
+    coderefs: {
+      metadata,
+      partialname: "contentFooter", //{{> contentFooter }}
+      tabs: {
+        notes:
+          "\n\nThis Content Footer pattern includes a Back To Top component. Configure Back To Top options via the contentFooter JSON data.",
       },
+    },
+    docs: {
+      controls: {},
     },
   },
 };
 
 /**
  * Default Content Footer
- * 
+ *
  */
 export const Default = {
   args: defaultdata,
@@ -43,17 +50,16 @@ export const Default = {
  * Default empty Content Footer
  *
  */
-export const DefaultEmpty = {
-  args: {
-  },
-  parameters: {
-    chromatic: { disableSnapshot: true },
-  },
-  decorators:[Story => {
-    return `
-          ${Story()}
-      `;
-  }],
-};
-
-
+// export const DefaultEmpty = {
+//   args: {},
+//   parameters: {
+//     chromatic: { disableSnapshot: true },
+//   },
+//   decorators: [
+//     (Story) => {
+//       return `
+//           ${Story()}
+//       `;
+//     },
+//   ],
+// };

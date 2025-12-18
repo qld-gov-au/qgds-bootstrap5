@@ -1,6 +1,7 @@
 // typography.stories.js
 // import { Typography } from "./Typography.js";
 // import defaultdata from "./typography.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -69,6 +70,9 @@ export default {
       },
     ],
     backgrounds: { disable: false },
+    coderefs: {
+      show: false,
+    },
   },
   globals: { backgrounds: { value: "default" } },
 };

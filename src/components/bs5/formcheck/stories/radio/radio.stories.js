@@ -1,6 +1,7 @@
 // FormcheckRadio.stories.js
 import { Formcheck, argTypes } from "../../Formcheck.js";
 import defaultdata from "./radio.data.json";
+import metadata from "../../metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -9,7 +10,17 @@ export default {
     return `${new Formcheck(args).html}`;
   },
   globals: { backgrounds: { value: "default" } },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    backgrounds: { disable: false },
+    coderefs: {
+      metadata,
+      partialname: "formcheck",
+      tabs: {
+        notes:
+          "The QGDS formcheck component includes both radio and checkbox buttons. Set the `type` argument to either `radio` or `checkbox` to display the relevant input type.",
+      },
+    },
+  },
   //https://storybook.js.org/docs/api/arg-types
   argTypes,
 };

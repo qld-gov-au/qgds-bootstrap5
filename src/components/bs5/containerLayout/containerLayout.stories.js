@@ -71,6 +71,10 @@ export default {
       controls: {},
     },
     chromatic: { disableSnapshot: true },
+    coderefs: {
+      metadata,
+      partialname: "containerLayout", //{{> containerLayout }}
+    },
   },
 };
 

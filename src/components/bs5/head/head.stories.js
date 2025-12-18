@@ -12,8 +12,16 @@ export default {
     cdn: {
       name: "CDN",
       description: `CDN prefix or provided text`,
-      control: { type: 'radio' ,
-        labels: { 'DEV': 'DEV', 'TEST' : 'TEST','BETA':'BETA','STAGING':'STAGING','PROD':'PROD','/__data/assets/git_bridge/0026/471752': 'SQUIZ Custom'},
+      control: {
+        type: "radio",
+        labels: {
+          DEV: "DEV",
+          TEST: "TEST",
+          BETA: "BETA",
+          STAGING: "STAGING",
+          PROD: "PROD",
+          "/__data/assets/git_bridge/0026/471752": "SQUIZ Custom",
+        },
       },
       options: [
         "DEV",
@@ -28,8 +36,15 @@ export default {
 
   parameters: {
     docs: {
-      controls: {
-
+      codeReferences: [
+        {
+          label: "HTML",
+          language: "html",
+          content: new Head(defaultdata).html,
+        },
+      ],
+      howToUse: {
+        show: false,
       },
     },
   },
@@ -37,9 +52,10 @@ export default {
 
 /**
  * Default head metadata
- * 
+ *
  */
 export const Default = {
+  tags: ["!dev"],
   args: defaultdata,
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -53,33 +69,36 @@ export const Default = {
   ],
 };
 
-
 export const DEV = {
+  tags: ["!dev"],
   args: {
     cdn: "DEV",
   },
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-  decorators:[Story => {
-    return `
+  decorators: [
+    (Story) => {
+      return `
           ${Story()}
       `;
-  }],
+    },
+  ],
 };
 
 export const SQUIZ = {
+  tags: ["!dev"],
   args: {
     cdn: "/__data/assets/git_bridge/0026/471752",
   },
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-  decorators:[Story => {
-    return `
+  decorators: [
+    (Story) => {
+      return `
           ${Story()}
       `;
-  }],
+    },
+  ],
 };
-
-

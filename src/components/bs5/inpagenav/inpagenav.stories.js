@@ -1,6 +1,7 @@
 // inpagenav.stories.js
 import { Inpagenav } from "./Inpagenav.js";
 import defaultdata from "./inpagenav.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -12,6 +13,10 @@ export default {
       controls: {
         exclude: ["variantClass", "navitems"],
       },
+    },
+    coderefs: {
+      metadata,
+      partialname: "inpagenav", //{{> inpagenav }}
     },
     backgrounds: { disable: false },
   },
