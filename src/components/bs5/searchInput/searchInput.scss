@@ -63,12 +63,6 @@
         opacity 0.5s,
         display 0.5s;
     }
-
-    // &:has(#search-button:active) {
-    //   .suggestions {
-    //     display: none;
-    //   }
-    // }
   }
 
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
@@ -81,14 +75,14 @@
 
   .form-control {
     min-height: var(--_size);
-    padding: 0 4rem 0 1rem;
+    padding-block: 0;
+    padding-inline: 1rem;
     border: var(--border-color) solid 0.125rem;
     border-inline-end-width: 0;
     border-radius: 0;
     border-start-start-radius: var(--border-radius);
     border-end-start-radius: var(--border-radius);
     background: var(--background-color);
-    padding-inline-end: 7.5rem;
     color: var(--text-color);
 
     transition: {
@@ -157,11 +151,6 @@
         display: none;
         margin-inline-start: 0;
       }
-    }
-
-    .form-control {
-      padding-block: 0.75rem;
-      padding-inline: 1rem;
     }
   }
 
