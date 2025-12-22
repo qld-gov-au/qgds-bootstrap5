@@ -16,6 +16,8 @@ import { createOverrideThemeScssEntry } from "./.esbuild/helpers/scssOverrideThe
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
 import handlebarsPlugin from "esbuild-plugin-handlebars";
+import postcss from "postcss";
+import autoprefixer from "autoprefixer";
 
 //Command line arguments are available via argv object
 import minimist from "minimist";
@@ -27,7 +29,7 @@ const versionString = `${process.env.npm_package_name} - v${process.env.npm_pack
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
   bundle: true,
-  minify: true,
+  minify: argv.minify !== "false", //true, unless flagged: 'npm run build -- --minify=false'
   sourcemap: true,
   target: ["es6"],
   logLevel: "info",
@@ -95,6 +97,13 @@ const buildConfig = {
       indentType: "space",
       indentWidth: 2,
       loadPaths: ["./node_modules"],
+      async transform(source, resolveDir) {
+        const result = await postcss([autoprefixer({ remove: false })]).process(
+          source,
+          { from: undefined },
+        );
+        return result.css;
+      },
     }),
     QDGSbuildLog(),
   ],
@@ -103,7 +112,7 @@ const buildConfig = {
 const buildNodeConfig = {
   loader: buildConfig.loader,
   bundle: true,
-  minify: false,
+  minify: argv.minify !== "false", //true, unless flagged: 'npm run build -- --minify=false'
   sourcemap: true,
   minifyIdentifiers: false,
   logLevel: buildConfig.logLevel,
