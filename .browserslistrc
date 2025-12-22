@@ -1,0 +1,17 @@
+# Browserslist configuration
+
+# https://github.com/browserslist/browserslist
+
+# Includes QLD Government browserlist
+
+# https://www.forgov.qld.gov.au/communication-and-publishing/website-standards-guidelines-and-templates/browser-support/browser-support-list
+
+chrome >= 102
+safari >= 16.1
+edge >= 102
+firefox >= 91
+samsung >= 16
+ios_saf >= 15.6
+op_mob >= 73
+opera >= 99
+android >= 4.4
