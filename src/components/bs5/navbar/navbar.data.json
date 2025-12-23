@@ -24,6 +24,7 @@
       "currentPage": false,
       "hideLabel": false,
       "target": "_blank",
+      "isExpandedOnMobile": true,
       "dropdownOptions": {
         "hasNoLink": false,
         "alternativeText": "",

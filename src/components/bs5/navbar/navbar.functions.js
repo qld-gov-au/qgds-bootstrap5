@@ -1,6 +1,5 @@
 import { createFocusTrap } from "../../../js/utils.js";
 import { breakpoints } from "../../../js/constants.js";
-import { getFocusableElements } from "../../../js/utils.js";
 
 const getIsMobile = () => window.innerWidth < breakpoints.lg;
 
@@ -9,6 +8,7 @@ export function initializeNavbar() {
   const overlay = document.getElementById("overlay");
   const burgerBtn = document.getElementById("burgerBtn");
   const burgerCloseBtn = document.getElementById("burgerCloseBtn");
+  let wasMobile = getIsMobile();
 
   /** @type {HTMLElement[]} */
   let inertTargets = [];
@@ -94,34 +94,54 @@ export function initializeNavbar() {
     closeNavbar();
   });
 
-  const resetNavbarState = () => {
-    const isMobile = getIsMobile();
+  const resetNavbarState = (isMobile) => {
     const dropdownToggles = navbar?.querySelectorAll(
       "a.dropdown-toggle, a.no-dropdown-toggle",
     );
 
-    // Toggle dropdown functionality based on screen size
-    dropdownToggles?.forEach((toggle) => {
-      if (isMobile) {
+    if (isMobile) {
+      // disable navlinks as toggles
+      dropdownToggles?.forEach((toggle) => {
         // Skip toggle items with hasNoLink class
         if (toggle.classList.contains("hasNoLink")) {
           return;
         }
         toggle.classList.replace("dropdown-toggle", "no-dropdown-toggle");
         toggle.removeAttribute("data-bs-toggle");
-      } else {
+      });
+
+      // Expand any dropdowns set to expand on mobile
+      navbar
+        ?.querySelectorAll('[data-is-expanded-on-mobile="true"]')
+        .forEach((item) => {
+          item
+            .querySelectorAll(".dropdown-toggle, .dropdown-menu")
+            .forEach((item) => {
+              item.classList.add("show");
+            });
+        });
+    } else {
+      // reenable navlinks as toggle
+      dropdownToggles?.forEach((toggle) => {
         toggle.classList.replace("no-dropdown-toggle", "dropdown-toggle");
         toggle.setAttribute("data-bs-toggle", "dropdown");
-      }
-    });
+      });
 
-    if (!isMobile) {
+      // Collapse any dropdowns set to expand on mobile
+      navbar
+        ?.querySelectorAll('[data-is-expanded-on-mobile="true"]')
+        .forEach((item) => {
+          item
+            .querySelectorAll(".dropdown-toggle, .dropdown-menu")
+            .forEach((item) => {
+              item.classList.remove("show");
+            });
+        });
+
+      // close the navbar
       closeNavbar();
     }
   };
-
-  window.addEventListener("resize", resetNavbarState);
-  resetNavbarState();
 
   //All associated side effects of navbar collapse beginning belong here
   navbar?.addEventListener("hide.bs.collapse", () => {
@@ -160,4 +180,14 @@ export function initializeNavbar() {
       }, 0);
     }
   });
+
+  window.addEventListener("resize", () => {
+    const isMobile = getIsMobile();
+    if (wasMobile !== isMobile) {
+      wasMobile = isMobile;
+      resetNavbarState(isMobile);
+    }
+  });
+
+  resetNavbarState(wasMobile);
 }
