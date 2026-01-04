@@ -22,7 +22,7 @@
     max-width: var(--max-column-width);
   }
   ul {
-    width: 100%;
+    // width: 100%;
     display: grid;
     gap: 0 1rem;
   }
@@ -83,10 +83,8 @@
     //Reset the line height too to override styles from .qld-content-body li
     line-height: 1.5rem;
 
-    /* 
-    This prevents LI's from breaking across columns 
-    Legacy support for older WebKit browsers (=< chrome 104)
-    */
+    // This prevents LI's from breaking across columns
+    // Legacy support for older WebKit browsers (=< chrome 104)
     break-inside: avoid-column;
     -webkit-column-break-inside: avoid;
 
