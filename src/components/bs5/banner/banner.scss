@@ -223,7 +223,7 @@
       }
     }
 
-    &.text-full-width:not(:has(.banner-image)) {
+    &.is-full-width:not(:has(.banner-image)) {
       @include media-breakpoint-up(md) {
         .banner-content {
           grid-column: 1 / -1;
