@@ -224,7 +224,7 @@
     }
 
     &.is-full-width:not(:has(.banner-image)) {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-down(md) {
         .banner-content {
           grid-column: 1 / -1;
           .banner-abstract {
