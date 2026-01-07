@@ -148,10 +148,17 @@
     }
 
     &:visited {
-      color: var(--#{$prefix}link-underline-visited);
+      color: var(--#{$prefix}footer-color-link);
       text-decoration: underline;
-      text-decoration-color: var(--#{$prefix}link-underline-visited);
+      text-decoration-color: var(--#{$prefix}link-underline);
       text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+
+      &:hover {
+        text-decoration-color: var(--#{$prefix}link-underline-hover);
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
+      }
     }
   }
 
