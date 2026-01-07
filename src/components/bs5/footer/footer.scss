@@ -148,7 +148,7 @@
     }
 
     &:visited {
-      color: var(--#{$prefix}footer-color-link);
+      color: var(--#{$prefix}link-underline-visited);
       text-decoration: underline;
       text-decoration-color: var(--#{$prefix}link-underline-visited);
       text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
