@@ -12,7 +12,7 @@
                 <ul class="navbar-nav">
                     {{#each navigation}}
                         {{#if navigationItems}}
-                            <li class="nav-item dropdown{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"> 
+                            <li class="nav-item dropdown{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"{{#if isExpandedOnMobile}} data-is-expanded-on-mobile="true"{{/if}}>
                                 <a class="nav-link{{#unless ../metadata.verticalOrientation}} dropdown-toggle{{/unless}}{{#if currentPage}} active{{/if}}{{#if dropdownOptions.hasNoLink}} hasNoLink{{/if}}" {{#if currentPage}}aria-current="page"{{/if}}{{#if dropdownOptions.hasNoLink}} href="#"{{else}} href="{{url}}"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                                 {{#if iconName}}
