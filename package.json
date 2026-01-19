@@ -65,6 +65,7 @@
     "@storybook/addon-themes": "^10.0.8",
     "@storybook/cli": "^10.0.8",
     "@storybook/html-vite": "^10.0.8",
+    "@vitejs/plugin-react": "^5.1.2",
     "@vitest/ui": "^4.0.10",
     "autoprefixer": "^10.4.20",
     "chai": "^6.2.1",
