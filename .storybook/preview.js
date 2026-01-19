@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useEffect } from "storybook/preview-api";
 import { addons } from "storybook/preview-api";
-
 import DocumentationTemplate from "./DocumentationTemplate.mdx";
 
 import {
@@ -21,6 +20,7 @@ import {
   withDynamicTheme,
   dynamicThemeGlobalTypes,
 } from "./dynamicThemeDecorator.js";
+
 import { breakpoints } from "../src/js/constants.js";
 
 // Check if dynamic theme should be enabled via environment variable
@@ -170,8 +170,10 @@ const preview = {
 
     (Story, context) => {
       const { args, parameters } = context;
+
       const coderefs = parameters.coderefs || {};
-      const metadata = parameters.metadata || {};
+      const metadata = coderefs?.metadata || {};
+      const storyArgs = coderefs?.args || args;
 
       useEffect(() => {
         const channel = addons.getChannel();
@@ -184,9 +186,11 @@ const preview = {
 
         // Default tabs to show
         const showtabs = {
-          html: coderefs.tabs?.html !== false,
+          htmlstory: coderefs.tabs?.htmlstory !== false,
+          htmlcomponent: coderefs.tabs?.htmlcomponent !== false,
           json: coderefs.tabs?.json !== false,
           template: coderefs.tabs?.template !== false,
+          howtouse: coderefs.tabs?.howtouse !== false,
           notes: coderefs.tabs?.notes !== undefined,
         };
 
@@ -200,24 +204,35 @@ const preview = {
         }
 
         // Get the story's rendered HTML
-        const htmlmarkup = (
-          coderefs.includeDecorators ? Story : context.originalStoryFn || Story
-        )(args, context);
 
-        // Get the story's hbs template
-        const hbstemplate =
-          Handlebars.partials[coderefs.partialname] ||
-          "Missing partialname in story config";
+        // Full Story HTML
+        const htmlstoryContent = Story(args, context);
+
+        // Component only HTML
+        const hbspartial = Handlebars.partials[coderefs.partialname] || false;
+
+        if (!hbspartial) {
+          console.warn(
+            `[CODEREFS] Partial "${coderefs.partialname}" not found in Handlebars partials.`,
+          );
+        }
+
+        const htmlcomponentContent =
+          typeof hbspartial === "string"
+            ? Handlebars.compile(hbspartial)(args)
+            : "Missing partialname in story config, or component does use a handlebars template.";
 
         // Data we're sending from preview frame to manager frame
         const payload = {
           showPanel: true,
           showTabs: showtabs,
-          template: hbstemplate,
-          json: args,
-          html: typeof htmlmarkup === "string" ? htmlmarkup : "",
-          notes: coderefs.notes || "Nil",
+          template: hbspartial || "No template available",
+          json: storyArgs,
+          htmlstory: htmlstoryContent,
+          htmlcomponent: htmlcomponentContent,
+          notes: coderefs.tabs?.notes || "Nil",
           name: context.name || "Unknown",
+          partialname: coderefs.partialname || "Unknown",
           metadata: metadata,
         };
 

@@ -18,21 +18,27 @@ interface PanelProps {
 interface ShowTabs {
   template?: boolean;
   json?: boolean;
-  html?: boolean;
+  htmlstory?: boolean;
+  htmlcomponent?: boolean;
+  howtouse?: boolean;
   notes?: boolean;
 }
 
 // Single interface for both incoming data and state
 interface PanelContent {
   template: string;
-  html: string;
+  htmlstory: string;
+  htmlcomponent: string;
   json: any;
   notes: string;
   name: string;
+  partialname: string;
   showPanel: boolean;
   showTabs: ShowTabs;
   metadata: any;
 }
+
+let lastCodeRefs: PanelContent | null = null;
 
 // Format code with Prettier
 const formatCode = async (code: string): Promise<string> => {
@@ -58,31 +64,38 @@ export const Panel: React.FC<PanelProps> = memo(function MyPanel({ active }) {
   const storyId = api.getCurrentStoryData()?.id || "N/A";
 
   const theme = useTheme();
-  const [content, setContent] = useState<PanelContent | null>(null);
+  const [content, setContent] = useState<PanelContent | null>(lastCodeRefs);
 
   useChannel({
     CODEREFS_UPDATE: async (data: PanelContent) => {
       // If showPanel is false or no showTabs defined, clear the content
       if (!data.showPanel || !data.showTabs) {
         setContent(null);
+        lastCodeRefs = null;
         return;
       }
 
-      const [formattedTemplate, formattedHtml] = await Promise.all([
-        formatCode(data.template),
-        formatCode(data.html),
-      ]);
+      const [formattedTemplate, formattedHtmlStory, formattedHtmlComponent] =
+        await Promise.all([
+          formatCode(data.template),
+          formatCode(data.htmlstory),
+          formatCode(data.htmlcomponent),
+        ]);
 
-      setContent({
+      const newContent = {
         template: formattedTemplate,
-        html: formattedHtml,
+        htmlstory: formattedHtmlStory,
+        htmlcomponent: formattedHtmlComponent,
         json: data.json,
         notes: data.notes,
         name: data.name,
+        partialname: data.partialname,
         metadata: data.metadata,
         showPanel: data.showPanel,
         showTabs: data.showTabs,
-      });
+      };
+      setContent(newContent);
+      lastCodeRefs = newContent;
     },
   });
 
@@ -92,12 +105,34 @@ export const Panel: React.FC<PanelProps> = memo(function MyPanel({ active }) {
 
     const tabs: React.ReactElement[] = [];
 
-    if (content.showTabs.html !== false) {
+    if (content.showTabs.htmlstory !== false) {
       tabs.push(
-        <div key="html" id="html" title="HTML" color={theme.color.defaultText}>
+        <div
+          key="htmlstory"
+          id="htmlstory"
+          title="HTML (Story)"
+          color={theme.color.defaultText}
+        >
           <div style={{ padding: "20px" }}>
             <SyntaxHighlighter language="html" copyable={true}>
-              {content.html}
+              {content.htmlstory}
+            </SyntaxHighlighter>
+          </div>
+        </div>,
+      );
+    }
+
+    if (content.showTabs.htmlcomponent !== false) {
+      tabs.push(
+        <div
+          key="htmlcomponent"
+          id="htmlcomponent"
+          title="HTML (Component)"
+          color={theme.color.defaultText}
+        >
+          <div style={{ padding: "20px" }}>
+            <SyntaxHighlighter language="html" copyable={true}>
+              {content.htmlcomponent}
             </SyntaxHighlighter>
           </div>
         </div>,
@@ -123,7 +158,12 @@ export const Panel: React.FC<PanelProps> = memo(function MyPanel({ active }) {
 
     if (content.showTabs.json !== false) {
       tabs.push(
-        <div key="json" id="json" title="JSON" color={theme.color.defaultText}>
+        <div
+          key="params"
+          id="params"
+          title="Params"
+          color={theme.color.defaultText}
+        >
           <div style={{ padding: "20px" }}>
             <SyntaxHighlighter language="json" copyable={true}>
               {JSON.stringify(content.json, null, 2)}
@@ -135,9 +175,31 @@ export const Panel: React.FC<PanelProps> = memo(function MyPanel({ active }) {
 
     if (content.showTabs.notes) {
       tabs.push(
-        <div key="notes" id="notes" title="Notes" color={theme.color.secondary}>
+        <div
+          key="notes"
+          id="notes"
+          title="Notes"
+          color={theme.color.defaultText}
+        >
           <div style={{ padding: "20px" }}>
             <P>{content.notes}</P>
+          </div>
+        </div>,
+      );
+    }
+
+    if (content.showTabs.howtouse) {
+      tabs.push(
+        <div
+          key="howtouse"
+          id="howtouse"
+          title="Use"
+          color={theme.color.defaultText}
+        >
+          <div style={{ padding: "20px" }}>
+            <SyntaxHighlighter language="typescript" copyable={true}>
+              {`const data = ${JSON.stringify(content.json, undefined, 2)}; \n\nconst html = Handlebars.compile(\`{{> ${content.partialname} }}\`)(data);`}
+            </SyntaxHighlighter>
           </div>
         </div>,
       );
