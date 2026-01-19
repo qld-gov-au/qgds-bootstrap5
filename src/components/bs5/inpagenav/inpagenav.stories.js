@@ -32,6 +32,7 @@ export const Default = {
   decorators: [
     (Story) => {
       return `
+      <!-- Mockup wrapper for content body -->
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -55,10 +56,11 @@ export const Dark = {
   decorators: [
     (Story) => {
       return `
+      <!-- Mockup wrapper for content body -->
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="dark">
+            <div class="qld-content-body dark" id="content">
             ${Story()}
             </div>
           </div>
