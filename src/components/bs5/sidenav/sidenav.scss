@@ -223,9 +223,9 @@
         padding-left: var(--sidenav-level-three-padding);
       }
 
-      //li .nav-link.active
+      //li .nav-link.active - use > to only target direct child, not nested nav-links
       &.active {
-        .nav-link {
+        > .nav-link {
           font-weight: 600;
           color: var(--light-text-heading);
         }

@@ -6,7 +6,7 @@
     {
       "link": "https://www.qld.gov.au/transport/registration/register/heavy",
       "label": "Sibling page",
-      "class": "",
+      "class": "active",
       "target": "",
       "children": [
         {
@@ -17,14 +17,12 @@
         },
         {
           "link": "#",
-          "class": "active",
           "label": "Child page",
           "children": []
         },
         {
           "link": "#",
-          "class": "",
-
+          "class": "active",
           "label": "Child page",
           "children": [
             {
@@ -52,7 +50,6 @@
     {
       "link": "#",
       "label": "Sibling page",
-      "class": "active",
       "children": []
     },
     {
