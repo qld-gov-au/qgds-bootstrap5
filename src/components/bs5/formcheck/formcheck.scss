@@ -271,6 +271,11 @@ $form-check-inline-margin-end: 1rem;
   }
 }
 
+.form-select {
+  text-overflow: ellipsis;
+  padding-inline-end: 42px;
+}
+
 .form-check {
   display: flex;
   align-items: center;
