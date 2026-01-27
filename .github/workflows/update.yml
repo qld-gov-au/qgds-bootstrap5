@@ -27,7 +27,7 @@ jobs:
       HAVE_GIT_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY != '' }}
     steps:
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 

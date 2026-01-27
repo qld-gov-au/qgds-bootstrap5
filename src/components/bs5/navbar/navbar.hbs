@@ -32,7 +32,7 @@
                                 <ul class="dropdown-menu">
                                     {{#unless dropdownOptions.hasNoLink}}
                                         <li>
-                                            <a class="dropdown-item parent-link" role="button"{{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
+                                            <a class="dropdown-item parent-link" href="{{url}}" {{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
                                             {{#if dropdownOptions.description}}
                                                 <p>{{dropdownOptions.description}}</p>
                                             {{/if}}
@@ -44,7 +44,7 @@
                                                 {{{htmlContent}}}
                                             {{/if}}
                                             {{#unless isHTML}}
-                                                <a class="dropdown-item" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
+                                                <a class="dropdown-item" href="{{url}}"{{#if target}} {{#if currentPage}} aria-current="page"{{/if}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
                                                 {{#if description}}
                                                     <p>{{description}}</p>
                                                 {{/if}}
@@ -53,7 +53,7 @@
                                     {{/each}}
                                     {{#if dropdownOptions.viewAllHref}}
                                         <li>
-                                            <a class="dropdown-item view-all" href="{{dropdownOptions.viewAllHref}}">View all</a>
+                                            <a class="dropdown-item view-all" {{#if currentPage}} aria-current="page"{{/if}} href="{{dropdownOptions.viewAllHref}}">View all</a>
                                         </li>
                                     {{/if}}
                                 </ul>
