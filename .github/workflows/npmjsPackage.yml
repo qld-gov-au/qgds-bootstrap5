@@ -28,7 +28,7 @@ jobs:
         node: [ '22' ]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Cache node modules
         id: cache-npm
@@ -88,7 +88,7 @@ jobs:
       name: npmjs
       url: https://www.npmjs.com/package/@qld-gov-au/qgds-bootstrap5
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Cache node modules
         id: cache-npm
