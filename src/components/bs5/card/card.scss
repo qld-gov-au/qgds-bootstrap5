@@ -318,6 +318,11 @@
     }
   }
   &-img {
+    // Fix: Prevent .ratio:before from blocking clicks on card heading in multi-action cards
+    &.ratio::before {
+      display: inline-block;
+    }
+
     &:after {
       content: "";
       position: absolute;
