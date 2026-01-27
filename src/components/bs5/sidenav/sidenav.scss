@@ -30,7 +30,7 @@
 
   --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='var(--#{$prefix}color-light-border)' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
 
-  --sidenav-active-item-color: var(--light-text-heading);
+  --sidenav-active-item-color: var(--#{$prefix}light-text-heading);
 
   --#{$prefix}accordion-color: var(--#{$prefix}body-color);
   --#{$prefix}accordion-bg: var(--#{$prefix}body-bg);
@@ -149,7 +149,7 @@
   .nav-link {
     padding: var(--sidenav-navlink-padding);
     font-size: 0.875rem;
-    color: var(--body-color);
+    color: var(--#{$prefix}light-text-text);
     text-decoration: none;
     transition-duration: 0s;
     line-height: 1.25rem;
@@ -223,13 +223,12 @@
         padding-left: var(--sidenav-level-three-padding);
       }
 
-      //li .nav-link.active
+      //li .nav-link.active - use > to only target direct child, not nested nav-links
       &.active {
-        .nav-link {
+        > .nav-link {
           font-weight: 600;
-          color: var(--light-text-heading);
+          color: var(--sidenav-active-item-color);
           text-decoration: none;
-          pointer-events: none;
         }
       }
     }
