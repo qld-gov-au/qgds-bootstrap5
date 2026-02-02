@@ -78,7 +78,7 @@
     "eslint": "9.39.2",
     "eslint-plugin-json": "^4.0.1",
     "eslint-plugin-storybook": "^10.1.10",
-    "globals": "17.2.0",
+    "globals": "17.3.0",
     "handlebars": "4.7.8",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
