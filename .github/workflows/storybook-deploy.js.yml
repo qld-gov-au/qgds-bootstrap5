@@ -35,7 +35,7 @@ jobs:
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-node-modules
         with:
@@ -76,7 +76,7 @@ jobs:
       - name: Build Storybook 🔧
         run: | # build the Storybook files
           npm run build-storybook
-      - uses: actions/upload-artifact@v4 #provide nice artifact
+      - uses: actions/upload-artifact@v6 #provide nice artifact
         with:
           name: Storybook
           path: storybook-static
