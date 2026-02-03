@@ -1,12 +1,12 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
-<Meta title="Introduction/Getting Started" />
+<Meta title="Introduction/How to use" />
 
-# Getting Started with QGDS Bootstrap 5
+# How to use QGDS Bootstrap 5
 
 The Queensland Government Design System (QGDS) Bootstrap 5 library provides reusable UI components built on Bootstrap 5 for Queensland Government websites and applications.
 
-This library implements the [QGDS UI Kit](https://www.figma.com/community/file/978450410021220739) design specification.
+Review the [Introduction](./?path=/docs/welcome--overview) page for an overview of the QGDS Bootstrap 5 Storybook and available components.
 
 ---
 
@@ -42,46 +42,42 @@ Before installing QGDS Bootstrap 5, you'll need:
 
 ## Resources
 
-The QGDS Bootstrap 5 project builds and distributes the following resources for client-side rendering:
+The QGDS Bootstrap 5 project compiles and distributes the following critical resources for client-side rendering.  
 
-**CSS:**
+The resources are available via CDN, as tagged Github releases, or via our project NPM package:
 
-```html
-<link
-  rel="stylesheet"
-  href="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/css/qld.bootstrap.css"
-/>
-```
-
-**JavaScript:**
-
-```html
-<!-- QGDS Handlebars initialization (loads all component partials) -->
-<script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/handlebars.init.min.js"></script>
-
-<!-- Bootstrap and QGDS component behaviors -->
-<script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/qld.bootstrap.min.js"></script>
-```
-
+### CDN
+[https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/css/qld.bootstrap.css](https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/css/qld.bootstrap.css) (Global Stylesheet)
+[https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/handlebars.init.min.js](https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/handlebars.init.min.js) (Components - _Handlebars templates_)
+[https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/qld.bootstrap.min.js](https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/qld.bootstrap.min.js) (Global JS)
+ 
 **Environment-specific CDNs:**
-
 - Production: https://static.qgov.net.au/qgds-bootstrap5/...
 - Staging: https://staging-static.qgov.net.au/qgds-bootstrap5/...
 - Development: https://dev-static.qgov.net.au/qgds-bootstrap5/...
 
 **Versioning:**
-
 - Use v2.x.x-latest for automatic minor/patch updates
 - Use specific versions (e.g., v2.1.8) for production stability
+
+### NPM Package
+
+The library is available as an NPM package for Node.js projects:
+[https://www.npmjs.com/package/@qld-gov-au/qgds-bootstrap5](https://www.npmjs.com/package/@qld-gov-au/qgds-bootstrap5)
+
+
+### Github Tagged Releases
+Compiled CSS, JS and sample component data are also available via our Github release repository:
+[https://github.com/qld-gov-au/qgds-bootstrap5-release](https://github.com/qld-gov-au/qgds-bootstrap5-release)
 
 ---
 
 ## How to use
 
-QGDS Bootstrap 5 can be integrated into your project using either server-side or client-side rendering methods.
+QGDS Bootstrap 5 supports both server-side and client-side integration. All components are registered as Handlebars.js partials and can be invoked using the `{{> partialName}}` syntax. These partials accept data objects or inline properties for flexible rendering. Refer to the examples below for implementation-specific code snippets.
 
-### Server-Side (Node.js)
 
+### Server side
 Use this approach for server-side rendering with Node.js, Next.js, Vue JS, etc.
 
 Install QGDS Bootstrap 5 and Handlebars via NPM:
@@ -93,6 +89,7 @@ npm install @qld-gov-au/qgds-bootstrap5 handlebars
 Example usage:
 
 ```javascript
+//index.js
 import Handlebars from "handlebars";
 import QGDSBundle from "@qld-gov-au/qgds-bootstrap5/handlebarsInit";
 
@@ -101,7 +98,7 @@ QGDSBundle.init(Handlebars);
 
 // Component data (typically from your API or CMS)
 const componentData = {
-  title: "Service Update",
+  title: "Service update",
   content:
     "Our online services will be unavailable for maintenance from 2-4 AM AEST.",
   variant: "warning",
@@ -115,11 +112,16 @@ const html = Handlebars.compile("{{> callout}}")(componentData);
 console.log(html);
 ```
 
-### Client-Side
+Run in console:
+```bash
+node index.js
+```
 
-Use this approach for client side implementation of QGDS Bootstrap 5.
+### Client side
 
-Note, you must also include a Handlebars runtime in your project, e.g., from a CDN:
+QGDS Bootstrap 5 components can also be rendered directly in the browser. Use a CDN to load required QGDS resources, and include Handlebars runtime.
+
+Components can be rendered by compiling Handlebars partials with data objects.
 
 ```html
 <html lang="en">
@@ -134,26 +136,29 @@ Note, you must also include a Handlebars runtime in your project, e.g., from a C
     />
   </head>
   <body>
-    <div class="container">
-      <div id="app"></div>
+    
+    <div id="app" class="container">
     </div>
 
-    <!-- Required JavaScript -->
+    <!-- Required JavaScript including Handlebars runtime and QGDS scripts -->
     <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
     <script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/handlebars.init.min.js"></script>
     <script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/qld.bootstrap.min.js"></script>
 
     <script>
-      // Render a component using a Handlebars partial
+      // Setup an component instance using a Handlebars partial
       const calloutTemplate = Handlebars.compile("{{> callout}}");
 
-      const componentData = {
+      // Setup component data
+      // Refer to QGDS Bootstrap 5 release repository for example data structures
+      // https://github.com/qld-gov-au/qgds-bootstrap5-release/tree/develop/sample-data 
+      const calloutData = {
         title: "Welcome to QGDS",
         content: "Get started with Queensland Government Design System",
         variant: "info",
       };
 
-      document.getElementById("app").innerHTML = calloutTemplate(componentData);
+      document.getElementById("app").innerHTML = calloutTemplate(calloutData);
     </script>
   </body>
 </html>
@@ -161,27 +166,46 @@ Note, you must also include a Handlebars runtime in your project, e.g., from a C
 
 ---
 
-## How It Works
+## Working with component data
 
-**Component Partials**
+QGDS components are compiled by pairing a Handlebars JS template with a JSON data object.
 
-QGDS components are registered as Handlebars partials. Once initialized, you can reference them using the `{{> partialName}}` syntax:
+Some of these data objects can be complex, containing nested structures for lists, buttons, links, and other sub-components.
+
+The Handlebars JS library provides flexibility in how you pass data to component partials. You can use either:
+
+1. Define data for a component, then pass it to the partial
 
 ```javascript
-// Define data for a component
 const mydata = {
   title: "This is a callout title",
   content: "This is a callout description",
 };
-
-// Using a partial with a data object
 const html = Handlebars.compile("{{> callout}}")(mydata);
+```
 
-// Using a partial with inline properties
+2. Pass an object directly as the data argument 
+```javascript
+const html = Handlebars.compile("{{> callout}}")({
+  title: "This is a callout title",
+  content: "This is a callout description",
+});
+```
+
+3. Use a partial with inline properties
+```javascript
 const html = Handlebars.compile(
   "{{> callout title='Click Me' content='This is a callout description'}}",
 )();
 ```
+
+### Sample data
+
+Each of our component stories include code references that show example data, partials markup, and guidance on how to use them..
+
+Our Bootstrap 5 release repository also includes sample JSON data files for each component.
+[QGDS Bootstrap 5 Release Repository - Sample Data](https://github.com/qld-gov-au/qgds-bootstrap5-release/tree/develop/sample-data)
+
 
 ## Code references
 

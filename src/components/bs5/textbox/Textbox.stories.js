@@ -22,6 +22,9 @@ export default {
     coderefs: {
       metadata,
       partialname: "textbox",
+      tabs: {
+        notes: `Note: The partial name for this component is \`textbox\`. Refer the "Use" tab for more.`,
+      },
     },
     backgrounds: { disable: false },
   },

@@ -161,7 +161,7 @@ export const Panel: React.FC<PanelProps> = memo(function MyPanel({ active }) {
         <div
           key="params"
           id="params"
-          title="Params"
+          title="Data"
           color={theme.color.defaultText}
         >
           <div style={{ padding: "20px" }}>

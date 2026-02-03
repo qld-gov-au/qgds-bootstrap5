@@ -137,7 +137,7 @@ const preview = {
         order: [
           "Welcome",
           "Introduction",
-          ["Getting Started", "Development", "*"],
+          ["How to use", "Development", "*"],
           "*",
           ["Header", "Footer", "Breadcrumbs", "Side navigation"],
         ],

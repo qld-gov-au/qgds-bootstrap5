@@ -60,6 +60,7 @@ function cond(v1, operator, v2) {
 
 export default function handlebarsHelpers(handlebars) {
   // contains - if first object is in collection (second object) to return true
+  // example: {{#contains "needle" "haystack, needle, something"}} do something {{/contains}}
   handlebars.registerHelper("contains", function (needle, haystack, options) {
     needle = handlebars.escapeExpression(needle);
     haystack = handlebars.escapeExpression(haystack);
