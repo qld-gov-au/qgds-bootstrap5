@@ -39,7 +39,7 @@
     "scope": "Core",
     "group": "Components",
     "status": "Published",
-    "description": "Hello wrold, Banners are used to introduce a page, their content should reflect the goals, content and purpose of the page they're on.",
+    "description": "Banners are used to introduce a page, their content should reflect the goals, content and purpose of the page they're on.",
     "refs": {
       "title_uikit": "Banner",
       "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=6992-107232&t=1PNeXYXdepnDeW4g-0",
