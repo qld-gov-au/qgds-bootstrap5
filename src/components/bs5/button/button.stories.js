@@ -3,7 +3,7 @@ import { Button } from "./Button.js";
 import defaultdata from "./button.data.json";
 import metadata from "./metadata.json";
 
-import buttonSchema from "./button.schema.json";
+//import buttonSchema from "./button.schema.json";
 
 /**
  * Define the variants for Button component.
