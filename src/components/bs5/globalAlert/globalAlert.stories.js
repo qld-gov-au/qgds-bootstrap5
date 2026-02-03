@@ -4,7 +4,7 @@ import defaultdata from "./globalAlert.data.json";
 import metadata from "./metadata.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "extended"],
   title: "3. Components/Global Alert",
   render: (args) => new GlobalAlert(args).html,
   argTypes: {

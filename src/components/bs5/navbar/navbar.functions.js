@@ -1,37 +1,27 @@
 import { createFocusTrap } from "../../../js/utils.js";
 import { breakpoints } from "../../../js/constants.js";
 
+const getIsMobile = () => window.innerWidth < breakpoints.lg;
+
 export function initializeNavbar() {
   const navbar = document.getElementById("main-nav");
   const overlay = document.getElementById("overlay");
   const burgerBtn = document.getElementById("burgerBtn");
   const burgerCloseBtn = document.getElementById("burgerCloseBtn");
-  const addHideTo = ["head", "main", "footer"];
-  const hideTargets = addHideTo
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
+  let wasMobile = getIsMobile();
 
-  // Helper to set aria-hidden
-  const setAriaHidden = (hidden) => {
-    hideTargets.forEach((el) => {
-      if (hidden) {
-        el.setAttribute("aria-hidden", "true");
-      } else {
-        el.removeAttribute("aria-hidden");
-      }
-    });
-  };
+  /** @type {HTMLElement[]} */
+  let inertTargets = [];
 
   // Focus trap instances (created on-demand)
   let mobileFocusTrap = null;
-  const dropdownFocusTraps = new Map();
 
   function closeNavbar() {
     // Do not call static method bootstrap.Collapse.getInstance(navbar).hide()
     // because storybook has a problem with referencing global bootstrap object in production build.
     // Instead simulate the close button click - same thing.
     // Do not put side effects of closing menu here (eg clearing menu focus trap), instead use "hidden.bs.collapse" or "hide.bs.collapse" event handlers declared below.
-    // Need to check if menu is actually set to show, otherwise cick will open instead.
+    // Need to check if menu is actually set to show, otherwise click will open instead.
     if (navbar?.classList.contains("show")) {
       burgerCloseBtn?.click();
     }
@@ -50,25 +40,7 @@ export function initializeNavbar() {
     return mobileFocusTrap;
   }
 
-  // Create dropdown focus trap on-demand (when dropdown opens)
-  function getOrCreateDropdownFocusTrap(dropdown, toggle) {
-    if (!dropdownFocusTraps.has(dropdown)) {
-      const dropdownTrap = createFocusTrap(dropdown, {
-        returnFocusElement: toggle,
-        onEscape: () => {
-          // Close the dropdown using Bootstrap's API
-          const bsDropdown = bootstrap.Dropdown.getInstance(toggle);
-          if (bsDropdown) {
-            bsDropdown.hide();
-          }
-        },
-      });
-      dropdownFocusTraps.set(dropdown, dropdownTrap);
-    }
-    return dropdownFocusTraps.get(dropdown);
-  }
-
-  // Setup dropdown event listeners
+  // Setup dropdown event listeners.
   function setupDropdownListeners() {
     // Find all dropdown toggles (elements with data-bs-toggle="dropdown")
     const dropdownToggles = navbar?.querySelectorAll(
@@ -84,21 +56,29 @@ export function initializeNavbar() {
       const dropdown = parentItem.querySelector(".dropdown-menu");
       if (!dropdown) return;
 
-      // Listen for dropdown show event (desktop only)
-      toggle.addEventListener("shown.bs.dropdown", () => {
-        const isMobile = window.innerWidth < breakpoints.lg;
-        if (!isMobile) {
-          // Create and activate focus trap on-demand
-          const dropdownTrap = getOrCreateDropdownFocusTrap(dropdown, toggle);
-          setTimeout(() => dropdownTrap.activate(), 0);
-        }
-      });
+      // Add spacebar click for <a> tags, <buttons> already have this.
+      if (toggle?.tagName === "A") {
+        toggle.addEventListener("keydown", (/** @type KeyboardEvent*/ e) => {
+          if (e.key === " ") {
+            e.preventDefault();
+            toggle.click();
+          }
+        });
+      }
 
-      // Listen for dropdown hide event
-      toggle.addEventListener("hidden.bs.dropdown", () => {
-        const dropdownTrap = dropdownFocusTraps.get(dropdown);
-        if (dropdownTrap && dropdownTrap.isActive) {
-          dropdownTrap.deactivate();
+      // There are two separate toggle elements for desktop and mobile. Bootstrap only keeps one registered for these events,
+      // which is the mobile button, hidden on desktop. Therefore, we need to handle any `a.dropdown-toggle` updates manually. The event is caught on the
+      // mobile toggle, so traverse back up find the desktop toggle.
+      toggle.addEventListener("hidden.bs.dropdown", (e) => {
+        const _toggle = parentItem.querySelector(
+          'a[data-bs-toggle="dropdown"]',
+        );
+        _toggle?.classList.remove("show");
+        if (
+          dropdown?.contains(document.activeElement) &&
+          !(getIsMobile() || navbar.classList.contains("vertical"))
+        ) {
+          _toggle?.focus();
         }
       });
     });
@@ -114,34 +94,54 @@ export function initializeNavbar() {
     closeNavbar();
   });
 
-  const resetNavbarState = () => {
-    const isMobile = window.innerWidth < breakpoints.lg;
-    const dropdownToggles = document.querySelectorAll(
-      ".navbar a.dropdown-toggle, .navbar a.no-dropdown-toggle",
+  const resetNavbarState = (isMobile) => {
+    const dropdownToggles = navbar?.querySelectorAll(
+      "a.dropdown-toggle, a.no-dropdown-toggle",
     );
 
-    // Toggle dropdown functionality based on screen size
-    dropdownToggles.forEach((toggle) => {
-      if (isMobile) {
+    if (isMobile) {
+      // disable navlinks as toggles
+      dropdownToggles?.forEach((toggle) => {
         // Skip toggle items with hasNoLink class
         if (toggle.classList.contains("hasNoLink")) {
           return;
         }
         toggle.classList.replace("dropdown-toggle", "no-dropdown-toggle");
         toggle.removeAttribute("data-bs-toggle");
-      } else {
+      });
+
+      // Expand any dropdowns set to expand on mobile
+      navbar
+        ?.querySelectorAll('[data-is-expanded-on-mobile="true"]')
+        .forEach((item) => {
+          item
+            .querySelectorAll(".dropdown-toggle, .dropdown-menu")
+            .forEach((item) => {
+              item.classList.add("show");
+            });
+        });
+    } else {
+      // reenable navlinks as toggle
+      dropdownToggles?.forEach((toggle) => {
         toggle.classList.replace("no-dropdown-toggle", "dropdown-toggle");
         toggle.setAttribute("data-bs-toggle", "dropdown");
-      }
-    });
+      });
 
-    if (!isMobile) {
+      // Collapse any dropdowns set to expand on mobile
+      navbar
+        ?.querySelectorAll('[data-is-expanded-on-mobile="true"]')
+        .forEach((item) => {
+          item
+            .querySelectorAll(".dropdown-toggle, .dropdown-menu")
+            .forEach((item) => {
+              item.classList.remove("show");
+            });
+        });
+
+      // close the navbar
       closeNavbar();
     }
   };
-
-  window.addEventListener("resize", resetNavbarState);
-  resetNavbarState();
 
   //All associated side effects of navbar collapse beginning belong here
   navbar?.addEventListener("hide.bs.collapse", () => {
@@ -150,8 +150,9 @@ export function initializeNavbar() {
 
   // All associated side effects of navbar collapse completion belong here.
   navbar?.addEventListener("hidden.bs.collapse", () => {
-    setAriaHidden(false);
-
+    inertTargets.forEach((target) => {
+      target.inert = false;
+    });
     // Deactivate and destroy mobile focus trap
     if (mobileFocusTrap) {
       mobileFocusTrap.deactivate();
@@ -159,20 +160,34 @@ export function initializeNavbar() {
     }
   });
 
-  // Burger buttons - handle open (mobile only)
+  //  All associated side effects of navbar opening belong here.
   navbar?.addEventListener("shown.bs.collapse", () => {
-    // Check if navbar is opening
-    setTimeout(() => {
-      if (navbar?.classList.contains("show")) {
-        setAriaHidden(true);
+    if (getIsMobile) {
+      // Check if navbar is opening
+      setTimeout(() => {
+        if (navbar?.classList.contains("show")) {
+          // set all siblings to inert
+          inertTargets = Array.from(navbar.parentElement.children).filter(
+            (child) => child !== navbar,
+          );
+          inertTargets.forEach((target) => {
+            target.inert = true;
+          });
 
-        // Create and activate focus trap when navbar opens (mobile only - whole navbar)
-        const isMobile = window.innerWidth < breakpoints.lg;
-        if (isMobile) {
           const trap = createMobileFocusTrap();
           trap.activate();
         }
-      }
-    }, 0);
+      }, 0);
+    }
   });
+
+  window.addEventListener("resize", () => {
+    const isMobile = getIsMobile();
+    if (wasMobile !== isMobile) {
+      wasMobile = isMobile;
+      resetNavbarState(isMobile);
+    }
+  });
+
+  resetNavbarState(wasMobile);
 }

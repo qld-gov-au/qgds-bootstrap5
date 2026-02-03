@@ -4,7 +4,7 @@ import defaultdata from "./quickexit.data.json";
 import metadata from "./metadata.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "extended"],
   title: "3. Components/Quickexit",
   render: (args) => {
     //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.

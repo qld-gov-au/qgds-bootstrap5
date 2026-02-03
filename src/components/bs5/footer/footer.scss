@@ -134,10 +134,9 @@
   a.nav-link {
     --qld-link-color: var(--#{$prefix}footer-color-link);
     text-decoration: underline;
-    text-decoration-color: var(--#{$prefix}footer-color-link);
+    text-decoration-color: var(--#{$prefix}link-underline);
     text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
-    text-underline-offset: auto;
-    text-underline-position: from-font;
+    text-underline-offset: var(--#{$prefix}link-underline-offset);
     color: var(--qld-link-color);
     padding-left: 0;
 
@@ -145,13 +144,21 @@
       text-decoration-thickness: var(
         --#{$prefix}link-underline-thickness-hover
       );
+      text-decoration-color: var(--#{$prefix}link-underline-hover);
     }
 
     &:visited {
       color: var(--#{$prefix}footer-color-link);
       text-decoration: underline;
-      text-decoration-color: var(--#{$prefix}footer-color-link);
+      text-decoration-color: var(--#{$prefix}link-underline);
       text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+
+      &:hover {
+        text-decoration-color: var(--#{$prefix}link-underline-hover);
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
+      }
     }
   }
 
@@ -403,6 +410,14 @@
 
     .footer-column:has(.footer-link-list--social) .footer-heading {
       line-height: 1.5rem;
+    }
+  }
+
+  // Fix: Allow long email addresses to wrap on small screens
+  @media (max-width: 700px) {
+    a {
+      word-wrap: break-word;
+      word-break: break-word;
     }
   }
 }

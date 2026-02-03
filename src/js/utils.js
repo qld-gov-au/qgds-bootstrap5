@@ -191,3 +191,18 @@ export function createFocusTrap(container, options = {}) {
     },
   };
 }
+
+/**
+ * Print page function
+ * Attaches event listener to elements with class 'js-print' to trigger window.print()
+ */
+export function printPage() {
+  // Add btn page print functions
+  let printButton = document.querySelector(".js-print");
+  if (printButton) {
+    printButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.print();
+    });
+  }
+}

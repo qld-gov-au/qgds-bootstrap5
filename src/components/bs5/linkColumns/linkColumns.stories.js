@@ -47,7 +47,6 @@ export default {
       metadata,
       partialname: "linkColumns", //{{> linkColumns }}
     },
-    backgrounds: { disable: false },
     pageLayout: "with-wrapper",
     wrapperClasses: "qld-content-body",
   },

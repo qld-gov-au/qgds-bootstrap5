@@ -1,15 +1,15 @@
 <!-- QGDS Partial: inpage-nav -->
 
-<div class="qld-inpage-nav">
+<nav class="qld-inpage-nav" aria-label="In page navigation">
 
-    <h2 class="nav-title">{{navtitle}}</h2>
+  <h2 class="nav-title">{{navtitle}}</h2>
 
-    <ul class="nav">
-        {{#each navitems}}
-        <li class="nav-item">
-            <a class="nav-link" href="#{{linkid}}">{{linktext}}</a>
-        </li>
-        {{/each}}
-    </ul>
+  <ul class="nav">
+    {{#each navitems}}
+      <li class="nav-item">
+        <a class="nav-link" href="#{{linkid}}">{{linktext}}</a>
+      </li>
+    {{/each}}
+  </ul>
 
-</div>
+</nav>

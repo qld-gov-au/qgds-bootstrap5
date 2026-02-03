@@ -11,7 +11,7 @@ import { Accordion } from "../accordion/Accordion.js";
  * which is based on YouTube arguments.
  */
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "extended"],
   title: "3. Components/Video",
   args: defaultdata.youtube,
   render: (args) => {

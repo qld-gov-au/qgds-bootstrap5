@@ -27,7 +27,7 @@ jobs:
       HAVE_GIT_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY != '' }}
     steps:
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
@@ -35,7 +35,7 @@ jobs:
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-node-modules
         with:

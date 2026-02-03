@@ -1,10 +1,13 @@
 @use "../../../css/mixins" as m;
 
 .global-alert {
+  --focus-colour: var(--#{$prefix}neutral-darkest);
+
   line-height: 1.25rem;
   border-radius: 0;
   border-top-style: solid;
   border-width: 0;
+  padding-block: 0.75rem;
 
   &:first-child:not(:only-child) {
     border-top-width: 1px;
@@ -12,13 +15,6 @@
 
   & + & {
     border-top-width: 1px;
-  }
-
-  &.alert {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 2rem;
-    margin-bottom: 0;
   }
 
   .qld-global-alert-main {
@@ -69,7 +65,7 @@
       text-wrap: nowrap;
     }
   }
-
+  
   .global-alert-close {
     display: inline-flex;
     justify-content: center;
@@ -108,6 +104,10 @@
 
       @include m.focusable($outlineWidth: 2px);
       box-shadow: none;
+      &:focus {
+        outline-color: var(--focus-colour);
+      }
+      
 
       @include media-breakpoint-down(lg) {
         &:hover {
@@ -119,6 +119,7 @@
 
   &.global-alert-critical {
     --#{$prefix}icon-color: #{$core-default-color-neutral-white};
+    --focus-colour: var(--#{$prefix}neutral-white);
 
     background-color: $qld-notify-warning;
     color: var(--#{$prefix}white);
@@ -196,7 +197,20 @@
     }
   }
 }
-
+@include media-breakpoint-down(lg) {
+  .global-alert {
+    .global-alert-content .global-alert-action {
+      margin-inline-end: 2rem;      
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  .global-alert {
+    .global-alert-content {
+      padding: 0;
+    }
+  }
+}
 @include media-breakpoint-up(lg) {
   .global-alert {
     .global-alert-close {
@@ -215,5 +229,6 @@
         }
       }
     }
+    
   }
 }
