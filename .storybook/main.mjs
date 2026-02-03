@@ -7,7 +7,8 @@ import react from "@vitejs/plugin-react";
 
 const config = {
   stories: [
-    "../src/stories/Introduction.mdx",
+    //"../src/stories/getting-started.mdx",
+    //"../src/stories/Introduction.mdx",
     // Include all stories found under the src/components directory ( For example: alert/alert.stories.js )
     // Exlude any stories starting with an underscore ( For example: _exludeme.stories.js )
     "../src/**/!(*_)*.mdx",

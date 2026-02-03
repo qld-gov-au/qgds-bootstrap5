@@ -217,12 +217,13 @@ export default {
       metadata,
       partialname: "banner",
       tabs: {
-        template: false,
         notes:
           "\n\nThe Banner component includes nested components such as Breadcrumbs, Buttons, and Cards. Data for these components should be passed on the main JSON object for banner. Refer to the JSON example for each story.",
       },
     },
-    docs: {},
+    docs: {
+      notes: "The QGDS Banner component has Basic and Advanced variants.",
+    },
   },
 };
 

@@ -1,11 +1,10 @@
 import { Source, useOf, Markdown } from "@storybook/addon-docs/blocks";
 import React, { useState } from "react";
 
-// Import prettier and specific parsers
-// import prettier from "prettier/standalone";
-// import parserBabel from "prettier/parser-babel";
-// import parserHtml from "prettier/parser-html";
-// import parserPostcss from "prettier/parser-postcss";
+/* Custom MDX components for Storybook documentation pages.
+ * These components provide enhanced functionality for rendering
+ * code references, metadata, design resources, and notes sections.
+ */
 
 /**
  * Custom hook to fetch and provide documentation data from story parameters.
@@ -16,11 +15,13 @@ const useDocsData = () => {
   // useOf must be called inside a functional component or another hook.
   const resolvedOf = useOf("meta", ["meta"]);
   const docs = resolvedOf.preparedMeta?.parameters?.docs || {};
+  const params = resolvedOf.preparedMeta?.parameters || {};
 
   return {
-    componentMetadata: docs.componentMetadata,
-    codeReferences: docs.codeReferences,
-    howToUse: docs.howToUse,
+    componentMetadata:
+      docs.componentMetadata || params.coderefs?.metadata || {},
+    //codeReferences: docs.codeReferences,
+    notes: docs.notes || "",
     hasData: (key) => docs[key] !== undefined && docs[key] !== null,
   };
 };
@@ -109,7 +110,7 @@ export const CodeReferences = ({ title = "Code references" }) => {
 
   return (
     <>
-      <h2 id="code-references">{title}</h2>
+      <h2 id="code-references">{title} 123</h2>
       <Tabs>
         {codeReferences.map((item, index) => {
           // Handle different content types
@@ -142,7 +143,8 @@ export const CodeReferences = ({ title = "Code references" }) => {
 };
 
 /**
- * Renders component metadata tags like status and category.
+ * Renders component metadata using QGDS tags for Category, Type and Status,
+ * and displays description as a paragraph.
  * @returns {JSX.Element|null}
  */
 export const ComponentMeta = () => {
@@ -150,34 +152,37 @@ export const ComponentMeta = () => {
 
   if (!componentMetadata) return null;
 
-  // Create an array of key-value pairs to render, filtering out empty values
-  const metadataItems = [
-    { key: "ID", value: componentMetadata.id },
-    { key: "Version", value: componentMetadata.version },
-    { key: "Category", value: `${componentMetadata.scope}` },
-    { key: "Type", value: componentMetadata.type },
-    { key: "Status", value: componentMetadata.status },
-    { key: "Tags", value: componentMetadata.tags?.join(", ") },
-  ].filter((item) => item.value);
+  const scope = componentMetadata.scope;
+  const type = componentMetadata.type;
+  const status = componentMetadata.status;
+  const description = componentMetadata.description;
 
-  if (metadataItems.length === 0) {
+  // Don't render if no metadata fields are present
+  if (!scope && !type && !status && !description) {
     return null;
   }
 
   return (
-    <table className="table">
-      <tbody>
-        {metadataItems.map((item, index) => (
-          <tr key={index}>
-            <th className="fw-bold fst-normal m-0 p-2">{item.key}</th>
-            <td
-              className="m-0 p-2"
-              dangerouslySetInnerHTML={{ __html: item.value }}
-            ></td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div class="mb-32">
+      {/* Tags for Category, Type, and Status */}
+      {(scope || type || status) && (
+        <ul class="tag-list tag-status m-0 p-0 gap-2">
+          {scope && <li className="tag-item tag-neutral tag-high">{scope}</li>}
+          {type && <li className="tag-item tag-neutral tag-high">{type}</li>}
+          {status && (
+            <li className="tag-item tag-success  tag-high">{status}</li>
+          )}
+        </ul>
+      )}
+
+      {/* Description as paragraph */}
+      {description && (
+        <p
+          class="pb-16 lead"
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></p>
+      )}
+    </div>
   );
 };
 
@@ -190,6 +195,7 @@ export const DesignResources = () => {
   const title_uikit = componentMetadata?.title_uikit || "";
   const url_uikit = componentMetadata?.refs?.uikit || null;
   const url_website = componentMetadata?.refs?.website || null;
+  const title = componentMetadata?.title || "this component";
 
   if (!url_uikit && !url_website) return null;
 
@@ -206,8 +212,9 @@ export const DesignResources = () => {
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: "block", marginBottom: "0.5rem" }}
+          title={`View ${title_uikit} in the QGDS UI Kit (Figma)`}
         >
-          QGDS UI Kit (Figma) - {title_uikit}
+          Figma UI Kit
         </a>
       )}
 
@@ -218,8 +225,9 @@ export const DesignResources = () => {
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: "block", marginBottom: "0.5rem" }}
+          title={`View ${title} on Design System website`}
         >
-          View component on Design System website
+          designsystem.qld.gov.au
         </a>
       )}
     </>
@@ -232,48 +240,45 @@ export const DesignResources = () => {
  * @param {string} props.title - The title/heading for this section
  * @returns {JSX.Element|null}
  */
-export const HowToUse = ({ title = "How to use" }) => {
-  const { howToUse, componentMetadata } = useDocsData();
-
-  const partialName = componentMetadata?.refs?.partialName || "partialname";
+export const Notes = ({ title = "Notes" }) => {
+  const { notes } = useDocsData();
 
   // Hide the section entirely if explicitly set to false
-  if (howToUse?.show === false) return null;
+  if (notes?.show === false || notes?.trim() === "") return null;
 
-  // Unless custom content was provided, render default usage instructions
-  if (!howToUse?.customMarkdown || howToUse.customMarkdown.trim() === "") {
-    return (
-      <>
-        <h2 id="how-to-use">{title}</h2>
-        <p>
-          The QGDS library uses{" "}
-          <a href="https://handlebarsjs.com/">Handlebars</a> partials for HTML
-          rendering. See the{" "}
-          <a href="/docs/getting-started--docs">Getting Started guide</a> for
-          detailed setup instructions and resource loading.
-        </p>
-
-        <Source
-          format="dedent"
-          light
-          language="javascript"
-          code={`// Ensure Handlebars, component partials and helpers are already loaded in your project. See getting-started guide 
-
-const componentData = {
-  /* Provide a data object for this component - refer to examples above */
-};
-
-// Generate HTML string by compiling the relevant Handlebars partial with your data 
-const htmlString = Handlebars.compile('{{> ${partialName}}}')(componentData);`}
-        />
-      </>
-    );
-  }
-
-  // Render custom markdown content from story parameters
   return (
     <>
-      <Markdown>{howToUse.customMarkdown}</Markdown>
+      <h2 id="notes">{title}</h2>
+      <Markdown>{notes}</Markdown>
+    </>
+  );
+};
+
+/**
+ * Renders instructions for accessing the Code References panel.
+ * @returns {JSX.Element}
+ */
+export const CodeReferencesInstructions = ({ title = "Code references" }) => {
+  return (
+    <>
+      <h2 className="mb-16" id="code-references">
+        {title}
+      </h2>
+      <p>To view code examples, templates, and implementation details:</p>
+      <ol>
+        <li>Select any story from the sidebar</li>
+        <li>
+          Open the Actions panel by pressing <kbd>A</kbd>
+        </li>
+        <li>
+          Click the <strong>Code References</strong> tab
+        </li>
+      </ol>
+      <p>
+        The Code References panel provides access to Handlebars templates, JSON
+        data structures, rendered HTML output, and usage guidelines for each
+        component.
+      </p>
     </>
   );
 };

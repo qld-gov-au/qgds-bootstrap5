@@ -11,11 +11,9 @@ import {
 
 import {
   ComponentMeta,
-  CodeReferences,
+  CodeReferencesInstructions,
   DesignResources,
-  HowToUse,
-  Tabs,
-  Tab,
+  Notes,
 } from "./customMDXComponents.jsx";
 
 <Meta isTemplate />
@@ -31,22 +29,19 @@ import {
 >
 
 <Title />
+</div>
 
 <div>
   <ComponentMeta />
 </div>
 
-</div>
-
-## Default
+## Example
 
 <Primary />
-<Source />
 
-<Stories title="Other Variants" includePrimary={false} />
+<Notes title="Notes" />
 
-<CodeReferences title="Code references" />
-
-<HowToUse title="How to use" />
+<Stories title="Variants" includePrimary={false} />
 
 <DesignResources title="Design resources" />
+<CodeReferencesInstructions title="How to use" />

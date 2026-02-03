@@ -1,0 +1,248 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction/Getting Started" />
+
+# Getting Started with QGDS Bootstrap 5
+
+The Queensland Government Design System (QGDS) Bootstrap 5 library provides reusable UI components built on Bootstrap 5 for Queensland Government websites and applications.
+
+This library implements the [QGDS UI Kit](https://www.figma.com/community/file/978450410021220739) design specification.
+
+---
+
+## Technical summary
+
+**Core Technologies:**
+
+- JavaScript (ES6+) - Modern JavaScript for component logic
+- CSS/SCSS - Extends Bootstrap 5.3 with custom CSS properties and design tokens
+- Handlebars - Template engine for component rendering (client and server-side)
+
+**Distribution:**
+
+- NPM - Package distribution for Node.js projects
+- CDN - Direct browser integration via static hosting
+
+**Design:**
+
+- Figma - Design system and UI Kit source
+
+---
+
+## Prerequisites
+
+Before installing QGDS Bootstrap 5, you'll need:
+
+- **Node.js** 22+ or higher (for npm-based projects)
+- **NPM v10.9.3** or higher (for npm-based projects)
+- **Handlebars** 4.7.8 or higher
+- **Bootstrap 5.3** (automatically included with QGDS)
+
+---
+
+## Resources
+
+The QGDS Bootstrap 5 project builds and distributes the following resources for client-side rendering:
+
+**CSS:**
+
+```html
+<link
+  rel="stylesheet"
+  href="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/css/qld.bootstrap.css"
+/>
+```
+
+**JavaScript:**
+
+```html
+<!-- QGDS Handlebars initialization (loads all component partials) -->
+<script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/handlebars.init.min.js"></script>
+
+<!-- Bootstrap and QGDS component behaviors -->
+<script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/qld.bootstrap.min.js"></script>
+```
+
+**Environment-specific CDNs:**
+
+- Production: https://static.qgov.net.au/qgds-bootstrap5/...
+- Staging: https://staging-static.qgov.net.au/qgds-bootstrap5/...
+- Development: https://dev-static.qgov.net.au/qgds-bootstrap5/...
+
+**Versioning:**
+
+- Use v2.x.x-latest for automatic minor/patch updates
+- Use specific versions (e.g., v2.1.8) for production stability
+
+---
+
+## How to use
+
+QGDS Bootstrap 5 can be integrated into your project using either server-side or client-side rendering methods.
+
+### Server-Side (Node.js)
+
+Use this approach for server-side rendering with Node.js, Next.js, Vue JS, etc.
+
+Install QGDS Bootstrap 5 and Handlebars via NPM:
+
+```bash
+npm install @qld-gov-au/qgds-bootstrap5 handlebars
+```
+
+Example usage:
+
+```javascript
+import Handlebars from "handlebars";
+import QGDSBundle from "@qld-gov-au/qgds-bootstrap5/handlebarsInit";
+
+// Initialize QGDS (registers all component partials and helpers)
+QGDSBundle.init(Handlebars);
+
+// Component data (typically from your API or CMS)
+const componentData = {
+  title: "Service Update",
+  content:
+    "Our online services will be unavailable for maintenance from 2-4 AM AEST.",
+  variant: "warning",
+  dismissible: true,
+};
+
+// Render the component
+const html = Handlebars.compile("{{> callout}}")(componentData);
+
+// Use composed markup in your application
+console.log(html);
+```
+
+### Client-Side
+
+Use this approach for client side implementation of QGDS Bootstrap 5.
+
+Note, you must also include a Handlebars runtime in your project, e.g., from a CDN:
+
+```html
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>QGDS Example</title>
+
+    <!-- QGDS Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/css/qld.bootstrap.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div id="app"></div>
+    </div>
+
+    <!-- Required JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
+    <script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/handlebars.init.min.js"></script>
+    <script src="https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest/assets/js/qld.bootstrap.min.js"></script>
+
+    <script>
+      // Render a component using a Handlebars partial
+      const calloutTemplate = Handlebars.compile("{{> callout}}");
+
+      const componentData = {
+        title: "Welcome to QGDS",
+        content: "Get started with Queensland Government Design System",
+        variant: "info",
+      };
+
+      document.getElementById("app").innerHTML = calloutTemplate(componentData);
+    </script>
+  </body>
+</html>
+```
+
+---
+
+## How It Works
+
+**Component Partials**
+
+QGDS components are registered as Handlebars partials. Once initialized, you can reference them using the `{{> partialName}}` syntax:
+
+```javascript
+// Define data for a component
+const mydata = {
+  title: "This is a callout title",
+  content: "This is a callout description",
+};
+
+// Using a partial with a data object
+const html = Handlebars.compile("{{> callout}}")(mydata);
+
+// Using a partial with inline properties
+const html = Handlebars.compile(
+  "{{> callout title='Click Me' content='This is a callout description'}}",
+)();
+```
+
+## Code references
+
+Browse the component library using the sidebar. Each component page in Storybook includes:
+
+- Examples - Interactive component demos with different variants
+- Controls - Adjustable properties to preview changes
+- Code References - View JSON data, Handlebars templates, and rendered HTML
+- Open any story
+  - Press Cmd+A (Mac) or Ctrl+A (Windows) to open the Actions panel
+  - Click the Code References tab
+
+---
+
+## Accessibility
+
+This project is committed to providing accessible and inclusive components for all users.
+
+**Standards Compliance:**
+
+- All components are tested against [WCAG 2.1 Level AA](https://www.w3.org/WAI/WCAG21/quickref/) standards
+- Follows [Queensland Government digital accessibility requirements](https://www.qld.gov.au/web-accessibility)
+- Ensures equal access to information, services, and opportunities
+
+**Reporting Issues:**
+
+If you encounter accessibility barriers or have suggestions for improvement:
+
+- [Open an issue on GitHub](https://github.com/qld-gov-au/qgds-bootstrap5/issues)
+- Contact the QGDS team via the [Design System website](https://designsystem.qld.gov.au)
+
+---
+
+## Additional Resources
+
+Package Repositories
+
+- [QGDS Bootstrap 5 on npm](https://www.npmjs.com/@qld-gov-au/qgds-bootstrap5)
+- [Source code (GitHub)](https://github.com/qld-gov-au/qgds-bootstrap5)
+- [Release repository (GitHub)](https://github.com/qld-gov-au/qgds-bootstrap5-release)
+
+Documentation
+
+- [Storybook component library](https://qld-gov-au.github.io/qgds-bootstrap5)
+- [Design System website](https://designsystem.qld.gov.au)
+
+Design Resources
+
+- [QGDS UI Kit (Figma)](https://www.figma.com/community/file/1577907940583715898)
+
+Related Libraries
+
+- [QGDS Design Tokens](https://www.npmjs.com/@qld-gov-au/qgds-tokens)
+- [QGDS Design Tokens repository](https://github.com/qld-gov-au/qgds-tokens)
+- [QGDS Design System Queensland Health (Vanilla)](https://github.com/Qld-Health-Online-Team/design-system)
+
+---
+
+## Support
+
+For questions, issues, or contributions:
+
+- Open an issue on GitHub
+- Reach out to the QGDS team via the [Design System website](https://designsystem.qld.gov.au)
