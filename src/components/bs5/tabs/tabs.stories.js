@@ -1,6 +1,7 @@
 // ComponentExample.stories.js
 import { Tabs } from "./tabs.js";
 import defaultdata from "./tabs.data.json";
+import metadata from "./metadata.json";
 
 // Generate argTypes for tab items dynamically
 const generateTabItemArgTypes = () => {
@@ -70,6 +71,13 @@ export default {
     },
     // Dynamically generated tab item controls
     ...generateTabItemArgTypes(),
+  },
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "tabs", //{{> tabs }}
+    },
   },
 };
 

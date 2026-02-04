@@ -59,6 +59,7 @@
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/json": "^1.0.0",
     "@qld-gov-au/qgds-tokens": "^1.2.1",
+    "@vitejs/plugin-react": "^5.1.2",
     "@storybook/addon-a11y": "^10.1.10",
     "@storybook/addon-docs": "^10.1.10",
     "@storybook/addon-links": "^10.1.10",

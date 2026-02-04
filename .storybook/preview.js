@@ -1,3 +1,18 @@
+import * as React from "react";
+import { useEffect } from "storybook/preview-api";
+import { addons } from "storybook/preview-api";
+import DocumentationTemplate from "./DocumentationTemplate.mdx";
+
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Markdown,
+} from "@storybook/addon-docs/blocks";
+
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
@@ -5,6 +20,8 @@ import {
   withDynamicTheme,
   dynamicThemeGlobalTypes,
 } from "./dynamicThemeDecorator.js";
+
+import { withCodeRefs } from "./codeRefsDecorator.js";
 import { breakpoints } from "../src/js/constants.js";
 
 // Check if dynamic theme should be enabled via environment variable
@@ -90,9 +107,18 @@ const preview = {
       },
     },
     docs: {
+      page: DocumentationTemplate,
+      toc: {
+        disable: false,
+        headingSelector: "h2, h3",
+        title: "",
+      },
       source: {
         excludeDecorators: true,
+        state: "open",
+        type: "dynamic",
       },
+      codePanel: false,
     },
     backgrounds: {
       options: {
@@ -108,7 +134,13 @@ const preview = {
       storySort: {
         method: "alphabetical",
         // Set order of components in the Layout category
-        order: ["*", ["Header", "Footer", "Breadcrumbs", "Side navigation"]],
+        order: [
+          "Welcome",
+          "Introduction",
+          ["How to use", "Development", "*"],
+          "*",
+          ["Header", "Footer", "Breadcrumbs", "Side navigation"],
+        ],
       },
     },
     a11y: {
@@ -128,7 +160,13 @@ const preview = {
     },
   },
 
+  sidebar: {
+    showRoots: false,
+  },
+
   decorators: [
+    withCodeRefs,
+
     ...(ENABLE_DYNAMIC_THEME ? [withDynamicTheme] : []),
     // data-bs-theme="dark" won't be used
     withThemeByClassName({

@@ -2,6 +2,8 @@ import { Header, argTypes } from "./Header.js";
 import { Navbar } from "../navbar/Navbar.js";
 import { SearchInput } from "../searchInput/SearchInput.js";
 
+import metadata from "./metadata.json";
+
 // Mock data
 import menu_state from "../navbar/navbar.data.json";
 import searchData from "../searchInput/searchInput.data.json";
@@ -48,6 +50,14 @@ export default {
         ],
       },
       story: { height: "400px" },
+    },
+    coderefs: {
+      metadata,
+      partialname: "header", //{{> header }}
+      tabs: {
+        notes:
+          "The QGDS Header requires the Navbar component for primary menu (refer Navbar story).",
+      },
     },
     backgrounds: { disable: true },
   },

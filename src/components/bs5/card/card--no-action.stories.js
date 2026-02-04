@@ -1,6 +1,7 @@
 // card--no-action.stories.js
 import { Card, argTypes } from "./Card.js";
 import defaultdata from "./card.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -24,6 +25,12 @@ export default {
   },
   args: defaultdata.noAction,
   argTypes,
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "card", //{{> card }}
+    },
+  },
 };
 
 export const Default = {};

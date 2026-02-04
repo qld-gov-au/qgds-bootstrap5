@@ -1,23 +1,105 @@
 import { Meta, Markdown } from "@storybook/addon-docs/blocks";
-
-import Readme from "../../README.md?raw";
+import componentList from "./component-list.json";
 
 <Meta title="Welcome" />
 
-[//]: # "# Welcome to QGDS QOL BS MVP Storybook"
-[//]: #
-[//]: # "Welcome to Queensland Government Design System Qld Online Mvp Storybook, this documentation is mainly for development and testing purposes."
-[//]: # "For user orientated documentation, please visit https://www.forgov.qld.gov.au/swe."
+<style>{`
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .component-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1.25rem;
+    background: #fff;
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .component-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .component-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #003865;
+  }
+  .component-card-scope {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: #f5f5f5;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+  .component-card-description {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0;
+  }
+  .category-section {
+    margin-bottom: 3rem;
+  }
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #003865;
+  }
+`}
+</style>
 
-<Markdown>{Readme}</Markdown>
 
----
+## Welcome to the QGDS Bootstrap 5 library
 
-## Component Badges
+This Storybook serves as the interactive documentation for the Bootstrap 5 implementation of the Queensland Government Design System (QGDS).
 
-Components are labelled as:
+Whether you are starting a new project or updating an existing application, this library provides a robust, accessible, and compliant foundation for building digital services that look and feel like Queensland Government.
 
-- **Core** — Essential, broadly applicable components that serve as the single source of truth for the Queensland Government design system.
-- **Extended** — Specialised components for needs not covered by the core set.
+## How to navigate this Storybook
 
-Further information is available in the [QGDS UI Kit](https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=8701-244248&m=dev).
+Use the sidebar to explore components organised by category.
+
+Find component variations and other information on each Overview tab.
+
+In each individual story, open the Actions panel to explore adjustable properties (Controls) and example code (Code references)
+
+## Components
+
+The following core components are available in this library.  Additional layout and utility components can be found in the sidebar.
+
+<div className="component-grid">
+  {componentList.map(component => (
+    <a 
+      key={component.id} 
+      href={`/?path=${component.storyPath}`}
+      className="component-card"
+    >
+      <div className="component-card-title">{component.title}</div>
+    </a>
+  ))}
+</div>
+
+
+## [How to use](?path=/docs/introduction-how-to-use--overview)
+> Use this guide to implement the QGDS Bootstrap 5 edition in your web page or application.
+
+## [Project development](?path=/docs/introduction-development---overview)
+> Use this guide if working on or contributing to the QGDS Bootstrap 5 source code itself. It outlines the architecture, build processes, Github setup and repository forking.
+
+
+## The QGDS Ecosystem
+This library is part of a coordinated suite of tools designed to ensure visual and functional consistency across all Queensland Government digital touchpoints:
+
+- [Figma UI Kit](https://www.figma.com/community/file/978450410021220739): The design source of truth and visual specification for all components.
+- [QGDS Website](https://www.designsystem.qld.gov.au): The central hgub for Design System and component guidance and documentation.
+- Design Tokens: The foundational variables (colors, spacing, typography) that power our styles.
+- QGDS Web Components: A framework-agnostic implementation of Design System by the Queensland Government.
+- Vanilla Component Library: An independent framework-agnostic implementation of Design System by Queensland Health.

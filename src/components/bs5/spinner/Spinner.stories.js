@@ -1,6 +1,7 @@
 // ComponentExample.stories.js
 import { Spinner } from "./Spinner.js";
 import defaultdata from "./spinner.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -16,6 +17,13 @@ export default {
     }
 
     return new Spinner(args).html;
+  },
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "spinner", //{{> spinner }}
+    },
   },
 };
 

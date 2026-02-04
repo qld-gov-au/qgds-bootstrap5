@@ -7,6 +7,8 @@ import { Tag } from "../tag/Tag.js";
 import tagdata from "../tag/tag.data.json";
 import { CallToAction } from "../callToAction/callToAction.js";
 
+import metadata from "./metadata.json";
+
 export default {
   tags: ["autodocs"],
   title: "3. Components/Card/Multi action",
@@ -44,6 +46,10 @@ export default {
       controls: {
         exclude: ["link", "arrow", "iconPosition"],
       },
+    },
+    coderefs: {
+      metadata,
+      partialname: "card", //{{> card }}
     },
   },
 };

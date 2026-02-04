@@ -1,55 +1,58 @@
 // modal.stories.js
-import { Modal } from './Modal.js';
-import defaultdata from './modal.data.json';
+import { Modal } from "./Modal.js";
+import defaultdata from "./modal.data.json";
+import metadata from "./metadata.json";
 
 //Load some buttons for modal footer
-import { Button } from '../button/Button.js';
+import { Button } from "../button/Button.js";
 
-let buttonItems = [{    
-  "variantClass": "btn-tertiary",
-  "islink": true,
-  "isdisabled": false,
-  "iconClass": "",
-  "href": "https://www.google.com",
-  "label": "External link",
-  "target": "_blank",
-  "dataatts": false,
-  "arialabel": false,
-},{    
-  "variantClass": "btn-secondary",
-  "islink": false,
-  "isdisabled": false,
-  "iconClass": "",
-  "href": "#",
-  "label": "Cancel",
-  "target": "",
-  "dataatts": "data-bs-dismiss='modal'",
-  "arialabel": "Close",
-},
-{    
-  "variantClass": "btn-primary",
-  "islink": false,
-  "isdisabled": false,
-  "iconClass": "",
-  "href": "#",
-  "label": "Confirm",
-  "target": "",
-  "dataatts": "data-bs-dismiss='modal'",
-  "arialabel": "Confirm",
-}];
+let buttonItems = [
+  {
+    variantClass: "btn-tertiary",
+    islink: true,
+    isdisabled: false,
+    iconClass: "",
+    href: "https://www.google.com",
+    label: "External link",
+    target: "_blank",
+    dataatts: false,
+    arialabel: false,
+  },
+  {
+    variantClass: "btn-secondary",
+    islink: false,
+    isdisabled: false,
+    iconClass: "",
+    href: "#",
+    label: "Cancel",
+    target: "",
+    dataatts: "data-bs-dismiss='modal'",
+    arialabel: "Close",
+  },
+  {
+    variantClass: "btn-primary",
+    islink: false,
+    isdisabled: false,
+    iconClass: "",
+    href: "#",
+    label: "Confirm",
+    target: "",
+    dataatts: "data-bs-dismiss='modal'",
+    arialabel: "Confirm",
+  },
+];
 
-defaultdata.footer.buttons = buttonItems.map((item) => { 
+defaultdata.footer.buttons = buttonItems.map((item) => {
   return new Button(item).html;
 });
 
-
 export default {
-  tags: [''],
-  title: '3. Components/Modal',
+  tags: [""],
+  title: "3. Components/Modal",
   render: (args) => new Modal(args).html,
 
   argTypes: {
-    buttons: { 
+    buttons: {
       control: { disable: true },
     },
     modalSize: {
@@ -64,12 +67,14 @@ export default {
           "modal-xl": "Extra Large",
         },
       },
-      options: [
-        "modal-sm",
-        "modal-default",
-        "modal-lg",
-        "modal-xl",
-      ],
+      options: ["modal-sm", "modal-default", "modal-lg", "modal-xl"],
+    },
+  },
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "modal", //{{> modal }}
     },
   },
 };
@@ -80,10 +85,10 @@ export default {
 export const Default = {
   args: {
     ...defaultdata,
-    modalID: 'modal-example-default',
-    modalLabel: 'Default modal example',
-    modalSize: 'modal-xl',
-    launchButtonLabel: 'Open default modal',
+    modalID: "modal-example-default",
+    modalLabel: "Default modal example",
+    modalSize: "modal-xl",
+    launchButtonLabel: "Open default modal",
   },
 };
 
@@ -91,16 +96,15 @@ export const Default = {
  * Small Modal (575px)
  */
 
-export const SmallModal= {
+export const SmallModal = {
   args: {
     ...defaultdata,
-    modalID: 'modal-example-small',
-    modalLabel: 'Small modal example',
-    modalSize: 'modal-sm',
-    launchButtonLabel: 'Open small modal',
+    modalID: "modal-example-small",
+    modalLabel: "Small modal example",
+    modalSize: "modal-sm",
+    launchButtonLabel: "Open small modal",
   },
 };
-
 
 /**
  * Large Modal (800px)
@@ -108,9 +112,9 @@ export const SmallModal= {
 export const LargeModal = {
   args: {
     ...defaultdata,
-    modalID: 'modal-example-large',
-    modalLabel: 'Large modal example',
-    modalSize: 'modal-lg',
-    launchButtonLabel: 'Open large modal',
+    modalID: "modal-example-large",
+    modalLabel: "Large modal example",
+    modalSize: "modal-lg",
+    launchButtonLabel: "Open large modal",
   },
 };

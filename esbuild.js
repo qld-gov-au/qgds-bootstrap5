@@ -5,6 +5,7 @@ import path from "path";
 
 //Local ESBUILD PLUGINS
 import QGDSupdateHandlebarsPartialsPlugin from "./.esbuild/plugins/qgds-plugin-handlebar-partial-builder.js";
+import QGDSStoryListBuilderPlugin from "./.esbuild/plugins/qgds-plugin-story-list-builder.js";
 import QGDSrawLoader from "./.esbuild/plugins/qgds-plugin-raw-loader.js";
 import QDGScleanFolders from "./.esbuild/plugins/qgds-plugin-clean-output-folders.js";
 import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
@@ -79,6 +80,7 @@ const buildConfig = {
 
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
+    QGDSStoryListBuilderPlugin(),
     ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []), // Generate icons assets when --icons flag is set
     QDGScopy(),
     QGDSrawLoader(),

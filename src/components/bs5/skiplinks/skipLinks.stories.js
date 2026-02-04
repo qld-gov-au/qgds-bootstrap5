@@ -5,6 +5,11 @@ export default {
   tags: ["autodocs"],
   title: "3. Components/SkipLinks",
   render: (args) => new SkipLinks(args).html,
+  parameters: {
+    coderefs: {
+      partialname: "skipLinks",
+    },
+  },
 };
 
 export const Default = {

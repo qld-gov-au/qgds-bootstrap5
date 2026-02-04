@@ -1,6 +1,7 @@
 // Blockquote.stories.js
 import { Pagination } from "./Pagination.js";
 import defaultdata from "./pagination.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -8,6 +9,10 @@ export default {
   render: (args) => new Pagination(args).html,
 
   parameters: {
+    coderefs: {
+      metadata,
+      partialname: "pagination", //{{> pagination }}
+    },
     docs: {
       controls: {
         exclude: ["previous", "next", "pages"],

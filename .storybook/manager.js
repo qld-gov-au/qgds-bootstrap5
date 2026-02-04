@@ -1,5 +1,5 @@
 import { addons } from "storybook/internal/manager-api";
-import { defaultConfig } from "storybook-addon-tag-badges/manager-helpers";
+//import { defaultConfig } from "storybook-addon-tag-badges/manager-helpers";
 
 /**
  * Custom badge configuration for QGDS component library
@@ -26,6 +26,6 @@ addons.setConfig({
     },
 
     // Include default badges from the addon (new, deprecated, experimental, etc.)
-    ...defaultConfig,
+    //...defaultConfig,
   ],
 });

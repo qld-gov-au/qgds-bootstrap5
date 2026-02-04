@@ -1,6 +1,7 @@
 // ComponentExample.stories.js
 import { Textarea, argTypes } from "./Textarea.js";
 import defaultdata from "./textarea.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -17,7 +18,13 @@ export default {
 
     return new Textarea(args).html;
   },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "textarea",
+    },
+    backgrounds: { disable: false },
+  },
   globals: { backgrounds: { value: "default" } },
   //https://storybook.js.org/docs/api/arg-types
   argTypes,

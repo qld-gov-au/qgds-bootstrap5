@@ -1,6 +1,7 @@
 import { Navbar } from "./Navbar.js";
 import defaultdata from "./navbar.data.json";
 import { breakpoints } from "../../../js/constants.js";
+import metadata from "./metadata.json";
 
 //Default story
 export default {
@@ -304,10 +305,14 @@ export default {
   },
 
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97604&p=f&t=LpEqEay1h4fgTRLl-0",
+    coderefs: {
+      metadata,
+      partialname: "navbar", //{{> navbar }}
+      args: defaultdata,
+      tabs: {
+        notes:
+          "The Navbar component is paired with the Header component. Review the Header component documentation for guidance on configuring the navbar within a header.",
+      },
     },
   },
 };

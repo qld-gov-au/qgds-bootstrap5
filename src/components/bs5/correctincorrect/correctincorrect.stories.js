@@ -1,13 +1,21 @@
 // FormcheckCheckbox.stories.js
-import { CorrectIncorrect } from './CorrectIncorrect.js';
+import { CorrectIncorrect } from "./CorrectIncorrect.js";
+import metadata from "./metadata.json";
 
-import { Table } from '../table/Table.js';
+import { Table } from "../table/Table.js";
 
 export default {
-  tags: ['autodocs'],
-  title: '3. Components/CorrectIncorrect',
+  tags: ["autodocs"],
+  title: "3. Components/CorrectIncorrect",
   render: (args) => {
-    return `${new CorrectIncorrect(args).html}`
+    return `${new CorrectIncorrect(args).html}`;
+  },
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "correctincorrect", //{{> correctincorrect }}
+    },
   },
 };
 
@@ -22,9 +30,9 @@ export const ShortForm = {
     </span>
     <span class="qg-incorrect">
       <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>.</p>
-    </span>`
+    </span>`;
   },
-}
+};
 
 export const LongForm = {
   render: () => {
@@ -40,47 +48,54 @@ export const LongForm = {
       <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. </p>
       <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. Aenean sed pretium mauris. </p>
       <p>Lorem ipsum dolor sit amet, consectetur <a href='#'>adipiscing elit</a>. Fusce dictum efficitur egestas. Aenean sed pretium mauris. Quisque euismod in nisl et consequat.</p>
-    </div>`
+    </div>`;
   },
-}
-
+};
 
 export const TableByColumnsForCorrectAndIncorrect = {
   args: {
-    "customClass": "",
-    "variantClass": "qg-correct-incorrect",
-    "headers": ["This", "Not this"],
-    "rows": [
-      { "cells": ["Cell", "Sell"] },
-      { "cells": ["Lorem ipsum dolor", "Lorem ipsum jolor"] },
-      { "cells": ["Lorem ipsum dolor sit", "Lorem ipsum dolor cit"] },
-      { "cells": ["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amat"] },
-      { "cells": ["Lorem ipsum dolor sit amet consectetur", "Lorem ipsum dolor sit amet nonsectetur"] },
+    customClass: "",
+    variantClass: "qg-correct-incorrect",
+    headers: ["This", "Not this"],
+    rows: [
+      { cells: ["Cell", "Sell"] },
+      { cells: ["Lorem ipsum dolor", "Lorem ipsum jolor"] },
+      { cells: ["Lorem ipsum dolor sit", "Lorem ipsum dolor cit"] },
+      { cells: ["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amat"] },
+      {
+        cells: [
+          "Lorem ipsum dolor sit amet consectetur",
+          "Lorem ipsum dolor sit amet nonsectetur",
+        ],
+      },
     ],
-  }
-  ,
-  render: (args) => {
-    return `${new Table(args).html}`
   },
-}
+  render: (args) => {
+    return `${new Table(args).html}`;
+  },
+};
 export const TableByColumnsForIncorrectAndCorrect = {
   args: {
-    "customClass": "",
-    "variantClass": "qg-incorrect-correct",
-    "headers": ["Not this", "This"],
-    "rows": [
-      { "cells": ["Sell","Cell"] },
-      { "cells": ["Lorem ipsum jolor", "Lorem ipsum dolor"] },
-      { "cells": ["Lorem ipsum dolor cit", "Lorem ipsum dolor sit"] },
-      { "cells": ["Lorem ipsum dolor sit amat", "Lorem ipsum dolor sit amet"] },
-      { "cells": ["Lorem ipsum dolor sit amet nonsectetur", "Lorem ipsum dolor sit amet consectetur"] },
+    customClass: "",
+    variantClass: "qg-incorrect-correct",
+    headers: ["Not this", "This"],
+    rows: [
+      { cells: ["Sell", "Cell"] },
+      { cells: ["Lorem ipsum jolor", "Lorem ipsum dolor"] },
+      { cells: ["Lorem ipsum dolor cit", "Lorem ipsum dolor sit"] },
+      { cells: ["Lorem ipsum dolor sit amat", "Lorem ipsum dolor sit amet"] },
+      {
+        cells: [
+          "Lorem ipsum dolor sit amet nonsectetur",
+          "Lorem ipsum dolor sit amet consectetur",
+        ],
+      },
     ],
-  }
-  ,
-  render: (args) => {
-    return `${new Table(args).html}`
   },
-}
+  render: (args) => {
+    return `${new Table(args).html}`;
+  },
+};
 
 export const TableByCell = {
   render: () => {
@@ -112,6 +127,6 @@ export const TableByCell = {
                 </tr>
             </tbody>
         </table>
-      </div>`
+      </div>`;
   },
-}
+};

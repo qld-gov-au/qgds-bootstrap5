@@ -1,5 +1,6 @@
-import defaultdata from "./banner.data.json";
 import { Banner } from "./Banner";
+import defaultdata from "./banner.data.json";
+import metadata from "./metadata.json";
 
 //Import data objects required for the banner and any nested components
 import breadcrumbdata from "../breadcrumbs/breadcrumbs.data.json";
@@ -208,6 +209,20 @@ export default {
     bannerType: {
       table: { disable: true },
       control: { type: "hidden" }, // Hide the control in the Storybook UI
+    },
+  },
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "banner",
+      tabs: {
+        notes:
+          "\n\nThe Banner component includes nested components such as Breadcrumbs, Buttons, and Cards. Data for these components should be passed on the main JSON object for banner. Refer to the JSON example for each story.",
+      },
+    },
+    docs: {
+      notes: "The QGDS Banner component has Basic and Advanced variants.",
     },
   },
 };

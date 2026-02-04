@@ -1,0 +1,15 @@
+{
+  "id": "qgds-accordion",
+  "title": "Accordion",
+  "title_uikit": "Accordion",
+  "type": "Component",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98109&p=f&t=GROIooMNoyn7sZDF-0",
+    "website": "https://www.designsystem.qld.gov.au/components/accordion"
+  }
+}

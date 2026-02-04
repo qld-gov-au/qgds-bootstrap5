@@ -1,6 +1,7 @@
 // Tag.stories.js
 import { GlobalAlert } from "./GlobalAlert.js";
 import defaultdata from "./globalAlert.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs", "extended"],
@@ -41,6 +42,14 @@ export default {
       return Story({ args: { ...args } });
     },
   ],
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "globalAlert", //{{> globalAlert }}
+    },
+    docs: {},
+  },
 };
 
 // Critical global alert story

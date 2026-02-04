@@ -2,6 +2,8 @@
 import { Callout } from "./Callout.js";
 import defaultdata from "./callout.data.json";
 
+import metadata from "./metadata.json";
+
 export default {
   tags: ["autodocs"],
   title: "3. Components/Callout",
@@ -28,12 +30,11 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98115&mode=design&t=Ue7c77KjVYU1eTGj-0",
-    },
     backgrounds: { disable: false },
+    coderefs: {
+      metadata,
+      partialname: "callout", //{{> callout }}
+    },
   },
   globals: { backgrounds: { value: "default" } },
 };

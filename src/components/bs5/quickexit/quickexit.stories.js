@@ -1,6 +1,7 @@
 // ComponentExample.stories.js
 import { Quickexit } from "./Quickexit.js";
 import defaultdata from "./quickexit.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs", "extended"],
@@ -16,6 +17,12 @@ export default {
     }
 
     return new Quickexit(args).html;
+  },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "quickexit", //{{> quickexit }}
+    },
   },
 };
 

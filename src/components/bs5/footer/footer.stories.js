@@ -1,7 +1,7 @@
 // footer.stories.js
 import { Footer } from "./Footer.js";
-
 import defaultdata from "./footer.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -32,6 +32,12 @@ export default {
       name: "Copyright",
       description: "Copyright section details",
       control: { type: "object" },
+    },
+  },
+  parameters: {
+    coderefs: {
+      partialname: "footer", //{{> footer }}
+      metadata,
     },
   },
 };

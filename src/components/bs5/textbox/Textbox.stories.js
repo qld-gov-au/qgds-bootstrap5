@@ -1,6 +1,7 @@
 // ComponentExample.stories.js
 import { Textbox, argTypes } from "./Textbox.js";
 import defaultdata from "./textbox.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -17,7 +18,16 @@ export default {
 
     return new Textbox(args).html;
   },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "textbox",
+      tabs: {
+        notes: `Note: The partial name for this component is \`textbox\`. Refer the "Use" tab for more.`,
+      },
+    },
+    backgrounds: { disable: false },
+  },
   globals: { backgrounds: { value: "default" } },
   //https://storybook.js.org/docs/api/arg-types
   argTypes,

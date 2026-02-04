@@ -1,6 +1,8 @@
 import Handlebars from "handlebars";
 import template from "./containerLayout.hbs?raw";
 
+import metadata from "./metadata.json";
+
 //Mockup Data for each component
 import masterbrand_variant from "../header/header.variant.masterBrand.data.json";
 import menu_state from "../navbar/navbar.variant.menuState.data.json";
@@ -71,6 +73,10 @@ export default {
       controls: {},
     },
     chromatic: { disableSnapshot: true },
+    coderefs: {
+      metadata,
+      partialname: "containerLayout", //{{> containerLayout }}
+    },
   },
 };
 

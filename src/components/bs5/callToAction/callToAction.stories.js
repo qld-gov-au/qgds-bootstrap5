@@ -6,6 +6,7 @@
 
 import { CallToAction } from "./callToAction.js";
 import defaultdata from "./callToAction.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -26,12 +27,12 @@ export default {
     `;
   },
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=v3sxViBgYUUmwplL-0",
-    },
     backgrounds: { disable: false },
+    coderefs: {
+      metadata,
+      partialname: "callToAction",
+    },
+    docs: {},
   },
   globals: { backgrounds: { value: "default" } },
 };

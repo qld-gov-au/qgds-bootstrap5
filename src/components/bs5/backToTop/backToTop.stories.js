@@ -1,11 +1,12 @@
 /**
- * @file bactToTop.stories.js
+ * @file backToTop.stories.js
  * @description Storybook configuration file for the BackToTop component.
  * @module backToTop.stories
  */
 
 import { BackToTop } from "./backToTop.js";
 import defaultdata from "./backToTop.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -13,21 +14,16 @@ export default {
   render: (args) => new BackToTop(args).html,
   args: defaultdata,
 
-  /**
-   * Additional parameters for the story.
-   *
-   * @type {Object}
-   * @property {Object} design - Configuration for the design parameter.
-   * @property {string} design.name - Name of the design parameter.
-   * @property {string} design.type - Type of the design parameter.
-   * @property {string} design.url - URL of the design parameter.
-   */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/XPeQMu5zKhEPKXdtZclWIW/Back-to-top?node-id=2004-2461&m=dev",
+    coderefs: {
+      metadata,
+      partialname: "backToTop", //{{> back-to-top }}
+      tabs: {
+        notes:
+          "\n\nThe Back to Top is nested within the Content Footer pattern. It requires additonal markup (containers and utility classes) for correct layout within a page",
+      },
     },
+    docs: {},
   },
 };
 

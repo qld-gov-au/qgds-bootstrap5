@@ -1,22 +1,21 @@
 // ComponentExample.stories.js
 import { Table } from "./Table.js";
 import defaultdata from "./table.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs", "extended"],
   title: "3. Components/Table",
   render: (args) => {
-    
-    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc. 
+    //Storybook produces a comma delimited string when using the check control type (table-striped, table-bordered) etc.
     //We can't use commas on our class="..." attribute, so we need to replace the commas with spaces.
-    if( typeof(args.variantClass) === 'string' ) {
-      args.variantClass = args.variantClass.replaceAll(","," ");
-    } else if ( typeof(args.variantClass) === 'object' ) {
+    if (typeof args.variantClass === "string") {
+      args.variantClass = args.variantClass.replaceAll(",", " ");
+    } else if (typeof args.variantClass === "object") {
       args.variantClass = args.variantClass.join(" ");
     }
 
     return new Table(args).html;
-  
   },
 
   //https://storybook.js.org/docs/api/arg-types
@@ -31,10 +30,7 @@ export default {
           "table-striped": "Striped",
         },
       },
-      options: [
-        "table-dark",
-        "table-striped",
-      ],
+      options: ["table-dark", "table-striped"],
     },
 
     caption: {
@@ -52,15 +48,13 @@ export default {
         type: "text",
       },
     },
-
   },
 
   parameters: {
-    // design: {
-    //   name: "QGDS Figma Reference",
-    //   type: "figma",
-    //   url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=23167-395552&mode=design&t=qoWXcELpZe1uqHs8-0",
-    // },
+    coderefs: {
+      metadata,
+      partialname: "table", //{{> table }}
+    },
     docs: {
       controls: {
         exclude: ["headers", "rows", "footer"],
@@ -70,12 +64,12 @@ export default {
 };
 
 /**
- * 
+ *
  * For data tables with a small amount of rows use the default table:
  *  - Align text columns and corresponding data cells to the left
  *  - When comparing numbers in a column, align data cells and column headers to the right
  *  - For data tables with more rows, use the striped alternative
- * 
+ *
  * Example full table including headers, rows and footer, caption and subcaption
  */
 export const Default = {
@@ -87,38 +81,34 @@ export const Default = {
  */
 
 export const Striped = {
-  args: { 
+  args: {
     ...defaultdata,
-    ...{variantClass: "table-striped"},
+    ...{ variantClass: "table-striped" },
   },
 };
-  
 
 /**
  * Also known as: Quiet Table
- * 
+ *
  * When seeking to integrate and expand the information that accompanies a text, a borderless table can prove advantageous. It imparts a sense of continuity and cohesion, making the data feel more seamlessly integrated with the surrounding text.
  */
 
 export const Borderless = {
-  args: { 
-	  ...defaultdata,
-	  ...{customClass: "qld-table--borderless"},
+  args: {
+    ...defaultdata,
+    ...{ customClass: "qld-table--borderless" },
   },
 };
-
 
 /**
  * Table with row hover <code>.table-hover</code>
  */
 export const WithHover = {
-  args: { 
-	  ...defaultdata,
-	  ...{variantClass: "table-hover"},
+  args: {
+    ...defaultdata,
+    ...{ variantClass: "table-hover" },
   },
 };
-
-
 
 /**
  * Alternate (Dark) table. <code>.table-dark</code>
@@ -126,10 +116,9 @@ export const WithHover = {
 export const Dark = {
   args: {
     ...defaultdata,
-    ...{variantClass: "table-dark"},
-  	},
-}
-
+    ...{ variantClass: "table-dark" },
+  },
+};
 
 /**
  * Alternate (Dark) table. <code>.table-dark .table-hover</code>
@@ -137,10 +126,9 @@ export const Dark = {
 export const DarkWithHover = {
   args: {
     ...defaultdata,
-    ...{ variantClass: ["table-dark","table-hover"] },
-  	},
-}
-
+    ...{ variantClass: ["table-dark", "table-hover"] },
+  },
+};
 
 /**
  * Responsive table example <code>.table-responsive</code>
@@ -159,32 +147,122 @@ export const Responsive = {
   ],
   args: {
     ...defaultdata,
-    ...{ 
-      "headers": [
-        "Header", 
-        "Header", 
-        "Header", 
-        "Header", 
-        "Header", 
-        "Header", 
-        "Header", 
-        "Header", 
+    ...{
+      headers: [
+        "Header",
+        "Header",
+        "Header",
+        "Header",
+        "Header",
+        "Header",
+        "Header",
+        "Header",
         "Header",
         "Header",
         "Header",
         "Header",
       ],
-      "rows": [
-        { "cells": ["Cell", "Longer cell", "Cell", "Cell", "Longer cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Longer Cell", "Cell"] },
-        { "cells": ["Cell", "Longer cell", "Cell", "Cell", "Longer cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Longer Cell", "Cell"] },
-        { "cells": ["Cell", "Longer cell", "Cell", "Cell", "Longer cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Longer Cell", "Cell"] },
-        { "cells": ["Cell", "Longer cell", "Cell", "Cell", "Longer cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Longer Cell", "Cell"] },
-        { "cells": ["Cell", "Longer cell", "Cell", "Cell", "Longer cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Longer Cell", "Cell"] },
-        { "cells": ["Cell", "Longer cell", "Cell", "Cell", "Longer cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Longer Cell", "Cell"] },
-      ],
-      "footer": [
+      rows: [
         {
-          "cells": [
+          cells: [
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Longer Cell",
+            "Cell",
+          ],
+        },
+        {
+          cells: [
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Longer Cell",
+            "Cell",
+          ],
+        },
+        {
+          cells: [
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Longer Cell",
+            "Cell",
+          ],
+        },
+        {
+          cells: [
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Longer Cell",
+            "Cell",
+          ],
+        },
+        {
+          cells: [
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Longer Cell",
+            "Cell",
+          ],
+        },
+        {
+          cells: [
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Longer cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Cell",
+            "Longer Cell",
+            "Cell",
+          ],
+        },
+      ],
+      footer: [
+        {
+          cells: [
             "Footer",
             "Footer",
             "Footer",
@@ -201,6 +279,6 @@ export const Responsive = {
         },
       ],
     },
-    ...{ variantClass: ["table-striped","table-hover"] },
-  	},
-}
+    ...{ variantClass: ["table-striped", "table-hover"] },
+  },
+};

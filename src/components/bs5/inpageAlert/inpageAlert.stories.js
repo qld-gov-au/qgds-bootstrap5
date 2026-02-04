@@ -1,6 +1,6 @@
 import { InpageAlert } from "./InpageAlert.js";
 import defaultdata from "./inpageAlert.data.json";
-
+import metadata from "./metadata.json";
 /**
  * The Inpage Alert is also known as Page Alert or Alert
  *
@@ -33,7 +33,14 @@ export default {
     return new InpageAlert({ ...defaultdata, ...args }).html;
   },
   globals: { backgrounds: { value: "default" } },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    backgrounds: { disable: false },
+    coderefs: {
+      metadata,
+      partialname: "inpageAlert", //{{> inpageAlert }}
+    },
+  },
+  args: defaultdata,
   argTypes: {
     variantClass: {
       name: "Classes",

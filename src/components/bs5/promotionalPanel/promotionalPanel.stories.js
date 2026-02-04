@@ -7,6 +7,7 @@
 
 import { PromotionalPanel } from "./promotionalPanel.js";
 import defaultdata from "./promotionalPanel.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -78,10 +79,9 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=oML8wlVSAg2496sB-0",
+    coderefs: {
+      metadata,
+      partialname: "promotionalPanel", //{{> promotionalPanel }}
     },
   },
 };

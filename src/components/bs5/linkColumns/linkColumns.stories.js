@@ -7,6 +7,7 @@
 
 import { LinkColumns } from "./linkColumns.js";
 import defaultdata from "./linkColumns.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -42,10 +43,9 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563&t=RyMlGjeuzgl8p5Gx-0",
+    coderefs: {
+      metadata,
+      partialname: "linkColumns", //{{> linkColumns }}
     },
     pageLayout: "with-wrapper",
     wrapperClasses: "qld-content-body",

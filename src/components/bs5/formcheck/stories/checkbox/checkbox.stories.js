@@ -1,6 +1,7 @@
 // FormcheckCheckbox.stories.js
 import { Formcheck, argTypes } from "../../Formcheck.js";
 import defaultdata from "./checkbox.data.json";
+import metadata from "../../metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -9,7 +10,10 @@ export default {
     return `${new Formcheck(args).html}`;
   },
   globals: { backgrounds: { value: "default" } },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    backgrounds: { disable: false },
+    coderefs: { metadata, partialname: "formcheck" },
+  },
   //https://storybook.js.org/docs/api/arg-types
   argTypes,
 };

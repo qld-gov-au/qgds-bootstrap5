@@ -1,6 +1,7 @@
 // Tag.stories.js
 import { Tag } from "./Tag.js";
 import defaultdata from "./tag.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -26,6 +27,12 @@ export default {
         "tag-dark",
         "tag-dark-alt",
       ],
+    },
+  },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "tag", //{{> tag }}
     },
   },
 };
@@ -105,6 +112,9 @@ export const ParentContextComparison = {
   parameters: {
     controls: {
       disable: true,
+    },
+    coderefs: {
+      show: false,
     },
   },
 };

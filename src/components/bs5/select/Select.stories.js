@@ -1,6 +1,7 @@
 // ComponentExample.stories.js
 import { Select, argTypes } from "./Select.js";
 import defaultdata from "./select.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -17,7 +18,13 @@ export default {
 
     return new Select(args).html;
   },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "select", //{{> select }}
+    },
+    backgrounds: { disable: false },
+  },
   globals: { backgrounds: { value: "default" } },
 
   //https://storybook.js.org/docs/api/arg-types

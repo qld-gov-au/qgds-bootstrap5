@@ -1,6 +1,7 @@
 // tag--status.stories.js
 import { Tag } from "./Tag.js";
 import defaultdata from "./tag.data.json";
+import metadata from "./metadata.json";
 
 const sizes = {
   "": "Small (Default)",
@@ -93,6 +94,9 @@ export const AllStatusVariantsInDefaultMode = {
   parameters: {
     controls: {
       disable: true,
+    },
+    coderefs: {
+      show: false,
     },
   },
 };

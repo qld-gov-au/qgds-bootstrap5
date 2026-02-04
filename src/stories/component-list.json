@@ -1,0 +1,627 @@
+[
+  {
+    "id": "qgds-accordion",
+    "title": "Accordion",
+    "title_uikit": "Accordion",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98109&p=f&t=GROIooMNoyn7sZDF-0",
+      "website": "https://www.designsystem.qld.gov.au/components/accordion"
+    },
+    "storyTitle": "3. Components/Accordion",
+    "storyPath": "/docs/3-components-accordion"
+  },
+  {
+    "id": "qgds-back-to-top",
+    "title": "Back to top",
+    "title_uikit": "Back to top",
+    "type": "Pattern",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=120353-3948&t=beW2nmeyEGkeoezl-0",
+      "website": "https://www.designsystem.qld.gov.au/components/back-to-top"
+    },
+    "storyTitle": "3. Components/Back to Top",
+    "storyPath": "/docs/3-components-back-to-top"
+  },
+  {
+    "id": "qgds-banner",
+    "title": "Banners (Default)",
+    "title_uikit": "Banners",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "Banners are used to introduce a page, their content should reflect the goals, content and purpose of the page they're on.",
+    "refs": {
+      "title_uikit": "Banner",
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=6992-107232&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/banners"
+    },
+    "storyTitle": "Banner link 1",
+    "storyPath": "/docs/banner-link-1"
+  },
+  {
+    "id": "qgds-blockquote",
+    "title": "Blockquote",
+    "title_uikit": "Callout and Blockquote",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Callouts",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=120360-73541&t=yBoHyNGNM1kMkPfC-0",
+      "website": "https://www.designsystem.qld.gov.au/components/callouts"
+    },
+    "storyTitle": "3. Components/Blockquote",
+    "storyPath": "/docs/3-components-blockquote"
+  },
+  {
+    "id": "qgds-breadcrumbs",
+    "title": "Breadcrumbs",
+    "title_uikit": "Breadcrumbs",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Navigation",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98076&p=f&t=GROIooMNoyn7sZDF-0",
+      "website": "https://www.designsystem.qld.gov.au/components/breadcrumbs",
+      "storybook": ""
+    },
+    "storyTitle": "2. Layout/Breadcrumbs",
+    "storyPath": "/docs/2-layout-breadcrumbs"
+  },
+  {
+    "id": "qgds-button",
+    "title": "Buttons",
+    "title_uikit": "Buttons",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Forms",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98058&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/buttons"
+    },
+    "storyTitle": "3. Components/Button",
+    "storyPath": "/docs/3-components-button"
+  },
+  {
+    "id": "qgds-button-cta",
+    "title": "Call to action",
+    "title_uikit": "Call-to-action",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Navigation",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=120360-77029&t=72ZKZxpVAzz6DIVf-0",
+      "website": "https://www.designsystem.qld.gov.au/components/call-to-action-cta"
+    },
+    "storyTitle": "3. Components/CallToAction",
+    "storyPath": "/docs/3-components-calltoaction"
+  },
+  {
+    "id": "qgds-callout",
+    "title": "Callout",
+    "title_uikit": "Callout and Blockquote",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Alerts",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98115&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/callouts",
+      "storybook": ""
+    },
+    "storyTitle": "3. Components/Callout",
+    "storyPath": "/docs/3-components-callout"
+  },
+  {
+    "id": "qgds-card",
+    "title": "Cards",
+    "title_uikit": "Cards",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=10811-221416&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/card"
+    },
+    "storyTitle": "3. Components/Card/Icon List Footer",
+    "storyPath": "/docs/3-components-card-icon-list-footer"
+  },
+  {
+    "id": "qgds-content-footer",
+    "title": "Content Footer",
+    "title_uikit": "",
+    "type": "Pattern",
+    "scope": "",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Content Footer",
+    "storyPath": "/docs/3-components-content-footer"
+  },
+  {
+    "id": "qgds-correct-incorrect",
+    "title": "Correct/Incorrect",
+    "type": "Pattern",
+    "group": "Components",
+    "status": "Published",
+    "description": "The correct/incorrect pattern is used to inform responses or actions the user should take.",
+    "refs": {
+      "uikit": "",
+      "website": ""
+    },
+    "storyTitle": "3. Components/CorrectIncorrect",
+    "storyPath": "/docs/3-components-correctincorrect"
+  },
+  {
+    "id": "qgds-input-date",
+    "title": "Date Input",
+    "type": "Component",
+    "group": "Components",
+    "status": "Published",
+    "description": "The date input component consists of 3 separate text fields that accept DD, MM and YYYY values respectively.",
+    "refs": {
+      "uikit": "",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Forms/Dateinput",
+    "storyPath": "/docs/3-components-forms-dateinput"
+  },
+  {
+    "id": "qgds-direction-link",
+    "title": "Direction link",
+    "title_uikit": "Direction links",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Navigation",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321363&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/direction-links",
+      "storybook": ""
+    },
+    "storyTitle": "3. Components/Direction Links",
+    "storyPath": "/docs/3-components-direction-links"
+  },
+  {
+    "id": "qgds-footer",
+    "title": "Footer",
+    "title_uikit": "Footer",
+    "type": "Pattern",
+    "scope": "Core",
+    "group": "Layout",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97582&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/footer"
+    },
+    "storyTitle": "2. Layout/Footer",
+    "storyPath": "/docs/2-layout-footer"
+  },
+  {
+    "id": "qgds-input-formcheck",
+    "title": "Formcheck",
+    "title_uikit": "Radio and checkbox buttons",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Forms",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/checkboxes"
+    },
+    "storyTitle": null,
+    "storyPath": null
+  },
+  {
+    "id": "qgds-alert-global",
+    "title": "Global alert",
+    "title_uikit": "Alerts (global)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Callouts",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97590&p=f&t=GROIooMNoyn7sZDF-0",
+      "website": "https://www.designsystem.qld.gov.au/components/alerts-global"
+    },
+    "storyTitle": "3. Components/Global Alert",
+    "storyPath": "/docs/3-components-global-alert"
+  },
+  {
+    "id": "qgds-header",
+    "title": "Header",
+    "title_uikit": "Header",
+    "type": "Pattern",
+    "scope": "Core",
+    "group": "Layout",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/header"
+    },
+    "storyTitle": "2. Layout/Header",
+    "storyPath": "/docs/2-layout-header"
+  },
+  {
+    "id": "qgds-icon-links",
+    "title": "Icon Links",
+    "title_uikit": "Icon links",
+    "type": "Component",
+    "scope": "Extended",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=12900-201779&p=f&t=lX0AsFvCDF1u9JbC-0",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Link",
+    "storyPath": "/docs/3-components-link"
+  },
+  {
+    "id": "qgds-icons",
+    "title": "Icons",
+    "title_uikit": "Icons",
+    "type": "Pattern",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=78442-34904&t=1hdwEIoZGw3tawaE-0",
+      "website": ""
+    },
+    "storyTitle": "1. Core Styles/Iconography",
+    "storyPath": "/docs/1-core-styles-iconography"
+  },
+  {
+    "id": "qgds-image",
+    "title": "Image",
+    "title_uikit": "Imagery",
+    "type": "Pattern",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23805-301812&t=1hdwEIoZGw3tawaE-0",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Image",
+    "storyPath": "/docs/3-components-image"
+  },
+  {
+    "id": "qgds-alert-inpage",
+    "title": "In-page alert",
+    "title_uikit": "Alert (in-page)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Alerts",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98125&p=f&t=GROIooMNoyn7sZDF-0",
+      "website": ""
+    },
+    "storyTitle": "3. Components/In-page Alert",
+    "storyPath": "/docs/3-components-in-page-alert"
+  },
+  {
+    "id": "qgds-link-columns",
+    "title": "Link columns",
+    "title_uikit": "Link columns",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Navigation",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/link-columns-link-list"
+    },
+    "storyTitle": "3. Components/Link Columns",
+    "storyPath": "/docs/3-components-link-columns"
+  },
+  {
+    "id": "qgds-loading-spinner",
+    "title": "Loading spinner",
+    "title_uikit": "Loading spinner",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=49314-16705&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/loading-spinner"
+    },
+    "storyTitle": "3. Components/Spinner",
+    "storyPath": "/docs/3-components-spinner"
+  },
+  {
+    "id": "qgds-modal",
+    "title": "Modal",
+    "title_uikit": "Modals",
+    "type": "Pattern",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Modal",
+    "storyPath": "/docs/3-components-modal"
+  },
+  {
+    "id": "qgds-horizontal-navigation",
+    "title": "Navigation (horizontal)",
+    "title_uikit": "Navigation (horizontal)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Navigation",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97604&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Navbar",
+    "storyPath": "/docs/3-components-navbar"
+  },
+  {
+    "id": "qgds-inpage-navigation",
+    "title": "Page navigation",
+    "title_uikit": "In-page navigation",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Navigation",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=7905-252906&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/pagination"
+    },
+    "storyTitle": "3. Components/In-page Nav",
+    "storyPath": "/docs/3-components-in-page-nav"
+  },
+  {
+    "id": "qgds-pagination",
+    "title": "Pagination",
+    "title_uikit": "Pagination",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321779&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/promotional-panel"
+    },
+    "storyTitle": "3. Components/Pagination",
+    "storyPath": "/docs/3-components-pagination"
+  },
+  {
+    "id": "qgds-promotional-panel",
+    "title": "Promotional panel",
+    "title_uikit": "Promo panels",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Promotional Panel",
+    "storyPath": "/docs/3-components-promotional-panel"
+  },
+  {
+    "id": "",
+    "title": "Queensland Government Logo",
+    "title_uikit": "",
+    "type": "Pattern",
+    "scope": "Other",
+    "group": "Components",
+    "status": "Published",
+    "description": "A responsive logo component that displays the Queensland Government logo in different configurations. Typically used within the Header component to ensure proper branding across all screen sizes.",
+    "refs": {
+      "uikit": "",
+      "website": "",
+      "storybook": ""
+    },
+    "storyTitle": "3. Components/Logo",
+    "storyPath": "/docs/3-components-logo"
+  },
+  {
+    "id": "qgds-quick-exit",
+    "title": "Quick exit",
+    "title_uikit": "Quick exit",
+    "type": "Pattern",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321318&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/radio-buttons"
+    },
+    "storyTitle": "3. Components/Quickexit",
+    "storyPath": "/docs/3-components-quickexit"
+  },
+  {
+    "id": "qgds-search-input",
+    "title": "Search input",
+    "title_uikit": "Input field (Search-box)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Forms",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97871&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/input-fields-select-box"
+    },
+    "storyTitle": "3. Components/Search Input",
+    "storyPath": "/docs/3-components-search-input"
+  },
+  {
+    "id": "qgds-input-select",
+    "title": "Select input",
+    "title_uikit": "Input field (Select/Dropdown)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Forms",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/side-navigation"
+    },
+    "storyTitle": "3. Components/Forms/Select",
+    "storyPath": "/docs/3-components-forms-select"
+  },
+  {
+    "id": "qgds-side-navigation",
+    "title": "Side navigation",
+    "title_uikit": "Navigation (Side Navigation)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Navigation",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321787&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/tables"
+    },
+    "storyTitle": "2. Layout/Side navigation",
+    "storyPath": "/docs/2-layout-side-navigation"
+  },
+  {
+    "id": "qgds-table",
+    "title": "Table",
+    "title_uikit": "Tables",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97592&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/tabs"
+    },
+    "storyTitle": "3. Components/Table",
+    "storyPath": "/docs/3-components-table"
+  },
+  {
+    "id": "qgds-tab",
+    "title": "Tabs",
+    "title_uikit": "Tabs",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=25951-236134&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/tags"
+    },
+    "storyTitle": "3. Components/Tabs",
+    "storyPath": "/docs/3-components-tabs"
+  },
+  {
+    "id": "qgds-tag",
+    "title": "Tags",
+    "title_uikit": "Tags",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5702-89540&t=loDOHfqaVy8bH9Qa-0",
+      "website": "https://www.designsystem.qld.gov.au/components/input-fields-text-box-and-area"
+    },
+    "storyTitle": "3. Components/Tag/Large",
+    "storyPath": "/docs/3-components-tag-large"
+  },
+  {
+    "id": "qgds-textarea",
+    "title": "Text area",
+    "title_uikit": "Input fields (Text-box and Text-area)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Forms",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97997&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/input-fields-text-box-and-area"
+    },
+    "storyTitle": "3. Components/Forms/Text Area",
+    "storyPath": "/docs/3-components-forms-text-area"
+  },
+  {
+    "id": "qgds-textinput",
+    "title": "Text input",
+    "title_uikit": "Input fields (Text-box and Text-area)",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Forms",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97997&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Forms/Text input",
+    "storyPath": "/docs/3-components-forms-text-input"
+  },
+  {
+    "id": "qgds-video",
+    "title": "Video player",
+    "title_uikit": "Video player",
+    "type": "Component",
+    "scope": "Extended",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=13297-214065&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Video",
+    "storyPath": "/docs/3-components-video"
+  }
+]
