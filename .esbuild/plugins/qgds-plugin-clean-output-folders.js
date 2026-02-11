@@ -13,11 +13,11 @@ export default function cleanFoldersPlugin() {
         const { outdir, outfile } = build.initialOptions;
 
         if (outdir && fs.existsSync(outdir)) {
-          fs.rmSync(outdir, { recursive: true });
+          fs.rmSync(outdir, { recursive: true, force: true, maxRetries: 3 });
         }
 
         if (outfile && fs.existsSync(outfile)) {
-          fs.rmSync(outfile);
+          fs.rmSync(outfile, { force: true });
         }
 
         // // Clean the docs folder
