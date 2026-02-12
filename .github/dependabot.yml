@@ -30,7 +30,6 @@ updates:
         patterns:
           - "eslint*"
           - "@stylistic/eslint-plugin-js"
-          - "esbuild-plugin-eslint"
       esbuild:
         patterns:
           - "esbuild*"
