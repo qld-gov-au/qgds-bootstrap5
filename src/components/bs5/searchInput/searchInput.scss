@@ -17,6 +17,10 @@
   --border-radius: 0.25rem;
   --hover-background-color: var(--#{$prefix}neutral-light);
   --_size: 3rem;
+  container-type: inline-size;
+  display: flex;
+  position: relative;
+  border-radius: var(--border-radius);
 
   .dark &,
   .dark-alt & {
@@ -40,11 +44,7 @@
       --text-color: var(--#{$prefix}light-text-text);
     }
   }
-
-  display: flex;
-  position: relative;
-  border-radius: var(--border-radius);
-
+  
   .suggestions {
     transition-behavior: allow-discrete;
     opacity: 0;
@@ -106,6 +106,7 @@
       --background-color: var(--#{$prefix}white);
       outline: none;
     }
+    
   }
 
   > button {
@@ -133,9 +134,39 @@
       --qld-icon-color: currentColor;
     }
   }
+  
 
+  // Fallback for browsers that don't support container queries
   @include media-breakpoint-up(md) {
     --_size: 3.25rem;
+
+    &:before {
+      content: "";
+      mask-image: var(--qgds-icon-search);
+      mask-repeat: no-repeat;
+      mask-position: left;
+      background-color: var(--text-color);
+      width: 1.25rem;
+      aspect-ratio: 1 / 1;
+      position: absolute;
+      margin-inline-start: .5rem;
+      left: .5rem;
+      height: 100%;
+    }
+    .form-control {
+      padding-inline-start: 2.5rem;
+    }
+    .dark &,
+    .dark-alt & {
+      &:has(.form-control:focus) {
+        &:before {
+          background-color: var(--#{$prefix}light-text-text);
+        }
+      }
+      &:before {
+        background-color: var(--#{$prefix}dark-text-text);
+      }
+    }
 
     > button {
       padding-block: calc(0.75rem - 0.125rem);
@@ -153,6 +184,58 @@
       }
     }
   }
+
+  // Container query for browsers that support it (overrides @media)
+  @supports (container-type: inline-size) {
+    @container (width > 450px) {
+      --_size: 3.25rem;
+
+      &:before {
+        content: "";
+        mask-image: var(--qgds-icon-search);
+        mask-repeat: no-repeat;
+        mask-position: left;
+        background-color: var(--text-color);
+        width: 1.25rem;
+        aspect-ratio: 1 / 1;
+        position: absolute;
+        margin-inline-start: .5rem;
+        left: .5rem;
+        height: 100%;
+      }
+      .form-control {
+        padding-inline-start: 2.5rem;
+      }
+      .dark &,
+      .dark-alt & {
+        &:has(.form-control:focus) {
+          &:before {
+            background-color: var(--#{$prefix}light-text-text);
+          }
+        }
+        &:before {
+          background-color: var(--#{$prefix}dark-text-text);
+        }
+      }
+
+      > button {
+        padding-block: calc(0.75rem - 0.125rem);
+        padding-inline: var(--qld-btn-padding-x);
+        margin: 0;
+        width: auto;
+
+        .btn-label {
+          display: block;
+        }
+
+        .btn-icon {
+          display: none;
+          margin-inline-start: 0;
+        }
+      }
+    }
+  }
+  
 
   //Search dropdown
   .suggestions {

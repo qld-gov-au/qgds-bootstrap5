@@ -29,7 +29,7 @@
                     <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
                     <ul>
                         {{#each defaultSuggestions.categories}}
-                        <li><a tabindex="0"href="{{link}}">{{title}}</a></li>
+                        <li><a tabindex="0" href="{{link}}">{{title}}</a></li>
                         {{/each}}
                         {{#if defaultSuggestions.categoriesLink}}
                             <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
