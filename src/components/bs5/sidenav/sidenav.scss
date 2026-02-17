@@ -13,7 +13,6 @@
   --sidenav-level-two-padding: 2rem;
   --sidenav-level-three-padding: 3.5rem;
   --sidenav-navlink-padding: 1rem;
-
   --sidenav-hover-bg: var(--#{$prefix}neutral-lightest);
   --sidenav-hover-color: var(--#{$prefix}light-action-primary);
   --sidenav-hover-underline-color: var(
@@ -149,7 +148,7 @@
   .nav-link {
     padding: var(--sidenav-navlink-padding);
     font-size: 0.875rem;
-    color: var(--#{$prefix}light-text-text);
+    color: var(--qld-body-color);
     text-decoration: none;
     transition-duration: 0s;
     line-height: 1.25rem;
