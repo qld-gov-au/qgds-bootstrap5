@@ -1,0 +1,102 @@
+// QGDS Component: Details/Summary
+// #{$prefix} defined in main.css
+
+// SASS variables
+$details-icon-color: $color-default-color-light-action-primary;
+$details-icon-dark-color: $color-default-color-dark-action-primary;
+
+$details-chevron-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$details-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$details-chevron-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$details-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+
+// CSS Scoped Variables
+.qld-details {
+  --#{$prefix}details-summary-color: var(--#{$prefix}link-color);
+  --#{$prefix}details-summary-bg: transparent;
+  --#{$prefix}details-summary-hover-bg: var(--#{$prefix}neutral-lightest);
+  --#{$prefix}details-summary-hover-color: var(
+    --#{$prefix}light-action-primary
+  );
+  --#{$prefix}details-content-color: var(--#{$prefix}body-color);
+  --#{$prefix}details-icon: #{escape-svg($details-chevron-icon)};
+  --#{$prefix}details-icon-width: 1.5rem;
+  --#{$prefix}details-icon-transition: transform 0.2s ease-in-out;
+  --#{$prefix}details-focus: var(--#{$prefix}light-focus);
+
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}details-summary-color: var(--#{$prefix}dark-link, #fff);
+    --#{$prefix}details-summary-hover-bg: var(
+      --#{$prefix}color-default-color-dark-background-default-shade
+    );
+    --#{$prefix}details-summary-hover-color: var(--#{$prefix}dark-link, #fff);
+    --#{$prefix}details-content-color: var(--#{$prefix}dark-text, #fff);
+    --#{$prefix}details-icon: #{escape-svg($details-chevron-icon-dark)};
+    --#{$prefix}details-focus: var(--#{$prefix}dark-focus);
+  }
+}
+
+// Component styles
+.qld-details {
+  &-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    // 8px top | 8px right | 12px bottom | 20px left
+    padding: 0.5rem;
+    margin-inline: -1.25rem; // extend hover background edge-to-edge
+    margin-bottom: 0.5rem;
+    min-height: 2.75rem; // 44px minimum touch target
+    cursor: pointer;
+    list-style: none;
+    color: var(--#{$prefix}details-summary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    user-select: none;
+
+    // Hide native browser disclosure triangle
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    // Chevron icon — points right (collapsed) via rotate(-90deg)
+    &::before {
+      content: "";
+      display: inline-block;
+      flex-shrink: 0;
+      width: var(--#{$prefix}details-icon-width);
+      height: var(--#{$prefix}details-icon-width);
+      background-image: var(--#{$prefix}details-icon);
+      background-repeat: no-repeat;
+      background-size: contain;
+      transform: rotate(-90deg);
+      transition: var(--#{$prefix}details-icon-transition);
+    }
+
+    &:hover {
+      background-color: var(--#{$prefix}details-summary-hover-bg);
+      color: var(--#{$prefix}details-summary-hover-color);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--#{$prefix}details-focus);
+      outline-offset: 2px;
+      border-radius: 0.25rem;
+    }
+
+    // Suppress default :focus outline — rely on :focus-visible only
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  // Rotate chevron to point down when open
+  &[open] > &-summary::before {
+    transform: rotate(0deg);
+  }
+
+  &-content {
+    padding-bottom: 1rem;
+    color: var(--#{$prefix}details-content-color);
+  }
+}
