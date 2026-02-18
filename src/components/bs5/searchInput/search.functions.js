@@ -196,6 +196,14 @@ export async function showSuggestions(value = "", isDefault = false, form) {
           dynamicSuggestionsContainer.getAttribute("data-view-more");
 
         // Build the services HTML safely
+        const escapeHtmlAttr = (str) =>
+          String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
         const servicesItems = fetchedServices.response.resultPacket.results
           .slice(0, 4)
           .map(
@@ -205,7 +213,7 @@ export async function showSuggestions(value = "", isDefault = false, form) {
           .join("");
 
         const viewMoreItem = viewMoreUrl
-          ? `<li><a tabindex="0" href="${viewMoreUrl}" class="view-more">View more</a></li>`
+          ? `<li><a tabindex="0" href="${escapeHtmlAttr(viewMoreUrl)}" class="view-more">View more</a></li>`
           : "";
 
         dynamicSuggestionsContainer.innerHTML += `
