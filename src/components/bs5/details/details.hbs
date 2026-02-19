@@ -1,9 +1,9 @@
 <!-- QGDS Component: Details -->
-<details class="qld-details{{#if open}} open{{/if}}">
-    <summary class="qld-details-summary">
-        {{summaryText}}
-    </summary>
-    <div class="qld-details-content">
-        {{{content}}}
-    </div>
+<details class="qld-details{{#if size}} qld-details-{{size}}{{/if}}{{#if open}} open{{/if}}">
+	<summary class="qld-details-summary">
+		{{summaryText}}
+	</summary>
+	<div class="qld-details-content">
+		{{{content}}}
+	</div>
 </details>

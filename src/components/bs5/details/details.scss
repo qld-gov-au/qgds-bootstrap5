@@ -2,35 +2,46 @@
 // #{$prefix} defined in main.css
 
 // SASS variables
-$details-icon-color: $color-default-color-light-action-primary;
-$details-icon-dark-color: $color-default-color-dark-action-primary;
+$details-icon-color: $color-default-color-light-action-secondary;
+$details-icon-dark-color: $color-default-color-dark-action-secondary;
 
-$details-chevron-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$details-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-$details-chevron-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$details-icon-dark-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$details-chevron-icon: var(--qgds-icon-chevron-right);
 
 // CSS Scoped Variables
 .qld-details {
-  --#{$prefix}details-summary-color: var(--#{$prefix}link-color);
-  --#{$prefix}details-summary-bg: transparent;
-  --#{$prefix}details-summary-hover-bg: var(--#{$prefix}neutral-lightest);
-  --#{$prefix}details-summary-hover-color: var(
-    --#{$prefix}light-action-primary
+  --#{$prefix}details-summary-color: var(--#{$prefix}light-link);
+  --#{$prefix}details-summary-icon-color: var(
+    --#{$prefix}light-action-secondary
   );
-  --#{$prefix}details-content-color: var(--#{$prefix}body-color);
-  --#{$prefix}details-icon: #{escape-svg($details-chevron-icon)};
-  --#{$prefix}details-icon-width: 1.5rem;
+  --#{$prefix}details-summary-bg: transparent;
+  --#{$prefix}details-summary-bg-hover: var(--#{$prefix}neutral-lightest);
+  --#{$prefix}details-summary-icon-hover: var(
+    --#{$prefix}light-action-secondary-hover
+  );
+
+  --#{$prefix}details-content-color: var(--#{$prefix}light-text);
+  --#{$prefix}details-icon: var(--qgds-icon-chevron-right);
+  --#{$prefix}details-icon-width: 1.25rem;
   --#{$prefix}details-icon-transition: transform 0.2s ease-in-out;
   --#{$prefix}details-focus: var(--#{$prefix}light-focus);
+  --#{$prefix}details-min-height: 2.75rem; // 44px — lg / default
+  --#{$prefix}details-font-size: 1rem;
 
   .dark &,
   .dark-alt & {
     --#{$prefix}details-summary-color: var(--#{$prefix}dark-link, #fff);
-    --#{$prefix}details-summary-hover-bg: var(
-      --#{$prefix}color-default-color-dark-background-default-shade
+    --#{$prefix}details-summary-icon-color: var(
+      --#{$prefix}dark-action-secondary
     );
-    --#{$prefix}details-summary-hover-color: var(--#{$prefix}dark-link, #fff);
+    --#{$prefix}details-summary-bg: var(--#{$prefix}dark-background);
+    --#{$prefix}details-summary-bg-hover: var(
+      --#{$prefix}dark-background-shade
+    );
+    --#{$prefix}details-summary-icon-hover: var(
+      --#{$prefix}dark-action-secondary-hover
+    );
+
     --#{$prefix}details-content-color: var(--#{$prefix}dark-text, #fff);
-    --#{$prefix}details-icon: #{escape-svg($details-chevron-icon-dark)};
     --#{$prefix}details-focus: var(--#{$prefix}dark-focus);
   }
 }
@@ -38,19 +49,19 @@ $details-chevron-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.or
 // Component styles
 .qld-details {
   &-summary {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    // 8px top | 8px right | 12px bottom | 20px left
-    padding: 0.5rem;
-    margin-inline: -1.25rem; // extend hover background edge-to-edge
+    border-radius: 0.25rem;
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.5rem 0.25rem;
+    margin-inline: -0.25rem; // extend hover background edge-to-edge
     margin-bottom: 0.5rem;
-    min-height: 2.75rem; // 44px minimum touch target
+    height: var(--#{$prefix}details-min-height);
     cursor: pointer;
     list-style: none;
     color: var(--#{$prefix}details-summary-color);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: var(--#{$prefix}details-font-size);
     line-height: 1.5;
     user-select: none;
 
@@ -66,22 +77,24 @@ $details-chevron-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.or
       flex-shrink: 0;
       width: var(--#{$prefix}details-icon-width);
       height: var(--#{$prefix}details-icon-width);
-      background-image: var(--#{$prefix}details-icon);
-      background-repeat: no-repeat;
-      background-size: contain;
-      transform: rotate(-90deg);
+      mask-image: var(--#{$prefix}details-icon);
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      background-color: var(--#{$prefix}details-summary-icon-color);
       transition: var(--#{$prefix}details-icon-transition);
     }
 
     &:hover {
-      background-color: var(--#{$prefix}details-summary-hover-bg);
-      color: var(--#{$prefix}details-summary-hover-color);
+      background-color: var(--#{$prefix}details-summary-bg-hover);
+      color: var(--#{$prefix}details-summary-color);
+      &::before {
+        background-color: var(--#{$prefix}details-summary-icon-hover);
+      }
     }
 
     &:focus-visible {
       outline: 3px solid var(--#{$prefix}details-focus);
       outline-offset: 2px;
-      border-radius: 0.25rem;
     }
 
     // Suppress default :focus outline — rely on :focus-visible only
@@ -92,11 +105,33 @@ $details-chevron-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.or
 
   // Rotate chevron to point down when open
   &[open] > &-summary::before {
-    transform: rotate(0deg);
+    transform: rotate(90deg);
   }
 
   &-content {
+    padding-left: 1.5rem;
     padding-bottom: 1rem;
     color: var(--#{$prefix}details-content-color);
+  }
+
+  // Size variants
+  &-xs {
+    --#{$prefix}details-min-height: 2rem; // 32px
+    --#{$prefix}details-font-size: 0.75rem;
+  }
+
+  &-sm {
+    --#{$prefix}details-min-height: 2.25rem; // 36px
+    --#{$prefix}details-font-size: 0.875rem;
+  }
+
+  &-md {
+    --#{$prefix}details-min-height: 2.5rem; // 40px
+    --#{$prefix}details-font-size: 1rem;
+  }
+
+  &-lg {
+    --#{$prefix}details-min-height: 2.75rem; // 44px
+    --#{$prefix}details-font-size: 1rem;
   }
 }

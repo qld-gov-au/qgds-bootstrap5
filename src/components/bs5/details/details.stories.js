@@ -11,13 +11,21 @@ export default {
   tags: ["autodocs"],
   title: "3. Components/Details",
   render: (args) => new Details(args).html,
-  args: defaultdata,
+  args: { ...defaultdata, size: "md" },
   globals: {
     backgrounds: { value: "default" },
   },
   parameters: {
     backgrounds: {
       disable: false,
+    },
+  },
+  argTypes: {
+    size: {
+      control: { type: "select" },
+      options: ["xs", "sm", "md", "lg"],
+      description: "Size of the details component (xs=32px, sm=36px, md=40px, lg=44px)",
+      defaultValue: "md",
     },
   },
 };
