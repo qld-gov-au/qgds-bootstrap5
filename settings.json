@@ -1,0 +1,20 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "prettier.configPath": "prettier.json",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "json"
+  ],
+  "eslint.format.enable": true,
+  "[mdx]": {
+    "editor.formatOnSave": false
+  }
+}

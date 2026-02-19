@@ -1,0 +1,19 @@
+<div class="alert {{variantClass}} {{customClass}}" role="alert"
+    {{#if ariaLabel}}
+    aria-label="{{ ariaLabel }}"
+    {{else}}
+    {{#ifCond variantClass "==" "alert-info"}}aria-label="Information alert"{{/ifCond}}
+    {{#ifCond variantClass "==" "alert-success"}}aria-label="Success alert"{{/ifCond}}
+    {{#ifCond variantClass "==" "alert-error"}}aria-label="Error alert"{{/ifCond}}
+    {{#ifCond variantClass "==" "alert-warning"}}aria-label="Warning alert"{{/ifCond}}
+    {{/if}}
+>
+    {{#if heading}}
+        {{#if headingTag}}
+            <{{headingTag}} class="alert-heading">{{{ heading }}}</{{headingTag}}>
+        {{else}}
+            <h2 class="alert-heading">{{{ heading }}}</h2>
+        {{/if}}
+    {{/if}}
+    {{{ content }}}
+</div>

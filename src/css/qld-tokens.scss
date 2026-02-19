@@ -1,0 +1,110 @@
+/* Master brand SASS variables that have changed to align with Brand Book release 2025 */
+
+/* Dark palettes */
+$color-default-color-dark-accent-design-accent: #84d3ff !default;
+$color-default-color-dark-action-primary-hover: #a6f7ff !default;
+$color-default-color-dark-action-primary: #84d3ff !default;
+$color-default-color-dark-action-secondary-hover: #a6f7ff !default;
+$color-default-color-dark-action-secondary: #84d3ff !default;
+$color-default-color-dark-background-alt-shade: #000764 !default;
+$color-default-color-dark-background-alt: #001d74 !default;
+$color-default-color-dark-background-default-shade: #003e96 !default;
+$color-default-color-dark-background-default: #005eb8 !default;
+$color-default-color-dark-border-alt: #73c2ff !default;
+$color-default-color-dark-border-default: #418fed !default;
+$color-default-color-dark-crest-fill: #ffffff !default;
+$color-default-color-dark-focus-default: #c6ffff !default;
+$color-default-color-dark-link-default: #ffffff !default;
+$color-default-color-dark-link-on-action: #001c37 !default;
+$color-default-color-dark-link-visited: #f2cdff !default;
+$color-default-color-dark-site-title: #ffffff !default;
+$color-default-color-dark-text-default: #ffffff !default;
+$color-default-color-dark-text-heading: #ffffff !default;
+$color-default-color-dark-text-lighter: #deebf9 !default;
+$color-default-color-dark-underline-default-hover: #ffffff !default;
+$color-default-color-dark-underline-default: #b5cce2 !default;
+$color-default-color-dark-underline-visited-hover: #f2cdff !default;
+$color-default-color-dark-underline-visited: #c6aed9 !default;
+
+/* Light palettes */
+$color-default-color-light-accent-design-accent: #84d3ff !default;
+$color-default-color-light-action-primary-hover: #003e96 !default;
+$color-default-color-light-action-primary: #005eb8 !default;
+$color-default-color-light-action-secondary-hover: #004ea7 !default;
+$color-default-color-light-action-secondary: #307edb !default;
+$color-default-color-light-background-alt-shade: #d6dce0 !default;
+$color-default-color-light-background-alt: #e3e7ea !default;
+$color-default-color-light-background-default-shade: #f5f5f5 !default;
+$color-default-color-light-background-default: #ffffff !default;
+$color-default-color-light-background-light-shade: #ceedff !default;
+$color-default-color-light-background-light: #e6f6ff !default;
+$color-default-color-light-border-alt: #848484 !default;
+$color-default-color-light-border-default: #ebebeb !default;
+$color-default-color-light-border-light: #bedfff !default;
+$color-default-color-light-crest-fill: #005eb8 !default;
+$color-default-color-light-focus-default: #002e85 !default;
+$color-default-color-light-link-default: #005eb8 !default;
+$color-default-color-light-link-on-action: #ffffff !default;
+$color-default-color-light-link-visited: #551a8b !default;
+$color-default-color-light-site-title: #005eb8 !default;
+$color-default-color-light-text-default: #353535 !default;
+$color-default-color-light-text-heading: #000053 !default;
+$color-default-color-light-text-lighter: #636363 !default;
+$color-default-color-light-underline-default-hover: #005eb8 !default;
+$color-default-color-light-underline-default: #3f7ab4 !default;
+$color-default-color-light-underline-visited-hover: #551a8b !default;
+$color-default-color-light-underline-visited: #8b63b0 !default;
+
+/* V1 brand colors */
+$core-default-color-brand-other-gov-maroon: #771e32 !default;
+$core-default-color-brand-other-modern-maroon: #a70240 !default;
+$core-default-color-brand-primary-dark-blue: #05325f !default;
+$core-default-color-brand-primary-light-blue: #0085b3 !default;
+$core-default-color-brand-primary-light-green: #6bbe27 !default;
+$core-default-color-brand-primary-sapphire-blue: #09549f !default;
+$core-default-color-brand-secondary-darkgreen: #008635 !default;
+$core-default-color-brand-secondary-golden-yellow: #ffe500 !default;
+
+/* Code colors */
+$core-default-color-code-green: #6bbe27 !default;
+$core-default-color-code-light-blue: #a7e5ff !default;
+$core-default-color-code-muted: #c0d7ec !default;
+$core-default-color-code-violet: #c88df7 !default;
+
+/* Neutral colors */
+$core-default-color-neutral-black: #131212 !default;
+$core-default-color-neutral-dark: #78797e !default;
+$core-default-color-neutral-darker: #444444 !default;
+$core-default-color-neutral-darkest: #222020 !default;
+$core-default-color-neutral-light: #e0e0e0 !default;
+$core-default-color-neutral-lighter: #ebebeb !default;
+$core-default-color-neutral-lightest: #f5f5f5 !default;
+$core-default-color-neutral-white: #ffffff !default;
+
+/* Status colors */
+$core-default-color-status-caution-darker: #b38800 !default;
+$core-default-color-status-caution-default: #ffcc2c !default;
+$core-default-color-status-caution-lighter: #fff2c9 !default;
+$core-default-color-status-caution-lightest: #fffaea !default;
+$core-default-color-status-error-darker: #8a1220 !default;
+$core-default-color-status-error-default: #e22339 !default;
+$core-default-color-status-error-lighter: #fdf0f0 !default;
+$core-default-color-status-error-lightest: #fff6f6 !default;
+$core-default-color-status-info-darker: #006a8f !default;
+$core-default-color-status-info-default: #0085b3 !default;
+$core-default-color-status-info-lighter: #e5eef5 !default;
+$core-default-color-status-info-lightest: #eff4f9 !default;
+$core-default-color-status-success-darker: #0a690d !default;
+$core-default-color-status-success-default: #339d37 !default;
+$core-default-color-status-success-lighter: #f2faf4 !default;
+$core-default-color-status-success-lightest: #f7fbf8 !default;
+$core-default-color-status-underline-dark: #03213fb8 !default;
+$core-default-color-status-underline-light: #ffffffb8 !default;
+
+/* Other for review */
+$core-default-color-contained-layout-background-dark: #09549f !default;
+$core-default-color-contained-layout-background: #09549f !default;
+$core-default-color-contained-layout-background-dark: #005eb8 !default;
+$core-default-color-contained-layout-background: #005eb8 !default;
+$core-default-color-status-underline-dark: #03213f !default;
+$core-default-color-status-underline-light: #ffffff !default;

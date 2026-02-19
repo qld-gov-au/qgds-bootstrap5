@@ -1,0 +1,123 @@
+# This workflow will run chromatic build on specific branches. We separated out the chromatic job to make sure it run on manual trigger and
+# restricted to push on specific branches and pull requests like before
+#
+# TurboSnap Performance: This workflow enables TurboSnap for efficient visual regression testing.
+# The build step regenerates handlebars.partials.js which can trigger false cache invalidation.
+# Mitigations applied:
+# - Deterministic file ordering in .esbuild/plugins/qgds-plugin-handlebar-partial-builder.js
+# - Generated files excluded from linting to prevent formatting changes
+
+name: Chromatic
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - master
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  group: compile-${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HAVE_CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN != '' }}
+      IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
+    strategy:
+      matrix:
+        node: ["22"]
+    name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v5
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+          #always-auth: 'true'
+          #registry-url: 'https://nexus.tools.services.qld.gov.au/nexus/repository/npm_all/'
+          registry-url: "https://registry.npmjs.org"
+      - name: Install #run on lint step (Which is cached)
+        run: | # Install packages
+          npm ci --prefer-offline --no-audit --ignore-scripts
+        #env:
+        #  NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
+
+      # `npm rebuild` will run all those post-install scripts for us.
+      - name: rebuild and prepare
+        run: npm rebuild && npm run prepare --if-present
+
+      - name: Lint
+        run: |
+          npm run lint
+
+      - name: Test
+        run: |
+          npm run test:run
+
+      - name: Integration Test
+        run: |
+          npm run test:integration
+        continue-on-error: true
+
+      - name: Build 🔧
+        run: | # build the files
+          npm run build
+
+      - name: Build Storybook 🔧
+        run: | # build the Storybook files
+          if [ "${{ vars.ENABLE_STORYBOOK_THEMES }}" == "true" ]; then
+            npm run build-storybook:themes
+          else
+            npm run build-storybook
+          fi
+
+      - name: Publish to Chromatic
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}
+        uses: chromaui/action@latest
+        # Options required to the GitHub Chromatic Action
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          token: ${{ secrets.GH_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # 👇 tell Chromatic to rebuild the entire project when a file matching the pattern is changed https://www.chromatic.com/docs/github-actions/#enable-turbosnap
+          #externals: |
+          #  *.sass
+          #  public/**
+          onlyChanged: true # 👈 Required option to enable TurboSnap
+          storybookBuildDir: "storybook-static"
+      - name: Publish to Chromatic - Is Skipped
+        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
+        run: |
+          echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
+          echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
+          echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
+          echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY

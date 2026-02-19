@@ -1,0 +1,244 @@
+<footer class="qld-footer {{ variantClass }}" role="contentinfo">
+  <!-- Footer content container -->
+  <div class="container">
+    {{#if sitename}}
+    <div class="row">
+      <div class="col title">
+        <h2 class="footer-site-name">{{ sitename }}</h2>
+      </div>
+    </div>
+    {{/if}}
+    <div class="row">
+      
+      <!-- Contact us Column -->
+      <div class="col-12 col-lg-3 py-24 py-lg-0 footer-contact {{#if contact.hasBorderColumn}}border-column{{/if}}">
+
+        <!-- Inner Grid to manage layout of contact us content -->
+        <div class="row ">
+
+          <div class="col col-lg-12">
+
+            <h3 class="footer-heading">
+            {{isdefined contact.title 'Contact us' }}
+            </h3>
+
+            <div>
+            {{{isdefined contact.content '<p>Get in touch for enquiries, feedback, complaints and compliments.</p>' }}}
+            </div>
+              
+          </div><!-- Inner grid col-12  -->
+
+          <div class="col col-lg-12 contact-btn order-lg-last d-flex d-lg-block mt-lg-32 ">
+            {{!-- Contact Us Button --}}
+            <a href="{{isdefined contact.buttonLink 'https://www.qld.gov.au/contact-us' }}" class="btn btn-outline-secondary">
+              {{isdefined contact.buttonLabel 'Contact us' }}
+            </a>
+          </div><!-- Inner grid col-12  -->  
+        
+       
+          <div class="col-12">
+            {{!-- Custom contact list --}}
+            {{#ifCond contact.showList "!==" false}}
+              {{#ifCond contact.showList "&&" contact.list}}
+              {{#each contact.list }}
+              <div class="footer-contact-item footer-contact-{{@key}}">
+                <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
+              </div>
+              {{/each}}
+
+              {{else}}
+              {{!default contact list }}
+              <div class="footer-contact-item footer-contact-phone">
+                <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
+                rel="noopener">13 QGOV (13 74 68)</a>
+              </div>
+
+              <div class="footer-contact-item footer-contact-email">
+                <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
+                href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
+              </div>
+              {{/ifCond}}
+            {{/ifCond}}
+          </div>
+        </div>
+
+      </div><!-- Contact us Column -->
+
+
+      {{#ifAny optionalColumn1.content optionalColumn1.showFollowLinks optionalColumn1.showCustomLinks }}
+      <!-- Optional Column 1 -->
+      <div class="col-12 col-lg-2 optional-column-1 {{#if optionalColumn1.hasBorderColumn}}border-column{{/if}}"
+        aria-label="{{isdefined optionalColumn1.title 'Footer links' }}">
+        
+        <div class="footer-column pe-16">
+          {{#if optionalColumn1.title}}
+            <h3 class="footer-heading">{{optionalColumn1.title}}</h3>
+          {{/if}}
+          
+          <div class="footer-content">
+            {{#if optionalColumn1.content}}
+              {{{ optionalColumn1.content }}}
+            {{/if}}
+            
+            {{#if optionalColumn1.showFollowLinks}}
+              {{> followLinks }}
+            {{/if}}
+            
+            {{#if optionalColumn1.showCustomLinks}}
+              {{> customLinks }}
+            {{/if}}
+          </div>
+        </div>
+
+      </div>
+      {{/ifAny}}
+
+
+      <!-- WoG links -->
+      <div class="col-12 col-lg-2 {{#if footerLinks.hasBorderColumn}}border-column{{/if}}"
+        aria-label="footer-navigation">
+        
+        <div class="footer-column pe-lg-16">
+
+        {{#if footerLinks}}
+
+          {{#if footerLinks.title}}
+          <h3 class="footer-heading">{{footerLinks.title}}</h3>
+          {{/if}}
+        
+          {{!-- <nav class="nav footer-link-list flex-column"> --}}
+          <ul class="nav footer-link-list flex-column pt-lg-2">
+            {{#each footerLinks.list }}
+            <li><a class="nav-link" href="{{ this.link }}" {{#if this.target }}target="{{this.target}}" {{/if}}>{{
+                this.label }}</a></li>
+            {{/each }}
+          </ul>
+          {{!-- </nav> --}}
+
+        {{else}}
+        {{!default list }}
+
+          <ul class="nav footer-link-list flex-column">
+            <li><a class="nav-link" href="https://www.qld.gov.au/help">Help</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/legal/copyright">Copyright</a></li>  
+            <li><a class="nav-link" href="https://www.qld.gov.au/legal/disclaimer">Disclaimer</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/legal/privacy">Privacy</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/about/rights-accountability/right-to-information">Right to information</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/help/accessibility">Accessibility</a></li>
+            <li><a class="nav-link" href="https://smartjobs.qld.gov.au" target="_blank">Jobs in Queensland Government</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/help/languages">Other languages</a></li>
+          </ul>
+
+        {{/if}}
+        
+        </div>
+      </div>
+
+
+      {{#ifAny optionalColumn2.content optionalColumn2.showFollowLinks optionalColumn2.showCustomLinks }}
+      <!-- Optional Column 2 -->
+      <div class="col-12 col-lg-2 optional-column-2 {{#if optionalColumn2.hasBorderColumn}}border-column{{/if}}"
+        aria-label="{{isdefined optionalColumn2.title 'Footer links' }}">
+
+        <div class="footer-column pe-lg-16">
+          
+          {{#if optionalColumn2.title}}
+          <h3 class="footer-heading">{{optionalColumn2.title}}</h3>
+          {{/if}}
+
+
+          <div class="footer-content">
+          {{#if optionalColumn2.content}}
+            {{{ optionalColumn2.content }}}
+          {{/if}}
+          
+          {{#if optionalColumn2.showFollowLinks}}
+            {{> followLinks }}
+          {{/if}}
+          
+          {{#if optionalColumn2.showCustomLinks}}
+            {{> customLinks }}
+          {{/if}}
+
+          </div>
+        </div>
+      </div>
+
+      {{/ifAny}}
+
+      <!-- Acknowledgement of Country -->
+      <div class="col crest">
+
+        <div class="footer-column">
+
+        <div class="footer-content">
+          <div class="footer-acknowledgements">
+            {{#if acknowledgements }}
+              {{#each acknowledgements}}
+            
+              {{#if title}}
+              <h3 class="footer-heading">{{title}}</h3>
+              {{/if}}
+              
+              {{#if content}}
+              {{! extra { so it does not html escape }}
+              {{{ content }}}
+              {{/if}}
+              
+              {{/each}}
+              {{!-- //each acknowledgement --}}
+            
+            {{else}}
+            
+              <p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their
+              spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give
+              strength, inspiration and courage to current and future generations towards creating a better
+              Queensland.</p>
+
+            {{/if}}
+          </div>
+
+          {{!-- Footer Logo --}}
+          {{#if footerLogo.src}}
+          <div class="footer-logo">
+            <img src="{{ footerLogo.src }}" alt="{{ footerLogo.alt }}" class="img-fluid" />
+          </div>
+          
+          {{else}}
+          
+            {{#if footerLogo.show}}
+            <div class="footer-crest">
+            {{> logoCOALandscape }}
+            </div>
+            {{/if}}
+          
+          {{/if}}
+
+          {{!-- Footer Copyright --}}
+          {{#if copyright }}
+          <p class="copyright">
+            {{{copyright.content}}}
+            {{#if copyright.showYearFrom}}{{copyright.yearFrom}} - {{/if}} {{formatDateOrToday "" "YYYY" }}
+          </p>
+          {{else}}
+          {{!default }}
+          <p class="copyright">© The State of Queensland {{formatDateOrToday "" "YYYY" }}</p>
+          {{/if}}
+
+          {{!-- Organisation Link --}}
+          {{#if organisationLink.show }}
+          <p>
+            <a class="fw-semibold" href="{{isdefined organisationLink.URL 'https://www.qld.gov.au' }}" rel="external">
+            {{isdefined organisationLink.text 'Queensland Government' }}
+            </a>
+          </p>
+          {{/if}}
+
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>

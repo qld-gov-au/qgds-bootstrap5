@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <!-- Global ALert -->
+  {{> globalAlert globalAlert}}
+
+  <!-- Header -->
+  {{> header header }}
+
+  <!-- Navbar -->
+  {{> navbar navbar}}
+
+  {{#if banner}}
+  {{> banner banner}}
+  {{/if}}
+
+  <div class="container mt-40 mt-lg-64">
+
+    {{#if breadcrumbs}}
+    <!-- breadcrumbs -->
+    {{> breadcrumbs breadcrumbs}}
+    {{/if}}
+
+    <!-- Start Main Content Body -->
+    <div class="row">
+
+      <!-- Start Side navigation column (span 3) -->
+      <div class="col-12 col-lg-3">
+        <!-- QGDS Side Navigation Component -->
+        {{> sidenav sidenav}}
+      </div>
+      <!-- End Side navigation column -->
+
+      <!-- Start Main Column (span 8) -->
+      <div class="col-12 col-lg-8 mt-40 mt-lg-0">
+
+        <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
+        <main class="px-lg-32">
+
+          <h1 id="section-heading">Single page form (H1)</h1>
+
+          <p>Your feedback is important to us. It tells us how we can improve and what we’re doing well. Your feedback
+            is confidential.</p>
+
+          <h2 id="form-heading">Enquiry form (H2)</h2>
+
+          {{#if inpageAlert}}
+          <!-- Inpage Alert -->
+          <div class="mb-32">
+            {{> inpageAlert inpageAlert}}
+          </div>
+          {{/if}}
+
+          <!-- Example WYSIWYG content -->
+          <p>Any information submitted using this form will be used in line with our privacy statement.</p>
+          <p>Required fields are marked with an *</p>
+
+
+          {{#if form}}
+          <!-- Example Form, with 2rem vertical spacing -->
+          <form class="qld-form my-32">
+            {{#each form.fields1}}
+            <div class="form-group mb-32">
+              {{#ifCond type '==' 'textbox'}}
+              {{> textbox this}}
+              {{else ifCond type '==' 'textarea'}}
+              {{> textarea this}}
+              {{else ifCond type '==' 'radio'}}
+              {{> formcheck this}}
+              {{/ifCond}}
+            </div>
+            {{/each}}
+
+            <h3 id="contact-details">Contact details (H3)</h3>
+
+            {{#each form.fields2}}
+            <div class="form-group mb-32">
+              {{#ifCond type '==' 'textbox'}}
+              {{> textbox this}}
+              {{else ifCond type '==' 'select'}}
+              {{> select this}}
+              {{else ifCond type '==' 'checkbox'}}
+              {{> formcheck this}}
+              {{/ifCond}}
+            </div>
+            {{/each}}
+
+            {{#if form.buttons}}
+            <div class="form-actions d-flex mt-5 gap-4">
+              {{#each form.buttons}}
+              {{> button this}}
+              {{/each}}
+            </div>
+            {{/if}}
+          </form>
+          {{/if}}
+
+        </main>
+
+      </div>
+      <!-- End Column (span 8) -->
+
+    </div>
+    <!-- End Content Row -->
+
+    <!-- Start QGDS Content Footer -->
+    <div class="mt-64">
+      {{> contentFooter contentFooter}}
+    </div>
+
+  </div>
+  <!-- End Main .container -->
+
+  <!-- Start QGDS Footer -->
+  {{> footer footer}}
+  <!-- End QGDS Footer -->
+
+</body>
+
+
+</html>

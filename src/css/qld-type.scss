@@ -1,0 +1,99 @@
+@use "../css/mixins";
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.qld-content-body {
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  ul,
+  ol{
+    line-height: 1.75;
+  }
+
+  li {
+    margin-top: 0.5rem;
+  }
+}
+
+// Apply correct bold font-weight
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+strong,
+b,
+th,
+dt {
+  font-weight: $font-weight-bold;
+}
+
+// Definition list
+dt {
+  margin-top: 0.5rem;
+}
+
+dd {
+  margin-bottom: 0;
+}
+
+// Custom format for last updated dl
+dl.qld-content-dates {
+  display: flex;
+  gap: 4px;
+
+  dd {
+    margin-top: 0.5rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--qld-headings-color);
+}
+
+a {
+  @include mixins.make-link();
+}
+
+a.nav-link {
+  @include mixins.make-link();
+  border-radius: 0;
+}
+
+a.nostyle {
+  text-decoration: unset;
+  text-underline-offset: unset;
+  text-decoration-thickness: unset;
+
+  &:hover {
+    text-decoration-thickness: unset;
+  }
+}
+
+figure > figcaption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+::selection {
+  color: var(--qld-selection-color);
+  background: var(--qld-selection-bg);
+  text-shadow: none;
+}

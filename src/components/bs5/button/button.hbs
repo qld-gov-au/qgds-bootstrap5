@@ -1,14 +1,61 @@
-<!-- // QGDS Component: Button -->
-<!-- // https://getbootstrap.com/docs/5.3/components/buttons -->
+{{!-- Button icon partial --}}
+{{#*inline "buttonIcon"~}}
+<span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
+{{~/inline}} 
 
-{{#if isButton}}
-<button class="btn {{classes}}" onclick="{{{onclick}}}">
-    {{label}}
-</button>
-{{/if }}
+{{!-- Progress spinner partial --}}
+{{#*inline "progressSpinner"~}}
+<div class="spinner-border"></div>
+{{~/inline}}
 
-{{#if islink}}
-<a class="btn {{classes}}" href="{{href}}" target="{{target}}">
-    {{label}}
-</a>
-{{/if }}
+{{#unless islink}}
+
+  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}}" onclick="{{{onclick}}}" tabindex="0" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}} {{{dataatts}}} >
+    
+    {{#if isprogress}}
+      {{~>progressSpinner~}}
+    {{else}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'leading'}}
+          {{~>buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/if}}
+    
+    <span class="btn-label-default">{{~label~}}</span>
+    {{#if isprogress}}
+      <span class="btn-label-progress">{{~progressLabel~}}</span>
+    {{/if}}
+    {{#unless isprogress}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'trailing'}}
+          {{~>buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/unless}}
+  </button>
+
+{{else}}
+  <a class="btn {{variantClass}} {{#if isdisabled}}disabled {{/if}}{{#if isprogress}}disabled btn-progress{{/if}}" {{#if isdisabled}}aria-disabled="true"{{/if}} {{#if isprogress}}aria-live="polite"{{/if}} href="{{href}}" target="{{target}}" {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}} {{{dataatts}}}>
+    {{#if isprogress}}
+      {{~>progressSpinner~}}
+    {{else}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'leading'}}
+          {{~> buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/if}}
+    
+    <span class="btn-label-default">{{~label~}}</span>
+    <span class="btn-label-progress">{{~progressLabel~}}</span>
+
+    {{#unless isprogress}}
+      {{#if iconClass~}}
+        {{#ifCond iconPosition '==' 'trailing'}}
+          {{~> buttonIcon~}}
+        {{/ifCond}}
+      {{/if}}
+    {{/unless}}
+    </a>
+{{/unless}}

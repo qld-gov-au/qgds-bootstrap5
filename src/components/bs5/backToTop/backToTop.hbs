@@ -1,0 +1,9 @@
+{{#unless hide_back_to_top}}
+  <div class="back-to-top d-print-none">
+    {{> directionLinks  
+        label= (isdefined directionalLink.label "Back to top")
+        href= (isdefined directionalLink.href "#")
+        class= "up" 
+    }}
+  </div>
+{{/unless}}

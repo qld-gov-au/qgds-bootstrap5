@@ -1,0 +1,449 @@
+@use "../../../css/mixins";
+@use "../../../css/variables/animation";
+
+.qld-search-input {
+  // Input variables
+  --background-color: var(--#{$prefix}white);
+  --background-color-hover: var(--#{$prefix}neutral-lightest);
+  --border-color: var(--#{$prefix}light-border-alt);
+  --border-color-focus: var(--#{$prefix}default-border);
+  --border-color-hover: var(--#{$prefix}light-action-primary-hover);
+  --placeholder-color: var(--#{$prefix}light-text-lighter);
+  --qld-icon-color: var(--#{$prefix}light-text-lighter);
+  --text-color: var(--#{$prefix}light-text-text);
+  --text-heading: var(--#{$prefix}color-default-color-light-text-heading);
+  --suggestions-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+  --border-radius: 0.25rem;
+  --hover-background-color: var(--#{$prefix}neutral-light);
+  --_size: 3rem;
+  container-type: inline-size;
+  display: flex;
+  position: relative;
+  border-radius: var(--border-radius);
+
+  .dark &,
+  .dark-alt & {
+    --border-color: var(--#{$prefix}dark-alt-border);
+    --border-color-focus: var(--#{$prefix}dark-alt-border);
+    --border-color-hover: var(--#{$prefix}dark-action-primary-hover);
+    --background-color: var(--#{$prefix}dark-background);
+    --text-color: var(--#{$prefix}dark-text-default);
+    --background-color-hover: var(--#{$prefix}dark-background-shade);
+
+    --qld-selection-bg: var(--qld-dark-background);
+    --qld-selection-color: var(--qld-neutral-white);
+
+    .btn:active {
+      background-color: var(--#{$prefix}neutral-lightest);
+      border-color: var(--#{$prefix}neutral-lightest);
+      text-decoration: underline;
+    }
+    .form-control:focus {
+      border-color: var(--#{$prefix}neutral-lighter);
+      --text-color: var(--#{$prefix}light-text-text);
+    }
+  }
+  
+  .suggestions {
+    transition-behavior: allow-discrete;
+    opacity: 0;
+    display: none;
+    transition:
+      opacity 0.5s,
+      display 0.5s;
+  }
+
+  &:focus-within {
+    .suggestions {
+      display: block; // !important to override bootstrap d-none
+      opacity: 1;
+      z-index: 9999; // Added z-index to ensure suggestions appear above other elements
+      transition:
+        opacity 0.5s,
+        display 0.5s;
+    }
+  }
+
+  @include mixins.focusable($customSelector: ":has(.form-control:focus)");
+
+  &:has(.form-control:focus) {
+    > button {
+      border-bottom-right-radius: var(--border-radius);
+    }
+  }
+
+  .form-control {
+    min-height: var(--_size);
+    padding-block: 0;
+    padding-inline: 1rem;
+    border: var(--border-color) solid 0.125rem;
+    border-inline-end-width: 0;
+    border-radius: 0;
+    border-start-start-radius: var(--border-radius);
+    border-end-start-radius: var(--border-radius);
+    background: var(--background-color);
+    color: var(--text-color);
+
+    transition: {
+      property: border-color, background-color, color;
+      timing-function: animation.$timing-function;
+      duration: animation.$duration-fast;
+    }
+
+    &::placeholder {
+      color: var(--placeholder-color);
+    }
+
+    &:hover {
+      --background-color: var(--background-color-hover);
+      --border-color: var(--border-color-hover);
+    }
+
+    &:active,
+    &:focus {
+      --border-color: var(--border-color-focus);
+      --background-color: var(--#{$prefix}white);
+      outline: none;
+    }
+    
+  }
+
+  > button {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 0;
+    margin: 0;
+    width: var(--_size);
+    box-shadow: none;
+    min-width: auto;
+    min-height: auto;
+    flex-shrink: 0;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+
+    .btn-label {
+      display: none;
+    }
+
+    //prep a button "search-icon" which is invoked at smaller screeen sizes below
+    .btn-icon {
+      @include mixins.make-icon($name: "search", $size: "md");
+      --qld-icon-color: currentColor;
+    }
+  }
+  
+
+  // Fallback for browsers that don't support container queries
+  @include media-breakpoint-up(md) {
+    --_size: 3.25rem;
+
+    &:before {
+      content: "";
+      mask-image: var(--qgds-icon-search);
+      mask-repeat: no-repeat;
+      mask-position: left;
+      background-color: var(--text-color);
+      width: 1.25rem;
+      aspect-ratio: 1 / 1;
+      position: absolute;
+      margin-inline-start: .5rem;
+      left: .5rem;
+      height: 100%;
+    }
+    .form-control {
+      padding-inline-start: 2.5rem;
+    }
+    .dark &,
+    .dark-alt & {
+      &:has(.form-control:focus) {
+        &:before {
+          background-color: var(--#{$prefix}light-text-text);
+        }
+      }
+      &:before {
+        background-color: var(--#{$prefix}dark-text-text);
+      }
+    }
+
+    > button {
+      padding-block: calc(0.75rem - 0.125rem);
+      padding-inline: var(--qld-btn-padding-x);
+      margin: 0;
+      width: auto;
+
+      .btn-label {
+        display: block;
+      }
+
+      .btn-icon {
+        display: none;
+        margin-inline-start: 0;
+      }
+    }
+  }
+
+  // Container query for browsers that support it (overrides @media)
+  @supports (container-type: inline-size) {
+    @container (width > 450px) {
+      --_size: 3.25rem;
+
+      &:before {
+        content: "";
+        mask-image: var(--qgds-icon-search);
+        mask-repeat: no-repeat;
+        mask-position: left;
+        background-color: var(--text-color);
+        width: 1.25rem;
+        aspect-ratio: 1 / 1;
+        position: absolute;
+        margin-inline-start: .5rem;
+        left: .5rem;
+        height: 100%;
+      }
+      .form-control {
+        padding-inline-start: 2.5rem;
+      }
+      .dark &,
+      .dark-alt & {
+        &:has(.form-control:focus) {
+          &:before {
+            background-color: var(--#{$prefix}light-text-text);
+          }
+        }
+        &:before {
+          background-color: var(--#{$prefix}dark-text-text);
+        }
+      }
+
+      > button {
+        padding-block: calc(0.75rem - 0.125rem);
+        padding-inline: var(--qld-btn-padding-x);
+        margin: 0;
+        width: auto;
+
+        .btn-label {
+          display: block;
+        }
+
+        .btn-icon {
+          display: none;
+          margin-inline-start: 0;
+        }
+      }
+    }
+  }
+  
+
+  //Search dropdown
+  .suggestions {
+    position: absolute;
+    inset-inline-start: 0;
+    width: 100%;
+    inset-block-start: calc(3.25rem + 7px) !important;
+    z-index: 1;
+    border-radius: 0.5rem;
+    background: var(--#{$prefix}neutral-lightest);
+
+    & > div:has(> div) {
+      box-shadow: var(--suggestions-shadow);
+      border-radius: 0.5rem;
+      border-bottom: 0.25rem solid
+        var(--#{$prefix}color-default-color-light-accent-design-accent);
+    }
+
+    .suggestions-category {
+      padding-block: 0.75rem;
+
+      &:not(:first-of-type) {
+        border-block-start: 1px solid
+        var(--#{$prefix}light-alt-background-shade);
+      }
+      
+      // Question
+      &-label {
+        padding-block: 0.75rem;
+        padding-inline: 1rem;
+      }
+
+      ul {
+        li {
+          a {
+            display: flex;
+            align-items: center;
+            padding-block: 0.75rem;
+            padding-inline: 1rem;
+            color: var(--#{$prefix}light-text-text);
+            width: 100%;
+            text-decoration: underline;
+            text-decoration-thickness: 0.5px;
+            text-decoration-color: transparent;
+            transition:
+              text-decoration-thickness animation.$duration-fast
+                animation.$timing-function,
+              text-decoration-color animation.$duration-fast
+                animation.$timing-function;
+
+            &:hover,
+            &:hover strong {
+              text-decoration-color: inherit;
+              text-decoration-thickness: var(
+                --#{$prefix}link-underline-thickness-hover
+              );
+              transition:
+                text-decoration-thickness animation.$duration-fast
+                  animation.$timing-function,
+                text-decoration-color animation.$duration-fast
+                  animation.$timing-function;
+            }
+
+            &:not(.view-more) {
+              &::before {
+                content: "";
+                height: 1.25rem;
+                width: 1.25rem;
+                min-width: 1.25rem;
+                margin-inline-end: 0.5rem;
+                mask-image: var(--qgds-icon-arrow-right);
+                mask-position: center center;
+                mask-repeat: no-repeat;
+                mask-size: contain;
+                background-color: var(--#{$prefix}light-action-secondary);
+              }
+
+              &:hover {
+                &::before {
+                  background-color: var(
+                    --#{$prefix}light-action-secondary-hover
+                  );
+                }
+              }
+            }
+
+            &.view-more {
+              text-decoration-color: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    &:has(.dynamic-suggestions > div) {
+      background-color: var(--#{$prefix}default-background);
+    }
+    .dynamic-suggestions {
+      .suggestions-category:not(.feature) {
+        ul {
+          li {
+            a {
+              &:not(.view-more) {
+                &::before {
+                  mask-image: var(--qgds-icon-search);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    // Featured search result styles
+    .feature {
+      background-color: var(
+        --#{$prefix}color-default-color-light-background-default-shade
+      );
+    }
+
+    // Show when active
+    &.show {
+      display: block;
+    }
+
+    &__group {
+      padding: 0;
+
+      a,
+      strong {
+        font-size: 1rem;
+      }
+
+      strong {
+        font-weight: 600;
+        color: var(--text-heading);
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+          min-height: 3rem;
+          list-style: none;
+          cursor: pointer;
+          margin-block-start: 0;
+
+          a {
+            vertical-align: middle;
+            vertical-align: -webkit-baseline-middle;
+
+            &:focus {
+              outline-color: var(--#{$prefix}light-focus);
+              background-color: var(--hover-background-color);
+              outline-offset: -4px;
+            }
+          }
+
+          &:hover {
+            background-color: var(--hover-background-color);
+          }
+        }
+      }
+
+      .dynamic-suggestions .suggestions-category:not(.feature) {
+        strong {
+          color: var(--#{$prefix}light-text-text);
+        }
+        ul li {
+          &:hover {
+            --hover-background-color: var(--#{$prefix}default-background-shade);
+          }
+          a:focus {
+            --hover-background-color: var(--#{$prefix}default-background-shade);
+          }
+        }
+      }
+    }
+  }
+
+  &.full-width {
+    max-width: 100%;
+  }
+
+  &.is-filled {
+    --background-color: var(--background-color-hover);
+
+    .form-control {
+      border-width: 0;
+      border-block-end-width: 0.125rem;
+      border-radius: 0;
+      border-start-start-radius: var(--border-radius);
+
+      &:active,
+      &:focus {
+        --border-color: var(--#{$prefix}neutral-lighter);
+        border-bottom-left-radius: var(--border-radius);
+      }
+    }
+
+    > button {
+      border-radius: 0;
+      border-start-end-radius: var(--border-radius);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@each $key, $value in $grid-breakpoints {
+  // dont need xs breakpoint as it has already has bootstrap class
+  @if ($value > 0) {
+    @include media-breakpoint-up($key) {
+      .visually-hidden-#{$key} {
+        @include visually-hidden();
+      }
+    }
+  }
+}

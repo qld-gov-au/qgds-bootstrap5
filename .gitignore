@@ -4,6 +4,11 @@ node_modules
 .DS_Store
 .vscode
 storybook-static/
+build-storybook.log
 docs/
 dist/
-build-storybook.log
+.idea
+*.iml
+docs/storybook-static
+prettier.json
+/debug-storybook.log

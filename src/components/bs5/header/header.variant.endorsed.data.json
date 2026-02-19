@@ -1,0 +1,136 @@
+{
+  "isEndorsedBrand": true,
+  "hasDeliveringForQLDLogo": true,
+  "preHeader": {
+    "palette": "default",
+    "globalLink": {
+      "text": "www.qld.gov.au",
+      "url": "https://qld.gov.au"
+    },
+    "actions": [
+      {
+        "id": "CTAone",
+        "url": "#",
+        "text": "For Queenslanders",
+        "dropdown": {
+          "type": "list",
+          "viewMore": {
+            "text": "View all",
+            "url": "https://www.qld.gov.au/queenslanders",
+            "target": "_blank"
+          },
+          "items": [
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Transport and motoring"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Employment and jobs"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Education and training"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Queensland and its government"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Health and wellbeing"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Community support"
+            }
+          ]
+        }
+      },
+      {
+        "id": "CTAtwo",
+        "url": "#",
+        "text": "Business and Industry",
+        "dropdown": {
+          "type": "list",
+          "viewMore": {
+            "text": "View all",
+            "url": "https://www.qld.gov.au/queenslanders",
+            "target": "_blank"
+          },
+          "items": [
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Transport and motoring"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Employment and jobs"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Education and training"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Queensland and its government"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Health and wellbeing"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Community support"
+            }
+          ]
+        }
+      },
+      {
+        "id": "CTAthree",
+        "url": "#",
+        "text": "Login",
+        "dropdown": {
+          "type": "html",
+          "HTMLContent": "<div></div>"
+        }
+      }
+    ]
+  },
+  "mainContent": {
+    "palette": "dark-alt",
+    "url": "https://qld.gov.au",
+    "logo": {
+      "src": "assets/img/endorsed.svg",
+      "altText": "Primary logo Endorsed brand alt text"
+    },
+    "secondaryLogo": {
+      "src": "assets/img/endorsed.svg",
+      "altText": "Secondary logo Endorsed brand alt text"
+    },
+    "siteTitle": "Endorsed brand example",
+    "subline": ""
+  },
+  "assets": {
+    "siteSearch": {
+      "value": "#",
+      "placeholder": "",
+      "label": "",
+      "formAction": {
+        "url": "https://www.forgov.qld.gov.au/search"
+      }
+    }
+  }
+}

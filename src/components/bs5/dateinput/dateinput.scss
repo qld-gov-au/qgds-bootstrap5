@@ -1,0 +1,12 @@
+.date-container {
+    display: flex;
+}
+
+.date-label {
+    margin-bottom: 8px;
+}
+
+.day-group,
+.date-group {
+    @extend .col-4;
+}

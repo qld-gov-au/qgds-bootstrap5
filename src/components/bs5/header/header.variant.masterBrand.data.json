@@ -1,0 +1,132 @@
+{
+  "isMasterBrand": true,
+  "hasDeliveringForQLDLogo": true,
+  "preHeader": {
+    "palette": "dark",
+    "globalLink": {
+      "text": "www.qld.gov.au",
+      "url": "https://qld.gov.au"
+    },
+    "actions": [
+      {
+        "id": "CTAone",
+        "url": "#",
+        "text": "For Queenslanders",
+        "dropdown": {
+          "type": "list",
+          "viewMore": {
+            "text": "View all",
+            "url": "https://www.qld.gov.au/queenslanders",
+            "target": "_blank"
+          },
+          "items": [
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Transport and motoring"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Employment and jobs"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Education and training"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Queensland and its government"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Health and wellbeing"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Community support"
+            }
+          ]
+        }
+      },
+      {
+        "id": "CTAtwo",
+        "url": "#",
+        "text": "Business and Industry",
+        "dropdown": {
+          "type": "list",
+
+          "viewMore": {
+            "text": "View all",
+            "url": "https://www.qld.gov.au/queenslanders",
+            "target": "_blank"
+          },
+          "items": [
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Starting a business"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Running a business"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Employing people"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Payroll tax"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Industries"
+            },
+            {
+              "target": "_blank",
+              "url": "#",
+              "text": "Investing in Queensland"
+            }
+          ]
+        }
+      },
+      {
+        "id": "CTAthree",
+        "url": "#",
+        "text": "Login",
+        "dropdown": {
+          "type": "html",
+          "HTMLContent": "<div>Custom HTML Content</div>"
+        }
+      }
+    ]
+  },
+  "mainContent": {
+    "palette": "default",
+    "url": "https://qld.gov.au",
+    "logo": null,
+    "secondaryLogo": null,
+    "siteTitle": "",
+    "subline": ""
+  },
+
+  "assets": {
+    "siteSearch": {
+      "value": "#",
+      "placeholder": "",
+      "label": "",
+      "formAction": {
+        "url": "https://www.forgov.qld.gov.au/search"
+      }
+    }
+  }
+}

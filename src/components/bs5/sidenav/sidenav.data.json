@@ -1,0 +1,83 @@
+{
+  "collapseTitle": "In this section",
+  "navtitle": "Parent page",
+  "navtitlelink": "#optionallink",
+  "navlist": [
+    {
+      "link": "https://www.qld.gov.au/transport/registration/register/heavy",
+      "label": "Sibling page",
+      "target": "",
+      "children": [
+        {
+          "link": "#",
+          "class": "",
+          "label": "Child page",
+          "children": []
+        },
+        {
+          "link": "#",
+          "label": "Child page",
+          "children": []
+        },
+        {
+          "link": "#",
+          "label": "Child page",
+          "children": [
+            {
+              "link": "#",
+              "class": "active",
+              "label": "Grandchild page",
+              "children": []
+            },
+            {
+              "link": "#",
+              "label": "Grandchild page",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "class": "",
+      "children": []
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "children": []
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "class": "",
+      "children": []
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "class": "",
+      "children": []
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "class": "",
+      "children": []
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "class": "",
+      "children": []
+    },
+    {
+      "link": "#",
+      "label": "Sibling page",
+      "class": "",
+      "children": []
+    }
+  ]
+}

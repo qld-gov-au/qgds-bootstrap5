@@ -1,24 +1,62 @@
-<!-- QGDS Partial: banner -->
+<!-- QGDS Banner Component -->
+  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" >
+    <div class="container-fluid">
+      <div class="banner-inner">
 
-<div class="container-fluid qld-banner {{classes}}">
+        <div class="banner-breadcrumbs">
+          {{> breadcrumbs breadcrumbs }}
+        </div>
 
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-12 col-md-7">
+        <div class="banner-content">
 
-                {{{breadcrumbs}}}
+          {{#if title}}
+          {{!-- titleClasses accepts a "title-block" class --}}
+          <h1 class="banner-title-wrap {{ join titleClasses }}">
+            <span class="banner-title">{{~title~}}</span>
+            {{#if subtitle }}
+            <span class="banner-subtitle">{{~subtitle~}}</span>
+            {{/if}}
+          </h1>
+          {{/if}}
 
-                <h1 class="banner-title">{{{title}}}</h1>
-                <p class="banner-lead">{{{content}}}</p>
 
+          {{#if abstract}}
+          <div class="banner-abstract">
+            {{abstract}}
+          </div>
+          {{/if}}
+
+          {{!-- CTA Buttons block. Pass an array of button data objects --}}
+          {{#if buttons}}
+          <div class="banner-cta" role="group" aria-label="Available options">
+            <div class="cta-buttons">
+              {{#each buttons}}
+              {{> button this }}
+              {{/each}}
             </div>
+          </div>
+          {{/if}}
 
-            <div class="col-12 col-md-5 position-relative">
-                <div class="banner-image {{image.classes}}" data-image-url="{{image.url}}"></div>
+          {{!-- CTA Cards block. Pass an array of card data objects --}}
+          {{#if cards}}
+          <div class="banner-cta" role="group" aria-label="Available options">
+            <div class="cta-cards">
+              {{#each cards }}
+              {{> card this }}
+              {{/each }}
             </div>
+          </div>
+          {{/if}}
 
         </div>
-    </div>
+        {{!-- End banner content --}}
 
-</div>
+        {{#ifAll image image.url (cond backgroundType "==" "with-hero-image")}}
+        <div class="banner-image {{ join image.classes }}">
+          <div class="banner-image-inner" style="background-image:url({{image.url}})" role="img"
+            aria-label="{{ image.alt }}"></div>
+        </div>
+        {{/ifAll}}
+      </div>
+    </div>
+  </div>

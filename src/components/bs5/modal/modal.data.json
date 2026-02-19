@@ -1,0 +1,12 @@
+{
+  "modalSize": "modal-lg",
+  "modalID": "terms-and-conditions",
+  "header": {
+    "title": "Terms and conditions",
+    "closeButton": true  
+  },
+  "content": "<p>By signing in to this account, I agree to:</p><ul><li>Terms and conditions</li><li>Privacy policy</li><li>Cookie policy</li></ul>",
+  "footer": {
+    "buttons": []
+  }
+}

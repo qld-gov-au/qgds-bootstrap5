@@ -1,0 +1,18 @@
+import { Canvas, Meta, Story, Source } from "@storybook/addon-docs/blocks";
+import * as GlobalAlertStories from "./globalAlert.stories";
+import defaultdata from "./globalAlert.data.json";
+
+<Meta of={GlobalAlertStories} />
+
+# Global alert
+
+<Canvas of={GlobalAlertStories.Critical} />
+
+## Design resources
+
+- [Master component file (Figma)](https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-97590&mode=design&t=YLfxdziHdqD2Ty0o-0)
+- [Design System website](https://www.designsystem.qld.gov.au/components/alerts-global)
+
+## Example JSON data
+
+<Source language="json" code={JSON.stringify(defaultdata, null, 2)} />

@@ -1,0 +1,27 @@
+{{! Image template }}
+{{#*inline "imageTag"}}
+  <img class="{{ ratioClass }} {{ otherClass }} {{ positionX }} {{ positionY }}"
+    src="{{ src }}"
+    alt="{{ alt }}"
+    {{~#if width}} width="{{ width }}{{ widthUnit }}"{{/if~}}
+    {{~#if height}} height="{{ height }}{{ heightUnit }}"{{/if~}}
+    {{~#if lazy}} loading="lazy"{{/if~}}
+    {{~#if style}} style="{{ style }}"{{/if~}}
+    {{~#if tabindex}} tabindex="{{ tabindex }}"{{/if~}}
+    {{~#if role}} role="{{ role }}"{{/if~}}
+  />
+{{/inline}}
+
+{{#if src}}
+  {{#ifAny caption credit }}
+    <figure class="{{ figureClass }}" {{#if width}}style="width:{{ width }}{{ widthUnit }}"{{/if}}>
+      {{> imageTag}}
+      <figcaption>
+        {{caption}}
+        {{#if credit}}<span class="figure-credit">{{ credit }}</span>{{/if}}
+      </figcaption>
+    </figure>
+  {{else}}
+    {{>imageTag}}
+  {{/ifAny}}
+{{/if}}

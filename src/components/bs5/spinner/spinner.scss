@@ -1,0 +1,41 @@
+.qld-spinner {
+  text-align: left;
+  display: flex;
+  align-items: center;
+
+  .spinner-border {
+    color: var(--#{$prefix}color-default-color-light-accent-design-accent);
+    width: 32px;
+    height: 32px;
+    margin-right: 1rem;
+  }
+
+  .qld-spinner-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--#{$prefix}light-text-heading);
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.3;
+    display: block;
+  }
+
+  &.align-center {
+    text-align: center;
+    display: block;
+
+    .spinner-border {
+      margin-right: 0;
+    }
+
+    .qld-spinner-label {
+      margin-top: 1rem !important;
+    }
+  }
+  .dark &,
+  .dark-alt & {
+    .qld-spinner-label {
+      color: var(--#{$prefix}white);
+    }
+  }
+}

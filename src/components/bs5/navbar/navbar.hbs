@@ -1,0 +1,82 @@
+<!-- QGDS Partial: Primary navigation -->
+
+<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.alternativeColor}} dark{{/if}}{{#if metadata.verticalOrientation}} vertical{{/if}}" aria-label="Website navigation" role="navigation">
+    <div id="navbarNav" class="container">
+            <div class="nav-header">
+                <span class="navbar-brand" href="#">{{#if metadata.navbarBrandName}}{{metadata.navbarBrandName}}{{/if}}</span>
+                <button id="burgerCloseBtn" type="button" class="navbar-btn" data-bs-toggle="collapse"
+                    aria-label="Close" data-bs-target="#main-nav" aria-expanded="false"
+                    aria-controls="collapseExample">Close</button>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav">
+                    {{#each navigation}}
+                        {{#if navigationItems}}
+                            <li class="nav-item dropdown{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}"{{#if isExpandedOnMobile}} data-is-expanded-on-mobile="true"{{/if}}>
+                                <a class="nav-link{{#unless ../metadata.verticalOrientation}} dropdown-toggle{{/unless}}{{#if currentPage}} active{{/if}}{{#if dropdownOptions.hasNoLink}} hasNoLink{{/if}}" {{#if currentPage}}aria-current="page"{{/if}}{{#if dropdownOptions.hasNoLink}} href="#"{{else}} href="{{url}}"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}} role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                                {{#if iconName}}
+                                    <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
+                                    {{#if hideLabel}}
+                                        <span class="visually-hidden-lg">{{text}}</span>
+                                    {{else}}
+                                        {{text}}
+                                    {{/if}}
+                                {{else}}
+                                    {{text}}
+                                {{/if}}
+                                </a>
+                                <button class="nav-link dropdown-toggle"{{#if currentPage}} aria-current="page"{{/if}}  data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
+                                    <span class="visually-hidden">Expand</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#unless dropdownOptions.hasNoLink}}
+                                        <li>
+                                            <a class="dropdown-item parent-link" href="{{url}}" {{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
+                                            {{#if dropdownOptions.description}}
+                                                <p>{{dropdownOptions.description}}</p>
+                                            {{/if}}
+                                        </li>
+                                    {{/unless}}
+                                    {{#each navigationItems}}
+                                        <li{{#if mobileOnly}} class="mobile-only"{{/if}}>
+                                            {{#if isHTML}}
+                                                {{{htmlContent}}}
+                                            {{/if}}
+                                            {{#unless isHTML}}
+                                                <a class="dropdown-item" href="{{url}}"{{#if target}} {{#if currentPage}} aria-current="page"{{/if}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
+                                                {{#if description}}
+                                                    <p>{{description}}</p>
+                                                {{/if}}
+                                            {{/unless}}
+                                        </li>
+                                    {{/each}}
+                                    {{#if dropdownOptions.viewAllHref}}
+                                        <li>
+                                            <a class="dropdown-item view-all" {{#if currentPage}} aria-current="page"{{/if}} href="{{dropdownOptions.viewAllHref}}">View all</a>
+                                        </li>
+                                    {{/if}}
+                                </ul>
+                            </li>
+                        {{else}}
+                            <li class="nav-item{{#if alternativeColor}} alt{{/if}}{{#if mobileOnly}} mobile-only{{/if}}">
+                                <a class="nav-link{{#if currentPage}} active{{/if}}"{{#if currentPage}} aria-current="page"{{/if}} href="{{url}}"{{#if target}}  target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>
+                                {{#if iconName}}
+                                    <span class="qld-icon qld-icon-md {{iconName}}" aria-hidden="true"></span>
+                                    {{#if hideLabel}}
+                                        <span class="visually-hidden-lg">{{text}}</span>
+                                    {{else}}
+                                        {{text}}
+                                    {{/if}}
+                                {{else}}
+                                    {{text}}
+                                {{/if}}
+                                </a>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div id="overlay"></div>
+</nav>

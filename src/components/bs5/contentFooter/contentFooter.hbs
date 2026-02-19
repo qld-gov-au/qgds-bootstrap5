@@ -1,0 +1,15 @@
+  <div class="row {{classes}}">
+    {{#if lastUpdated}}
+    <div class="col-auto">
+      <dl class="qld-content-dates my-0">
+        <dt class="my-0">Last updated:</dt>
+        <dd class="my-0">{{formatDateOrToday lastUpdated }}</dd>
+      </dl>
+    </div>
+    {{/if}} 
+    {{#if backToTop}}
+      <div class="col-12 mt-24 mt-md-0 col-md d-flex justify-content-start justify-content-md-end">                        
+        {{> backToTop backToTop}}
+      </div>
+    {{/if}}  
+  </div>

@@ -1,0 +1,518 @@
+@media print {
+  .h1,
+  h1 {
+    font-size: 1.5em; // Size of h2
+    margin-top: -5rem;
+  }
+
+  .h2,
+  h2 {
+    font-size: 1.17em; // Size of h3
+    &:not(:first-child) {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .h3,
+  h3 {
+    font-size: 1em; // Size of h4
+  }
+
+  .h4,
+  h4 {
+    font-size: 0.83em; // Size of h5
+  }
+
+  .h5,
+  h5 {
+    font-size: 0.67em; // Size of h6
+  }
+
+  * {
+    width: 100%;
+    margin: 0;
+    float: none;
+    position: static;
+    transition: none !important;
+  }
+
+  *:before,
+  *:after {
+    color: #000 !important;
+    text-shadow: none !important;
+    // background: transparent !important; // originally for icons
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration-line: underline;
+    color: #000 !important;
+  }
+  // Don't show links that are fragment identifiers,
+  // or use the `javascript:` pseudo protocol
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  .qld__header__pre-header-brand-image {
+    display: block !important;
+  }
+  img {
+    max-width: 100% !important;
+    width: auto;
+  }
+  /** Setting margins */
+  @page {
+    margin: 2cm;
+  }
+
+  /* Addding page breaks for best practice */
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  a {
+    page-break-inside: avoid;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+
+  ul,
+  ol,
+  dl {
+    page-break-before: avoid;
+  }
+  blockquote {
+    page-break-inside: avoid;
+  }
+
+  .btn,
+  .dropup > .btn {
+    > .caret {
+      border-top-color: #000 !important;
+    }
+  }
+  .label {
+    border: 1px solid #000;
+  }
+
+  .table-bordered {
+    th,
+    td {
+      border: 1px solid #ddd !important;
+    }
+  }
+  .row {
+    display: block;
+  }
+  .btn {
+    border: none;
+    .btn-icon {
+      width: auto;
+    }
+    &:disabled,
+    &.disabled {
+      color: #d3d3d3 !important;
+    }
+  }
+
+  .qg-site-map {
+    display: none !important;
+  }
+  #qg-primary-content {
+    max-width: 100%;
+    width: 100%;
+    left: 0;
+    table {
+      font-size: 15px;
+    }
+    margin-top: 0;
+    h1 {
+      font-size: 25px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  /* Hide sections that are not to print */
+  #qg-access,
+  #browser,
+  #qg-banner,
+  #tools,
+  #qg-site-nav,
+  #qg-section-nav,
+  .qg-section-nav,
+  #qg-site-map,
+  .qg-options,
+  #qg-page-feedback,
+  #header-bg,
+  .print-content-link,
+  #qg-site-header form,
+  .qg-utilities,
+  #qg-location-dropdown,
+  .qg-legal li {
+    display: none;
+  }
+
+  /* Some landmark headings should be visible */
+  .breadcrumb h2 {
+    position: static;
+  }
+  /* Style breadcrumbs */
+  .breadcrumb {
+    display: inline;
+    list-style: none;
+  }
+  .breadcrumb h2 {
+    font-size: 100%;
+    display: block;
+    margin: 0.5em 0;
+    font-weight: normal;
+  }
+  .breadcrumb ol,
+  .breadcrumb li,
+  .breadcrumb li.last-child,
+  .breadcrumb a {
+    text-decoration-line: none !important;
+    color: black !important;
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .breadcrumb a {
+    padding-right: 0.5em;
+  }
+  .breadcrumb a:after,
+  .breadcrumb .breadcrumb-item a:after {
+    content: " >";
+  }
+  .breadcrumb li:before,
+  .breadcrumb a:before {
+    display: none !important;
+  }
+  // displaying full breadcrumbs
+  .breadcrumb .breadcrumb-item.breadcrumb-toggle {
+    display: none !important;
+  }
+
+  /* A few simple lines */
+  #qg-site-header,
+  .qld-header {
+    border-bottom: 1px solid #000000 !important;
+    margin-bottom: 1em;
+    display: block;
+    min-height: 32mm;
+
+    &:after {
+      margin: 1rem 0 !important;
+    }
+  }
+  #qg-site-map {
+    border-top: 1px solid #000000;
+    padding-top: 1em;
+  }
+
+  /* hide the tagline when printing */
+  #qg-branding {
+    display: none;
+  }
+
+  #page-container,
+  #content-container,
+  .article,
+  #document-properties,
+  #post-page-options,
+  #page-feedback,
+  #content .section,
+  #content,
+  .section,
+  .max-width,
+  .container,
+  .container-fluid,
+  .qld-banner,
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .print-link-url,
+  #site-name img.qg-print-version,
+  #qg-logo img.qg-print-version,
+  #qg-coa img.qg-print-version {
+    margin: 0;
+    padding: 0;
+    text-decoration-line: none;
+    display: inline;
+  }
+
+  #ia .d1 img {
+    float: left;
+  }
+
+  body {
+    /* Set some defaults */
+    background: white;
+
+    /* Reset variables as needed for printing */
+    --qld-body-color: black;
+  }
+
+  /* Hide elements not needed for printing */
+  .navbar,
+  footer,
+  .sidebar,
+  footer.qld-footer.dark,
+  .qld-footer,
+  nav {
+    display: none;
+  }
+
+  .navbar {
+    border-block-end-color: none !important;
+  }
+
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  /* Ensure columns display properly in print */
+  [class*="col-"] {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Other print styles... */
+  blockquote {
+    border: none;
+  }
+  .pagination,
+  .qld-quick-exit {
+    display: none;
+  }
+  .accordion {
+    --#{$prefix}accordion-btn-bg: transparent !important;
+    --#{$prefix}accordion-border-color: transparent !important;
+    --#{$prefix}accordion-btn-color: var(--qld-body-color);
+
+    .accordion-body {
+      padding: 0 !important;
+    }
+
+    //Toggle chevron
+    .accordion-button {
+      text-decoration: none !important;
+      padding: 2rem 0 !important;
+
+      &:after {
+        background-image: none !important;
+      }
+    }
+  }
+
+  .accordion-toggle {
+    display: none !important;
+  }
+
+  /* Print URL after header */
+  .qld-header:after {
+    content: "(" attr(data-page-url) ")";
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 1rem;
+  }
+
+  .nav-item.active a {
+    display: block;
+  }
+  .accordion-collapse {
+    display: block !important;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    color: var(--qld-primary) !important;
+  }
+
+  a.btn {
+    box-shadow: none;
+  }
+
+  button.btn {
+    display: none;
+  }
+
+  .global-alert {
+    display: none;
+  }
+
+  a.btn:after {
+    display: block;
+    content: " (" attr(href) ")";
+  }
+  a.stretched-link:after {
+    content: " (" attr(href) ")";
+    font-size: 13px;
+    line-height: 1;
+    position: relative;
+  }
+
+  a.qld-cta-link {
+    display: none !important;
+  }
+
+  /* Custom qld- styles */
+  .qld-side-navigation,
+  .qld-inpage-nav {
+    display: none !important;
+  }
+
+  /* v2.0.x Header styles */
+  .qld-header-pre-header {
+    display: none !important;
+  }
+
+  .qld-header-brand-image,
+  .qld-header-secondary-image {
+    display: block !important;
+  }
+
+  .qld-header-brand a:after {
+    display: none;
+  }
+
+  .qld-header-site-search {
+    display: none !important;
+  }
+
+  /* Show header main content */
+  .qld-header-main {
+    display: block !important;
+    border-bottom: none !important;
+
+    > .container .col {
+      padding: 0 !important;
+    }
+  }
+
+  .qld-header-link {
+    display: inline-flex !important;
+  }
+
+  /* Ensure header brand displays correctly */
+  .qld-header-brand {
+    padding-block: 1rem !important;
+  }
+
+  /* Ensure header text is black */
+  .qld-header,
+  .qld-header-site-title,
+  .qld-header-subline {
+    color: #000 !important;
+  }
+
+  /* Adjust header logo sizing for print */
+  .qld-header-logo,
+  .qld-header-brand-image img,
+  .qld-header-secondary-image {
+    max-height: 3rem;
+    width: auto !important;
+  }
+
+  .qld-banner {
+    background: none !important;
+    margin-bottom: 1rem !important;
+
+    .banner-inner {
+      padding-top: 0 !important;
+    }
+
+    .banner-abstract,
+    .banner-title {
+      color: black !important;
+    }
+  }
+
+  .banner-breadcrumbs nav {
+    display: block !important;
+    color: #000 !important;
+    .breadcrumb-item {
+      color: #000 !important;
+      &:after {
+        content: none !important;
+      }
+    }
+  }
+
+  /* adding class to print data-href from breadcrumb link */
+  .print-current-url {
+    display: block;
+    font-size: bold;
+    color: var(--qld-primary) !important;
+  }
+
+  .content-emphasis {
+    background: none !important;
+    margin: 4rem 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Print colors to show background elements */
+.alert,
+.card-img,
+video {
+  print-color-adjust: exact;
+}
+
+/*print styles for forms*/
+@media only print {
+  form abbr[title*="required"]:after {
+    content: "";
+  }
+  form .label {
+    border: none;
+  }
+}
+
+.no-print {
+  @extend .d-print-none;
+}

@@ -1,0 +1,15 @@
+{
+  "id": "qgds-side-navigation",
+  "title": "Side navigation",
+  "title_uikit": "Navigation (Side Navigation)",
+  "type": "Component",
+  "scope": "Core",
+  "group": "Navigation",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321787&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/tables"
+  }
+}

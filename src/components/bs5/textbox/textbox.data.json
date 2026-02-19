@@ -1,0 +1,15 @@
+{
+  "id": "example-1",
+  "value": "",
+  "isDisabled": false,
+  "isRequired": true,
+  "isValid": null,
+  "isFilled": false,
+  "customClass": "",
+  "label-text": "Label",
+  "placeholder": "",
+  "optional-text": "optional",
+  "hint-text": "Hint",
+  "successMessageText": "Success message",
+  "errorMessageText": "Error message"
+}

@@ -1,0 +1,14 @@
+{
+    "seo": {
+        "pageSnippet": "10",
+        "keywords": "keywords go here",
+        "department": "None"
+    },
+    "og": {
+        "type": "article",
+        "image": "https://oss-uat.clients.squiz.net/__data/assets/image/0012/110460/Opengraph-default-thumbnail.png",
+        "twitter_image": "https://oss-uat.clients.squiz.net/__data/assets/image/0012/110460/Opengraph-default-thumbnail.png",
+        "twitter_description": "if not set, will use description"
+    }
+}
+

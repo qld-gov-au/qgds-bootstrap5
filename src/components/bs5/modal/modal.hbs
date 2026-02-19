@@ -1,0 +1,38 @@
+<!-- Example button to trigger the modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{modalID}}">
+  {{launchButtonLabel}}
+</button>
+
+<!-- You can also use a standard link. It must contain data-bs-toggle and data-bs-target attributes -->
+<p>You can also <a class="d-inline-block my-3" href="#" data-bs-toggle="modal" data-bs-target="#{{modalID}}">open a model</a> with a standard link.
+
+
+<!-- QGDS Modal -->
+<div class="modal fade" id="{{modalID}}" tabindex="-1" aria-labelledby="{{modalLabel}}" aria-hidden="true">
+  <div class="modal-dialog {{modalSize}}">
+    <div class="modal-content">
+
+      {{#if header}}
+      <div class="modal-header">
+        <h1 class="modal-title" id="{{modalLabel}}">{{{ header.title }}}</h1>
+        {{#if header.closeButton}}
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        {{/if}}
+      </div>
+      {{/if}}
+      
+      <div class="modal-body">
+        {{{ content }}}
+      </div>
+    
+      {{#if footer}}
+      <div class="modal-footer">
+        {{#each footer.buttons}}
+            {{{ . }}}
+        {{/each}}
+      </div>
+      {{/if}}
+    
+    </div>
+  </div>
+</div>

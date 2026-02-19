@@ -1,0 +1,141 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template to create an ACM certificate in us-east-1 and a CloudFront distribution with up to 5 origins and behavior suffixes.
+
+Parameters:
+  DomainName:
+    Type: String
+    Description: The primary domain name for the ACM certificate.
+  SubjectAlternativeNames:
+    Type: CommaDelimitedList
+    Description: Additional domain names for the ACM certificate.
+    Default: ""
+
+  OriginDomain1:
+    Type: String
+    Description: The first origin domain name (S3 bucket or custom domain).
+  OriginDomain2:
+    Type: String
+    Description: The second origin domain name (S3 bucket or custom domain).
+    Default: ""
+  OriginDomain3:
+    Type: String
+    Description: The third origin domain name (S3 bucket or custom domain).
+    Default: ""
+  OriginDomain4:
+    Type: String
+    Description: The fourth origin domain name (S3 bucket or custom domain).
+    Default: ""
+  OriginDomain5:
+    Type: String
+    Description: The fifth origin domain name (S3 bucket or custom domain).
+    Default: ""
+
+  OriginPath1:
+    Type: String
+    Description: The behavior suffix for the first origin.
+    Default: ""
+  OriginPath2:
+    Type: String
+    Description: The behavior suffix for the second origin.
+    Default: ""
+  OriginPath3:
+    Type: String
+    Description: The behavior suffix for the third origin.
+    Default: ""
+  OriginPath4:
+    Type: String
+    Description: The behavior suffix for the fourth origin.
+    Default: ""
+  OriginPath5:
+    Type: String
+    Description: The behavior suffix for the fifth origin.
+    Default: ""
+
+Resources:
+  Certificate:
+    Type: "AWS::CertificateManager::Certificate"
+    Properties:
+      DomainName: !Ref DomainName
+      ValidationMethod: DNS
+      SubjectAlternativeNames: !Ref SubjectAlternativeNames
+      Tags:
+        - Key: Name
+          Value: !Ref DomainName
+
+  CloudFrontDistribution:
+    Type: "AWS::CloudFront::Distribution"
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        DefaultCacheBehavior:
+          TargetOriginId: origin1
+          ViewerProtocolPolicy: redirect-to-https
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+        Origins:
+          - Id: origin1
+            DomainName: !Ref OriginDomain1
+            OriginPath: !Ref OriginPath1
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+          - Id: origin2
+            DomainName: !If
+              - HasOrigin2
+              - !Ref OriginDomain2
+              - !Ref "AWS::NoValue"
+            OriginPath: !Ref OriginPath2
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+          - Id: origin3
+            DomainName: !If
+              - HasOrigin3
+              - !Ref OriginDomain3
+              - !Ref "AWS::NoValue"
+            OriginPath: !Ref OriginPath3
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+          - Id: origin4
+            DomainName: !If
+              - HasOrigin4
+              - !Ref OriginDomain4
+              - !Ref "AWS::NoValue"
+            OriginPath: !Ref OriginPath4
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+          - Id: origin5
+            DomainName: !If
+              - HasOrigin5
+              - !Ref OriginDomain5
+              - !Ref "AWS::NoValue"
+            OriginPath: !Ref OriginPath5
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          SslSupportMethod: sni-only
+
+Conditions:
+  HasOrigin2: !Not [!Equals [!Ref OriginDomain2, ""]]
+  HasOrigin3: !Not [!Equals [!Ref OriginDomain3, ""]]
+  HasOrigin4: !Not [!Equals [!Ref OriginDomain4, ""]]
+  HasOrigin5: !Not [!Equals [!Ref OriginDomain5, ""]]
+
+Outputs:
+  CloudFrontDistributionId:
+    Description: The ID of the CloudFront distribution.
+    Value: !Ref CloudFrontDistribution
+  CloudFrontDomainName:
+    Description: The domain name of the CloudFront distribution.
+    Value: !GetAtt CloudFrontDistribution.DomainName

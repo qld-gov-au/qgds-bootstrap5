@@ -1,0 +1,68 @@
+.link {
+  text-underline-offset: var(--qld-link-underline-offset);
+  text-decoration-thickness: var(--qld-link-underline-thickness);
+
+  --#{$prefix}link-color: var(--#{$prefix}light-link);
+  --#{$prefix}link-text-decoration-color: var(--#{$prefix}light-link);
+  --#{$prefix}link-gap: 0.5rem;
+
+  .dark &,
+  .dark-alt & {
+    --#{$prefix}link-color: var(--#{$prefix}dark-link);
+    --#{$prefix}link-text-decoration-color: var(--#{$prefix}dark-link);
+    &:visited {
+      color: var(--#{$prefix}link-color);
+      text-decoration-color: var(--#{$prefix}link-text-decoration-color);
+    }
+  }
+
+  color: var(--#{$prefix}link-color);
+  text-decoration-color: var(--#{$prefix}link-text-decoration-color);
+  display: flex;
+  gap: var(--#{$prefix}link-gap);
+  align-items: center;
+  text-decoration-color: rgba(
+    var(--#{$prefix}link-color-rgb),
+    var(--#{$prefix}link-opacity, 0.5)
+  );
+  text-underline-offset: $icon-link-underline-offset;
+  backface-visibility: hidden;
+  width: fit-content;
+
+  &:hover {
+    --#{$prefix}icon-color: var(--#{$prefix}action-icon-hover-color);
+
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+    text-decoration-color: var(
+      --#{$prefix}color-default-color-light-underline-default
+    );
+  }
+
+  &:visited {
+    color: var(--#{$prefix}link-color);
+    text-decoration-color: var(--#{$prefix}link-text-decoration-color);
+
+    &:hover {
+      text-decoration-color: var(--#{$prefix}link-text-decoration-color);
+    }
+  }
+
+  &:focus {
+    outline: 3px solid var(--qld-focus-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin-top: 0.75rem;
+    line-height: 1.5rem;
+  }
+  li:first-child {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <!-- Global ALert -->
+  {{> globalAlert globalAlert}}
+
+  <!-- Header -->
+  {{> header header }}
+
+  <!-- Navbar -->
+  {{> navbar navbar}}
+
+  {{#if banner}}
+  {{> banner banner}}
+  {{/if}}
+
+  <div class="container mt-40 mt-lg-64">
+
+    {{#if breadcrumbs}}
+    <!-- breadcrumbs -->
+    {{> breadcrumbs breadcrumbs}}
+    {{/if}}
+
+    <!-- Start Main Content Body -->
+    <div class="row">
+
+      <!-- Start Side navigation column (span 3) -->
+      <div class="col-12 col-lg-3">
+        <!-- QGDS Side navigation Component -->
+        {{> sidenav sidenav}}
+      </div>
+      <!-- End Side navigation column -->
+
+      <!-- Start Main Column (span 8) -->
+      <div class="col-12 col-lg-8 mt-40 mt-lg-0">
+
+        <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
+        <main class="px-lg-32">
+
+          {{#if inpagenav}}
+          <!-- QGDS Inpagenav Component -->
+          {{> inpagenav inpagenav}}
+          {{/if}}
+
+          <!-- Content Section with top vertical spacer (2rem mobile, 4rem LG and above) -->
+          <div class="mt-32 mt-lg-64">
+            <h2 id="section-heading">Section heading (H2)</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Sed facilisis purus eu convallis ut. Morbi condimentum volutpat
+              feugiat pellentesque. Auctor amet auctor dolor metus eget diam. Facilisis vitae venenatis vestibulum
+              libero ut. Luctus diam pellentesque ipsum accumsan amet commodo.
+            </p>
+            <p>
+              Convallis et ullamcorper ac nisi ornare sed facilisis sem. Scelerisque malesuada vivamus tellus mi vitae
+              amet ornare donec malesuada. Nascetur senectus aenean fames id turpis.
+            </p>
+          </div>
+
+
+          <!-- Content Section with top vertical spacer (2rem mobile, 4rem LG and above) -->
+          <div class="mt-32 mt-lg-64">
+
+            <h2 id="content-heading">Content heading (H2)</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.</p>
+
+            {{#if calloutdata}}
+            <!-- QGDS Callout Component -->
+            {{> callout calloutdata}}
+            {{/if}}
+          </div>
+
+
+
+          <!-- Content Section with top vertical spacer (2rem mobile, 2.5rem LG and above) -->
+          <div class="mt-32 mt-lg-40">
+            <h3 id="inspection">Pre-registration inspection (H3)</h3>
+            <p>Information about pre-registration inspection requirements.</p>
+
+            <h4 id="fees-and-charges">Fees and charges (H4)</h4>
+            <p>Details about fees and charges for vehicle registration.</p>
+
+
+            {{#if accordionItems}}
+            <!-- QGDS Accordion Component with 24px/1.5rem margin-top -->
+            <div class="mt-24">
+              {{> accordion accordionItems}}
+            </div>
+            {{/if}}
+          </div>
+
+          <!-- Top vertical spacer: 2rem default (mobile), 4rem LG and above -->
+          <div class="mt-32 mt-lg-64">
+            {{#if video}}
+            <!-- QGDS Video Component -->
+            {{> video video}}
+            {{/if}}
+          </div>
+
+          <!-- Emphasis Container, with top vertical spacer: 2rem default (mobile), 4rem LG and above -->
+          <div class="mt-40 mt-lg-64 bg-light content-emphasis">
+
+            <h2 id="inspection">Section heading (H2) with emphasis</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt
+              ultrices commodo vestibulum non netus. </p>
+
+            <!-- QGDS Call To Action button -->
+            {{> callToAction callToAction}}
+
+          </div>
+
+          <!-- Top vertical spacer: 2rem default (mobile), 4rem LG and above -->
+          <div class="mt-32 mt-lg-64">
+            <h2 id="inspection">Section heading (H2)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt
+              ultrices commodo vestibulum non netus. </p>
+
+            {{#if table}}
+            <!-- QGDS Table Component -->
+            <div class="mt-24">
+              {{> table table}}
+            </div>
+            {{/if}}
+          </div>
+
+        </main>
+        <!-- End Main Content div -->
+
+      </div>
+      <!-- End Column (8) -->
+
+    </div>
+    <!-- End Row -->
+
+
+    <!-- Start QGDS Content Footer -->
+    <div class="mt-64">
+      {{> contentFooter contentFooter}}
+    </div>
+
+  </div>
+
+  <!-- Start QGDS Footer -->
+  {{> footer footer}}
+  <!-- End QGDS Footer -->
+
+</body>
+
+
+</html>

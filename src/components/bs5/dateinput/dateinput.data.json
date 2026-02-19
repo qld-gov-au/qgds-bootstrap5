@@ -1,0 +1,18 @@
+{
+  "id": "example-1",
+  "isDisabled": false,
+  "isRequired": true,
+  "isValid": null,
+  "isFilled": false,
+  "customClass": "",
+  "label-text": "Date label",
+  "day-placeholder": "DD",
+  "month-placeholder": "MM",
+  "year-placeholder": "YYYY",
+  "optional-text": "optional",
+  "hint-text": "(dd/mm/yyyy)",
+  "successMessageText": "Success message",
+  "errorMessageText": "Error message",
+  "yearMin": "",
+  "yearMax": ""
+}

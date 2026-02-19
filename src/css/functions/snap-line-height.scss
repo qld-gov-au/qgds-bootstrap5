@@ -1,0 +1,7 @@
+@use "remify" as *;
+///
+/// Calculate a lineheight snapped to nearest 4px value, based on current font size
+/// The returned value is absolute, so only use on leaf nodes where relative line-height value doesn't need to cascade.
+@function snap-line-height($ideal-line-height: 1.4, $grid-size: 4px) {
+  @return round(nearest, calc(1em * $ideal-line-height), remify($grid-size));
+}

@@ -1,64 +1,84 @@
 {
-	"critical": {
-		"alertItems": [
-			{
-				"varient": "global-alert-critical",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
-			}
-		]
-	},
-	"warning": {
-		"alertItems": [
-			{
-				"varient": "global-alert-warning",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
-			}
-		]
-	},
-	"info": {
-		"alertItems": [
-			{
-				"varient": "global-alert-info",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
-			}
-		]
-	},
-	"multiple": {
-		"varient": "global-alert-multiple",
-		"alertItems": [
-			{
-				"varient": "global-alert-warning",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
-			},
-			{
-				"varient": "global-alert-warning",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
-			},
-			{
-				"varient": "global-alert-critical",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
-			},
-			{
-				"varient": "global-alert-critical",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
-			},
-			{
-				"varient": "global-alert-info",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
-			},
-			{
-				"varient": "global-alert-info",
-				"content": "<strong>Testing:</strong> This website is currently undergoing testing",
-				"action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
-			}
-		]
-	}
+  "critical": {
+    "alertItems": [
+      {
+        "id": "cyclone-xyz-warning",
+        "variant": "global-alert-critical",
+        "ariaLabel": "Critical alert",
+        "dismissedExpiryDays": 0,
+        "content": "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare your home and businesses or check for available support.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
+      }
+    ]
+  },
+  "warning": {
+    "alertItems": [
+      {
+        "id": "service-delay-weather",
+        "variant": "global-alert-warning",
+        "ariaLabel": "Warning alert",
+        "content": "<strong>Service Delay:</strong> Various services are experiencing delays due to the weather event.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
+      }
+    ]
+  },
+  "info": {
+    "alertItems": [
+      {
+        "id": "caretaker-period-2024",
+        "variant": "global-alert-info",
+        "ariaLabel": "Information alert",
+        "content": "<strong>Caretaker period:</strong> The Queensland Government is in a caretaker period until after the state election. Minimal updates will be made to this site until after the election results are declared.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
+      }
+    ]
+  },
+  "multiple": {
+    "alertItems": [
+      {
+        "id": "cyclone-xyz-critical",
+        "variant": "global-alert-critical",
+        "ariaLabel": "Critical alert",
+        "content": "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare your home and businesses or check for available support.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
+      },
+      {
+        "id": "flood-warning-southeast",
+        "variant": "global-alert-critical",
+        "ariaLabel": "Critical alert",
+        "content": "<strong>Severe weather:</strong> Cyclone XYZ is expected to impact the coast area. Prepare your home and businesses or check for available support.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>",
+        "preventDismiss": true
+      },
+      {
+        "id": "transport-delays-brisbane",
+        "variant": "global-alert-warning",
+        "ariaLabel": "Warning alert",
+        "content": "<strong>Service Delay:</strong> Various services are experiencing delays due to the weather event.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>"
+      },
+      {
+        "id": "health-services-disruption",
+        "variant": "global-alert-warning",
+        "ariaLabel": "Warning alert",
+        "content": "<strong>Service Delay:</strong> Various services are experiencing delays due to the weather event.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Read more</span></a>",
+        "preventDismiss": true
+      },
+      {
+        "id": "election-caretaker-info",
+        "variant": "global-alert-info",
+        "ariaLabel": "Information alert",
+        "content": "<strong>Caretaker period:</strong> The Queensland Government is in a caretaker period until after the state election. Minimal updates will be made to this site until after the election results are declared.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>"
+      },
+      {
+        "variant": "global-alert-info",
+        "ariaLabel": "Information alert",
+        "content": "<strong>Caretaker period:</strong> The Queensland Government is in a caretaker period until after the state election. Minimal updates will be made to this site until after the election results are declared.",
+        "action": "<a href='https://www.qld.gov.au/'><span>Learn more</span></a>",
+        "preventDismiss": true
+      }
+    ]
+  }
 }

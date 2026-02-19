@@ -1,0 +1,34 @@
+<!-- QGDS Component: Select -->
+
+<label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
+    {{label-text}}
+    {{#if optional-text}}
+    <span class="label-text-optional">({{optional-text}})</span>
+    {{/if}}
+</label>
+
+{{#if hint-text}}
+<span class="qld-hint-text" id="{{id}}-hint">{{hint-text}}</span>
+{{/if}}
+
+{{#contains "qld-input-success" customClass}}{{! legacy support for feedback classes `qld-input-success`}}
+<span class="qld-input-success">{{successMessageText}}</span>
+{{else}}{{! updated bootstrap style classes - `valid-feedback`}}
+{{#if successMessageText}}
+<div class="valid-feedback">{{successMessageText}}</div>
+{{/if}}{{/contains}}
+
+{{#contains "qld-input-error" customClass}}{{! legacy support for feedback classes `qld-input-error`}}
+<span class="qld-input-error">{{errorMessageText}}</span>
+{{else}}{{! updated bootstrap style classes - `invalid-feedback`}}
+{{#if errorMessageText}}
+<div class="invalid-feedback">{{errorMessageText}}</div>
+{{/if}}{{/contains}}
+
+<select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
+    <option selected value="">{{placeholder}}</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+</select>

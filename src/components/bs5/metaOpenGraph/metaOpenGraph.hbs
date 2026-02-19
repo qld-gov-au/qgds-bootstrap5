@@ -1,0 +1,18 @@
+
+<!-- SEO (required) -->
+{{#if description }}<meta name="description" content="{{ description }}" />{{/if}}
+{{#if seo.pageSnippet }}<meta name="page.snippet" content="{{ seo.pageSnippet}}" />{{/if}}
+
+<!-- SEO -->
+{{#if seo.keywords }}<meta name="keywords" content="{{ seo.keywords }}" />{{/if}}
+{{#if seo.department }}<meta name="department" content="{{ seo.department }}" />{{/if}}
+
+<!-- Open Graph protocol https://ogp.me/ basics -->
+<meta property="og:title" content="{{ title }}" />
+<meta name="twitter:title" content="{{ title }}" />
+{{#if description }}<meta property="og:description" content="{{ description }}" />{{/if}}
+{{#ifAny og.twitter_description description }}<meta name="twitter:description" content="{{#if og.twitter_description }}{{ og.twitter_description }}{{else}}{{ description }}{{/if}}" />{{/ifAny}}
+{{#if og.image }}<meta property="og:image" content="{{ og.image }}">{{/if}}
+{{#ifAny og.twitter_image og.image }}<meta name="twitter:image:src" content="{{#if og.twitter_image }}{{ og.twitter_image }}{{else}}{{ og.image }}{{/if}}" />{{/ifAny}}
+{{#if uri }}<meta property="og:url" content="{{ uri }}" />{{/if}}
+{{#if og.type }}<meta property="og:type" content="{{og.type}}" />{{/if}}

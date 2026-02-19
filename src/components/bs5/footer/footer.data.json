@@ -1,0 +1,163 @@
+{
+  "sitename": "Site name, Namestyle or Name Identifier",
+  "variantClass": "",
+  "contact": {
+    "hasBorderColumn": false,
+    "title": "Contact us",
+    "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
+    "showList": true,
+    "list": {
+      "phone": {
+        "icon": "qld-icon-phone",
+        "label": "<b>Phone:</b> <a href='tel:137468' rel='noopener'>13 QGOV (13 74 68)</a>"
+      },
+      "email": {
+        "icon": "qld-icon-email",
+        "label": "<b>Email:</b> <span class='user-select-all'><a href='mailto:email@qld.gov.au' rel='noopener'>email@qld.gov.au</a></span>"
+      }
+    },
+    "buttonLabel": "Contact us",
+    "buttonLink": "https://www.qld.gov.au/contact-us"
+  },
+  "footerLinks": {
+    "hasBorderColumn": true,
+    "title": "",
+    "list": [
+      {
+        "label": "Help",
+        "link": "https://www.qld.gov.au/help"
+      },
+      {
+        "label": "Copyright",
+        "link": "https://www.qld.gov.au/legal/copyright"
+      },
+      {
+        "label": "Disclaimer",
+        "link": "https://www.qld.gov.au/legal/disclaimer"
+      },
+      {
+        "label": "Privacy",
+        "link": "https://www.qld.gov.au/legal/privacy"
+      },
+      {
+        "label": "Right to information",
+        "link": "https://www.qld.gov.au/about/rights-accountability/right-to-information"
+      },
+      {
+        "label": "Accessibility",
+        "link": "https://www.qld.gov.au/help/accessibility"
+      },
+      {
+        "label": "Jobs in Queensland Government",
+        "link": "https://smartjobs.qld.gov.au",
+        "target": "_blank"
+      },
+      {
+        "label": "Other languages",
+        "link": "https://www.qld.gov.au/help/languages"
+      }
+    ]
+  },
+  "followLinks": [
+    {
+      "label": "Facebook",
+      "accessibleLabel": "Facebook page",
+      "link": "#",
+      "icon": "facebook",
+      "target": "_blank"
+    },
+    {
+      "label": "LinkedIn",
+      "accessibleLabel": "LinkedIn page",
+      "link": "#",
+      "icon": "linkedin",
+      "target": "_blank"
+    },
+    {
+      "label": "X (Twitter)",
+      "accessibleLabel": "X page",
+      "link": "#",
+      "icon": "x",
+      "target": "_blank"
+    },
+    {
+      "label": "Youtube",
+      "link": "#",
+      "icon": "youtube",
+      "target": "_blank"
+    },
+    {
+      "label": "Instagram",
+      "link": "#",
+      "icon": "instagram",
+      "target": "_blank"
+    }
+  ],
+  "customLinks": [
+    {
+      "label": "Link 1",
+      "link": "https://www.example.com",
+      "target": "_blank"
+    },
+    {
+      "label": "Link 2",
+      "link": "https://www.example.com"
+    },
+    {
+      "label": "Link 3",
+      "link": "https://www.example.com"
+    },
+    {
+      "label": "Link 4",
+      "link": "https://www.example.com"
+    },
+    {
+      "label": "Link 5",
+      "link": "https://www.example.com",
+      "target": "_blank"
+    },
+    {
+      "label": "Link 6",
+      "link": "https://www.example.com"
+    },
+    {
+      "label": "Link 7",
+      "link": "https://www.example.com"
+    }
+  ],
+  "acknowledgements": [
+    {
+      "title": "Acknowledgement of Country",
+      "content": "<p>We pay our respects to the Aboriginal and Torres Strait Islander ancestors of this land, their spirits and their legacy. The foundations laid by these ancestors—our First Nations peoples—give strength, inspiration and courage to current and future generations towards creating a better Queensland.</p>"
+    }
+  ],
+  "footerLogo": {
+    "show": true,
+    "src": "",
+    "alt": "Queensland Government"
+  },
+  "copyright": {
+    "content": "&copy; The State of Queensland (Organisation)",
+    "showYearFrom": false,
+    "yearFrom": "1995"
+  },
+  "organisationLink": {
+    "show": true,
+    "URL": "https://www.qld.gov.au",
+    "text": "Queensland Government"
+  },
+  "optionalColumn1": {
+    "hasBorderColumn": true,
+    "title": "Optional Column 1",
+    "content": "",
+    "showFollowLinks": false,
+    "showCustomLinks": false
+  },
+  "optionalColumn2": {
+    "hasBorderColumn": true,
+    "title": "Follow us",
+    "content": "",
+    "showFollowLinks": true,
+    "showCustomLinks": false
+  }
+}

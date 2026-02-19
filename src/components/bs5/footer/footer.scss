@@ -1,0 +1,423 @@
+// ----------------------------------------------------------------------------------------------------------------------
+// Footer Area
+// ----------------------------------------------------------------------------------------------------------------------
+
+.qld-footer {
+  // ------------------------------------------------------------------------------------------------------------------
+  //  1. Palette colours
+  // ------------------------------------------------------------------------------------------------------------------
+  // Default palette
+  --#{$prefix}footer-color-crest-fill: var(--#{$prefix}-neutral-black);
+  --#{$prefix}footer-color-border: var(
+    --#{$prefix}color-default-color-light-border-default
+  );
+  --#{$prefix}footer-color-border-alt: var(
+    --#{$prefix}color-default-color-light-border-alt
+  );
+  --#{$prefix}footer-color-title: var(--#{$prefix}light-text-heading);
+  --#{$prefix}footer-color-designAccent: var(
+    --#{$prefix}color-default-color-light-accent-design-accent
+  );
+  --#{$prefix}footer-color-text: var(
+    --#{$prefix}color-default-color-light-text-default
+  );
+  --#{$prefix}footer-color-text__muted: var(
+    --#{$prefix}color-default-color-light-text-lighter
+  );
+  --#{$prefix}footer-color-link: var(
+    --#{$prefix}color-default-color-light-link-default
+  );
+  --#{$prefix}footer-color-focus: var(
+    --#{$prefix}color-default-color-light-focus-default
+  );
+  --#{$prefix}footer-color-background: var(
+    --#{$prefix}color-default-color-light-background-default
+  );
+  --#{$prefix}footer-color-alt-button: var(--#{$prefix}light-action-secondary);
+  --#{$prefix}footer-color-alt-button__hover: var(
+    --#{$prefix}light-action-secondary-hover
+  );
+  --#{$prefix}footer-color-social-icon: #{$core-default-color-neutral-black};
+
+  // ------------------------------------------------------------------------------------------------------------------
+  // 2. Colours
+  // ------------------------------------------------------------------------------------------------------------------
+  --#{$prefix}footer-column-border-color: var(--#{$prefix}footer-color-border);
+  @include media-breakpoint-down(lg) {
+    --#{$prefix}footer-column-border-color: transparent;
+  }
+
+  // ------------------------------------------------------------------------------------------------------------------
+  // Dark palette & Forgov
+  // ------------------------------------------------------------------------------------------------------------------
+  &.dark,
+  &.dark-alt {
+    --#{$prefix}footer-color-crest-fill: var(
+      --#{$prefix}color-default-color-dark-crest-fill
+    );
+    --#{$prefix}footer-color-text: var(
+      --#{$prefix}color-default-color-dark-text-default
+    );
+    --#{$prefix}footer-color-border: var(
+      --#{$prefix}color-default-color-dark-border-default
+    );
+    --#{$prefix}footer-color-border-alt: var(
+      --#{$prefix}color-default-color-dark-border-alt
+    );
+    --#{$prefix}footer-color-title: var(
+      --#{$prefix}color-default-color-dark-text-heading
+    );
+    --#{$prefix}footer-color-designAccent: var(
+      --#{$prefix}color-default-color-dark-accent-design-accent
+    );
+    --#{$prefix}footer-color-alt-button: var(
+      --#{$prefix}color-default-color-dark-action-secondary
+    );
+    --#{$prefix}footer-color-alt-button__hover: var(
+      --#{$prefix}color-default-color-dark-action-secondary-hover
+    );
+    --#{$prefix}footer-color-link: var(
+      --#{$prefix}color-default-color-dark-link-default
+    );
+    --#{$prefix}footer-color-focus: var(
+      --#{$prefix}color-default-color-dark-underline-default
+    );
+    --#{$prefix}footer-color-social-icon: #{$core-default-color-neutral-white};
+  }
+  &.dark-alt {
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-alt
+    );
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-alt
+    );
+  }
+  &.dark {
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-default
+    );
+    --#{$prefix}footer-color-background: var(
+      --#{$prefix}color-default-color-dark-background-default
+    );
+  }
+
+  // Measurements
+  // -text
+  --#{$prefix}footer-font-size: 0.875rem;
+  --#{$prefix}footer-title-font-size: 1.25rem;
+
+  // -spacing
+  --#{$prefix}footer-gap: 0.75rem;
+  --#{$prefix}footer-column-spacing: 2rem;
+  --#{$prefix}footer-spacing: 1rem;
+  --#{$prefix}footer-padding-y: 4rem;
+
+  // -boarders
+  --#{$prefix}footer-top-border-width: 0.25rem;
+  --#{$prefix}footer-special-border-default-width: 0.13rem;
+  --#{$prefix}footer-special-border-thin-width: 0.06rem;
+
+  // Icons and Crest
+  --#{$prefix}footer-crest-max-width: 15.72rem;
+
+  @include media-breakpoint-up(lg) {
+    padding-block: var(--#{$prefix}footer-padding-y);
+  }
+  border-top: solid;
+  border-top-width: var(--#{$prefix}footer-top-border-width);
+  border-top-color: var(--#{$prefix}footer-color-designAccent);
+  background: var(--#{$prefix}footer-color-background);
+  color: var(--#{$prefix}footer-color-text);
+  font-size: var(--#{$prefix}footer-font-size);
+
+  a:not(.btn),
+  a.nav-link {
+    --qld-link-color: var(--#{$prefix}footer-color-link);
+    text-decoration: underline;
+    text-decoration-color: var(--#{$prefix}link-underline);
+    text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+    text-underline-offset: var(--#{$prefix}link-underline-offset);
+    color: var(--qld-link-color);
+    padding-left: 0;
+
+    &:hover {
+      text-decoration-thickness: var(
+        --#{$prefix}link-underline-thickness-hover
+      );
+      text-decoration-color: var(--#{$prefix}link-underline-hover);
+    }
+
+    &:visited {
+      color: var(--#{$prefix}footer-color-link);
+      text-decoration: underline;
+      text-decoration-color: var(--#{$prefix}link-underline);
+      text-decoration-thickness: var(--#{$prefix}link-underline-thickness);
+
+      &:hover {
+        text-decoration-color: var(--#{$prefix}link-underline-hover);
+        text-decoration-thickness: var(
+          --#{$prefix}link-underline-thickness-hover
+        );
+      }
+    }
+  }
+
+  .footer-column {
+    position: relative;
+
+    // Medium and below
+    padding-block-start: 1.5rem;
+    padding-block-end: 1.5rem;
+
+    border-top: var(--#{$prefix}footer-special-border-thin-width) solid
+      var(--#{$prefix}footer-color-border);
+
+    // Large and above
+    @include media-breakpoint-up(lg) {
+      padding-block-start: 0;
+      padding-block-end: 0;
+
+      border-top: none;
+    }
+  }
+
+  .border-column {
+    // height: 100%;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: "";
+      width: var(--#{$prefix}footer-special-border-default-width);
+      background: var(--#{$prefix}footer-column-border-color);
+      top: 0;
+      bottom: 0;
+      right: calc(var(--qld-gutter-x) * 0.5);
+    }
+  }
+
+  .footer {
+    &-site-name,
+    &-heading {
+      color: var(--#{$prefix}footer-color-title);
+      font-size: var(--#{$prefix}footer-title-font-size);
+      line-height: 1.2;
+      font-weight: 600;
+    }
+    &-site-name {
+      margin-block-end: calc(var(--#{$prefix}footer-spacing) * 2);
+    }
+    &-heading {
+      margin-block-end: var(--#{$prefix}footer-spacing);
+    }
+  }
+
+  .footer-contact-item {
+    margin-block-end: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  //Crest Logo
+  .footer-crest {
+    display: block;
+    width: 100%;
+    max-width: 14.5rem;
+    margin-block-start: calc(var(--#{$prefix}footer-spacing) * 1.5);
+    margin-block-end: calc(var(--#{$prefix}footer-spacing) * 1.5);
+
+    @include media-breakpoint-up(lg) {
+      max-width: var(--#{$prefix}footer-crest-max-width);
+    }
+  }
+
+  .nav {
+    --#{$prefix}nav-link-color: var(--#{$prefix}footer-color-link);
+
+    &.footer-link-list {
+      display: grid;
+      gap: 0.75rem;
+
+      // Social media / follow us links
+      &--social {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-inline-start: 1rem;
+
+        @include media-breakpoint-up(lg) {
+          margin-inline-start: 0;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        li {
+          white-space: nowrap;
+        }
+
+        a.nav-link {
+          display: flex;
+          padding-inline: 0 !important;
+          margin-block-end: 0 !important;
+
+          .nav-link-label {
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+              display: block;
+            }
+          }
+
+          .qld-icon {
+            --#{$prefix}icon-color: var(--#{$prefix}footer-color-social-icon);
+
+            // max-height: unset;
+            margin-block-end: 0;
+
+            @include media-breakpoint-up(lg) {
+              margin-inline-end: 1rem;
+              max-height: var(--#{$prefix}footer-social-icon-size-height);
+            }
+          }
+
+          &:hover {
+            --component-icon-color: var(--#{$prefix}footer-color-crest-fill);
+          }
+        }
+      }
+
+      a.nav-link {
+        font-weight: 400;
+        line-height: 1.25rem;
+        padding-block-start: 0;
+        padding-block-end: 0;
+
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .footer-crest svg path {
+    fill: var(--#{$prefix}footer-color-crest-fill);
+  }
+
+  .btn {
+    --#{$prefix}btn-border-color: var(--#{$prefix}footer-color-alt-button);
+    --#{$prefix}btn-hover-border-color: var(
+      --#{$prefix}footer-color-alt-button
+    );
+    --qld-brand-accent: var(--#{$prefix}footer-color-alt-button);
+
+    &:hover {
+      --qld-brand-accent: var(--#{$prefix}footer-color-alt-button__hover);
+    }
+  }
+
+  .contact-btn {
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    .btn {
+      min-width: 10rem;
+      width: 100%;
+      margin-block-end: 1.5rem;
+
+      @include media-breakpoint-up(md) {
+        width: fit-content;
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  .btn-global-secondary {
+    white-space: normal;
+  }
+
+  // ------------------------------------------------------------------------------------------------------------------
+  // Responsive
+  @include media-breakpoint-down(lg) {
+    padding-top: calc(var(--#{$prefix}footer-gap) * 2);
+
+    .footer-site-name {
+      margin-block-end: calc(var(--#{$prefix}footer-gap) * 2);
+    }
+
+    .border-column {
+      &:after {
+        content: none;
+      }
+    }
+
+    .container {
+      > .row {
+        > .title {
+          border-bottom: var(--#{$prefix}footer-special-border-thin-width) solid
+            var(--#{$prefix}footer-color-border-alt);
+        }
+
+        // Crest "column"
+        > .crest {
+          border-top: var(--#{$prefix}footer-special-border-thin-width) solid
+            var(--#{$prefix}footer-color-border-alt);
+
+          .footer-column {
+            border-top: none;
+          }
+        }
+      }
+    }
+
+    .footer-link-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-column {
+      // Specific to Social Links column
+      &:has(.footer-link-list--social) {
+        display: flex;
+        flex-direction: row !important;
+        align-items: center;
+
+        .footer-heading {
+          margin-block-end: 0;
+          line-height: 2rem;
+        }
+        .footer-content,
+        a.nav-link {
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .footer-link-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-site-name,
+    .footer-heading {
+      font-size: calc(var(--#{$prefix}footer-title-font-size) - 0.25rem);
+      line-height: 1.25rem;
+    }
+
+    .footer-column:has(.footer-link-list--social) .footer-heading {
+      line-height: 1.5rem;
+    }
+  }
+
+  // Fix: Allow long email addresses to wrap on small screens
+  @media (max-width: 700px) {
+    a {
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+  }
+}

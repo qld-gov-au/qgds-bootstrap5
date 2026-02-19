@@ -1,0 +1,44 @@
+{
+  "isSubBrand": true,
+  "hasDeliveringForQLDLogo": true,
+  "preHeader": {
+    "palette": "dark",
+    "globalLink": {
+      "text": "www.qld.gov.au",
+      "url": "https://qld.gov.au"
+    },
+    "actions": [
+      {
+        "id": "CTAone",
+        "url": "#",
+        "text": "Contact Information",
+        "icon": "phone"
+      },
+
+      {
+        "id": "CTAthree",
+        "url": "#",
+        "text": "Login",
+        "icon": "login"
+      }
+    ]
+  },
+  "mainContent": {
+    "palette": "default",
+    "url": "https://qld.gov.au",
+    "logoPath": "",
+    "secondaryLogoPath": "",
+    "siteTitle": "Department of Seniors, Disability Services and Aboriginal and Torres Strait Islander Partnerships",
+    "subline": ""
+  },
+  "assets": {
+    "siteSearch": {
+      "value": "#",
+      "placeholder": "",
+      "label": "",
+      "formAction": {
+        "url": "https://www.forgov.qld.gov.au/search"
+      }
+    }
+  }
+}

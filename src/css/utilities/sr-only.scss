@@ -1,0 +1,5 @@
+///
+/// Screen reader only utility - hides content visually while keeping it accessible to screen readers
+.sr-only {
+  @include visually-hidden();
+}

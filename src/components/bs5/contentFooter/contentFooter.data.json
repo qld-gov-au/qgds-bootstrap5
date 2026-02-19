@@ -1,0 +1,11 @@
+{
+  "lastUpdated": "1900-01-31",
+  "classes": "mb-64",
+  "backToTop": {
+    "hide_back_to_top": false,
+    "directionalLink": {
+      "label": "Back to top",
+      "href": "#"
+    }
+  }
+}

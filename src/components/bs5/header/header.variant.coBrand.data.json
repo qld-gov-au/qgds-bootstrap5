@@ -1,0 +1,37 @@
+{
+  "isCoBrand": true,
+  "hasDeliveringForQLDLogo": true,
+  "preHeader": {
+    "palette": "default",
+    "globalLink": {
+      "text": "www.qld.gov.au",
+      "url": "https://qld.gov.au"
+    },
+    "actions": [
+      {
+        "id": "CTAone",
+        "url": "#",
+        "text": "Get support to quit",
+        "icon": "profile"
+      }
+    ]
+  },
+  "mainContent": {
+    "palette": "dark",
+    "url": "https://qld.gov.au",
+    "logo": null,
+    "secondaryLogo": null,
+    "siteTitle": "Cairns and Hinterland",
+    "subline": "Hospital and Health Service"
+  },
+  "assets": {
+    "siteSearch": {
+      "value": "#",
+      "placeholder": "",
+      "label": "",
+      "formAction": {
+        "url": "https://www.forgov.qld.gov.au/search"
+      }
+    }
+  }
+}

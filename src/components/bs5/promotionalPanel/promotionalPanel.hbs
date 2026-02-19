@@ -1,0 +1,50 @@
+<section class="qld-promo-panel {{#ifCond type '==' 'indent-text'}}indent{{/ifCond}} {{#ifCond type '==' 'indent-img'}}indent{{/ifCond}} {{type}}">
+    <div class="row {{#ifCond type '==' 'promo'}}bg-img{{else}}{{variantClass}}{{/ifCond}} {{contentAlignment}}" 
+        {{#ifCond type '==' 'promo'}}
+            style="background-image: url({{promoImage}});"
+        {{/ifCond}}>
+        <div class="image-panel">
+            {{#ifCond type '!=' 'promo'}}
+            <img class="promo-panel-image" src="{{promoImage}}" alt="{{isdefined promoImageDescription "Promotional image"}}">
+            {{else}}
+                <div class="promo-panel-image"></div>
+            {{/ifCond}}
+        </div>
+        <div class="content-panel {{variantClass}}">      
+            {{#if icon}}
+                <div class="icon-container">
+                    <div class="icon-body">
+                        <i class="qld-icon {{icon}}"></i>
+                    </div>
+                </div>
+            {{/if}}
+            <div class="main">
+                {{#if title}}
+                    <h2>{{~{title}~}}</h2>
+                {{/if}}
+                {{#if abstract}}
+                    <div class="promo-abstract">
+                        {{~{abstract}~}}
+                    </div>
+                {{/if}}
+                {{#if body}}
+                    {{~{body}~}}
+                {{/if}}
+            </div>
+            {{#if cta.items}}
+                <div class="cta-container">                            
+                    {{#each cta.items}}                        
+                        {{> callToAction label=value href=url target=target class=class arialabel=value id=id}}                        
+                    {{/each}}                            
+                </div>
+            {{/if}}
+            {{#if btn.items}}
+                <div class="btn-container">
+                    {{#each btn.items}}
+                        {{> button islink=islink variantClass=variantClass label=label href=href target=target dataatts="data-type='class'"}}
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</section>

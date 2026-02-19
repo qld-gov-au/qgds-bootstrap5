@@ -1,0 +1,129 @@
+<header class="qld-header " role="banner">
+    <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
+        preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
+        }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+
+                <a class="qld-header-link align-self-center"
+                    href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
+                    <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
+                    {{#if hasDeliveringForQLDLogo}}
+                    {{>logo logo="coa-delivering-for-qld" className="qld-header-logo is-delivering-for-qld" fill="currentColor"}}
+                    {{else}}
+                    {{>logo className="qld-header-logo" fill="currentColor"}}
+                    {{/if}}
+                </a>
+
+                {{#if preHeader.actions}}
+                <div class="d-none d-lg-flex align-items-baseline">
+                    {{#each preHeader.actions}}
+                    {{#if dropdown}}
+                    <div class="dropdown">
+                        <a id="dropdown{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            class="qld-header-link dropdown-toggle" href="#">
+                            {{{text}}}
+                        </a>
+
+                        {{#ifCond dropdown.type "===" "list"}}
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            {{#each dropdown.items}}
+                            <li>
+                                <a class="qld-header-link dropdown-item " href="{{url}}" {{#if
+                                    target}}target="{{target}}" {{/if}}>
+                                    {{text}}
+                                </a>
+                            </li>
+                            {{/each}}
+
+                            {{#if dropdown.viewMore}}
+                            <li>
+                                <a href="{{dropdown.viewMore.url}}" {{#if
+                                    dropdown.viewMore.target}}target="{{dropdown.viewMore.target}}" {{/if}}
+                                    class="qld-header-link dropdown-item border-bottom-0">
+                                    {{dropdown.viewMore.text}}
+                                </a>
+                            </li>
+                            {{/if}}
+
+                        </ul>
+                        {{/ifCond}}
+
+                        {{#ifCond dropdown.type "in" "html, form"}}
+                        <div class="dropdown-menu dropdown-menu-end">
+                            {{{dropdown.HTMLContent}}}
+                        </div>
+                        {{/ifCond}}
+
+                    </div>
+                    {{else}}
+
+                    <a class="qld-header-link ms-16" href="{{url}}">
+                        {{#if icon}}
+                        <span class="qld-icon qld-icon-{{icon}} qld-icon-sm qld-header-link-icon"
+                            aria-hidden="true"></span>
+                        {{/if}}{{{text}}}
+                    </a>
+                    {{/if}}
+                    {{/each}}
+                </div>
+                {{/if}}
+
+                <div class="qld-header-mobile-controls">
+                    {{#if assets.siteSearch.value}}
+                    <button id="qld-header-toggle-search-button" aria-controls="qld-header-search"
+                        class="qld-header-mobile-button is-search-toggle" aria-expanded="false"
+                        aria-label="Open search">Search</button>
+                    {{/if}}
+
+                    <button id="burgerBtn" class="qld-header-mobile-button is-menu-toggle" data-bs-toggle="collapse"
+                        data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                        aria-label="Open menu">Menu</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else ifCond
+        mainContent.palette "===" "default" }}default{{else ifCond mainContent.palette "===" "dark-alt"
+        }}dark-alt{{else}}default{{/ifCond}}">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    {{#ifAny isMasterBrand isSubBrand isCoBrand}}
+                    {{>headerBrand
+                    hasDeliveringForQLDLogo=hasDeliveringForQLDLogo
+                    url=mainContent.url
+                    logo=mainContent.logo
+                    siteTitle=mainContent.siteTitle
+                    subline=mainContent.subline }}
+                    {{/ifAny}}
+
+                    {{#ifAny isEndorsedBrand isStandaloneBrand }}
+                    {{>headerBrand
+                    hasDeliveringForQLDLogo=hasDeliveringForQLDLogo
+                    url=mainContent.url
+                    logo=mainContent.logo
+                    siteTitle=mainContent.siteTitle
+                    secondaryLogo=mainContent.secondaryLogo
+                    subline=mainContent.subline }}
+                    {{/ifAny}}
+                </div>
+
+                {{#if assets.siteSearch.value}}
+                <div class="col-lg-4">
+                    <div id="qld-header-search" class="qld-header-site-search is-closed">
+                        <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
+                            action="{{assets.siteSearch.formAction.url}}" {{else}}
+                            action="https://www.qld.gov.au/search" {{/if}}>
+                            {{{ searchInput }}}
+                        </form>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</header>

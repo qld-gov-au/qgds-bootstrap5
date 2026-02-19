@@ -1,0 +1,28 @@
+{{> header header}}
+{{> navbar navbar}}
+{{> globalAlert globalAlert}}
+<main>
+  {{#> breadcrumbsWrapper}}
+    {{> breadcrumbs breadcrumbs}}
+  {{/breadcrumbsWrapper}}
+  <!-- Main content-->
+  <div class="container-fluid">
+    <div class="container qld-content">
+      <div class="row">
+        <!-- Side Nav -->
+        {{#> sidenavWrapper}}
+          {{> sidenav sidenav}}
+        {{/sidenavWrapper}}
+        {{#> contentWrapper}}
+        {{> @partial-block }}
+        {{/contentWrapper}}
+      </div> <!-- end row -->
+    </div>
+
+    {{#>contentFooterWrapper}}
+      {{> contentFooter contentFooter }}
+    {{/contentFooterWrapper}}
+
+  </div>
+</main>
+{{> footer footer}}

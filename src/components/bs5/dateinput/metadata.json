@@ -1,0 +1,14 @@
+{
+"id": "qgds-input-date",
+"title": "Date Input",
+"type": "Component",
+"category": "Extended",
+"group": "",
+"status": "Published",
+"tags": [""],
+"description": "The date input component consists of 3 separate text fields that accept DD, MM and YYYY values respectively.",
+"refs": {
+  "uikit": "",
+  "website": ""
+  }
+}

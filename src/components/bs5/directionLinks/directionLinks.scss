@@ -1,0 +1,63 @@
+// QGDS QOL Direction Links
+
+a.qld-dir-link {
+  --link-colour: var(--#{$prefix}light-action-primary);
+  --icon-colour: var(--#{$prefix}light-action-secondary);
+  --icon-colour-hover: var(--#{$prefix}light-action-secondary-hover);
+
+  color: var(--link-colour);
+  text-decoration-color: var(--link-colour);
+  display: flex;
+  gap: 0.5rem;
+  width: fit-content;
+  justify-content: space-between;
+  align-self: flex-start;
+
+  &:focus {
+    border-radius: 4px;
+    outline: 3px solid var(--#{$prefix}focus-color);
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    .qld-icon {
+      background-color: var(--icon-colour-hover);
+    }
+  }
+}
+a[aria-disabled="true"] {
+  pointer-events: none;
+  color: var(--#{$prefix}hint-text-color-muted);
+  text-decoration-color: var(--#{$prefix}dark-grey-muted);
+  .qld-icon {
+    background-color: var(--#{$prefix}dark-grey-muted);
+  }
+}
+.light,
+.alt {
+  .qld-dir-link {
+    --link-colour: var(--#{$prefix}light-action-primary);
+    --icon-colour: var(--#{$prefix}light-action-secondary);
+    --icon-colour-hover: var(--#{$prefix}light-action-secondary-hover);
+  }
+}
+
+.dark,
+.dark-alt {
+  .qld-dir-link {
+    --link-colour: var(--#{$prefix}dark-text);
+    --icon-colour: var(--#{$prefix}dark-action-secondary);
+    --icon-colour-hover: var(--#{$prefix}dark-action-secondary-hover);
+  }
+  a[aria-disabled="true"] {
+    color: var(--#{$prefix}dark-text-lighter);
+    text-decoration-color: var(--#{$prefix}dark-text-lighter);
+    .qld-icon {
+      background-color: var(--#{$prefix}dark-text-lighter);
+    }
+  }
+}
+
+li .qld-dir-link {
+  width: auto;
+}

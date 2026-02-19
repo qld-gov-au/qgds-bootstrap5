@@ -1,9 +1,12 @@
 <!-- QGDS Component: Tag -->
 
-<ui class="tag-list {{varient}}">
+<ul class="tag-list {{variant}} {{classes}}">
   {{#each tagItems}}
-  <li class="tag-item {{classes}}">
-    {{{content}}}
-  </li>
+    <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
+      {{{content}}}
+      {{#if applied-filter}}
+        <button class="tag-clear-filter-button" aria-label="Remove"></button>
+      {{/if}}
+    </li>
   {{/each }}
-</ui>
+</ul>

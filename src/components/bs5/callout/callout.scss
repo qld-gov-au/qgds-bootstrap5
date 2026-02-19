@@ -8,7 +8,7 @@
     --#{$prefix}callout-border-width: 0.25rem;
     --#{$prefix}callout-title-color: var(--#{$prefix}headings-color);
     --#{$prefix}callout-text-color: var(--#{$prefix}body-color);
-    --#{$prefix}callout-spacer: 1.25rem;
+    --#{$prefix}callout-spacer: 1rem;
 
     .light & {
         --#{$prefix}callout-bg-color: var(--#{$prefix}light-background-shade);
@@ -25,7 +25,7 @@
     }
 
     .dark & {
-        --#{$prefix}callout-bg-color: var(--#{$prefix}dark-background);
+        --#{$prefix}callout-bg-color: var(--#{$prefix}dark-background-shade);
     }
 
     .dark-alt & {

@@ -19,16 +19,16 @@ jobs:
       IS_CHROMATIC_DISABLED: ${{ vars.CHROMATIC_DISABLED == 'True' }}
     strategy:
       matrix:
-        node: [ '20' ]
+        node: [ '22' ]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         env:
           cache-name: cache-node-modules
         with:
@@ -46,7 +46,7 @@ jobs:
         run: npm list
 
       - name: Use Node.js
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -55,7 +55,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install #run on lint step (Which is cached)
         run: | # Install packages
-          npm install --prefer-offline --no-audit --ignore-scripts
+          npm ci --prefer-offline --no-audit --ignore-scripts
         #env:
         #  NODE_AUTH_TOKEN: ${{ secrets.NEXUSREADONLY2NPMTOKEN }}
 
@@ -69,44 +69,41 @@ jobs:
 
       - name: Test
         run: |
-          npm run test
+          npm run test:run
+
+
+      - name: Integration Test
+        run: |
+          npm run test:integration
+        continue-on-error: true
 
       - name: Build 🔧
         run: | # build the files
           npm run build
-#      - name: Build storybook 🔧
-#        run: | # build the Storybook files
-#          npm run build-storybook
 
-      - name: setup Package
-        run: |
-          ls -ltr
-          mkdir -p ./target/docs
-          cp -r ./docs ./target/docs
-          cp -r ./dist ./target/dist
-
-      - uses: actions/upload-artifact@v4.3.1
+      - uses: actions/upload-artifact@v6
         with:
           name: Package
-          path: ./target
-
+          path: ./dist
 
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
         id: extract_branch
 
       - name: display branch name
         shell: bash
         run: echo "${{ steps.extract_branch.outputs.branch }}"
 
-
-      - name: setup Publish
+      - name: setup Publish with details for binary repo including package.json for reference
         run: |
           set -x
-          cp -r ./binary-repo/* ./dist
+          cp package.json ./dist
+          mkdir ./dist/.github
+          cp -r ./.binary-repo/* ./dist
+          cp -r ./.binary-repo/.github/* ./dist/.github
 
-      - name: Publish qgds-qol-dist
+      - name: Publish qgds-bootstrap5-release
         uses: qld-gov-au/gha-publish-to-git@master
         with:
           repository: ${{ vars.TARGET_REPO }}
@@ -118,7 +115,7 @@ jobs:
           tag_branch: main
         if: success()
 
-      - name: Publish to qld-gov-au/qgds-qol-mvp-cdn
+      - name: Publish to qld-gov-au/qgds-bootstrap5-cdn
         uses: qld-gov-au/gha-cdn-version-tree-by-tag-builder@main
         with:
           repository: ${{ vars.TARGET_REPO_CDN }}
@@ -133,30 +130,8 @@ jobs:
         run: | # build the Storybook files
           npm run build-storybook
 
-      - name: Publish to Chromatic
-        if: ${{ github.actor != 'dependabot[bot]' && env.HAVE_CHROMATIC_PROJECT_TOKEN == 'true' && env.IS_CHROMATIC_DISABLED == 'false'}}
-        uses: chromaui/action@latest
-        # Options required to the GitHub Chromatic Action
-        with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          token: ${{ secrets.GH_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          # 👇 tell Chromatic to rebuild the entire project when a file matching the pattern is changed https://www.chromatic.com/docs/github-actions/#enable-turbosnap
-          #externals: |
-          #  *.sass
-          #  public/**
-          onlyChanged: true # 👈 Required option to enable TurboSnap
-          storybookBuildDir: "storybook-static"
-      - name: Publish to Chromatic - Is Skipped
-        if: ${{ env.HAVE_CHROMATIC_PROJECT_TOKEN != 'true' }}
-        run: |  
-          echo "### Chromatic not configured" >> $GITHUB_STEP_SUMMARY
-          echo "secrets.CHROMATIC_PROJECT_TOKEN not existing, chromatic did not publish" >> $GITHUB_STEP_SUMMARY
-          echo "If this is a fork, please setup your own personal chromatic at" >> $GITHUB_STEP_SUMMARY
-          echo "[chromatic setup](https://www.chromatic.com/setup)" >> $GITHUB_STEP_SUMMARY
-
       - name: Package storybook files
-        uses: actions/upload-artifact@v4 #provide nice artifact
+        uses: actions/upload-artifact@v6 #provide nice artifact
         with:
           name: Storybook
           path: storybook-static

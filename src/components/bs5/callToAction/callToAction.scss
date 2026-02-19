@@ -1,0 +1,80 @@
+// QGDS QOL CallTOAction
+
+.qld-cta-link {
+    --cta-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z'/%3E%3C/svg%3E");
+    
+    color: var(--qld-link-color);
+    text-decoration-color: var(--qld-link-underline);
+    display: flex;
+    width: fit-content;
+    justify-content: space-between;
+    align-self: flex-start;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2rem;
+    border-radius: 4px;
+    gap: 0.5rem;
+    padding-inline-end: 0.5rem;
+    transition: gap 0.3s ease, padding-inline-end 0.3s ease;
+    &.small {
+        font-size: .875rem;
+        line-height: 1rem;
+        align-items: center;
+        .icon{
+            &::after{
+                width: 1.25rem;
+                height: 1.25rem;
+                mask-position: center;
+                mask-size: 1.25rem;
+            }
+        }
+    }
+    .icon {
+        &::after {
+            content: "";
+            display: flex;
+            width: 2rem;
+            height: 2rem;
+            align-items: center;
+            justify-content: center;
+            mask-image: var(--cta-icon);
+            mask-repeat: no-repeat;
+            mask-position: 0;
+            background-color: var(--qld-action-icon-color);  
+            margin-inline: 0;
+        }
+    }
+    &:hover {
+        text-decoration-color: inherit;
+    }
+    &:focus {
+        outline: 3px solid var(--qld-focus-color);
+    }
+    &:focus, &:hover {
+        gap: 1rem;
+        padding-inline-end: 0;
+        transition: gap 0.3s ease, padding-inline-end 0.3s ease;
+        .icon {
+            &::after {
+                background-color: var(--qld-action-icon-hover-color);
+            }
+        }
+    }
+}
+.view-all {
+    .icon {
+        &::after {
+            --cta-icon: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.783 17.0925L15.5149 19.3605C15.3374 19.5381 15.2509 19.7507 15.2556 19.9983C15.2602 20.2458 15.3514 20.4584 15.5289 20.636C15.7065 20.8136 15.9223 20.9024 16.1763 20.9024C16.43 20.9024 16.644 20.8136 16.8184 20.636L20.4802 16.9743C20.7098 16.7444 20.8246 16.4752 20.8246 16.1667C20.8246 15.8582 20.7098 15.589 20.4802 15.3591L16.8044 11.6834C16.6268 11.5058 16.4143 11.417 16.1667 11.417C15.9191 11.417 15.7065 11.5058 15.5289 11.6834C15.3514 11.8609 15.2626 12.0766 15.2626 12.3303C15.2626 12.584 15.3514 12.7982 15.5289 12.9728L17.783 15.2408H11.7456C11.4791 15.2408 11.2582 15.3285 11.0828 15.5039C10.9075 15.6795 10.8198 15.9006 10.8198 16.1671C10.8198 16.4338 10.9075 16.6547 11.0828 16.8298C11.2582 17.005 11.4791 17.0925 11.7456 17.0925H17.783ZM16.1693 30.1667C14.2429 30.1667 12.4294 29.7992 10.7288 29.0644C9.02816 28.3295 7.54355 27.3281 6.27495 26.0603C5.0066 24.7922 4.00474 23.3082 3.26937 21.6083C2.53425 19.9084 2.16669 18.0954 2.16669 16.1693C2.16669 14.2328 2.53413 12.4127 3.269 10.7089C4.00388 9.00507 5.00525 7.52304 6.27311 6.26279C7.54121 5.00255 9.02521 4.00474 10.7251 3.26937C12.425 2.53425 14.238 2.16669 16.1641 2.16669C18.1005 2.16669 19.9207 2.53412 21.6245 3.269C23.3283 4.00388 24.8103 5.0012 26.0706 6.26095C27.3308 7.5207 28.3286 9.00213 29.064 10.7052C29.7991 12.4083 30.1667 14.2279 30.1667 16.1641C30.1667 18.0905 29.7992 19.9039 29.0644 21.6046C28.3295 23.3052 27.3322 24.7898 26.0724 26.0584C24.8127 27.3268 23.3312 28.3286 21.6282 29.064C19.9251 29.7991 18.1054 30.1667 16.1693 30.1667ZM16.1667 28.315C19.551 28.315 22.4219 27.1338 24.7793 24.7715C27.1364 22.4092 28.315 19.5409 28.315 16.1667C28.315 12.7824 27.1364 9.91151 24.7793 7.55411C22.4219 5.19695 19.551 4.01837 16.1667 4.01837C12.7924 4.01837 9.92416 5.19695 7.56184 7.55411C5.19953 9.91151 4.01837 12.7824 4.01837 16.1667C4.01837 19.5409 5.19953 22.4092 7.56184 24.7715C9.92416 27.1338 12.7924 28.315 16.1667 28.315Z' fill='%23008635'/%3E%3C/svg%3E%0A");
+            mask-size: 2rem;
+        }
+    }
+}
+a[aria-disabled="true"] {
+    pointer-events: none;
+    color: var(--qld-dark-grey-muted);
+    .icon {
+        &::after {
+            background-color: var(--qld-dark-grey-muted);
+        }
+    }
+}

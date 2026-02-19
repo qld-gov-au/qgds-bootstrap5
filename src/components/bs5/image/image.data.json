@@ -1,0 +1,17 @@
+{
+  "ratioClass": "image-ratio-3x2",
+  "otherClass": "",
+  "figureClass": "",
+  "positionX": "position-x-center",
+  "positionY": "position-y-center",
+  "width": "",
+  "widthUnit": "",
+  "height": "",
+  "heightUnit": "",
+  "src": "assets/img/image-example-health-workers-md.jpg",
+  "alt": "Two healthcare workers sitting on a park bench reviewing information on a tablet device",
+  "caption": "Queensland Health staff using mobile technology to improve patient care and access medical records in the field",
+  "credit": "Photo by Queensland Government",
+  "tabindex": "",
+  "role": ""
+}

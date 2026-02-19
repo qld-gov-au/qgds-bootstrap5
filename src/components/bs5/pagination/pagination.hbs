@@ -1,31 +1,40 @@
-{{!
-Component Name: QGDS QOL Pagination
-Component Version: 1.0
-Framework: Bootstrap 5.3
-Reference: https://getbootstrap.com/docs/5.0/components/pagination/
-}}
-
 <nav aria-label="{{ arialabel }}">
 
     <ul class="pagination">
 
-        <li class="page-item previous {{ prev.classes }}">
-            <a class="page-link" href="#" aria-label=" {{ prev.arialabel }} ">
-                <span>{{ prev.linktext }}</span>
+        {{#if previous }}
+        <li class="page-item previous">
+            <a class="page-link" href="{{previous.href}}" aria-label="{{previous.arialabel}}">
+                <span>{{ previous.linktext }}</span>
             </a>
         </li>
+        {{/if}}
 
         {{#each pages}}
-        <li class="page-item {{ classes }}">
-            <a class="page-link" href="{{ href }}" aria-label=" {{ arialabel }} ">{{ linktext }}</a>
+        <li class="page-item {{customClasses}}">
+            {{#if more}}
+            {{! More button }}
+            <span></span>
+            {{else}}
+                {{#ifCond "active" "in" customClasses}}
+                {{! Active page - not a link }}
+                <span class="page-link" aria-current="page" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}, current page{{/if}}">{{ linktext }}</span>
+                {{else}}
+                {{! Page button }}
+                <a class="page-link" href="{{href}}" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}{{/if}}">{{ linktext }}</a>
+                {{/ifCond}}
+            {{/if}}
         </li>
+
         {{/each }}
 
-        <li class="page-item next {{ next.classes }}">
-            <a class="page-link" href="#" aria-label="{{ next.arialabel }}">
+        {{#if next }}
+        <li class="page-item next">
+            <a class="page-link" href="{{next.href}}" aria-label="{{next.arialabel}}">
                 <span>{{ next.linktext }}</span>
             </a>
         </li>
+        {{/if}}
 
     </ul>
 

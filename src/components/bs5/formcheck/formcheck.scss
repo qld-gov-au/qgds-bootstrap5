@@ -1,0 +1,531 @@
+@use "../../../css/mixins" as m;
+@use "../../../css/functions" as f;
+@use "../icons/icons.list" as icons;
+@import "form-variables";
+// NTGOV Form Controls, radios, checkboxes and input groups
+// https://getbootstrap.com/docs/5.2/forms/form-control/#variables
+
+//Globally scoped - all inputs will generally use these values
+
+$input-padding-y: 0.75rem;
+$input-padding-x: 1rem;
+$input-line-height: 1.5;
+$input-font-size: 1rem;
+
+$input-padding-y-sm: $input-padding-y;
+$input-padding-x-sm: $input-padding-x;
+$input-font-size-sm: 1rem;
+
+$input-padding-y-lg: $input-padding-y;
+$input-padding-x-lg: $input-padding-x;
+$input-font-size-lg: 1rem;
+
+$input-border-width: 2px;
+$input-border-radius: $border-radius;
+
+// Checks and radios (LARGE)
+$form-check-input-width: 2rem;
+
+// Checks and radios (SMALL)
+$form-check-input-width-small: 1.375rem;
+
+$form-check-min-height: $font-size-base * $line-height-base;
+$form-check-padding-start: $form-check-input-width + f.remify(8px);
+$form-check-margin-top: f.remify(8px);
+$form-check-margin-bottom: f.remify(16px);
+$form-check-label-color: $body-color;
+$form-check-label-cursor: null;
+$form-check-transition: null;
+
+$form-check-input-active-filter: brightness(100%);
+
+$form-check-input-bg: $input-bg;
+$form-check-input-border: 2px solid var(--#{$prefix}light-text-text);
+$form-check-input-border-radius: 0.25em;
+$form-check-radio-border-radius: 50%;
+
+$form-check-input-checked-color: var(--#{$prefix}light-text-text);
+$form-check-input-checked-bg-color: transparent;
+$form-check-input-checked-border-color: var(--#{$prefix}light-text-text);
+
+$form-check-hover: var(--#{$prefix}dark-hover);
+
+$form-check-valid-color: var(--#{$prefix}notify-success);
+$form-check-invalid-color: var(--#{$prefix}notify-warning);
+
+// OUTLINES
+$form-check-input-outline: 3px solid var(--#{$prefix}focus-color);
+
+// SMALL BORDER WIDTH
+$form-check-input-border-width-small: 2px;
+
+// DARK ICON
+$form-check-input-checked-color-dark: var(--#{$prefix}dark-text-text);
+
+// DARK BORDER
+$form-check-input-border-dark: var(--#{$prefix}dark-text-text);
+
+// RADIO CHECKED LIGHT
+$form-radio-bg-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" fill="#000000"/></svg>');
+$form-radio-bg-image-small: url('data:image/svg+xml,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 17.5C14.5899 17.5 17.5 14.5899 17.5 11C17.5 7.41015 14.5899 4.5 11 4.5C7.41015 4.5 4.5 7.41015 4.5 11C4.5 14.5899 7.41015 17.5 11 17.5Z" fill="#000000"/></svg>');
+
+// RADIO CHECKED DARK
+$form-radio-bg-image-dark: url("data:image/svg+xml,<svg viewBox='-2 -2 4 4' xmlns='http://www.w3.org/2000/svg'><circle r='1.8' fill='#{$form-check-input-checked-color-dark}'/></svg>");
+
+// CHECKBOX CHECKED LIGHT
+$form-check-bg-image: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.5498 13.8L0.0498047 7.30002L2.2998 5.05002L6.5498 9.30002L15.6998 0.150024L17.9498 2.40002L6.5498 13.8Z' fill='currentColor'/%3E%3C/svg%3E%0A");
+
+// CHECKBOX CHECKED DARK
+$form-check-bg-image-dark: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.5498 13.8L0.0498047 7.30002L2.2998 5.05002L6.5498 9.30002L15.6998 0.150024L17.9498 2.40002L6.5498 13.8Z' fill='#{$form-check-input-checked-color-dark}'/%3E%3C/svg%3E");
+
+// ESCAPE SVGs FOR ICONS
+$form-radio-button: #{escape-svg($form-radio-bg-image)};
+$form-radio-button-small: #{escape-svg($form-radio-bg-image-small)};
+$form-checkbox-button: #{escape-svg($form-check-bg-image)};
+
+$form-check-input-indeterminate-color: $component-active-color;
+$form-check-input-indeterminate-bg-color: $component-active-bg;
+$form-check-input-indeterminate-border-color: $form-check-input-indeterminate-bg-color;
+$form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>");
+
+$form-check-input-disabled-opacity: 0.5;
+$form-check-label-disabled-opacity: $form-check-input-disabled-opacity;
+$form-check-btn-check-disabled-opacity: $btn-disabled-opacity;
+
+$form-check-inline-margin-end: 1rem;
+
+.form-label {
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--body-color);
+  margin-bottom: 0.25rem;
+}
+
+.form-label-hint {
+  color: var(--#{$prefix}dark-grey-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+%form-control {
+  $_padding: calc(#{$input-padding-y} - var(--#{$prefix}border-top-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px))
+    calc(#{$input-padding-y} - var(--#{$prefix}border-bottom-width, 0px))
+    calc(#{$input-padding-x} - var(--#{$prefix}border-right-width, 0px));
+  @extend %form-control-variables;
+
+  color: var(--#{$prefix}color);
+  background-color: var(--#{$prefix}bg);
+  border: {
+    style: solid;
+    width: var(--#{$prefix}border-width);
+    color: var(--#{$prefix}border-color);
+  }
+  padding: $_padding;
+  border-radius: var(--#{$prefix}border-radius);
+  font-size: $input-font-size;
+  min-height: f.remify(52px);
+
+  transition: none; // no transitions until a holistic decision at design system level
+
+  &::placeholder {
+    color: var(--#{$prefix}placeholder-color);
+  }
+
+  &:hover {
+    background-color: var(--#{$prefix}bg-hover);
+    border-color: var(--#{$prefix}border-color-hover);
+
+    &::placeholder {
+      color: var(--#{$prefix}placeholder-color-hover);
+    }
+  }
+
+  @include m.focusable() {
+    color: var(--#{$prefix}color-focus);
+    background-color: var(--#{$prefix}bg-focus);
+    border-color: var(--#{$prefix}border-color-focus);
+    box-shadow: none !important;
+
+    &::placeholder {
+      color: var(--#{$prefix}placeholder-color-focus);
+    }
+
+    .dark &,
+    .dark-alt & {
+      @extend %qld-palette-default;
+    }
+  }
+
+  &:disabled,
+  &.disabled,
+  &.is-disabled {
+    &,
+    &:hover {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: var(--#{$prefix}bg);
+      border-color: var(--#{$prefix}border-color);
+    }
+  }
+  // Bootstrap base styling overrides
+  &.is-valid,
+  &.is-invalid,
+  .was-validated &:valid,
+  .was-validated &:invalid {
+    border-color: var(
+      --#{$prefix}border-color
+    ); // already scoped to .valid/.invalid.
+    // USe the same padding value as default state, and remove the background image icon.
+    padding: $_padding;
+
+    &:not(.form-select, .qld-select) {
+      background-image: none;
+    }
+
+    &:focus {
+      border-color: var(
+        --#{$prefix}border-color-focus
+      ); // This value already scoped to valid/invalid.
+    }
+  }
+}
+
+.form-control {
+  @extend %form-control;
+}
+
+// .qld-select legacy class
+.form-select,
+.qld-select {
+  @extend %form-control;
+  @extend %form-select-variables;
+
+  $_background-position: right 1rem center;
+  $_background-size: f.remify(20px);
+
+  background-image: var(--#{$prefix}icon-url);
+  background-repeat: no-repeat;
+  appearance: none;
+  background-position: $_background-position;
+  background-size: $_background-size;
+  background-origin: border-box;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    --#{$prefix}icon-url: var(--#{$prefix}icon-hover-url);
+  }
+
+  &.disabled,
+  &:disabled,
+  &.is-disabled {
+    --#{$prefix}icon-url: var(--#{$prefix}icon-disabled-url);
+  }
+
+  .was-validated &:invalid,
+  &.qld-input-error,
+  &.is-invalid {
+    --#{$prefix}icon-url: var(--#{$prefix}icon-error-url);
+  }
+
+  .was-validated &:valid,
+  &.qld-input-success,
+  &.is-valid {
+    --#{$prefix}icon-url: var(--#{$prefix}icon-success-url);
+  }
+
+  .was-validated &:invalid,
+  &.qld-input-error,
+  &.is-invalid,
+  .was-validated &:valid,
+  &.qld-input-success,
+  &.is-valid {
+    // some bs specificity war stuff
+    &:not([multiple]):not([size]) {
+      padding-right: $input-padding-x;
+      background-position: $_background-position;
+      background-size: $_background-size;
+    }
+  }
+
+  &:focus {
+    --#{$prefix}icon-url: var(--#{$prefix}icon-focus-url);
+  }
+
+  // A select doesn't have a `placeholder` attribute, instead it may have an option with a null or empty string value, which is used instead.
+  &:has(option[value=""]:checked) {
+    color: var(--#{$prefix}placeholder-color);
+
+    .dark &:focus {
+      --#{$prefix}placeholder-color: #{$color-default-color-light-text-lighter};
+    }
+  }
+
+  > option {
+    color: $color-default-color-light-text-default;
+
+    &[value=""] {
+      color: $color-default-color-light-text-lighter;
+    }
+  }
+}
+
+.form-select {
+  text-overflow: ellipsis;
+  padding-inline-end: 42px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-block: f.remify(8px 16px);
+  padding-left: 0; // override bootstrap default - icon is now attached to <label>.
+}
+
+.form-check-input {
+  // hides the original input element, and + label recreates it visually
+  background-size: calc(2rem - 8px);
+  border: 0;
+  clip-path: inset(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  margin-top: 0;
+
+  + label {
+    --_background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    vertical-align: bottom;
+    line-height: 2rem;
+    padding-left: 2.5rem;
+
+    // before is the outer box with border,
+    // after is the check or radio icon
+    &::before,
+    &::after {
+      visibility: visible;
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      background-repeat: no-repeat;
+      z-index: 9;
+      border: $form-check-input-border;
+      width: 2rem;
+      height: 2rem;
+    }
+    &::before {
+      background-color: var(--_background-color);
+      border-color: $form-check-input-checked-border-color;
+      background-image: none !important;
+    }
+
+    &::after {
+      z-index: 101;
+      background-color: transparent;
+    }
+  }
+
+  &:active + label::before,
+  &:focus + label::before {
+    border-color: var(--#{$prefix}input-border-color-hover);
+    outline: $form-check-input-outline;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  &:hover + label {
+    --_background-color: var(--#{$prefix}extra-light-grey);
+  }
+
+  &:checked {
+    background-color: transparent;
+    background-image: none;
+
+    & + label::after {
+      content: "";
+      display: block;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: $form-check-input-checked-color;
+    }
+  }
+
+  &[type="checkbox"] {
+    border-radius: 0;
+
+    &:checked {
+      + label::after {
+        mask-image: $form-check-bg-image;
+        mask-size: 1.125rem;
+      }
+    }
+  }
+
+  &[type="radio"] {
+    background-image: none;
+
+    + label {
+      //
+      &::before,
+      &::after {
+        border-radius: 50%;
+      }
+
+      &::after {
+        mask-image: $form-radio-button;
+        mask-size: 100%;
+      }
+    }
+  }
+
+  .small & {
+    &:checked + label::before {
+      background-size: 22px 22px;
+    }
+
+    &[type="checkbox"]:checked + label:after {
+      mask-size: 0.84906rem 0.63988rem;
+    }
+
+    + label {
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: $input-line-height;
+      padding-left: 1.875rem;
+
+      &:before,
+      &:after {
+        width: $form-check-input-width-small;
+        height: $form-check-input-width-small;
+        border-width: $form-check-input-border-width-small;
+      }
+    }
+
+    &[type="radio"] + label::after {
+      mask-image: $form-radio-button-small;
+    }
+  }
+
+  .dark &,
+  .dark-alt & {
+    + label::before,
+    + label::after {
+      border-color: $form-check-input-border-dark;
+    }
+    &:hover + label {
+      --_background-color: $form-check-hover;
+
+      &::after {
+        background-color: $form-check-hover;
+      }
+    }
+    &:checked + label::after {
+      background-color: $form-check-input-checked-color-dark;
+    }
+
+    &:focus + label::before {
+      outline: $form-check-input-outline;
+    }
+  }
+}
+
+%_form-check-input-valid,
+%_form-check-input-invalid {
+  + .form-check-label {
+    color: var(--body-color);
+  }
+  &:focus + .form-check-label::before {
+    outline: $form-check-input-outline;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+
+%_form-check-input-valid {
+  + .form-check-label::before {
+    outline: $form-check-valid-color solid 2px;
+  }
+}
+
+%_form-check-input-invalid {
+  + .form-check-label::before {
+    outline: $form-check-invalid-color solid 2px;
+  }
+}
+
+.valid .form-check-input,
+.is-valid .form-check-input,
+.was-validated .form-check-input:valid {
+  @extend %_form-check-input-valid;
+}
+
+.invalid .form-check-input,
+.is-invalid .form-check-input,
+.was-validated .form-check-input:invalid {
+  @extend %_form-check-input-invalid;
+}
+
+%_valid-feedback,
+%_invalid-feedback {
+  font-size: f.remify(14px);
+  line-height: f.snap-line-height(1.5);
+  display: none;
+  gap: f.remify(4px);
+  flex-wrap: nowrap;
+  margin-block: f.remify(8px);
+}
+
+%_valid-feedback {
+  @extend %form-valid-feedback-variables;
+  color: var(--color-text);
+
+  @include m.make-icon(
+    $name: "status-success",
+    $size: "sm",
+    $pseudo: "before"
+  ) {
+    flex-shrink: 0;
+  }
+}
+
+%_invalid-feedback {
+  @extend %form-invalid-feedback-variables;
+  color: var(--color-text);
+  @include m.make-icon($name: "status-error", $size: "sm", $pseudo: "before") {
+    flex-shrink: 0;
+  }
+}
+
+// .qld-input-success legacy class which is applied to both inputs, and feedback text >:(
+.valid-feedback,
+.qld-input-success:not(select, textarea, input[type="text"], .date-container) {
+  @extend %_valid-feedback;
+}
+
+.invalid-feedback,
+.qld-input-error:not(select, textarea, input[type="text"], .date-container) {
+  @extend %_invalid-feedback;
+}
+
+// Bootstrap default styles already support placing feedback after the input element.
+// However for QGDS Feedback is placed before the validated input element, so CSS sibling doesn't work here.
+// We can has() to check for the existence of next siblings instead.
+.valid-feedback:has(~ .is-valid, ~ * .is-valid ),
+.invalid-feedback:has(~ .is-invalid, ~ * .is-invalid),
+.was-validated .valid-feedback:has(~ :where(input, select, textarea):valid, ~ * :where(input, select, textarea):valid), // need to scope to input:valid within has(), :valid seems to match non inputs. the form-check input is wrapped in a div, so * > :input-valid
+.was-validated .invalid-feedback:has(~ :invalid, ~ * :invalid),
+.valid .valid-feedback,
+.invalid .invalid-feedback,
+.qld-input-success:not(select, textarea, input[type="text"]),
+.qld-input-error:not(select, textarea, input[type="text"]) {
+  display: flex;
+}

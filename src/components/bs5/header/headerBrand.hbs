@@ -1,0 +1,34 @@
+
+<div class="qld-header-brand">
+    <a class="qld-header-link d-lg-inline-flex align-middle" href="{{url}}">
+        <div class="qld-header-brand-image align-self-center">
+            {{#if logo}}
+            <img src="{{logo.src}}" height="56" alt="{{#if logo.altText}}{{logo.altText}}{{else}}Queensland government{{/if}}" />
+            {{else if siteTitle}}
+            {{>logo logo="coa-landscape-2lines" height="56" className="qld-header-logo" fill="currentColor"}}
+            {{else if hasDeliveringForQLDLogo}}
+            {{>logo logo="coa-delivering-for-qld" height="56" className="qld-header-logo is-delivering-for-qld" fill="currentColor"}}
+            {{else}}
+            {{>logo height="56" className="qld-header-logo"  fill="currentColor"}}
+            {{/if}}
+        </div>
+        {{#if secondaryLogo}}
+        <div class="qld-header-secondary-content">
+            <img src="{{secondaryLogo.src}}" class="qld-header-secondary-image qld-header-logo" height="56" alt="{{#if secondaryLogo.altText}}{{secondaryLogo.altText}}{{else}}{{siteTitle}}{{#if subline}}{{subline}}{{/if}}{{/if}}" />
+        </div>
+        {{else}}
+        {{#if siteTitle}}
+        <div class="qld-header-secondary-content">
+            <span class="qld-header-site-title">
+                {{siteTitle}}
+            </span>
+            {{#if subline}}
+            <span class="qld-header-subline">
+                {{subline}}
+            </span>
+            {{/if}}
+        </div>
+        {{/if}}
+        {{/if}}
+    </a>
+</div>    
