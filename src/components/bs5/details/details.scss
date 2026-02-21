@@ -1,11 +1,7 @@
 // QGDS Component: Details/Summary
 // #{$prefix} defined in main.css
 
-// SASS variables
-$details-icon-color: $color-default-color-light-action-secondary;
-$details-icon-dark-color: $color-default-color-dark-action-secondary;
-
-$details-chevron-icon: var(--qgds-icon-chevron-right);
+@use "../../../css/mixins" as m;
 
 // CSS Scoped Variables
 .qld-details {
@@ -23,7 +19,6 @@ $details-chevron-icon: var(--qgds-icon-chevron-right);
   --#{$prefix}details-icon: var(--qgds-icon-chevron-right);
   --#{$prefix}details-icon-width: 1.25rem;
   --#{$prefix}details-icon-transition: transform 0.2s ease-in-out;
-  --#{$prefix}details-focus: var(--#{$prefix}light-focus);
   --#{$prefix}details-min-height: 2.75rem; // 44px — lg / default
   --#{$prefix}details-font-size: 1rem;
 
@@ -42,7 +37,6 @@ $details-chevron-icon: var(--qgds-icon-chevron-right);
     );
 
     --#{$prefix}details-content-color: var(--#{$prefix}dark-text, #fff);
-    --#{$prefix}details-focus: var(--#{$prefix}dark-focus);
   }
 }
 
@@ -66,11 +60,12 @@ $details-chevron-icon: var(--qgds-icon-chevron-right);
     user-select: none;
 
     // Hide native browser disclosure triangle
-    &::-webkit-details-marker {
+    &::-webkit-details-marker,
+    &::marker {
       display: none;
     }
 
-    // Chevron icon — points right (collapsed) via rotate(-90deg)
+    // Chevron icon — points right, rotates to down when open
     &::before {
       content: "";
       display: inline-block;
@@ -92,15 +87,7 @@ $details-chevron-icon: var(--qgds-icon-chevron-right);
       }
     }
 
-    &:focus-visible {
-      outline: 3px solid var(--#{$prefix}details-focus);
-      outline-offset: 2px;
-    }
-
-    // Suppress default :focus outline — rely on :focus-visible only
-    &:focus:not(:focus-visible) {
-      outline: none;
-    }
+    @include m.focusable();
   }
 
   // Rotate chevron to point down when open

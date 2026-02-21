@@ -1,0 +1,15 @@
+{
+  "id": "qgds-details",
+  "title": "Details",
+  "title_uikit": "Details",
+  "type": "Component",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "",
+    "website": ""
+  }
+}
