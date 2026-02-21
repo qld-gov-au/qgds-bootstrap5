@@ -6,6 +6,7 @@
 
 import { Details } from "./Details.js";
 import defaultdata from "./details.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -16,9 +17,14 @@ export default {
     backgrounds: { value: "default" },
   },
   parameters: {
+    coderefs: {
+      metadata,
+      partialname: "details", //{{> details }}
+    },
     backgrounds: {
       disable: false,
     },
+    docs: {},
   },
   argTypes: {
     size: {
@@ -55,13 +61,7 @@ export const Light = {
   args: { ...defaultdata },
   globals: { backgrounds: { value: "light" } },
   decorators: [
-    (Story) => `
-      <div class="container-fluid"><div class="row"><div class="col-12">
-      <div class="light">
-          ${Story()}
-      </div>
-      </div></div></div>
-    `,
+    (Story) => `<div class="container-fluid light">${Story()}</div>`,
   ],
 };
 
@@ -72,13 +72,7 @@ export const Alternative = {
   args: { ...defaultdata },
   globals: { backgrounds: { value: "alt" } },
   decorators: [
-    (Story) => `
-      <div class="container-fluid"><div class="row"><div class="col-12">
-      <div class="alt">
-          ${Story()}
-      </div>
-      </div></div></div>
-    `,
+    (Story) => `<div class="container-fluid alt">${Story()}</div>`,
   ],
 };
 
@@ -89,13 +83,7 @@ export const Dark = {
   args: { ...defaultdata },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
-    (Story) => `
-      <div class="container-fluid"><div class="row"><div class="col-12">
-      <div class="dark">
-          ${Story()}
-      </div>
-      </div></div></div>
-    `,
+    (Story) => `<div class="container-fluid dark">${Story()}</div>`,
   ],
 };
 
@@ -106,12 +94,6 @@ export const DarkAlternative = {
   args: { ...defaultdata },
   globals: { backgrounds: { value: "darkAlt" } },
   decorators: [
-    (Story) => `
-      <div class="container-fluid"><div class="row"><div class="col-12">
-      <div class="dark-alt">
-          ${Story()}
-      </div>
-      </div></div></div>
-    `,
+    (Story) => `<div class="container-fluid dark-alt">${Story()}</div>`,
   ],
 };
