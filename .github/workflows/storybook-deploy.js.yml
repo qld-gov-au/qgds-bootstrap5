@@ -76,7 +76,7 @@ jobs:
       - name: Build Storybook 🔧
         run: | # build the Storybook files
           npm run build-storybook
-      - uses: actions/upload-artifact@v6 #provide nice artifact
+      - uses: actions/upload-artifact@v7 #provide nice artifact
         with:
           name: Storybook
           path: storybook-static
