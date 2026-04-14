@@ -70,7 +70,7 @@
     "autoprefixer": "^10.4.20",
     "chai": "^6.2.1",
     "chalk": "^5.6.2",
-    "chromatic": "^15.0.0",
+    "chromatic": "^16.3.0",
     "esbuild": "0.28.0",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-handlebars": "1.0.3",
