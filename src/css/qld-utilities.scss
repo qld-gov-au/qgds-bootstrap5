@@ -45,6 +45,6 @@ $utilities: map-merge(
 // Utility: Style mailto links
 a[href^="mailto:"] {
   word-wrap: break-word;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
