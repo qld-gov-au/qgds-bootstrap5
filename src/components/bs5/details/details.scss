@@ -71,7 +71,7 @@
     color: var(--#{$prefix}details-summary-color);
     font-weight: 400;
     font-size: var(--#{$prefix}details-font-size);
-    line-height: 1.5;
+    line-height: 1.5rem;
     user-select: none;
 
     // Hide native browser disclosure triangle
@@ -116,17 +116,17 @@
 
   &-content {
     padding-left: 1.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
     font-size: 0.875rem;
     color: var(--#{$prefix}details-content-color);
+    
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   // Size variants
-  &-xs {
-    --#{$prefix}details-min-height: 2.75rem; // 44px
-    --#{$prefix}details-font-size: 0.75rem;
-  }
-
+  
   &-sm {
     --#{$prefix}details-min-height: 2.75rem; // 44px
     --#{$prefix}details-font-size: 0.875rem; //14px
