@@ -29,14 +29,30 @@
       --#{$prefix}dark-action-secondary
     );
     --#{$prefix}details-summary-bg: var(--#{$prefix}dark-background);
-    --#{$prefix}details-summary-bg-hover: var(
-      --#{$prefix}dark-background-shade
-    );
+    
     --#{$prefix}details-summary-icon-hover: var(
       --#{$prefix}dark-action-secondary-hover
     );
 
     --#{$prefix}details-content-color: var(--#{$prefix}dark-text, #fff);
+  }
+
+  .dark & {
+    --#{$prefix}details-summary-bg-hover: var(--#{$prefix}dark-background-shade);
+  }
+
+  .dark-alt & {
+    --#{$prefix}details-summary-bg-hover: var(
+      --#{$prefix}dark-alt-background-shade
+    );
+  }
+
+  .alt & {
+    --#{$prefix}details-summary-bg-hover: var(--#{$prefix}light-alt-background-shade);
+  }
+
+  .light & {
+    --#{$prefix}details-summary-bg-hover: var(--#{$prefix}light-background-shade);
   }
 }
 
@@ -47,14 +63,13 @@
     border-radius: 0.25rem;
     display: flex;
     gap: 0.25rem;
-    padding: 0.5rem 0.25rem;
+    padding: 0.75rem 0.25rem;
     margin-inline: -0.25rem; // extend hover background edge-to-edge
-    margin-bottom: 0.5rem;
-    height: var(--#{$prefix}details-min-height);
+    min-height: var(--#{$prefix}details-min-height);
     cursor: pointer;
     list-style: none;
     color: var(--#{$prefix}details-summary-color);
-    font-weight: 600;
+    font-weight: 400;
     font-size: var(--#{$prefix}details-font-size);
     line-height: 1.5;
     user-select: none;
@@ -68,15 +83,19 @@
     // Chevron icon — points right, rotates to down when open
     &::before {
       content: "";
-      display: inline-block;
+      display: inline-flex;
       flex-shrink: 0;
       width: var(--#{$prefix}details-icon-width);
       height: var(--#{$prefix}details-icon-width);
       mask-image: var(--#{$prefix}details-icon);
       mask-repeat: no-repeat;
       mask-size: contain;
+      -webkit-mask-position: center center;
+      mask-position: center center;
       background-color: var(--#{$prefix}details-summary-icon-color);
       transition: var(--#{$prefix}details-icon-transition);
+      align-items: center;
+      align-self: flex-start;
     }
 
     &:hover {
@@ -98,27 +117,33 @@
   &-content {
     padding-left: 1.5rem;
     padding-bottom: 1rem;
+    font-size: 0.875rem;
     color: var(--#{$prefix}details-content-color);
   }
 
   // Size variants
   &-xs {
-    --#{$prefix}details-min-height: 2rem; // 32px
+    --#{$prefix}details-min-height: 2.75rem; // 44px
     --#{$prefix}details-font-size: 0.75rem;
   }
 
   &-sm {
-    --#{$prefix}details-min-height: 2.25rem; // 36px
-    --#{$prefix}details-font-size: 0.875rem;
+    --#{$prefix}details-min-height: 2.75rem; // 44px
+    --#{$prefix}details-font-size: 0.875rem; //14px
   }
 
   &-md {
-    --#{$prefix}details-min-height: 2.5rem; // 40px
-    --#{$prefix}details-font-size: 1rem;
+    --#{$prefix}details-min-height: 2.75rem; // 44px
+    --#{$prefix}details-font-size: 1rem; // default
   }
 
   &-lg {
     --#{$prefix}details-min-height: 2.75rem; // 44px
-    --#{$prefix}details-font-size: 1rem;
+    --#{$prefix}details-font-size: 1.25rem; //20px
+  }
+
+  &-xl {
+    --#{$prefix}details-min-height: 2.75rem; // 44px
+    --#{$prefix}details-font-size: 1.5rem; //24px
   }
 }
