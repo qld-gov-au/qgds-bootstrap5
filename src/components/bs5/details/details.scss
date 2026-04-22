@@ -2,6 +2,7 @@
 // #{$prefix} defined in main.css
 
 @use "../../../css/mixins" as m;
+@use "../../../css/functions" as f;
 
 // CSS Scoped Variables
 .qld-details {
@@ -105,8 +106,7 @@
     display: inline-flex;
     width: 100%;
     gap: 4px;
-    //line-height: 1.5rem;
-    line-height: calc(var(--#{$prefix}details-font-size) * 1.5);
+    line-height: f.snap-line-height(1.5);
     border-radius: 0.25rem;
 
     // Chevron icon — points right, rotates to down when open
