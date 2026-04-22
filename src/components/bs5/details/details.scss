@@ -97,7 +97,7 @@
         outline-color: var(--#{$prefix}focus-color);
         outline-offset: 2px;
     }
-  }
+    }
   }
 
   &-summary-text {
@@ -115,7 +115,7 @@
       display: inline-flex;
       flex-shrink: 0;
       width: var(--#{$prefix}details-icon-width);
-      height: var(--#{$prefix}details-icon-width);
+      height: calc(1.5 * var(--#{$prefix}details-font-size));
       mask-image: var(--#{$prefix}details-icon);
       mask-repeat: no-repeat;
       mask-size: contain;
@@ -125,11 +125,11 @@
       transition: var(--#{$prefix}details-icon-transition);
       align-items: center;
       align-self: flex-start;
-      margin-top: 2px;
     }
   }
+
   // Rotate chevron to point down when open
-  &[open] > &-summary::before {
+  &[open]  &-summary-text::before {
     transform: rotate(90deg);
   }
 
