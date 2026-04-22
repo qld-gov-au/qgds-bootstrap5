@@ -60,11 +60,11 @@
 .qld-details {
   &-summary {
     align-items: center;
-    border-radius: 0.25rem;
+    
     display: flex;
     gap: 0.25rem;
-    padding: 0.75rem 0.25rem;
-    margin-inline: -0.25rem; // extend hover background edge-to-edge
+    //padding: 0.375rem 0.25rem;
+    //margin: -0.375rem -0.25rem;
     min-height: var(--#{$prefix}details-min-height);
     cursor: pointer;
     list-style: none;
@@ -79,6 +79,35 @@
     &::marker {
       display: none;
     }
+
+    &:hover {
+      .qld-details-summary-text {
+      background-color: var(--#{$prefix}details-summary-bg-hover);
+      color: var(--#{$prefix}details-summary-color);
+      &::before {
+        background-color: var(--#{$prefix}details-summary-icon-hover);
+      }
+    }
+    }
+
+    &:focus {
+      .qld-details-summary-text {
+        outline-width: 3px;
+        outline-style: solid;
+        outline-color: var(--#{$prefix}focus-color);
+        outline-offset: 2px;
+    }
+  }
+  }
+
+  &-summary-text {
+    //padding: 0.25rem 0.25rem;
+    display: inline-flex;
+    width: 100%;
+    gap: 4px;
+    //line-height: 1.5rem;
+    line-height: calc(var(--#{$prefix}details-font-size) * 1.5);
+    border-radius: 0.25rem;
 
     // Chevron icon — points right, rotates to down when open
     &::before {
@@ -96,19 +125,9 @@
       transition: var(--#{$prefix}details-icon-transition);
       align-items: center;
       align-self: flex-start;
+      margin-top: 2px;
     }
-
-    &:hover {
-      background-color: var(--#{$prefix}details-summary-bg-hover);
-      color: var(--#{$prefix}details-summary-color);
-      &::before {
-        background-color: var(--#{$prefix}details-summary-icon-hover);
-      }
-    }
-
-    @include m.focusable();
   }
-
   // Rotate chevron to point down when open
   &[open] > &-summary::before {
     transform: rotate(90deg);
@@ -119,7 +138,7 @@
     padding-bottom: 0.75rem;
     font-size: 0.875rem;
     color: var(--#{$prefix}details-content-color);
-    
+
     p:last-child {
       margin-bottom: 0;
     }
