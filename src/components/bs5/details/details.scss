@@ -92,6 +92,7 @@
     }
 
     &:focus {
+      outline: none;
       .qld-details-summary-text {
         outline-width: 3px;
         outline-style: solid;
@@ -102,11 +103,11 @@
   }
 
   &-summary-text {
-    //padding: 0.25rem 0.25rem;
+    padding: 0.25rem;
     display: inline-flex;
     width: 100%;
     gap: 4px;
-    line-height: f.snap-line-height(1.5);
+    line-height: f.snap-line-height(1.25);
     border-radius: 0.25rem;
 
     // Chevron icon — points right, rotates to down when open
@@ -115,7 +116,7 @@
       display: inline-flex;
       flex-shrink: 0;
       width: var(--#{$prefix}details-icon-width);
-      height: calc(1.5 * var(--#{$prefix}details-font-size));
+      height: calc(1.25 * var(--#{$prefix}details-font-size));
       mask-image: var(--#{$prefix}details-icon);
       mask-repeat: no-repeat;
       mask-size: contain;
