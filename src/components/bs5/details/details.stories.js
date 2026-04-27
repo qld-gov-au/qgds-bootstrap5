@@ -29,8 +29,8 @@ export default {
   argTypes: {
     size: {
       control: { type: "select" },
-      options: ["xs", "sm", "md", "lg"],
-      description: "Size of the details component (xs=32px, sm=36px, md=40px, lg=44px)",
+      options: ["sm", "md", "lg", "xl"],
+      description: "Size of the details component (sm=44px, md=48px, lg=52px, xl=56px)",
       defaultValue: "md",
     },
   },
