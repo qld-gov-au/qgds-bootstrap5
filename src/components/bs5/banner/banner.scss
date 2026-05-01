@@ -96,9 +96,9 @@
     --#{$prefix}banner-padding-top: 2rem;
     --#{$prefix}banner-padding-bottom: 2rem;
 
-    //No banner
+    //No banner — top matches default banner so breadcrumb position is consistent across page types
     &.no-banner {
-      --#{$prefix}banner-padding-top: 1.5rem;
+      --#{$prefix}banner-padding-top: 2rem;
       --#{$prefix}banner-padding-bottom: 1.5rem;
     }
 
@@ -117,7 +117,7 @@
     --#{$prefix}banner-padding-bottom: 3rem;
 
     &.no-banner {
-      --#{$prefix}banner-padding-top: 2rem;
+      --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 2rem;
     }
 
@@ -138,7 +138,7 @@
     --#{$prefix}banner-padding-bottom: 4rem;
 
     &.no-banner {
-      --#{$prefix}banner-padding-top: 2rem;
+      --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 2rem;
     }
 
