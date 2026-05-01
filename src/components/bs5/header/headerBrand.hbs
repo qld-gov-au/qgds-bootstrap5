@@ -1,6 +1,6 @@
 
 <div class="qld-header-brand">
-    <a class="qld-header-link d-lg-inline-flex align-middle" href="{{url}}">
+    <a class="qld-header-link d-lg-inline-flex align-middle" href="{{url}}"{{#unless logo}}{{#unless siteTitle}} aria-label="Queensland Government"{{/unless}}{{/unless}}>
         <div class="qld-header-brand-image align-self-center">
             {{#if logo}}
             <img src="{{logo.src}}" height="56" alt="{{#if logo.altText}}{{logo.altText}}{{else}}Queensland government{{/if}}" />
