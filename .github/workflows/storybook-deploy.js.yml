@@ -76,17 +76,17 @@ jobs:
       - name: Build Storybook 🔧
         run: | # build the Storybook files
           npm run build-storybook
-      - uses: actions/upload-artifact@v6 #provide nice artifact
+      - uses: actions/upload-artifact@v7 #provide nice artifact
         with:
           name: Storybook
           path: storybook-static
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "./storybook-static"
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v5.0.0

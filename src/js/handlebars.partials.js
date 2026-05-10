@@ -20,6 +20,7 @@ import contentWrapper from "../components/bs5/contentWrapper/contentWrapper.hbs?
 import correctincorrect from "../components/bs5/correctincorrect/correctincorrect.hbs?raw";
 import customLinks from "../components/bs5/footer/customLinks.hbs?raw";
 import dateinput from "../components/bs5/dateinput/dateinput.hbs?raw";
+import details from "../components/bs5/details/details.hbs?raw";
 import directionLinks from "../components/bs5/directionLinks/directionLinks.hbs?raw";
 import feedbackForm from "../components/bs5/footer/feedbackForm.hbs?raw";
 import followLinks from "../components/bs5/footer/followLinks.hbs?raw";
@@ -89,6 +90,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("correctincorrect", correctincorrect);
   handlebars.registerPartial("customLinks", customLinks);
   handlebars.registerPartial("dateinput", dateinput);
+  handlebars.registerPartial("details", details);
   handlebars.registerPartial("directionLinks", directionLinks);
   handlebars.registerPartial("feedbackForm", feedbackForm);
   handlebars.registerPartial("followLinks", followLinks);

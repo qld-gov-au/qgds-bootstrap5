@@ -65,7 +65,7 @@
       text-wrap: nowrap;
     }
   }
-  
+
   .global-alert-close {
     display: inline-flex;
     justify-content: center;
@@ -107,7 +107,6 @@
       &:focus {
         outline-color: var(--focus-colour);
       }
-      
 
       @include media-breakpoint-down(lg) {
         &:hover {
@@ -200,14 +199,27 @@
 @include media-breakpoint-down(lg) {
   .global-alert {
     .global-alert-content .global-alert-action {
-      margin-inline-end: 2rem;      
+      margin-inline-end: 2rem;
     }
   }
 }
+
 @include media-breakpoint-down(md) {
   .global-alert {
     .global-alert-content {
       padding: 0;
+
+      .global-alert-action {
+        margin-inline-end: 0.5rem;
+
+        a {
+          text-wrap: auto;
+        }
+
+        .qld-icon {
+          min-width: var(--icon-size);
+        }
+      }
     }
   }
 }
@@ -229,6 +241,5 @@
         }
       }
     }
-    
   }
 }

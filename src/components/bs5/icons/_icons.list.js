@@ -1,5 +1,6 @@
 export default [
   "accessibility",
+  "alert-cancel-filled",
   "alert-cancel",
   "alert-danger",
   "alert-error",

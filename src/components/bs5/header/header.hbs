@@ -6,7 +6,8 @@
             <div class="d-flex justify-content-between">
 
                 <a class="qld-header-link align-self-center"
-                    href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
+                    href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}"
+                    aria-label="{{#if preHeader.globalLink.text}}{{preHeader.globalLink.text}}{{else}}Queensland Government{{/if}}">
                     <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
                     {{#if hasDeliveringForQLDLogo}}
                     {{>logo logo="coa-delivering-for-qld" className="qld-header-logo is-delivering-for-qld" fill="currentColor"}}
