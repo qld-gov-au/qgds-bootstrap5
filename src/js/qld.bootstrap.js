@@ -23,8 +23,6 @@ import { initGlobalAlerts } from "./../components/bs5/globalAlert/globalAlert.fu
 import { validateSkipLinks } from "./../components/bs5/skiplinks/skipLinks.functions";
 import { printPage } from "./utils";
 
-window.addEventListener("click", initQuickexit, true);
-window.addEventListener("keydown", initQuickexit, true);
 window.addEventListener("DOMContentLoaded", () => {
   backToTop();
 
@@ -94,8 +92,6 @@ window.addEventListener("DOMContentLoaded", () => {
   initBreadcrumb();
 
   // Quick exit
-  window.addEventListener("click", initQuickexit, true);
-  window.addEventListener("keydown", initQuickexit, true);
   initQuickexit();
 
   // Accordion
