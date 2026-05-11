@@ -37,6 +37,24 @@
     transition: none !important;
   }
 
+  // The universal width: 100% above breaks table column distribution
+  // (every cell wants 100%, so the first one stretches and the rest squeeze).
+  // Restore natural sizing so columns share width based on content.
+  table,
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  th,
+  td,
+  caption {
+    width: auto;
+  }
+
+  table {
+    width: 100%;
+  }
+
   *:before,
   *:after {
     color: #000 !important;
