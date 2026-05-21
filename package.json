@@ -87,7 +87,7 @@
     "minimist": "^1.2.8",
     "mocha": "^11.7.5",
     "node-html-parser": "^7.0.1",
-    "npm-run-all2": "^8.0.4",
+    "npm-run-all2": "^9.0.0",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.38",
     "postcss": "^8.5.6",
