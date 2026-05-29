@@ -25,7 +25,7 @@
   padding-inline: var(--#{$prefix}gutter-x);
   position: fixed;
   width: 100%;
-  z-index: 200;
+  z-index: 1;
 
   &-inner {
     display: flex;
@@ -121,7 +121,7 @@
       font-size: calc(var(--#{$prefix}body-font-size) * 0.875);
       margin-block-end: 0;
     }
-    .qld-quick-exit-button {
+    .qld-quick-exit-button, .qld-quick-exit-button:focus {
       border-color: var(--#{$prefix}quick-exit-button-bg-colour);
       background-color: var(--#{$prefix}quick-exit-button-bg-colour);
       color: var(--#{$prefix}quick-exit-button-text-colour);
