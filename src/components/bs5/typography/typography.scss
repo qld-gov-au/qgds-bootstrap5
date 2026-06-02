@@ -83,21 +83,24 @@ h6,
     }
 }
 
-.abstract {
+.abstract,
+p.abstract {
     font-size: $abstract-font-size;
     line-height: $abstract-line-height;
     font-weight: $abstract-font-weight;
     color: var(--qld-abstract-color);
 }
 
-.quote {
+.quote,
+p.quote {
     font-size: $quote-font-size;
     line-height: $quote-line-height;
     font-weight: $quote-font-weight;
     color: var(--qld-quote-color);
 }
 
-.caption {
+.caption,
+p.caption {
     font-size: $caption-font-size;
     line-height: $caption-line-height;
     font-weight: $caption-font-weight;

@@ -16,14 +16,23 @@ export default {
       <h5>Heading 5</h5>
       <h6>Heading 6</h6>
 
-      <p class="abstract" style="margin-block-start: 1rem">Abstract</p>
-      <p class="quote">Quote</p>
-      <p class="caption">Caption</p>
+      <hr>
 
-      <p style="margin-block-start: 1rem">Elementum euismod fringilla vitae varius. Justo imperdiet justo <strong>tincidunt vestibulum venenatis</strong> morbi molestie dolor orci. <a href="#">Risus sapien urna blandit eget</a>. Mi, nisl facilisis pellentesque bibendum. Gravida lobortis vel amet, ullamcorper vestibulum, in curabitur odio pulvinar.</p>
-      <p>Example paragraph. <a href="#">Internal link</a> and an <a href="#" rel="external">external link</a>.</p>
+      <p class="abstract">Abstract text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="quote">Quote text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Body text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="caption">Caption text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <hr>
+
+      <h4>Links </h4>
+      <p><a href="#">Internal link</a></p>
+      <p><a href="#" rel="external">External link</a></p>
       <p><a class="qld__text-link--no-visited" href="#no-visit">Link without visited state</a></p>
 
+      <hr>
+
+      <h4>Unordered list </h4>
       <ul style="margin-block-start: 1rem">
         <li>List item</li>
         <li>List item</li>
@@ -32,6 +41,8 @@ export default {
         <li>List item</li>
       </ul>
 
+      <hr>
+      <h4>Ordered list </h4>
       <ol style="margin-block-start: 1rem">
         <li>List item</li>
         <li>List item</li>
@@ -41,6 +52,7 @@ export default {
       </ol>
     </div>
 
+    <hr>
     <dl>
       <dt>Website:</dt>
       <dd><a href="https://www.qld.gov.au" target="_blank">https://www.qld.gov.au</a></dd>
