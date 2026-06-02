@@ -16,9 +16,9 @@ export default {
       <h5>Heading 5</h5>
       <h6>Heading 6</h6>
 
-      <div class="abstract" style="margin-block-start: 1rem">Abstract</div>
-      <div class="quote">Quote</div>
-      <div class="caption">Caption</div>
+      <p class="abstract" style="margin-block-start: 1rem">Abstract</p>
+      <p class="quote">Quote</p>
+      <p class="caption">Caption</p>
 
       <p style="margin-block-start: 1rem">Elementum euismod fringilla vitae varius. Justo imperdiet justo <strong>tincidunt vestibulum venenatis</strong> morbi molestie dolor orci. <a href="#">Risus sapien urna blandit eget</a>. Mi, nisl facilisis pellentesque bibendum. Gravida lobortis vel amet, ullamcorper vestibulum, in curabitur odio pulvinar.</p>
       <p>Example paragraph. <a href="#">Internal link</a> and an <a href="#" rel="external">external link</a>.</p>
