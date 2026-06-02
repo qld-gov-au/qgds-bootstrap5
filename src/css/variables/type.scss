@@ -56,3 +56,18 @@ $qld-heading-color: $core-default-color-brand-primary-light-green;
 $link-color: $qld-brand-primary;
 $link-hover-color: $qld-brand-primary;
 $link-visited-color: $qld-link-visited;
+
+// Abstract text styles
+$abstract-font-size: $font-size-base * 1.5;
+$abstract-line-height: $font-size-base * 2;
+$abstract-font-weight: 400;
+
+// Quote text styles
+$quote-font-size: $font-size-base * 1.25;
+$quote-line-height: $font-size-base * 1.75;
+$quote-font-weight: 600;
+
+// Caption text styles
+$caption-font-size: $font-size-base * 0.875;
+$caption-line-height: $font-size-base * 1.25;
+$caption-font-weight: 400;

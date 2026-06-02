@@ -82,3 +82,24 @@ h6,
         margin-block-start: 1.5rem;
     }
 }
+
+.abstract {
+    font-size: $abstract-font-size;
+    line-height: $abstract-line-height;
+    font-weight: $abstract-font-weight;
+    color: var(--qld-abstract-color);
+}
+
+.quote {
+    font-size: $quote-font-size;
+    line-height: $quote-line-height;
+    font-weight: $quote-font-weight;
+    color: var(--qld-quote-color);
+}
+
+.caption {
+    font-size: $caption-font-size;
+    line-height: $caption-line-height;
+    font-weight: $caption-font-weight;
+    color: var(--qld-caption-color);
+}
