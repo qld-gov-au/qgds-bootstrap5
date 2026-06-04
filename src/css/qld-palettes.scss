@@ -11,6 +11,9 @@
   --qld-body-font-weight: #{$body-font-weight};
   --qld-border-color: var(--qld-light-border);
   --qld-headings-color: #{$headings-color};
+  --qld-abstract-color: #{$color-default-color-light-text-default};
+  --qld-quote-color: #{$color-default-color-light-text-default};
+  --qld-caption-color: #{$color-default-color-light-text-lighter};
   --qld-link-color: #{$link-color};
   --qld-link-color-rgb: #{to-rgb($link-color)};
   --qld-link-hover-color: var(--qld-link-color);
@@ -57,6 +60,9 @@
   --qld-body-color: #fff;
   --qld-border-color: var(--qld-dark-border);
   --qld-headings-color: #{$color-default-color-dark-text-heading};
+  --qld-abstract-color: #{$color-default-color-dark-text-default};
+  --qld-quote-color: #{$color-default-color-dark-text-default};
+  --qld-caption-color: #{$color-default-color-dark-text-lighter};
   --qld-link-color: #{$color-default-color-dark-link-default};
   --qld-link-color-rgb: 255, 255, 255;
   --qld-link-hover-color: #{$color-default-color-dark-link-default};
