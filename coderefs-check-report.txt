@@ -1,0 +1,68 @@
+COMPONENT STORIES CODEREFS CHECK
+============================================================
+
+Total story files: 55
+With coderefs: 47
+Without coderefs: 8
+
+Stories WITH coderefs:
+------------------------------------------------------------
+src/components/bs5/accordion/accordion.stories.js
+src/components/bs5/backToTop/backToTop.stories.js
+src/components/bs5/banner/banner.stories.js
+src/components/bs5/blockquote/blockquote.stories.js
+src/components/bs5/breadcrumbs/breadcrumbs.stories.js
+src/components/bs5/button/button.stories.js
+src/components/bs5/callToAction/callToAction.stories.js
+src/components/bs5/callout/callout.stories.js
+src/components/bs5/card/card--icon-list-footer.stories.js
+src/components/bs5/card/card--multi-action.stories.js
+src/components/bs5/card/card--no-action.stories.js
+src/components/bs5/card/card--single-action.stories.js
+src/components/bs5/containerLayout/containerLayout.stories.js
+src/components/bs5/contentFooter/contentFooter.stories.js
+src/components/bs5/dateinput/Dateinput.stories.js
+src/components/bs5/directionLinks/directionLinks.stories.js
+src/components/bs5/footer/footer.stories.js
+src/components/bs5/formcheck/stories/checkbox/checkbox.stories.js
+src/components/bs5/formcheck/stories/radio/radio.stories.js
+src/components/bs5/globalAlert/globalAlert.stories.js
+src/components/bs5/header/header.stories.js
+src/components/bs5/icons/icons.stories.js
+src/components/bs5/image/image.stories.js
+src/components/bs5/inpageAlert/inpageAlert.stories.js
+src/components/bs5/inpagenav/inpagenav.stories.js
+src/components/bs5/link/link.stories.js
+src/components/bs5/linkColumns/linkColumns.stories.js
+src/components/bs5/modal/modal.stories.js
+src/components/bs5/navbar/navbar.stories.js
+src/components/bs5/pagination/pagination.stories.js
+src/components/bs5/promotionalPanel/promotionalPanel.stories.js
+src/components/bs5/quickexit/quickexit.stories.js
+src/components/bs5/searchInput/searchInput.stories.js
+src/components/bs5/select/Select.stories.js
+src/components/bs5/sidenav/sidenav.stories.js
+src/components/bs5/skiplinks/skipLinks.stories.js
+src/components/bs5/spinner/Spinner.stories.js
+src/components/bs5/table/table.stories.js
+src/components/bs5/tabs/tabs.stories.js
+src/components/bs5/tag/tag--large.stories.js
+src/components/bs5/tag/tag--standard.stories.js
+src/components/bs5/tag/tag--status.stories.js
+src/components/bs5/tag/tag.stories.js
+src/components/bs5/textarea/Textarea.stories.js
+src/components/bs5/textbox/Textbox.stories.js
+src/components/bs5/typography/typography.stories.js
+src/components/bs5/video/video.stories.js
+
+
+Stories WITHOUT coderefs (NEED UPDATE):
+------------------------------------------------------------
+src/components/bs5/correctincorrect/correctincorrect.stories.js
+src/components/bs5/formcheck/stories/bootstrap-validation/bootstrap-validation.stories.js
+src/components/bs5/head/head.stories.js
+src/components/bs5/logo/logo.stories.js
+src/components/bs5/metaDcTerms/metaDcTerms.stories.js
+src/components/bs5/metaOpenGraph/metaOpenGraph.stories.js
+src/components/bs5/pageLayout/PaletteShowcase.stories.js
+src/components/bs5/pageLayout/pageLayout.stories.js

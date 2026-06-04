@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Button Component",
+  "description": "Queensland Government Design System Button component",
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "The text displayed on the button",
+      "examples": ["Submit", "Continue", "Cancel"]
+    },
+    "variantClass": {
+      "type": "string",
+      "description": "Button style variant",
+      "enum": ["btn-primary", "btn-secondary", "btn-tertiary"],
+      "default": "btn-primary"
+    },
+    "isdisabled": {
+      "type": "boolean",
+      "description": "Whether the button is disabled",
+      "default": false
+    },
+    "isprogress": {
+      "type": "boolean",
+      "description": "Show loading spinner",
+      "default": false
+    },
+    "progressLabel": {
+      "type": "string",
+      "description": "Text shown during loading state",
+      "examples": ["Loading...", "Saving...", "Please wait..."]
+    }
+  },
+  "required": ["label"],
+  "additionalProperties": false
+}
