@@ -116,10 +116,12 @@ jobs:
           cache: 'npm'
           scope: '@qld-gov-au'
 
-      # Ensure npm 11.5.1 or later is installed
       - name: Update npm
-        run: npm install -g npm@latest
-
+        run: |
+          echo "installing via incremental upgrade to use latest npm in node 22 (not required in node 24+)"
+          npm install -g npm@~11.10.0
+          npm install -g npm@latest
+          
       - run: npm ci
 
       - name: Build 🔧
