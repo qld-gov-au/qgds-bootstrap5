@@ -1,6 +1,6 @@
 import { InpageAlert } from "./InpageAlert.js";
 import defaultdata from "./inpageAlert.data.json";
-
+import metadata from "./metadata.json";
 /**
  * The Inpage Alert is also known as Page Alert or Alert
  *
@@ -33,7 +33,14 @@ export default {
     return new InpageAlert({ ...defaultdata, ...args }).html;
   },
   globals: { backgrounds: { value: "default" } },
-  parameters: { backgrounds: { disable: false } },
+  parameters: {
+    backgrounds: { disable: false },
+    coderefs: {
+      metadata,
+      partialname: "inpageAlert", //{{> inpageAlert }}
+    },
+  },
+  args: defaultdata,
   argTypes: {
     variantClass: {
       name: "Classes",
@@ -49,14 +56,14 @@ export default {
       },
       options: ["alert-success", "alert-info", "alert-warning", "alert-error"],
     },
-    alertType: {
-      name: "Alert Type",
-      description: `Type of the alert. i.g "Success", "Information", "Warning", "Error".`,
+    ariaLabel: {
+      name: "ARIA Label",
+      description: `Accessible label for the alert announced to screen readers. e.g "Success alert", "Information alert", "Warning alert", "Error alert".`,
     },
     headingTag: {
       name: "Heading Tag",
       description:
-        "Heading tag for the In-page Alert component. Can be h2, h3, h4, h5 or h6.",
+        "Heading tag for the In-page alert component. Can be h2, h3, h4, h5 or h6.",
       control: "select",
       options: ["h2", "h3", "h4", "h5", "h6"],
     },
@@ -87,4 +94,55 @@ export const Dark = {
       `;
     },
   ],
+};
+
+/**
+ * All alert variants with proper accessibility.
+ * Each alert includes CSS-based icons and a visually-hidden span for screen readers.
+ */
+export const AllVariants = {
+  name: "All Alert Types (Accessibility)",
+  render: () => {
+    const alerts = [
+      {
+        variantClass: "alert-info",
+        ariaLabel: "Information alert",
+        heading: "Information alert",
+        content: "<p>Here is some important information for you to know.</p>",
+      },
+			{
+        variantClass: "alert-success",
+        ariaLabel: "Success alert",
+        heading: "Success alert",
+        content: "<p>This action was completed successfully.</p>",
+      },
+      {
+        variantClass: "alert-warning",
+        ariaLabel: "Warning alert",
+        heading: "Warning alert",
+        content: "<p>Please be aware of this potential issue.</p>",
+      },
+      {
+        variantClass: "alert-error",
+        ariaLabel: "Error alert",
+        heading: "Error alert",
+        content: "<p>An error occurred. Please try again.</p>",
+      },
+    ];
+
+    return alerts
+      .map(
+        (alertData) => `
+      <div class="mb-4">
+        ${new InpageAlert(alertData).html}
+      </div>
+    `,
+      )
+      .join("");
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
 };

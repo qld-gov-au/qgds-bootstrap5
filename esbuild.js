@@ -5,6 +5,7 @@ import path from "path";
 
 //Local ESBUILD PLUGINS
 import QGDSupdateHandlebarsPartialsPlugin from "./.esbuild/plugins/qgds-plugin-handlebar-partial-builder.js";
+import QGDSStoryListBuilderPlugin from "./.esbuild/plugins/qgds-plugin-story-list-builder.js";
 import QGDSrawLoader from "./.esbuild/plugins/qgds-plugin-raw-loader.js";
 import QDGScleanFolders from "./.esbuild/plugins/qgds-plugin-clean-output-folders.js";
 import QDGSbuildLog from "./.esbuild/plugins/qgds-plugin-build-log.js";
@@ -16,15 +17,20 @@ import { createOverrideThemeScssEntry } from "./.esbuild/helpers/scssOverrideThe
 //Open source ESBUILD PLUGINS
 import { sassPlugin } from "esbuild-sass-plugin";
 import handlebarsPlugin from "esbuild-plugin-handlebars";
+import postcss from "postcss";
+import autoprefixer from "autoprefixer";
 
 //Command line arguments are available via argv object
 import minimist from "minimist";
 const argv = minimist(process.argv.slice(2));
 
+//Package Name and Version
+const versionString = `${process.env.npm_package_name} - v${process.env.npm_package_version}`;
+
 // https://esbuild.github.io/getting-started/#build-scripts
 const buildConfig = {
   bundle: true,
-  minify: true,
+  minify: argv.minify !== "false", //true, unless flagged: 'npm run build -- --minify=false'
   sourcemap: true,
   target: ["es6"],
   logLevel: "info",
@@ -59,6 +65,11 @@ const buildConfig = {
     },
   ],
 
+  footer: {
+    css: `/*# ${versionString} */`,
+    js: `//# ${versionString}`,
+  },
+
   loader: {
     ".html": "text",
     ".hbs": "text",
@@ -69,6 +80,7 @@ const buildConfig = {
 
   plugins: [
     QGDSupdateHandlebarsPartialsPlugin(),
+    QGDSStoryListBuilderPlugin(),
     ...(argv.icons ? [QGDSgenerateIconAssetsPlugin()] : []), // Generate icons assets when --icons flag is set
     QDGScopy(),
     QGDSrawLoader(),
@@ -86,7 +98,14 @@ const buildConfig = {
       ],
       indentType: "space",
       indentWidth: 2,
-      includePaths: ["./node_modules"],
+      loadPaths: ["./node_modules"],
+      async transform(source, resolveDir) {
+        const result = await postcss([autoprefixer({ remove: false })]).process(
+          source,
+          { from: undefined },
+        );
+        return result.css;
+      },
     }),
     QDGSbuildLog(),
   ],
@@ -95,7 +114,7 @@ const buildConfig = {
 const buildNodeConfig = {
   loader: buildConfig.loader,
   bundle: true,
-  minify: false,
+  minify: argv.minify !== "false", //true, unless flagged: 'npm run build -- --minify=false'
   sourcemap: true,
   minifyIdentifiers: false,
   logLevel: buildConfig.logLevel,

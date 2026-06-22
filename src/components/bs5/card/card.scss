@@ -29,7 +29,7 @@
   --#{$prefix}card-group-margin: #{$card-group-margin};
   --#{$prefix}card-link-color: var(--#{$prefix}light-link);
   --#{$prefix}card-date-color: var(--#{$prefix}dark-grey-muted);
-  --#{$prefix}card-footer-border: var(--#{$prefix}light-border);
+  --#{$prefix}card-footer-border: var(--#{$prefix}neutral-lighter);
   --#{$prefix}card-img-border-radius: 0px 0px 6.0882800609%/10.8108108108% 0px; // from QHDS website
   --#{$prefix}card-img-overlay-color: var(--#{$prefix}dark-background);
   --#{$prefix}link-hover-colour: var(--#{$prefix}light-action-primary-hover);
@@ -113,7 +113,7 @@
   }
   &-alt {
     --#{$prefix}card-bg: var(--#{$prefix}light-alt-background);
-    --#{$prefix}card-footer-border: var(--#{$prefix}soft-grey);
+    --#{$prefix}card-footer-border: var(--#{$prefix}light-border-alt);
     --#{$prefix}card-icon-background-color: var(
       --#{$prefix}light-alt-background-shade
     );
@@ -303,6 +303,8 @@
     a {
       color: var(--#{$prefix}card-link-color);
       text-decoration-color: var(--#{$prefix}card-link-color);
+      outline-style: none;
+
       &:visited,
       &:hover,
       &:visited:hover {
@@ -316,6 +318,11 @@
     }
   }
   &-img {
+    // Fix: Prevent .ratio:before from blocking clicks on card heading in multi-action cards
+    &.ratio::before {
+      display: inline-block;
+    }
+
     &:after {
       content: "";
       position: absolute;
@@ -424,11 +431,12 @@
     .tag-list {
       margin: 0;
       padding: 0;
-      gap: 1rem;
+      gap: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       .tag-item {
         margin: 0;
+        font-weight: normal;
       }
     }
     /////////////////////////////////////////////
@@ -458,7 +466,6 @@
       li.tag-link {
         border-color: var(--#{$prefix}card-link-color);
         font-size: 0.875rem;
-        font-weight: normal;
         &:hover {
           border-color: var(--#{$prefix}link-hover-colour);
           background-color: var(--#{$prefix}link-hover-colour);

@@ -1,9 +1,10 @@
 // Tag.stories.js
 import { GlobalAlert } from "./GlobalAlert.js";
 import defaultdata from "./globalAlert.data.json";
+import metadata from "./metadata.json";
 
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "extended"],
   title: "3. Components/Global Alert",
   render: (args) => new GlobalAlert(args).html,
   argTypes: {
@@ -34,12 +35,21 @@ export default {
 
       if (args.variant && storyName === "Default") {
         args.alertItems[0].variant = args.variant || "global-alert-critical";
+        args.alertItems[0].ariaLabel = "";
       }
 
       // Render the story with the updated args.
       return Story({ args: { ...args } });
     },
   ],
+
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "globalAlert", //{{> globalAlert }}
+    },
+    docs: {},
+  },
 };
 
 // Critical global alert story

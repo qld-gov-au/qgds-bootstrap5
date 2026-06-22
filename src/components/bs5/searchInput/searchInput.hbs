@@ -3,41 +3,45 @@
 -->
 <div class="qld-search-input {{customClass}}">
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
-
-    {{#if suggestions}}
-    <div class="suggestions suggestions__group d-none">
-        <div class="default-suggestions">
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Popular services</strong>
-                <ul class="mt-2">
-                    {{#each default_suggestions.popular_services}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
-
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Browse by category</strong>
-                <ul class="mt-12 mb-0">
-                    {{#each default_suggestions.categories}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
-
-            {{#if default_suggestions.options.view_more}}
-            <div class="suggestions-category">
-                <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more"
-                    href="{{default_suggestions.options.href}}">{{default_suggestions.options.label}}</a>
-            </div>
-            {{/if}}
-        </div>
-        <div class="dynamic-suggestions"></div>
-    </div>
-    {{/if}}
-    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
-        <span class="btn-icon"></span>
+        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" />
+    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" aria-label="{{ buttonLabel }}">
+        <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
+    {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
+    
+    <div class="suggestions suggestions__group default">
+        {{#if hasDefaultSuggestions}}
+            <div class="default-suggestions">
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
+                    <ul>
+                        {{#each defaultSuggestions.popularServices}}
+                        <li><a tabindex="0" href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                        {{#if defaultSuggestions.popularServicesLink}}
+                            <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
+                {{#if defaultSuggestions.categories}}
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
+                    <ul>
+                        {{#each defaultSuggestions.categories}}
+                        <li><a tabindex="0" href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                        {{#if defaultSuggestions.categoriesLink}}
+                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
+                {{/if}}
+            </div>
+        {{/if}}
+        {{#if hasDynamicSuggestions}}
+            <div class="dynamic-suggestions" {{#if dynamicSuggestionsServiceLink.href}}data-view-more="{{dynamicSuggestionsServiceLink.href}}"{{/if}}></div>
+        {{/if}}
+    </div>
+    {{/ifCond}}    
 </div>

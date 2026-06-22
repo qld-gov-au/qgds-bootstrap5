@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "title": "Queensland Government Logo",
+  "title_uikit": "",
+  "type": "Pattern",
+  "scope": "Other",
+  "group": "",
+  "status": "Published",
+  "synonyms": ["Coat of Arms logo", "Government Crest"],
+  "description": "A responsive logo component that displays the Queensland Government logo in different configurations. Typically used within the Header component to ensure proper branding across all screen sizes.",
+  "refs": {
+    "uikit": "",
+    "website": "",
+    "storybook": ""
+  }
+}

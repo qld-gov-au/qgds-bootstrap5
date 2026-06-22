@@ -2,10 +2,13 @@
 // Is an ESM module now
 
 import path from "path";
+import { fileURLToPath } from "url";
+import react from "@vitejs/plugin-react";
 
 const config = {
   stories: [
-    "../src/stories/Introduction.mdx",
+    //"../src/stories/getting-started.mdx",
+    //"../src/stories/Introduction.mdx",
     // Include all stories found under the src/components directory ( For example: alert/alert.stories.js )
     // Exlude any stories starting with an underscore ( For example: _exludeme.stories.js )
     "../src/**/!(*_)*.mdx",
@@ -21,6 +24,7 @@ const config = {
     "@chromatic-com/storybook",
     "storybook-addon-deep-controls",
     "@storybook/addon-docs",
+    "./addons/qgds-multi-code-panels/preset.js",
   ],
 
   framework: {
@@ -44,7 +48,18 @@ const config = {
   //https://storybook.js.org/docs/api/main-config-vite-final
 
   viteFinal: async (config, { configType }) => {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const addonPath = path.resolve(__dirname, "addons");
+
     config.root = "./dist";
+
+    // Add React plugin for JSX transformation in QGDS addons
+    config.plugins = config.plugins || [];
+    config.plugins.push(
+      react({
+        include: [`${addonPath}/**/*.{js,jsx,ts,tsx}`],
+      }),
+    );
 
     // Define environment variables for the browser
     config.define = {
@@ -53,23 +68,14 @@ const config = {
         process.env.ENABLE_DYNAMIC_THEME === "true",
       ),
     };
-    // config.plugins.push({
-    //     name: "html-transform",
-    //     transform(src, id) {
-    //         if (id.endsWith(".mustache") || id.endsWith(".html") || id.endsWith(".hbs")) {
-    //             // Transform your HTML files here (src is the file content as a string)
-    //             return src;
-    //         }
-    //     },
-    // });
 
     config.server = {
       ...config.server,
       fs: {
         allow: [
           // Allow access to assets
-          path.resolve(process.cwd(), "../src/assets"),
-          path.resolve(process.cwd(), "../src/img"),
+          path.resolve(process.cwd(), "src/assets"),
+          path.resolve(process.cwd(), "src/img"),
         ],
       },
     };

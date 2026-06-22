@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "sass:meta";
+@use "sass:list";
+
+///
+/// Easily convert px to rems
+/// @param {Number} $value The px value to convert to rem. May be unitless or supplied as px units.
+/// @param {Number} $baseline [16px] The assumed px value of 1rem.
+/// @todo support complex property values eg: `border: remify(4px 8px 12px 2rem)`;
+@function remify($value, $baseline: 16px) {
+  @if (math.is-unitless($baseline)) {
+    $baseline-px: $baseline * 1px;
+  }
+
+  @if (math.unit($baseline) != "px") {
+    @error "parameter $baseline may only use px units";
+  }
+
+  @if (meta.type-of($value) == "list") {
+    $result: ();
+    @each $item in $value {
+      $result: list.append($result, remify($item));
+    }
+    @return $result;
+  }
+
+  @if (math.is-unitless($value)) {
+    $value: $value * 1px;
+  }
+
+  @return (math.div($value, $baseline) * 1rem);
+}

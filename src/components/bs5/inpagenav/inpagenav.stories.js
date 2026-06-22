@@ -1,6 +1,7 @@
 // inpagenav.stories.js
 import { Inpagenav } from "./Inpagenav.js";
 import defaultdata from "./inpagenav.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -12,6 +13,10 @@ export default {
       controls: {
         exclude: ["variantClass", "navitems"],
       },
+    },
+    coderefs: {
+      metadata,
+      partialname: "inpagenav", //{{> inpagenav }}
     },
     backgrounds: { disable: false },
   },
@@ -27,6 +32,7 @@ export const Default = {
   decorators: [
     (Story) => {
       return `
+      <!-- Mockup wrapper for content body -->
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -50,10 +56,11 @@ export const Dark = {
   decorators: [
     (Story) => {
       return `
+      <!-- Mockup wrapper for content body -->
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="dark">
+            <div class="qld-content-body dark" id="content">
             ${Story()}
             </div>
           </div>

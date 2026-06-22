@@ -8,25 +8,60 @@
 import { Logo } from "./Logo";
 import data from "./logo.data.json";
 
+import metadata from "./metadata.json";
+
 export default {
   tags: ["autodocs"],
   title: "3. Components/Logo",
 
   render: (args) => new Logo(args).html,
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97957&m=dev",
+    /* Documentation configuration */
+    coderefs: {
+      metadata,
+      partialname: "logo", //{{> logo }
+    },
+  },
+
+  argTypes: {
+    logo: {
+      name: "Logo",
+      description: "Type of logo to display.",
+      control: "select",
+      options: [
+        "coa-landscape",
+        "coa-landscape-2lines",
+        "coa-delivering-for-qld",
+      ],
     },
   },
 };
 
 /**
- * Default Link Columns story With Default Data
+ * Queensland Government logo (2 lines)
  */
 export const Default = {
   args: {
     ...data,
+  },
+};
+
+/**
+ * Queensland Government logo (2 lines)
+ */
+export const TwoLines = {
+  args: {
+    ...data,
+    logo: "coa-landscape-2lines",
+  },
+};
+
+/**
+ * Delivering for Queensland
+ */
+export const DeliveringForQueensland = {
+  args: {
+    ...data,
+    logo: "coa-delivering-for-qld",
   },
 };

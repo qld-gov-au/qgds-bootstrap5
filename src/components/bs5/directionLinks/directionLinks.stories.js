@@ -6,6 +6,7 @@
 
 import { DirectionLinks } from "./directionLinks.js";
 import defaultdata from "./directionLinks.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -58,10 +59,9 @@ export default {
   parameters: {
     backgrounds: { disable: false },
     controls: { disable: true },
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5624-62902&t=8gBcIy6lPlfZ8NHz-0",
+    coderefs: {
+      metadata,
+      partialname: "directionLinks", //{{> directionLinks }}
     },
   },
 };

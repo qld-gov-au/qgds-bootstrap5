@@ -3,10 +3,9 @@
 /**
  *
  * @param {*} v1 The left value
- * @param { "==" | "===" | "!=" | "!==" | "<" | "<=" | ">" | ">=" | "&&"  | "||" | "contains"} operator the operator to handle comparison
+ * @param { "==" | "===" | "!=" | "!==" | "<" | "<=" | ">" | ">=" | "&&"  | "||" | "in" | "contains"} operator the operator to handle comparison
  * @param {*} v2 The right value
- * @param {Object} options handlebars-provided options object
- * @returns {string} handlebars template block string
+ * @returns {Boolean} the result of comparison
  * @example
  *   {{#ifCond value1 "===" value2}}
  *     <!-- Content to render if condition is true -->
@@ -16,36 +15,41 @@
  *     <p>Value1 is not strictly equal to Value2</p>
  *   {{/ifCond}}
  */
-function ifCond(v1, operator, v2, options) {
+function cond(v1, operator, v2) {
   switch (operator) {
-  case "==":
-    return v1 == v2 ? options.fn(this) : options.inverse(this);
-  case "===":
-    return v1 === v2 ? options.fn(this) : options.inverse(this);
-  case "!=":
-    return v1 != v2 ? options.fn(this) : options.inverse(this);
-  case "!==":
-    return v1 !== v2 ? options.fn(this) : options.inverse(this);
-  case "<":
-    return v1 < v2 ? options.fn(this) : options.inverse(this);
-  case "<=":
-    return v1 <= v2 ? options.fn(this) : options.inverse(this);
-  case ">":
-    return v1 > v2 ? options.fn(this) : options.inverse(this);
-  case ">=":
-    return v1 >= v2 ? options.fn(this) : options.inverse(this);
-  case "&&":
-    return v1 && v2 ? options.fn(this) : options.inverse(this);
-  case "||":
-    return v1 || v2 ? options.fn(this) : options.inverse(this);
-  case "contains":
-    if (typeof v1 == "string" && typeof v2 == "string") {
-      return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0
-        ? options.fn(this)
-        : options.inverse(this);
-    } else return options.inverse(this);
-  default:
-    return options.inverse(this);
+    case "==":
+      return v1 == v2;
+    case "===":
+      return v1 === v2;
+    case "!=":
+      return v1 != v2;
+    case "!==":
+      return v1 !== v2;
+    case "<":
+      return v1 < v2;
+    case "<=":
+      return v1 <= v2;
+    case ">":
+      return v1 > v2;
+    case ">=":
+      return v1 >= v2;
+    case "&&":
+      return v1 && v2;
+    case "||":
+      return v1 || v2;
+    case "in":
+      if (typeof v1 == "string" && typeof v2 == "string") {
+        return v2
+          .split(",")
+          .map((item) => item.trim())
+          .includes(v1);
+      } else return false;
+    case "contains":
+      if (typeof v1 == "string" && typeof v2 == "string") {
+        return v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0;
+      } else return false;
+    default:
+      return false;
   }
 }
 /**
@@ -56,6 +60,7 @@ function ifCond(v1, operator, v2, options) {
 
 export default function handlebarsHelpers(handlebars) {
   // contains - if first object is in collection (second object) to return true
+  // example: {{#contains "needle" "haystack, needle, something"}} do something {{/contains}}
   handlebars.registerHelper("contains", function (needle, haystack, options) {
     needle = handlebars.escapeExpression(needle);
     haystack = handlebars.escapeExpression(haystack);
@@ -64,7 +69,15 @@ export default function handlebarsHelpers(handlebars) {
       : options.inverse(this);
   });
 
-  handlebars.registerHelper("ifCond", ifCond);
+  // Block helper - returns Handlebars object
+  handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
+    return cond(v1, operator, v2) ? options.fn(this) : options.inverse(this);
+  });
+
+  // Utility helper - return boolean
+  handlebars.registerHelper("cond", (v1, operator, v2) => {
+    return cond(v1, operator, v2);
+  });
 
   // isType - Checks is expected type
   handlebars.registerHelper("isType", function (value, expected, options) {
@@ -79,6 +92,15 @@ export default function handlebarsHelpers(handlebars) {
     const options = args.pop(); // The last argument is the options object
     return args.some((arg) => !!arg) ? options.fn(this) : options.inverse(this);
   });
+
+  // ifAll - {{{#ifAll variable1 variable2 variable3 variable4 etc}}, if all true return true
+  handlebars.registerHelper("ifAll", function (...args) {
+    const options = args.pop(); // The last argument is the options object
+    return args.every((arg) => !!arg)
+      ? options.fn(this)
+      : options.inverse(this);
+  });
+
   // now - return current timestamp i.e {{now}}
   handlebars.registerHelper("now", function () {
     return new Date().toISOString();
@@ -120,12 +142,12 @@ export default function handlebarsHelpers(handlebars) {
       var year = date.getFullYear();
       // Format date based on the format string
       switch (format) {
-      case "YYYY":
-        return `${year}`;
-      case "MMMM YYYY":
-        return `${month} ${year}`;
-      default:
-        return `${day} ${month} ${year}`;
+        case "YYYY":
+          return `${year}`;
+        case "MMMM YYYY":
+          return `${month} ${year}`;
+        default:
+          return `${day} ${month} ${year}`;
       }
     },
   );

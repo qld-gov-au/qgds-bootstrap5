@@ -2,6 +2,7 @@
 @use "./_icons.list" as *;
 @use "./icons.sizes" as *;
 @use "../../../css/mixins" as m;
+@use "sass:map";
 
 /* @TODO: Remove lines in between once all the icons within the components have been synced with new icons.  */
 :root {
@@ -49,7 +50,7 @@
   // Utility classes for icons
   // Note: mask-image is the preferred method for icons that are single colour, as it allows for easy colour changes using CSS variables.
   // The background-image method is used for SVG icons with multiple fill colours.
-  @each $icon in $icon-names {
+  @each $icon in map.keys($icon-names) {
     &-#{$icon} {
       @include m.make-icon($name: $icon, $include-base: false);
     }

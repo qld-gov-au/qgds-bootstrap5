@@ -3,6 +3,8 @@ import storyInlineWithTextHtml from "./stories/storyInlineWithText.html?raw";
 import storyFlexContainerHtml from "./stories/storyFlexContainer.html?raw";
 import storySizesHtml from "./stories/storySizes.html?raw";
 
+import metadata from "./metadata.json";
+
 const SPRITE_PATH = "./assets/img/icons-sprite.svg";
 const PREFIX_QGDS = "qgds-icon-";
 
@@ -23,6 +25,9 @@ export default {
     docs: {
       title: "Iconography in default",
       // page: null, // To disable autodocs
+    },
+    coderefs: {
+      show: false,
     },
   },
 };

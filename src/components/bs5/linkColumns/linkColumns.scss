@@ -1,12 +1,28 @@
 .link-column {
   --max-column-width: 46rem;
+  --color-border: var(--#{$prefix}neutral-lighter);
+
   background-color: var(--#{$prefix}body-bg);
-  
+
+  &.light {
+    --color-border: var(--#{$prefix}light-border);
+  }
+
+  &.alt {
+    --color-border: var(--#{$prefix}light-border-alt);
+  }
+  &.dark {
+    --color-border: var(--#{$prefix}dark-border);
+  }
+  &.dark-alt {
+    --color-border: var(--#{$prefix}dark-alt-border);
+  }
+
   &:has(.col-1) {
     max-width: var(--max-column-width);
   }
   ul {
-    width: 100%;  
+    width: 100%;
     display: grid;
     gap: 0 1rem;
   }
@@ -15,28 +31,30 @@
   }
   .col-2 {
     grid-template-columns: repeat(2, 1fr);
-    @include media-breakpoint-down(md) { 
+    @include media-breakpoint-down(md) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
   .col-3 {
     grid-template-columns: repeat(3, 1fr);
     @include media-breakpoint-down(lg) {
-        grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     @include media-breakpoint-down(md) {
-        grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   .col-vert-1 {
     display: block;
     column-count: 1;
-    column-gap: 1rem;
   }
   .col-vert-2 {
     display: block;
     column-count: 2;
-    column-gap: 1rem;
+    column-gap: 2rem;
+    @include media-breakpoint-down(lg) {
+      column-gap: 1.5rem;
+    }
     @include media-breakpoint-down(md) {
       column-count: 1;
     }
@@ -44,9 +62,10 @@
   .col-vert-3 {
     display: block;
     column-count: 3;
-    column-gap: 1rem;
+    column-gap: 2rem;
     @include media-breakpoint-down(lg) {
-        column-count: 2;
+      column-count: 2;
+      column-gap: 1.5rem;
     }
     @include media-breakpoint-down(md) {
       column-count: 1;
@@ -58,16 +77,24 @@
     gap: 1rem;
     align-items: center;
     align-content: center;
-    border-block-end: 1px solid var(--#{$prefix}light-grey);
+    border-block-end: 1px solid var(--color-border);
     // Required to reset styles from .qld-content-body li
     margin-block: 0;
     //Reset the line height too to override styles from .qld-content-body li
     line-height: 1.5rem;
+
+    // This prevents LI's from breaking across columns
+    // Legacy support for older WebKit browsers (=< chrome 104)
+    break-inside: avoid-column;
+    -webkit-column-break-inside: avoid;
+
     .nav-link {
       text-decoration: underline;
       text-decoration-color: transparent;
       text-decoration-thickness: 0;
-      transition: text-decoration-thickness 0.2s ease, text-decoration-color 0.2s ease;
+      transition:
+        text-decoration-thickness 0.2s ease,
+        text-decoration-color 0.2s ease;
       display: flex;
       align-items: center;
       flex: 1;
@@ -86,22 +113,28 @@
         mask-repeat: no-repeat;
         mask-position: right center;
         background-color: var(--#{$prefix}action-icon-color);
-        transition: margin-inline-end 0.2s ease, width 0.2s ease;
+        transition:
+          margin-inline-end 0.2s ease,
+          width 0.2s ease;
       }
       &:hover {
         text-decoration-color: var(--#{$prefix}link-color);
         text-decoration-thickness: 2px;
-        transition: text-decoration-thickness 0.2s ease, text-decoration-color 0.2s ease;
+        transition:
+          text-decoration-thickness 0.2s ease,
+          text-decoration-color 0.2s ease;
         &::after {
           background-color: var(--#{$prefix}action-icon-hover-color);
           margin-inline-end: 0rem;
           width: 2.5rem;
-          transition: margin-inline-end 0.2s ease, width 0.2s ease;
+          transition:
+            margin-inline-end 0.2s ease,
+            width 0.2s ease;
         }
       }
     }
   }
-  .all-link{
+  .all-link {
     grid-column: 1/-1;
     max-width: 100%;
     border-block-end: none;

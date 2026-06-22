@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as BlockquoteStories from './blockquote.stories';
+ 
+<Meta of={BlockquoteStories} />
+ 
+<Canvas
+  additionalActions={[
+    {
+      title: 'JSON',
+      onClick: () => {
+
+        const sourceToggleButton = document.querySelector('.docblock-code-toggle'); //Usually the hide/show code button
+
+        const sourcePanelContainer = document.querySelector('pre.prismjs');
+        if(sourcePanelContainer){
+          sourcePanelContainer.innerHTML = JSON.stringify(BlockquoteStories.Default.args, null, 2);
+          sourcePanelContainer.className = 'language-json';
+        }
+      },
+    },
+    {
+      title: 'Template',
+      onClick: () => {
+        // Show the Handlebars template
+        const template = '{{> blockquote}}'; // You can get this dynamically
+        console.log('Template:', template);
+
+        const sourceElement = document.querySelector('[data-docs-source] pre code');
+        if (sourceElement) {
+          sourceElement.textContent = template;
+          sourceElement.className = 'language-handlebars';
+        }
+      },
+    },
+    {
+      title: 'Show HTML',
+      onClick: () => {
+        // Reset to default HTML view
+        // This would restore the original source code
+        window.location.reload(); // Simple reset, or implement proper restoration
+      },
+    }
+
+]}
+of={BlockquoteStories.Default}
+
+/>

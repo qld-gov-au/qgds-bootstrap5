@@ -1,6 +1,7 @@
 // video.stories.js
 import { Video } from "./Video.js";
 import defaultdata from "./video.data.json";
+import metadata from "./metadata.json";
 
 // include accordion for transcript
 import { Accordion } from "../accordion/Accordion.js";
@@ -10,7 +11,7 @@ import { Accordion } from "../accordion/Accordion.js";
  * which is based on YouTube arguments.
  */
 export default {
-  tags: ["autodocs"],
+  tags: ["autodocs", "extended"],
   title: "3. Components/Video",
   args: defaultdata.youtube,
   render: (args) => {
@@ -76,11 +77,10 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    // design: {
-    //   name: "QGDS Figma Reference",
-    //   type: "figma",
-    //   url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=24025-293663&mode=design&t=uf49yHsvyUfA39Lv-4",
-    // },
+    coderefs: {
+      metadata,
+      partialname: "video", //{{> video }}
+    },
     controls: {
       exclude: ["transcriptAccordion"],
     },

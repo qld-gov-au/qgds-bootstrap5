@@ -1,0 +1,15 @@
+{
+  "id": "qgds-back-to-top",
+  "title": "Back to Top",
+  "type": "pattern",
+  "category": "Core",
+  "group": "Navigation",
+  "status": "Published",
+  "tags": [""],
+  "description": "Accordions expand and collapse sections of content.",
+  "urls": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321317&p=f&m=dev",
+    "website": "https://designsystem.qld.gov.au/components/back-to-top",
+    "storybook": "https://qld-gov-au.github.io/qgds-bootstrap5/?path=/docs/3-components-back-to-top"
+  }
+}

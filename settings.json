@@ -13,5 +13,8 @@
     "javascriptreact",
     "json"
   ],
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "[mdx]": {
+    "editor.formatOnSave": false
+  }
 }

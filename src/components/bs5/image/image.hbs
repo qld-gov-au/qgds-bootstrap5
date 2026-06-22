@@ -13,12 +13,15 @@
 {{/inline}}
 
 {{#if src}}
-  {{#if caption}}
+  {{#ifAny caption credit }}
     <figure class="{{ figureClass }}" {{#if width}}style="width:{{ width }}{{ widthUnit }}"{{/if}}>
       {{> imageTag}}
-      <figcaption>{{ caption }}</figcaption>
+      <figcaption>
+        {{caption}}
+        {{#if credit}}<span class="figure-credit">{{ credit }}</span>{{/if}}
+      </figcaption>
     </figure>
   {{else}}
-    {{> imageTag}}
-  {{/if}}
+    {{>imageTag}}
+  {{/ifAny}}
 {{/if}}

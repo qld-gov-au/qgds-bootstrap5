@@ -1,7 +1,8 @@
 // card--icon-list-footer.stories.js
-import { Card } from "./Card.js";
+import { Card, argTypes } from "./Card.js";
 import { Link } from "../link/link.js";
 import defaultdata from "./card.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -95,29 +96,7 @@ export default {
     description:
       "This card demonstrates the proper nesting of an Icon List component into the Card Footer following the Figma design pattern with 0.75rem gap spacing between links and 12px gap between icons and text.",
   },
-  argTypes: {
-    date: {
-      control: "text",
-    },
-    variantClass: {
-      control: "select",
-      options: {
-        Default: "default",
-        Light: "light",
-        Alternative: "alt",
-        Dark: "dark",
-        "Dark alternative": "dark-alt",
-      },
-    },
-    action: {
-      control: "select",
-      options: {
-        None: "no",
-        Single: "single",
-        Multi: "multi",
-      },
-    },
-  },
+  argTypes,
   parameters: {
     docs: {
       description: {
@@ -128,10 +107,9 @@ export default {
         exclude: ["link", "arrow", "iconPosition", "footer"],
       },
     },
-    design: {
-      name: "QGDS Figma Reference - Cards",
-      type: "figma",
-      url: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=card-component",
+    coderefs: {
+      metadata,
+      partialname: "card", //{{> card }}
     },
   },
 };

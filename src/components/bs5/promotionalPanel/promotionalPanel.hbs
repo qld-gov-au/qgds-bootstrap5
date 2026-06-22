@@ -5,7 +5,7 @@
         {{/ifCond}}>
         <div class="image-panel">
             {{#ifCond type '!=' 'promo'}}
-            <img class="promo-panel-image" src="{{promoImage}}" alt="Promotional Image">
+            <img class="promo-panel-image" src="{{promoImage}}" alt="{{isdefined promoImageDescription "Promotional image"}}">
             {{else}}
                 <div class="promo-panel-image"></div>
             {{/ifCond}}

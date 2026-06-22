@@ -6,7 +6,7 @@ const defaultData = {
   title: "this is my title",
   uri: "https://forgov.qld.gov.au/projects-and-initiatives/search-for-projects-and-initiatives",
   description: "this is my description",
-}
+};
 
 export default {
   tags: ["autodocs"],
@@ -16,13 +16,20 @@ export default {
     return new MetaOpenGraph(args).html;
   },
 
-  argTypes: {
-  },
+  argTypes: {},
 
   parameters: {
     docs: {
-      controls: {
-
+      controls: {},
+      codeReferences: [
+        {
+          label: "HTML",
+          language: "html",
+          content: new MetaOpenGraph(defaultData).html,
+        },
+      ],
+      howToUse: {
+        show: false,
       },
     },
   },
@@ -30,14 +37,12 @@ export default {
 
 /**
  * Default head metadata
- * 
+ *
  */
 export const Default = {
+  tags: ["!dev"],
   parameters: {
     // Disables Chromatic's snapshotting on a component level
     chromatic: { disableSnapshot: true },
   },
 };
-
-
-

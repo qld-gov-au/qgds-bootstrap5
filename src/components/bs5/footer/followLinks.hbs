@@ -6,7 +6,7 @@
               <span class="qld-icon qld-icon-md qld-icon-{{icon}} d-lg-none" aria-hidden="true"></span>
               <span class="qld-icon qld-icon-sm qld-icon-{{icon}} d-none d-lg-block" aria-hidden="true"></span>
               <span class="nav-link-label d-none d-lg-block">{{ label }}</span>
-              <span class="sr-only">{{ label }}</span>
+              <span class="sr-only">{{isdefined accessibleLabel label}}</span>
           </a>
       </li>
     {{/each }}

@@ -1,0 +1,47 @@
+import {
+  Meta,
+  Title,
+  Primary,
+  Canvas,
+  Controls,
+  Stories,
+  Source,
+  useOf,
+} from "@storybook/addon-docs/blocks";
+
+import {
+  ComponentMeta,
+  CodeReferencesInstructions,
+  DesignResources,
+  Notes,
+} from "./customMDXComponents.jsx";
+
+<Meta isTemplate />
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: "1rem",
+    marginBottom: "2rem",
+  }}
+>
+
+<Title />
+</div>
+
+<div>
+  <ComponentMeta />
+</div>
+
+## Example
+
+<Primary />
+
+<Notes title="Notes" />
+
+<Stories title="Variants" includePrimary={false} />
+
+<DesignResources title="Design resources" />
+<CodeReferencesInstructions title="How to use" />

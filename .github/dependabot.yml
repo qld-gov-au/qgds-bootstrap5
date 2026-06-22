@@ -30,8 +30,11 @@ updates:
         patterns:
           - "eslint*"
           - "@stylistic/eslint-plugin-js"
-          - "esbuild-plugin-eslint"
       esbuild:
         patterns:
           - "esbuild*"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
     open-pull-requests-limit: 10

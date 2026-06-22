@@ -1,6 +1,7 @@
 // ComponentExample.stories.js
 import { Sidenav } from "./Sidenav.js";
 import defaultdata from "./sidenav.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -12,6 +13,10 @@ export default {
   argTypes: {},
   globals: { backgrounds: { value: "default" } },
   parameters: {
+    coderefs: {
+      metadata,
+      partialname: "sidenav", //{{> sidenav }}
+    },
     backgrounds: { disable: false },
     docs: {
       controls: {

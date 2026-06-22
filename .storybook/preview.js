@@ -1,18 +1,39 @@
+import * as React from "react";
+import { useEffect } from "storybook/preview-api";
+import { addons } from "storybook/preview-api";
+import DocumentationTemplate from "./DocumentationTemplate.mdx";
+
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Markdown,
+} from "@storybook/addon-docs/blocks";
+
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import "../src/js/qld.bootstrap.js";
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
-// import { allBackgrounds } from "./modes.js";
 import {
   withDynamicTheme,
   dynamicThemeGlobalTypes,
 } from "./dynamicThemeDecorator.js";
 
+import { withCodeRefs } from "./codeRefsDecorator.js";
+import { breakpoints } from "../src/js/constants.js";
+
 // Check if dynamic theme should be enabled via environment variable
 const ENABLE_DYNAMIC_THEME = import.meta.env.ENABLE_DYNAMIC_THEME;
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
+
+// Initialize Handlebars helpers IMMEDIATELY, before any stories load
 import init from "../src/js/handlebars.init.js";
 import Handlebars from "handlebars";
+init(Handlebars);
+
+import "../src/js/qld.bootstrap.js";
 
 // NOTE: TurboSnap Performance Warning
 // The handlebars.init.js import above loads handlebars.partials.js which is
@@ -42,14 +63,23 @@ const preview = {
       },
     },
     viewport: {
-      viewports: {
+      options: {
         //QLD-media Breakpoints
-        small: { name: "Small", styles: { width: "400px", height: "800px" } },
-        medium: { name: "Medium", styles: { width: "700px", height: "800px" } },
-        large: { name: "Large", styles: { width: "992px", height: "800px" } },
+        small: {
+          name: "Small",
+          styles: { width: `${breakpoints.sm}px`, height: "800px" },
+        },
+        medium: {
+          name: "Medium",
+          styles: { width: `${breakpoints.md}px`, height: "800px" },
+        },
+        large: {
+          name: "Large",
+          styles: { width: `${breakpoints.lg}px`, height: "800px" },
+        },
         xlarge: {
           name: "Extra Large",
-          styles: { width: "1312px", height: "1000px" },
+          styles: { width: `${breakpoints.xl}px`, height: "1000px" },
         },
         xxlarge: {
           name: "Extra Extra Large",
@@ -57,7 +87,7 @@ const preview = {
         },
         navbreakpoint: {
           name: "Nave Breakpoint",
-          styles: { width: "992px", height: "800px" },
+          styles: { width: `${breakpoints.lg}px`, height: "800px" },
         },
         ...INITIAL_VIEWPORTS,
       },
@@ -77,9 +107,18 @@ const preview = {
       },
     },
     docs: {
+      page: DocumentationTemplate,
+      toc: {
+        disable: false,
+        headingSelector: "h2, h3",
+        title: "",
+      },
       source: {
         excludeDecorators: true,
+        state: "open",
+        type: "dynamic",
       },
+      codePanel: false,
     },
     backgrounds: {
       options: {
@@ -95,7 +134,13 @@ const preview = {
       storySort: {
         method: "alphabetical",
         // Set order of components in the Layout category
-        order: ["*", ["Header", "Footer", "Breadcrumbs", "Side navigation"]],
+        order: [
+          "Welcome",
+          "Introduction",
+          ["How to use", "Development", "*"],
+          "*",
+          ["Header", "Footer", "Breadcrumbs", "Side navigation"],
+        ],
       },
     },
     a11y: {
@@ -115,7 +160,13 @@ const preview = {
     },
   },
 
+  sidebar: {
+    showRoots: false,
+  },
+
   decorators: [
+    withCodeRefs,
+
     ...(ENABLE_DYNAMIC_THEME ? [withDynamicTheme] : []),
     // data-bs-theme="dark" won't be used
     withThemeByClassName({
@@ -129,7 +180,6 @@ const preview = {
       defaultTheme: "None",
     }),
     (Story, { parameters }) => {
-      init(Handlebars);
       const { pageLayout, wrapperClasses } = parameters;
       switch (pageLayout) {
         case "with-wrapper":

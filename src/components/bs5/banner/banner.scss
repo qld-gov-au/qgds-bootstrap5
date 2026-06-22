@@ -17,7 +17,6 @@
   --#{$prefix}banner-bg-color: var(--#{$prefix}default-background);
   --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-default.png);
   --#{$prefix}banner-bg-image: url(../img/banner-desktop-default.jpg);
-  --#{$prefix}banner-bg-custom-color: #ebebeb;
 
   //Drop shadow for "block style" banner title
   --#{$prefix}title-box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.06);
@@ -28,14 +27,12 @@
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-background);
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-light.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-light.jpg);
-    --#{$prefix}banner-bg-custom-color: #e6edf5;
   }
 
   &.light-alt {
     --#{$prefix}banner-bg-color: var(--#{$prefix}light-alt-background);
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-light-alt.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-light-alt.jpg);
-    --#{$prefix}banner-bg-custom-color: #dadada;
   }
 
   // .dark only
@@ -45,7 +42,6 @@
     );
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark.jpg);
-    --#{$prefix}banner-bg-custom-color: #09549f;
   }
 
   // .dark-alt only
@@ -55,7 +51,6 @@
     );
     --#{$prefix}banner-bg-texture: url(../img/banner-texture-tile-dark-alt.png);
     --#{$prefix}banner-bg-image: url(../img/banner-desktop-dark-alt.jpg);
-    --#{$prefix}banner-bg-custom-color: #0c3b71;
   }
 
   &.dark,
@@ -101,9 +96,9 @@
     --#{$prefix}banner-padding-top: 2rem;
     --#{$prefix}banner-padding-bottom: 2rem;
 
-    //No banner
+    //No banner — top matches default banner so breadcrumb position is consistent across page types
     &.no-banner {
-      --#{$prefix}banner-padding-top: 1.5rem;
+      --#{$prefix}banner-padding-top: 2rem;
       --#{$prefix}banner-padding-bottom: 1.5rem;
     }
 
@@ -122,7 +117,7 @@
     --#{$prefix}banner-padding-bottom: 3rem;
 
     &.no-banner {
-      --#{$prefix}banner-padding-top: 2rem;
+      --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 2rem;
     }
 
@@ -143,7 +138,7 @@
     --#{$prefix}banner-padding-bottom: 4rem;
 
     &.no-banner {
-      --#{$prefix}banner-padding-top: 2rem;
+      --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 2rem;
     }
 
@@ -227,6 +222,17 @@
         grid-row: 1 / span 2; // Spans rows 1 and 2
       }
     }
+
+    &.is-full-width:not(:has(.banner-image)) {
+      @include media-breakpoint-down(lg) {
+        .banner-content {
+          grid-column: 1 / -1;
+          .banner-abstract {
+            max-width: none;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -259,8 +265,8 @@
     @include media-breakpoint-down(md) {
       background-image: none;
 
-      .banner-image {
-        margin-top: 0.75rem;
+      .banner-breadcrumbs {
+        margin-bottom: 0.75rem;
       }
 
       //On mobile, create a gap at top of .banner-inner for the background image
@@ -294,6 +300,10 @@
   */
 
   &.with-hero-image {
+    .banner-breadcrumbs {
+      margin-bottom: 0.75rem;
+    }
+
     .banner-image {
       // Pins .banner-image frame to top and bottom rails of the banner
       margin-top: calc(var(--#{$prefix}banner-padding-top) * -1);
@@ -338,6 +348,10 @@
     // Specific image treatments above medium viewports
     @include media-breakpoint-up(md) {
       overflow: hidden;
+
+      .banner-breadcrumbs {
+        margin-bottom: 0;
+      }
 
       .banner-image {
         &.align-right {
@@ -407,52 +421,55 @@
   .banner-title-wrap {
     display: block;
     margin: 1.5rem 0 0 0;
-    font-size: 2.5rem;
-    line-height: 3.25rem;
+    font-size: $h1-font-size-mobile;
+    line-height: $h1-line-height-mobile;
 
-    // Target xs - md viewports
-    @include media-breakpoint-down(lg) {
-      font-size: $h1-font-size-mobile;
-      line-height: $h1-line-height-mobile;
+    // LG and above
+    @include media-breakpoint-up(lg) {
+      font-size: $h1-font-size;
+      line-height: $headings-line-height;
     }
 
-    //Spans inside the .banner-title-wrap H1
+    //SPANS inside H1.banner-title-wrap
     .banner-title,
     .banner-subtitle {
       display: block;
       color: var(--#{$prefix}banner-title-color);
     }
 
+    //"Block-title" visual styles
     &.as-block {
       padding: 0.5rem 1.25rem;
+      line-height: 1.5;
 
-      //Both spans
+      //Allow line breaking on both spans
       .banner-title,
       .banner-subtitle {
-        display: unset;
         box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        position: static; // required to allow breadcrumb dropdown to overlap
       }
 
       // First headline span
       .banner-title {
         display: inline;
-        font-weight: 600;
-        color: var(--qld-white);
-        background-color: var(--qld-dark-background);
+        color: var(--qld-dark-text-heading);
+        background-color: var(--qld-dark-background-shade);
         box-shadow:
-          8px 0px 0 6px var(--qld-dark-background),
-          -8px 0px 0 6px var(--qld-dark-background),
+          8px 0px 0 6px var(--qld-dark-background-shade),
+          -8px 0px 0 6px var(--qld-dark-background-shade),
           -12px 0px 0 6px var(--qld-light-accent),
           0px 4px 16px rgba(0, 0, 0, 0.3);
       }
 
       // Second headline span
       .banner-subtitle {
-        display: table;
+        display: block;
+        width: fit-content;
         font-weight: 400;
         color: var(--qld-light-text-text);
-        background-color: var(--qld-default-background);
-        margin-top: 0.75rem;
+        background-color: var(--qld-neutral-white);
+        margin-top: 0.5rem;
         box-shadow:
           8px 0px 0 6px var(--qld-default-background),
           -8px 0px 0 6px var(--qld-default-background),
@@ -464,14 +481,15 @@
 
   // Handles block style dark (banner-title) on dark (banner) clash
   // Changes banner-title to use a shade of the dark background
-  &.dark {
+  &.dark,
+  &.dark-alt {
     .banner-title-wrap.as-block {
       .banner-title {
         background-color: var(--qld-dark-background-shade);
         box-shadow:
           8px 0px 0 6px var(--qld-dark-background-shade),
           -8px 0px 0 6px var(--qld-dark-background-shade),
-          -12px 0px 0 6px var(--qld-light-accent),
+          -12px 0px 0 6px var(--qld-dark-accent),
           0px 4px 16px rgba(0, 0, 0, 0.3);
       }
     }
@@ -521,6 +539,11 @@
       //Redefine the breadcrumb component variable
       --#{$prefix}breadcrumb-padding-y: 0;
       color: var(--#{$prefix}banner-breadcrumb-color);
+    }
+
+    // Re-scope focus color for breadcrumb vertical variant inside banners
+    .breadcrumb .breadcrumb-vertical {
+      --qld-focus-color: var(--qld-light-focus);
     }
   }
 

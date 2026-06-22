@@ -1,0 +1,136 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction/Development" />
+
+# QGDS Bootstrap 5 project development
+
+Follow this guide to set up a local development environment for the QGDS Bootstrap 5 project.
+
+Alternatively, you can fork the repository to create your own version for personal use, customisation or contribution.
+
+## Technical summary
+
+**Build and development:**
+
+- ESbuild - Fast bundling, minification, and transpilation
+- Storybook - Component development, testing, and documentation
+- Vitest - Unit testing framework
+
+**Prerequisites:**
+
+- Node v22+
+- NPM 10.9.3+
+- Java 11+ (Optional, for Maven builds)
+
+## Installation
+
+**Quick build (Maven):**
+
+If you have Java and Maven installed, this will pull in a local node/npm version and run through the full lifecycle build.
+
+```bash
+git clone https://github.com/qld-gov-au/qgds-bootstrap5
+cd qgds-bootstrap5
+mvn install
+```
+
+**Standard build (Node/NPM):**
+
+Download and install dependencies:
+
+```bash
+git clone https://github.com/qld-gov-au/qgds-bootstrap5
+npm install
+```
+
+Build the Design System CSS, Components and templates (output to `dist/`):
+
+```bash
+npm run build
+```
+
+**Preview components **
+
+Preview components and documentation locally with Storybook:
+
+```bash
+npm run storybook
+```
+
+## Linting
+
+```bash
+npm run lint
+```
+
+## Husky
+
+Husky is used to manage Git hooks for pre-commit and pre-push actions.
+
+The following hooks are configured:
+
+- **Pre-commit Hook:** Runs linting and unit tests before allowing a commit. This ensures code quality and prevents committing code that fails tests or does not adhere to coding standards.
+- **Pre-push Hook:** Executes unit tests before pushing code to a remote repository. This helps catch issues early and maintains the integrity of the codebase.
+
+## Theming
+
+-- todo
+
+## Unit Tests
+
+In addition to manual testing via storybook, unit tests may be created and run via <code>vitest</code>.
+
+```bash
+npm run test
+```
+
+or use the browser based ui
+
+```bash
+npm run test:ui
+```
+
+See src/components/bs5/accordion/accordion.test.js for example unit test including snapshot and interaction tests with JSDOM.
+
+## Github Actions
+
+This repo includes many workflows to reduce developer overheads. This includes but not limited to:
+
+- CICD on all commit's and PR's
+- GitHub io static document deployment based on develop/main
+- Dependabot auto patching + storybook upgrade feature
+- One click npm versioning publish (patch, minor, major) \*\*
+- Auto generate release notes based on PR's created (On version Tag)
+- Npm js package publish (On version Tag) \*\*\*
+- GitHub package Publish (On version Tag) \*\*\*\*
+
+Must configure GitHub service account ssh private key loaded into GitHub actions secret DEPLOY_KEY
+
+- Must have npm js token loaded into GitHub actions secrets NPM_TOKEN to allow publishing.
+  \*\*\*\* Switch's @qld-gov-au with forked username (lowercase) and publish to your account see .github/workflows/githubPackage.yml step Update package scope, export package name.
+
+## Contributing
+
+This repository is designed to be easily forked for personal development or contribution.
+
+**After forking:**
+
+- Enable GitHub Actions in your repository settings
+- Configure GitHub Pages to deploy via GitHub Actions
+- Set up your own Chromatic account for visual regression testing and change diffing
+
+**External Contributions:**
+
+We welcome contributions from the community! Feel free to submit pull requests with improvements, bug fixes, or new features. Your contributions may be included in the core library and CDN distribution.
+
+## IDE Recommendations
+
+We recommend using VSCode as the IDE for development with the following plugins:
+
+- Prettier
+- ESLint
+- Mustache JS or Handlebars JS template support
+
+Webstorm also works.
+
+---

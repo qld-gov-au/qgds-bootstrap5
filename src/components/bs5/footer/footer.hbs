@@ -38,24 +38,26 @@
        
           <div class="col-12">
             {{!-- Custom contact list --}}
-            {{#ifCond contact.showList "&&" contact.list}}
-            {{#each contact.list }}
-            <div class="footer-contact-item footer-contact-{{@key}}">
-              <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
-            </div>
-            {{/each}}
-            
-            {{else}}
-            {{!default contact list }}
-            <div class="footer-contact-item footer-contact-phone">
-              <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
-              rel="noopener">13 QGOV (13 74 68)</a>
-            </div>
-          
-            <div class="footer-contact-item footer-contact-email">
-              <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
-              href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
-            </div>
+            {{#ifCond contact.showList "!==" false}}
+              {{#ifCond contact.showList "&&" contact.list}}
+              {{#each contact.list }}
+              <div class="footer-contact-item footer-contact-{{@key}}">
+                <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
+              </div>
+              {{/each}}
+
+              {{else}}
+              {{!default contact list }}
+              <div class="footer-contact-item footer-contact-phone">
+                <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
+                rel="noopener">13 QGOV (13 74 68)</a>
+              </div>
+
+              <div class="footer-contact-item footer-contact-email">
+                <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
+                href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
+              </div>
+              {{/ifCond}}
             {{/ifCond}}
           </div>
         </div>

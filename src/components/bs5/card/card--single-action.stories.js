@@ -1,6 +1,7 @@
 // card--single-action.stories.js
-import { Card } from './Card.js';
-import defaultdata from './card.data.json';
+import { Card, argTypes } from "./Card.js";
+import defaultdata from "./card.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -20,39 +21,16 @@ export default {
     `;
   },
   args: defaultdata.singleAction,
-  argTypes: {
-    date: {
-      control: "text",
-    },
-    variantClass: {
-      control: "select",
-      options: {
-        Default: "default",
-        Light: "light",
-        Alternative: "alt",
-        Dark: "dark",
-        "Dark alternative": "dark-alt",
-      },
-    },
-    action: {
-      control: "select",
-      options: {
-        None: "no",
-        Single: "single",
-        Multi: "multi",
-      },
-    },
-  },
+  argTypes,
   parameters: {
-    docs: {
-      controls: {
-        exclude: ["link", "arrow", "iconPosition"],
-      },
+    coderefs: {
+      metadata,
+      partialname: "card", //{{> card }}
     },
   },
 };
 
-export const Default = { };
+export const Default = {};
 export const Light = {
   name: "Light theme",
   args: {

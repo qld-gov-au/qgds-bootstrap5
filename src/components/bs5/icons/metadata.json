@@ -1,0 +1,15 @@
+{
+  "id": "qgds-icons",
+  "title": "Icons",
+  "title_uikit": "Icons",
+  "type": "Pattern",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=78442-34904&t=1hdwEIoZGw3tawaE-0",
+    "website": ""
+  }
+}

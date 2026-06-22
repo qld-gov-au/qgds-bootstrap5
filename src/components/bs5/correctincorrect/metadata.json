@@ -1,0 +1,14 @@
+{
+"id": "qgds-correct-incorrect",
+"title": "Correct/Incorrect",
+"type": "Pattern",
+"category": "Deprecated",
+"group": "",
+"status": "Published",
+"tags": [""],
+"description": "The correct/incorrect pattern is used to inform responses or actions the user should take.",
+"refs": {
+  "uikit": "",
+  "website": ""
+  }
+}

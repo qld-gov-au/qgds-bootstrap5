@@ -1,0 +1,15 @@
+{
+  "id": "qgds-table",
+  "title": "Table",
+  "title_uikit": "Tables",
+  "type": "Component",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97592&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/tabs"
+  }
+}

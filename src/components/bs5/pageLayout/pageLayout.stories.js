@@ -1,6 +1,7 @@
 import { HomePage } from "./HomePage.js";
 import { ContentPageWithSideNavigation } from "./ContentPageWithSideNavigation.js";
 import { ContentPageWithForm } from "./ContentPageWithForm.js";
+
 //Data
 import masterbrand_variant from "../header/header.variant.masterBrand.data.json";
 import menu_state from "../navbar/navbar.data.json";
@@ -32,23 +33,23 @@ const sideNavData = {
   navtitlelink: "#optionallink",
   navlist: [
     {
-      link: "#https://www.qld.gov.au/transport/registration/register/heavy",
-      label: "Home page",
+      link: "#",
+      label: "Page link",
       class: "",
     },
     {
       link: "#",
-      label: "Content page (no bar)",
+      label: "Page link",
       class: "",
     },
     {
       link: "#",
-      label: "Content page (with bar)",
-      class: "",
+      label: "Active Page",
+      class: "active",
     },
     {
       link: "#",
-      label: "Page with form",
+      label: "Page link",
       class: "",
     },
   ],
@@ -70,8 +71,6 @@ const defaultData = {
   },
   contentFooter: contentFooterData,
   sidenav: sideNavData,
-  // Mapping some @root header fields to this pageLayout root object, so template partials can resolve values
-  // assets: masterbrand_variant.assets,
 };
 
 export default {
@@ -84,6 +83,7 @@ export default {
   parameters: {
     layout: "fullscreen",
     docs: {
+      page: null, //null overrides our custom DocumentationTemplate, forces the autodocs default instead
       controls: {},
     },
   },
@@ -118,18 +118,7 @@ export const Default = {
       bannerType: "no-banner",
       breadcrumbs: breadcrumbsData.default,
     },
-    sidenav: {
-      ...sideNavData,
-      navlist: [
-        sideNavData.navlist[0],
-        {
-          ...sideNavData.navlist[1],
-          class: "active",
-        },
-        sideNavData.navlist[2],
-        sideNavData.navlist[3],
-      ],
-    },
+    sidenav: sideNavData,
   },
 };
 
@@ -149,7 +138,7 @@ export const Home = {
       abstract: "Your gateway to government services and information.",
       bannerType: "banner-advanced",
       backgroundType: "with-hero-image",
-      "image.classes": "align-grid",
+      ["image.classes"]: "align-grid",
       callToAction: "buttons",
       buttons: [
         {
@@ -244,18 +233,7 @@ export const ContentPageBasicBanner = {
         "Everything you need to know about registering your vehicle in Queensland.",
       breadcrumbs: breadcrumbsData.default,
     },
-    sidenav: {
-      ...sideNavData,
-      navlist: [
-        sideNavData.navlist[0],
-        sideNavData.navlist[1],
-        {
-          ...sideNavData.navlist[2],
-          class: "active",
-        },
-        sideNavData.navlist[3],
-      ],
-    },
+    sidenav: sideNavData,
   },
 };
 
@@ -281,18 +259,7 @@ export const ContentPageWithSingleForm = {
       abstract: "Get in touch with us using the form below.",
       breadcrumbs: breadcrumbsData.default,
     },
-    sidenav: {
-      ...sideNavData,
-      navlist: [
-        sideNavData.navlist[0],
-        sideNavData.navlist[1],
-        sideNavData.navlist[2],
-        {
-          ...sideNavData.navlist[3],
-          class: "active",
-        },
-      ],
-    },
+    sidenav: sideNavData,
     content: `
       <h1>Contact Form</h1>
       <p>Please fill out the form below and we'll get back to you as soon as possible.</p>
@@ -415,12 +382,14 @@ export const ContentPageWithSingleForm = {
           variantClass: "btn-primary",
           label: "Submit",
           type: "submit",
+          islink: false,
         },
         {
           ...buttonData,
           variantClass: "btn-secondary",
           label: "Reset",
           type: "reset",
+          islink: false,
         },
       ],
     },

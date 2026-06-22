@@ -46,10 +46,12 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?type=design&node-id=5990-98076&mode=design&t=Ge7frKNP4uEGswUz-0",
+    coderefs: {
+      partialname: "breadcrumbs", //{{> breadcrumbs }}
+      tabs: {
+        notes:
+          "Breadcrumbs usually sit within a container that aligns with the main content. Refer to the Page Layout story for example usage.",
+      },
     },
     backgrounds: {
       disable: false,

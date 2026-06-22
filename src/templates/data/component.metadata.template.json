@@ -1,0 +1,15 @@
+{
+"id": "qgds-component-name",
+"title": "Title",
+"type": "component/pattern",
+"category": "Core/Extended",
+"group": "Null/Forms/Layout/Navigation/Media etc",
+"status": "Published/Draft",
+"tags": [""],
+"description": "Reuse descriptions from QGDS website please",
+"urls": {
+  "uikit": "https://www.figma.com/design/UIKIT-PATH-TO-COMPONENT",
+  "website": "https://designsystem.qld.gov.au/components/component-name",
+  "storybook": "https://qld-gov-au.github.io/qgds-bootstrap5/?path=/docs/3-components-accordion"
+  }
+}

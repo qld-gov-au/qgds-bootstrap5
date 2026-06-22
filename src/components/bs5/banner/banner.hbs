@@ -1,5 +1,5 @@
 <!-- QGDS Banner Component -->
-  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" role="banner">
+  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" >
     <div class="container-fluid">
       <div class="banner-inner">
 
@@ -10,7 +10,6 @@
         <div class="banner-content">
 
           {{#if title}}
-
           {{!-- titleClasses accepts a "title-block" class --}}
           <h1 class="banner-title-wrap {{ join titleClasses }}">
             <span class="banner-title">{{~title~}}</span>
@@ -52,14 +51,12 @@
         </div>
         {{!-- End banner content --}}
 
-        {{#if image }}
+        {{#ifAll image image.url (cond backgroundType "==" "with-hero-image")}}
         <div class="banner-image {{ join image.classes }}">
           <div class="banner-image-inner" style="background-image:url({{image.url}})" role="img"
             aria-label="{{ image.alt }}"></div>
         </div>
-        {{/if}}
-
+        {{/ifAll}}
       </div>
-
     </div>
   </div>

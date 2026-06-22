@@ -1,5 +1,7 @@
-// QGDS QOL Button
+// QGDS Button
 // extends https://getbootstrap.com/docs/5.3/components/buttons/#variables
+
+@use "../../../css/mixins" as m;
 
 // QGDS specific button variables.
 .btn {
@@ -168,6 +170,7 @@ a.btn,
     color: var(--#{$prefix}btn-color);
     text-decoration: underline;
     text-decoration-color: inherit;
+    text-decoration-thickness: var(--qld-link-underline-thickness-hover, 2px);
     text-underline-offset: 0.3em;
   }
 
@@ -175,10 +178,7 @@ a.btn,
     color: var(--#{$prefix}btn-active-color);
   }
 
-  &:focus {
-    outline: var(--#{$prefix}light-blue) solid 3px;
-    outline-offset: 2px;
-  }
+  @include m.focusable();
 
   &:visited {
     color: var(--#{$prefix}btn-color);
@@ -223,12 +223,6 @@ a.btn,
 
     .btn-label-progress {
       display: inline;
-    }
-
-    // Maintain focus styles for screen readers
-    &:focus {
-      outline: var(--#{$prefix}light-blue) solid 3px;
-      outline-offset: 2px;
     }
 
     // Remove hover effects
@@ -345,11 +339,6 @@ a.btn,
       box-shadow: none !important;
       text-decoration: none !important;
     }
-  }
-
-  &:focus {
-    outline: var(--#{$prefix}dark-focus) solid 3px;
-    outline-offset: 2px;
   }
 
   // Progress state focus for dark mode

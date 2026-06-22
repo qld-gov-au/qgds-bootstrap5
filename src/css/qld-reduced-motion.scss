@@ -1,0 +1,51 @@
+@media (prefers-reduced-motion: reduce) {
+  .show,
+  .show:after,
+  .show:before,
+  a::after,
+  a::before,
+  a.dropdown-item,
+  .collapsed,
+  .accordion-toggle-btn--closed::after,
+  .accordion-toggle-btn--open::after,
+  .video-thumbnail .video-thumbnail-image:before,
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  a.dropdown-item,
+  a.dropdown-item:hover {
+    gap: 1rem !important;
+  }
+  a.dropdown-item,
+  a.dropdown-item:hover,
+  a.dropdown-item:hover::after {
+    padding-inline-end: 0.5rem !important;
+    transform: none !important;
+    top: unset;
+  }
+  .qld-cta-link:hover {
+    gap: 0.5rem !important;
+  }
+  .link-column .nav-item .nav-link::after,
+  .link-column .nav-item .nav-link:hover::after {
+    margin-inline-end: 0.5rem;
+  }
+  .link-column .all-link .qld-cta-link:hover {
+    padding-inline-end: 0.5rem;
+  }
+  .qld-tabs .nav-tabs {
+    scroll-behavior: unset !important;
+  }
+  .card.card-arrow:hover .qld-icon {
+    transform: translateX(0rem);
+  }
+  @media (max-width: 991.98px) {
+    .navbar.show > .container,
+    .navbar.vertical.show > .container {
+      transform: translateX(0);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "qgds-tab",
+  "title": "Tabs",
+  "title_uikit": "Tabs",
+  "type": "Component",
+  "scope": "Core",
+  "group": "",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=25951-236134&p=f&t=1PNeXYXdepnDeW4g-0",
+    "website": "https://www.designsystem.qld.gov.au/components/tags"
+  }
+}

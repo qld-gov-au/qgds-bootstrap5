@@ -1,0 +1,15 @@
+{
+  "id": "qgds-button-cta",
+  "title": "Call to action",
+  "title_uikit": "Call-to-action",
+  "type": "Component",
+  "scope": "Core",
+  "group": "Navigation",
+  "status": "Published",
+  "synonyms": [],
+  "description": "",
+  "refs": {
+    "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=120360-77029&t=72ZKZxpVAzz6DIVf-0",
+    "website": "https://www.designsystem.qld.gov.au/components/call-to-action-cta"
+  }
+}

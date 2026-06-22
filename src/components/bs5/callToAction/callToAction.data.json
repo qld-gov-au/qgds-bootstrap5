@@ -1,10 +1,11 @@
 {
 	"id": "",
 	"label": "View all",
+	"arialabel": "View all services",
 	"href": "#123",
 	"target": "_blank",
 	"class": [
-		{"small": false}, 
+		{"small": false},
 		{"view-all": true}
 	]
 }

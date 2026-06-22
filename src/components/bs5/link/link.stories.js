@@ -6,6 +6,7 @@
 
 import { Link } from "./link.js";
 import defaultdata from "./link.data.json";
+import metadata from "./metadata.json";
 
 export default {
   tags: ["autodocs"],
@@ -62,12 +63,11 @@ export default {
    * @property {string} design.url - URL of the design parameter.
    */
   parameters: {
-    backgrounds: { disable: false },
-    design: {
-      name: "QGDS Figma Reference",
-      type: "figma",
-      url: "https://www.figma.com/design/2hnawnMhbVAHbYj91Z3S0I/00.-QLD.GOV-extended-components-and-templates?node-id=7402-2844&m=dev",
+    coderefs: {
+      metadata,
+      partialname: "link", //{{> link }}
     },
+    backgrounds: { disable: false },
     pageLayout: "with-wrapper",
     wrapperClasses: "qld-content-body",
   },

@@ -1,0 +1,31 @@
+@use "../../components/bs5/icons/icons.list" as icons;
+@use "../functions/string-replace" as *;
+@use "../functions/in-list" as *;
+@use "../functions/svg-encode" as *;
+@use "bootstrap/scss/functions" as bs;
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+///
+/// This function can create an svg string with a customised fill color by replacing all instances of the string "currentColor" with the chosen color.
+/// This is useful when creating svg data urls for use in background property, where currentColor does not work.
+/// Use it together with svg-encode for fun and profit.
+/// @param {string} $name - The name of the QGDS icon
+/// @param {color} $color -The desired new color. Must be of type color (eg hex or rgb notation) not a CSS custom property.
+/// @return {string} - the new svg string with "currentColor" replaced with chosen color
+@function color-icon($name, $color) {
+  $_validNames: map.keys(icons.$icon-names);
+  // validate $name
+  @if ($name and not in-list($name, $_validNames)) {
+    @error "Invalid parameter $name: " + $name;
+  }
+
+  // validate color is valid.
+  @if (meta.type-of($color) != "color") {
+    @error "Invalid parameter $color: " + $name;
+  }
+
+  $svg: map.get(icons.$icon-names, $name);
+  @return string-replace($svg, "currentColor", "#{$color}");
+}

@@ -8,7 +8,7 @@ export function initQuickexit() {
     quickExitButton != null
   ) {
     onbtnClick();
-    onKeyDown();
+    document.addEventListener("keydown", handleKeydown);
   }
 }
 /**
@@ -24,15 +24,14 @@ function onbtnClick() {
 }
 
 /**
- * onKeyDown -> escape keydown event
+ * handleKeydown -> escape keydown event
  * @return {undefined}
  **/
-function onKeyDown() {
+function handleKeydown(e) {
   const escapeSite = "https://www.google.com.au/";
-  // add hotkey trigger
-  document.addEventListener("keydown", function (e) {
-    if (e.keyCode === 27) {
-      quickExit(escapeSite);
+
+  if (e.key === "Escape") {
+    quickExit(escapeSite);
       if (e) {
         // stop escape from cancelling redirect
         e.preventDefault();
@@ -40,8 +39,7 @@ function onKeyDown() {
         e.returnValue = false;
       }
       return false;
-    }
-  });
+  }
 }
 
 /**

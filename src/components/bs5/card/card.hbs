@@ -35,13 +35,13 @@
                 {{#if date}}
                 <div class="card-date">{{date}}</div>
                 {{/if}}
-                <h3 class="card-title">
+                <{{isdefined headingTag 'h3'}} class="card-title">
                     {{#if link}}
                     <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
                     {{else}}
                     {{ title }}
                     {{/if }}
-                </h3>
+                </{{isdefined headingTag 'h3'}}>
                 {{#if description}}
                 <div class="card-text">
                     {{{description}}}

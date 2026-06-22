@@ -1,0 +1,44 @@
+import { Canvas, Meta, Story, Source } from "@storybook/addon-docs/blocks";
+import * as AccordionStories from "./accordion.stories";
+import defaultdata from "./accordion.data.json";
+import "../../../stories/documentation/storybook-documentation.scss";
+import { StorybookDocsTabs } from "../../../stories/documentation/_storybookDocsTabs.jsx";
+import DesignResources from "./mdx/_designResources.mdx";
+import UsageInstructions from "./mdx/_usageInstructions.mdx";
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+> Accordions help users see only the content they need. Accordions expand and collapse sections of content.
+
+<Canvas of={AccordionStories.Default} />
+
+<StorybookDocsTabs
+  tabs={[
+    {
+      label: "HTML",
+      id: "code-doc",
+      heading: "Component code",
+      content: <Source language="html" id="accordion-default" />,
+    },
+    {
+      label: "Component Data",
+      id: "json-doc",
+      heading: "Example Component data",
+      content: (
+        <Source language="json" code={JSON.stringify(defaultdata, null, 2)} />
+      ),
+    },
+    {
+      label: "UI kit",
+      id: "design-resources-doc",
+      content: <DesignResources />,
+    },
+    /* {
+      label: "Usage Instructions",
+      id: "usage-instructions-doc",
+      content: <UsageInstructions />,
+    }, */
+  ]}
+></StorybookDocsTabs>

@@ -61,18 +61,21 @@
   "followLinks": [
     {
       "label": "Facebook",
+      "accessibleLabel": "Facebook page",
       "link": "#",
       "icon": "facebook",
       "target": "_blank"
     },
     {
       "label": "LinkedIn",
+      "accessibleLabel": "LinkedIn page",
       "link": "#",
       "icon": "linkedin",
       "target": "_blank"
     },
     {
       "label": "X (Twitter)",
+      "accessibleLabel": "X page",
       "link": "#",
       "icon": "x",
       "target": "_blank"
