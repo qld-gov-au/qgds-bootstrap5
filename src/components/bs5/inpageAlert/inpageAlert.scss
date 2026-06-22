@@ -59,6 +59,7 @@
     "warning": (
       "color": var(--#{$prefix}warning),
       "icon": "alert-warning",
+			"icon-color": var(--#{$prefix}neutral-black),
     ),
     "danger": (
       "color": var(--#{$prefix}danger),
@@ -85,7 +86,6 @@
     left: 0;
     top: 0;
     bottom: 0;
-    color: #fff;
   }
 
   &:before {
@@ -112,8 +112,15 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #fff;
           margin: 0 0.75rem;
+
+          // <-- Conditional color logic starts here
+          @if map-has-key($values, "icon-color") {
+            color: map-get($values, "icon-color");
+          } @else {
+            color: var(--#{$prefix}neutral-white);
+          }
+          // <-- Conditional color logic ends here
         }
       }
     }
