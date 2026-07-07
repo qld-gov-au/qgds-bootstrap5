@@ -86,7 +86,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "minimist": "^1.2.8",
     "mocha": "^11.7.5",
-    "node-html-parser": "^8.0.3",
+    "node-html-parser": "^9.0.0",
     "npm-run-all2": "^9.0.1",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.38",
