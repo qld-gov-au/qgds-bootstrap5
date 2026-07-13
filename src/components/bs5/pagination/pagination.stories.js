@@ -124,3 +124,43 @@ export const DarkAlternative = {
     },
   ],
 };
+
+/**
+ * Pagination with high page counts
+ */
+
+export const HighPageCount = {
+  args: {
+    ...defaultdata,
+    pages: [
+      { href: "#", linktext: "98", arialabel: "Page 98", customClasses: "" },
+      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "99", arialabel: "Page 99" },
+      {
+        href: "#",
+        linktext: "100",
+        arialabel: "Page 100, current page",
+        customClasses: "active",
+      },
+      { href: "#", linktext: "101", arialabel: "Page 101", customClasses: "" },
+      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "120", arialabel: "Page 120", customClasses: "" },
+    ],
+  },
+
+  globals: {
+    backgrounds: {
+      value: "default",
+    },
+  },
+
+  decorators: [
+    (Story) => {
+      return `
+      <div class="">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
+};

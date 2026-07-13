@@ -23,7 +23,17 @@ $pagination-icon-more-hover-color: var(--#{$prefix}light-action-secondary);
 $pagination-icon-more-dark-color: var(--#{$prefix}dark-link);
 $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
 
+nav:has(> .pagination) {
+  container-name: paginationNav;
+  container-type: inline-size;
+}
+
 .pagination {
+  gap: 0.75rem;
+  margin: 1rem 0;
+  display: inline-flex;
+  width: 100%;
+
   --action-icon-color: var(--#{$prefix}light-action-secondary);
   --action-icon-color-hover: var(--#{$prefix}light-action-secondary-hover);
   --action-icon-more-color: var(--#{$prefix}light-text-text);
@@ -144,12 +154,6 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
   gap: 0.75rem;
   margin: 1rem 0;
 
-  .previous {
-    margin-right: 0.25rem;
-  }
-  .next {
-    margin-left: 0.25rem;
-  }
   .active .page-link {
     font-weight: 700;
   }
@@ -158,9 +162,10 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
   .page-item {
     .page-link {
       border-radius: 4px;
-      width: 2rem;
+      min-width: 2rem;
       height: 2rem;
-      padding: 0;
+      padding-block: 0;
+      padding-inline: 0.5rem;
       text-align: center;
       line-height: calc(2rem - 2px);
       color: var(--#{$prefix}pagination-color);
@@ -183,13 +188,11 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
 
     //Only .previous
     &.previous .page-link {
-      padding-left: 2.25rem;
       width: unset;
     }
 
     //Only .next
     &.next .page-link {
-      padding-right: 2.25rem;
       width: unset;
     }
 
@@ -215,12 +218,17 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
         background-color: var(--action-icon-color-hover);
       }
 
+      span {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+        display: content;
+      }
+
       &:hover,
       &:focus {
-        //Previous and Next "link text"
         span {
-          text-decoration: underline;
-          text-underline-offset: 2px;
+          text-decoration-thickness: 2px;
         }
       }
     }
@@ -323,8 +331,38 @@ $pagination-icon-more-dark-hover-color: var(--#{$prefix}dark-action-secondary);
 
   //Remove Previous and Next "link text" from smaller devices
   @include media-breakpoint-down(md) {
-    span {
+    .page-item:has(+ .page-item.active),
+    .page-item.active + .page-item {
       display: none;
+    }
+  }
+}
+
+@container paginationNav (max-width: 480px) {
+  .page-item.previous .page-link span,
+  .page-item.next .page-link span {
+    display: none;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+  }
+}
+
+@container paginationNav (max-width: 320px) {
+  .pagination {
+    .page-item,
+    .page-item.more {
+      display: none;
+    }
+    .page-item.previous,
+    .page-item.next {
+      display: inline-flex;
+    }
+
+    .page-item.previous .page-link span,
+    .page-item.next .page-link span {
+      display: flex;
     }
   }
 }
