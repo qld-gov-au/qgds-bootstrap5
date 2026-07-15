@@ -133,7 +133,7 @@
     }
   }
 
-  .modal-full {
+  .modal-full-width {
     --#{$prefix}modal-width: calc(100vw - calc(var(--qld-gutter-x, 2rem) * 2));
   }
 
