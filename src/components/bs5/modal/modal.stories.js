@@ -118,3 +118,16 @@ export const LargeModal = {
     launchButtonLabel: "Open large modal",
   },
 };
+
+/**
+ * Full Width Modal (Viewport - gutter)
+ */
+export const FullWidthModal = {
+  args: {
+    ...defaultdata,
+    modalID: "modal-example-full-width",
+    modalLabel: "Full width modal example",
+    modalSize: "modal-full",
+    launchButtonLabel: "Open full width modal",
+  },
+};

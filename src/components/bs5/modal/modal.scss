@@ -133,6 +133,10 @@
     }
   }
 
+  .modal-full {
+    --#{$prefix}modal-width: calc(100vw - calc(var(--qld-gutter-x, 2rem) * 2));
+  }
+
   //Rescope for smaller viewports
   @include media-breakpoint-down(md) {
     .modal-footer {
