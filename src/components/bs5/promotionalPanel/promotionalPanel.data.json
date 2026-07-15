@@ -2,7 +2,7 @@
   "type": "indent-text",
   "variantClass": "light",
   "promoImage": "./assets/img/banner-example-3-to-2.jpg",
-  "promoImageDescription": "Promotional image",
+  "promoImageDescription": "I am a promotional image",
   "contentAlignment": "content-left",
   "icon": "icon-dot-grid",
   "title": "Title goes here and has a maximum of 65 character limit",
