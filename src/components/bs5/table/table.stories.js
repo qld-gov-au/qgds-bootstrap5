@@ -118,6 +118,15 @@ export const Dark = {
     ...defaultdata,
     ...{ variantClass: "table-dark" },
   },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark p-16">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 /**
@@ -128,6 +137,15 @@ export const DarkWithHover = {
     ...defaultdata,
     ...{ variantClass: ["table-dark", "table-hover"] },
   },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="dark p-16">
+          ${Story()}
+      </div>
+      `;
+    },
+  ],
 };
 
 /**

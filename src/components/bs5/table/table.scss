@@ -1,5 +1,19 @@
 .qld-table {
-  border: 1px solid var(--qld-neutral-lighter);
+  --qld-table-border-color: var(--qld-neutral-lighter);
+  --qld-table-header-color: var(--qld-light-text-heading);
+  --qld-table-cell-color: var(--qld-light-text-text);
+  --qld-table-striped-bg: var(--qld-neutral-lightest);
+
+  &:has(.table-dark) {
+    --qld-table-border-color: var(--qld-dark-border);
+    --qld-table-header-color: var(--qld-dark-text-heading);
+    --qld-table-cell-color: var(--qld-dark-text-text);
+    --qld-table-striped-bg: var(--qld-dark-background-shade);
+  }
+}
+
+.qld-table {
+  border: 1px solid var(--qld-table-border-color);
   border-radius: 0.75rem;
   margin-bottom: 1rem;
 
@@ -10,11 +24,6 @@
   }
 
   .table {
-    --qld-table-border-color: var(--qld-neutral-lighter);
-    --qld-table-header-color: var(--qld-light-text-heading);
-    --qld-table-cell-color: var(--qld-light-text-text);
-    --qld-table-striped-bg: var(--qld-neutral-lightest);
-
     margin-bottom: 0;
     border-radius: 0.75rem;
 
@@ -85,11 +94,6 @@
 
   //Then, we extend .table-dark with some additional rules
   .table-dark {
-    --qld-table-border-color: var(--qld-dark-border);
-    --qld-table-header-color: var(--qld-dark-text-heading);
-    --qld-table-cell-color: var(--qld-dark-text-text);
-    --qld-table-striped-bg: var(--qld-dark-background-shade);
-
     caption,
     .sub-caption {
       background-color: var(--qld-dark-background);
