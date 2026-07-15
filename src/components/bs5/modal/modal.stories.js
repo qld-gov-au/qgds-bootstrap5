@@ -8,17 +8,6 @@ import { Button } from "../button/Button.js";
 
 let buttonItems = [
   {
-    variantClass: "btn-tertiary",
-    islink: true,
-    isdisabled: false,
-    iconClass: "",
-    href: "https://www.google.com",
-    label: "External link",
-    target: "_blank",
-    dataatts: false,
-    arialabel: false,
-  },
-  {
     variantClass: "btn-secondary",
     islink: false,
     isdisabled: false,
@@ -65,9 +54,16 @@ export default {
           "modal-default": "Default",
           "modal-lg": "Large",
           "modal-xl": "Extra Large",
+          "modal-full-width": "Full Width",
         },
       },
-      options: ["modal-sm", "modal-default", "modal-lg", "modal-xl"],
+      options: [
+        "modal-sm",
+        "modal-default",
+        "modal-lg",
+        "modal-xl",
+        "modal-full-width",
+      ],
     },
   },
 
@@ -127,7 +123,7 @@ export const FullWidthModal = {
     ...defaultdata,
     modalID: "modal-example-full-width",
     modalLabel: "Full width modal example",
-    modalSize: "modal-full",
+    modalSize: "modal-full-width",
     launchButtonLabel: "Open full width modal",
   },
 };

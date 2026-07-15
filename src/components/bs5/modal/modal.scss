@@ -134,7 +134,7 @@
   }
 
   .modal-full-width {
-    --#{$prefix}modal-width: calc(100vw - calc(var(--qld-gutter-x, 2rem) * 2));
+    --#{$prefix}modal-width: 100%;
   }
 
   //Rescope for smaller viewports
@@ -146,5 +146,14 @@
         margin: 1rem 0;
       }
     }
+  }
+
+  //Enforce a modal outer gutter on smaller viewports
+  .modal-dialog {
+    max-width: min(
+      var(--#{$prefix}modal-width),
+      calc(100vw - calc(var(--qld-gutter-x, 2rem) * 2))
+    );
+    margin-inline: auto;
   }
 }
