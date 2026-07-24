@@ -44,7 +44,7 @@
       --text-color: var(--#{$prefix}light-text-text);
     }
   }
-  
+
   .suggestions {
     transition-behavior: allow-discrete;
     opacity: 0;
@@ -106,7 +106,7 @@
       --background-color: var(--#{$prefix}white);
       outline: none;
     }
-    
+
   }
 
   > button {
@@ -134,7 +134,7 @@
       --qld-icon-color: currentColor;
     }
   }
-  
+
 
   // Fallback for browsers that don't support container queries
   @include media-breakpoint-up(md) {
@@ -235,7 +235,7 @@
       }
     }
   }
-  
+
 
   //Search dropdown
   .suggestions {
@@ -261,7 +261,7 @@
         border-block-start: 1px solid
         var(--#{$prefix}light-alt-background-shade);
       }
-      
+
       // Question
       &-label {
         padding-block: 0.75rem;
@@ -395,7 +395,7 @@
             &:focus {
               outline-color: var(--#{$prefix}light-focus);
               background-color: var(--hover-background-color);
-              outline-offset: -4px;
+              outline-offset: -5px;
             }
           }
 
