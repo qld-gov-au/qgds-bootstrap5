@@ -247,13 +247,13 @@
     "scope": "Core",
     "group": "Forms",
     "status": "Published",
-    "description": "",
+    "description": "A checkbox is form input control that lets users select one or more options from a list",
     "refs": {
       "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=1PNeXYXdepnDeW4g-0",
       "website": "https://www.designsystem.qld.gov.au/components/checkboxes"
     },
-    "storyTitle": null,
-    "storyPath": null
+    "storyTitle": "Checkbox",
+    "storyPath": "/docs/3-components-forms-checkbox"
   },
   {
     "id": "qgds-alert-global",
@@ -495,6 +495,22 @@
     },
     "storyTitle": "3. Components/Quickexit",
     "storyPath": "/docs/3-components-quickexit"
+  },
+  {
+    "id": "qgds-input-formcheck",
+    "title": "Radio",
+    "title_uikit": "Radio and checkbox buttons",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Forms",
+    "status": "Published",
+    "description": "Radio buttons are a type of control input that allow users to select one item from a predefined set of mutually exclusive options",
+    "refs": {
+      "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=1PNeXYXdepnDeW4g-0",
+      "website": "https://www.designsystem.qld.gov.au/components/radio"
+    },
+    "storyTitle": "Radio",
+    "storyPath": "/docs/3-components-forms-radio"
   },
   {
     "id": "qgds-search-input",
