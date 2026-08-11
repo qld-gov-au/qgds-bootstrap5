@@ -113,3 +113,53 @@ export const DarkFilled = {
     },
   ],
 };
+
+/**
+ * Custom Search Submit Handler
+ *
+ * Listen for the custom event `qgds-search-submit` and handle the search submission in your own way.
+ */
+
+export const CustomSubmitHandler = {
+  args: {
+    ...defaultdata,
+    inputName: "q",
+    tags: {},
+    defaultSuggestions: false,
+    hasDefaultSuggestions: false,
+    hasDynamicSuggestions: false,
+    dynamicSuggestionsServiceLink: false,
+  },
+  decorators: [
+    (Story) => {
+      return `
+      <div class="p-3">
+          ${Story()}
+
+          <script>
+
+            // In your frontend environment, listen for the custom event \`qld-search-submit\`
+            // ...and write your own search submission logic. For example:
+            
+            document.addEventListener('qld-search-submit', function(event) {
+              
+              // Prevent the default form submission behavior
+              event.preventDefault();
+
+              // Access the search query and other form data from the event detail
+              const payload = event.detail;
+
+              // Build URLSearchParams from all named form fields
+              const params = new URLSearchParams(payload.formdata);
+
+              // Implement your custom search logic here, e.g., redirect to a search results page, make fetch API calls etc...
+              console.log('Search Submit event payload:', payload);
+              console.log('URLSearchParams:', Object.fromEntries(params));
+            });
+
+          </script>
+      </div>
+      `;
+    },
+  ],
+};
