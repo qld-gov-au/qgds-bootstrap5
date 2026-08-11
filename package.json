@@ -71,7 +71,7 @@
     "chai": "^6.2.1",
     "chalk": "^6.0.0",
     "chromatic": "^18.0.1",
-    "esbuild": "0.28.1",
+    "esbuild": "0.28.2",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-handlebars": "1.0.3",
     "esbuild-sass-plugin": "3.7.0",
