@@ -116,10 +116,12 @@
                 {{#if assets.siteSearch.value}}
                 <div class="col-lg-4">
                     <div id="qld-header-search" class="qld-header-site-search is-closed">
-                        <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
-                            action="{{assets.siteSearch.formAction.url}}" {{else}}
-                            action="https://www.qld.gov.au/search" {{/if}}>
-                            {{{ searchInput }}}
+                        <form 
+                        class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
+                        action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
+                        role="search" 
+                        >
+                          {{{ searchInput }}}
                         </form>
                     </div>
                 </div>
