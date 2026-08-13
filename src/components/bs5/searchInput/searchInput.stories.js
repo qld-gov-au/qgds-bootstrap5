@@ -136,9 +136,14 @@ export const CustomSubmitHandler = {
       <div class="p-3">
           ${Story()}
 
+          <div style="padding: 2rem;">
+            <p>This example demonstrates how to listen for the custom event <code>qld-search-submit</code> and handle the search submission in your own way.</p>
+            <p>Open the browser console to see the event payload logged when you submit the search form, and review the storybook Code References panel for code examples.</p>
+          </div>
+          
           <script>
 
-            // In your frontend environment, listen for the custom event \`qld-search-submit\`
+            // In a frontend environment, listen for the custom event \`qld-search-submit\`
             // ...and write your own search submission logic. For example:
             
             document.addEventListener('qld-search-submit', function(event) {
@@ -146,15 +151,13 @@ export const CustomSubmitHandler = {
               // Prevent the default form submission behavior
               event.preventDefault();
 
-              // Access the search query and other form data from the event detail
+              // Access the search query and other form data from the event detail, and write your own search submission logic here.
               const payload = event.detail;
-
-              // Build URLSearchParams from all named form fields
               const params = new URLSearchParams(payload.formdata);
+              //etc...
+      
+              console.log('Search Submit Event payload:', payload);
 
-              // Implement your custom search logic here, e.g., redirect to a search results page, make fetch API calls etc...
-              console.log('Search Submit event payload:', payload);
-              console.log('URLSearchParams:', Object.fromEntries(params));
             });
 
           </script>
