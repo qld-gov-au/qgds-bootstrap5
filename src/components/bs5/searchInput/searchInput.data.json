@@ -8,12 +8,12 @@
   "ariaLabel": "Search website",
   "placeholder": "",
   "tags": {
-    "collection": "qgov~sp-search",
+    "collection": "ssqld~sp-search",
     "profile": "qld",
     "numranks": "10",
     "tiers": "off",
-    "suggestions": "https://discover.search.qld.gov.au/s/suggest.json",
-    "results-url": "https://discover.search.qld.gov.au/s/search.json"
+    "suggestions": "https://search.qld.gov.au/s/suggest.json",
+    "results-url": "https://search.qld.gov.au/s/search.json"
   },
   "hasDynamicSuggestions": true,
   "hasDefaultSuggestions": true,
