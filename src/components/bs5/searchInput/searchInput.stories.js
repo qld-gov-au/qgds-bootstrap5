@@ -151,12 +151,19 @@ export const CustomSubmitHandler = {
               // Prevent the default form submission behavior
               event.preventDefault();
 
-              // Access the search query and other form data from the event detail, and write your own search submission logic here.
+              // Access the search query and other form data from the event detail
               const payload = event.detail;
               const params = new URLSearchParams(payload.formdata);
-              //etc...
-      
+              
+              // Write your own custom function or logic here.
+              // For demonstration purposes, we'll just log the payload to the console.
               console.log('Search Submit Event payload:', payload);
+
+              // or submit the form normally
+              // payload.form.submit();
+
+              // or redirect to a custom target with query parameters
+              window.location.href = 'https://dev.data.qld.gov.au/dataset?' + params.toString();
 
             });
 
