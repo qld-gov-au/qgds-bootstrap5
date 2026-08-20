@@ -14,7 +14,7 @@
                 </button>
             </{{isdefined ../headingTag 'h2'}}>
 
-            <div id="collapse-{{id}}" class="accordion-collapse collapse {{#if expanded}}show{{/if}}" aria-labelledby="heading-{{id}}" role="region">
+            <div id="collapse-{{id}}" class="accordion-collapse collapse {{#if expanded}}show{{/if}}" aria-labelledby="heading-{{id}}" role="region"{{#unless expanded}} hidden="until-found"{{/unless}}>
                 <div class="accordion-body">
                     {{{content}}}
                 </div>

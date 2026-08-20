@@ -133,3 +133,30 @@ export function accordionHashLinks (event) {
 function filterSpecialChar(value) {
   return decodeURI(value.toLowerCase().replace(/[^a-zA-Z0-9/]/g, ''));
 }
+
+/**
+ * Allow browser native "Find in Page" to search content inside collapsed accordions.
+ * Uses the HTML hidden="until-found" attribute and the "beforematch" event
+ * to automatically expand collapsed accordions when search text is found inside the accordion panels.
+ *
+ * @memberof module:Accordion
+ * @returns {void}
+ */
+export function enableAccordionFindInPage() {
+  let accordions = document.querySelectorAll(".accordion-collapse");
+
+  accordions.forEach((collapseEl) => {
+    collapseEl.addEventListener("beforematch", () => {
+      const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl);
+      bsCollapse.show();
+    });
+
+    collapseEl.addEventListener("show.bs.collapse", () => {
+      collapseEl.removeAttribute("hidden");
+    });
+
+    collapseEl.addEventListener("hidden.bs.collapse", () => {
+      collapseEl.setAttribute("hidden", "until-found");
+    });
+  });
+}

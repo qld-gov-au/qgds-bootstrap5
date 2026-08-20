@@ -2,6 +2,7 @@ import {
   accordionToggleAll,
   accordionToggleAllButtonState,
   accordionHashLinks,
+  enableAccordionFindInPage,
 } from "./../components/bs5/accordion/accordion.functions";
 import {
   videoEmbedPlay,
@@ -110,6 +111,8 @@ window.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", accordionToggleAllButtonState);
     });
   });
+
+  enableAccordionFindInPage();
 
   let inPageLinks = document.querySelectorAll('a[href^="#"]');
 

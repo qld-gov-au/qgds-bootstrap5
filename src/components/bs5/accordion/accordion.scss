@@ -120,6 +120,34 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     font-weight: var(--#{$prefix}body-font-weight);
     margin-block-start: 0;
   }
+
+  // QOLSVC-14731
+  // Replace Bootstrap styles accordion collapse (display: none)
+  // with hidden="until-found" (content-visibility: auto) for better accessibility.
+  .accordion-collapse {
+    // Override Bootstrap's default display: none
+    &.collapse:not(.show) {
+      display: block !important;
+    }
+
+    // Fallback for browsers that do not support hidden="until-found"
+    // Treat the attribute as a standard "hidden" attribute.
+    &[hidden] {
+      display: none !important;
+    }
+
+    &[hidden="until-found"] {
+      display: none !important;
+    }
+
+    // For browsers supporting hidden="until-found", override display: none so
+    // panels can be handled by the browser's Find in Page.
+    @supports (content-visibility: hidden) {
+      &[hidden="until-found"] {
+        display: block !important;
+      }
+    }
+  }
 }
 
 div .accordion-body {
