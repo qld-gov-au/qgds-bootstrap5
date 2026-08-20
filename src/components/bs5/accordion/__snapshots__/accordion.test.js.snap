@@ -29,7 +29,7 @@ exports[`Accordion > Renders as expected 1`] = `
 
             <div id="collapse-Two" class="accordion-collapse collapse " aria-labelledby="heading-Two" role="region" hidden="until-found">
                 <div class="accordion-body">
-                    <p>Cupcake apple pie fairy bread candy pastry sweet cookie ice cream pie marshmallow chocolate ganache lamington, carrot cake caramel souffle scones fruitcake jelly-o pavlova toffee.</p><p>Gelato gingerbread pudding shortbread sesame snaps eclairs, praline tiramisu macaron candy canes gummi bears lollipop, croissant apple strudel marzipan donut baklava vanilla slice.</p><p>Sweet roll liquorice brownie cotton candy jelly tart chocolate mousse, gingerbread bundt cake wafers biscuits, vanilla bean sorbet churro pastry.</p>
+                    <p>Cupcake apple pie fairy bread candy pastry sweet cookie ice cream pie marshmallow chocolate ganache lamington, carrot cake caramel souffle scones lorem ipsum fruitcake jelly-o pavlova toffee.</p><p>Gelato gingerbread pudding shortbread sesame snaps eclairs, praline tiramisu macaron candy canes gummi bears lollipop, croissant apple strudel marzipan donut baklava vanilla slice.</p><p>Sweet roll liquorice brownie cotton candy jelly tart chocolate mousse, gingerbread bundt cake wafers biscuits, vanilla bean sorbet churro pastry.</p>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@ exports[`Accordion > Renders as expected 1`] = `
 
             <div id="collapse-Three" class="accordion-collapse collapse " aria-labelledby="heading-Three" role="region" hidden="until-found">
                 <div class="accordion-body">
-                    <p>Dinosaur Tyrannosaurus rex Triceratops Stegosaurus. Velociraptor Brachiosaurus Diplodocus Pterodactyl Allosaurus Spinosaurus Ankylosaurus. Parasaurolophus Iguanodon Carnotaurus Stegosaurus Compsognathus Coelophysis.</p><p>Giganotosaurus Apatosaurus Argentinosaurus Dilophosaurus, Pachycephalosaurus Utahraptor Suchomimus Troodon Therizinosaurus Baryonyx Maiasaura Protoceratops.</p>
+                    <p>Dinosaur Tyrannosaurus rex Triceratops Stegosaurus. Velociraptor Brachiosaurus Diplodocus Pterodactyl Allosaurus Spinosaurus Ankylosaurus. Parasaurolophus Iguanodon Carnotaurus Stegosaurus Compsognathus Coelophysis lorem ipsum.</p><p>Giganotosaurus Apatosaurus Argentinosaurus Dilophosaurus, Pachycephalosaurus Utahraptor Suchomimus Troodon Therizinosaurus Baryonyx Maiasaura Protoceratops.</p>
                 </div>
             </div>
         </div>
