@@ -49,6 +49,27 @@ describe("Accordion", () => {
     expect(AccordionComponent.html).toMatchSnapshot();
   });
 
+  test("A collapsed item opens when Find in Page matches its content", async () => {
+    const collapse = d.querySelector("#collapse-Two");
+    const shown = waitForEventOn(collapse, "shown.bs.collapse", () => {
+      return collapse.classList.contains("show");
+    });
+
+    expect(collapse.getAttribute("hidden")).toBe("until-found");
+
+    collapse.dispatchEvent(new dom.window.Event("beforematch"));
+
+    expect(await shown).toBe(true);
+    expect(collapse.hasAttribute("hidden")).toBe(false);
+
+    const hidden = waitForEventOn(collapse, "hidden.bs.collapse", () => {
+      return collapse.getAttribute("hidden") === "until-found";
+    });
+    dom.window.bootstrap.Collapse.getInstance(collapse).hide();
+
+    expect(await hidden).toBe(true);
+  });
+
   test("An expanded item collapses when clicked", async () => {
     const collapse = d.querySelector(".accordion-collapse.show");
     const button = collapse.parentElement.querySelector(".accordion-button");
