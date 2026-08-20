@@ -5,21 +5,21 @@
   "accordionItems": [
     {
       "id": "One",
-      "title": "Accordion item #1",
+      "title": "Lorem ipsum",
       "expanded": true,
       "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas.</p><p>Aenean sed pretium mauris. Quisque euismod in nisl et consequat.</p> "
     },
     {
       "id": "Two",
-      "title": "Accordion item #2",
+      "title": "Cupcake ipsum",
       "expanded": false,
-      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ul>"
+      "content": "<p>Cupcake apple pie fairy bread candy pastry sweet cookie ice cream pie marshmallow chocolate ganache lamington, carrot cake caramel souffle scones lorem ipsum fruitcake jelly-o pavlova toffee.</p><p>Gelato gingerbread pudding shortbread sesame snaps eclairs, praline tiramisu macaron candy canes gummi bears lollipop, croissant apple strudel marzipan donut baklava vanilla slice.</p><p>Sweet roll liquorice brownie cotton candy jelly tart chocolate mousse, gingerbread bundt cake wafers biscuits, vanilla bean sorbet churro pastry.</p>"
     },
     {
       "id": "Three",
-      "title": "Accordion item #3",
+      "title": "Dinosaur ipsum",
       "expanded": false,
-      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ol>"
+      "content": "<p>Dinosaur Tyrannosaurus rex Triceratops Stegosaurus. Velociraptor Brachiosaurus Diplodocus Pterodactyl Allosaurus Spinosaurus Ankylosaurus. Parasaurolophus Iguanodon Carnotaurus Stegosaurus Compsognathus Coelophysis lorem ipsum.</p><p>Giganotosaurus Apatosaurus Argentinosaurus Dilophosaurus, Pachycephalosaurus Utahraptor Suchomimus Troodon Therizinosaurus Baryonyx Maiasaura Protoceratops.</p>"
     }
   ]
 }
