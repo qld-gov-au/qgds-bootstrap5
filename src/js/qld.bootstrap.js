@@ -1,8 +1,7 @@
 import {
-  accordionToggleAll,
-  accordionToggleAllButtonState,
+  initAccordionToggleAll,
+  initAccordionFindInPage,
   accordionHashLinks,
-  enableAccordionFindInPage,
 } from "./../components/bs5/accordion/accordion.functions";
 import {
   videoEmbedPlay,
@@ -96,23 +95,9 @@ window.addEventListener("DOMContentLoaded", () => {
   initQuickexit();
 
   // Accordion
-  let accordionToggleButton = document.querySelectorAll(
-    ".accordion-toggle-btn",
-  );
+  initAccordionToggleAll();
 
-  accordionToggleButton.forEach(function (toggleButton) {
-    toggleButton.addEventListener("click", accordionToggleAll);
-
-    let accordionButtons = toggleButton
-      .closest(".accordion-group")
-      .querySelectorAll(".accordion-button");
-
-    accordionButtons.forEach(function (button) {
-      button.addEventListener("click", accordionToggleAllButtonState);
-    });
-  });
-
-  enableAccordionFindInPage();
+  initAccordionFindInPage();
 
   let inPageLinks = document.querySelectorAll('a[href^="#"]');
 
