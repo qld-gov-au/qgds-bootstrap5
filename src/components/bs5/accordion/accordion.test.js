@@ -70,6 +70,39 @@ describe("Accordion", () => {
     expect(await hidden).toBe(true);
   });
 
+  test("Toggle-all button updates to 'Close all' when Find in Page opens every remaining panel", async () => {
+    const toggleButton = d.querySelector(".accordion-toggle-btn");
+    const collapseTwo = d.querySelector("#collapse-Two");
+    const collapseThree = d.querySelector("#collapse-Three");
+
+    expect(toggleButton.textContent).toBe("Open all");
+
+    const twoShown = waitForEventOn(collapseTwo, "shown.bs.collapse");
+    collapseTwo.dispatchEvent(new dom.window.Event("beforematch"));
+    await twoShown;
+
+    // Not every panel is open yet, so the button should not have changed.
+    expect(toggleButton.textContent).toBe("Open all");
+
+    const threeShown = waitForEventOn(collapseThree, "shown.bs.collapse");
+    collapseThree.dispatchEvent(new dom.window.Event("beforematch"));
+    await threeShown;
+
+    expect(toggleButton.textContent).toBe("Close all");
+    expect(
+      toggleButton.classList.contains("accordion-toggle-btn--open"),
+    ).toBe(true);
+
+    // Restore original state (only "One" expanded) for subsequent tests.
+    const twoHidden = waitForEventOn(collapseTwo, "hidden.bs.collapse");
+    const threeHidden = waitForEventOn(collapseThree, "hidden.bs.collapse");
+    dom.window.bootstrap.Collapse.getInstance(collapseTwo).hide();
+    dom.window.bootstrap.Collapse.getInstance(collapseThree).hide();
+    await Promise.all([twoHidden, threeHidden]);
+
+    expect(toggleButton.textContent).toBe("Open all");
+  });
+
   test("An expanded item collapses when clicked", async () => {
     const collapse = d.querySelector(".accordion-collapse.show");
     const button = collapse.parentElement.querySelector(".accordion-button");
