@@ -1,3 +1,5 @@
+import Collapse from "bootstrap/js/dist/collapse";
+
 /**
  * Toggle all accordion elements
  *
@@ -169,7 +171,7 @@ export function initAccordionFindInPage() {
 
   accordions.forEach((collapseEl) => {
     collapseEl.addEventListener("beforematch", () => {
-      const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl);
+      const bsCollapse = Collapse.getOrCreateInstance(collapseEl);
       bsCollapse.show();
     });
 
