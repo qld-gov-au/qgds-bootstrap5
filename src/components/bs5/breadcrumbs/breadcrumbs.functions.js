@@ -72,7 +72,7 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 5) {
       expandButton.setAttribute("aria-label", "Expand the breadcrumbs");
       expandButton.type = "button";
       expandButton.classList.add("breadcrumb-toggle-link");
-      expandButton.addEventListener("click", expandMenu);
+      expandButton.addEventListener("click", toggleClickHandler);
 
       expandCrumb.appendChild(expandButton);
       crumb.after(expandCrumb);
@@ -85,15 +85,6 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 5) {
         wrapperDiv.classList.add("breadcrumb-collapse-wrapper");
         wrapperDiv.appendChild(newList);
         expandCrumb.append(wrapperDiv);
-        expandCrumb.addEventListener("focusout", (event) => {
-          // Check if the element receiving focus is outside the dropdown container
-          if (
-            !event.relatedTarget ||
-            !expandCrumb.contains(event.relatedTarget)
-          ) {
-            wrapperDiv.parentElement.classList.remove("expanded");
-          }
-        });
       }
     }
   });
@@ -101,69 +92,90 @@ export function breadcrumbCollapse(breadcrumbList, maxLength = 5) {
 
 /**
  * Expand shortened breadcrumb lists
+ * Adds expanded class, sets tabindex on elements and adds required listeners.
  *
- * @memberof module:Breadcrumb
- *
- * @param  {Event} event - The event that triggered this function.
+ * @param  {Element} dropdownElement - The element to which we add the "expanded" class. This is the element with class ".breadcrumb-toggle", parent of both .breadcrumb-toggle-link and .breadcrumb-collapse-wrapper
  * @returns {void} Returns early when the breadcrumb does not exist or is empty.
  */
-export function expandMenu(event) {
-  const breadcrumb = event.target.closest(".breadcrumb");
-  if (!breadcrumb) {
-    console.log("expandMenu: Breadcrumb does not exist.");
-    return;
-  }
-  const breadcrumbList = breadcrumb.querySelectorAll(".breadcrumb-item");
+function expandMenu(dropdownElement) {
+  const items = dropdownElement.querySelectorAll(
+    ".breadcrumb-collapse-wrapper li a",
+  );
 
-  if (!breadcrumbList || !breadcrumbList.length) {
-    console.log("expandMenu: Breadcrumb does not exist or is empty.");
-    return;
-  }
+  dropdownElement.classList.add("expanded");
+  resetTabIndex(0, items);
+  items.item(0)?.focus();
 
-  event.target.parentElement.classList.toggle("expanded");
-  if (event.target.parentElement.classList.contains("expanded")) {
-    // Focus the first focusable element inside
-    const expandMenu = document.querySelector(".breadcrumb-collapse-wrapper");
-    resetTabIndex(0);
-    const firstItem = expandMenu.querySelector("a");
-    if (firstItem) {
-      firstItem.focus();
-    }
-  }
-  const expandButton = document.querySelector(".breadcrumb-toggle-link");
-  expandButton && document.addEventListener("click", collapseMenu);
+  document.addEventListener("click", clickOrFocusOutsideHandler);
+  document.addEventListener("focusin", clickOrFocusOutsideHandler);
+  dropdownElement.addEventListener("keydown", keydownHandler);
 }
 
 /**
- * event listener for document click event used to collapse menu on clicking elsewhere
- * and also remove the event listener to prevent multiple listeners from being attached
- * @memberof module:Breadcrumb
+ * All functionality associated with collapsing the dropdown breadbrumbs menu.
+ * Remove classes, resets tab index and removes associated listeners.
  *
- * @param  {Event} event - The event that triggered this function.
+ * @param  {Element} dropdownElement - The element to which we add the "expanded" class. This is the element with class ".breadcrumb-toggle", parent of both .breadcrumb-toggle-link and .breadcrumb-collapse-wrapper
  * @returns {void} Returns nothing.
  */
-function collapseMenu(event) {
-  event.stopPropagation();
-  const expandButton = document.querySelector(".breadcrumb-toggle-link");
-  const expandMenu = document.querySelector(".breadcrumb-collapse-wrapper");
-  if (
-    !expandMenu.contains(event.target) &&
-    !expandButton.contains(event.target)
-  ) {
-    expandMenu.parentElement.classList.remove("expanded");
-    document.removeEventListener("click", collapseMenu);
-    resetTabIndex(-1);
+function collapseMenu(dropdownElement) {
+  dropdownElement.classList.remove("expanded");
+  resetTabIndex(
+    -1,
+    dropdownElement.querySelectorAll(".breadcrumb-collapse-wrapper li a"),
+  );
+  document.removeEventListener("click", clickOrFocusOutsideHandler);
+  document.removeEventListener("focusin", clickOrFocusOutsideHandler);
+  dropdownElement.removeEventListener("keydown", keydownHandler);
+}
+
+/**
+ *
+ * @param {PointerEvent} event triggered from the toggle button.
+ * @returns {void}
+ */
+function toggleClickHandler(event) {
+  // if the menu is open, close it. If the menu is closed, open it.
+  const dropdownElement = event.target.closest(".breadcrumb-toggle");
+  if (!dropdownElement) return;
+
+  const isOpen = dropdownElement.classList.contains("expanded");
+
+  if (isOpen) collapseMenu(dropdownElement);
+  else expandMenu(dropdownElement);
+}
+
+/**
+ *
+ * @param {Event} event either a document "focusin" or "click" event.
+ * @returns {void}
+ */
+function clickOrFocusOutsideHandler(event) {
+  console.log("click outside");
+  // If the click or focus in event did not come from the breadcrumb or its children, collapse the menu
+  const dropdownElement = document.querySelector(".breadcrumb-toggle");
+
+  if (!dropdownElement.contains(event.target)) {
+    collapseMenu(dropdownElement);
   }
 }
 
-function resetTabIndex(tabindex) {
-  const breadcrumbListExpanded = document.querySelectorAll(
-    ".breadcrumb-collapse-wrapper li",
-  );
-  if (!breadcrumbListExpanded) {
-    return;
+/**
+ *
+ * @param {KeyboardEvent} event
+ * @returns {void}
+ */
+function keydownHandler(event) {
+  if (event.key === "Escape") {
+    collapseMenu(event.target);
   }
-  breadcrumbListExpanded.forEach((crumb) => {
-    crumb.querySelector("a")?.setAttribute("tabindex", tabindex);
+}
+
+function resetTabIndex(tabindex, elements) {
+  if (!elements) {
+    elements = document.querySelectorAll(".breadcrumb-collapse-wrapper li a");
+  }
+  elements.forEach((crumb) => {
+    crumb.setAttribute("tabindex", tabindex);
   });
 }

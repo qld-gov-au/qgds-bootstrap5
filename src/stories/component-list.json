@@ -191,6 +191,22 @@
     "storyPath": "/docs/3-components-forms-dateinput"
   },
   {
+    "id": "qgds-details",
+    "title": "Details",
+    "title_uikit": "Details",
+    "type": "Component",
+    "scope": "Core",
+    "group": "Components",
+    "status": "Published",
+    "description": "",
+    "refs": {
+      "uikit": "",
+      "website": ""
+    },
+    "storyTitle": "3. Components/Details",
+    "storyPath": "/docs/3-components-details"
+  },
+  {
     "id": "qgds-direction-link",
     "title": "Direction link",
     "title_uikit": "Direction links",
