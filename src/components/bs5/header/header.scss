@@ -4,14 +4,14 @@
 
 // Play nice with navbar header.
 :root {
-  --qld-header-preheader-height: 52px;
+  --#{$prefix}header-preheader-height: 52px;
 
   @include media-breakpoint-up(md) {
-    --qld-header-preheader-height: 72px;
+    --#{$prefix}header-preheader-height: 72px;
   }
 
   @include media-breakpoint-up(lg) {
-    --qld-header-preheader-height: 36px;
+    --#{$prefix}header-preheader-height: 36px;
   }
 }
 
@@ -33,7 +33,7 @@
       0 1px 3px 1px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
-    height: var(--qld-header-preheader-height);
+    height: var(--#{$prefix}header-preheader-height);
 
     .qld-header-mobile-controls {
       display: flex;
@@ -51,14 +51,14 @@
       appearance: none;
       background-color: var(--#{$prefix}header-mobile-button-bg);
       border: 0;
-      border-left: 1px solid var(--qld-border-color);
-      color: var(--qld-link-color);
+      border-left: 1px solid var(--#{$prefix}border-color);
+      color: var(--#{$prefix}link-color);
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: var(--qld-header-preheader-height);
-      width: var(--qld-header-preheader-height);
+      height: var(--#{$prefix}header-preheader-height);
+      width: var(--#{$prefix}header-preheader-height);
       font-size: 0.625rem;
       line-height: 1.25;
       padding: 0;
@@ -75,7 +75,7 @@
       &:hover {
         background-color: var(--#{$prefix}header-mobile-button-bg-hover);
         text-decoration: underline solid currentColor 0.5px;
-        --qld-icon-color: var(--qld-action-icon-hover-color);
+        --#{$prefix}icon-color: var(--#{$prefix}action-icon-hover-color);
       }
 
       @include mixins.focusable($offsetOutline: -3px);
@@ -163,6 +163,11 @@
       color: var(--#{$prefix}header-logo-color-hover);
     }
 
+    .is-sub-brand & {
+      --#{$prefix}header-logo-color: var(--#{$prefix}site-title-color);
+      --#{$prefix}header-logo-color-hover: var(--#{$prefix}site-title-color);
+    }
+
     .qld-header-pre-header & {
       height: 1.75rem;
 
@@ -177,8 +182,8 @@
 
     // delivering for qld custom colors.
     &.is-delivering-for-qld {
-      --#{$prefix}header-logo-color: var(--qld-site-title-color);
-      --#{$prefix}header-logo-color-hover: var(--qld-site-title-color);
+      --#{$prefix}header-logo-color: var(--#{$prefix}site-title-color);
+      --#{$prefix}header-logo-color-hover: var(--#{$prefix}site-title-color);
     }
   }
 
@@ -191,7 +196,7 @@
     padding-inline: 0.5rem;
     display: flex;
     align-items: center;
-    height: var(--qld-header-preheader-height);
+    height: var(--#{$prefix}header-preheader-height);
     background-color: var(--dropdown-bg);
 
     &:focus {
@@ -228,12 +233,15 @@
     box-shadow:
       0 1px 2px rgba(0, 0, 0, 0.2),
       0 1px 3px 1px rgba(0, 0, 0, 0.1);
-    transform: translate(0px, var(--qld-header-preheader-height)) !important;
+    transform: translate(
+      0px,
+      var(--#{$prefix}header-preheader-height)
+    ) !important;
 
     hr {
       margin: 1.5rem 0;
-      color: var(--qld-border-color);
-      border-color: var(--qld-border-color);
+      color: var(--#{$prefix}border-color);
+      border-color: var(--#{$prefix}border-color);
       opacity: 1;
     }
 
@@ -255,7 +263,7 @@
 
   .dropdown-item {
     position: relative;
-    border-bottom: solid 1px var(--qld-border-color);
+    border-bottom: solid 1px var(--#{$prefix}border-color);
     padding: 1rem 1.75rem 1rem 0;
     line-height: 1.5;
     white-space: normal; // allow text to wrap
@@ -263,7 +271,7 @@
 
     &:hover {
       --_icon-translateX: 0.25rem;
-      color: var(--qld-link-visited-color);
+      color: var(--#{$prefix}link-visited-color);
     }
 
     @include mixins.make-icon(
@@ -387,7 +395,9 @@
 
     a:hover & {
       color: var(--#{$prefix}site-title-color);
-      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+      text-decoration-thickness: var(
+        --#{$prefix}link-underline-thickness-hover
+      );
       text-decoration-color: currentColor !important;
     }
 
@@ -409,7 +419,9 @@
 
     a:hover & {
       color: var(--#{$prefix}header-subline-color);
-      text-decoration-thickness: var(--qld-link-underline-thickness-hover);
+      text-decoration-thickness: var(
+        --#{$prefix}link-underline-thickness-hover
+      );
       text-decoration-color: currentColor !important;
     }
 
@@ -425,7 +437,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    padding: 1rem var(--qld-container-padding-x);
+    padding: 1rem var(--#{$prefix}container-padding-x);
     background-color: var(--#{$prefix}body-bg);
 
     &.is-open {
