@@ -6,7 +6,8 @@
             <div class="d-flex justify-content-between">
 
                 <a class="qld-header-link align-self-center"
-                    href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
+                    href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}"
+                    aria-label="{{#if preHeader.globalLink.text}}{{preHeader.globalLink.text}}{{else}}Queensland Government{{/if}}">
                     <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
                     {{#if hasDeliveringForQLDLogo}}
                     {{>logo logo="coa-delivering-for-qld" className="qld-header-logo is-delivering-for-qld" fill="currentColor"}}
@@ -115,10 +116,12 @@
                 {{#if assets.siteSearch.value}}
                 <div class="col-lg-4">
                     <div id="qld-header-search" class="qld-header-site-search is-closed">
-                        <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
-                            action="{{assets.siteSearch.formAction.url}}" {{else}}
-                            action="https://www.qld.gov.au/search" {{/if}}>
-                            {{{ searchInput }}}
+                        <form 
+                        class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
+                        action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
+                        role="search" 
+                        >
+                          {{{ searchInput }}}
                         </form>
                     </div>
                 </div>

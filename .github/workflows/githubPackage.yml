@@ -26,11 +26,11 @@ jobs:
         node: [ '22' ]
     name: Lint, Test, Build and Deploy on Node ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         env:
           cache-name: cache-node-modules
         with:
@@ -48,7 +48,7 @@ jobs:
         run: npm list
 
       - name: Use Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -87,11 +87,11 @@ jobs:
       packages: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         env:
           cache-name: cache-node-modules
         with:
@@ -108,7 +108,7 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           registry-url: https://npm.pkg.github.com/

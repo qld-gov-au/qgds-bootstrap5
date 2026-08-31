@@ -2,6 +2,7 @@ node
 node_modules
 .env
 .DS_Store
+.cursor
 .vscode
 storybook-static/
 build-storybook.log
@@ -12,3 +13,4 @@ dist/
 docs/storybook-static
 prettier.json
 /debug-storybook.log
+_dev/

@@ -1,6 +1,6 @@
 import {
-  accordionToggleAll,
-  accordionToggleAllButtonState,
+  initAccordionToggleAll,
+  initAccordionFindInPage,
   accordionHashLinks,
 } from "./../components/bs5/accordion/accordion.functions";
 import {
@@ -23,8 +23,6 @@ import { initGlobalAlerts } from "./../components/bs5/globalAlert/globalAlert.fu
 import { validateSkipLinks } from "./../components/bs5/skiplinks/skipLinks.functions";
 import { printPage } from "./utils";
 
-window.addEventListener("click", initQuickexit, true);
-window.addEventListener("keydown", initQuickexit, true);
 window.addEventListener("DOMContentLoaded", () => {
   backToTop();
 
@@ -94,26 +92,12 @@ window.addEventListener("DOMContentLoaded", () => {
   initBreadcrumb();
 
   // Quick exit
-  window.addEventListener("click", initQuickexit, true);
-  window.addEventListener("keydown", initQuickexit, true);
   initQuickexit();
 
   // Accordion
-  let accordionToggleButton = document.querySelectorAll(
-    ".accordion-toggle-btn",
-  );
+  initAccordionToggleAll();
 
-  accordionToggleButton.forEach(function (toggleButton) {
-    toggleButton.addEventListener("click", accordionToggleAll);
-
-    let accordionButtons = toggleButton
-      .closest(".accordion-group")
-      .querySelectorAll(".accordion-button");
-
-    accordionButtons.forEach(function (button) {
-      button.addEventListener("click", accordionToggleAllButtonState);
-    });
-  });
+  initAccordionFindInPage();
 
   let inPageLinks = document.querySelectorAll('a[href^="#"]');
 

@@ -27,12 +27,15 @@
   ul.nav {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
     padding-left: 0;
     margin-top: 0.75rem;
+    line-height: 1.5rem;
   }
 
   .nav-title {
     font-size: 1rem;
+    font-weight: 600;
     line-height: 1.25;
     margin-bottom: 0;
     padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
@@ -43,10 +46,9 @@
     display: inline-flex;
 
     .nav-link {
-      padding-top: var(--#{$prefix}inpage-nav-link-padding-y);
-      padding-bottom: var(--#{$prefix}inpage-nav-link-padding-y);
       padding-left: var(--#{$prefix}inpage-nav-title-padding-left);
       padding-right: 0;
+      padding-block: 0;
       color: var(--#{$prefix}nav-link-color);
       text-decoration-line: underline;
 
@@ -54,14 +56,10 @@
       &:visited {
         text-decoration-color: var(--qld-link-underline);
       }
-    }
 
-    &:first-child .nav-link {
-      padding-top: 0;
-    }
-
-    &:last-child .nav-link {
-      padding-bottom: 0;
+      &:focus {
+        border-radius: 0.25rem;
+      }
     }
   }
 }

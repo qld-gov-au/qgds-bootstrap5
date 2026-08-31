@@ -13,7 +13,10 @@ import {
   Markdown,
 } from "@storybook/addon-docs/blocks";
 
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+// Expose Bootstrap object globally, to make it available in both local and production Storybook
+import * as bootstrap from "bootstrap";
+window.bootstrap = bootstrap;
+
 import "../src/css/main.scss";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import {

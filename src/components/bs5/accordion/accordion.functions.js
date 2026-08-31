@@ -77,6 +77,28 @@ export function accordionToggleAllButtonState(event) {
 }
 
 /**
+ * Initialises accordion Toggle-All button and updates its state
+ * whenever the accordion panel is opened/closed by other functions (e.g. by the browser's "Find in Page").
+ *
+ * @memberof module:Accordion
+ * @returns {void}
+ */
+export function initAccordionToggleAll() {
+  let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
+
+  accordionToggleButton.forEach(function (toggleButton) {
+    toggleButton.addEventListener("click", accordionToggleAll);
+
+    let accordionCollapses = toggleButton.closest(".accordion-group").querySelectorAll(".accordion-collapse");
+
+    accordionCollapses.forEach(function (collapseEl) {
+      collapseEl.addEventListener("shown.bs.collapse", accordionToggleAllButtonState);
+      collapseEl.addEventListener("hidden.bs.collapse", accordionToggleAllButtonState);
+    });
+  });
+}
+
+/**
  * Open and scroll to an accordion panel specified via URL hash.
  *
  * @memberof module:Accordion
@@ -132,4 +154,31 @@ export function accordionHashLinks (event) {
  **/
 function filterSpecialChar(value) {
   return decodeURI(value.toLowerCase().replace(/[^a-zA-Z0-9/]/g, ''));
+}
+
+/**
+ * Allow browser native "Find in Page" to search content inside collapsed accordions.
+ * Uses the HTML hidden="until-found" attribute and the "beforematch" event
+ * to automatically expand collapsed accordions when search text is found inside the accordion panels.
+ *
+ * @memberof module:Accordion
+ * @returns {void}
+ */
+export function initAccordionFindInPage() {
+  let accordions = document.querySelectorAll(".accordion-collapse");
+
+  accordions.forEach((collapseEl) => {
+    collapseEl.addEventListener("beforematch", () => {
+      const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl);
+      bsCollapse.show();
+    });
+
+    collapseEl.addEventListener("show.bs.collapse", () => {
+      collapseEl.removeAttribute("hidden");
+    });
+
+    collapseEl.addEventListener("hidden.bs.collapse", () => {
+      collapseEl.setAttribute("hidden", "until-found");
+    });
+  });
 }

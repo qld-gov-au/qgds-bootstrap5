@@ -9,8 +9,16 @@
 
 .row,
 .row-fluid {
-  --qld-gutter-x: 2rem;
+  --qld-gutter-x: 1rem;
   --qld-gutter-y: 0;
+
+  @include media-breakpoint-up(md) {
+    --qld-gutter-x: 1.5rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    --qld-gutter-x: 2rem;
+  }
 }
 
 .container {
