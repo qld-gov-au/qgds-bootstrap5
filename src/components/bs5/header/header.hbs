@@ -1,10 +1,11 @@
 <header class="qld-header " role="banner">
     <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
-        }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
+        }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}
+        ">
         <div class="container">
             <div class="d-flex justify-content-between">
-
+                <!-- Logo in PRE header -->
                 <a class="qld-header-link align-self-center"
                     href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}"
                     aria-label="{{#if preHeader.globalLink.text}}{{preHeader.globalLink.text}}{{else}}Queensland Government{{/if}}">
@@ -89,9 +90,11 @@
 
     <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else ifCond
         mainContent.palette "===" "default" }}default{{else ifCond mainContent.palette "===" "dark-alt"
-        }}dark-alt{{else}}default{{/ifCond}}">
+        }}dark-alt{{else}}default{{/ifCond}} {{#if isSubBrand}}is-sub-brand{{/if}} {{#if isCoBrand}}is-co-brand{{/if}} {{#if isEndorsedBrand}}is-endorsed-brand{{/if}} {{#if isStandAloneBrand}}is-stand-alone-brand{{/if}}
+">
         <div class="container">
             <div class="row align-items-center">
+                <!-- Logo in Main header -->
                 <div class="col">
                     {{#ifAny isMasterBrand isSubBrand isCoBrand}}
                     {{>headerBrand
