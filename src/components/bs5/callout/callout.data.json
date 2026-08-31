@@ -1,7 +1,9 @@
 {
   "default": {
+    "id": "callout-default",
     "title": "This is a callout title",
-    "content": "This is a callout description"
+    "content": "This is a callout description",
+    "ariaLabel": "Default callout"
   },
   "noTitle": {
     "content": "This is a <a href=\"#\">callout description</a>"
