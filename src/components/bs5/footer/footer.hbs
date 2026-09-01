@@ -16,7 +16,7 @@
         <!-- Inner Grid to manage layout of contact us content -->
         <div class="row ">
 
-          <div class="col col-lg-12">
+          <div class="col-12 col-md-8 col-lg-12">
 
             <h3 class="footer-heading">
             {{isdefined contact.title 'Contact us' }}
@@ -26,17 +26,6 @@
             {{{isdefined contact.content '<p>Get in touch for enquiries, feedback, complaints and compliments.</p>' }}}
             </div>
               
-          </div><!-- Inner grid col-12  -->
-
-          <div class="col col-lg-12 contact-btn order-lg-last d-flex d-lg-block mt-lg-32 ">
-            {{!-- Contact Us Button --}}
-            <a href="{{isdefined contact.buttonLink 'https://www.qld.gov.au/contact-us' }}" class="btn btn-outline-secondary">
-              {{isdefined contact.buttonLabel 'Contact us' }}
-            </a>
-          </div><!-- Inner grid col-12  -->  
-        
-       
-          <div class="col-12">
             {{!-- Custom contact list --}}
             {{#ifCond contact.showList "!==" false}}
               {{#ifCond contact.showList "&&" contact.list}}
@@ -60,6 +49,14 @@
               {{/ifCond}}
             {{/ifCond}}
           </div>
+
+          <div class="col-12 col-md-4 col-lg-12 contact-btn order-lg-last d-flex d-lg-block mt-lg-32 ">
+            {{!-- Contact Us Button --}}
+            <a href="{{isdefined contact.buttonLink 'https://www.qld.gov.au/contact-us' }}" class="btn btn-outline-secondary">
+              {{isdefined contact.buttonLabel 'Contact us' }}
+            </a>
+          </div>
+
         </div>
 
       </div><!-- Contact us Column -->
