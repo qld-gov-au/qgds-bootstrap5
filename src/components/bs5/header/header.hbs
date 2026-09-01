@@ -1,8 +1,13 @@
-<header class="qld-header " role="banner">
+<header class="qld-header
+  {{#if isSubBrand}}is-sub-brand{{/if}} 
+  {{#if isCoBrand}}is-co-brand{{/if}} 
+  {{#if isEndorsedBrand}}is-endorsed-brand{{/if}} 
+  {{#if isStandAloneBrand}}is-stand-alone-brand{{/if}}
+  ">
+  
     <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
-        }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}
-        ">
+        }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <!-- Logo in PRE header -->
@@ -90,8 +95,9 @@
 
     <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else ifCond
         mainContent.palette "===" "default" }}default{{else ifCond mainContent.palette "===" "dark-alt"
-        }}dark-alt{{else}}default{{/ifCond}} {{#if isSubBrand}}is-sub-brand{{/if}} {{#if isCoBrand}}is-co-brand{{/if}} {{#if isEndorsedBrand}}is-endorsed-brand{{/if}} {{#if isStandAloneBrand}}is-stand-alone-brand{{/if}}
-">
+        }}dark-alt{{else}}default{{/ifCond}} 
+        ">
+        
         <div class="container">
             <div class="row align-items-center">
                 <!-- Logo in Main header -->
