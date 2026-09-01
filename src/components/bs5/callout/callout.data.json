@@ -6,6 +6,7 @@
     "ariaLabel": "Default callout"
   },
   "noTitle": {
-    "content": "This is a <a href=\"#\">callout description</a>"
+    "content": "This is a <a href=\"#\">callout description</a>",
+    "ariaLabel": "Default callout"
   }
 }

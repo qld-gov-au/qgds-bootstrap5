@@ -1,9 +1,9 @@
 <!-- QGDS Component: Callout -->
 
-<div class="callout"
-    {{#ifAll id title}} role="region" aria-labelledby="{{id}}"
+<div class="callout" role="region" 
+    {{#ifAll id title}} aria-labelledby="{{id}}"
     {{else}}
-    {{#if ariaLabel}} role="region" aria-label="{{ariaLabel}}"{{/if}}
+    {{#if ariaLabel}} aria-label="{{ariaLabel}}"{{/if}}
     {{/ifAll}}>
     {{#if title}}
         <h3 class="callout-title"{{#if id}} id="{{id}}"{{/if}}>{{{title}}}</h3>
