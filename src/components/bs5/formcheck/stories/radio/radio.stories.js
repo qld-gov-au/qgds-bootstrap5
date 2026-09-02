@@ -30,6 +30,18 @@ export const Default = {
   globals: { backgrounds: { value: "default" } },
 };
 
+export const Light = {
+  args: { ...defaultdata, id: "checkboxLight" },
+  globals: { backgrounds: { value: "light" } },
+  render: (args) => `<div class="light">${new Formcheck(args).html}</div>`,
+};
+
+export const LightAlt = {
+  args: { ...defaultdata, id: "checkboxLightAlt" },
+  globals: { backgrounds: { value: "alt" } },
+  render: (args) => `<div class="alt">${new Formcheck(args).html}</div>`,
+};
+
 export const RadioDark = {
   args: { ...defaultdata },
   globals: { backgrounds: { value: "dark" } },

@@ -10,6 +10,16 @@ export default {
   render: (args) => new Callout(args).html,
 
   argTypes: {
+    id: {
+      name: "ID",
+      description:
+        "Optional base ID used to associate the callout region with its title.",
+    },
+    ariaLabel: {
+      name: "ARIA label",
+      description:
+        "Optional accessible name for the callout region when no ID is provided.",
+    },
     title: {
       name: "Title",
       description: `H3 title text for the callout.`,
