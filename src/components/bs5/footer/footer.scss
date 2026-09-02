@@ -275,12 +275,17 @@
 
           .qld-icon {
             --#{$prefix}icon-color: var(--#{$prefix}footer-color-social-icon);
+            --icon-size: 1.5rem;
 
-            // max-height: unset;
             margin-block-end: 0;
 
+            @include media-breakpoint-up(md) {
+              --icon-size: 2rem;
+            }
+
             @include media-breakpoint-up(lg) {
-              margin-inline-end: 1rem;
+              --icon-size: 1.25rem;
+              margin-inline-end: 0.5rem;
               max-height: var(--#{$prefix}footer-social-icon-size-height);
             }
           }
