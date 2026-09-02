@@ -61,21 +61,21 @@
   "followLinks": [
     {
       "label": "Facebook",
-      "accessibleLabel": "Facebook page",
+      "accessibleLabel": "Visit our Facebook page",
       "link": "#",
       "icon": "facebook",
       "target": "_blank"
     },
     {
       "label": "LinkedIn",
-      "accessibleLabel": "LinkedIn page",
+      "accessibleLabel": "Visit our LinkedIn page",
       "link": "#",
       "icon": "linkedin",
       "target": "_blank"
     },
     {
       "label": "X (Twitter)",
-      "accessibleLabel": "X page",
+      "accessibleLabel": "Visit our X (Twitter) page",
       "link": "#",
       "icon": "x",
       "target": "_blank"
@@ -148,10 +148,10 @@
   },
   "optionalColumn1": {
     "hasBorderColumn": true,
-    "title": "Optional Column 1",
+    "title": "Optional Links",
     "content": "",
     "showFollowLinks": false,
-    "showCustomLinks": false
+    "showCustomLinks": true
   },
   "optionalColumn2": {
     "hasBorderColumn": true,
