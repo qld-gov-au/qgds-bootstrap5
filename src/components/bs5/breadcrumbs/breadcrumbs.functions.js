@@ -151,9 +151,9 @@ function toggleClickHandler(event) {
  * @returns {void}
  */
 function clickOrFocusOutsideHandler(event) {
-  console.log("click outside");
   // If the click or focus in event did not come from the breadcrumb or its children, collapse the menu
   const dropdownElement = document.querySelector(".breadcrumb-toggle");
+  if (!dropdownElement) return;
 
   if (!dropdownElement.contains(event.target)) {
     collapseMenu(dropdownElement);
