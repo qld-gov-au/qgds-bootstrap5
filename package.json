@@ -75,7 +75,7 @@
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-handlebars": "1.0.3",
     "esbuild-sass-plugin": "3.7.0",
-    "eslint": "10.9.0",
+    "eslint": "10.9.1",
     "eslint-plugin-json": "^5.0.0",
     "eslint-plugin-storybook": "^10.1.10",
     "globals": "17.11.0",
