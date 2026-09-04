@@ -120,6 +120,17 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     font-weight: var(--#{$prefix}body-font-weight);
     margin-block-start: 0;
   }
+
+  // QOLSVC-14731
+  // Support hidden="until-found" on Bootstrap collapsed accordion panels.
+  // Where content-visibility and hidden="until-found" are supported, override Bootstrap's display: none
+  // so collapsed content can be found by browser's Find in Page.
+  .accordion-collapse[hidden="until-found"] {
+    @supports (content-visibility: hidden) {
+      content-visibility: hidden;
+      display: block !important;
+    }
+  }
 }
 
 div .accordion-body {

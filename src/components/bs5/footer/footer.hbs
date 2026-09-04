@@ -8,6 +8,7 @@
       </div>
     </div>
     {{/if}}
+
     <div class="row">
       
       <!-- Contact us Column -->
@@ -16,7 +17,7 @@
         <!-- Inner Grid to manage layout of contact us content -->
         <div class="row ">
 
-          <div class="col col-lg-12">
+          <div class="col-12 col-md-8 col-lg-12">
 
             <h3 class="footer-heading">
             {{isdefined contact.title 'Contact us' }}
@@ -26,17 +27,6 @@
             {{{isdefined contact.content '<p>Get in touch for enquiries, feedback, complaints and compliments.</p>' }}}
             </div>
               
-          </div><!-- Inner grid col-12  -->
-
-          <div class="col col-lg-12 contact-btn order-lg-last d-flex d-lg-block mt-lg-32 ">
-            {{!-- Contact Us Button --}}
-            <a href="{{isdefined contact.buttonLink 'https://www.qld.gov.au/contact-us' }}" class="btn btn-outline-secondary">
-              {{isdefined contact.buttonLabel 'Contact us' }}
-            </a>
-          </div><!-- Inner grid col-12  -->  
-        
-       
-          <div class="col-12">
             {{!-- Custom contact list --}}
             {{#ifCond contact.showList "!==" false}}
               {{#ifCond contact.showList "&&" contact.list}}
@@ -60,6 +50,14 @@
               {{/ifCond}}
             {{/ifCond}}
           </div>
+
+          <div class="col-12 col-md-4 col-lg-12 contact-btn order-lg-last d-flex d-lg-block mt-lg-32 ">
+            {{!-- Contact Us Button --}}
+            <a href="{{isdefined contact.buttonLink 'https://www.qld.gov.au/contact-us' }}" class="btn btn-outline-secondary">
+              {{isdefined contact.buttonLabel 'Contact us' }}
+            </a>
+          </div>
+
         </div>
 
       </div><!-- Contact us Column -->
@@ -67,12 +65,14 @@
 
       {{#ifAny optionalColumn1.content optionalColumn1.showFollowLinks optionalColumn1.showCustomLinks }}
       <!-- Optional Column 1 -->
-      <div class="col-12 col-lg-2 optional-column-1 {{#if optionalColumn1.hasBorderColumn}}border-column{{/if}}"
-        aria-label="{{isdefined optionalColumn1.title 'Footer links' }}">
+      <nav class="col-12 col-lg-2 optional-column-1 {{#if optionalColumn1.hasBorderColumn}}border-column{{/if}}"
+        aria-labelledby="footer-optional-column-1-heading">
         
         <div class="footer-column pe-16">
           {{#if optionalColumn1.title}}
-            <h3 class="footer-heading">{{optionalColumn1.title}}</h3>
+            <h3 class="footer-heading" id="footer-optional-column-1-heading">{{optionalColumn1.title}}</h3>
+          {{ else }}
+            <h3 class="sr-only" id="footer-optional-column-1-heading">Footer links</h3>
           {{/if}}
           
           <div class="footer-content">
@@ -90,35 +90,33 @@
           </div>
         </div>
 
-      </div>
+      </nav>
       {{/ifAny}}
 
 
       <!-- WoG links -->
-      <div class="col-12 col-lg-2 {{#if footerLinks.hasBorderColumn}}border-column{{/if}}"
-        aria-label="footer-navigation">
+      <nav class="col-12 col-lg-2 {{#if footerLinks.hasBorderColumn}}border-column{{/if}}" aria-labelledby="footer-wog-links-heading">
         
         <div class="footer-column pe-lg-16">
 
-        {{#if footerLinks}}
-
           {{#if footerLinks.title}}
-          <h3 class="footer-heading">{{footerLinks.title}}</h3>
+          <h3 class="footer-heading" id="footer-wog-links-heading">{{footerLinks.title}}</h3>
+          {{else}}
+          <h3 class="footer-heading sr-only" id="footer-wog-links-heading">Site links</h3>
           {{/if}}
-        
-          {{!-- <nav class="nav footer-link-list flex-column"> --}}
+
           <ul class="nav footer-link-list flex-column pt-lg-2">
+
+          {{#if footerLinks.list}}
+
             {{#each footerLinks.list }}
             <li><a class="nav-link" href="{{ this.link }}" {{#if this.target }}target="{{this.target}}" {{/if}}>{{
                 this.label }}</a></li>
             {{/each }}
-          </ul>
-          {{!-- </nav> --}}
 
-        {{else}}
-        {{!default list }}
+          {{else}}
 
-          <ul class="nav footer-link-list flex-column">
+            {{!default list }}
             <li><a class="nav-link" href="https://www.qld.gov.au/help">Help</a></li>
             <li><a class="nav-link" href="https://www.qld.gov.au/legal/copyright">Copyright</a></li>  
             <li><a class="nav-link" href="https://www.qld.gov.au/legal/disclaimer">Disclaimer</a></li>
@@ -127,23 +125,24 @@
             <li><a class="nav-link" href="https://www.qld.gov.au/help/accessibility">Accessibility</a></li>
             <li><a class="nav-link" href="https://smartjobs.qld.gov.au" target="_blank">Jobs in Queensland Government</a></li>
             <li><a class="nav-link" href="https://www.qld.gov.au/help/languages">Other languages</a></li>
-          </ul>
 
-        {{/if}}
+          {{/if}}
+          </ul>
         
         </div>
-      </div>
+      </nav>
 
 
       {{#ifAny optionalColumn2.content optionalColumn2.showFollowLinks optionalColumn2.showCustomLinks }}
       <!-- Optional Column 2 -->
-      <div class="col-12 col-lg-2 optional-column-2 {{#if optionalColumn2.hasBorderColumn}}border-column{{/if}}"
-        aria-label="{{isdefined optionalColumn2.title 'Footer links' }}">
+      <nav class="col-12 col-lg-2 optional-column-2 {{#if optionalColumn2.hasBorderColumn}}border-column{{/if}}" aria-labelledby="footer-optional-column-2-heading">
 
         <div class="footer-column pe-lg-16">
           
           {{#if optionalColumn2.title}}
-          <h3 class="footer-heading">{{optionalColumn2.title}}</h3>
+          <h3 class="footer-heading" id="footer-optional-column-2-heading">{{optionalColumn2.title}}</h3>
+          {{else}}
+          <h3 class="sr-only" id="footer-optional-column-2-heading">Footer links</h3>
           {{/if}}
 
 
@@ -162,8 +161,7 @@
 
           </div>
         </div>
-      </div>
-
+      </nav>
       {{/ifAny}}
 
       <!-- Acknowledgement of Country -->

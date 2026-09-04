@@ -273,6 +273,25 @@ export function submitSearchForm(query = "", form) {
   const searchInput = form.querySelector(".qld-search-input input");
   const atts = searchInput ? searchInput.dataset : null;
 
+  // Allow consumers to override submission by handling this event.
+  const customSubmitEvent = new CustomEvent("qld-search-submit", {
+    bubbles: true,
+    cancelable: true,
+    detail: {
+      dataset: atts,
+      form,
+      formdata: Object.fromEntries(new FormData(form)),
+      query,
+      searchInput,
+    },
+  });
+
+  // If an event listener calls event.preventDefault(), we will not proceed with the default submission.
+  if (!form.dispatchEvent(customSubmitEvent)) {
+    return;
+  }
+
+  //...otherwise, continue with default search submission
   const queryValue = query.trim().replace(/\s+/g, " ");
 
   const params = new URLSearchParams({

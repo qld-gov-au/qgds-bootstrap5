@@ -10,7 +10,8 @@
   --#{$prefix}modal-margin: #{$modal-dialog-margin};
   --#{$prefix}modal-color: #{$modal-content-color};
   --#{$prefix}modal-bg: #{$modal-content-bg};
-  --#{$prefix}modal-padding: 1.5rem 2rem;
+  --#{$prefix}modal-padding-block: 2rem;
+  --#{$prefix}modal-padding-inline: 2rem;
 
   --#{$prefix}modal-border-color: var(--#{$prefix}light-grey);
   --#{$prefix}modal-border-width: 1px;
@@ -19,7 +20,6 @@
   --#{$prefix}modal-box-shadow: #{$modal-content-box-shadow-xs};
   --#{$prefix}modal-inner-border-radius: #{$modal-content-inner-border-radius};
 
-  --#{$prefix}modal-header-padding: 2rem 2rem 0;
   --#{$prefix}modal-header-border-width: 0px;
 
   --#{$prefix}modal-title-line-height: 2rem;
@@ -51,7 +51,10 @@
       --#{$prefix}color-default-color-light-text-heading
     );
     --#{$prefix}btn-close-focus-shadow: none;
-    --#{$prefix}btn-close-focus-border: var(--#{$prefix}color-default-color-light-focus-default) solid 3px;
+    --#{$prefix}btn-close-focus-border: var(
+        --#{$prefix}color-default-color-light-focus-default
+      )
+      solid 3px;
   }
 }
 
@@ -84,14 +87,30 @@
   }
 
   .modal-header {
+    padding-inline: var(--#{$prefix}modal-padding-inline);
+    padding-block-start: var(--#{$prefix}modal-padding-block);
+    padding-block-end: 0;
+
     .modal-title {
       line-height: var(--#{$prefix}modal-title-line-height);
       font-size: 1.5rem;
     }
   }
 
+  .modal-body {
+    padding-inline: var(--#{$prefix}modal-padding-inline);
+    padding-block-start: 1.5rem;
+    padding-block-end: var(--#{$prefix}modal-padding-block);
+
+    &:has(~ .modal-footer) {
+      padding-block-end: 1.5rem;
+    }
+  }
+
   .modal-footer {
-    padding: 0 2rem 2rem;
+    padding-inline: var(--#{$prefix}modal-padding-inline);
+    padding-block-start: 0;
+    padding-block-end: var(--#{$prefix}modal-padding-block);
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
@@ -114,6 +133,10 @@
     }
   }
 
+  .modal-full-width {
+    --#{$prefix}modal-width: 100%;
+  }
+
   //Rescope for smaller viewports
   @include media-breakpoint-down(md) {
     .modal-footer {
@@ -123,5 +146,14 @@
         margin: 1rem 0;
       }
     }
+  }
+
+  //Enforce a modal outer gutter on smaller viewports
+  .modal-dialog {
+    max-width: min(
+      var(--#{$prefix}modal-width),
+      calc(100vw - calc(var(--qld-gutter-x, 2rem) * 2))
+    );
+    margin-inline: auto;
   }
 }

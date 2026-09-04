@@ -48,15 +48,6 @@ export const Default = {
  * Accordion in 'Light' colour theme.
  */
 export const Light = {
-  args: {
-    ...defaultdata,
-    groupid: "accordion-group-light",
-    accordionItems: {
-      0: { ...defaultdata.accordionItems[0], id: "light-one" },
-      1: { ...defaultdata.accordionItems[1], id: "light-two" },
-      2: { ...defaultdata.accordionItems[2], id: "light-three" },
-    },
-  },
   globals: {
     backgrounds: { value: "light" },
   },
@@ -77,15 +68,6 @@ export const Light = {
  * Accordion in 'Alternative' colour theme.
  */
 export const Alternative = {
-  args: {
-    ...defaultdata,
-    groupid: "accordion-group-alt",
-    accordionItems: {
-      0: { ...defaultdata.accordionItems[0], id: "alt-one" },
-      1: { ...defaultdata.accordionItems[1], id: "alt-two" },
-      2: { ...defaultdata.accordionItems[2], id: "alt-three" },
-    },
-  },
   globals: {
     backgrounds: { value: "alt" },
   },
@@ -107,15 +89,6 @@ export const Alternative = {
  *
  */
 export const Dark = {
-  args: {
-    ...defaultdata,
-    groupid: "accordion-group-dark",
-    accordionItems: {
-      0: { ...defaultdata.accordionItems[0], id: "dark-one" },
-      1: { ...defaultdata.accordionItems[1], id: "dark-two" },
-      2: { ...defaultdata.accordionItems[2], id: "dark-three" },
-    },
-  },
   globals: {
     backgrounds: { value: "dark" },
   },
@@ -136,15 +109,6 @@ export const Dark = {
  * Accordion in 'Dark alternative' colour theme.
  */
 export const DarkAlternative = {
-  args: {
-    ...defaultdata,
-    groupid: "accordion-group-dark-alt",
-    accordionItems: {
-      0: { ...defaultdata.accordionItems[0], id: "dark-alt-one" },
-      1: { ...defaultdata.accordionItems[1], id: "dark-alt-two" },
-      2: { ...defaultdata.accordionItems[2], id: "dark-alt-three" },
-    },
-  },
   globals: { backgrounds: { value: "darkAlt" } },
 
   decorators: [
