@@ -304,6 +304,11 @@ $form-check-inline-margin-end: 1rem;
     line-height: 2rem;
     padding-left: 2.5rem;
 
+    .light &,
+    .alt & {
+      --_background-color: var(--#{$prefix}white);
+    }
+
     // before is the outer box with border,
     // after is the check or radio icon
     &::before,

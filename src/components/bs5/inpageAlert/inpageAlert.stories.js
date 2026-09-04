@@ -63,7 +63,7 @@ export default {
     headingTag: {
       name: "Heading Tag",
       description:
-        "Heading tag for the In-page Alert component. Can be h2, h3, h4, h5 or h6.",
+        "Heading tag for the In-page alert component. Can be h2, h3, h4, h5 or h6.",
       control: "select",
       options: ["h2", "h3", "h4", "h5", "h6"],
     },
@@ -105,27 +105,27 @@ export const AllVariants = {
   render: () => {
     const alerts = [
       {
-        variantClass: "alert-success",
-        ariaLabel: "Success alert",
-        heading: "Success Alert",
-        content: "<p>This action was completed successfully.</p>",
-      },
-      {
         variantClass: "alert-info",
         ariaLabel: "Information alert",
-        heading: "Information Alert",
+        heading: "Information alert",
         content: "<p>Here is some important information for you to know.</p>",
+      },
+			{
+        variantClass: "alert-success",
+        ariaLabel: "Success alert",
+        heading: "Success alert",
+        content: "<p>This action was completed successfully.</p>",
       },
       {
         variantClass: "alert-warning",
         ariaLabel: "Warning alert",
-        heading: "Warning Alert",
+        heading: "Warning alert",
         content: "<p>Please be aware of this potential issue.</p>",
       },
       {
         variantClass: "alert-error",
         ariaLabel: "Error alert",
-        heading: "Error Alert",
+        heading: "Error alert",
         content: "<p>An error occurred. Please try again.</p>",
       },
     ];

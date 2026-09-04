@@ -2,5 +2,5 @@
   "accessibility.voice.keywordActivation": "off",
   "accessibility.voice.speechTimeout": 800,
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "prettier.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
