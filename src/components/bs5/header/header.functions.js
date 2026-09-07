@@ -68,20 +68,22 @@ export function initHeader() {
       closeSearch();
 
       // focusin event, assume keyboard tabbing.
-      // Tabbing forward out of menu - If the related target is the last of menu items, move focus to the menu button.
-      // Tabbing backward from input - If the related target is input (first item) move back to search button.
       if (e.type === "focusin") {
         const items = searchDiv.querySelectorAll("input, button, a");
+
         if (
+          // Tabbing forward out of menu - If the related target is the last of menu items, move focus to the menu button.
           e.relatedTarget === items.item(0) &&
           isElementVisible(toggleSearchButton)
-        )
+        ) {
           toggleSearchButton?.focus();
-        else if (
+        } else if (
+          // Tabbing backward from input - If the related target is input (first item) move back to search button.
           e.relatedTarget === items.item(items.length - 1) &&
           isElementVisible(toggleMenuButton)
-        )
+        ) {
           toggleMenuButton?.focus();
+        }
       }
     }
   };
