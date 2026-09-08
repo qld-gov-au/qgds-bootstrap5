@@ -13,10 +13,7 @@ import { initDateInput } from "../components/bs5/dateinput/dateinput.functions";
 import { initQuickexit } from "./../components/bs5/quickexit/quickexit.functions";
 //import { displayFeedbackForm } from "./../components/bs5/footer/footer.functions";
 import { initHeader } from "./../components/bs5/header/header.functions";
-import {
-  showSuggestions,
-  submitSearchForm,
-} from "./../components/bs5/searchInput/search.functions";
+import { initSearch } from "./../components/bs5/searchInput/search.functions";
 import { backToTop } from "./../components/bs5/backToTop/backToTop.functions";
 import { initTabsScroll } from "./../components/bs5/tabs/tabs.functions";
 import { initGlobalAlerts } from "./../components/bs5/globalAlert/globalAlert.function";
@@ -32,6 +29,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Header
   initHeader();
+
+  // Search
+  initSearch();
 
   // Navbar
   initializeNavbar();

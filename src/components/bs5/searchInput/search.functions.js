@@ -1,3 +1,34 @@
+export function initSearch() {
+  /**
+   * Esc key should first of all clear the input if it has value, then if value is empty should collapse the suggestions dropdown.
+   * @param {KeyboardEvent} e
+   */
+  const handleKeydown = (e) => {
+    // console.log(e);
+    if (e.key === "Escape") {
+      if (e.target instanceof HTMLInputElement) {
+        if (e.target.value) {
+          e.target.value = "";
+          // Because we cleared the value programatically, manually dispatch input event to update suggestions.
+          e.target.dispatchEvent(new InputEvent("input"));
+        } else {
+          // The input is empty, and user has hit escape. Remove focus from input. Listen for focusout event
+          e.target.blur();
+        }
+      }
+    }
+  };
+
+  // store initialised as data attribute - storybook fires DOMContentLoaded for each story on a page.
+  const searchComponents = document.querySelectorAll(
+    ".qld-search-input:not([data-initialised])",
+  );
+  searchComponents.forEach((component) => {
+    component.addEventListener("keydown", handleKeydown);
+    component.dataset.initialised = true;
+  });
+}
+
 /**
  * Fetches data from the provided URL.
  *

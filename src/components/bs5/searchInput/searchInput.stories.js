@@ -56,7 +56,11 @@ export default {
 };
 
 export const Default = {
-  args: { ...defaultdata, showDefaultSuggestions: true },
+  args: {
+    ...defaultdata,
+    showDefaultSuggestions: true,
+    inputID: "default-search",
+  },
   name: "Default - Outline Variant",
 };
 
@@ -64,13 +68,14 @@ export const Default = {
  * With `customClass: is-filled`
  */
 export const FilledVariant = {
-  args: { ...defaultdata, customClass: "is-filled" },
+  args: { ...defaultdata, customClass: "is-filled", inputID: "filled-search" },
 };
 
 export const FullWidth = {
   args: {
     ...defaultdata,
     customClass: "full-width",
+    inputID: "fullwidth-search",
   },
 };
 
@@ -82,6 +87,7 @@ export const FullWidth = {
 export const Dark = {
   args: {
     ...defaultdata,
+    inputID: "dark-search",
   },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
@@ -101,7 +107,11 @@ export const Dark = {
  * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
  */
 export const DarkFilled = {
-  args: { ...defaultdata, customClass: "is-filled" },
+  args: {
+    ...defaultdata,
+    customClass: "is-filled",
+    inputID: "DarkFilledSearch",
+  },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
@@ -129,6 +139,7 @@ export const CustomSubmitHandler = {
     hasDefaultSuggestions: false,
     hasDynamicSuggestions: false,
     dynamicSuggestionsServiceLink: false,
+    inputID: "CustomSubmitHandlerSearch",
   },
   decorators: [
     (Story) => {

@@ -32,7 +32,7 @@ export default {
     return `
         ${new Header({ ...args, searchInput: new SearchInput(searchData).html }).html}
         ${new Navbar(menu_state).html}
-        <button type="button">I'm just here for the focus.</button>
+        <button type="button" style="margin-top: 100px;">I'm just here for the focus.</button>
         `;
   },
   argTypes,
