@@ -19,6 +19,13 @@ import defaultData from "./footer.data.json";
 handlebarsInit(Handlebars);
 
 describe("Footer", () => {
+  it("renders footer element", () => {
+    const { document } = new JSDOM(new Footer(defaultData).html).window;
+    const footer = document.querySelector("footer.qld-footer");
+
+    expect(footer).not.toBeNull();
+  });
+
   it("applies footer variant class", () => {
     const { document } = new JSDOM(
       new Footer({ ...defaultData, variantClass: "dark" }).html,
