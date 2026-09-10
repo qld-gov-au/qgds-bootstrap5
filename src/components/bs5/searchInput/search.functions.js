@@ -1,32 +1,104 @@
-export function initSearch() {
-  /**
-   * Esc key should first of all clear the input if it has value, then if value is empty should collapse the suggestions dropdown.
-   * @param {KeyboardEvent} e
-   */
-  const handleKeydown = (e) => {
-    // console.log(e);
-    if (e.key === "Escape") {
-      if (e.target instanceof HTMLInputElement) {
-        if (e.target.value) {
-          e.target.value = "";
-          // Because we cleared the value programatically, manually dispatch input event to update suggestions.
-          e.target.dispatchEvent(new InputEvent("input"));
-        } else {
-          // The input is empty, and user has hit escape. Remove focus from input. Listen for focusout event
-          e.target.blur();
-        }
-      }
-    }
-  };
-
+export function initAllSearch() {
   // store initialised as data attribute - storybook fires DOMContentLoaded for each story on a page.
   const searchComponents = document.querySelectorAll(
     ".qld-search-input:not([data-initialised])",
   );
   searchComponents.forEach((component) => {
-    component.addEventListener("keydown", handleKeydown);
+    initSearch(component);
     component.dataset.initialised = true;
   });
+}
+
+/**
+ *
+ * @param {HTMLElement} component Should be element with class ".qld-search-input"
+ */
+function initSearch(component) {
+  const inputElement = component.querySelector("input.form-control");
+  const suggestionsElement = component.querySelector(".suggestions");
+  const formElement = inputElement.form;
+
+  /**
+   * Esc key should first of all clear the input if it has value, then if value is empty should collapse the suggestions dropdown.
+   * @param {KeyboardEvent} e
+   */
+  const handleKeydown = (e) => {
+    if (e.key === "Escape") {
+      if (e.target === inputElement) {
+        if (inputElement.value) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          inputElement.value = "";
+          // Because we cleared the value programatically, manually dispatch input event to update suggestions.
+          inputElement.dispatchEvent(new InputEvent("input"));
+        } else {
+          // The input is empty, and user has hit escape. Remove focus from input. Listen for blur event to respond.
+          // e.target.blur();
+          suggestionsElement?.classList.remove("show");
+        }
+      } else if (suggestionsElement?.contains(e.target)) {
+        inputElement?.focus();
+        suggestionsElement?.classList.remove("show");
+      }
+    }
+  };
+
+  /**
+   * Show the suggestions dropdown (if suggestions exist) when the search recieves focus
+   * @param {FocusEvent} e
+   */
+  const handleFocusIn = (e) => {
+    // If the input itself receives focus, show the suggestions
+    if (e.target === inputElement) {
+      suggestionsElement?.classList.add("show");
+    }
+  };
+
+  /**
+   * @param {FocusEvent} e
+   */
+  const handleFocusOut = (e) => {
+    // If the input itself receives focus, show the suggestions
+    if (!component?.contains(e.relatedTarget)) {
+      suggestionsElement?.classList.remove("show");
+    }
+  };
+
+  /**
+   * Ensure the suggestions is triggered when input updated.
+   * @param {InputEvent} e
+   */
+  const handleInput = (e) => {
+    suggestionsElement?.classList.add("show");
+  };
+
+  component.addEventListener("focusin", handleFocusIn);
+  component.addEventListener("focusout", handleFocusOut);
+  component.addEventListener("keydown", handleKeydown);
+  inputElement.addEventListener("input", handleInput);
+
+  // The following must only be scoped to form elements with ".site-search" class.
+  // This due to legacy reasons, as removing the class allowed a custom submit handler.
+  if (formElement?.classList.contains("site-search")) {
+    // Add keyup event listener to the search input
+    let timeout;
+
+    inputElement.addEventListener("input", () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        const value = inputElement.value.trim();
+        showSuggestions(value, value === "", formElement);
+      }, 300);
+    });
+
+    // Attach event listener to form submit
+    formElement.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const query = searchInput.value.trim();
+      submitSearchForm(query, formElement);
+    });
+  }
 }
 
 /**
@@ -57,7 +129,7 @@ async function fetchData(url, type) {
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  */
-export function selectDynamicSuggestion(value, form) {
+function selectDynamicSuggestion(value, form) {
   const searchInput = form.querySelector(".qld-search-input input");
   const suggestions = form.querySelector(".suggestions");
 
@@ -96,7 +168,7 @@ export function selectDynamicSuggestion(value, form) {
  * @param {HTMLFormElement} form - The form element.
  * @returns {void}
  **/
-export async function showSuggestions(value = "", isDefault = false, form) {
+async function showSuggestions(value = "", isDefault = false, form) {
   const searchInput = form.querySelector(".qld-search-input input");
   const suggestions = form.querySelector(".suggestions");
   const defaultSuggestionsContainer = form.querySelector(

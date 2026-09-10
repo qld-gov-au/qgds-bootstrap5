@@ -1,6 +1,4 @@
 import { isElementVisible } from "../../../js/utils";
-import { showSuggestions } from "../searchInput/search.functions";
-import { submitSearchForm } from "../searchInput/search.functions";
 
 /**
  * initHeader() controls tabbing into / out of mobile search.
@@ -45,17 +43,17 @@ export function initHeader() {
     searchInput?.focus();
 
     // These event listeners are in the order they fire in DOM.
-    // Note that closeSearch() will remove listeners so is important to understand the order.
+    // Note that closeSearch() will remove listeners so is important to understand their order.
     document.addEventListener("mousedown", handleClickOrFocusOutsideSearch);
     searchInput.addEventListener("blur", handleSearchBlur);
     document.addEventListener("focusin", handleClickOrFocusOutsideSearch);
+    searchDiv.addEventListener("keydown", handleSearchKeyDown);
   };
 
   /**
    * @param {FocusEvent} e
    */
   const handleSearchBlur = (e) => {
-    console.log("blur", e);
     if (!e.relatedTarget) {
       closeSearch(toggleSearchButton);
     }
@@ -79,15 +77,29 @@ export function initHeader() {
     document.removeEventListener("mousedown", handleClickOrFocusOutsideSearch);
     searchInput.removeEventListener("blur", handleSearchBlur);
     document.removeEventListener("focusin", handleClickOrFocusOutsideSearch);
+    searchDiv.removeEventListener("keydown", handleSearchKeyDown);
 
     if (isElementVisible(focusElement)) focusElement?.focus();
+  };
+
+  /**
+   * When Esc key is pressed, IF search is empty AND focus is not within suggestions, close search and refocus searchToggle
+   * @param {KeyboardEvent} e
+   */
+  const handleSearchKeyDown = (e) => {
+    if (
+      e.key === "Escape" &&
+      !searchInput?.value &&
+      !searchDiv.querySelector(".suggestions")?.contains(e.target)
+    ) {
+      closeSearch(toggleSearchButton);
+    }
   };
 
   /**
    * @param {FocusEvent | PointerEvent} e
    */
   const handleClickOrFocusOutsideSearch = (e) => {
-    console.log(e.type);
     if (!searchDiv.contains(e.target) && toggleSearchButton !== e.target) {
       if (e.type === "mousedown") {
         closeSearch();
@@ -95,16 +107,18 @@ export function initHeader() {
       }
       // focusin event, assume keyboard tabbing.
       if (e.type === "focusin") {
-        const items = searchDiv.querySelectorAll("input, button, a");
+        const items = Array.from(
+          searchDiv.querySelectorAll("input, button, a"),
+        ).filter((item) => isElementVisible(item));
 
         if (
           // Tabbing backward from input - If the related target is input (first item) move back to search button.
-          e.relatedTarget === items.item(0)
+          e.relatedTarget === items[0]
         ) {
           closeSearch(toggleSearchButton);
         } else if (
           // Tabbing forward out of menu - If the related target is the last of menu items, move focus to the menu button.
-          e.relatedTarget === items.item(items.length - 1)
+          e.relatedTarget === items[items.length - 1]
         ) {
           closeSearch(toggleMenuButton);
         }
@@ -143,34 +157,5 @@ export function initHeader() {
     headerElement.setAttribute("data-page-url", url);
   }
 
-  // Header search
   toggleSearchButton?.addEventListener("click", handleToggleSearch);
-
-  // Get all forms with the class 'site-search'
-  let forms = document.querySelectorAll(".site-search");
-
-  forms.forEach((form) => {
-    // Get the search input within the current form
-    const searchInput = form.querySelector(".qld-search-input input");
-
-    if (searchInput) {
-      let timeout;
-
-      // Add keyup event listener to the search input
-      searchInput.addEventListener("input", function (e) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          const value = e.target.value.trim();
-          showSuggestions(value, value === "", form);
-        }, 300);
-      });
-
-      // Attach event listener to form submit
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const query = searchInput.value.trim();
-        submitSearchForm(query, form);
-      });
-    }
-  });
 }
