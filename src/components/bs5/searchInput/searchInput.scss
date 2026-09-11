@@ -46,22 +46,10 @@
   }
 
   .suggestions {
-    transition-behavior: allow-discrete;
-    opacity: 0;
-    display: none;
-    transition:
-      opacity 0.5s,
-      display 0.5s;
   }
 
   &:focus-within {
     .suggestions {
-      display: block; // !important to override bootstrap d-none
-      opacity: 1;
-      z-index: 9999; // Added z-index to ensure suggestions appear above other elements
-      transition:
-        opacity 0.5s,
-        display 0.5s;
     }
   }
 
@@ -106,7 +94,6 @@
       --background-color: var(--#{$prefix}white);
       outline: none;
     }
-
   }
 
   > button {
@@ -135,7 +122,6 @@
     }
   }
 
-
   // Fallback for browsers that don't support container queries
   @include media-breakpoint-up(md) {
     --_size: 3.25rem;
@@ -149,8 +135,8 @@
       width: 1.25rem;
       aspect-ratio: 1 / 1;
       position: absolute;
-      margin-inline-start: .5rem;
-      left: .5rem;
+      margin-inline-start: 0.5rem;
+      left: 0.5rem;
       height: 100%;
     }
     .form-control {
@@ -199,8 +185,8 @@
         width: 1.25rem;
         aspect-ratio: 1 / 1;
         position: absolute;
-        margin-inline-start: .5rem;
-        left: .5rem;
+        margin-inline-start: 0.5rem;
+        left: 0.5rem;
         height: 100%;
       }
       .form-control {
@@ -236,16 +222,33 @@
     }
   }
 
-
   //Search dropdown
   .suggestions {
     position: absolute;
     inset-inline-start: 0;
     width: 100%;
     inset-block-start: calc(3.25rem + 7px) !important;
-    z-index: 1;
+    z-index: 9999; // Added z-index to ensure suggestions appear above other elements
     border-radius: 0.5rem;
     background: var(--#{$prefix}neutral-lightest);
+
+    transition:
+      opacity 0.3s,
+      display 0.3s;
+    transition-behavior: allow-discrete;
+    display: none;
+    opacity: 0;
+
+    // Show when active
+    &.show {
+      display: block;
+      opacity: 1;
+
+      // required to transition from display: none
+      @starting-style {
+        opacity: 0;
+      }
+    }
 
     & > div:has(> div) {
       box-shadow: var(--suggestions-shadow);
@@ -259,7 +262,7 @@
 
       &:not(:first-of-type) {
         border-block-start: 1px solid
-        var(--#{$prefix}light-alt-background-shade);
+          var(--#{$prefix}light-alt-background-shade);
       }
 
       // Question
@@ -358,11 +361,6 @@
       background-color: var(
         --#{$prefix}color-default-color-light-background-default-shade
       );
-    }
-
-    // Show when active
-    &.show {
-      display: block;
     }
 
     &__group {

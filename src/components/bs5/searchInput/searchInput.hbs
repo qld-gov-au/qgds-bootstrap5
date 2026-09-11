@@ -1,9 +1,9 @@
 <!-- 
     QGDS Component: Search input 
 -->
-<div class="qld-search-input {{customClass}}">
+<div class="qld-search-input {{customClass}}" role="search">
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" />
+        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
     <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" aria-label="{{ buttonLabel }}">
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>

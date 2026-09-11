@@ -206,3 +206,47 @@ export function printPage() {
     });
   }
 }
+
+/**
+ * Check if an element is visible using the checkVisibility API.
+ * See testingutils for a version of this better suited for testing environment.
+ *
+ * @param {HTMLElement} element The element to check visibility for
+ * @returns {boolean} True if the element is visible, false otherwise
+ */
+export function isElementVisible(element) {
+  if (!element) return false;
+
+  // Use native checkVisibility if available (modern browsers)
+  if (typeof element.checkVisibility === "function") {
+    return element.checkVisibility();
+  }
+
+  // 1. If the element is not connected to the DOM, it's invisible
+  if (!element || !element.isConnected) {
+    return false;
+  }
+
+  // 2. Fetch the computed styles of the element
+  const style = window.getComputedStyle(element);
+
+  // 3. Check fundamental display and content-visibility rules
+  if (style.display === "none" || style.contentVisibility === "hidden") {
+    return false;
+  }
+
+  // 6. Check if any parent element is hidden via display: none or content-visibility
+  let parent = this.parentElement;
+  while (parent) {
+    const parentStyle = window.getComputedStyle(parent);
+    if (
+      parentStyle.display === "none" ||
+      parentStyle.contentVisibility === "hidden"
+    ) {
+      return false;
+    }
+    parent = parent.parentElement;
+  }
+
+  return true;
+}
