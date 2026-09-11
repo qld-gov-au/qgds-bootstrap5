@@ -8,20 +8,18 @@
 {{! By default, 'not-ready' class is added and will be removed by javascript event handler.
     When thumbnail attribute is empty / does not exist, 'empty-thumbnail' css class is added. }}
 <section class="video not-ready {{#unless thumbnail}}empty-thumbnail{{/unless}} {{videoSize}}">
-    <div class="video-description">
-        {{{ description }}}
-    </div>
-    {{#if transcriptContent}}
-        {{{ transcriptAccordion }}}
-    {{/if}}
     <div class="video-player ratio ratio-{{aspectRatio}}">
+
         <a href="#" class="video-thumbnail video-controls" title="Play Video" 
             aria-label="Watch video {{#if duration}}- duration {{formatDuration duration "long"}}{{/if}}">
+
             <div class="video-thumbnail-image" style="--thumbnail:url({{thumbnail}})"></div>
+
             <div class="video-nav">
                 <div class="video-watch">
                     <span class="icon"></span><span>Watch</span>
                 </div>
+
                 {{#if duration}}
                     <div title="Video duration" class="video-duration">
                         <span class="icon"></span><span>{{formatDuration duration}}</span>
@@ -29,6 +27,7 @@
                 {{/if}}
             </div>
         </a>
+
         <div class="video-embed ratio ratio-{{aspectRatio}}">
             {{#ifCond source '===' 'vimeo'}}
                 <iframe title="{{isdefined title "Vimeo video"}}" class="embed-responsive-item video-vimeo" allow="autoplay; fullscreen" allowfullscreen muted="muted" src="https://player.vimeo.com/video/{{videoId}}?rel=0&autoplay={{urlParams.autoplay}}&background={{urlParams.background}}&controls={{urlParams.controls}}"><a href="https://player.vimeo.com/video/{{videoId}}">{{isdefined title "Vimeo video"}}</a></iframe>
@@ -39,8 +38,18 @@
                 src="{{videoId}}"><a href="{{videoId}}">{{isdefined title "Custom video"}}</a></iframe>
             {{else}}
                 <p class="text-center position-absolute top-50">A video has not been provided.</p>
+
             {{/ifCond}}
         </div>
     </div>
+
+    <div class="video-description">
+        {{{ description }}}
+    </div>
+
     {{! Render the transcript content in an accordion template }}
+    {{#if transcriptContent}}
+        {{{ transcriptAccordion }}}
+    {{/if}}
+
 </section>
