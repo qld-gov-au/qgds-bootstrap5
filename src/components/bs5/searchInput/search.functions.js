@@ -33,8 +33,6 @@ function initSearch(component) {
           // Because we cleared the value programatically, manually dispatch input event to update suggestions.
           inputElement.dispatchEvent(new InputEvent("input"));
         } else {
-          // The input is empty, and user has hit escape. Remove focus from input. Listen for blur event to respond.
-          // e.target.blur();
           suggestionsElement?.classList.remove("show");
         }
       } else if (suggestionsElement?.contains(e.target)) {

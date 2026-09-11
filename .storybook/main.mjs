@@ -43,9 +43,6 @@ const config = {
   //Each component's JS module, for example Alert.js, imports a HTML string to use for it's template.
   //We add a plugin to handle these .hbs extensions. (Or .mustache, .html etc)
   //https://storybook.js.org/docs/api/main-config-vite-final
-  //Each component's JS module, for example Alert.js, imports a HTML string to use for it's template.
-  //We add a plugin to handle these .hbs extensions. (Or .mustache, .html etc)
-  //https://storybook.js.org/docs/api/main-config-vite-final
 
   viteFinal: async (config, { configType }) => {
     const __dirname = path.dirname(fileURLToPath(import.meta.url));

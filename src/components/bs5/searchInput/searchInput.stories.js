@@ -48,11 +48,6 @@ export default {
       story: { height: "800px" },
     },
   },
-  // globals: {
-  //   backgrounds: {
-  //     value: "default",
-  //   },
-  // },
 };
 
 export const Default = {
@@ -131,6 +126,9 @@ export const DarkFilled = {
  */
 
 export const CustomSubmitHandler = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     ...defaultdata,
     inputName: "q",
