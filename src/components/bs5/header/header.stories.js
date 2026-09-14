@@ -131,3 +131,10 @@ export const StandaloneBrand = {
     },
   ],
 };
+
+// Interactions
+// Mobile viewport
+// If search button clicked, search panel appears and search input is focused
+// Tabbing backwards moves focus to search button
+// Tabbing forwards moves focus to menu button
+// If seach input has focus, on Escape key search disappears and search button is focussed.

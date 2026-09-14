@@ -48,8 +48,6 @@ const config = {
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
     const addonPath = path.resolve(__dirname, "addons");
 
-    config.root = "./dist";
-
     // Add React plugin for JSX transformation in QGDS addons
     config.plugins = config.plugins || [];
     config.plugins.push(
@@ -70,6 +68,7 @@ const config = {
       ...config.server,
       fs: {
         allow: [
+          path.resolve(process.cwd()),
           // Allow access to assets
           path.resolve(process.cwd(), "src/assets"),
           path.resolve(process.cwd(), "src/img"),

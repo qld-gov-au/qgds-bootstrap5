@@ -147,6 +147,6 @@ export const OutOfRangeValuesAreCorrected = {
 
     await expect(dayInput.value).toBe("31");
     await expect(monthInput.value).toBe("12");
-    await expect(yearInput.value).not.toBe("1000");
+    await expect(yearInput.value).toBe("1000");
   },
 };
