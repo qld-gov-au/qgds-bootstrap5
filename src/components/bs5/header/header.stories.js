@@ -1,3 +1,4 @@
+/** @import {Meta, StoryObj} from "@storybook/html-vite" */
 import { Header, argTypes } from "./Header.js";
 import { Navbar } from "../navbar/Navbar.js";
 import { SearchInput } from "../searchInput/SearchInput.js";
@@ -14,6 +15,8 @@ import cobrand_variant from "./header.variant.coBrand.data.json";
 import endorsed_variant from "./header.variant.endorsed.data.json";
 import standalone_variant from "./header.variant.standAlone.data.json";
 
+import { waitFor } from "../../../js/testingutils.js";
+import { expect } from "storybook/test";
 /**
  * #### Regarding the "Delivering for Queensland" logo.
  *
@@ -32,7 +35,6 @@ export default {
     return `
         ${new Header({ ...args, searchInput: new SearchInput(searchData).html }).html}
         ${new Navbar(menu_state).html}
-        <button type="button" style="margin-top: 100px;">I'm just here for the focus.</button>
         `;
   },
   argTypes,
@@ -132,9 +134,141 @@ export const StandaloneBrand = {
   ],
 };
 
-// Interactions
-// Mobile viewport
-// If search button clicked, search panel appears and search input is focused
-// Tabbing backwards moves focus to search button
-// Tabbing forwards moves focus to menu button
-// If seach input has focus, on Escape key search disappears and search button is focussed.
+/**
+ * Search Panel should appear when mobile "Show Search" button is clicked
+ * @type StoryObj
+ */
+export const MobileSearch = {
+  tags: ["!autodocs"], // Do not render as a component variant in Overview page
+  parameters: {
+    chromatic: { disableSnapshot: true }, // do not need the snapshot - this is an interaction test.
+  },
+  globals: {
+    viewport: "medium",
+  },
+  args: MasterBrand.args,
+  decorators: [
+    (Story) => `${Story()}
+      <button type="button" style="margin-top: 100px;">I'm just here for the focus.</button>
+    `,
+  ],
+  play: async ({ canvasElement, userEvent, step }) => {
+    const showSearchButton = canvasElement.querySelector(
+      "#qld-header-toggle-search-button",
+    );
+    const searchPanel = canvasElement.querySelector("#qld-header-search"); // This is element which is shown/hidden to
+    const searchInput = searchPanel.querySelector("input#search"); // The input itself
+
+    await step(
+      "Click search button should show search panel and move focus to search input",
+      async () => {
+        await expect(searchPanel).not.toBeVisible();
+        await expect(showSearchButton).toHaveTextContent("Search");
+        await userEvent.click(showSearchButton);
+        await waitFor(500);
+        await expect(searchPanel).toBeVisible();
+        await expect(searchInput).toHaveFocus();
+        await expect(showSearchButton).toHaveTextContent("Close");
+      },
+    );
+  },
+};
+
+/**
+ * While mobile search is open and search input has focus, tabbing back closes the search panel and refocuses showSearchButton
+ * @type StoryObj
+ */
+export const MobileSearchTabBack = {
+  ...MobileSearch,
+  play: async ({ canvasElement, userEvent, step, context }) => {
+    const showSearchButton = canvasElement.querySelector(
+      "#qld-header-toggle-search-button",
+    );
+    const searchPanel = canvasElement.querySelector("#qld-header-search"); // This is element which is shown/hidden to
+
+    await MobileSearch.play(context);
+
+    await step(
+      "Tabbing back closes the search panel and refocuses showSearchButton",
+      async () => {
+        await userEvent.tab({ shift: true });
+        await expect(searchPanel).not.toBeVisible();
+        await expect(showSearchButton).toHaveTextContent("Search");
+        await expect(showSearchButton).toHaveFocus();
+      },
+    );
+  },
+};
+
+/**
+ * While mobile search is open and search input has focus and no value, Escape key closes the search panel and refocuses showSearchButton
+ * @type StoryObj
+ */
+export const MobileSearchEscape = {
+  ...MobileSearch,
+  play: async ({ canvasElement, userEvent, step, context }) => {
+    const showSearchButton = canvasElement.querySelector(
+      "#qld-header-toggle-search-button",
+    );
+    const searchPanel = canvasElement.querySelector("#qld-header-search"); // This is element which is shown/hidden to
+
+    await MobileSearch.play(context);
+
+    await step(
+      "Escape key closes the search panel and refocuses showSearchButton",
+      async () => {
+        await userEvent.keyboard("{Escape}");
+        await expect(searchPanel).not.toBeVisible();
+        await expect(showSearchButton).toHaveTextContent("Search");
+        await expect(showSearchButton).toHaveFocus();
+      },
+    );
+  },
+};
+
+/**
+ * Tabbing forward past mobile search panel elements closes search panel and focuses the menu button.
+ * @type StoryObj
+ */
+export const MobileSearchTabForward = {
+  ...MobileSearch,
+  play: async ({ canvasElement, userEvent, step, context }) => {
+    const showSearchButton = canvasElement.querySelector(
+      "#qld-header-toggle-search-button",
+    );
+    const searchPanel = canvasElement.querySelector("#qld-header-search"); // This is element which is shown/hidden to
+    const searchInputButton = searchPanel.querySelector("button#search-button"); // The input itself
+    const menuButton = canvasElement.querySelector("#burgerBtn");
+
+    await MobileSearch.play(context);
+
+    await step(
+      "Tabbing forward past mobile search panel elements closes search panel and focuses the menu button",
+      async () => {
+        await waitFor(500);
+        const suggestionsItems = searchPanel.querySelectorAll(".suggestions a");
+        await userEvent.tab();
+        // The search button should have focus
+        await expect(searchInputButton).toHaveFocus();
+
+        // Tab through all menu items
+        for (let i = 0; i < suggestionsItems.length; i++) {
+          await userEvent.tab();
+        }
+
+        // The final suggestion item should have focus
+        await expect(
+          suggestionsItems.item(suggestionsItems.length - 1),
+        ).toHaveFocus();
+
+        // Tab out of menu
+        await userEvent.tab();
+
+        // Suggestions should have closed and focus to menu button
+        await expect(searchPanel).not.toBeVisible();
+        await expect(showSearchButton).toHaveTextContent("Search");
+        await expect(menuButton).toHaveFocus();
+      },
+    );
+  },
+};
