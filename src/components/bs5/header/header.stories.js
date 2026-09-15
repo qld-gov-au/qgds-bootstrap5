@@ -162,6 +162,7 @@ export const MobileSearch = {
     await step(
       "Click search button should show search panel and move focus to search input",
       async () => {
+        await waitFor(100);
         await expect(searchPanel).not.toBeVisible();
         await expect(showSearchButton).toHaveTextContent("Search");
         await userEvent.click(showSearchButton);

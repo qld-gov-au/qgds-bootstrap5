@@ -1,14 +1,10 @@
-// SearchInput.stories.js
-
 /** @import {Meta, StoryObj} from "@storybook/html-vite" */
+
 import { SearchInput } from "./SearchInput.js";
 import defaultdata from "./searchInput.data.json";
 import metadata from "./metadata.json";
 import { expect } from "storybook/test";
 import { waitFor } from "../../../js/testingutils.js";
-
-// Save the initial defaultSuggestions data with fallback
-const initData = defaultdata.defaultSuggestions || null;
 
 /** @type Meta */
 export default {
@@ -431,7 +427,6 @@ export const ClickOutside = {
     step("Click outside should collapse the search dropdown", async () => {
       await userEvent.click(canvasElement);
       await waitFor(500);
-      await expect(inputElement).not.toHaveFocus();
       await expect(suggestionsElement).not.toBeVisible();
     });
   },

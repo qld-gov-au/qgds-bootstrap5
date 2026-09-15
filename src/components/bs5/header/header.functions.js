@@ -7,6 +7,7 @@ import { isElementVisible } from "../../../js/utils";
  * Includes logic for show search suggestions.
  */
 export function initHeader() {
+  console.log("initing Header");
   /** @type {HTMLElement | null } */
   const headerElement = document.querySelector("header");
 
@@ -45,9 +46,9 @@ export function initHeader() {
     // These event listeners are in the order they fire in DOM.
     // Note that closeSearch() will remove listeners so is important to understand their order.
     document.addEventListener("mousedown", handleClickOrFocusOutsideSearch);
+    searchDiv.addEventListener("keydown", handleSearchKeyDown);
     searchInput.addEventListener("blur", handleSearchBlur);
     document.addEventListener("focusin", handleClickOrFocusOutsideSearch);
-    searchDiv.addEventListener("keydown", handleSearchKeyDown);
   };
 
   /**
@@ -75,15 +76,17 @@ export function initHeader() {
     toggleSearchButton.textContent = "Search";
 
     document.removeEventListener("mousedown", handleClickOrFocusOutsideSearch);
+    searchDiv.removeEventListener("keydown", handleSearchKeyDown);
     searchInput.removeEventListener("blur", handleSearchBlur);
     document.removeEventListener("focusin", handleClickOrFocusOutsideSearch);
-    searchDiv.removeEventListener("keydown", handleSearchKeyDown);
 
     if (isElementVisible(focusElement)) focusElement?.focus();
   };
 
   /**
+   * This is not the input event handler, it is for escape and tabbing functionality.
    * When Esc key is pressed, IF search is empty AND focus is not within suggestions, close search and refocus searchToggle
+   * When tab is pressed, check if tabbing forward/backward and whether exiting the search div.
    * @param {KeyboardEvent} e
    */
   const handleSearchKeyDown = (e) => {
@@ -93,36 +96,32 @@ export function initHeader() {
       !searchDiv.querySelector(".suggestions")?.contains(e.target)
     ) {
       closeSearch(toggleSearchButton);
+      return;
+    }
+    if (e.key === "Tab") {
+      const items = Array.from(
+        searchDiv.querySelectorAll("input, button, a"),
+      ).filter((item) => isElementVisible(item));
+      if (e.shiftKey && e.target === items[0]) {
+        // Tabbing backward from input - move back to search button.
+        e.preventDefault();
+        closeSearch(toggleSearchButton);
+      } else if (!e.shiftKey && e.target === items.at(-1)) {
+        // Tabbing forward from search component - move to menuButton.
+        e.preventDefault();
+        closeSearch(toggleMenuButton);
+      }
     }
   };
 
   /**
+   * This function ensures a click outside the mobile search closes the search panel. Focusin event is also included as a catch all.
+   * Because focusin and click events fire late, any keydown, blur, mousedown handlers which call closeSearch() already remove the listener.
    * @param {FocusEvent | PointerEvent} e
    */
   const handleClickOrFocusOutsideSearch = (e) => {
     if (!searchDiv.contains(e.target) && toggleSearchButton !== e.target) {
-      if (e.type === "mousedown") {
-        closeSearch();
-        return;
-      }
-      // focusin event, assume keyboard tabbing.
-      if (e.type === "focusin") {
-        const items = Array.from(
-          searchDiv.querySelectorAll("input, button, a"),
-        ).filter((item) => isElementVisible(item));
-
-        if (
-          // Tabbing backward from input - If the related target is input (first item) move back to search button.
-          e.relatedTarget === items[0]
-        ) {
-          closeSearch(toggleSearchButton);
-        } else if (
-          // Tabbing forward out of menu - If the related target is the last of menu items, move focus to the menu button.
-          e.relatedTarget === items[items.length - 1]
-        ) {
-          closeSearch(toggleMenuButton);
-        }
-      }
+      closeSearch();
     }
   };
 

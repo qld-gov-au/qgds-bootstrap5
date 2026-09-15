@@ -57,7 +57,7 @@ function initSearch(component) {
    * @param {FocusEvent} e
    */
   const handleFocusOut = (e) => {
-    // If the input itself receives focus, show the suggestions
+    // If the element to be focused is not within this component, hide suggestions.
     if (!component?.contains(e.relatedTarget)) {
       suggestionsElement?.classList.remove("show");
     }
@@ -72,8 +72,8 @@ function initSearch(component) {
   };
 
   component.addEventListener("focusin", handleFocusIn);
-  component.addEventListener("focusout", handleFocusOut);
   component.addEventListener("keydown", handleKeydown);
+  component.addEventListener("focusout", handleFocusOut);
   inputElement.addEventListener("input", handleInput);
 
   // The following must only be scoped to form elements with ".site-search" class.
