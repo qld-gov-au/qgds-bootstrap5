@@ -269,6 +269,7 @@ export const DynamicSuggestions = {
         await userEvent.type(inputElement, "apply");
         await waitFor(500);
         await expect(inputElement).toHaveValue("apply");
+        await waitFor(1000);
         await expect(suggestionsElement).toBeVisible();
         await expect(
           suggestionsElement.querySelector(".default-suggestions"),
@@ -417,7 +418,6 @@ export const ClickOutside = {
     ...DropdownOnFocus.args,
   },
   play: async ({ canvasElement, userEvent, context, step }) => {
-    const inputElement = canvasElement.querySelector(".qld-search-input input");
     const suggestionsElement = canvasElement.querySelector(
       ".qld-search-input .suggestions",
     );
