@@ -11,12 +11,8 @@ import { initializeNavbar } from "./../components/bs5/navbar/navbar.functions";
 import { initBreadcrumb } from "./../components/bs5/breadcrumbs/breadcrumbs.functions";
 import { initDateInput } from "../components/bs5/dateinput/dateinput.functions";
 import { initQuickexit } from "./../components/bs5/quickexit/quickexit.functions";
-//import { displayFeedbackForm } from "./../components/bs5/footer/footer.functions";
-import { toggleSearch } from "./../components/bs5/header/header.functions";
-import {
-  showSuggestions,
-  submitSearchForm,
-} from "./../components/bs5/searchInput/search.functions";
+import { initHeader } from "./../components/bs5/header/header.functions";
+import { initAllSearch } from "./../components/bs5/searchInput/search.functions";
 import { backToTop } from "./../components/bs5/backToTop/backToTop.functions";
 import { initTabsScroll } from "./../components/bs5/tabs/tabs.functions";
 import { initGlobalAlerts } from "./../components/bs5/globalAlert/globalAlert.function";
@@ -30,60 +26,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   initGlobalAlerts();
 
-  // Footer FormIO Action
-  // Note: This is added here, as there is an issue with breadcrumbShorten() function.
-  //       Will move this once that issue is fixed.
-  /*   
-      const footerFormio = document.getElementById("qg-feedback-toggle");
-      if (footerFormio) {
-        displayFeedbackForm();
-      }
-   */
-  //Header search
-  let headerSearchButton = document.getElementById(
-    "qld-header-toggle-search-button",
-  );
-  if (headerSearchButton) {
-    headerSearchButton.addEventListener("click", toggleSearch);
-  }
+  // Header
+  initHeader();
 
-  // Get all forms with the class 'site-search'
-  let forms = document.querySelectorAll(".site-search");
-
-  forms.forEach((form) => {
-    // Get the search input within the current form
-    let searchInput = form.querySelector(".qld-search-input input");
-
-    if (searchInput) {
-      let timeout;
-
-      // Add keyup event listener to the search input
-      searchInput.addEventListener("input", function (e) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          const value = e.target.value.trim();
-          showSuggestions(value, value === "", form);
-        }, 300);
-      });
-
-      // Attach event listener to form submit
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const query = searchInput.value.trim();
-        submitSearchForm(query, form);
-      });
-    }
-  });
-
-  //Header
-  // Get the <header> element
-  let header = document.querySelector("header");
-  if (header) {
-    // Get the current page URL without query string parameters
-    let url = window.location.origin + window.location.pathname;
-    // Set the data-page-url attribute on the <header> element
-    header.setAttribute("data-page-url", url);
-  }
+  // Search
+  initAllSearch();
 
   // Navbar
   initializeNavbar();
