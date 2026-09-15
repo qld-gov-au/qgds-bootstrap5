@@ -103,7 +103,6 @@ export const InputValuesArePaddedWithLeadingZeroesOnBlur = {
   tags: ["!autodocs"],
   args: defaultdata,
   play: async ({ canvasElement, userEvent }) => {
-    console.log(canvasElement);
     const dayInput = canvasElement.querySelector(`#${defaultdata.id}-dayinput`);
     const monthInput = canvasElement.querySelector(
       `#${defaultdata.id}-monthinput`,
