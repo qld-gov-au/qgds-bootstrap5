@@ -6,6 +6,7 @@
   "buttonType": "submit",
   "buttonLabel": "Search",
   "ariaLabel": "Search website",
+  "ariaLabelContainer": "",
   "placeholder": "",
   "tags": {
     "collection": "ssqld~sp-search",
