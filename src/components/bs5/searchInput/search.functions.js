@@ -93,7 +93,7 @@ function initSearch(component) {
     // Attach event listener to form submit
     formElement.addEventListener("submit", (event) => {
       event.preventDefault();
-      const query = searchInput.value.trim();
+      const query = inputElement.value.trim();
       submitSearchForm(query, formElement);
     });
   }

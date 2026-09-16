@@ -7,7 +7,6 @@ import { isElementVisible } from "../../../js/utils";
  * Includes logic for show search suggestions.
  */
 export function initHeader() {
-  console.log("initing Header");
   /** @type {HTMLElement | null } */
   const headerElement = document.querySelector("header");
 
