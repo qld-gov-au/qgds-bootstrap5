@@ -1,13 +1,12 @@
 /** @import {Meta, StoryObj} from "@storybook/html-vite" */
 
-import defaultdata from "../searchInput.data.json";
 import { expect } from "storybook/test";
 import { waitFor } from "../../../../js/testingutils.js";
-import searchMeta from "./searchInput.stories.js";
+import defaultMeta from "./searchInput.stories.js";
 
 /** @type Meta */
 export default {
-  ...searchMeta,
+  ...defaultMeta,
   tags: ["!autodocs"], // Do not generate an overview page for these stories.
   title: "3. Components/Search Input/Interactions", // Must be a string literal - see https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#string-literal-titles
 };
