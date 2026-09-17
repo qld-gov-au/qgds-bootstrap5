@@ -159,8 +159,7 @@ $expander-icon-color: $qld-light-link;
     mask-repeat: no-repeat;
     mask-position: center center;
     background-color: var(--#{$prefix}breadcrumb-divider-color);
-    position: relative;
-    top: 4px;
+    vertical-align: middle;
   }
 
   &:last-child:after {
@@ -235,7 +234,7 @@ $expander-icon-color: $qld-light-link;
         transform: rotate(180deg);
         transform-origin: center;
         margin-left: -0.25rem;
-        top: 7px;
+        align-self: center;
         min-width: 1.5rem;
       }
     }
