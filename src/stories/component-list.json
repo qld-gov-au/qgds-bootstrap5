@@ -284,8 +284,8 @@
       "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=1PNeXYXdepnDeW4g-0",
       "website": "https://www.designsystem.qld.gov.au/components/header"
     },
-    "storyTitle": "2. Layout/Header",
-    "storyPath": "/docs/2-layout-header"
+    "storyTitle": "2. Layout/Header/Interactions",
+    "storyPath": "/docs/2-layout-header-interactions"
   },
   {
     "id": "qgds-icon-links",
@@ -509,8 +509,8 @@
       "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97871&p=f&t=1PNeXYXdepnDeW4g-0",
       "website": "https://www.designsystem.qld.gov.au/components/input-fields-select-box"
     },
-    "storyTitle": "3. Components/Search Input",
-    "storyPath": "/docs/3-components-search-input"
+    "storyTitle": null,
+    "storyPath": null
   },
   {
     "id": "qgds-input-select",

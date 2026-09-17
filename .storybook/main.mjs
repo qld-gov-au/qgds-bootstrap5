@@ -43,15 +43,10 @@ const config = {
   //Each component's JS module, for example Alert.js, imports a HTML string to use for it's template.
   //We add a plugin to handle these .hbs extensions. (Or .mustache, .html etc)
   //https://storybook.js.org/docs/api/main-config-vite-final
-  //Each component's JS module, for example Alert.js, imports a HTML string to use for it's template.
-  //We add a plugin to handle these .hbs extensions. (Or .mustache, .html etc)
-  //https://storybook.js.org/docs/api/main-config-vite-final
 
   viteFinal: async (config, { configType }) => {
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
     const addonPath = path.resolve(__dirname, "addons");
-
-    config.root = "./dist";
 
     // Add React plugin for JSX transformation in QGDS addons
     config.plugins = config.plugins || [];
@@ -73,6 +68,7 @@ const config = {
       ...config.server,
       fs: {
         allow: [
+          path.resolve(process.cwd()),
           // Allow access to assets
           path.resolve(process.cwd(), "src/assets"),
           path.resolve(process.cwd(), "src/img"),

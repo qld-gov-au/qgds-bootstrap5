@@ -1,3 +1,4 @@
+/** @import {Meta, StoryObj} from "@storybook/html-vite" */
 import { Header, argTypes } from "./Header.js";
 import { Navbar } from "../navbar/Navbar.js";
 import { SearchInput } from "../searchInput/SearchInput.js";
@@ -14,6 +15,8 @@ import cobrand_variant from "./header.variant.coBrand.data.json";
 import endorsed_variant from "./header.variant.endorsed.data.json";
 import standalone_variant from "./header.variant.standAlone.data.json";
 
+import { waitFor } from "../../../js/testingutils.js";
+import { expect } from "storybook/test";
 /**
  * #### Regarding the "Delivering for Queensland" logo.
  *
