@@ -11,7 +11,7 @@
   }
 
   @include media-breakpoint-up(lg) {
-    --#{$prefix}header-preheader-height: 3rem;
+    --#{$prefix}header-preheader-height: 2.25rem;
   }
 }
 
