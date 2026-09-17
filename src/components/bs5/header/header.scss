@@ -4,14 +4,14 @@
 
 // Play nice with navbar header.
 :root {
-  --#{$prefix}header-preheader-height: 52px;
+  --#{$prefix}header-preheader-height: 3.25rem;
 
   @include media-breakpoint-up(md) {
-    --#{$prefix}header-preheader-height: 72px;
+    --#{$prefix}header-preheader-height: 4.5rem;
   }
 
   @include media-breakpoint-up(lg) {
-    --#{$prefix}header-preheader-height: 36px;
+    --#{$prefix}header-preheader-height: 3rem;
   }
 }
 
@@ -33,16 +33,37 @@
       0 1px 3px 1px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
-    height: var(--#{$prefix}header-preheader-height);
+    min-height: var(--#{$prefix}header-preheader-height);
+    overflow: hidden;
+
+    // Logo in pre-header
+    > .container > .d-flex > .qld-header-link {
+      align-items: center;
+      display: flex;
+      height: var(--#{$prefix}header-preheader-height);
+    }
 
     .qld-header-mobile-controls {
       display: flex;
-      position: absolute;
-      right: 0;
-      top: 0;
+      flex-shrink: 0;
+      position: relative;
+      height: var(--#{$prefix}header-preheader-height);
+      margin-left: auto;
+      margin-right: calc(var(--#{$prefix}container-padding-x) * -1);
 
       @include media-breakpoint-up(lg) {
         display: none;
+      }
+
+      // Visual separator for mobile controls wrap to second row due to increased text size on mobile devices.
+      // Hidden by default.
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -1px;
+        border-top: 1px solid var(--#{$prefix}border-color);
       }
     }
 
