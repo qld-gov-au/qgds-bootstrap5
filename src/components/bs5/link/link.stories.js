@@ -1,7 +1,7 @@
 /**
- * @file linkColumns.stories.js
- * @description Storybook configuration file for the link Columns component.
- * @module linkColumns.stories
+ * @file link.stories.js
+ * @description Storybook configuration file for the link component.
+ * @module link.stories
  */
 
 import { Link } from "./link.js";
