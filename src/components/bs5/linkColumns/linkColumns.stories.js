@@ -1,4 +1,3 @@
-// ComponentExample.stories.js
 /**
  * @file linkColumns.stories.js
  * @description Storybook configuration file for the link Columns component.
@@ -14,10 +13,9 @@ export default {
   title: "3. Components/Link Columns",
 
   render: (args) => new LinkColumns(args).html,
-  //   args: defaultdata,
   argTypes: {
     columns: {
-      description: "Number of coloumns of links to display",
+      description: "Number of columns of links to display",
       control: { type: "number", min: 1, max: 3, step: 1 },
     },
     id: { control: "text" },
