@@ -34,8 +34,7 @@
       0 1px 3px 1px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
-    min-height: var(--#{$prefix}header-preheader-height);
-    overflow: hidden;
+    height: var(--#{$prefix}header-preheader-height);
 
     .qld-header-mobile-controls {
       display: flex;
