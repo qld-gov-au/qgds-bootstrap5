@@ -1,17 +1,18 @@
 @use "../../../css/mixins";
 @use "../../../css/variables/animation";
+@use "../../../css/functions" as f;
 @import "./header-variables";
 
 // Play nice with navbar header.
 :root {
-  --#{$prefix}header-preheader-height: 3.25rem;
+  --#{$prefix}header-preheader-height: #{f.remify(52px)};
 
   @include media-breakpoint-up(md) {
-    --#{$prefix}header-preheader-height: 4.5rem;
+    --#{$prefix}header-preheader-height: #{f.remify(72px)};
   }
 
   @include media-breakpoint-up(lg) {
-    --#{$prefix}header-preheader-height: 2.25rem;
+    --#{$prefix}header-preheader-height: #{f.remify(36px)};
   }
 }
 
@@ -35,13 +36,6 @@
     z-index: 2;
     min-height: var(--#{$prefix}header-preheader-height);
     overflow: hidden;
-
-    // Logo in pre-header
-    > .container > .d-flex > .qld-header-link {
-      align-items: center;
-      display: flex;
-      height: var(--#{$prefix}header-preheader-height);
-    }
 
     .qld-header-mobile-controls {
       display: flex;
@@ -172,7 +166,7 @@
 
   &-logo {
     display: block;
-    width: auto;
+    width: 100%;
     transition: {
       property: filter, color, outline, outline-offset;
       duration: animation.$duration-fast;
