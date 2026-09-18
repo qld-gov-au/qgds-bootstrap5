@@ -182,7 +182,6 @@ $expander-icon-color: $qld-light-link;
 }
 
 .breadcrumb-toggle {
-  @include m.unset-button-styles();
   flex-shrink: 0;
 
   > button {
