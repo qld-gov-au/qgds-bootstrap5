@@ -1,5 +1,13 @@
 @use "../css/mixins";
 
+// iOS text scaling - allows text to respect the "Text Size" setting on user's iOS device.
+// https://adrianroselli.com/2026/02/honoring-mobile-os-text-size.html
+// font-size: 100%; is not needed here since the dynamic font size already applied with the shorthand font -apple-system-body.
+html {
+  font: -apple-system-body;
+  font-family: $font-family-sans-serif;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
 }
@@ -10,7 +18,7 @@ body {
     line-height: 1.5;
   }
   ul,
-  ol{
+  ol {
     line-height: 1.75;
   }
 
