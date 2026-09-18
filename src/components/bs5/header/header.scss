@@ -25,7 +25,7 @@
 
   &-pre-header {
     @extend %preheader-variables;
-    //
+
     display: flex;
     align-items: center;
     font-size: 0.875rem; // set here so whitespace doesn't add extra height.
@@ -47,17 +47,6 @@
 
       @include media-breakpoint-up(lg) {
         display: none;
-      }
-
-      // Visual separator for mobile controls wrap to second row due to increased text size on mobile devices.
-      // Hidden by default.
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: -1px;
-        border-top: 1px solid var(--#{$prefix}border-color);
       }
     }
 
@@ -166,7 +155,7 @@
 
   &-logo {
     display: block;
-    width: 100%;
+    width: auto;
     transition: {
       property: filter, color, outline, outline-offset;
       duration: animation.$duration-fast;
@@ -185,6 +174,7 @@
 
     .qld-header-pre-header & {
       height: 1.75rem;
+      width: 100%;
 
       @include media-breakpoint-up(md) {
         height: 2.5rem;
