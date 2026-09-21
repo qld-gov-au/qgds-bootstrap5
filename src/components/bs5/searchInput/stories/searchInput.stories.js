@@ -1,17 +1,17 @@
-// SearchInput.stories.js
-import { SearchInput } from "./SearchInput.js";
-import defaultdata from "./searchInput.data.json";
-import metadata from "./metadata.json";
+/** @import {Meta} from "@storybook/html-vite" */
 
-// Save the initial defaultSuggestions data with fallback
-const initData = defaultdata.defaultSuggestions || null;
+import { SearchInput } from "../SearchInput.js";
+import defaultdata from "../searchInput.data.json";
+import metadata from "../metadata.json";
 
+/** @type Meta */
 export default {
   tags: ["autodocs", "extended"],
   title: "3. Components/Search Input",
   render: (args) => {
     return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(args).html}</form>`;
   },
+  args: defaultdata,
   argTypes: {
     buttonLabel: {
       description: "The label for the search button",
@@ -48,15 +48,13 @@ export default {
       story: { height: "800px" },
     },
   },
-  // globals: {
-  //   backgrounds: {
-  //     value: "default",
-  //   },
-  // },
 };
 
 export const Default = {
-  args: { ...defaultdata, showDefaultSuggestions: true },
+  args: {
+    showDefaultSuggestions: true,
+    inputID: "default-search",
+  },
   name: "Default - Outline Variant",
 };
 
@@ -64,13 +62,13 @@ export const Default = {
  * With `customClass: is-filled`
  */
 export const FilledVariant = {
-  args: { ...defaultdata, customClass: "is-filled" },
+  args: { customClass: "is-filled", inputID: "filled-search" },
 };
 
 export const FullWidth = {
   args: {
-    ...defaultdata,
     customClass: "full-width",
+    inputID: "fullwidth-search",
   },
 };
 
@@ -82,6 +80,7 @@ export const FullWidth = {
 export const Dark = {
   args: {
     ...defaultdata,
+    inputID: "dark-search",
   },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
@@ -101,7 +100,10 @@ export const Dark = {
  * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
  */
 export const DarkFilled = {
-  args: { ...defaultdata, customClass: "is-filled" },
+  args: {
+    customClass: "is-filled",
+    inputID: "DarkFilledSearch",
+  },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
@@ -119,16 +121,18 @@ export const DarkFilled = {
  *
  * Listen for the custom event `qgds-search-submit` and handle the search submission in your own way.
  */
-
 export const CustomSubmitHandler = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
-    ...defaultdata,
     inputName: "q",
     tags: {},
     defaultSuggestions: false,
     hasDefaultSuggestions: false,
     hasDynamicSuggestions: false,
     dynamicSuggestionsServiceLink: false,
+    inputID: "CustomSubmitHandlerSearch",
   },
   decorators: [
     (Story) => {
