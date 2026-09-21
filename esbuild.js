@@ -32,7 +32,7 @@ const buildConfig = {
   bundle: true,
   minify: argv.minify !== "false", //true, unless flagged: 'npm run build -- --minify=false'
   sourcemap: true,
-  target: ["es6"],
+  target: ["es2015"],
   logLevel: "info",
   outdir: "./dist/",
   external: ["fs", "path", "bootstrap", "../img/*"],

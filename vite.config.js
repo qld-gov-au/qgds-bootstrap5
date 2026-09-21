@@ -19,21 +19,21 @@ export default defineConfig({
   ],
   //https://github.com/twbs/bootstrap/issues/40962 bootstrap 5.x is not ready for sass 1.80, so silence what we can't change (review 2026)
   build: {
-    cssMinify: "esbuild", // match esbuild production settings
+    target: "es2015", // match the esbuild production value here
   },
   css: {
     preprocessorOptions: {
       scss: {
         silenceDeprecations: [
-          'legacy-js-api',
-          'mixed-decls',
-          'color-functions',
-          'global-builtin',
-          'import',
+          "legacy-js-api",
+          "mixed-decls",
+          "color-functions",
+          "global-builtin",
+          "import",
         ],
-        indentType: 'space',
+        indentType: "space",
         indentWidth: 2,
-        includePaths: ['./node_modules'],
+        includePaths: ["./node_modules"],
       },
     },
   },
