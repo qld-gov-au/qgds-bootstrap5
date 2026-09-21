@@ -445,9 +445,8 @@
     }
 
     @include media-breakpoint-up(lg) {
-      z-index: unset;
       display: block;
-      position: static;
+      position: relative; // relative not static to keep z-index active.
       padding: 0;
       background-color: transparent;
     }
