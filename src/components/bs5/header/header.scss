@@ -1,17 +1,18 @@
 @use "../../../css/mixins";
 @use "../../../css/variables/animation";
+@use "../../../css/functions" as f;
 @import "./header-variables";
 
 // Play nice with navbar header.
 :root {
-  --#{$prefix}header-preheader-height: 52px;
+  --#{$prefix}header-preheader-height: #{f.remify(52px)};
 
   @include media-breakpoint-up(md) {
-    --#{$prefix}header-preheader-height: 72px;
+    --#{$prefix}header-preheader-height: #{f.remify(72px)};
   }
 
   @include media-breakpoint-up(lg) {
-    --#{$prefix}header-preheader-height: 36px;
+    --#{$prefix}header-preheader-height: #{f.remify(36px)};
   }
 }
 
@@ -24,7 +25,7 @@
 
   &-pre-header {
     @extend %preheader-variables;
-    //
+
     display: flex;
     align-items: center;
     font-size: 0.875rem; // set here so whitespace doesn't add extra height.
@@ -37,9 +38,11 @@
 
     .qld-header-mobile-controls {
       display: flex;
-      position: absolute;
-      right: 0;
-      top: 0;
+      flex-shrink: 0;
+      position: relative;
+      height: var(--#{$prefix}header-preheader-height);
+      margin-left: auto;
+      margin-right: calc(var(--#{$prefix}container-padding-x) * -1);
 
       @include media-breakpoint-up(lg) {
         display: none;
@@ -170,6 +173,7 @@
 
     .qld-header-pre-header & {
       height: 1.75rem;
+      width: 100%;
 
       @include media-breakpoint-up(md) {
         height: 2.5rem;

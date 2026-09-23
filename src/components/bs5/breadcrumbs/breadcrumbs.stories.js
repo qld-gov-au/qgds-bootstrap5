@@ -22,7 +22,7 @@ export default {
   },
   decorators: [
     (Story, context) => {
-      const { args } = context; // Deconstruct args from the context oject
+      const { args } = context; // Deconstruct args from the context object
       return `
       <div class="container-fluid ${args.class || ""}">
         <div class="row">
@@ -114,10 +114,6 @@ export const WithExpanderDark = {
     class: "dark",
   },
 };
-
-/* export const LongBreadcrumbs = {
-  args: defaultdata.defaultLong,
-}; */
 
 export const ForGov = {
   args: defaultdata.forGov,
