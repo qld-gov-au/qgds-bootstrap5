@@ -94,14 +94,12 @@
                 0px 4px 8px 3px rgba(0, 0, 0, 0.1),
                 0px 1px 3px rgba(0, 0, 0, 0.2);
             }
-            &::after {
-              content: "";
-              mask-image: var(--qgds-icon-chevron-down);
-              mask-repeat: no-repeat;
-              mask-position: 0;
-              background-color: var(--dropdown-show-btn-icon-color);
-              width: 1rem;
-              height: 1rem;
+            @include m.make-icon(
+              $name: "chevron-down",
+              $size: "xs",
+              $pseudo: "after"
+            ) {
+              --#{$prefix}icon-color: var(--dropdown-show-btn-icon-color);
               border: 0;
               margin-left: 0;
               transform: rotate(0deg);
@@ -115,7 +113,7 @@
         &:has(.dropdown-menu.show) {
           border-block-end-width: 0;
           .qld-icon {
-            background-color: var(--action-icon-color_active);
+            --#{$prefix}icon-color: var(--action-icon-color_active);
           }
         }
         .dropdown-menu.show {
@@ -245,7 +243,7 @@
       }
       &:hover {
         .qld-icon {
-          background-color: var(--link-border-color-hover);
+          --#{$prefix}icon-color: var(--link-border-color-hover);
         }
       }
       &.dropdown-toggle {
@@ -547,7 +545,7 @@
         var(--link-border-color-hover);
     }
     .qld-icon {
-      background-color: var(--action-icon-color);
+      --#{$prefix}icon-color: var(--action-icon-color);
     }
   }
 
@@ -590,18 +588,13 @@
     }
   }
   a.dropdown-toggle {
-    &:after {
-      content: "";
+    @include m.make-icon($name: "chevron-down", $size: "xs", $pseudo: "after") {
+      --#{$prefix}icon-color: var(--action-icon-color);
       border: 0;
-      mask-image: var(--qgds-icon-chevron-down);
-      mask-repeat: no-repeat;
-      mask-position: 0;
-      background-color: var(--action-icon-color);
-      width: 1rem;
-      height: 1rem;
       transform: rotate(0deg);
       transition: transform var(--animation-time) ease-in;
     }
+
     &.show {
       &:after {
         transform: rotate(-180deg);
@@ -679,12 +672,12 @@
         transition:
           padding-inline-end var(--animation-time) ease-in-out,
           gap var(--animation-time) ease-in-out;
-        &::after {
-          content: "";
-          mask-image: var(--qgds-icon-arrow-right);
-          mask-repeat: no-repeat;
-          mask-position: 0;
-          background-color: var(--action-icon-color);
+        @include m.make-icon(
+          $name: "arrow-right",
+          $size: "sm",
+          $pseudo: "after"
+        ) {
+          --#{$prefix}icon-color: var(--action-icon-color);
           height: 1lh;
           width: 1.25rem;
           min-width: 1.25rem;
@@ -755,14 +748,12 @@
         transition:
           gap var(--animation-time) ease-in-out,
           padding-inline-end var(--animation-time) ease-in-out;
-        &::before {
-          content: "";
-          mask-image: var(--qgds-icon-view-all);
-          mask-repeat: no-repeat;
-          mask-position: 0;
-          background-color: var(--action-icon-color);
-          height: 2rem;
-          width: 2rem;
+        @include m.make-icon(
+          $name: "view-all",
+          $size: "lg",
+          $pseudo: "before"
+        ) {
+          --#{$prefix}icon-color: var(--action-icon-color);
           transform: scaleX(var(--icon-dir));
         }
         &::after {
@@ -846,12 +837,8 @@
       border-inline-start: 1px solid var(--nav-header-border-color);
       padding-block: 0;
       background-color: transparent;
-      &::before {
-        content: "";
-        mask-image: var(--qgds-icon-close);
-        mask-repeat: no-repeat;
-        mask-position: 0;
-        background-color: var(--nav-header-icon-color);
+      @include m.make-icon($name: "close", $size: "md", $pseudo: "before") {
+        --#{$prefix}icon-color: var(--nav-header-icon-color);
         width: var(--qld-btn-close-width);
         height: var(--qld-btn-close-height);
         border: 0;
