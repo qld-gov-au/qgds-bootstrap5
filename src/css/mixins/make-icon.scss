@@ -70,6 +70,11 @@ $prefix: "qld-" !default;
       // Final fallback to inherit in case these go wrong.
       color: var(--#{$prefix}icon-color, var(--qld-action-icon-color, inherit));
       background-color: currentColor;
+
+      // Use CanvasText for icon's background color when forced colors mode is active (eg: Windows High Contrast mode)
+      @media (forced-colors: active) {
+        background-color: CanvasText;
+      }
     }
     @if $is-inline {
       vertical-align: baseline;
