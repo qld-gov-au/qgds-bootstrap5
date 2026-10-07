@@ -290,6 +290,37 @@ export const ContentPageWithSingleForm = {
           ],
         },
         {
+          type: "checkbox",
+          questionLabel: "Service",
+          listClasses: "field-required",
+          listitems: [
+            {
+              type: "checkbox",
+              id: "service1",
+              name: "service",
+              label: "Service 1",
+              value: "service1",
+              isDisabled: false,
+            },
+            {
+              type: "checkbox",
+              id: "service2",
+              name: "service",
+              label: "Service 2",
+              value: "service2",
+              isDisabled: false,
+            },
+            {
+              type: "checkbox",
+              id: "service3",
+              name: "service",
+              label: "Service 3",
+              value: "service3",
+              isDisabled: false,
+            },
+          ],
+        },
+        {
           ...textboxData,
           type: "textbox",
           "label-text":
