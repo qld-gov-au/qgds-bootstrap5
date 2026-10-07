@@ -1,4 +1,9 @@
 @media print {
+  :root {
+    --formcheck-input-size: 2rem;
+    --formcheck-print-color: #000;
+  }
+
   .h1,
   h1 {
     font-size: 1.5em; // Size of h2
@@ -511,6 +516,46 @@
     background: none !important;
     margin: 4rem 0 !important;
     padding: 0 !important;
+  }
+
+  /* Simulate checked form inputs (radio and checkbox) on print */
+  .form-check-input:checked + label:after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    mask-image: none !important;
+    background: transparent !important;
+  }
+
+  /* Radio: 1rem solid dot made entirely of border */
+  .form-check-input[type="radio"]:checked + label:after {
+    /* Half-size of the container (1rem total width/height) */
+    width: calc(var(--formcheck-input-size) / 2);
+    height: calc(var(--formcheck-input-size) / 2);
+
+    /* 0.5rem border thickness on a 1rem box fills it completely */
+    border: calc(var(--formcheck-input-size) / 4) solid
+      var(--formcheck-print-color) !important;
+    border-radius: 50%;
+
+    /* Offset by 1/4 of container size to center (0.5rem) */
+    top: calc(var(--formcheck-input-size) / 4);
+    left: calc(var(--formcheck-input-size) / 4);
+  }
+
+  /* Checkbox: Classic checkmark outline */
+  .form-check-input[type="checkbox"]:checked + label:after {
+    width: calc(var(--formcheck-input-size) * 0.325); /* ~0.65rem */
+    height: calc(var(--formcheck-input-size) * 0.65); /* ~1.3rem */
+    border-style: solid;
+    border-color: var(--formcheck-print-color) !important;
+    border-width: 0 4px 4px 0;
+
+    transform: rotate(45deg);
+
+    /* Centering math for rotated 0.65rem x 1.3rem mark inside 2rem box */
+    top: calc(var(--formcheck-input-size) * 0.125); /* ~0.25rem */
+    left: calc(var(--formcheck-input-size) * 0.325); /* ~0.65rem */
   }
 }
 
