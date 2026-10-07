@@ -398,7 +398,7 @@ export const ContentPageWithSingleForm = {
           listitems: [
             {
               type: "checkbox",
-              id: "service1",
+              id: "privacycheck",
               name: "Privacy acknowledgement",
               label: "I have read and understood the privacy statement",
               value: "checked",
