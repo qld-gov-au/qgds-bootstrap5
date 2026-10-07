@@ -74,6 +74,8 @@
               {{> textarea this}}
               {{else ifCond type '==' 'radio'}}
               {{> formcheck this}}
+              {{else ifCond type '==' 'checkbox'}}
+              {{> formcheck this}}
               {{/ifCond}}
             </div>
             {{/each}}
