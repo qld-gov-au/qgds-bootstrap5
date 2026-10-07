@@ -297,7 +297,7 @@ export const ContentPageWithSingleForm = {
             {
               type: "checkbox",
               id: "service1",
-              name: "service",
+              name: "service1",
               label: "Service 1",
               value: "service1",
               isDisabled: false,
@@ -305,7 +305,7 @@ export const ContentPageWithSingleForm = {
             {
               type: "checkbox",
               id: "service2",
-              name: "service",
+              name: "service2",
               label: "Service 2",
               value: "service2",
               isDisabled: false,
@@ -313,7 +313,7 @@ export const ContentPageWithSingleForm = {
             {
               type: "checkbox",
               id: "service3",
-              name: "service",
+              name: "service3",
               label: "Service 3",
               value: "service3",
               isDisabled: false,
