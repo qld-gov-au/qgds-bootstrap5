@@ -59,7 +59,7 @@
     "@chromatic-com/storybook": "^5.0.0",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/json": "^2.0.0",
-    "@qld-gov-au/qgds-tokens": "^1.2.1",
+    "@qld-gov-au/qgds-tokens": "^3.2.4",
     "@storybook/addon-a11y": "^10.1.10",
     "@storybook/addon-docs": "^10.1.10",
     "@storybook/addon-links": "^10.1.10",
