@@ -28,6 +28,7 @@
   }
   .icon {
     @include m.make-icon($name: "arrow-right", $size: "lg", $pseudo: "after") {
+      vertical-align: top;
       margin-inline: 0;
     }
   }
