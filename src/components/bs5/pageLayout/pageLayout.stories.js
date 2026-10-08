@@ -105,6 +105,22 @@ const SideNavArgs = {
     ...callToActionData,
     label: "Call to action",
   },
+  cards: [
+    {
+      ...cardData.singleAction,
+      title: "Renew registration",
+      description: "Renew your vehicle registration online before it expires.",
+      link: "#renew",
+      equalHeight: true,
+    },
+    {
+      ...cardData.singleAction,
+      title: "Transfer a vehicle",
+      description: "Transfer vehicle registration to a new owner when selling.",
+      link: "#transfer",
+      equalHeight: true,
+    },
+  ],
 };
 
 /**

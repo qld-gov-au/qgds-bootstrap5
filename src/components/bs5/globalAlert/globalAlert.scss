@@ -89,17 +89,8 @@
       padding: 0;
       transition: transform 0.2s ease;
 
-      &::before {
-        content: "";
-        display: block;
-        width: 1.25rem;
-        height: 1.25rem;
-        background-color: #000000;
-        mask-image: var(--qgds-icon-close);
-        -webkit-mask-image: var(--qgds-icon-close);
-        mask-position: center center;
-        mask-repeat: no-repeat;
-        mask-size: contain;
+      @include m.make-icon($name: "close", $size: "sm", $pseudo: "before") {
+        --#{$prefix}icon-color: #000000;
       }
 
       @include m.focusable($outlineWidth: 2px);
@@ -125,10 +116,6 @@
     font-size: 0.875em;
     border-top-color: var(--#{$prefix}core-default-color-status-error-darker);
 
-    .qld-icon {
-      background-color: var(--#{$prefix}white);
-    }
-
     .global-alert-action a {
       color: var(--#{$prefix}white);
       text-decoration-color: var(--#{$prefix}white);
@@ -140,7 +127,7 @@
 
     .global-alert-close .btn-close {
       &::before {
-        background-color: #ffffff;
+        --#{$prefix}icon-color: var(--#{$prefix}white);
       }
     }
 

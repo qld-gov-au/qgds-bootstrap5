@@ -360,6 +360,9 @@ $form-check-inline-margin-end: 1rem;
       mask-repeat: no-repeat;
       mask-position: center;
       background-color: $form-check-input-checked-color;
+      @media (forced-colors: active) {
+        background-color: CanvasText;
+      }
     }
   }
 

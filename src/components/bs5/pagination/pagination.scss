@@ -204,18 +204,16 @@ nav:has(> .pagination) {
       gap: 0.5rem;
 
       //.prev and .next arrows
-      &:before {
-        content: "";
-        width: 1.5rem;
-        height: 1.5rem;
-        mask-image: var(--qgds-icon-arrow-left);
-        background-color: var(--action-icon-color);
-        mask-repeat: no-repeat;
-        mask-position: 0;
+      @include m.make-icon(
+        $name: "arrow-left",
+        $size: "md",
+        $pseudo: "before"
+      ) {
+        --#{$prefix}icon-color: var(--action-icon-color);
       }
 
       &:hover:before {
-        background-color: var(--action-icon-color-hover);
+        --#{$prefix}icon-color: var(--action-icon-color-hover);
       }
 
       span {
@@ -287,15 +285,14 @@ nav:has(> .pagination) {
       display: inline-flex;
 
       &:hover:before {
-        background-color: var(--action-icon-more-color-hover);
+        --#{$prefix}icon-color: var(--action-icon-more-color-hover);
       }
-      &:before {
-        content: "";
-        width: 2rem;
-        height: 2rem;
-        background-repeat: no-repeat;
-        mask-image: var(--qgds-icon-more-horizontal);
-        background-color: var(--action-icon-more-color);
+      @include m.make-icon(
+        $name: "more-horizontal",
+        $size: "lg",
+        $pseudo: "before"
+      ) {
+        --#{$prefix}icon-color: var(--action-icon-more-color);
       }
     }
   }

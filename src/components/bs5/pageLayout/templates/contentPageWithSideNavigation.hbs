@@ -132,6 +132,21 @@
             {{/if}}
           </div>
 
+          <div class="mt-32 mt-lg-64">
+            <h2 id="related-services">Related services (H2)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Sed facilisis purus eu convallis ut. Morbi condimentum volutpat
+              feugiat pellentesque. Auctor amet auctor dolor metus eget diam.</p>
+            {{#if cards}}
+            <div class="row">
+              {{#each cards}}
+              <div class="col-12 col-md-6 mb-24">
+                {{> card this}}
+              </div>
+              {{/each}}
+            </div>
+            {{/if}}
+          </div>
+
         </main>
         <!-- End Main Content div -->
 
