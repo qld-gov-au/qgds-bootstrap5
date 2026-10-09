@@ -45,14 +45,6 @@
     }
   }
 
-  .suggestions {
-  }
-
-  &:focus-within {
-    .suggestions {
-    }
-  }
-
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
 
   &:has(.form-control:focus) {
