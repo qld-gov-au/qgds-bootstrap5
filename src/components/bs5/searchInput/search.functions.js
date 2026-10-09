@@ -223,7 +223,6 @@ async function showSuggestions(value = "", isDefault = false, form) {
 
       //Rended a suggestions list
       if (fetchedSuggestions.length > 0) {
-        console.log("fetchedSuggestions: ", fetchedSuggestions);
         dynamicSuggestionsContainer.innerHTML = `
         <div class="suggestions-category">
           <ul>${fetchedSuggestions
