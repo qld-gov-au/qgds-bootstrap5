@@ -334,6 +334,7 @@
               &:not(.view-more) {
                 &::before {
                   mask-image: var(--qgds-icon-search);
+                  flex-shrink: 0;
                 }
               }
             }
