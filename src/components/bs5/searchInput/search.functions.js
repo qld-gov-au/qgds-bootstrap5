@@ -226,13 +226,13 @@ async function showSuggestions(value = "", isDefault = false, form) {
         dynamicSuggestionsContainer.innerHTML = `
         <div class="suggestions-category">
           <ul>${fetchedSuggestions
-            .slice(0, 4)
+            .slice(0, 4) // only display the first 4 items
             .map((item) => {
               const highlightedText = item.replace(
                 new RegExp(`(${value})`, "gi"),
                 "<strong>$1</strong>",
               );
-              return `<li><a tabindex="0" href="#">${highlightedText}</a></li>`;
+              return `<li><a tabindex="0" href="#"><span>${highlightedText}</span></a></li>`; // <span> is required to ensure all text remains a single flex item and does not introduce spacing and wrapping bugs.
             })
             .join("")}</ul>
         </div>`;
