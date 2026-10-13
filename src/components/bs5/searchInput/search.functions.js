@@ -145,7 +145,7 @@ function selectDynamicSuggestion(value, form) {
     // Construct the URL with proper parameters
     const params = new URLSearchParams({
       query: queryValue,
-      collection: atts.collection || "qgov~sp-search",
+      collection: atts.collection || "ssqld~sp-search",
       profile: atts.profile || "qld",
       num_ranks: atts.numRanks || "10",
       tiers: atts.tiers || "off",
@@ -212,7 +212,7 @@ async function showSuggestions(value = "", isDefault = false, form) {
     const suggestUrl = atts.suggestions;
 
     if (suggestUrl) {
-      const collection = atts.collection || "qgov~sp-search";
+      const collection = atts.collection || "ssqld~sp-search";
       const profile = atts.profile || "qld";
 
       //Fetch data from suggestions API
@@ -280,12 +280,12 @@ async function showSuggestions(value = "", isDefault = false, form) {
 
     const resultsUrl = atts.resultsUrl; //data-results-url;
     if (resultsUrl) {
-      const collection = atts.collection || "qgov~sp-search";
+      const collection = atts.collection || "ssqld~sp-search";
       const profile = atts.profile || "qld";
 
       // Fetch related services from services API
       const fetchedServices = await fetchData(
-        `${resultsUrl}?collection=${collection}&profile=${profile}&smeta_sfinder_sand=yes&query=${encodeURIComponent(value)}`,
+        `${resultsUrl}?collection=${collection}&profile=${profile}&query=${encodeURIComponent(value)}`,
         "services",
       );
 
@@ -397,7 +397,7 @@ export function submitSearchForm(query = "", form) {
 
   const params = new URLSearchParams({
     query: queryValue,
-    collection: atts.collection || "qgov~sp-search",
+    collection: atts.collection || "ssqld~sp-search",
     profile: atts.profile || "qld",
     num_ranks: atts.numRanks || "10",
     tiers: atts.tiers || "off",
