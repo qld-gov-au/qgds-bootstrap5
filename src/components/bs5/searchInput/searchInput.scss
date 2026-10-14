@@ -45,14 +45,6 @@
     }
   }
 
-  .suggestions {
-  }
-
-  &:focus-within {
-    .suggestions {
-    }
-  }
-
   @include mixins.focusable($customSelector: ":has(.form-control:focus)");
 
   &:has(.form-control:focus) {
@@ -334,6 +326,7 @@
               &:not(.view-more) {
                 &::before {
                   mask-image: var(--qgds-icon-search);
+                  flex-shrink: 0;
                 }
               }
             }
