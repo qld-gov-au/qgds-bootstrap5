@@ -87,30 +87,32 @@ mvn install
    ```
 
 4. Build the Design System CSS, Components and templates
-    
-    ```bash
-    npm run build
-    ```
+
+   ```bash
+   npm run build
+   ```
 
 5. Build the same command as above, but with `:theme` following by args `${ThemePaletteName}`
    This will generate a separate altertive CSS export named as `qld.${ThemePaletteName}.bootstrap.css`
-    
-    ```bash
-    npm run build:theme ${ThemePaletteName}
-    
-    npm run build:theme -- --theme=${ThemePaletteA} --theme=${ThemePaletteB}
-    ```
 
-6.  Start Watch and Storybook for component development
-        
-    ```bash
-    npm run dev-storybook
-    ```
-     Alt:
-     ```bash
-     npm run watch
-     npm run storybook
-     ```
+   ```bash
+   npm run build:theme ${ThemePaletteName}
+
+   npm run build:theme -- --theme=${ThemePaletteA} --theme=${ThemePaletteB}
+   ```
+
+6. Start Watch and Storybook for component development
+
+   ```bash
+   npm run dev-storybook
+   ```
+
+   Alt:
+
+   ```bash
+   npm run watch
+   npm run storybook
+   ```
 
 7. Lint
 
@@ -129,7 +131,7 @@ mvn install
   - HTML templating using drop in components
 
     If you wish to use the includes handle bars, please ensure
-    "handlebars": "4.7.8" + is loaded prior to running handlebars.helpers.bundle.js
+    "handlebars": "4.7.10" + is loaded prior to running handlebars.helpers.bundle.js
 
   - Dev build and testing branching
 
@@ -159,13 +161,12 @@ We recommend using VSCode as the IDE for development with the following plugins:
 
 Webstorm also works.
 
-
 ### Accessibility
- 
+
 We are committed to making this project accessible and inclusive for all users.
- 
+
 This project is tested against the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA to ensure it meets a high standard of accessibility.
- 
+
 We follow the Queensland Government’s digital accessibility requirements to provide equal access to information, services, and opportunities for everyone.
- 
+
 If you encounter any accessibility issues or have suggestions for improvement, please feel free to raise an issue or contact the project team.
