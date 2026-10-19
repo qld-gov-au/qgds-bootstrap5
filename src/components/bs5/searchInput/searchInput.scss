@@ -348,7 +348,7 @@
   }
 
   &.is-filled {
-    --background-color: var(--#{$prefix}neutral-lightest);
+    --background-color: var(--background-color-hover);
 
     .form-control {
       border-width: 0;
