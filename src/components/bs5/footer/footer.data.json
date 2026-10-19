@@ -29,23 +29,23 @@
       },
       {
         "label": "Copyright",
-        "link": "https://www.qld.gov.au/legal/copyright"
+        "link": "https://www.qld.gov.au/copyright"
       },
       {
         "label": "Disclaimer",
-        "link": "https://www.qld.gov.au/legal/disclaimer"
+        "link": "https://www.qld.gov.au/disclaimer"
       },
       {
         "label": "Privacy",
-        "link": "https://www.qld.gov.au/legal/privacy"
+        "link": "https://www.qld.gov.au/privacy"
       },
       {
         "label": "Right to information",
-        "link": "https://www.qld.gov.au/about/rights-accountability/right-to-information"
+        "link": "https://www.qld.gov.au/right-to-information"
       },
       {
         "label": "Accessibility",
-        "link": "https://www.qld.gov.au/help/accessibility"
+        "link": "https://www.qld.gov.au/accessibility"
       },
       {
         "label": "Jobs in Queensland Government",
@@ -54,7 +54,7 @@
       },
       {
         "label": "Other languages",
-        "link": "https://www.qld.gov.au/help/languages"
+        "link": "https://www.qld.gov.au/languages"
       }
     ]
   },
