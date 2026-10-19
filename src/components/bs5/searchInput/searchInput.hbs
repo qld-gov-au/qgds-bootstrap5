@@ -10,29 +10,29 @@
     </button>
     {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
     
-    <div class="suggestions suggestions__group default">
+    <div class="suggestions default">
         {{#if hasDefaultSuggestions}}
             <div class="default-suggestions">
-                <div class="suggestions-category">
-                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
+                <div class="suggestions-group">
+                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
                     <ul>
                         {{#each defaultSuggestions.popularServices}}
-                        <li><a tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
+                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
                         {{/each}}
                         {{#if defaultSuggestions.popularServicesLink}}
-                            <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
+                        <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
                         {{/if}}
                     </ul>
                 </div>
                 {{#if defaultSuggestions.categories}}
-                <div class="suggestions-category">
-                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
+                <div class="suggestions-group">
+                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
                     <ul>
                         {{#each defaultSuggestions.categories}}
-                        <li><a tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
+                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
                         {{/each}}
                         {{#if defaultSuggestions.categoriesLink}}
-                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
+                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
                         {{/if}}
                     </ul>
                 </div>

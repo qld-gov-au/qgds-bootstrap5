@@ -15,7 +15,6 @@
   --suggestions-shadow:
     0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
   --border-radius: 0.25rem;
-  --hover-background-color: var(--#{$prefix}neutral-light);
   --_size: 3rem;
   container-type: inline-size;
   display: flex;
@@ -126,9 +125,11 @@
       left: 0.5rem;
       height: 100%;
     }
+
     .form-control {
       padding-inline-start: 2.5rem;
     }
+
     .dark &,
     .dark-alt & {
       &:has(.form-control:focus) {
@@ -175,9 +176,11 @@
         left: 0.5rem;
         height: 100%;
       }
+
       .form-control {
         padding-inline-start: 2.5rem;
       }
+
       .dark &,
       .dark-alt & {
         &:has(.form-control:focus) {
@@ -216,7 +219,6 @@
     inset-block-start: calc(3.25rem + 7px) !important;
     z-index: 9999; // Added z-index to ensure suggestions appear above other elements
     border-radius: 0.5rem;
-    background: var(--#{$prefix}neutral-lightest);
 
     transition:
       opacity 0.3s,
@@ -241,163 +243,102 @@
       border-radius: 0.5rem;
       border-bottom: 0.25rem solid
         var(--#{$prefix}color-default-color-light-accent-design-accent);
+      overflow: hidden;
     }
 
-    .suggestions-category {
-      padding-block: 0.75rem;
-
-      &:not(:first-of-type) {
-        border-block-start: 1px solid
-          var(--#{$prefix}light-alt-background-shade);
-      }
-
-      // Question
-      &-label {
-        padding-block: 0.75rem;
-        padding-inline: 1rem;
-      }
-
-      ul {
-        li {
-          a {
-            display: flex;
-            align-items: center;
-            padding-block: 0.75rem;
-            padding-inline: 1rem;
-            color: var(--#{$prefix}light-text-text);
-            width: 100%;
-            text-decoration: underline;
-            text-decoration-thickness: 0.5px;
-            text-decoration-color: transparent;
-            transition:
-              text-decoration-thickness animation.$duration-fast
-                animation.$timing-function,
-              text-decoration-color animation.$duration-fast
-                animation.$timing-function;
-
-            &:hover,
-            &:hover strong {
-              text-decoration-color: inherit;
-              text-decoration-thickness: var(
-                --#{$prefix}link-underline-thickness-hover
-              );
-              transition:
-                text-decoration-thickness animation.$duration-fast
-                  animation.$timing-function,
-                text-decoration-color animation.$duration-fast
-                  animation.$timing-function;
-            }
-
-            &:not(.view-more) {
-              @include mixins.make-icon(
-                $name: "arrow-right",
-                $size: "sm",
-                $pseudo: "before"
-              ) {
-                --#{$prefix}icon-color: var(--#{$prefix}light-action-secondary);
-                margin-inline-end: 0.5rem;
-              }
-
-              &:hover {
-                &::before {
-                  --#{$prefix}icon-color: var(
-                    --#{$prefix}light-action-secondary-hover
-                  );
-                }
-              }
-            }
-
-            &.view-more {
-              text-decoration-color: inherit;
-            }
-          }
-        }
-      }
-    }
-
-    &:has(.dynamic-suggestions > div) {
-      background-color: var(--#{$prefix}default-background);
-    }
-    .dynamic-suggestions {
-      .suggestions-category:not(.feature) {
-        ul {
-          li {
-            a {
-              &:not(.view-more) {
-                &::before {
-                  mask-image: var(--qgds-icon-search);
-                  flex-shrink: 0;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    hr {
-      margin: 0;
-    }
-
-    // Featured search result styles
-    .feature {
-      background-color: var(
-        --#{$prefix}color-default-color-light-background-default-shade
-      );
-    }
-
-    &__group {
+    ul {
       padding: 0;
+      margin: 0;
 
-      a,
-      strong {
-        font-size: 1rem;
+      li {
+        list-style: none;
+        margin-block-start: 0;
       }
+    }
+  }
 
-      strong {
-        font-weight: 600;
-        color: var(--text-heading);
+  .suggestions-group {
+    padding-block: 0.75rem;
+    background: var(--#{$prefix}neutral-lightest);
+
+    &:not(:first-of-type) {
+      border-block-start: 1px solid var(--#{$prefix}light-alt-background-shade);
+    }
+
+    &.is-autocomplete {
+      background: var(--#{$prefix}default-background);
+    }
+  }
+
+  .suggestions-group-label {
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+
+  .suggestions-item {
+    --bg-hover: var(--#{$prefix}neutral-light);
+
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    color: var(--#{$prefix}light-text-text);
+    width: 100%;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5px;
+    text-decoration-color: transparent;
+    transition-property:
+      text-decoration-thickness, text-decoration-color, background-color;
+    transition-timing-function: animation.$timing-function;
+    transition-duration: 0.25s;
+
+    @include mixins.make-icon(
+      $name: "arrow-right",
+      $size: "sm",
+      $pseudo: "before"
+    ) {
+      --#{$prefix}icon-color: var(--#{$prefix}light-action-secondary);
+      margin-inline-end: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      text-decoration-color: inherit;
+      text-decoration-thickness: var(
+        --#{$prefix}link-underline-thickness-hover
+      );
+      background-color: var(--bg-hover);
+
+      &::before {
+        --#{$prefix}icon-color: var(--#{$prefix}light-action-secondary-hover);
       }
+    }
 
-      ul {
-        padding: 0;
-        margin: 0;
+    &:focus {
+      outline-color: var(--#{$prefix}light-focus);
+      background-color: var(--bg-hover);
+      outline-offset: -5px;
+    }
 
-        li {
-          min-height: 3rem;
-          list-style: none;
-          cursor: pointer;
-          margin-block-start: 0;
+    &.is-autocomplete {
+      --bg-hover: var(--#{$prefix}default-background-shade);
 
-          a {
-            vertical-align: middle;
-            vertical-align: -webkit-baseline-middle;
-
-            &:focus {
-              outline-color: var(--#{$prefix}light-focus);
-              background-color: var(--hover-background-color);
-              outline-offset: -5px;
-            }
-          }
-
-          &:hover {
-            background-color: var(--hover-background-color);
-          }
-        }
+      &::before {
+        mask-image: var(--qgds-icon-search);
       }
+    }
 
-      .dynamic-suggestions .suggestions-category:not(.feature) {
-        strong {
-          color: var(--#{$prefix}light-text-text);
-        }
-        ul li {
-          &:hover {
-            --hover-background-color: var(--#{$prefix}default-background-shade);
-          }
-          a:focus {
-            --hover-background-color: var(--#{$prefix}default-background-shade);
-          }
-        }
+    &.is-view-more {
+      text-decoration-color: inherit;
+
+      // disable icon
+      &::before {
+        content: none;
       }
     }
   }
