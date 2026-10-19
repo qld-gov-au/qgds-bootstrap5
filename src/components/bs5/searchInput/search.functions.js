@@ -215,24 +215,24 @@ async function showSuggestions(value = "", isDefault = false, form) {
       const collection = atts.collection || "ssqld~sp-search";
       const profile = atts.profile || "qld";
 
-      //Fetch data from suggestions API
-      const fetchedSuggestions = await fetchData(
+      // Fetch data from suggestions API
+      const fetchedAutocompleteSuggestions = await fetchData(
         `${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`,
         "suggestions",
       );
 
-      //Rended a suggestions list
-      if (fetchedSuggestions.length > 0) {
+      // Render a suggestions list
+      if (fetchedAutocompleteSuggestions.length > 0) {
         dynamicSuggestionsContainer.innerHTML = `
-        <div class="suggestions-category">
-          <ul>${fetchedSuggestions
+        <div class="suggestions-group is-autocomplete">
+          <ul>${fetchedAutocompleteSuggestions
             .slice(0, 4) // only display the first 4 items
             .map((item) => {
               const highlightedText = item.replace(
                 new RegExp(`(${value})`, "gi"),
                 "<strong>$1</strong>",
               );
-              return `<li><a tabindex="0" href="#"><span>${highlightedText}</span></a></li>`; // <span> is required to ensure all text remains a single flex item and does not introduce spacing and wrapping bugs.
+              return `<li><a class="suggestions-item is-autocomplete" tabindex="0" href="#"><span>${highlightedText}</span></a></li>`; // <span> is required to ensure all text remains a single flex item and does not introduce spacing and wrapping bugs.
             })
             .join("")}</ul>
         </div>`;
@@ -309,17 +309,17 @@ async function showSuggestions(value = "", isDefault = false, form) {
           .slice(0, 4)
           .map(
             (item) =>
-              `<li><a tabindex="0" href="${item.liveUrl}">${item.title}</a></li>`,
+              `<li><a class="suggestions-item" tabindex="0" href="${item.liveUrl}">${item.title}</a></li>`,
           )
           .join("");
 
         const viewMoreItem = viewMoreUrl
-          ? `<li><a tabindex="0" href="${escapeHtmlAttr(viewMoreUrl)}" class="view-more">View more</a></li>`
+          ? `<li><a tabindex="0" href="${escapeHtmlAttr(viewMoreUrl)}" class="suggestions-item is-view-more">View more</a></li>`
           : "";
 
         dynamicSuggestionsContainer.innerHTML += `
-        <div class="suggestions-category feature">
-          <strong class="suggestions-category-label d-block">Related services</strong>
+        <div class="suggestions-group">
+          <strong class="d-block suggestions-group-label">Related services</strong>
           <ul>${servicesItems}${viewMoreItem}</ul>
         </div>`;
 
