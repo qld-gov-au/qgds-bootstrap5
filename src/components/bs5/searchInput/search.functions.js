@@ -1,3 +1,5 @@
+import { debounce } from "../../../js/utils";
+
 export function initAllSearch() {
   // store initialised as data attribute - storybook fires DOMContentLoaded for each story on a page.
   const searchComponents = document.querySelectorAll(
@@ -17,9 +19,43 @@ function initSearch(component) {
   const inputElement = component.querySelector("input.form-control");
   const suggestionsElement = component.querySelector(".suggestions");
   const formElement = inputElement.form;
+  const buttonElement = component.querySelector(".js-search-button");
+  const searchParams = Object.fromEntries(
+    Array.from(component.querySelectorAll("input[type='hidden']"), (el) => [
+      el.name,
+      el.value,
+    ]),
+  );
+  const configuredSearchDelay = inputElement?.dataset.searchDelay;
+  const searchDelay =
+    configuredSearchDelay === undefined ||
+    configuredSearchDelay === null ||
+    configuredSearchDelay === ""
+      ? 300
+      : Number.parseInt(configuredSearchDelay);
+
+  /**
+   * Fire a custom "qld-search" event which includes the searchParams in the event.detail
+   * This is triggered by search button click, debounced input event, autocomplete click.
+   */
+  const search = () => {
+    inputElement.dispatchEvent(
+      new CustomEvent("qld-search", {
+        bubbles: true,
+        cancelable: true,
+        detail: {
+          query: inputElement.value,
+          ...searchParams,
+        },
+      }),
+    );
+  };
+
+  const debouncedSearch = debounce(search, searchDelay);
 
   /**
    * Esc key should first of all clear the input if it has value, then if value is empty should collapse the suggestions dropdown.
+   * Enter key should trigger search if the target is the input itself.
    * @param {KeyboardEvent} e
    */
   const handleKeydown = (e) => {
@@ -39,6 +75,8 @@ function initSearch(component) {
         inputElement?.focus();
         suggestionsElement?.classList.remove("show");
       }
+    } else if (e.target === inputElement && e.key === "Enter") {
+      buttonElement.click();
     }
   };
 
@@ -69,12 +107,41 @@ function initSearch(component) {
    */
   const handleInput = (e) => {
     suggestionsElement?.classList.add("show");
+
+    debouncedSearch();
+  };
+
+  /**
+   * When autocomplete suggestion is clicked, update the input value and hit search
+   * @param {MouseEvent} e
+   */
+  const handleSuggestionsClick = (e) => {
+    const item = e.target.closest(".suggestions-item");
+    if (item?.matches(".is-autocomplete")) {
+      e.preventDefault();
+      inputElement.value = item.textContent.replace(/\s+/g, " ").trim();
+      buttonElement.click();
+    }
+  };
+
+  /**
+   * Fire a search event when button is clicked
+   * @param {MouseEvent} e
+   */
+  const handleButtonClick = (e) => {
+    search();
   };
 
   component.addEventListener("focusin", handleFocusIn);
   component.addEventListener("keydown", handleKeydown);
   component.addEventListener("focusout", handleFocusOut);
   inputElement.addEventListener("input", handleInput);
+
+  // Set up click handler on suggestions element to listen for autocomplete selection
+  suggestionsElement?.addEventListener("click", handleSuggestionsClick);
+
+  // Button click should trigger the custom search event
+  buttonElement?.addEventListener("click", handleButtonClick);
 
   // The following must only be scoped to form elements with ".site-search" class.
   // This due to legacy reasons, as removing the class allowed a custom submit handler.
@@ -128,6 +195,7 @@ async function fetchData(url, type) {
  * @returns {void}
  */
 function selectDynamicSuggestion(value, form) {
+  return; // disable this completely. Reimplement as custom funnelback method listening to qld-search event
   const searchInput = form.querySelector(".qld-search-input input");
   const suggestions = form.querySelector(".suggestions");
 
