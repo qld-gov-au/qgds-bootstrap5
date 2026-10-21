@@ -13,6 +13,42 @@ export const focusableTags = [
 ];
 
 /**
+ * Delay the execution of a function until a specified period of inactivity has passed since its last call.
+ * It's very useful for scenarios when it's better to limit the number of times the function is called.
+ * E.g. think of search input which fetches data from API. It's enough display search results after user has stopped entering characters for some time.
+ * Or when listening to window "resize" event, waiting until user has completed dragging the window.
+ * @param {Function} callback The function to execute after the delay.
+ * @param {number} delay The delay in milliseconds.
+ * @returns A debounced version of the callback, with a `cancel()` method to drop any pending invocation.
+ */
+export function debounce(callback, delay) {
+  console.log(delay);
+  let timeoutId;
+
+  const debounced = (...args) => {
+    // Clear the existing timer if the function is called again within the delay
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    // Set a new timer to execute the callback
+    timeoutId = setTimeout(() => {
+      timeoutId = undefined;
+      callback(...args);
+    }, delay);
+  };
+
+  debounced.cancel = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = undefined;
+    }
+  };
+
+  return debounced;
+}
+
+/**
  *
  * Check whether an element is able to receive focus.
  * Note items with tabindex="-1" are focusable via hash links and javascript - include extra logic if you need to filter these out.
