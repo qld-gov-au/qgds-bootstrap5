@@ -18,12 +18,19 @@ export default {
       action(e.type, { depth: 3 })({ detail: e.detail });
     };
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(e);
+      action(e.type, { depth: 2 })({ target: e.target });
+    };
+
     const handleSearch = (e) => {
       action(e.type, { depth: 2 })({ detail: e.detail });
     };
 
     canvasElement.addEventListener("qld-search-submit", handleSearchSubmit);
     canvasElement.addEventListener("qld-search", handleSearch);
+    canvasElement.addEventListener("submit", handleSubmit);
 
     // Clean up function runs when switching between stories.
     return () => {
@@ -32,6 +39,7 @@ export default {
         handleSearchSubmit,
       );
       canvasElement.removeEventListener("qld-search", handleSearch);
+      canvasElement.removeEventListener("submit", handleSubmit);
     };
   },
   args: defaultdata,
@@ -200,4 +208,15 @@ export const NoForm = {
   },
   render: (args, { name }) =>
     new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
+};
+
+/** @type StoryObj */
+export const WithForm = {
+  ...NoForm,
+  args: {
+    form: {
+      action: "https://uat.forgov.qld.gov.au/search",
+      method: "GET",
+    },
+  },
 };

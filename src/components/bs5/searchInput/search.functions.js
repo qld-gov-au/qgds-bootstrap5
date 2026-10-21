@@ -75,7 +75,8 @@ function initSearch(component) {
         inputElement?.focus();
         suggestionsElement?.classList.remove("show");
       }
-    } else if (e.target === inputElement && e.key === "Enter") {
+    } else if (!formElement && e.target === inputElement && e.key === "Enter") {
+      // If wrapped in a form, the submit button is already automatically triggered on enter press.
       buttonElement.click();
     }
   };
