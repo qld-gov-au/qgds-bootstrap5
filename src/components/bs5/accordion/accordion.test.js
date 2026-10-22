@@ -76,6 +76,12 @@ describe("Accordion", () => {
     const collapseThree = d.querySelector("#collapse-Three");
 
     expect(toggleButton.textContent).toBe("Open all");
+    expect(toggleButton.getAttribute("aria-expanded")).toBe("false");
+    expect(toggleButton.getAttribute("aria-controls")).toBe(
+      Array.from(d.querySelectorAll(".accordion-collapse"))
+        .map((el) => el.id)
+        .join(" "),
+    );
 
     const twoShown = waitForEventOn(collapseTwo, "shown.bs.collapse");
     collapseTwo.dispatchEvent(new dom.window.Event("beforematch"));
@@ -89,9 +95,10 @@ describe("Accordion", () => {
     await threeShown;
 
     expect(toggleButton.textContent).toBe("Close all");
-    expect(
-      toggleButton.classList.contains("accordion-toggle-btn--open"),
-    ).toBe(true);
+    expect(toggleButton.getAttribute("aria-expanded")).toBe("true");
+    expect(toggleButton.classList.contains("accordion-toggle-btn--open")).toBe(
+      true,
+    );
 
     // Restore original state (only "One" expanded) for subsequent tests.
     const twoHidden = waitForEventOn(collapseTwo, "hidden.bs.collapse");
@@ -101,6 +108,7 @@ describe("Accordion", () => {
     await Promise.all([twoHidden, threeHidden]);
 
     expect(toggleButton.textContent).toBe("Open all");
+    expect(toggleButton.getAttribute("aria-expanded")).toBe("false");
   });
 
   test("An expanded item collapses when clicked", async () => {

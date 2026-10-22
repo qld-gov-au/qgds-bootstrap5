@@ -2,7 +2,7 @@
 <div class="accordion-group">
     {{#if toggleAll}}
         <div class="accordion-toggle">
-            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button">Open all</button>
+            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button" aria-expanded="false" aria-controls="{{#each accordionItems}}collapse-{{id}}{{#unless @last}} {{/unless}}{{/each}}">Open all</button>
         </div>
     {{/if}}
     <div class="accordion" id="{{groupid}}">
