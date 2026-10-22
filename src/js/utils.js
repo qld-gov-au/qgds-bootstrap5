@@ -22,7 +22,6 @@ export const focusableTags = [
  * @returns A debounced version of the callback, with a `cancel()` method to drop any pending invocation.
  */
 export function debounce(callback, delay) {
-  console.log(delay);
   let timeoutId;
 
   const debounced = (...args) => {

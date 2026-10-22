@@ -9,10 +9,6 @@
   "ariaLabelContainer": "",
   "placeholder": "",
   "tags": {
-    "collection": "ssqld~sp-search",
-    "profile": "qld",
-    "numranks": "10",
-    "tiers": "off",
     "suggestions": "https://search.qld.gov.au/s/suggest.json",
     "results-url": "https://search.qld.gov.au/s/search.json"
   },

@@ -3,7 +3,7 @@
 -->
 <{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" data-search-delay="{{isdefined searchDelay 300}}" {{/each}} placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
+        aria-label="{{ ariaLabel }}"{{#each tags}} data-{{@key}}="{{this}}"{{/each}} data-search-delay="{{isdefined searchDelay 300}}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
     <button class="btn btn-primary js-search-button" type="{{#if form}}submit{{else}}{{isdefined buttonType "button"}}{{/if}}" id="{{ buttonID }}" >
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
