@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    {{> skipLinks}}
     {{> globalAlert globalAlert}}
     {{> header header}}
     {{> navbar navbar}}
@@ -16,7 +17,7 @@
     {{> banner banner}}
     {{/if}}
 
-    <main>
+    <main id="content">
         <div class="container-fluid p-0">
             {{#if cardGrid}}
             <section class="py-5 mt-md-3">
