@@ -14,11 +14,6 @@ export default {
     return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput({ ...args, inputID: context.name.replace(/\s+/g, "") }).html}</form>`;
   },
   beforeEach: ({ canvasElement }) => {
-    const handleSearchSubmit = (e) => {
-      e.preventDefault();
-      action(e.type, { depth: 3 })({ detail: e.detail });
-    };
-
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(e);
@@ -29,7 +24,6 @@ export default {
       action(e.type, { depth: 2 })({ detail: e.detail });
     };
 
-    canvasElement.addEventListener("qld-search-submit", handleSearchSubmit);
     canvasElement.addEventListener("qld-search", handleSearch);
     canvasElement.addEventListener("submit", handleSubmit);
 

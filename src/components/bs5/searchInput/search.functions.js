@@ -18,11 +18,13 @@ function initSearch(component) {
   /** @type  HTMLInputElement | null */
   const inputElement = component.querySelector("input.form-control");
 
+  if (!inputElement) return;
+
   /** @type HTMLElement | null */
   const suggestionsElement = component.querySelector(".suggestions");
 
   /** @type HTMLFormElement | null | undefined */
-  const formElement = inputElement?.form;
+  const formElement = inputElement.form;
 
   /** @type HTMLButtonElement | null */
   const buttonElement = component.querySelector("button.js-search-button");
