@@ -1,7 +1,16 @@
 @use "../../../css/mixins" as m;
 
 .qld-skip-links {
-  line-height: 1;
+  // The colours come from the palette class (.default, .dark, .dark-alt)
+  &:focus-within {
+    padding-block: 1.25rem;
+  }
+
+  // .container keeps link items aligned with page's content
+  &__container {
+    display: flex;
+    align-items: flex-start;
+  }
 
   &__item {
     position: absolute;
@@ -12,40 +21,30 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+    line-height: 1.5rem;
 
     &,
     &:visited {
-      color: var(--#{$prefix}color-default-color-dark-link-default);
-      text-decoration-color: var(
-        --#{$prefix}color-default-color-dark-underline-default
-      );
+      color: var(--#{$prefix}link-color);
+      text-decoration-color: var(--#{$prefix}link-underline);
     }
 
     &:hover,
     &:visited:hover {
-      text-decoration-color: var(
-        --#{$prefix}color-default-color-dark-underline-default-hover
-      );
+      text-decoration-color: var(--#{$prefix}link-underline-hover);
     }
 
     &:focus {
-      top: 1rem;
-      left: 1rem;
-      padding: 1.5rem;
+      padding: 0;
       clip: auto;
       height: auto;
       margin: 0;
       overflow: visible;
-      position: absolute;
+      position: static;
       width: auto;
-      color: var(--#{$prefix}color-default-color-dark-link-default);
-      background-color: var(
-        --#{$prefix}color-default-color-dark-background-default-shade
-      );
       z-index: 999;
     }
 
-    --qld-focus-color: var(--qld-dark-focus);
-    @include m.focusable($offsetOutline: -6px);
+    @include m.focusable($offsetOutline: 2px);
   }
 }

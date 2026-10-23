@@ -5,6 +5,12 @@ export default {
   tags: ["autodocs"],
   title: "3. Components/SkipLinks",
   render: (args) => new SkipLinks(args).html,
+  argTypes: {
+    palette: {
+      control: "select",
+      options: ["dark", "dark-alt", "default"],
+    },
+  },
   parameters: {
     coderefs: {
       partialname: "skipLinks",
@@ -14,6 +20,7 @@ export default {
 
 export const Default = {
   args: {
+    palette: defaultData.palette,
     skipLinks: [
       ...defaultData.skipLinks,
       { targetId: "i-dont-exist", label: "Skip to nowhere" },

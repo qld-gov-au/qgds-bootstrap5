@@ -8,8 +8,14 @@
 </head>
 
 <body>
-  <!-- Global ALert -->
-  {{> globalAlert globalAlert}}
+  <!-- Global Alert (critical) renders before skip links -->
+  {{> globalAlert globalAlertCritical}}
+
+  <!-- Skip links -->
+  {{> skipLinks}}
+
+  <!-- Global Alert (warning) -->
+  {{> globalAlert globalAlertWarning}}
 
   <!-- Header -->
   {{> header header }}
@@ -42,7 +48,7 @@
       <div class="col-12 col-lg-8 mt-40 mt-lg-0">
 
         <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
-        <main class="px-lg-32">
+        <main id="content" class="px-lg-32">
 
           <h1 id="section-heading">Single page form (H1)</h1>
 
