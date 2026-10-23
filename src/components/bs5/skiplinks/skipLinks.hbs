@@ -1,5 +1,7 @@
-<nav class="qld-skip-links" aria-label="skip to content links">
-  {{#each skipLinks}}
-    <a class="qld-skip-links__item" href="#{{targetId}}">{{label}}</a>
-  {{/each}}
+<nav class="qld-skip-links {{#ifCond palette "===" "default"}}default{{else}}{{#ifCond palette "===" "dark-alt"}}dark-alt{{else}}dark{{/ifCond}}{{/ifCond}}" aria-label="skip to content links">
+  <div class="container qld-skip-links__container">
+    {{#each skipLinks}}
+      <a class="qld-skip-links__item" href="#{{targetId}}">{{label}}</a>
+    {{/each}}
+  </div>
 </nav>
