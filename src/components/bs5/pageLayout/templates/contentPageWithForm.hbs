@@ -8,11 +8,14 @@
 </head>
 
 <body>
+  <!-- Global Alert (critical) renders before skip links -->
+  {{> globalAlert globalAlertCritical}}
+
   <!-- Skip links -->
   {{> skipLinks}}
 
-  <!-- Global ALert -->
-  {{> globalAlert globalAlert}}
+  <!-- Global Alert (warning) -->
+  {{> globalAlert globalAlertWarning}}
 
   <!-- Header -->
   {{> header header }}

@@ -66,7 +66,8 @@ const defaultData = {
   },
   navbar: menu_state,
   table: tableData,
-  globalAlert: globalAlertData.critical,
+  globalAlertCritical: globalAlertData.critical,
+  globalAlertWarning: globalAlertData.warning,
   footer: {
     ...footerData,
     variantClass: "dark",
