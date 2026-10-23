@@ -12,27 +12,32 @@ export function initAllSearch() {
 }
 
 /**
- *
  * @param {HTMLElement} component Should be element with class ".qld-search-input"
  */
 function initSearch(component) {
+  /** @type  HTMLInputElement | null */
   const inputElement = component.querySelector("input.form-control");
+
+  /** @type HTMLElement | null */
   const suggestionsElement = component.querySelector(".suggestions");
-  const formElement = inputElement.form;
-  const buttonElement = component.querySelector(".js-search-button");
+
+  /** @type HTMLFormElement | null | undefined */
+  const formElement = inputElement?.form;
+
+  /** @type HTMLButtonElement | null */
+  const buttonElement = component.querySelector("button.js-search-button");
+
+  /** @type Record<string, string> */
   const searchParams = Object.fromEntries(
     Array.from(component.querySelectorAll("input[type='hidden']"), (el) => [
       el.name,
       el.value,
     ]),
   );
-  const configuredSearchDelay = inputElement?.dataset.searchDelay;
-  const searchDelay =
-    configuredSearchDelay === undefined ||
-    configuredSearchDelay === null ||
-    configuredSearchDelay === ""
-      ? 300
-      : Number.parseInt(configuredSearchDelay);
+
+  const searchDelay = inputElement?.dataset.searchDelay
+    ? Number.parseInt(inputElement?.dataset.searchDelay)
+    : 300;
 
   /**
    * Fire a custom "qld-search" event which includes the searchParams in the event.detail

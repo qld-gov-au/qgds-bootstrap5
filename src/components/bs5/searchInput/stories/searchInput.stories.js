@@ -2,6 +2,7 @@
 
 import { SearchInput } from "../SearchInput.js";
 import defaultdata from "../searchInput.data.json";
+import useFormData from "../searchInput.useform.data.json";
 import metadata from "../metadata.json";
 import { action } from "storybook/actions";
 
