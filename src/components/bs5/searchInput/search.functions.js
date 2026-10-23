@@ -1,3 +1,5 @@
+import { debounce } from "../../../js/utils";
+
 export function initAllSearch() {
   // store initialised as data attribute - storybook fires DOMContentLoaded for each story on a page.
   const searchComponents = document.querySelectorAll(
@@ -17,9 +19,43 @@ function initSearch(component) {
   const inputElement = component.querySelector("input.form-control");
   const suggestionsElement = component.querySelector(".suggestions");
   const formElement = inputElement.form;
+  const buttonElement = component.querySelector(".js-search-button");
+  const searchParams = Object.fromEntries(
+    Array.from(component.querySelectorAll("input[type='hidden']"), (el) => [
+      el.name,
+      el.value,
+    ]),
+  );
+  const configuredSearchDelay = inputElement?.dataset.searchDelay;
+  const searchDelay =
+    configuredSearchDelay === undefined ||
+    configuredSearchDelay === null ||
+    configuredSearchDelay === ""
+      ? 300
+      : Number.parseInt(configuredSearchDelay);
+
+  /**
+   * Fire a custom "qld-search" event which includes the searchParams in the event.detail
+   * This is triggered by search button click, debounced input event, autocomplete click.
+   */
+  const search = () => {
+    inputElement.dispatchEvent(
+      new CustomEvent("qld-search", {
+        bubbles: true,
+        cancelable: true,
+        detail: {
+          query: inputElement.value,
+          ...searchParams,
+        },
+      }),
+    );
+  };
+
+  const debouncedSearch = debounce(search, searchDelay);
 
   /**
    * Esc key should first of all clear the input if it has value, then if value is empty should collapse the suggestions dropdown.
+   * Enter key should trigger search if the target is the input itself.
    * @param {KeyboardEvent} e
    */
   const handleKeydown = (e) => {
@@ -39,6 +75,9 @@ function initSearch(component) {
         inputElement?.focus();
         suggestionsElement?.classList.remove("show");
       }
+    } else if (!formElement && e.target === inputElement && e.key === "Enter") {
+      // If wrapped in a form, the submit button is already automatically triggered on enter press.
+      buttonElement.click();
     }
   };
 
@@ -69,6 +108,29 @@ function initSearch(component) {
    */
   const handleInput = (e) => {
     suggestionsElement?.classList.add("show");
+
+    debouncedSearch();
+  };
+
+  /**
+   * When autocomplete suggestion is clicked, update the input value and hit search
+   * @param {MouseEvent} e
+   */
+  const handleSuggestionsClick = (e) => {
+    const item = e.target.closest(".suggestions-item");
+    if (item?.matches(".is-autocomplete")) {
+      e.preventDefault();
+      inputElement.value = item.textContent.replace(/\s+/g, " ").trim();
+      buttonElement.click();
+    }
+  };
+
+  /**
+   * Fire a search event when button is clicked
+   * @param {MouseEvent} e
+   */
+  const handleButtonClick = (e) => {
+    search();
   };
 
   component.addEventListener("focusin", handleFocusIn);
@@ -76,26 +138,146 @@ function initSearch(component) {
   component.addEventListener("focusout", handleFocusOut);
   inputElement.addEventListener("input", handleInput);
 
+  // Set up click handler on suggestions element to listen for autocomplete selection
+  suggestionsElement?.addEventListener("click", handleSuggestionsClick);
+
+  // Button click should trigger the custom search event
+  buttonElement?.addEventListener("click", handleButtonClick);
+
   // The following must only be scoped to form elements with ".site-search" class.
   // This due to legacy reasons, as removing the class allowed a custom submit handler.
   if (formElement?.classList.contains("site-search")) {
-    // Add keyup event listener to the search input
-    let timeout;
-
-    inputElement.addEventListener("input", () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        const value = inputElement.value.trim();
-        showSuggestions(value, value === "", formElement);
-      }, 300);
+    inputElement.addEventListener("qld-search", (e) => {
+      showSuggestions(e.detail.query.trim());
     });
+  }
 
-    // Attach event listener to form submit
-    formElement.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const query = inputElement.value.trim();
-      submitSearchForm(query, formElement);
-    });
+  /**
+   * Shows/hides suggestions based on the user's input.
+   *
+   * @param {string} value - The current input value.
+   * @returns {void}
+   **/
+  async function showSuggestions(value = "") {
+    // This is still specific to funnelback - will be updated.
+
+    if (!suggestionsElement || !inputElement) {
+      return;
+    }
+
+    const defaultSuggestionsContainer = suggestionsElement.querySelector(
+      ".default-suggestions",
+    );
+    const dynamicSuggestionsContainer = suggestionsElement.querySelector(
+      ".dynamic-suggestions",
+    );
+
+    // Hide/show default suggestions, and return early
+    if (value === "") {
+      if (defaultSuggestionsContainer) {
+        defaultSuggestionsContainer.classList.remove("d-none");
+      }
+      if (dynamicSuggestionsContainer) {
+        dynamicSuggestionsContainer.innerHTML = "";
+        dynamicSuggestionsContainer.classList.add("d-none");
+      }
+      return;
+    }
+
+    // If input is empty, hide dynamic suggestions and return early
+    if (dynamicSuggestionsContainer) {
+      if (value.length === 0) {
+        dynamicSuggestionsContainer.innerHTML = "";
+        dynamicSuggestionsContainer.classList.add("d-none");
+        return;
+      }
+    }
+
+    // Script continues...dynamic suggestions is true and value.length > 0
+    defaultSuggestionsContainer?.classList.add("d-none");
+
+    // Fetch dynamic suggestions if available
+    if (dynamicSuggestionsContainer) {
+      const suggestUrl = inputElement?.dataset.suggestions;
+      const resultsUrl = inputElement?.dataset.resultsUrl;
+      const collection = searchParams?.collection || "ssqld~sp-search";
+      const profile = searchParams?.profile || "qld";
+
+      if (suggestUrl) {
+        // Fetch data from suggestions API
+        const fetchedAutocompleteSuggestions = await fetchData(
+          `${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`,
+          "suggestions",
+        );
+
+        // Render a suggestions list
+        if (fetchedAutocompleteSuggestions.length > 0) {
+          dynamicSuggestionsContainer.innerHTML = `
+        <div class="suggestions-group is-autocomplete">
+          <ul>${fetchedAutocompleteSuggestions
+            .slice(0, 4) // only display the first 4 items
+            .map((item) => {
+              const highlightedText = item.replace(
+                new RegExp(`(${value})`, "gi"),
+                "<strong>$1</strong>",
+              );
+              return `<li><a class="suggestions-item is-autocomplete" tabindex="0" href="#"><span>${highlightedText}</span></a></li>`; // <span> is required to ensure all text remains a single flex item and does not introduce spacing and wrapping bugs.
+            })
+            .join("")}</ul>
+        </div>`;
+
+          dynamicSuggestionsContainer.classList.remove("d-none");
+        } else {
+          dynamicSuggestionsContainer.innerHTML = "";
+          dynamicSuggestionsContainer.classList.add("d-none");
+        }
+      }
+
+      if (resultsUrl) {
+        // Fetch related services from services API
+        const fetchedServices = await fetchData(
+          `${resultsUrl}?collection=${collection}&profile=${profile}&query=${encodeURIComponent(value)}`,
+          "services",
+        );
+
+        if (
+          fetchedServices.response.resultPacket &&
+          fetchedServices.response.resultPacket.results.length > 0
+        ) {
+          const viewMoreUrl =
+            dynamicSuggestionsContainer.getAttribute("data-view-more");
+
+          // Build the services HTML safely
+          const escapeHtmlAttr = (str) =>
+            String(str)
+              .replace(/&/g, "&amp;")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#39;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;");
+
+          const servicesItems = fetchedServices.response.resultPacket.results
+            .slice(0, 4)
+            .map(
+              (item) =>
+                `<li><a class="suggestions-item" tabindex="0" href="${item.liveUrl}">${item.title}</a></li>`,
+            )
+            .join("");
+
+          const viewMoreItem = viewMoreUrl
+            ? `<li><a tabindex="0" href="${escapeHtmlAttr(viewMoreUrl)}" class="suggestions-item is-view-more">View more</a></li>`
+            : "";
+
+          dynamicSuggestionsContainer.innerHTML += `
+        <div class="suggestions-group">
+          <strong class="d-block suggestions-group-label">Related services</strong>
+          <ul>${servicesItems}${viewMoreItem}</ul>
+        </div>`;
+
+          dynamicSuggestionsContainer.classList.remove("d-none");
+        }
+      }
+    }
   }
 }
 
@@ -119,294 +301,3 @@ async function fetchData(url, type) {
     return {};
   }
 }
-
-/**
- * Sets the selected suggestion into the input field and submits the form.
- *
- * @param {string} value - The selected suggestion.
- * @param {HTMLFormElement} form - The form element.
- * @returns {void}
- */
-function selectDynamicSuggestion(value, form) {
-  const searchInput = form.querySelector(".qld-search-input input");
-  const suggestions = form.querySelector(".suggestions");
-
-  if (searchInput && suggestions) {
-    // Assign queryValue, and cleanup string before submission
-    let queryValue = value.replace(/\s+/g, " ").trim();
-    searchInput.value = queryValue;
-
-    // Form action
-    const actionUrl = form.getAttribute("action");
-
-    //data-* attributes on search input field
-    const atts = searchInput ? searchInput.dataset : null;
-
-    // Construct the URL with proper parameters
-    const params = new URLSearchParams({
-      query: queryValue,
-      collection: atts.collection || "ssqld~sp-search",
-      profile: atts.profile || "qld",
-      num_ranks: atts.numRanks || "10",
-      tiers: atts.tiers || "off",
-    });
-
-    const searchUrl = `${actionUrl}?${params.toString()}`;
-
-    // Manually set the window location to the constructed URL
-    window.location.href = searchUrl;
-  }
-}
-
-/**
- * Shows/hides suggestions based on the user's input.
- *
- * @param {string} value - The current input value.
- * @param {boolean} isDefault - Whether to show default suggestions or not.
- * @param {HTMLFormElement} form - The form element.
- * @returns {void}
- **/
-async function showSuggestions(value = "", isDefault = false, form) {
-  const searchInput = form.querySelector(".qld-search-input input");
-  const suggestions = form.querySelector(".suggestions");
-  const defaultSuggestionsContainer = form.querySelector(
-    ".default-suggestions",
-  );
-  const dynamicSuggestionsContainer = form.querySelector(
-    ".dynamic-suggestions",
-  );
-
-  if (!suggestions || !searchInput) {
-    return;
-  }
-
-  // Hide/show default suggestions, and return early
-  if (isDefault) {
-    if (defaultSuggestionsContainer) {
-      defaultSuggestionsContainer.classList.remove("d-none");
-    }
-    if (dynamicSuggestionsContainer) {
-      dynamicSuggestionsContainer.innerHTML = "";
-      dynamicSuggestionsContainer.classList.add("d-none");
-    }
-    return;
-  }
-
-  // If input is empty, hide dynamic suggestions and return early
-  if (dynamicSuggestionsContainer) {
-    if (value.length === 0) {
-      dynamicSuggestionsContainer.innerHTML = "";
-      dynamicSuggestionsContainer.classList.add("d-none");
-      return;
-    }
-  }
-
-  // Script continues...dynamic suggestions is true and value.length > 0
-  defaultSuggestionsContainer?.classList.add("d-none");
-
-  //data-* attributes on search input field
-  const atts = searchInput ? searchInput.dataset : null;
-
-  // Fetch dynamic suggestions if available
-  if (dynamicSuggestionsContainer) {
-    const suggestUrl = atts.suggestions;
-
-    if (suggestUrl) {
-      const collection = atts.collection || "ssqld~sp-search";
-      const profile = atts.profile || "qld";
-
-      // Fetch data from suggestions API
-      const fetchedAutocompleteSuggestions = await fetchData(
-        `${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`,
-        "suggestions",
-      );
-
-      // Render a suggestions list
-      if (fetchedAutocompleteSuggestions.length > 0) {
-        dynamicSuggestionsContainer.innerHTML = `
-        <div class="suggestions-group is-autocomplete">
-          <ul>${fetchedAutocompleteSuggestions
-            .slice(0, 4) // only display the first 4 items
-            .map((item) => {
-              const highlightedText = item.replace(
-                new RegExp(`(${value})`, "gi"),
-                "<strong>$1</strong>",
-              );
-              return `<li><a class="suggestions-item is-autocomplete" tabindex="0" href="#"><span>${highlightedText}</span></a></li>`; // <span> is required to ensure all text remains a single flex item and does not introduce spacing and wrapping bugs.
-            })
-            .join("")}</ul>
-        </div>`;
-
-        dynamicSuggestionsContainer.classList.remove("d-none");
-
-        // Bind an event listener to suggestions container
-        form
-          .querySelector(".suggestions .dynamic-suggestions")
-          .addEventListener("click", (event) => {
-            let linkItem = event.target.closest("a");
-            if (linkItem) {
-              event.preventDefault();
-
-              // Check if the link has a valid absolute URL
-              const href = linkItem.getAttribute("href");
-              const isValidUrl =
-                href &&
-                href !== "#" &&
-                (() => {
-                  try {
-                    const url = new URL(href, window.location.origin);
-                    return (
-                      url.protocol === "http:" || url.protocol === "https:"
-                    );
-                  } catch {
-                    return false;
-                  }
-                })();
-
-              if (isValidUrl) {
-                // Navigate directly to the URL
-                window.location.href = href;
-              } else {
-                // Use the search suggestion flow
-                selectDynamicSuggestion(linkItem.textContent, form);
-              }
-            }
-          });
-      } else {
-        dynamicSuggestionsContainer.innerHTML = "";
-        dynamicSuggestionsContainer.classList.add("d-none");
-      }
-    }
-
-    const resultsUrl = atts.resultsUrl; //data-results-url;
-    if (resultsUrl) {
-      const collection = atts.collection || "ssqld~sp-search";
-      const profile = atts.profile || "qld";
-
-      // Fetch related services from services API
-      const fetchedServices = await fetchData(
-        `${resultsUrl}?collection=${collection}&profile=${profile}&query=${encodeURIComponent(value)}`,
-        "services",
-      );
-
-      if (
-        fetchedServices.response.resultPacket &&
-        fetchedServices.response.resultPacket.results.length > 0
-      ) {
-        const viewMoreUrl =
-          dynamicSuggestionsContainer.getAttribute("data-view-more");
-
-        // Build the services HTML safely
-        const escapeHtmlAttr = (str) =>
-          String(str)
-            .replace(/&/g, "&amp;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#39;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;");
-
-        const servicesItems = fetchedServices.response.resultPacket.results
-          .slice(0, 4)
-          .map(
-            (item) =>
-              `<li><a class="suggestions-item" tabindex="0" href="${item.liveUrl}">${item.title}</a></li>`,
-          )
-          .join("");
-
-        const viewMoreItem = viewMoreUrl
-          ? `<li><a tabindex="0" href="${escapeHtmlAttr(viewMoreUrl)}" class="suggestions-item is-view-more">View more</a></li>`
-          : "";
-
-        dynamicSuggestionsContainer.innerHTML += `
-        <div class="suggestions-group">
-          <strong class="d-block suggestions-group-label">Related services</strong>
-          <ul>${servicesItems}${viewMoreItem}</ul>
-        </div>`;
-
-        dynamicSuggestionsContainer.classList.remove("d-none");
-
-        // Attach click event listeners to each SERVICE item in list
-        form
-          .querySelector(".suggestions .dynamic-suggestions")
-          .addEventListener("click", (event) => {
-            let linkItem = event.target.closest("a");
-            if (linkItem) {
-              event.preventDefault();
-
-              // Check if the link has a valid absolute URL
-              const href = linkItem.getAttribute("href");
-              const isValidUrl =
-                href &&
-                href !== "#" &&
-                (() => {
-                  try {
-                    const url = new URL(href, window.location.origin);
-                    return (
-                      url.protocol === "http:" || url.protocol === "https:"
-                    );
-                  } catch {
-                    return false;
-                  }
-                })();
-
-              if (isValidUrl) {
-                // Navigate directly to the URL
-                window.location.href = href;
-              } else {
-                // Use the search suggestion flow
-                selectDynamicSuggestion(linkItem.textContent, form);
-              }
-            }
-          });
-      }
-    }
-  }
-}
-
-/**
- * Submits the search form with proper parameters.
- *
- * @param {string} query - The search query.
- * @param {HTMLFormElement} form - The form element.
- * @returns {void}
- */
-export function submitSearchForm(query = "", form) {
-  const searchInput = form.querySelector(".qld-search-input input");
-  const atts = searchInput ? searchInput.dataset : null;
-
-  // Allow consumers to override submission by handling this event.
-  const customSubmitEvent = new CustomEvent("qld-search-submit", {
-    bubbles: true,
-    cancelable: true,
-    detail: {
-      dataset: atts,
-      form,
-      formdata: Object.fromEntries(new FormData(form)),
-      query,
-      searchInput,
-    },
-  });
-
-  // If an event listener calls event.preventDefault(), we will not proceed with the default submission.
-  if (!form.dispatchEvent(customSubmitEvent)) {
-    return;
-  }
-
-  //...otherwise, continue with default search submission
-  const queryValue = query.trim().replace(/\s+/g, " ");
-
-  const params = new URLSearchParams({
-    query: queryValue,
-    collection: atts.collection || "ssqld~sp-search",
-    profile: atts.profile || "qld",
-    num_ranks: atts.numRanks || "10",
-    tiers: atts.tiers || "off",
-  });
-
-  const searchUrl = `${form.getAttribute("action")}?${params.toString()}`;
-  window.location.href = searchUrl;
-}
-
-// Attach the function to the window object to make it globally accessible
-window.selectDynamicSuggestion = (value, form) =>
-  selectDynamicSuggestion(value, form);

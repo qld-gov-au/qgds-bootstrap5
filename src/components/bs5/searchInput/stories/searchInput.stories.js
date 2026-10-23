@@ -1,15 +1,46 @@
-/** @import {Meta} from "@storybook/html-vite" */
+/** @import {Meta, StoryObj} from "@storybook/html-vite" */
 
 import { SearchInput } from "../SearchInput.js";
 import defaultdata from "../searchInput.data.json";
 import metadata from "../metadata.json";
+import { action } from "storybook/actions";
 
 /** @type Meta */
 export default {
   tags: ["autodocs", "extended"],
   title: "3. Components/Search Input",
-  render: (args) => {
-    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput(args).html}</form>`;
+  render: (args, context) => {
+    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput({ ...args, inputID: context.name.replace(/\s+/g, "") }).html}</form>`;
+  },
+  beforeEach: ({ canvasElement }) => {
+    const handleSearchSubmit = (e) => {
+      e.preventDefault();
+      action(e.type, { depth: 3 })({ detail: e.detail });
+    };
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(e);
+      action(e.type, { depth: 2 })({ target: e.target });
+    };
+
+    const handleSearch = (e) => {
+      action(e.type, { depth: 2 })({ detail: e.detail });
+    };
+
+    canvasElement.addEventListener("qld-search-submit", handleSearchSubmit);
+    canvasElement.addEventListener("qld-search", handleSearch);
+    canvasElement.addEventListener("submit", handleSubmit);
+
+    // Clean up function runs when switching between stories.
+    return () => {
+      canvasElement.removeEventListener(
+        "qld-search-submit",
+        handleSearchSubmit,
+      );
+      canvasElement.removeEventListener("qld-search", handleSearch);
+      canvasElement.removeEventListener("submit", handleSubmit);
+    };
   },
   args: defaultdata,
   argTypes: {
@@ -53,7 +84,6 @@ export default {
 export const Default = {
   args: {
     showDefaultSuggestions: true,
-    inputID: "default-search",
   },
   name: "Default - Outline Variant",
 };
@@ -62,13 +92,12 @@ export const Default = {
  * With `customClass: is-filled`
  */
 export const FilledVariant = {
-  args: { customClass: "is-filled", inputID: "filled-search" },
+  args: { customClass: "is-filled" },
 };
 
 export const FullWidth = {
   args: {
     customClass: "full-width",
-    inputID: "fullwidth-search",
   },
 };
 
@@ -78,10 +107,6 @@ export const FullWidth = {
  * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
  */
 export const Dark = {
-  args: {
-    ...defaultdata,
-    inputID: "dark-search",
-  },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
     (Story) => {
@@ -102,7 +127,6 @@ export const Dark = {
 export const DarkFilled = {
   args: {
     customClass: "is-filled",
-    inputID: "DarkFilledSearch",
   },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
@@ -132,7 +156,6 @@ export const CustomSubmitHandler = {
     hasDefaultSuggestions: false,
     hasDynamicSuggestions: false,
     dynamicSuggestionsServiceLink: false,
-    inputID: "CustomSubmitHandlerSearch",
   },
   decorators: [
     (Story) => {
@@ -176,4 +199,24 @@ export const CustomSubmitHandler = {
       `;
     },
   ],
+};
+
+/** @type StoryObj */
+export const NoForm = {
+  parameters: {
+    tags: ["!autodocs"],
+  },
+  render: (args, { name }) =>
+    new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
+};
+
+/** @type StoryObj */
+export const WithForm = {
+  ...NoForm,
+  args: {
+    form: {
+      action: "https://uat.forgov.qld.gov.au/search",
+      method: "GET",
+    },
+  },
 };
