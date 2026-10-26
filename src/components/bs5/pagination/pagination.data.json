@@ -13,9 +13,11 @@
 
   "pages": [
     { "href": "#", "linktext": "1", "arialabel": "Page 1", "customClasses": "" },
-    { "href": "#", "linktext": "2", "arialabel": "Page 2, current page", "customClasses": "active" },
-    { "href": "#", "linktext": "3", "arialabel": "Page 3", "customClasses": "" },
     { "href": "#", "linktext": "", "customClasses": "more", "more": true },
-    { "href": "#", "linktext": "7", "arialabel": "Page 7", "customClasses": "" }
+    { "href": "#", "linktext": "5", "arialabel": "Page 5, current page", "customClasses": "" },
+    { "href": "#", "linktext": "6", "arialabel": "Page 6", "customClasses": "active" },
+    { "href": "#", "linktext": "7", "arialabel": "Page 7", "customClasses": "" },
+    { "href": "#", "linktext": "", "customClasses": "more", "more": true },
+    { "href": "#", "linktext": "15", "arialabel": "Page 15", "customClasses": "" }
   ]
 }
