@@ -313,6 +313,13 @@ nav:has(> .pagination) {
     }
   }
 
+  // Hide previous or next links if they are immediately adjacent to the active link
+  // (user is on first or last page, prev/next arrows have no function)
+  .page-item.previous:has(+ .page-item.active),
+  .page-item.active + .page-item.next {
+    display: none;
+  }
+
   // RESPONSIVE ADJUSTMENTS
 
   // Pagination fallback on small devices
@@ -328,11 +335,14 @@ nav:has(> .pagination) {
     }
   }
 
-  //Remove Previous and Next "link text" from smaller devices
   @include media-breakpoint-down(md) {
-    .page-item:has(+ .page-item.active),
-    .page-item.active + .page-item {
-      display: none;
+    // Multiple "more" indicators represent a middle range active page
+    // On tablet and below, we hide page items adjacent to the active page, relying on prev and next to navigate
+    &:has(.more ~ .more) {
+      .page-item:not(.more):has(+ .page-item.active),
+      .page-item.active + .page-item:not(.more) {
+        display: none;
+      }
     }
   }
 }
