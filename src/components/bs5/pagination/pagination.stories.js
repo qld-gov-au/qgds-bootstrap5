@@ -46,7 +46,7 @@ export const FirstPage = {
       },
       { href: "#", linktext: "2", arialabel: "Page 2", customClasses: "" },
       { href: "#", linktext: "3", arialabel: "Page 3", customClasses: "" },
-      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "", customClasses: "", more: true },
       { href: "#", linktext: "15", arialabel: "Page 15", customClasses: "" },
     ],
   },
@@ -67,7 +67,7 @@ export const StartRange = {
         customClasses: "active",
       },
       { href: "#", linktext: "3", arialabel: "Page 3", customClasses: "" },
-      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "", customClasses: "", more: true },
       { href: "#", linktext: "15", arialabel: "Page 15", customClasses: "" },
     ],
   },
@@ -81,7 +81,7 @@ export const EndRange = {
     ...defaultdata,
     pages: [
       { href: "#", linktext: "1", arialabel: "Page 1", customClasses: "" },
-      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "", customClasses: "", more: true },
       {
         href: "#",
         linktext: "13",
@@ -102,7 +102,7 @@ export const LastPage = {
     ...defaultdata,
     pages: [
       { href: "#", linktext: "1", arialabel: "Page 1", customClasses: "" },
-      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "", customClasses: "", more: true },
       { href: "#", linktext: "13", arialabel: "Page 13", customClasses: "" },
       { href: "#", linktext: "14", arialabel: "Page 14", customClasses: "" },
       {
@@ -218,7 +218,7 @@ export const HighPageCount = {
     ...defaultdata,
     pages: [
       { href: "#", linktext: "98", arialabel: "Page 98", customClasses: "" },
-      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "", customClasses: "", more: true },
       { href: "#", linktext: "99", arialabel: "Page 99" },
       {
         href: "#",
@@ -227,7 +227,7 @@ export const HighPageCount = {
         customClasses: "active",
       },
       { href: "#", linktext: "101", arialabel: "Page 101", customClasses: "" },
-      { href: "#", linktext: "", customClasses: "more", more: true },
+      { href: "#", linktext: "", customClasses: "", more: true },
       { href: "#", linktext: "120", arialabel: "Page 120", customClasses: "" },
     ],
   },
