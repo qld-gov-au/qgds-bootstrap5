@@ -183,3 +183,132 @@ describe("Accordion", () => {
     expect(isAllClosed).toBe(true);
   });
 });
+
+describe("Nested accordion groups", () => {
+  const nestedAccordion = new Accordion({
+    groupid: "nested-accordion",
+    toggleAll: true,
+    accordionItems: [
+      {
+        id: "Nested-One",
+        title: "Nested accordion item",
+        expanded: true,
+        content: "<p>Nested content</p>",
+      },
+    ],
+  });
+  const outerAccordion = new Accordion({
+    groupid: "outer-accordion",
+    toggleAll: true,
+    accordionItems: [
+      {
+        id: "Outer-One",
+        title: "Outer accordion item",
+        expanded: true,
+        content: nestedAccordion.html,
+      },
+    ],
+  });
+  const dom = new JSDOM(
+    `<!DOCTYPE html>${outerAccordion.html}<script>${bootstrapJsFile}</script><script>${qldBootstrapJsFile}</script>`,
+    {
+      runScripts: "dangerously",
+    },
+  );
+  const d = dom.window.document;
+
+  test("Hiding a nested item does not hide its expanded parent item", async () => {
+    const outerCollapse = d.querySelector("#collapse-Outer-One");
+    const nestedCollapse = d.querySelector("#collapse-Nested-One");
+    const nestedHidden = waitForEventOn(nestedCollapse, "hidden.bs.collapse");
+
+    dom.window.bootstrap.Collapse.getOrCreateInstance(nestedCollapse).hide();
+
+    await nestedHidden;
+
+    expect(nestedCollapse.getAttribute("hidden")).toBe("until-found");
+    expect(outerCollapse.hasAttribute("hidden")).toBe(false);
+    expect(outerCollapse.classList.contains("show")).toBe(true);
+  });
+
+  test("The outer toggle-all button only changes its own accordion group", async () => {
+    const outerToggle = d.querySelector(
+      "#outer-accordion",
+    ).previousElementSibling.firstElementChild;
+    const outerCollapse = d.querySelector("#collapse-Outer-One");
+    const nestedCollapse = d.querySelector("#collapse-Nested-One");
+    const nestedShown = waitForEventOn(nestedCollapse, "shown.bs.collapse");
+
+    dom.window.bootstrap.Collapse.getOrCreateInstance(nestedCollapse).show();
+    await nestedShown;
+
+    outerToggle.click();
+
+    const outerHidden = waitForEventOn(outerCollapse, "hidden.bs.collapse");
+
+    outerToggle.click();
+    await outerHidden;
+
+    expect(outerCollapse.classList.contains("show")).toBe(false);
+    expect(nestedCollapse.classList.contains("show")).toBe(true);
+    expect(
+      d
+        .querySelector("#nested-accordion")
+        .previousElementSibling.firstElementChild.classList.contains(
+          "accordion-toggle-btn--open",
+        ),
+    ).toBe(true);
+  });
+});
+
+describe("Nested accordion groups without toggle-all buttons", () => {
+  const nestedAccordion = new Accordion({
+    groupid: "nested-accordion-without-toggle-all",
+    toggleAll: false,
+    accordionItems: [
+      {
+        id: "Nested-Without-Toggle-All",
+        title: "Nested accordion item",
+        expanded: true,
+        content: "<p>Nested content</p>",
+      },
+    ],
+  });
+  const outerAccordion = new Accordion({
+    groupid: "outer-accordion-without-toggle-all",
+    toggleAll: false,
+    accordionItems: [
+      {
+        id: "Outer-Without-Toggle-All",
+        title: "Outer accordion item",
+        expanded: true,
+        content: nestedAccordion.html,
+      },
+    ],
+  });
+  const dom = new JSDOM(
+    `<!DOCTYPE html>${outerAccordion.html}<script>${bootstrapJsFile}</script><script>${qldBootstrapJsFile}</script>`,
+    {
+      runScripts: "dangerously",
+    },
+  );
+  const d = dom.window.document;
+
+  test("Hiding a nested item does not hide its expanded parent item", async () => {
+    const outerCollapse = d.querySelector(
+      "#collapse-Outer-Without-Toggle-All",
+    );
+    const nestedCollapse = d.querySelector(
+      "#collapse-Nested-Without-Toggle-All",
+    );
+    const nestedHidden = waitForEventOn(nestedCollapse, "hidden.bs.collapse");
+
+    dom.window.bootstrap.Collapse.getOrCreateInstance(nestedCollapse).hide();
+
+    await nestedHidden;
+
+    expect(nestedCollapse.getAttribute("hidden")).toBe("until-found");
+    expect(outerCollapse.hasAttribute("hidden")).toBe(false);
+    expect(outerCollapse.classList.contains("show")).toBe(true);
+  });
+});
