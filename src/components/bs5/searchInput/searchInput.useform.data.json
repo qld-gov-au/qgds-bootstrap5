@@ -8,10 +8,6 @@
   "ariaLabel": "Search website",
   "ariaLabelContainer": "",
   "placeholder": "",
-  "tags": {
-    "suggestions": "https://search.qld.gov.au/s/suggest.json",
-    "results-url": "https://search.qld.gov.au/s/search.json"
-  },
   "initialSuggestions": [
     {
       "label": "Popular",
@@ -73,6 +69,10 @@
   "searchDelay": 300,
   "form": {
     "action": "https://uat.forgov.qld.gov.au/search",
-    "method": "GET"
-  }
+    "method": "GET",
+    "novalidate": true
+  },
+  "useDefaultSearchHandler": true,
+  "autocompleteEndpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5",
+  "searchResultsEndpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld"
 }

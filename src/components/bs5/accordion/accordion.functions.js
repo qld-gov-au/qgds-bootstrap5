@@ -196,7 +196,7 @@ export function initAccordionFindInPage() {
       collapseEl.removeAttribute("hidden");
     });
 
-    collapseEl.addEventListener("hidden.bs.collapse", () => {
+    collapseEl.addEventListener("hidden.bs.collapse", (e) => {
       collapseEl.setAttribute("hidden", "until-found");
     });
   });

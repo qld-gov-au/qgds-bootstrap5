@@ -29,10 +29,6 @@ export default {
 
     // Clean up function runs when switching between stories.
     return () => {
-      canvasElement.removeEventListener(
-        "qld-search-submit",
-        handleSearchSubmit,
-      );
       canvasElement.removeEventListener("qld-search", handleSearch);
       canvasElement.removeEventListener("submit", handleSubmit);
     };
@@ -201,17 +197,32 @@ export const NoForm = {
   parameters: {
     tags: ["!autodocs"],
   },
+  args: {
+    ...useFormData,
+    hasDynamicSuggestions: null,
+    hasDefaultSuggestions: null,
+    dynamicSuggestionsServiceLink: null,
+    defaultSuggestions: null,
+    searchParams: null,
+    form: null,
+  },
   render: (args, { name }) =>
     new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
 };
 
 /** @type StoryObj */
 export const WithForm = {
-  ...NoForm,
-  args: {
-    form: {
-      action: "https://uat.forgov.qld.gov.au/search",
-      method: "GET",
-    },
+  parameters: {
+    tags: ["!autodocs"],
   },
+  args: {
+    ...useFormData,
+    hasDynamicSuggestions: null,
+    hasDefaultSuggestions: null,
+    dynamicSuggestionsServiceLink: null,
+    defaultSuggestions: null,
+    useDefaultSearchHandler: true,
+  },
+  render: (args, { name }) =>
+    new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
 };
