@@ -123,3 +123,66 @@ export const DarkAlternative = {
     },
   ],
 };
+
+/**
+ * Accordion group nested inside an item in a parent accordion group.
+ */
+export const NestedAccordion = {
+  args: {
+    groupid: "parent-accordion-group",
+    toggleAll: false,
+    headingTag: "h2",
+    accordionItems: [
+      {
+        id: "Parent-One",
+        title: "Parent accordion item with nested accordion",
+        expanded: true,
+        content: "",
+      },
+      {
+        id: "Parent-Two",
+        title: "Parent accordion item",
+        expanded: false,
+        content: "<p>This content belongs to the parent accordion group.</p>",
+      },
+    ],
+  },
+  render: (args) => {
+    const nestedAccordion = new Accordion({
+      groupid: "nested-accordion-group",
+      toggleAll: false,
+      headingTag: "h3",
+      accordionItems: [
+        {
+          id: "Nested-One",
+          title: "Nested accordion item one",
+          expanded: true,
+          content: "<p>This content belongs to the nested accordion group.</p>",
+        },
+        {
+          id: "Nested-Two",
+          title: "Nested accordion item two",
+          expanded: false,
+          content:
+            "<p>The nested accordion operates independently of its parent.</p>",
+        },
+      ],
+    }).html;
+    const defaultAccordion = new Accordion(defaultdata).html;
+
+    const parentAccordion = new Accordion({
+      ...args,
+      accordionItems: args.accordionItems.map((item, index) =>
+        index === 0
+          ? {
+              ...item,
+              content: `<p>This parent item contains another accordion group.</p>${nestedAccordion}`,
+            }
+          : item,
+      ),
+    }).html;
+
+    return `${parentAccordion}${defaultAccordion}`;
+  },
+  globals: { backgrounds: { value: "default" } },
+};
