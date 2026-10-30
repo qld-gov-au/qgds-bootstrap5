@@ -60,6 +60,39 @@ function initSearch(component) {
 
   /** @type HTMLFormElement | null | undefined */
   const formElement = inputElement.form;
+  const buttonElement = component.querySelector(".js-search-button");
+  const searchParams = Object.fromEntries(
+    Array.from(component.querySelectorAll("input[type='hidden']"), (el) => [
+      el.name,
+      el.value,
+    ]),
+  );
+  const configuredSearchDelay = inputElement?.dataset.searchDelay;
+  const searchDelay =
+    configuredSearchDelay === undefined ||
+    configuredSearchDelay === null ||
+    configuredSearchDelay === ""
+      ? 300
+      : Number.parseInt(configuredSearchDelay);
+
+  /**
+   * Fire a custom "qld-search" event which includes the searchParams in the event.detail
+   * This is triggered by search button click, debounced input event, autocomplete click.
+   */
+  const search = () => {
+    inputElement.dispatchEvent(
+      new CustomEvent("qld-search", {
+        bubbles: true,
+        cancelable: true,
+        detail: {
+          query: inputElement.value,
+          ...searchParams,
+        },
+      }),
+    );
+  };
+
+  const debouncedSearch = debounce(search, searchDelay);
 
   /** @type HTMLButtonElement | null */
   const buttonElement = component.querySelector("button.js-search-button");
