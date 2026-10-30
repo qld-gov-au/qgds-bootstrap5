@@ -1,54 +1,148 @@
+// @ts-check
 import { debounce } from "../../../js/utils";
 
+/**
+ * @typedef {Object} Suggestion
+ * @property {string} label
+ * @property {string} href
+ */
+
+/**
+ * @typedef {Object} SuggestionGroup
+ * @property {string} [label]
+ * @property {Suggestion[]} items
+ * @property {{label?: string, href: string}} [link]
+ */
+
+/**
+ * @typedef {SuggestionGroup[] | SuggestionGroup | Suggestion[]} Suggestions
+ */
+
+/**
+ * @typedef {string[]} AutocompleteSuggestions
+ */
+
+/**
+ * @typedef {{ query: string, [key: string]: string }} QLDSearchDetail
+ */
+
+/**
+ * @typedef {CustomEvent<QLDSearchDetail>} QLDSearchEvent
+ * @property {"qld-search"} type
+ * @property {HTMLElement} target
+ */
+
+/**
+ * Find all .qld-search-input and initialise them, attaching behaviour and events.
+ */
 export function initAllSearch() {
   // store initialised as data attribute - storybook fires DOMContentLoaded for each story on a page.
-  const searchComponents = document.querySelectorAll(
-    ".qld-search-input:not([data-initialised])",
+  const searchComponents = /** @type NodeListOf<HTMLElement> */ (
+    document.querySelectorAll(".qld-search-input:not([data-initialised])")
   );
   searchComponents.forEach((component) => {
     initSearch(component);
-    component.dataset.initialised = true;
+    component.dataset.initialised = "true";
   });
 }
 
 /**
- *
  * @param {HTMLElement} component Should be element with class ".qld-search-input"
  */
 function initSearch(component) {
+  /** @type  HTMLInputElement | null */
   const inputElement = component.querySelector("input.form-control");
+
+  if (!inputElement) return;
+
+  /** @type HTMLElement | null */
   const suggestionsElement = component.querySelector(".suggestions");
+
+  /** @type HTMLFormElement | null | undefined */
   const formElement = inputElement.form;
+
+  /** @type HTMLButtonElement | null */
   const buttonElement = component.querySelector(".js-search-button");
+
+  /** @type Record<string, string> */
   const searchParams = Object.fromEntries(
-    Array.from(component.querySelectorAll("input[type='hidden']"), (el) => [
-      el.name,
-      el.value,
-    ]),
+    Array.from(
+      /** @type NodeListOf<HTMLInputElement>*/ (
+        component.querySelectorAll("input[type='hidden']")
+      ),
+      (el) => [el.name, el.value],
+    ),
   );
-  const configuredSearchDelay = inputElement?.dataset.searchDelay;
-  const searchDelay =
-    configuredSearchDelay === undefined ||
-    configuredSearchDelay === null ||
-    configuredSearchDelay === ""
-      ? 300
-      : Number.parseInt(configuredSearchDelay);
+
+  const searchDelay = component.dataset.searchDelay
+    ? Number.parseInt(component.dataset.searchDelay)
+    : 300;
 
   /**
+   * Store the initialSuggestions in order to restore them later.
+   * @type Suggestions
+   * */
+  let initialSuggestions;
+  try {
+    initialSuggestions = JSON.parse(component.dataset.suggestions || "[]");
+  } catch {
+    initialSuggestions = [];
+  }
+
+  const observer = new MutationObserver((mutationsList, _observer) => {
+    // Watch for changes to autocomplete and suggestions data attributes
+
+    for (const mutation of mutationsList) {
+      if (mutation.type === "attributes") {
+        if (mutation.attributeName === "data-suggestions") {
+          updateSuggestions();
+        } else if (mutation.attributeName === "data-autocomplete") {
+          updateAutocomplete();
+        }
+      }
+    }
+  });
+
+  observer.observe(component, {
+    childList: false,
+    attributes: true,
+    attributeFilter: ["data-suggestions", "data-autocomplete"],
+    subtree: false,
+  });
+
+  /**
+   *
    * Fire a custom "qld-search" event which includes the searchParams in the event.detail
    * This is triggered by search button click, debounced input event, autocomplete click.
    */
   const search = () => {
-    inputElement.dispatchEvent(
-      new CustomEvent("qld-search", {
-        bubbles: true,
-        cancelable: true,
-        detail: {
-          query: inputElement.value,
-          ...searchParams,
-        },
-      }),
-    );
+    const value = inputElement.value.trim();
+    if (value === "") {
+      if (initialSuggestions) {
+        component.dataset.suggestions = JSON.stringify(initialSuggestions);
+      }
+      component.dataset.autocomplete = "[]";
+    }
+
+    const event = new CustomEvent("qld-search", {
+      bubbles: true,
+      cancelable: true,
+      detail: {
+        query: value,
+        ...searchParams,
+      },
+    });
+
+    // Will be false if preventDefault()ed.
+    const shouldContinue = component.dispatchEvent(event);
+
+    if (
+      shouldContinue &&
+      value &&
+      component.dataset.useDefaultSearchHandler === "true"
+    ) {
+      handleDefaultSearch(event);
+    }
   };
 
   const debouncedSearch = debounce(search, searchDelay);
@@ -71,13 +165,16 @@ function initSearch(component) {
         } else {
           suggestionsElement?.classList.remove("show");
         }
-      } else if (suggestionsElement?.contains(e.target)) {
+      } else if (
+        e.target instanceof Node &&
+        suggestionsElement?.contains(e.target)
+      ) {
         inputElement?.focus();
         suggestionsElement?.classList.remove("show");
       }
     } else if (!formElement && e.target === inputElement && e.key === "Enter") {
       // If wrapped in a form, the submit button is already automatically triggered on enter press.
-      buttonElement.click();
+      buttonElement?.click();
     }
   };
 
@@ -97,7 +194,10 @@ function initSearch(component) {
    */
   const handleFocusOut = (e) => {
     // If the element to be focused is not within this component, hide suggestions.
-    if (!component?.contains(e.relatedTarget)) {
+    if (
+      !(e.relatedTarget instanceof Node) ||
+      (e.relatedTarget instanceof Node && !component?.contains(e.relatedTarget))
+    ) {
       suggestionsElement?.classList.remove("show");
     }
   };
@@ -117,11 +217,13 @@ function initSearch(component) {
    * @param {MouseEvent} e
    */
   const handleSuggestionsClick = (e) => {
-    const item = e.target.closest(".suggestions-item");
+    const item = /** @type HTMLElement */ (e.target).closest(
+      ".suggestions-item",
+    );
     if (item?.matches(".is-autocomplete")) {
       e.preventDefault();
       inputElement.value = item.textContent.replace(/\s+/g, " ").trim();
-      buttonElement.click();
+      buttonElement?.click();
     }
   };
 
@@ -144,151 +246,76 @@ function initSearch(component) {
   // Button click should trigger the custom search event
   buttonElement?.addEventListener("click", handleButtonClick);
 
-  // The following must only be scoped to form elements with ".site-search" class.
-  // This due to legacy reasons, as removing the class allowed a custom submit handler.
-  if (formElement?.classList.contains("site-search")) {
-    inputElement.addEventListener("qld-search", (e) => {
-      showSuggestions(e.detail.query.trim());
-    });
-  }
+  /**
+   * Render autocomplete results into the suggestions block
+   */
+  const updateAutocomplete = () => {
+    /** @type AutocompleteSuggestions */
+    let data;
+    try {
+      data = JSON.parse(component.dataset.autocomplete || "[]");
+    } catch {
+      data = [];
+    }
+    const suggestionsInnerEl =
+      suggestionsElement?.querySelector(".suggestions-inner");
+    if (!suggestionsInnerEl) return;
+
+    let autocompleteGroupEl = suggestionsInnerEl.querySelector(
+      ".suggestions-group.is-autocomplete",
+    );
+
+    if (!data || !Array.isArray(data) || data.length === 0) {
+      autocompleteGroupEl?.remove();
+      return;
+    } else {
+      autocompleteGroupEl =
+        autocompleteGroupEl ||
+        Object.assign(document.createElement("div"), {
+          className: "suggestions-group is-autocomplete",
+        });
+      autocompleteGroupEl.innerHTML = renderAutocomplete(
+        data,
+        inputElement.value,
+      );
+      if (!autocompleteGroupEl.isConnected)
+        suggestionsInnerEl.prepend(autocompleteGroupEl);
+    }
+  };
 
   /**
-   * Shows/hides suggestions based on the user's input.
-   *
-   * @param {string} value - The current input value.
-   * @returns {void}
-   **/
-  async function showSuggestions(value = "") {
-    // This is still specific to funnelback - will be updated.
+   * Render the suggestions data into the suggestions block
+   */
+  const updateSuggestions = (isInitial = false) => {
+    const data = isInitial
+      ? initialSuggestions
+      : JSON.parse(component.dataset.suggestions || "[]");
+    const suggestionsInnerEl =
+      suggestionsElement?.querySelector(".suggestions-inner");
+    if (!suggestionsInnerEl) return;
 
-    if (!suggestionsElement || !inputElement) {
-      return;
-    }
-
-    const defaultSuggestionsContainer = suggestionsElement.querySelector(
-      ".default-suggestions",
-    );
-    const dynamicSuggestionsContainer = suggestionsElement.querySelector(
-      ".dynamic-suggestions",
+    let suggestionsGroupEls = suggestionsInnerEl.querySelectorAll(
+      ".suggestions-group:not(.is-autocomplete)",
     );
 
-    // Hide/show default suggestions, and return early
-    if (value === "") {
-      if (defaultSuggestionsContainer) {
-        defaultSuggestionsContainer.classList.remove("d-none");
-      }
-      if (dynamicSuggestionsContainer) {
-        dynamicSuggestionsContainer.innerHTML = "";
-        dynamicSuggestionsContainer.classList.add("d-none");
-      }
-      return;
-    }
+    suggestionsGroupEls.forEach((el) => el.remove());
 
-    // If input is empty, hide dynamic suggestions and return early
-    if (dynamicSuggestionsContainer) {
-      if (value.length === 0) {
-        dynamicSuggestionsContainer.innerHTML = "";
-        dynamicSuggestionsContainer.classList.add("d-none");
-        return;
-      }
-    }
+    if (!data || (Array.isArray(data) && data.length === 0)) return;
 
-    // Script continues...dynamic suggestions is true and value.length > 0
-    defaultSuggestionsContainer?.classList.add("d-none");
+    // insertAdjacentHTML keeps the autocomplete block in the DOM.
+    suggestionsInnerEl.insertAdjacentHTML("beforeend", renderSuggestions(data));
+  };
 
-    // Fetch dynamic suggestions if available
-    if (dynamicSuggestionsContainer) {
-      const suggestUrl = inputElement?.dataset.suggestions;
-      const resultsUrl = inputElement?.dataset.resultsUrl;
-      const collection = searchParams?.collection || "ssqld~sp-search";
-      const profile = searchParams?.profile || "qld";
-
-      if (suggestUrl) {
-        // Fetch data from suggestions API
-        const fetchedAutocompleteSuggestions = await fetchData(
-          `${suggestUrl}?collection=${collection}&profile=${profile}&fmt=json&alpha=0.5&partial_query=${encodeURIComponent(value)}`,
-          "suggestions",
-        );
-
-        // Render a suggestions list
-        if (fetchedAutocompleteSuggestions.length > 0) {
-          dynamicSuggestionsContainer.innerHTML = `
-        <div class="suggestions-group is-autocomplete">
-          <ul>${fetchedAutocompleteSuggestions
-            .slice(0, 4) // only display the first 4 items
-            .map((item) => {
-              const highlightedText = item.replace(
-                new RegExp(`(${value})`, "gi"),
-                "<strong>$1</strong>",
-              );
-              return `<li><a class="suggestions-item is-autocomplete" tabindex="0" href="#"><span>${highlightedText}</span></a></li>`; // <span> is required to ensure all text remains a single flex item and does not introduce spacing and wrapping bugs.
-            })
-            .join("")}</ul>
-        </div>`;
-
-          dynamicSuggestionsContainer.classList.remove("d-none");
-        } else {
-          dynamicSuggestionsContainer.innerHTML = "";
-          dynamicSuggestionsContainer.classList.add("d-none");
-        }
-      }
-
-      if (resultsUrl) {
-        // Fetch related services from services API
-        const fetchedServices = await fetchData(
-          `${resultsUrl}?collection=${collection}&profile=${profile}&query=${encodeURIComponent(value)}`,
-          "services",
-        );
-
-        if (
-          fetchedServices.response.resultPacket &&
-          fetchedServices.response.resultPacket.results.length > 0
-        ) {
-          const viewMoreUrl =
-            dynamicSuggestionsContainer.getAttribute("data-view-more");
-
-          // Build the services HTML safely
-          const escapeHtmlAttr = (str) =>
-            String(str)
-              .replace(/&/g, "&amp;")
-              .replace(/"/g, "&quot;")
-              .replace(/'/g, "&#39;")
-              .replace(/</g, "&lt;")
-              .replace(/>/g, "&gt;");
-
-          const servicesItems = fetchedServices.response.resultPacket.results
-            .slice(0, 4)
-            .map(
-              (item) =>
-                `<li><a class="suggestions-item" tabindex="0" href="${item.liveUrl}">${item.title}</a></li>`,
-            )
-            .join("");
-
-          const viewMoreItem = viewMoreUrl
-            ? `<li><a tabindex="0" href="${escapeHtmlAttr(viewMoreUrl)}" class="suggestions-item is-view-more">View more</a></li>`
-            : "";
-
-          dynamicSuggestionsContainer.innerHTML += `
-        <div class="suggestions-group">
-          <strong class="d-block suggestions-group-label">Related services</strong>
-          <ul>${servicesItems}${viewMoreItem}</ul>
-        </div>`;
-
-          dynamicSuggestionsContainer.classList.remove("d-none");
-        }
-      }
-    }
-  }
+  if (initialSuggestions) updateSuggestions(true);
 }
 
 /**
  * Fetches data from the provided URL.
  *
  * @param {string} url - The URL to fetch data from.
- * @param {string} type - The type of data to fetch (suggestions or services).
  * @returns {Promise<Object>} - A promise that resolves to the fetched data.
  */
-async function fetchData(url, type) {
+async function fetchData(url) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -297,7 +324,152 @@ async function fetchData(url, type) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(`Error fetching ${type}:`, error);
+    console.error(`Error fetching data from ${url}: `, error);
     return {};
+  }
+}
+
+/**
+ * @param {AutocompleteSuggestions} autocomplete
+ * @returns {string}
+ */
+const renderAutocomplete = (autocomplete, value = "") => {
+  if (!autocomplete || !Array.isArray(autocomplete)) return "";
+  return `
+  <ul>${autocomplete
+    .slice(0, 4) // only display the first 4 items
+    .map((item) => {
+      const highlightedText = item.replace(
+        new RegExp(`(${value})`, "gi"),
+        "<strong>$1</strong>",
+      );
+      return `<li><a class="suggestions-item is-autocomplete" tabindex="0" href="#"><span>${highlightedText}</span></a></li>`; // <span> is required to ensure all text remains a single flex item and does not introduce spacing and wrapping bugs.
+    })
+    .join("")}</ul>`;
+};
+
+/**
+ * @param {Suggestions} suggestions
+ * @returns {string}
+ */
+const renderSuggestions = (suggestions) => {
+  if (!suggestions) return "";
+
+  const entries = Array.isArray(suggestions) ? suggestions : [suggestions];
+  if (entries.length === 0) return "";
+
+  // Build the services HTML safely
+  const escapeHtmlAttr = (/** @type string */ str) =>
+    String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+  /** @param {Suggestion } item */
+  const renderItem = (item) =>
+    `<li><a class="suggestions-item" tabindex="0" href="${escapeHtmlAttr(item.href)}"><span>${item.label}</span></a></li>`;
+
+  /** @param {SuggestionGroup} group */
+  const renderGroup = (group) => `
+    <div class="suggestions-group">
+      ${group.label ? `<strong class="suggestions-group-label d-block">${group.label}</strong>` : ""}
+      <ul>
+        ${group.items.map(renderItem).join("")}
+        ${group.link ? `<li><a tabindex="0" href="${escapeHtmlAttr(group.link.href)}" class="suggestions-item is-view-more">${group.link.label || "View more"}</a></li>` : ""}
+      </ul>
+    </div>`;
+
+  /** @param {Suggestion[]} items */
+  const renderItems = (items) =>
+    `<div class="suggestions-group"><ul>${items.map(renderItem).join("")}</ul></div>`;
+
+  /** @param {SuggestionGroup | Suggestion} entry */
+  const isSuggestionGroup = (entry) =>
+    typeof entry === "object" && entry !== null && "items" in entry;
+
+  if (entries.length === 0) return "";
+
+  if (isSuggestionGroup(entries[0])) {
+    // entries is an array of SuggestionGroup
+    return entries
+      .map((group) => renderGroup(/**@type SuggestionGroup */ (group)))
+      .join("");
+  } else {
+    // entries is an array of Suggestion
+    return renderItems(/**@type Suggestion[] */ (entries));
+  }
+};
+
+/**
+ * A funnelback specific qld-search event handler. Listen out for the search event, perform some action then update "dataset.suggestions" or "dataset.autocomplete". The component will react to the update accordingly.
+ * @param {QLDSearchEvent} e
+ */
+async function handleDefaultSearch(e) {
+  // The `qld-search` event is still fired even when the value is cleared.
+  // The component will automatically fall back to initialSuggestions state and clear autocomplete list.
+  // In this case there is nothing to do.
+  if (e.detail.query === "") {
+    return;
+  } else {
+    const searchComponent = /** @type HTMLElement */ (e.target);
+    if (!searchComponent) return;
+    // autocompleteEndpoint and searchResultsEndpoint are provided as configurable dataset props on the component.
+    // There is no requirement to use them at all, any custom handler may simply use hard coded urls instead.
+    const autocompleteEndpoint = searchComponent.dataset.autocompleteEndpoint;
+    const resultsEndpoint = searchComponent.dataset.searchResultsEndpoint;
+
+    // Use .then chaining rather than await so both requests can run concurrently and update asyncronously.
+    if (autocompleteEndpoint) {
+      fetchData(
+        `${autocompleteEndpoint}&partial_query=${encodeURIComponent(e.detail.query)}`,
+      ).then((data) => {
+        // update the autocomplete list
+        if (Array.isArray(data)) {
+          searchComponent.dataset.autocomplete = JSON.stringify(data);
+        }
+      });
+    }
+
+    if (resultsEndpoint) {
+      // Fetch related services from services API
+      fetchData(
+        `${resultsEndpoint}&query=${encodeURIComponent(e.detail.query)}`,
+      ).then((/** @type any*/ results) => {
+        const items = results.response?.resultPacket?.results;
+
+        if (items && items.length > 0) {
+          // view more url should be the form endpoint plus searchParams
+          let viewMoreUrl;
+          if (e.target instanceof HTMLFormElement) {
+            viewMoreUrl = new URL(e.target.action, window.location.href);
+            const searchParams = new URLSearchParams(viewMoreUrl.searchParams); // in case the existing action href has params
+            new FormData(e.target).forEach((value, key) => {
+              searchParams.append(
+                key,
+                typeof value === "string" ? value : value.name,
+              );
+            }); // add the form search params
+
+            viewMoreUrl.search = searchParams.toString();
+          }
+
+          // Build your suggestions object
+          const suggestions = {
+            label: "Related services",
+            link: {
+              label: "View more",
+              href: viewMoreUrl,
+            },
+            items: items.slice(0, 4).map((/** @type any */ item) => ({
+              label: item.title,
+              href: item.liveUrl,
+            })),
+          };
+          searchComponent.dataset.suggestions = JSON.stringify(suggestions);
+        } else searchComponent.dataset.suggestions = "";
+      });
+    }
   }
 }

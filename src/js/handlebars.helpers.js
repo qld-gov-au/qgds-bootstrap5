@@ -307,6 +307,13 @@ export default function handlebarsHelpers(handlebars) {
       )
       .replace(/\s+/g, ""); // Remove all spaces
   });
+
+  /**
+   * Serialize a complex object for use in a data-* attribute
+   */
+  handlebars.registerHelper("stringify", function (context) {
+    return JSON.stringify(context);
+  });
 }
 
 if (typeof Handlebars !== "undefined") {

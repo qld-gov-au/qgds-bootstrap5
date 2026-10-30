@@ -1,4 +1,31 @@
 /**
+ * Sync the Toggle-All button's class, text and aria-expanded state.
+ *
+ * @param {HTMLElement} toggleButton - The Toggle-All button.
+ * @param {boolean} allExpanded - Whether all panels are open.
+ * @returns {void}
+ */
+function setToggleState(toggleButton, allExpanded) {
+  toggleButton.setAttribute("aria-expanded", String(allExpanded));
+  toggleButton.textContent = allExpanded ? "Close all" : "Open all";
+  toggleButton.classList.toggle("accordion-toggle-btn--open", allExpanded);
+  toggleButton.classList.toggle("accordion-toggle-btn--closed", !allExpanded);
+}
+
+/**
+ * Get all elements within an accordion group that match a specific selector.
+ *
+ * @param {HTMLElement} accordionGroup - The accordion group element.
+ * @param {string} selector - The CSS selector to match elements.
+ * @returns {HTMLElement[]} Array of matching elements within the accordion group.
+ */
+function getAccordionGroupElements(accordionGroup, selector) {
+  return Array.from(accordionGroup.querySelectorAll(selector)).filter(
+    (element) => element.closest(".accordion-group") === accordionGroup,
+  );
+}
+
+/**
  * Toggle all accordion elements
  *
  * @memberof module:Accordion
@@ -19,20 +46,19 @@ export function accordionToggleAll(event) {
   // find the accordion wrapper
   let wrapper = toggleAllButton.closest(".accordion-group");
   // get all the accordion buttons
-  let accordionButtons = wrapper.querySelectorAll(".accordion-button");
+  let accordionButtons = getAccordionGroupElements(
+    wrapper,
+    ".accordion-button",
+  );
 
   // Check if opened or closed
   if (toggleAllButton.classList.contains("accordion-toggle-btn--closed")) {
-    toggleAllButton.classList.remove("accordion-toggle-btn--closed");
-    toggleAllButton.classList.add("accordion-toggle-btn--open");
-    toggleAllButton.textContent = "Close all";
+    setToggleState(toggleAllButton, true);
     accordionButtons.forEach((button) => {
       if (button.matches(".collapsed")) button.click();
     });
   } else if (toggleAllButton.classList.contains("accordion-toggle-btn--open")) {
-    toggleAllButton.classList.remove("accordion-toggle-btn--open");
-    toggleAllButton.classList.add("accordion-toggle-btn--closed");
-    toggleAllButton.textContent = "Open all";
+    setToggleState(toggleAllButton, false);
     accordionButtons.forEach((button) => {
       if (button.matches(":not(.collapsed)")) button.click();
     });
@@ -56,24 +82,16 @@ export function accordionToggleAllButtonState(event) {
     //error message
   }
 
-  let accordionGroup = event.target.closest(".accordion-group"),
-    toggleAllButton = accordionGroup.querySelector(".accordion-toggle-btn");
+  let accordionGroup = event.target.closest(".accordion-group");
+  if (!accordionGroup) return;
 
-  if (
-    toggleAllButton.classList.contains("accordion-toggle-btn--closed") &&
-    accordionGroup.querySelectorAll(".accordion-button.collapsed").length == 0
-  ) {
-    toggleAllButton.classList.remove("accordion-toggle-btn--closed");
-    toggleAllButton.classList.add("accordion-toggle-btn--open");
-    toggleAllButton.textContent = "Close all";
-  } else if (
-    toggleAllButton.classList.contains("accordion-toggle-btn--open") &&
-    accordionGroup.querySelectorAll(".accordion-button.collapsed").length > 0
-  ) {
-    toggleAllButton.classList.remove("accordion-toggle-btn--open");
-    toggleAllButton.classList.add("accordion-toggle-btn--closed");
-    toggleAllButton.textContent = "Open all";
-  }
+  let toggleAllButton = accordionGroup.querySelector(".accordion-toggle-btn");
+  if (!toggleAllButton) return;
+
+  const allExpanded =
+    getAccordionGroupElements(accordionGroup, ".accordion-button.collapsed")
+      .length === 0;
+  setToggleState(toggleAllButton, allExpanded);
 }
 
 /**
@@ -84,16 +102,28 @@ export function accordionToggleAllButtonState(event) {
  * @returns {void}
  */
 export function initAccordionToggleAll() {
-  let accordionToggleButton = document.querySelectorAll(".accordion-toggle-btn");
+  let accordionToggleButton = document.querySelectorAll(
+    ".accordion-toggle-btn",
+  );
 
   accordionToggleButton.forEach(function (toggleButton) {
     toggleButton.addEventListener("click", accordionToggleAll);
 
-    let accordionCollapses = toggleButton.closest(".accordion-group").querySelectorAll(".accordion-collapse");
+    let accordionGroup = toggleButton.closest(".accordion-group");
+    let accordionCollapses = getAccordionGroupElements(
+      accordionGroup,
+      ".accordion-collapse",
+    );
 
     accordionCollapses.forEach(function (collapseEl) {
-      collapseEl.addEventListener("shown.bs.collapse", accordionToggleAllButtonState);
-      collapseEl.addEventListener("hidden.bs.collapse", accordionToggleAllButtonState);
+      collapseEl.addEventListener(
+        "shown.bs.collapse",
+        accordionToggleAllButtonState,
+      );
+      collapseEl.addEventListener(
+        "hidden.bs.collapse",
+        accordionToggleAllButtonState,
+      );
     });
   });
 }
@@ -106,7 +136,7 @@ export function initAccordionToggleAll() {
  * @param {Object} event - (optional) The event that triggered this function.
  * @returns {void}
  */
-export function accordionHashLinks (event) {
+export function accordionHashLinks(event) {
   let urlHash = window.location.hash,
     urlHashId = urlHash.substring(1),
     cleanHash = filterSpecialChar(urlHash);
@@ -116,33 +146,41 @@ export function accordionHashLinks (event) {
       targetPanelButton = false;
 
     // Stop default hash link behaviour if target matches current hash location.
-    if (event &&
-      ((event.type === 'hashchange' && event.newURL === event.oldURL) ||
-      (event.type === 'click' && event.target.hash === urlHash))
+    if (
+      event &&
+      ((event.type === "hashchange" && event.newURL === event.oldURL) ||
+        (event.type === "click" && event.target.hash === urlHash))
     ) {
       event.preventDefault();
     }
 
     // ID matching
-    if (targetElement && targetElement.closest('.accordion-item')) {
-      targetPanelButton = targetElement.closest(".accordion-item").querySelector(".accordion-button");
+    if (targetElement && targetElement.closest(".accordion-item")) {
+      targetPanelButton = targetElement
+        .closest(".accordion-item")
+        .querySelector(".accordion-button");
     }
     // Title matching
     else {
       let accordionButtons = document.querySelectorAll(".accordion-button");
 
-      if (event && event.type === 'click') {
+      if (event && event.type === "click") {
         cleanHash = filterSpecialChar(event.target.hash);
       }
 
-      targetPanelButton = Array.from(accordionButtons).find((button) => filterSpecialChar(button.innerText) === cleanHash);
+      targetPanelButton = Array.from(accordionButtons).find(
+        (button) => filterSpecialChar(button.innerText) === cleanHash,
+      );
     }
 
-    if (targetPanelButton){
+    if (targetPanelButton) {
       if (targetPanelButton.matches(".collapsed")) targetPanelButton.click();
 
-      window.scrollTo(0, targetPanelButton.getBoundingClientRect().top +
-      document.documentElement.scrollTop);
+      window.scrollTo(
+        0,
+        targetPanelButton.getBoundingClientRect().top +
+          document.documentElement.scrollTop,
+      );
     }
   }
 }
@@ -153,7 +191,7 @@ export function accordionHashLinks (event) {
  * @return {undefined}
  **/
 function filterSpecialChar(value) {
-  return decodeURI(value.toLowerCase().replace(/[^a-zA-Z0-9/]/g, ''));
+  return decodeURI(value.toLowerCase().replace(/[^a-zA-Z0-9/]/g, ""));
 }
 
 /**
@@ -173,11 +211,13 @@ export function initAccordionFindInPage() {
       bsCollapse.show();
     });
 
-    collapseEl.addEventListener("show.bs.collapse", () => {
+    collapseEl.addEventListener("show.bs.collapse", (event) => {
+      if (event.target !== collapseEl) return;
       collapseEl.removeAttribute("hidden");
     });
 
-    collapseEl.addEventListener("hidden.bs.collapse", () => {
+    collapseEl.addEventListener("hidden.bs.collapse", (event) => {
+      if (event.target !== collapseEl) return;
       collapseEl.setAttribute("hidden", "until-found");
     });
   });

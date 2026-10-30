@@ -8,69 +8,70 @@
   "ariaLabel": "Search website",
   "ariaLabelContainer": "",
   "placeholder": "",
-  "tags": {
-    "suggestions": "https://search.qld.gov.au/s/suggest.json",
-    "results-url": "https://search.qld.gov.au/s/search.json"
-  },
-  "hasDynamicSuggestions": true,
-  "hasDefaultSuggestions": true,
-  "dynamicSuggestionsServiceLink": {
-    "href": "/queenslanders"
-  },
-  "defaultSuggestions": {
-    "popularServicesTitle": "Popular",
-    "popularServicesLink": {
-      "label": "View more",
-      "href": "/queenslanders"
+  "initialSuggestions": [
+    {
+      "label": "Popular",
+      "link": {
+        "label": "View more",
+        "href": "/queenslanders"
+      },
+      "items": [
+        {
+          "label": "Apply for leave now",
+          "href": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application"
+        },
+        {
+          "label": "Apply for higher duties or relieving at level",
+          "href": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level"
+        },
+        {
+          "label": "Extend a temporary or casual employee",
+          "href": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment/extending-my-job/extend-a-temporary-or-casual-employee"
+        },
+        {
+          "label": "Hire a staff member (recruitment)",
+          "href": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment"
+        }
+      ]
     },
-    "popularServices": [
-      {
-        "title": "Apply for leave now",
-        "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application"
+    {
+      "label": "Featured",
+      "link": {
+        "label": "Find out more",
+        "href": "/queenslanders"
       },
-      {
-        "title": "Apply for higher duties or relieving at level",
-        "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level"
-      },
-      {
-        "title": "Extend a temporary or casual employee",
-        "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment/extending-my-job/extend-a-temporary-or-casual-employee"
-      },
-      {
-        "title": "Hire a staff member (recruitment)",
-        "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment"
-      }
-    ],
-    "categoriesTitle": "Collection",
-    "categoriesLink": {
-      "label": "View all",
-      "href": "/queenslanders"
-    },
-    "categories": [
-      {
-        "title": "Search for directives, policies, circulars, and guidelines",
-        "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines"
-      },
-      {
-        "title": "Employee pay and benefits",
-        "link": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits"
-      },
-      {
-        "title": "Queensland Shared Services",
-        "link": "https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services"
-      },
-      {
-        "title": "Career development",
-        "link": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development"
-      }
-    ]
-  },
-  "initialSuggestions": {},
+      "items": [
+        {
+          "label": "Search for directives, policies, circulars, and guidelines",
+          "href": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines"
+        },
+        {
+          "label": "Employee pay and benefits",
+          "href": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits"
+        },
+        {
+          "label": "Queensland Shared Services",
+          "href": "https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services"
+        },
+        {
+          "label": "Career development",
+          "href": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development"
+        }
+      ]
+    }
+  ],
   "searchParams": {
     "collection": "ssqld~sp-search",
     "profile": "qld",
     "numranks": "10",
     "tiers": "off"
   },
-  "searchDelay": 300
+  "searchDelay": 300,
+  "form": {
+    "action": "https://uat.forgov.qld.gov.au/search",
+    "method": "GET"
+  },
+  "useDefaultSearchHandler": true,
+  "autocompleteEndpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5",
+  "searchResultsEndpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld"
 }

@@ -1,9 +1,10 @@
 <!-- 
     QGDS Component: Search input 
 -->
-<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}}>
+<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
+    {{#if initialSuggestions}}data-suggestions="{{stringify initialSuggestions}}"{{/if}} data-search-delay="{{isdefined searchDelay 300}}" {{#if autocompleteEndpoint}}data-autocomplete-endpoint="{{autocompleteEndpoint}}"{{/if}} {{#if searchResultsEndpoint}}data-search-results-endpoint="{{searchResultsEndpoint}}"{{/if}} {{#if useDefaultSearchHandler}}data-use-default-search-handler="true"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}"{{#each tags}} data-{{@key}}="{{this}}"{{/each}} data-search-delay="{{isdefined searchDelay 300}}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
+        aria-label="{{ ariaLabel }}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
     <button class="btn btn-primary js-search-button" type="{{#if form}}submit{{else}}{{isdefined buttonType "button"}}{{/if}}" id="{{ buttonID }}" >
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
@@ -13,40 +14,8 @@
     <input id="{{../inputID}}_{{@key}}" name="{{@key}}" value="{{this}}" type="hidden" />
     {{/each}}
 
-    {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
-    
     <div class="suggestions default">
-        {{#if hasDefaultSuggestions}}
-            <div class="default-suggestions">
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
-                    <ul>
-                        {{#each defaultSuggestions.popularServices}}
-                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
-                        {{/each}}
-                        {{#if defaultSuggestions.popularServicesLink}}
-                        <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
-                        {{/if}}
-                    </ul>
-                </div>
-                {{#if defaultSuggestions.categories}}
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
-                    <ul>
-                        {{#each defaultSuggestions.categories}}
-                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
-                        {{/each}}
-                        {{#if defaultSuggestions.categoriesLink}}
-                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
-                        {{/if}}
-                    </ul>
-                </div>
-                {{/if}}
-            </div>
-        {{/if}}
-        {{#if hasDynamicSuggestions}}
-            <div class="dynamic-suggestions" {{#if dynamicSuggestionsServiceLink.href}}data-view-more="{{dynamicSuggestionsServiceLink.href}}"{{/if}}></div>
-        {{/if}}
-    </div>
-    {{/ifCond}}    
-</div>
+        <div class="suggestions-inner">
+        </div>
+    </div>  
+</{{#if form}}form{{else}}div{{/if}}>
