@@ -13,6 +13,19 @@ function setToggleState(toggleButton, allExpanded) {
 }
 
 /**
+ * Get all elements within an accordion group that match a specific selector.
+ *
+ * @param {HTMLElement} accordionGroup - The accordion group element.
+ * @param {string} selector - The CSS selector to match elements.
+ * @returns {HTMLElement[]} Array of matching elements within the accordion group.
+ */
+function getAccordionGroupElements(accordionGroup, selector) {
+  return Array.from(accordionGroup.querySelectorAll(selector)).filter(
+    (element) => element.closest(".accordion-group") === accordionGroup,
+  );
+}
+
+/**
  * Toggle all accordion elements
  *
  * @memberof module:Accordion
@@ -33,7 +46,10 @@ export function accordionToggleAll(event) {
   // find the accordion wrapper
   let wrapper = toggleAllButton.closest(".accordion-group");
   // get all the accordion buttons
-  let accordionButtons = wrapper.querySelectorAll(".accordion-button");
+  let accordionButtons = getAccordionGroupElements(
+    wrapper,
+    ".accordion-button",
+  );
 
   // Check if opened or closed
   if (toggleAllButton.classList.contains("accordion-toggle-btn--closed")) {
@@ -73,7 +89,8 @@ export function accordionToggleAllButtonState(event) {
   if (!toggleAllButton) return;
 
   const allExpanded =
-    accordionGroup.querySelectorAll(".accordion-button.collapsed").length === 0;
+    getAccordionGroupElements(accordionGroup, ".accordion-button.collapsed")
+      .length === 0;
   setToggleState(toggleAllButton, allExpanded);
 }
 
@@ -92,9 +109,11 @@ export function initAccordionToggleAll() {
   accordionToggleButton.forEach(function (toggleButton) {
     toggleButton.addEventListener("click", accordionToggleAll);
 
-    let accordionCollapses = toggleButton
-      .closest(".accordion-group")
-      .querySelectorAll(".accordion-collapse");
+    let accordionGroup = toggleButton.closest(".accordion-group");
+    let accordionCollapses = getAccordionGroupElements(
+      accordionGroup,
+      ".accordion-collapse",
+    );
 
     accordionCollapses.forEach(function (collapseEl) {
       collapseEl.addEventListener(
@@ -192,11 +211,13 @@ export function initAccordionFindInPage() {
       bsCollapse.show();
     });
 
-    collapseEl.addEventListener("show.bs.collapse", () => {
+    collapseEl.addEventListener("show.bs.collapse", (event) => {
+      if (event.target !== collapseEl) return;
       collapseEl.removeAttribute("hidden");
     });
 
-    collapseEl.addEventListener("hidden.bs.collapse", (e) => {
+    collapseEl.addEventListener("hidden.bs.collapse", (event) => {
+      if (event.target !== collapseEl) return;
       collapseEl.setAttribute("hidden", "until-found");
     });
   });
