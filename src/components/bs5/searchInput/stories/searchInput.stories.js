@@ -202,23 +202,3 @@ export const CustomSubmitHandler = {
     },
   ],
 };
-
-/** @type StoryObj */
-export const NoForm = {
-  parameters: {
-    tags: ["!autodocs"],
-  },
-  render: (args, { name }) =>
-    new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
-};
-
-/** @type StoryObj */
-export const WithForm = {
-  ...NoForm,
-  args: {
-    form: {
-      action: "https://uat.forgov.qld.gov.au/search",
-      method: "GET",
-    },
-  },
-};
