@@ -1,14 +1,85 @@
+// @ts-check
 /** @import {Meta, StoryObj} from "@storybook/html-vite" */
+/** @import {QLDSearchEvent, Suggestions, AutocompleteSuggestions} from "../search.functions.js" */
 
 import { expect } from "storybook/test";
 import { waitFor } from "../../../../js/testingutils.js";
 import defaultMeta from "./searchInput.stories.js";
+import { action } from "storybook/actions";
+
+/**@type Suggestions */
+const mockResults = {
+  label: "Related services",
+  link: {
+    label: "View more",
+    href: "https://uat.forgov.qld.gov.au/search?query=apply&collection=ssqld%7Esp-search&profile=qld&numranks=10&tiers=off",
+  },
+  items: [
+    {
+      label: "Apply for a blue card or exemption card - qld.gov.au",
+      href: "https://www.qld.gov.au/jobs/blue-card/applications/apply",
+    },
+    {
+      label: "Seniors - qld.gov.au",
+      href: "https://www.qld.gov.au/seniors",
+    },
+    {
+      label:
+        "Apply for financial assistance for victims of violent crime - qld.gov.au",
+      href: "https://www.qld.gov.au/justice/victims-of-crime/financial-assistance-for-victims/apply",
+    },
+    {
+      label: "How to apply - qld.gov.au",
+      href: "https://www.qld.gov.au/housing/public-community-housing/eligibility-applying-for-housing/guide-to-applying-for-housing-assistance/apply-for-housing",
+    },
+  ],
+};
+
+/**@type AutocompleteSuggestions  */
+const mockAutocomplete = [
+  "apply",
+  "applying",
+  "apply for ethics approval",
+  "apply online",
+];
+
+/**
+ * @param {Event} event
+ */
+const handleSearch = (event) => {
+  // The custom event type needs to be cast here because ts checker does not recognise addEventListener with Custom Events
+  event.preventDefault();
+  const e = /**@type QLDSearchEvent */ (event);
+
+  if (e.detail.query === "") return;
+
+  const component = /** @type HTMLElement */ (e.target);
+  component.dataset.suggestions = JSON.stringify(mockResults);
+  component.dataset.autocomplete = JSON.stringify(mockAutocomplete);
+};
 
 /** @type Meta */
 export default {
   ...defaultMeta,
   tags: ["!autodocs"], // Do not generate an overview page for these stories.
   title: "3. Components/Search Input/Interactions", // Must be a string literal - see https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#string-literal-titles
+  beforeEach: ({ canvasElement }) => {
+    /**@param {SubmitEvent} e */
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(e);
+      action(e.type, { depth: 2 })({ target: e.target });
+    };
+
+    canvasElement.addEventListener("qld-search", handleSearch);
+    canvasElement.addEventListener("submit", handleSubmit);
+
+    // Clean up function runs when switching between stories.
+    return () => {
+      canvasElement.removeEventListener("qld-search", handleSearch);
+      canvasElement.removeEventListener("submit", handleSubmit);
+    };
+  },
 };
 
 /**
@@ -33,7 +104,7 @@ export const DropdownOnFocus = {
       ".qld-search-input .suggestions",
     );
     await step("Search dropdown should appear on focus", async () => {
-      await userEvent.click(inputElement);
+      if (inputElement) await userEvent.click(inputElement);
       await waitFor(500);
       await expect(suggestionsElement).toBeVisible();
     });
@@ -60,7 +131,7 @@ export const TabBack = {
     const suggestionsElement = canvasElement.querySelector(
       ".qld-search-input .suggestions",
     );
-    await DropdownOnFocus.play(context);
+    await DropdownOnFocus.play?.(context);
     await step("Search dropdown should disappear when tab back", async () => {
       await userEvent.tab({ shift: true });
       await waitFor(500);
@@ -88,17 +159,22 @@ export const DynamicSuggestions = {
     await step(
       "Suggestions should show dynamic suggestions when typing",
       async () => {
-        await userEvent.type(inputElement, "apply");
+        if (inputElement) await userEvent.type(inputElement, "apply");
         await waitFor(500);
         await expect(inputElement).toHaveValue("apply");
-        await waitFor(1000);
         await expect(suggestionsElement).toBeVisible();
         await expect(
-          suggestionsElement.querySelector(".default-suggestions"),
-        ).not.toBeVisible();
+          suggestionsElement?.querySelector(
+            ".suggestions-group.is-autocomplete ul",
+          )?.children,
+          "autocomplete children",
+        ).toHaveLength(4);
         await expect(
-          suggestionsElement.querySelector(".dynamic-suggestions"),
-        ).toBeVisible();
+          suggestionsElement?.querySelector(
+            ".suggestions-group:not(.is-autocomplete) ul",
+          )?.children,
+          "Search results children",
+        ).toHaveLength(5);
       },
     );
   },
@@ -120,7 +196,7 @@ export const EscapeClearsValue = {
     const suggestionsElement = canvasElement.querySelector(
       ".qld-search-input .suggestions",
     );
-    await DynamicSuggestions.play(context);
+    await DynamicSuggestions.play?.(context);
     await step(
       "Input value should clear if escape key pressed, and search suggestions should show default suggestions.",
       async () => {
@@ -128,12 +204,21 @@ export const EscapeClearsValue = {
         await waitFor(500);
         await expect(inputElement).toHaveValue("");
         await expect(suggestionsElement).toBeVisible();
+
+        const groups = suggestionsElement?.querySelectorAll(
+          ".suggestions-group:not(.is-autcomplete)",
+        );
+        await expect(groups, "Suggestions groups").toHaveLength(2);
         await expect(
-          suggestionsElement.querySelector(".default-suggestions"),
-        ).toBeVisible();
+          groups?.item(0).querySelector(".suggestions-group-label"),
+          "First suggestion group title",
+        ).toHaveTextContent("Popular");
         await expect(
-          suggestionsElement.querySelector(".dynamic-suggestions"),
-        ).not.toBeVisible();
+          suggestionsElement?.querySelector(
+            ".suggestions-group.is-autocomplete",
+          ),
+          "Autocomplete group",
+        ).toBeNull();
       },
     );
   },
@@ -155,7 +240,9 @@ export const EscapeThenTab = {
       `<p tabindex="0">Previous focusable element<p>${Story()}<p tabindex="0" >Next focusable element<p>`,
   ],
   play: async ({ canvasElement, userEvent, context, step, canvas }) => {
-    const inputElement = canvasElement.querySelector(".qld-search-input input");
+    const inputElement = /** @type HTMLInputElement*/ (
+      canvasElement.querySelector(".qld-search-input input")
+    );
     const suggestionsElement = canvasElement.querySelector(
       ".qld-search-input .suggestions",
     );
@@ -164,7 +251,7 @@ export const EscapeThenTab = {
     );
     const nextElement = canvas.getByText("Next focusable element");
 
-    await DropdownOnFocus.play(context);
+    await DropdownOnFocus.play?.(context);
 
     await step("Esc hides dropdown if no value.", async () => {
       inputElement.value = "";
@@ -204,12 +291,15 @@ export const EscapeSuggestions = {
       ".qld-search-input .suggestions",
     );
 
-    await DropdownOnFocus.play(context);
+    await DropdownOnFocus.play?.(context);
 
     await step("Tab into suggesstions dropdown", async () => {
       await userEvent.tab();
       await userEvent.tab();
-      await expect(suggestionsElement).toContainElement(document.activeElement);
+      await expect(document.activeElement).toBeInstanceOf(HTMLElement);
+      await expect(suggestionsElement).toContainElement(
+        /** @type HTMLElement */ (document.activeElement),
+      );
     });
 
     await step(
@@ -240,7 +330,7 @@ export const ClickOutside = {
       ".qld-search-input .suggestions",
     );
 
-    await DropdownOnFocus.play(context);
+    await DropdownOnFocus.play?.(context);
 
     step("Click outside should collapse the search dropdown", async () => {
       await userEvent.click(canvasElement);

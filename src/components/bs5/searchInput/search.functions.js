@@ -1,3 +1,4 @@
+// @ts-check
 import { debounce } from "../../../js/utils";
 
 /**
@@ -14,7 +15,7 @@ import { debounce } from "../../../js/utils";
  */
 
 /**
- * @typedef {SuggestionGroup[] | SuggestionGroup | Suggestion[]} Suggestions
+ * export @typedef {SuggestionGroup[] | SuggestionGroup | Suggestion[]} Suggestions
  */
 
 /**
@@ -28,6 +29,7 @@ import { debounce } from "../../../js/utils";
 /**
  * @typedef {CustomEvent<QLDSearchDetail>} QLDSearchEvent
  * @property {"qld-search"} type
+ * @property {HTMLElement} target
  */
 
 /**
@@ -35,12 +37,12 @@ import { debounce } from "../../../js/utils";
  */
 export function initAllSearch() {
   // store initialised as data attribute - storybook fires DOMContentLoaded for each story on a page.
-  const searchComponents = document.querySelectorAll(
-    ".qld-search-input:not([data-initialised])",
+  const searchComponents = /** @type NodeListOf<HTMLElement> */ (
+    document.querySelectorAll(".qld-search-input:not([data-initialised])")
   );
   searchComponents.forEach((component) => {
     initSearch(component);
-    component.dataset.initialised = true;
+    component.dataset.initialised = "true";
   });
 }
 
@@ -64,10 +66,12 @@ function initSearch(component) {
 
   /** @type Record<string, string> */
   const searchParams = Object.fromEntries(
-    Array.from(component.querySelectorAll("input[type='hidden']"), (el) => [
-      el.name,
-      el.value,
-    ]),
+    Array.from(
+      /** @type NodeListOf<HTMLInputElement>*/ (
+        component.querySelectorAll("input[type='hidden']")
+      ),
+      (el) => [el.name, el.value],
+    ),
   );
 
   const searchDelay = component.dataset.searchDelay
@@ -80,7 +84,7 @@ function initSearch(component) {
    * */
   let initialSuggestions;
   try {
-    initialSuggestions = JSON.parse(component.dataset.suggestions);
+    initialSuggestions = JSON.parse(component.dataset.suggestions || "[]");
   } catch {
     initialSuggestions = [];
   }
@@ -161,13 +165,16 @@ function initSearch(component) {
         } else {
           suggestionsElement?.classList.remove("show");
         }
-      } else if (suggestionsElement?.contains(e.target)) {
+      } else if (
+        e.target instanceof Node &&
+        suggestionsElement?.contains(e.target)
+      ) {
         inputElement?.focus();
         suggestionsElement?.classList.remove("show");
       }
     } else if (!formElement && e.target === inputElement && e.key === "Enter") {
       // If wrapped in a form, the submit button is already automatically triggered on enter press.
-      buttonElement.click();
+      buttonElement?.click();
     }
   };
 
@@ -187,7 +194,10 @@ function initSearch(component) {
    */
   const handleFocusOut = (e) => {
     // If the element to be focused is not within this component, hide suggestions.
-    if (!component?.contains(e.relatedTarget)) {
+    if (
+      !(e.relatedTarget instanceof Node) ||
+      (e.relatedTarget instanceof Node && !component?.contains(e.relatedTarget))
+    ) {
       suggestionsElement?.classList.remove("show");
     }
   };
@@ -207,11 +217,13 @@ function initSearch(component) {
    * @param {MouseEvent} e
    */
   const handleSuggestionsClick = (e) => {
-    const item = e.target.closest(".suggestions-item");
+    const item = /** @type HTMLElement */ (e.target).closest(
+      ".suggestions-item",
+    );
     if (item?.matches(".is-autocomplete")) {
       e.preventDefault();
       inputElement.value = item.textContent.replace(/\s+/g, " ").trim();
-      buttonElement.click();
+      buttonElement?.click();
     }
   };
 
@@ -241,7 +253,7 @@ function initSearch(component) {
     /** @type AutocompleteSuggestions */
     let data;
     try {
-      data = JSON.parse(component.dataset.autocomplete);
+      data = JSON.parse(component.dataset.autocomplete || "[]");
     } catch {
       data = [];
     }
@@ -277,7 +289,7 @@ function initSearch(component) {
   const updateSuggestions = (isInitial = false) => {
     const data = isInitial
       ? initialSuggestions
-      : JSON.parse(component.dataset.suggestions);
+      : JSON.parse(component.dataset.suggestions || "[]");
     const suggestionsInnerEl =
       suggestionsElement?.querySelector(".suggestions-inner");
     if (!suggestionsInnerEl) return;
@@ -301,7 +313,6 @@ function initSearch(component) {
  * Fetches data from the provided URL.
  *
  * @param {string} url - The URL to fetch data from.
- * @param {string} type - The type of data to fetch (suggestions or services).
  * @returns {Promise<Object>} - A promise that resolves to the fetched data.
  */
 async function fetchData(url) {
@@ -348,7 +359,7 @@ const renderSuggestions = (suggestions) => {
   if (entries.length === 0) return "";
 
   // Build the services HTML safely
-  const escapeHtmlAttr = (str) =>
+  const escapeHtmlAttr = (/** @type string */ str) =>
     String(str)
       .replace(/&/g, "&amp;")
       .replace(/"/g, "&quot;")
@@ -356,9 +367,11 @@ const renderSuggestions = (suggestions) => {
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
 
+  /** @param {Suggestion } item */
   const renderItem = (item) =>
     `<li><a class="suggestions-item" tabindex="0" href="${escapeHtmlAttr(item.href)}"><span>${item.label}</span></a></li>`;
 
+  /** @param {SuggestionGroup} group */
   const renderGroup = (group) => `
     <div class="suggestions-group">
       ${group.label ? `<strong class="suggestions-group-label d-block">${group.label}</strong>` : ""}
@@ -368,19 +381,25 @@ const renderSuggestions = (suggestions) => {
       </ul>
     </div>`;
 
-  const isSuggestionGroup = (entry) =>
-    typeof entry === "object" && entry !== null && Array.isArray(entry.items);
-
+  /** @param {Suggestion[]} items */
   const renderItems = (items) =>
     `<div class="suggestions-group"><ul>${items.map(renderItem).join("")}</ul></div>`;
+
+  /** @param {SuggestionGroup | Suggestion} entry */
+  const isSuggestionGroup = (entry) =>
+    typeof entry === "object" && entry !== null && "items" in entry;
 
   if (entries.length === 0) return "";
 
   if (isSuggestionGroup(entries[0])) {
-    return entries.map(renderGroup).join("");
+    // entries is an array of SuggestionGroup
+    return entries
+      .map((group) => renderGroup(/**@type SuggestionGroup */ (group)))
+      .join("");
+  } else {
+    // entries is an array of Suggestion
+    return renderItems(/**@type Suggestion[] */ (entries));
   }
-
-  return renderItems(entries);
 };
 
 /**
@@ -388,15 +407,14 @@ const renderSuggestions = (suggestions) => {
  * @param {QLDSearchEvent} e
  */
 async function handleDefaultSearch(e) {
-  // Call the autocomplete endpoint and update autocomplete
-  const searchComponent = e.target;
-
   // The `qld-search` event is still fired even when the value is cleared.
   // The component will automatically fall back to initialSuggestions state and clear autocomplete list.
   // In this case there is nothing to do.
   if (e.detail.query === "") {
     return;
   } else {
+    const searchComponent = /** @type HTMLElement */ (e.target);
+    if (!searchComponent) return;
     // autocompleteEndpoint and searchResultsEndpoint are provided as configurable dataset props on the component.
     // There is no requirement to use them at all, any custom handler may simply use hard coded urls instead.
     const autocompleteEndpoint = searchComponent.dataset.autocompleteEndpoint;
@@ -418,18 +436,21 @@ async function handleDefaultSearch(e) {
       // Fetch related services from services API
       fetchData(
         `${resultsEndpoint}&query=${encodeURIComponent(e.detail.query)}`,
-      ).then((results) => {
+      ).then((/** @type any*/ results) => {
         const items = results.response?.resultPacket?.results;
 
         if (items && items.length > 0) {
           // view more url should be the form endpoint plus searchParams
           let viewMoreUrl;
-          if (e.target.tagName === "FORM") {
+          if (e.target instanceof HTMLFormElement) {
             viewMoreUrl = new URL(e.target.action, window.location.href);
-            const searchParams = new URLSearchParams([
-              ...Array.from(viewMoreUrl.searchParams.entries()), // in case the existing action href has params
-              ...new FormData(e.target), // add the form search params
-            ]);
+            const searchParams = new URLSearchParams(viewMoreUrl.searchParams); // in case the existing action href has params
+            new FormData(e.target).forEach((value, key) => {
+              searchParams.append(
+                key,
+                typeof value === "string" ? value : value.name,
+              );
+            }); // add the form search params
 
             viewMoreUrl.search = searchParams.toString();
           }
@@ -441,11 +462,11 @@ async function handleDefaultSearch(e) {
               label: "View more",
               href: viewMoreUrl,
             },
-            items: items
-              .slice(0, 4)
-              .map((item) => ({ label: item.title, href: item.liveUrl })),
+            items: items.slice(0, 4).map((/** @type any */ item) => ({
+              label: item.title,
+              href: item.liveUrl,
+            })),
           };
-
           searchComponent.dataset.suggestions = JSON.stringify(suggestions);
         } else searchComponent.dataset.suggestions = "";
       });

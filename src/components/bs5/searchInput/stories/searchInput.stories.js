@@ -1,8 +1,7 @@
 /** @import {Meta, StoryObj} from "@storybook/html-vite" */
 
 import { SearchInput } from "../SearchInput.js";
-import defaultdata from "../searchInput.data.json";
-import useFormData from "../searchInput.useform.data.json";
+import defaultData from "../searchInput.data.json";
 import metadata from "../metadata.json";
 import { action } from "storybook/actions";
 
@@ -10,8 +9,38 @@ import { action } from "storybook/actions";
 export default {
   tags: ["autodocs", "extended"],
   title: "3. Components/Search Input",
-  render: (args, context) => {
-    return `<form action="https://uat.forgov.qld.gov.au/search" class="site-search p-3">${new SearchInput({ ...args, inputID: context.name.replace(/\s+/g, "") }).html}</form>`;
+  args: {
+    ...defaultData,
+  },
+  argTypes: {
+    buttonLabel: {
+      description: "The label for the search button",
+    },
+    searchParams: {
+      description:
+        "Arbitrary search parameters to be submitted along with the search query. Eg `collection` and `profile` ",
+      control: "object",
+    },
+  },
+  parameters: {
+    coderefs: {
+      metadata,
+      partialname: "searchInput", //{{> searchInput }}
+    },
+    controls: {
+      expanded: true,
+    },
+    docs: {
+      controls: {
+        include: [
+          "buttonLabel",
+          "hasDynamicSuggestions",
+          "hasDefaultSuggestions",
+          "dynamicSuggestionsServiceLink.href",
+        ],
+      },
+      // story: { height: "800px" },
+    },
   },
   beforeEach: ({ canvasElement }) => {
     const handleSubmit = (e) => {
@@ -33,72 +62,41 @@ export default {
       canvasElement.removeEventListener("submit", handleSubmit);
     };
   },
-  args: defaultdata,
-  argTypes: {
-    buttonLabel: {
-      description: "The label for the search button",
-      control: { type: "text" },
-    },
-    hasDefaultSuggestions: {
-      description:
-        "This manipulates defaultSuggestions to on focus, shows default suggestions below the search input",
-      control: { type: "boolean" },
-    },
-    hasDynamicSuggestions: {
-      description: "This produces dynamic suggestions as the user types",
-      control: { type: "boolean" },
-    },
-    "dynamicSuggestionsServiceLink.href": {
-      description: "URL for the dynamic suggestions Related Services link",
-      control: { type: "text" },
-    },
-  },
-  parameters: {
-    coderefs: {
-      metadata,
-      partialname: "searchInput", //{{> searchInput }}
-    },
-    docs: {
-      controls: {
-        include: [
-          "buttonLabel",
-          "hasDynamicSuggestions",
-          "hasDefaultSuggestions",
-          "dynamicSuggestionsServiceLink.href",
-        ],
-      },
-      story: { height: "800px" },
-    },
-  },
-};
-
-export const Default = {
-  args: {
-    showDefaultSuggestions: true,
-  },
-  name: "Default - Outline Variant",
+  render: (args, context) =>
+    new SearchInput({
+      ...args,
+      inputID: context.name.replace(/\s+/g, ""),
+    }).html,
 };
 
 /**
- * With `customClass: is-filled`
+ * The default is an outline variant
+ */
+export const Default = {
+  name: "Default - Outline Variant",
+  args: {
+    initialSuggestions: undefined,
+    form: undefined,
+    searchParams: undefined,
+    useDefaultSearchHandler: undefined,
+    autocompleteEndpoint: undefined,
+    searchResultsEndpoint: undefined,
+  },
+};
+
+/**
+ * Add `customClass: is-filled` for a filled variant
  */
 export const FilledVariant = {
-  args: { customClass: "is-filled" },
-};
-
-export const FullWidth = {
-  args: {
-    customClass: "full-width",
-  },
+  args: { ...Default.args, customClass: "is-filled" },
 };
 
 /**
- * Dark themed Search Input
- *
- * Apply a class <code>.dark</code> to the parent container of the <code>.qld-search-input</code> element.
+ * Apply a class `.dark` to the parent container of the <code>.qld-search-input</code> element.
  */
 export const Dark = {
   globals: { backgrounds: { value: "dark" } },
+  args: Default.args,
   decorators: [
     (Story) => {
       return `
@@ -117,7 +115,7 @@ export const Dark = {
  */
 export const DarkFilled = {
   args: {
-    customClass: "is-filled",
+    ...FilledVariant.args,
   },
   globals: { backgrounds: { value: "dark" } },
   decorators: [
@@ -131,6 +129,24 @@ export const DarkFilled = {
   ],
 };
 
+/** @type StoryObj */
+export const WithForm = {
+  parameters: {
+    docs: {
+      description: {
+        story: `Use a html \`<form>\` element to submit search search results and direct your user to a dedicated search page once the search button is clicked. Include a \`form\` object with \`action\` and \`method\` parameters in the configuration object,
+        `,
+      },
+    },
+    chromatic: { disableSnapshot: true },
+  },
+  args: {
+    useDefaultSearchHandler: true,
+  },
+  render: (args, { name }) =>
+    new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
+};
+
 /**
  * Custom Search Submit Handler
  *
@@ -142,11 +158,6 @@ export const CustomSubmitHandler = {
   },
   args: {
     inputName: "q",
-    tags: {},
-    defaultSuggestions: false,
-    hasDefaultSuggestions: false,
-    hasDynamicSuggestions: false,
-    dynamicSuggestionsServiceLink: false,
   },
   decorators: [
     (Story) => {
@@ -190,39 +201,4 @@ export const CustomSubmitHandler = {
       `;
     },
   ],
-};
-
-/** @type StoryObj */
-export const NoForm = {
-  parameters: {
-    tags: ["!autodocs"],
-  },
-  args: {
-    ...useFormData,
-    hasDynamicSuggestions: null,
-    hasDefaultSuggestions: null,
-    dynamicSuggestionsServiceLink: null,
-    defaultSuggestions: null,
-    searchParams: null,
-    form: null,
-  },
-  render: (args, { name }) =>
-    new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
-};
-
-/** @type StoryObj */
-export const WithForm = {
-  parameters: {
-    tags: ["!autodocs"],
-  },
-  args: {
-    ...useFormData,
-    hasDynamicSuggestions: null,
-    hasDefaultSuggestions: null,
-    dynamicSuggestionsServiceLink: null,
-    defaultSuggestions: null,
-    useDefaultSearchHandler: true,
-  },
-  render: (args, { name }) =>
-    new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
 };

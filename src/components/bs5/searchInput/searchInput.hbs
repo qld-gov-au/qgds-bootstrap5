@@ -1,8 +1,8 @@
 <!-- 
     QGDS Component: Search input 
 -->
-<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{#if novalidate}}novalidate{{/if}} {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
-    data-suggestions="{{stringify initialSuggestions}}" data-search-delay="{{isdefined searchDelay 300}}" {{#if autocompleteEndpoint}}data-autocomplete-endpoint="{{autocompleteEndpoint}}"{{/if}} {{#if searchResultsEndpoint}}data-search-results-endpoint="{{searchResultsEndpoint}}"{{/if}} {{#if useDefaultSearchHandler}}data-use-default-search-handler="true"{{/if}}>
+<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
+    {{#if initialSuggestions}}data-suggestions="{{stringify initialSuggestions}}"{{/if}} data-search-delay="{{isdefined searchDelay 300}}" {{#if autocompleteEndpoint}}data-autocomplete-endpoint="{{autocompleteEndpoint}}"{{/if}} {{#if searchResultsEndpoint}}data-search-results-endpoint="{{searchResultsEndpoint}}"{{/if}} {{#if useDefaultSearchHandler}}data-use-default-search-handler="true"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
     <button class="btn btn-primary js-search-button" type="{{#if form}}submit{{else}}{{isdefined buttonType "button"}}{{/if}}" id="{{ buttonID }}" >
@@ -18,4 +18,4 @@
         <div class="suggestions-inner">
         </div>
     </div>  
-</div>
+</{{#if form}}form{{else}}div{{/if}}>
