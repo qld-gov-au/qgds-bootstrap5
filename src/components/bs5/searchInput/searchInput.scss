@@ -238,14 +238,6 @@
       }
     }
 
-    & > div:has(> div) {
-      box-shadow: var(--suggestions-shadow);
-      border-radius: 0.5rem;
-      border-bottom: 0.25rem solid
-        var(--#{$prefix}color-default-color-light-accent-design-accent);
-      overflow: hidden;
-    }
-
     ul {
       padding: 0;
       margin: 0;
@@ -255,6 +247,14 @@
         margin-block-start: 0;
       }
     }
+  }
+
+  .suggestions-inner:has(> div) {
+    box-shadow: var(--suggestions-shadow);
+    border-radius: 0.5rem;
+    border-bottom: 0.25rem solid
+      var(--#{$prefix}color-default-color-light-accent-design-accent);
+    overflow: hidden;
   }
 
   .suggestions-group {
@@ -289,6 +289,7 @@
     padding-inline: 1rem;
     color: var(--#{$prefix}light-text-text);
     width: 100%;
+    border-radius: 0;
     text-decoration: underline;
     text-decoration-thickness: 0.5px;
     text-decoration-color: transparent;

@@ -4,9 +4,10 @@ exports[`SearchInput > Renders as expected 1`] = `
 "<!-- 
     QGDS Component: Search input 
 -->
-<div class="qld-search-input " role="search" >
+<form action="https://uat.forgov.qld.gov.au/search" method="GET"  class="qld-search-input " role="search"  
+    data-suggestions="[{&quot;label&quot;:&quot;Popular&quot;,&quot;link&quot;:{&quot;label&quot;:&quot;View more&quot;,&quot;href&quot;:&quot;/queenslanders&quot;},&quot;items&quot;:[{&quot;label&quot;:&quot;Apply for leave now&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application&quot;},{&quot;label&quot;:&quot;Apply for higher duties or relieving at level&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level&quot;},{&quot;label&quot;:&quot;Extend a temporary or casual employee&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment/extending-my-job/extend-a-temporary-or-casual-employee&quot;},{&quot;label&quot;:&quot;Hire a staff member (recruitment)&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment&quot;}]},{&quot;label&quot;:&quot;Featured&quot;,&quot;link&quot;:{&quot;label&quot;:&quot;Find out more&quot;,&quot;href&quot;:&quot;/queenslanders&quot;},&quot;items&quot;:[{&quot;label&quot;:&quot;Search for directives, policies, circulars, and guidelines&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines&quot;},{&quot;label&quot;:&quot;Employee pay and benefits&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits&quot;},{&quot;label&quot;:&quot;Queensland Shared Services&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services&quot;},{&quot;label&quot;:&quot;Career development&quot;,&quot;href&quot;:&quot;https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development&quot;}]}]" data-search-delay="300" data-autocomplete-endpoint="https://search.qld.gov.au/s/suggest.json?collection&#x3D;ssqld~sp-search&amp;profile&#x3D;qld&amp;fmt&#x3D;json&amp;alpha&#x3D;0.5" data-search-results-endpoint="https://search.qld.gov.au/s/search.json?collection&#x3D;ssqld~sp-search&amp;profile&#x3D;qld" data-use-default-search-handler="true">
     <input id="search" name="query" class="form-control" type="text" autocomplete="off"
-        aria-label="Search website" data-suggestions="https://search.qld.gov.au/s/suggest.json" data-results-url="https://search.qld.gov.au/s/search.json" data-search-delay="300" placeholder="" role="searchbox" enterkeyhint="search"/>
+        aria-label="Search website" placeholder="" role="searchbox" enterkeyhint="search"/>
     <button class="btn btn-primary js-search-button" type="submit" id="search-button" >
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">Search</span>
@@ -17,31 +18,9 @@ exports[`SearchInput > Renders as expected 1`] = `
     <input id="search_numranks" name="numranks" value="10" type="hidden" />
     <input id="search_tiers" name="tiers" value="off" type="hidden" />
 
-    
     <div class="suggestions default">
-            <div class="default-suggestions">
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">Popular</strong>
-                    <ul>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application"><span>Apply for leave now</span></a></li>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/apply-for-higher-duties-or-relieving-at-level"><span>Apply for higher duties or relieving at level</span></a></li>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment/extending-my-job/extend-a-temporary-or-casual-employee"><span>Extend a temporary or casual employee</span></a></li>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/recruitment"><span>Hire a staff member (recruitment)</span></a></li>
-                        <li><a tabindex="0" href="/queenslanders" class="suggestions-item is-view-more">View more</a></li>
-                    </ul>
-                </div>
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">Collection</strong>
-                    <ul>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/directives-policies-circulars-and-guidelines"><span>Search for directives, policies, circulars, and guidelines</span></a></li>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/pay-benefits-and-policy/benefits/employee-pay-and-benefits"><span>Employee pay and benefits</span></a></li>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/sandbox/archive/queensland-shared-services"><span>Queensland Shared Services</span></a></li>
-                        <li><a class="suggestions-item" tabindex="0" href="https://www.forgov.qld.gov.au/recruitment-performance-and-career/career-development"><span>Career development</span></a></li>
-                            <li><a tabindex="0" href="/queenslanders" class="suggestions-item is-view-more">View all</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="dynamic-suggestions" data-view-more="/queenslanders"></div>
-    </div>
-</div>"
+        <div class="suggestions-inner">
+        </div>
+    </div>  
+</form>"
 `;
