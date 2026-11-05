@@ -7,6 +7,7 @@ import masterbrand_variant from "../header/header.variant.masterBrand.data.json"
 import menu_state from "../navbar/navbar.data.json";
 import globalAlertData from "../globalAlert/globalAlert.data.json";
 import tableData from "../table/table.data.json";
+import skipLinksData from "../skiplinks/skipLinks.data.json";
 import footerData from "../footer/footer.data.json";
 import contentFooterData from "../contentFooter/contentFooter.data.json";
 import callToActionData from "../callToAction/callToAction.data.json";
@@ -58,13 +59,15 @@ const sideNavData = {
 const defaultData = {
   cdn: ".", //for storybook it's ., for normal usage "PROD"
   title: "title goes here",
+  skipLinks: skipLinksData.skipLinks,
   header: {
     ...masterbrand_variant,
     searchInput: new SearchInput(searchData).html,
   },
   navbar: menu_state,
   table: tableData,
-  globalAlert: globalAlertData.critical,
+  globalAlertCritical: globalAlertData.critical,
+  globalAlertWarning: globalAlertData.warning,
   footer: {
     ...footerData,
     variantClass: "dark",
