@@ -1,0 +1,331 @@
+import {
+  Meta,
+  Title,
+  Primary,
+  Controls,
+  Canvas,
+  // Stories,
+  Source,
+  Story,
+  useOf,
+  ArgTypes,
+  Description,
+} from "@storybook/addon-docs/blocks";
+
+import {
+  ComponentMeta,
+  CodeReferencesInstructions,
+  DesignResources,
+  Notes,
+} from "../../../../../.storybook/customMDXComponents.jsx";
+
+import * as Stories from "./searchInput.stories.js";
+import { argTypes } from "../SearchInput.js";
+
+import defaultData from "../searchInput.data.json";
+ 
+<Meta of={Stories} name="Overview"/>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: "1rem",
+    marginBottom: "2rem",
+  }}
+>
+
+<Title />
+
+</div>
+
+<div>
+  <ComponentMeta of={Stories} />
+</div>
+
+Use the Search input component to help users find content or pages through keywords. A Search input may also be configured to display autocomplete and search results suggestions in a dropdown menu.
+
+## Variants
+
+### Default
+
+<Description of={Stories.Default} />
+<Canvas of={Stories.Default} />
+
+### Filled
+
+<Description of={Stories.FilledVariant} />
+<Canvas of={Stories.FilledVariant} />
+
+### Dark
+
+<Description of={Stories.Dark} />
+<Canvas of={Stories.Dark} />
+
+### Dark Filled
+
+<Description of={Stories.DarkFilled} />
+<Canvas of={Stories.DarkFilled} />
+
+## With form
+
+Render the Search input component with a `<form>` element wrapper to submit search search results and direct your user to a dedicated search page once the search button is clicked.
+Include a `form` parameter as an object with `action` and `method` parameters in the component data.
+
+Include additional search parameters in the request by configuring a `searchParams` object. These will be rendered as hidden input fields and submitted as part of the formdata.
+
+<Source
+  language="json"
+  dark={true}
+  code={`
+{
+  "buttonType": "submit",
+  "form": {
+    "action": "https://uat.forgov.qld.gov.au/search",
+    "method": "GET"
+  },
+  "searchParams": {
+    "collection": "ssqld~sp-search",
+    "profile": "qld",
+    "numranks": "10",
+    "tiers": "off"
+  }
+}`}
+/>
+
+<Canvas of={Stories.WithForm} />
+
+When the Search button is clicked, the user will be directed to the URL specified in the form `action` parameter, along with the search query and params.
+Custom behaviour can also be added by listening for the form's `submit` event.
+
+See [HTML form element on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form).
+
+## Suggestions
+
+The Search input is able to display autocomplete and search results in a dropdown.
+
+### Initial suggestions
+
+Default or initial suggestions may be added as configuration to component data via parameter `initialSuggestions`. A Suggestions object is a complex object.
+
+It may be a SuggestionGroup or an Array of SuggestionGroups:
+
+<Source
+  dark={true}
+  language="json"
+  code={`
+  // A single SuggestionGroup
+{
+    "initialSuggestions": {
+      "label": "Popular", // The group heading
+      "link": {
+        // The "View more" link to display underneath Suggestions items
+        "label": "View more",
+        "href": "/popular"
+      },
+      "items": [
+        // Suggestions items represent pre-set search results
+        {
+          "label": "Apply for leave now",
+          "href": "https://www.forgov.qld.gov.au/pay-benefits-and-policy/leave/submit-a-leave-application"
+        },
+        {
+          "label": "Apply for higher duties or relieving at level",
+          "href": "https://www.forgov.qld.gov.au/recruitment-performance-and-career/starting-a-new-job/"
+        }
+        // ... etc
+      ]
+    }
+}
+`}
+/>
+
+<Source
+  dark={true}
+  language="json"
+  code={`
+  // SuggestionGroup array
+  {
+    "initialSuggestions": [
+      {
+        "label": "Popular", // The group heading
+        "link": {
+          "label": "View more",
+          "href": "/popular"
+        },
+        "items": [
+          // ... etc
+        ]
+      },
+      {
+        "label": "Featured",
+        "link": {
+          "label": "More featured results",
+          "href": "/featured"
+        },
+        "items": [
+          // ... etc
+        ]
+      }
+    ]
+}`}
+/>
+
+When providing initialSuggestions, you should also provide the method to update suggestions as the user types, either by handling `qld-search` yourself or using the default search handler.
+
+### Default search handler
+
+To show dynamic autocomplete and search results, many qld.gov.au websites will want to use the default search suggestions handler which uses the Funnelback API. Set `useDefaultSearchHandler` to true and configure the `autocompleteEndpoint` and `searchResultsEndpoint`. Omit either endpoint parameter to disable their respective feature.
+The `searchDelay` parameter is used to limit the rate at which dynamic suggestions are requested (in milliseconds).
+
+> Note: this behaviour was previously hard-coded and is now opt in.
+
+<Source
+  dark={true}
+  language="json"
+  code={`
+{ 
+  "useDefaultSearchHandler": true,
+  "autocompleteEndpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5", 
+  "searchResultsEndpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld",
+  "searchDelay": 300,
+}`}
+/>
+
+<Canvas of={Stories.DefaultSearchHandler} story={{ height: "768px" }} />
+
+## Custom search
+
+### `qld-search` event
+
+The Search input fires a custom `qld-search` event with the search query and any custom search params as its `detail` payload.
+`qld-search` fires when:
+
+- User types into the search field, with a delay controlled by the `searchDelay` parameter.
+- The search button is clicked.
+- An autocomplete suggestion is clicked.
+
+Open the browser console and interact with any example on this page to see the `qld-search` event logged.
+
+### Custom search suggestions
+
+Listen for the component's `qld-search` custom event, perform any data fetching tasks and update the component's `dataset.autocomplete` and `dataset.suggestions` properties. The component will react accordingly.
+
+A full example is below:
+
+<Source
+  language="json"
+  dark={true}
+  code={`// json
+{
+  "customClass": "",
+  "inputID": "search",
+  "inputName": "search",
+  "buttonID": "search-button",
+  "buttonType": "submit",
+  "buttonLabel": "Use the force",
+  "ariaLabel": "Search website",
+  "ariaLabelContainer": "",
+  "placeholder": "Search a galaxy far, far away",
+  "searchDelay": 300,
+  "searchParams": {
+    "format": "json"
+  },
+  "useDefaultSearchHandler": false,
+  "autocompleteEndpoint": "https://swapi.dev/api/people/?search=",
+  "searchResultsEndpoint": "https://swapi.dev/api/starships/?search=",
+  "form": {
+    "action": "https://swapi.dev/api/starships/",
+    "method": "GET"
+  }
+}
+`}
+/>
+
+<Source language="jsx" dark={true} code={`// js
+const customSearchHandler = (e) => {
+  // The \`qld-search\` event is still fired even when the value is cleared.
+  // The component will automatically fall back to initialSuggestions state and clear the autocomplete list.
+  // In this case there is nothing to do.
+  if (e.detail.query === "") return;
+  const searchComponent = e.target;
+  // autocompleteEndpoint and searchResultsEndpoint are provided as configurable dataset props on the component.
+  // There is no requirement to use them at all, any custom handler may simply use hard coded urls instead.
+  const autocompleteEndpoint = searchComponent.dataset.autocompleteEndpoint;
+  const searchResultsEndpoint = searchComponent.dataset.searchResultsEndpoint;
+  
+  if (autocompleteEndpoint) {
+    fetch(autocompleteEndpoint + encodeURIComponent(e.detail.query))
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.json();
+      })
+      .then((json) => {
+        const autocomplete = json.results.map((item) => item.name);
+        searchComponent.dataset.autocomplete = autocomplete;
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }
+  if (searchResultsEndpoint) {
+    fetch(searchResultsEndpoint + encodeURIComponent(e.detail.query))
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.json();
+    })
+    .then((json) => {
+      const items = json.results;
+
+      if (items && items.length > 0) {
+        // Build your suggestions group object
+        const suggestions = {
+          label: "Starships",
+          link: {
+            label: "View more starships",
+            href: "https://swapi.dev/api/starships",
+          },
+          items: items.slice(0, 4).map((item) => ({
+            label: item.model,
+            href: item.url,
+          })),
+        };
+
+        // The suggestions object must be stringified to be compatible with HTML dataset property
+        searchComponent.dataset.suggestions = JSON.stringify(suggestions);
+      } else {
+        searchComponent.dataset.suggestions = "";
+      }
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+
+}
+};
+
+// Listen for \`qld-search\` event
+const searchComponent = document.querySelector(".qld-search-input");
+searchComponent.addEventListener("qld-search", customSearchHandler);
+`}
+/>
+
+<Canvas of={Stories.CustomSearchHandler} story={{ height: "360px" }} />
+
+## API
+
+<ArgTypes of={Stories.Default} />
+
+<Notes title="Notes" />
+
+<DesignResources title="Design resources" />
+<CodeReferencesInstructions title="How to use" />
+
+<style>
+  {`
+.docblock-source {
+  max-height: 360px;
+  overflow-y: auto;
+}`}
+</style>
