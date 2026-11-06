@@ -117,16 +117,5 @@
     "secondaryLogo": null,
     "siteTitle": "",
     "subline": ""
-  },
-
-  "assets": {
-    "siteSearch": {
-      "value": "#",
-      "placeholder": "",
-      "label": "",
-      "formAction": {
-        "url": "https://www.qld.gov.au/search"
-      }
-    }
   }
 }

@@ -23,15 +23,5 @@
     "secondaryLogo": null,
     "siteTitle": "Cairns and Hinterland",
     "subline": "Hospital and Health Service"
-  },
-  "assets": {
-    "siteSearch": {
-      "value": "#",
-      "placeholder": "",
-      "label": "",
-      "formAction": {
-        "url": "https://www.forgov.qld.gov.au/search"
-      }
-    }
   }
 }
