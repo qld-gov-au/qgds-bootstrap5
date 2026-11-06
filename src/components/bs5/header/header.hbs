@@ -122,15 +122,12 @@
                     {{/ifAny}}
                 </div>
 
-                {{#if assets.siteSearch.value}}
+                {{#if searchInputData}}
                 <div class="col-lg-4">
                     <div id="qld-header-search" class="qld-header-site-search is-closed">
-                        <form 
-                        class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
-                        action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
-                        >
-                          {{{ searchInput }}}
-                        </form>
+                        {{#>searchInput searchInputData}}
+                        Missing partial: searchInput
+                        {{/searchInput}}
                     </div>
                 </div>
                 {{/if}}
