@@ -56,6 +56,10 @@ export const argTypes = {
     description:
       "The name attribute of the input. This should be the key name of the search query for form submission. Eg `q` or `query`.",
   },
+  containerID: {
+    type: "string",
+    description: "A unique id for the main component's container.",
+  },
   buttonID: {
     type: "string",
     description: "A unique id for the search button element.",

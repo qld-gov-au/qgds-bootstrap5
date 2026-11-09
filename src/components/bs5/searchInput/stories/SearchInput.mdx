@@ -5,6 +5,7 @@ import {
   Source,
   ArgTypes,
   Description,
+  Markdown,
 } from "@storybook/addon-docs/blocks";
 
 import {
@@ -63,7 +64,7 @@ Use the Search input component to help users find content or pages through keywo
 
 ## With form
 
-Render the Search input component with a `<form>` element wrapper to submit search search results and direct your user to a dedicated search page once the search button is clicked.
+Render the Search input component with a `<form>` element wrapper to submit search results and direct your user to a dedicated search page once the search button is clicked.
 Include a `form` parameter as an object with `action` and `method` parameters in the component data.
 
 Include additional search parameters in the request by configuring a `searchParams` object. These will be rendered as hidden input fields and submitted as part of the formdata.
@@ -96,11 +97,35 @@ See [HTML form element on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML
 
 ## Suggestions
 
-The Search input is able to display autocomplete and search results in a dropdown.
+The Search input is able to display autocomplete and search results in a dropdown. A Suggestions object is a complex object.
+
+<Markdown>
+{`
+
+#### SuggestionGroup
+
+| Parameter | Type                                 | Description                                                                                                     |
+| --------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| \`label\` | \`string\`                           | The title of group, eg "Popular Services"                                                                       |
+| \`items\` | \`Suggestion[]\`                     | An array of Suggestion items. ( See below )                                                                     |
+| \`link\`  | \`{ label: string , href: string }\` | Represents the SuggestionGroup's "View more" link, rendered as the last item in list of suggestions. (optional) |
+
+#### Suggestion
+
+Represents the individual search result item.
+
+| Parameter | Type       | Description                    |
+| --------- | ---------- | ------------------------------ |
+| \`label\` | \`string\` | The text label                 |
+| \`href\`  | \`string\` | The url of the suggestion item |
+
+`}
+
+</Markdown>
 
 ### Initial suggestions
 
-Default or initial suggestions may be added as configuration to component data via parameter `initialSuggestions`. A Suggestions object is a complex object.
+Default or initial suggestions may be added as configuration to component data via parameter `initialSuggestions`.
 
 It may be a SuggestionGroup or an Array of SuggestionGroups:
 
@@ -196,14 +221,48 @@ The Search input fires a custom `qld-search` event with the search query and any
 `qld-search` fires when:
 
 - User types into the search field, with a delay controlled by the `searchDelay` parameter.
+- User clears the input field.
 - The search button is clicked.
 - An autocomplete suggestion is clicked.
 
-Open the browser console and interact with any example on this page to see the `qld-search` event logged.
+<Markdown>
+{`
+
+| Property       | Type                | Value                       | Description                                                       |
+| :------------- | :------------------ | :-------------------------- | :---------------------------------------------------------------- |
+| \`type\`       | \`string\`          | "qld-search"                | The event name                                                    |
+| \`bubbles\`    | \`boolean\`         | true                        | The event bubbles up through the DOM                              |
+| \`cancelable\` | \`boolean\`         | true                        | event.preventDefault() can be used to cancel defaultSearchHandler |
+| \`detail\`     | \`QLDSearchDetail\` | See table below for details |                                                                   |
+
+#### QLDSearchDetail
+
+| Property              | Type       | Description                                                       |
+| :-------------------- | :--------- | :---------------------------------------------------------------- |
+| \`query\`             | \`string\` | The value of the search input                                     |
+| \`[...searchParams]\` | \`string\` | Any key: value pair of searchParams in component's configuration. |
+
+`}
+
+</Markdown>
+
+> Open the browser console and interact with any example on this page to see the `qld-search` event logged.
 
 ### Custom search suggestions
 
 Listen for the component's `qld-search` custom event, perform any data fetching tasks and update the component's `dataset.autocomplete` and `dataset.suggestions` properties. The component will react accordingly.
+
+<Markdown>
+{`
+
+| Property                 | Type                                     | Description                                                                                                                                                          |
+| :----------------------- | :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \`dataset.autocomplete\` | \`string[]\`                             | An array of strings which render as autocomplete suggestions when the input has focus                                                                                |
+| \`dataset.suggestions\`  | \`SuggestionGroup \| SuggestionGroup[]\` | A single [SuggestionGroup](#suggestiongroup) or Array of SuggestionGroups. The object must be passed to \`JSON.stringify()\` when assigning to the dataset parameter |
+
+`}
+
+</Markdown>
 
 A full example is below:
 

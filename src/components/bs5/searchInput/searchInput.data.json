@@ -2,6 +2,7 @@
   "customClass": "",
   "inputID": "search",
   "inputName": "query",
+  "containerID": "",
   "buttonID": "search-button",
   "buttonType": "submit",
   "buttonLabel": "Search",
