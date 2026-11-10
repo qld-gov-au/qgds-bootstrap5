@@ -101,7 +101,7 @@ export const OptionGroups = {
   args: optionGroupsData,
   parameters: {
     chromatic: {
-      disableSnapshots: true,
+      disableSnapshot: true,
     },
   },
 };
