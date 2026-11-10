@@ -1,7 +1,7 @@
 <!-- 
     QGDS Component: Search input 
 -->
-<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
+<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} {{#if containerID}}id="{{containerID}}"{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
     {{#if initialSuggestions}}data-suggestions="{{stringify initialSuggestions}}"{{/if}} data-search-delay="{{isdefined searchDelay 300}}" {{#if autocompleteEndpoint}}data-autocomplete-endpoint="{{autocompleteEndpoint}}"{{/if}} {{#if searchResultsEndpoint}}data-search-results-endpoint="{{searchResultsEndpoint}}"{{/if}} {{#if useDefaultSearchHandler}}data-use-default-search-handler="true"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>

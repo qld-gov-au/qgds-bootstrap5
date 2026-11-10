@@ -2,6 +2,7 @@
   "customClass": "",
   "inputID": "search",
   "inputName": "query",
+  "containerID": "",
   "buttonID": "search-button",
   "buttonType": "submit",
   "buttonLabel": "Search",
@@ -60,6 +61,10 @@
       ]
     }
   ],
+  "form": {
+    "action": "https://search.qld.gov.au/search",
+    "method": "GET"
+  },
   "searchParams": {
     "collection": "ssqld~sp-search",
     "profile": "qld",
@@ -67,10 +72,6 @@
     "tiers": "off"
   },
   "searchDelay": 300,
-  "form": {
-    "action": "https://search.qld.gov.au/search",
-    "method": "GET"
-  },
   "useDefaultSearchHandler": true,
   "autocompleteEndpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5",
   "searchResultsEndpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld"

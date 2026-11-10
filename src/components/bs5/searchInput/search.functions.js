@@ -252,11 +252,16 @@ function initSearch(component) {
   const updateAutocomplete = () => {
     /** @type AutocompleteSuggestions */
     let data;
+
+    // dataset.autocomplete might be json stringified array or a comma separated string.
     try {
       data = JSON.parse(component.dataset.autocomplete || "[]");
     } catch {
-      data = [];
+      data =
+        component.dataset.autocomplete?.split(",").map((item) => item.trim()) ||
+        [];
     }
+
     const suggestionsInnerEl =
       suggestionsElement?.querySelector(".suggestions-inner");
     if (!suggestionsInnerEl) return;
