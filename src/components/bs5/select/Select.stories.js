@@ -1,8 +1,19 @@
 // ComponentExample.stories.js
 import { Select, argTypes } from "./Select.js";
 import defaultdata from "./select.data.json";
+import optionGroupsData from "./select.optiongroups.data.json";
 import metadata from "./metadata.json";
 
+/**
+ * Select provides a means to select a single item from a collapsible list.
+ * Use of select helps to reduce input errors and screen space.
+ *
+ * Use the `options` parameter to define an Array of options. An option object supports all standard attributes of the [HTML Option element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/option#attributes)
+ * - label
+ * - value
+ * - selected
+ * - disabled
+ */
 export default {
   tags: ["autodocs"],
   title: "3. Components/Forms/Select",
@@ -78,5 +89,19 @@ export const Invalid = {
   args: {
     ...defaultdata,
     isValid: false,
+  },
+};
+
+/**
+ * Select options may be defined within an `optionGroups` array.
+ * An optionGroup is an object which contains a `groupLabel` and `options`.
+ * It is possible to use both `optionGroups` and ungrouped `options` in a single config - option groups will be rendered above ungrouped options.
+ */
+export const OptionGroups = {
+  args: optionGroupsData,
+  parameters: {
+    chromatic: {
+      disableSnapshots: true,
+    },
   },
 };
