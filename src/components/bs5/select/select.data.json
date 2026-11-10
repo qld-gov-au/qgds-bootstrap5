@@ -10,5 +10,25 @@
   "optional-text": "optional",
   "hint-text": "Hint",
   "successMessageText": "Success message",
-  "errorMessageText": "Error message"
+  "errorMessageText": "Error message",
+  "options": [
+    {
+      "label": "Option 1",
+      "value": 1,
+      "selected": false,
+      "disabled": false
+    },
+    {
+      "label": "Option 2",
+      "value": 2,
+      "selected": false,
+      "disabled": false
+    },
+    {
+      "label": "Option 3",
+      "value": 3,
+      "selected": false,
+      "disabled": false
+    }
+  ]
 }

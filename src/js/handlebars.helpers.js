@@ -307,6 +307,26 @@ export default function handlebarsHelpers(handlebars) {
       )
       .replace(/\s+/g, ""); // Remove all spaces
   });
+
+  /**
+   * Check whether any Object within an Array has the named key
+   */
+  handlebars.registerHelper("anyObjectHasKey", function (array, key, value) {
+    if (!Array.isArray(array)) return false;
+    return array.some(
+      (item) => item && Object.hasOwn(item, [key]) && !!item[key],
+    );
+  });
+
+  /**
+   * Check whether any Object within an Array has a key with the specified value
+   */
+  handlebars.registerHelper("anyObjectHasValue", function (array, key, value) {
+    if (!Array.isArray(array)) return false;
+    return array.some(
+      (item) => item && Object.hasOwn(item, [key]) && item[key] === value,
+    );
+  });
 }
 
 if (typeof Handlebars !== "undefined") {
