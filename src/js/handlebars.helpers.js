@@ -79,6 +79,12 @@ export default function handlebarsHelpers(handlebars) {
     return cond(v1, operator, v2);
   });
 
+  // Utility helper - true only for an array with at least one item
+  // example: {{#if (hasItems breadcrumbs)}} ... {{/if}}
+  handlebars.registerHelper("hasItems", (value) => {
+    return Array.isArray(value) && value.length > 0;
+  });
+
   // isType - Checks is expected type
   handlebars.registerHelper("isType", function (value, expected, options) {
     if (value === expected) {
@@ -87,6 +93,7 @@ export default function handlebarsHelpers(handlebars) {
       return options.inverse(this); // Render the else block if present
     }
   });
+
   // ifAny - {{{#ifAny variable1 variable2 variable3 variable4 etc}}, if any set then return true
   handlebars.registerHelper("ifAny", function (...args) {
     const options = args.pop(); // The last argument is the options object

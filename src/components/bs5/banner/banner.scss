@@ -547,6 +547,18 @@
     }
   }
 
+  /* Handle missing or null breadcrumbs edge case */
+  &:not(:has(.banner-breadcrumbs nav)) {
+    --qld-banner-padding-top: 2rem;
+
+    .banner-breadcrumbs {
+      display: none;
+    }
+    .banner-title-wrap {
+      margin-top: 0;
+    }
+  }
+
   .banner-extra {
     margin: 1rem 0 0 0;
   }

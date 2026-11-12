@@ -71,7 +71,7 @@ export default {
   title: "3. Components/Banners",
   render: (args) => {
     //Adds breadcrumbs to all banner stories, if it isn't already defined or false
-    args.breadcrumbs = args.breadcrumbs || breadcrumbdata["default"];
+    args.breadcrumbs = args.breadcrumbs ?? breadcrumbdata["default"];
     return new Banner(args).html;
   },
 
@@ -491,5 +491,20 @@ export const BannerAdvancedBlockTitle = {
       options: ["none", "with-texture", "with-bg-image", "with-hero-image"],
     },
     subtitle: { table: { disable: false } },
+  },
+};
+
+// Re-use basic banner without breadcrumbs
+export const BannerBasicNoBreadcrumbs = {
+  name: "Banner Basic (No Breadcrumbs)",
+  args: {
+    ...defaultdata,
+    variantClass: "dark",
+    bannerType: "banner-basic",
+    title: "Heading 1",
+    backgroundType: "with-texture",
+    abstract:
+      "Renew your licence at a customer service centre, government office or police station.",
+    breadcrumbs: false,
   },
 };
