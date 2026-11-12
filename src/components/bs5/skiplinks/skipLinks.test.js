@@ -1,5 +1,7 @@
 import { expect, describe, test } from "vitest";
 import { JSDOM, VirtualConsole } from "jsdom";
+import Handlebars from "handlebars";
+import handlebarsHelpers from "../../../js/handlebars.helpers.js";
 import { SkipLinks } from "./SkipLinks.js";
 import defaultData from "./skipLinks.data.json";
 import fs from "fs";
@@ -24,6 +26,9 @@ const qldBootstrapJsFile = fs.readFileSync(
   `${__dirname}/../../../../dist/assets/js/qld.bootstrap.min.js`,
   "utf-8",
 );
+
+// The template uses the ifCond helper
+handlebarsHelpers(Handlebars);
 
 describe("Skip Links", () => {
   let skipLinks;

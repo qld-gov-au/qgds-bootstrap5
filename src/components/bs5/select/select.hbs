@@ -27,8 +27,18 @@
 
 <select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
     {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
-    <option selected value="">{{placeholder}}</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
+    {{#if placeholder}}<option {{#unless (anyObjectHasValue options "selected" true)}}selected{{/unless}} value="">{{placeholder}}</option>{{/if}}
+
+    {{#*inline "options"}}
+    {{#each options}}
+        <option {{#if this.selected}}selected{{/if}} {{#if this.disabled}}disabled{{/if}} value="{{this.value}}">{{isdefined this.label this.value}}</option>
+    {{/each}}
+    {{/inline}}
+    
+    {{#each optionGroups}}
+    <optgroup label="{{this.groupLabel}}">
+        {{>options options=this.options}}
+    </optgroup>
+    {{/each}}
+    {{>options options=this.options}}
 </select>
