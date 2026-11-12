@@ -3,7 +3,6 @@ import { ContentPageWithSideNavigation } from "./ContentPageWithSideNavigation.j
 import { ContentPageWithForm } from "./ContentPageWithForm.js";
 
 //Data
-import masterbrand_variant from "../header/header.variant.masterBrand.data.json";
 import menu_state from "../navbar/navbar.data.json";
 import globalAlertData from "../globalAlert/globalAlert.data.json";
 import tableData from "../table/table.data.json";
@@ -20,13 +19,10 @@ import imageData from "../image/image.data.json";
 import videoData from "../video/video.data.json";
 import textboxData from "../textbox/textbox.data.json";
 import textareaData from "../textarea/textarea.data.json";
-import searchData from "../searchInput/searchInput.data.json";
 import selectData from "../select/select.data.json";
 import buttonData from "../button/button.data.json";
-import buttondata from "../button/button.data.json";
 import accordionData from "../accordion/accordion.data.json";
-
-import { SearchInput } from "../searchInput/SearchInput.js";
+import { MasterBrand as HeaderMasterBrand } from "../header/header.stories.js";
 
 const sideNavData = {
   navtitle: "Template",
@@ -59,8 +55,7 @@ const defaultData = {
   cdn: ".", //for storybook it's ., for normal usage "PROD"
   title: "title goes here",
   header: {
-    ...masterbrand_variant,
-    searchInput: new SearchInput(searchData).html,
+    ...HeaderMasterBrand.args,
   },
   navbar: menu_state,
   table: tableData,
@@ -158,11 +153,11 @@ export const Home = {
       callToAction: "buttons",
       buttons: [
         {
-          ...buttondata,
+          ...buttonData,
           iconClass: false,
         },
         {
-          ...buttondata,
+          ...buttonData,
           classes: ["btn-secondary"],
           variantClass: "btn-secondary",
         },

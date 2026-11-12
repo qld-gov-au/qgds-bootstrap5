@@ -61,9 +61,8 @@
       ]
     }
   ],
-  "searchDelay": 300,
   "form": {
-    "action": "https://uat.forgov.qld.gov.au/search",
+    "action": "https://search.qld.gov.au/search",
     "method": "GET"
   },
   "searchParams": {
@@ -72,6 +71,7 @@
     "numranks": "10",
     "tiers": "off"
   },
+  "searchDelay": 300,
   "useDefaultSearchHandler": true,
   "autocompleteEndpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5",
   "searchResultsEndpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld"
