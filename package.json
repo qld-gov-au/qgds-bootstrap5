@@ -78,6 +78,7 @@
     "esbuild-sass-plugin": "3.7.0",
     "eslint": "10.14.0",
     "eslint-plugin-json": "^5.0.0",
+    "eslint-plugin-mdx": "^3.9.1",
     "eslint-plugin-storybook": "^10.1.10",
     "globals": "17.14.0",
     "handlebars": "4.7.10",

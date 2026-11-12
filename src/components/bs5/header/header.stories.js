@@ -1,13 +1,12 @@
 /** @import {Meta, StoryObj} from "@storybook/html-vite" */
 import { Header, argTypes } from "./Header.js";
 import { Navbar } from "../navbar/Navbar.js";
-import { SearchInput } from "../searchInput/SearchInput.js";
 
 import metadata from "./metadata.json";
 
 // Mock data
 import menu_state from "../navbar/navbar.data.json";
-import searchData from "../searchInput/searchInput.data.json";
+import searchInputData from "../searchInput/searchInput.data.json";
 
 import masterbrand_variant from "./header.variant.masterBrand.data.json";
 import subbrand_variant from "./header.variant.subBrand.data.json";
@@ -15,8 +14,6 @@ import cobrand_variant from "./header.variant.coBrand.data.json";
 import endorsed_variant from "./header.variant.endorsed.data.json";
 import standalone_variant from "./header.variant.standAlone.data.json";
 
-import { waitFor } from "../../../js/testingutils.js";
-import { expect } from "storybook/test";
 /**
  * #### Regarding the "Delivering for Queensland" logo.
  *
@@ -33,24 +30,25 @@ export default {
   title: "2. Layout/Header",
   render: (args) => {
     return `
-        ${new Header({ ...args, searchInput: new SearchInput(searchData).html }).html}
+        ${new Header(args).html}
         ${new Navbar(menu_state).html}
         `;
   },
-  argTypes,
+  argTypes: {
+    ...argTypes,
+    searchInputData: {
+      table: {
+        control: "object",
+        category: "Search input",
+        readonly: true,
+      },
+    },
+  },
   parameters: {
     layout: "fullscreen",
     docs: {
       controls: {
-        exclude: [
-          "navigation",
-          "preHeader.globalLink.url",
-          "mainContent.url",
-          "assets.siteSearch.value",
-          "assets.siteSearch.placeholder",
-          "assets.siteSearch.label",
-          "assets.siteSearch.formAction.url",
-        ],
+        exclude: ["navigation", "preHeader.globalLink.url", "mainContent.url"],
       },
       story: { height: "400px" },
     },
@@ -69,6 +67,7 @@ export default {
 export const MasterBrand = {
   args: {
     ...masterbrand_variant,
+    searchInputData: searchInputData,
   },
   decorators: [
     (Story) => {
@@ -82,6 +81,7 @@ export const MasterBrand = {
 export const SubBrand = {
   args: {
     ...subbrand_variant,
+    searchInputData: searchInputData,
   },
   decorators: [
     (Story) => {
@@ -96,6 +96,7 @@ export const SubBrand = {
 export const CoBrand = {
   args: {
     ...cobrand_variant,
+    searchInputData: searchInputData,
   },
   decorators: [
     (Story) => {
@@ -110,6 +111,7 @@ export const CoBrand = {
 export const EndorsedBrand = {
   args: {
     ...endorsed_variant,
+    searchInputData: searchInputData,
   },
   decorators: [
     (Story) => {
@@ -124,6 +126,7 @@ export const EndorsedBrand = {
 export const StandaloneBrand = {
   args: {
     ...standalone_variant,
+    searchInputData: searchInputData,
   },
   decorators: [
     (Story) => {

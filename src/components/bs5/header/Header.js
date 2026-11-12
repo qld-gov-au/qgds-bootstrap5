@@ -11,6 +11,11 @@ export class Header {
 }
 
 export const argTypes = {
+  preHeader: {
+    table: {
+      disable: true,
+    },
+  },
   ["preHeader.palette"]: {
     options: ["dark", "default"],
     control: "radio",
@@ -19,8 +24,17 @@ export const argTypes = {
   ["preHeader.globalLink.text"]: {
     table: { category: "Pre header" },
   },
-  ["preHeader.actions"]: {
+  ["preHeader.globalLink.url"]: {
     table: { category: "Pre header" },
+  },
+  ["preHeader.actions"]: {
+    control: "object",
+    table: { category: "Pre header", readonly: true },
+  },
+  mainContent: {
+    table: {
+      disable: true,
+    },
   },
   ["mainContent.palette"]: {
     options: ["dark", "default", "dark-alt"],
@@ -28,9 +42,11 @@ export const argTypes = {
     table: { category: "Main content" },
   },
   ["mainContent.siteTitle"]: {
+    control: "text",
     table: { category: "Main content" },
   },
   ["mainContent.subline"]: {
+    control: "text",
     table: { category: "Main content" },
   },
 };

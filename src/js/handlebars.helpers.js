@@ -309,9 +309,16 @@ export default function handlebarsHelpers(handlebars) {
   });
 
   /**
+   * Serialize a complex object for use in a data-* attribute
+   */
+  handlebars.registerHelper("stringify", function (context) {
+    return JSON.stringify(context);
+  });
+
+  /**
    * Check whether any Object within an Array has the named key
    */
-  handlebars.registerHelper("anyObjectHasKey", function (array, key, value) {
+  handlebars.registerHelper("anyObjectHasKey", function (array, key) {
     if (!Array.isArray(array)) return false;
     return array.some(
       (item) => item && Object.hasOwn(item, [key]) && !!item[key],
