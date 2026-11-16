@@ -74,7 +74,6 @@ Include additional search parameters in the request by configuring a `searchPara
   dark={true}
   code={`
 {
-  "buttonType": "submit",
   "form": {
     "action": "https://uat.forgov.qld.gov.au/search",
     "method": "GET"
@@ -104,11 +103,12 @@ The Search input is able to display autocomplete and search results in a dropdow
 
 #### SuggestionGroup
 
-| Parameter | Type                                 | Description                                                                                                     |
-| --------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| \`label\` | \`string\`                           | The title of group, eg "Popular Services"                                                                       |
-| \`items\` | \`Suggestion[]\`                     | An array of Suggestion items. ( See below )                                                                     |
-| \`link\`  | \`{ label: string , href: string }\` | Represents the SuggestionGroup's "View more" link, rendered as the last item in list of suggestions. (optional) |
+| Parameter         | Type             | Description                                                                          |
+| ----------------- | ---------------- | ------------------------------------------------------------------------------------ |
+| \`groupLabel\`    | \`string\`       | The title of group, eg "Popular Services"                                            |
+| \`items\`         | \`Suggestion[]\` | An array of Suggestion items. ( See below )                                          |
+| \`viewMoreLabel\` | \`string\`       | "View more" link label, rendered as the last item in list of suggestions. (optional) |
+| \`viewMoreHref\`  | \`string\`       | "View more" link href. (optional)                                                    |
 
 #### Suggestion
 
@@ -136,12 +136,9 @@ It may be a SuggestionGroup or an Array of SuggestionGroups:
   // A single SuggestionGroup
 {
     "initialSuggestions": {
-      "label": "Popular", // The group heading
-      "link": {
-        // The "View more" link to display underneath Suggestions items
-        "label": "View more",
-        "href": "/popular"
-      },
+      "groupLabel": "Popular", // The group heading
+      "viewMoreLabel": "View more",
+      "viewMoreHref": "/popular"
       "items": [
         // Suggestions items represent pre-set search results
         {
@@ -168,20 +165,16 @@ It may be a SuggestionGroup or an Array of SuggestionGroups:
     "initialSuggestions": [
       {
         "label": "Popular", // The group heading
-        "link": {
-          "label": "View more",
-          "href": "/popular"
-        },
+        "viewMoreLabel": "View more",
+        "viewMoreHref": "/popular"
         "items": [
           // ... etc
         ]
       },
       {
         "label": "Featured",
-        "link": {
-          "label": "More featured results",
-          "href": "/featured"
-        },
+        "viewMoreLabel": "More featured results",
+        "viewMoreHref": "/featured",
         "items": [
           // ... etc
         ]
@@ -190,11 +183,13 @@ It may be a SuggestionGroup or an Array of SuggestionGroups:
 }`}
 />
 
-When providing initialSuggestions, you should also provide the method to update suggestions as the user types, either by handling `qld-search` yourself or using the default search handler.
+When providing initialSuggestions, you should also provide the method to update suggestions as the user types, either by handling `qld-search-input` yourself or using the dynamic suggestions default handler.
 
-### Default search handler
+### Dynamic Suggestions default handler
 
-To show dynamic autocomplete and search results, many qld.gov.au websites will want to use the default search suggestions handler which uses the Funnelback API. Set `useDefaultSearchHandler` to true and configure the `autocompleteEndpoint` and `searchResultsEndpoint`. Omit either endpoint parameter to disable their respective feature.
+To show dynamic autocomplete and search results, many qld.gov.au websites will want to use the default search suggestions
+handler based on the Funnelback API. Set `dynamicSuggestions.useDefaultHandler` to true and further configure the `dynamicSuggestions` object.
+Omit either `autocomplete` or `searchResults` keys to disable their respective features.
 The `searchDelay` parameter is used to limit the rate at which dynamic suggestions are requested (in milliseconds).
 
 > Note: this behaviour was previously hard-coded and is now opt in.
@@ -204,10 +199,21 @@ The `searchDelay` parameter is used to limit the rate at which dynamic suggestio
   language="json"
   code={`
 { 
-  "useDefaultSearchHandler": true,
-  "autocompleteEndpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5", 
-  "searchResultsEndpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld",
-  "searchDelay": 300,
+    "searchDelay": 300,
+    "dynamicSuggestions": {
+      "useDefaultHandler": true,
+      "autocomplete": {
+        "endpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5",
+        "itemLimit": 4
+      },
+      "searchResults": {
+        "endpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld",
+        "groupLabel": "Related services",
+        "viewMoreHref": "https://www.qld.gov.au/services",
+        "viewMoreLabel": "View more",
+        "itemLimit": 4
+      }
+    }
 }`}
 />
 
@@ -215,22 +221,20 @@ The `searchDelay` parameter is used to limit the rate at which dynamic suggestio
 
 ## Custom search
 
-### `qld-search` event
+### `qld-search-input` event
 
-The Search input fires a custom `qld-search` event with the search query and any custom search params as its `detail` payload.
-`qld-search` fires when:
+The Search input fires a custom `qld-search-input` event with the search query and any custom search params as its `detail` payload.
+`qld-search-input` fires when:
 
 - User types into the search field, with a delay controlled by the `searchDelay` parameter.
 - User clears the input field.
-- The search button is clicked.
-- An autocomplete suggestion is clicked.
 
 <Markdown>
 {`
 
 | Property       | Type                | Value                       | Description                                                       |
 | :------------- | :------------------ | :-------------------------- | :---------------------------------------------------------------- |
-| \`type\`       | \`string\`          | "qld-search"                | The event name                                                    |
+| \`type\`       | \`string\`          | "qld-search-input"          | The event name                                                    |
 | \`bubbles\`    | \`boolean\`         | true                        | The event bubbles up through the DOM                              |
 | \`cancelable\` | \`boolean\`         | true                        | event.preventDefault() can be used to cancel defaultSearchHandler |
 | \`detail\`     | \`QLDSearchDetail\` | See table below for details |                                                                   |
@@ -246,11 +250,11 @@ The Search input fires a custom `qld-search` event with the search query and any
 
 </Markdown>
 
-> Open the browser console and interact with any example on this page to see the `qld-search` event logged.
+> Open the browser console and interact with any example on this page to see the `qld-search-input` event logged.
 
 ### Custom search suggestions
 
-Listen for the component's `qld-search` custom event, perform any data fetching tasks and update the component's `dataset.autocomplete` and `dataset.suggestions` properties. The component will react accordingly.
+Listen for the component's `qld-search-input` custom event, perform any data fetching tasks and update the component's `dataset.autocomplete` and `dataset.suggestions` properties. The component will react accordingly.
 
 <Markdown>
 {`
@@ -271,61 +275,55 @@ A full example is below:
   dark={true}
   code={`// json
 {
-  "customClass": "",
-  "inputID": "search",
-  "inputName": "search",
-  "buttonID": "search-button",
-  "buttonType": "submit",
-  "buttonLabel": "Use the force",
-  "ariaLabel": "Search website",
-  "ariaLabelContainer": "",
-  "placeholder": "Search a galaxy far, far away",
-  "searchDelay": 300,
-  "searchParams": {
-    "format": "json"
-  },
-  "useDefaultSearchHandler": false,
-  "autocompleteEndpoint": "https://swapi.dev/api/people/?search=",
-  "searchResultsEndpoint": "https://swapi.dev/api/starships/?search=",
-  "form": {
-    "action": "https://swapi.dev/api/starships/",
-    "method": "GET"
-  }
+    "customClass": "",
+    "inputID": "search",
+    "inputName": "search",
+    "buttonID": "search-button",
+    "buttonType": "submit",
+    "buttonLabel": "Use the force",
+    "ariaLabel": "Search website",
+    "ariaLabelContainer": "",
+    "placeholder": "Search a galaxy far, far away",
+    "searchDelay": 300,
+    "searchParams": {
+      "format": "json"
+    },
+    "form": {
+      "action": "https://swapi.dev/api/starships/",
+      "method": "GET",
+      "target": "_blank"
+    }
 }
 `}
 />
 
-<Source language="jsx" dark={true} code={`// js
+{/* prettier-ignore-start */}
+
+<Source language="typescript" dark={true} code={`// js
 const customSearchHandler = (e) => {
-  // The \`qld-search\` event is still fired even when the value is cleared.
+  // The \`qld-search-input\` event is still fired even when the value is cleared.
   // The component will automatically fall back to initialSuggestions state and clear the autocomplete list.
   // In this case there is nothing to do.
   if (e.detail.query === "") return;
   const searchComponent = e.target;
-  // autocompleteEndpoint and searchResultsEndpoint are provided as configurable dataset props on the component.
-  // There is no requirement to use them at all, any custom handler may simply use hard coded urls instead.
-  const autocompleteEndpoint = searchComponent.dataset.autocompleteEndpoint;
-  const searchResultsEndpoint = searchComponent.dataset.searchResultsEndpoint;
+  const autocompleteEndpoint = "https://swapi.dev/api/people/?search=";
+  const searchResultsEndpoint = "https://swapi.dev/api/starships/?search=";
   
-  if (autocompleteEndpoint) {
-    fetch(autocompleteEndpoint + encodeURIComponent(e.detail.query))
-      .then((response) => {
-        if (!response.ok) throw new Error("Network response was not ok");
-        return response.json();
-      })
-      .then((json) => {
-        const autocomplete = json.results.map((item) => item.name);
-        searchComponent.dataset.autocomplete = autocomplete;
-      })
-      .catch((e) => {
-        console.error(e);
-      });
-  }
-  if (searchResultsEndpoint) {
-    fetch(searchResultsEndpoint + encodeURIComponent(e.detail.query))
-      .then((response) => {
-        if (!response.ok) throw new Error("Network response was not ok");
-        return response.json();
+  fetch(autocompleteEndpoint + encodeURIComponent(e.detail.query))
+    .then((response) => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
+    }).then((json) => {
+      const autocomplete = json.results.map((item) => item.name);
+      searchComponent.dataset.autocomplete = autocomplete;
+    }).catch((e) => {
+      console.error(e); 
+    });
+
+  fetch(searchResultsEndpoint + encodeURIComponent(e.detail.query))
+    .then((response) => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
     })
     .then((json) => {
       const items = json.results;
@@ -333,18 +331,15 @@ const customSearchHandler = (e) => {
       if (items && items.length > 0) {
         // Build your suggestions group object
         const suggestions = {
-          label: "Starships",
-          link: {
-            label: "View more starships",
-            href: "https://swapi.dev/api/starships",
-          },
+          groupLabel: "Starships",
+          viewMoreLabel: "View more starships",
+          viewMoreHref: "https://swapi.dev/api/starships",
           items: items.slice(0, 4).map((item) => ({
             label: item.model,
             href: item.url,
           })),
         };
 
-        // The suggestions object must be stringified to be compatible with HTML dataset property
         searchComponent.dataset.suggestions = JSON.stringify(suggestions);
       } else {
         searchComponent.dataset.suggestions = "";
@@ -353,15 +348,16 @@ const customSearchHandler = (e) => {
     .catch((e) => {
       console.error(e);
     });
-
-}
 };
 
-// Listen for \`qld-search\` event
+// Listen for \`qld-search-input\` event
 const searchComponent = document.querySelector(".qld-search-input");
-searchComponent.addEventListener("qld-search", customSearchHandler);
+searchComponent.addEventListener("qld-search-input", customSearchHandler);
+
 `}
 />
+
+{/* prettier-ignore-end */}
 
 <Canvas of={Stories.CustomSearchHandler} story={{ height: "360px" }} />
 

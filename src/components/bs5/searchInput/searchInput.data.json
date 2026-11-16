@@ -3,19 +3,16 @@
   "inputID": "search",
   "inputName": "query",
   "containerID": "",
-  "buttonID": "search-button",
-  "buttonType": "submit",
+  "buttonType": "button",
   "buttonLabel": "Search",
   "ariaLabel": "Search website",
   "ariaLabelContainer": "",
   "placeholder": "",
   "initialSuggestions": [
     {
-      "label": "Popular",
-      "link": {
-        "label": "View more",
-        "href": "/queenslanders"
-      },
+      "groupLabel": "Popular",
+      "viewMoreLabel": "View more",
+      "viewMoreHref": "/queenslanders",
       "items": [
         {
           "label": "Apply for leave now",
@@ -37,10 +34,8 @@
     },
     {
       "label": "Featured",
-      "link": {
-        "label": "Find out more",
-        "href": "/queenslanders"
-      },
+      "viewMoreLabel": "Find out more",
+      "viewMoreHref": "/queenslanders",
       "items": [
         {
           "label": "Search for directives, policies, circulars, and guidelines",
@@ -63,7 +58,8 @@
   ],
   "form": {
     "action": "https://search.qld.gov.au/search",
-    "method": "GET"
+    "method": "GET",
+    "target": ""
   },
   "searchParams": {
     "collection": "ssqld~sp-search",
@@ -72,7 +68,18 @@
     "tiers": "off"
   },
   "searchDelay": 300,
-  "useDefaultSearchHandler": true,
-  "autocompleteEndpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5",
-  "searchResultsEndpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld"
+  "dynamicSuggestions": {
+    "useDefaultHandler": true,
+    "autocomplete": {
+      "endpoint": "https://search.qld.gov.au/s/suggest.json?collection=ssqld~sp-search&profile=qld&fmt=json&alpha=0.5",
+      "itemLimit": 4
+    },
+    "searchResults": {
+      "endpoint": "https://search.qld.gov.au/s/search.json?collection=ssqld~sp-search&profile=qld",
+      "groupLabel": "Related services",
+      "viewMoreHref": "https://www.qld.gov.au/services",
+      "viewMoreLabel": "View more",
+      "itemLimit": 4
+    }
+  }
 }

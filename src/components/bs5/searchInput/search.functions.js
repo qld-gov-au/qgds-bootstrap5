@@ -9,9 +9,10 @@ import { debounce } from "../../../js/utils";
 
 /**
  * @typedef {Object} SuggestionGroup
- * @property {string} [label]
+ * @property {string} [groupLabel]
  * @property {Suggestion[]} items
- * @property {{label?: string, href: string}} [link]
+ * @property {string} [viewMoreLabel]
+ * @property {string} [viewMoreHref]
  */
 
 /**
@@ -28,7 +29,7 @@ import { debounce } from "../../../js/utils";
 
 /**
  * @typedef {CustomEvent<QLDSearchDetail>} QLDSearchEvent
- * @property {"qld-search"} type
+ * @property {"qld-search-input"} type
  * @property {HTMLElement} target
  */
 
@@ -89,6 +90,15 @@ function initSearch(component) {
     initialSuggestions = [];
   }
 
+  let dynamicSuggestionsConfig;
+  try {
+    dynamicSuggestionsConfig = JSON.parse(
+      component.dataset.dynamicSuggestions || "{}",
+    );
+  } catch {
+    dynamicSuggestionsConfig = {};
+  }
+
   const observer = new MutationObserver((mutationsList, _observer) => {
     // Watch for changes to autocomplete and suggestions data attributes
 
@@ -112,8 +122,8 @@ function initSearch(component) {
 
   /**
    *
-   * Fire a custom "qld-search" event which includes the searchParams in the event.detail
-   * This is triggered by search button click, debounced input event, autocomplete click.
+   * Fire a custom "qld-search-input" event which includes the searchParams in the event.detail
+   * This is triggered by a debounced input event, and search button click only if not attached to a form (ie does not generate a submit event).
    */
   const search = () => {
     const value = inputElement.value.trim();
@@ -124,7 +134,7 @@ function initSearch(component) {
       component.dataset.autocomplete = "[]";
     }
 
-    const event = new CustomEvent("qld-search", {
+    const event = new CustomEvent("qld-search-input", {
       bubbles: true,
       cancelable: true,
       detail: {
@@ -139,7 +149,7 @@ function initSearch(component) {
     if (
       shouldContinue &&
       value &&
-      component.dataset.useDefaultSearchHandler === "true"
+      dynamicSuggestionsConfig?.useDefaultHandler === "true"
     ) {
       handleDefaultSearch(event);
     }
@@ -223,16 +233,20 @@ function initSearch(component) {
     if (item?.matches(".is-autocomplete")) {
       e.preventDefault();
       inputElement.value = item.textContent.replace(/\s+/g, " ").trim();
+      // Just click the button so we're not duplicating logic.
       buttonElement?.click();
     }
   };
 
   /**
-   * Fire a search event when button is clicked
+   * If the button has a form attached, it will trigger a submit event and navigate to a searchpage.
+   * In this case a qld-search-input event is not required, native behaviour takes over.
+   * If it does not, then it should fire a qld-search-input event. An autocomplete click will in turn trigger the search button.
    * @param {MouseEvent} e
    */
   const handleButtonClick = (e) => {
-    search();
+    const button = /** @type HTMLButtonElement */ (e.currentTarget);
+    if (!button.form) search();
   };
 
   component.addEventListener("focusin", handleFocusIn);
@@ -379,10 +393,10 @@ const renderSuggestions = (suggestions) => {
   /** @param {SuggestionGroup} group */
   const renderGroup = (group) => `
     <div class="suggestions-group">
-      ${group.label ? `<strong class="suggestions-group-label d-block">${group.label}</strong>` : ""}
+      ${group.groupLabel ? `<strong class="suggestions-group-label d-block">${group.groupLabel}</strong>` : ""}
       <ul>
         ${group.items.map(renderItem).join("")}
-        ${group.link ? `<li><a tabindex="0" href="${escapeHtmlAttr(group.link.href)}" class="suggestions-item is-view-more">${group.link.label || "View more"}</a></li>` : ""}
+        ${group.viewMoreHref ? `<li><a tabindex="0" href="${escapeHtmlAttr(group.viewMoreHref)}" class="suggestions-item is-view-more">${group.viewMoreLabel || "View more"}</a></li>` : ""}
       </ul>
     </div>`;
 
@@ -408,11 +422,11 @@ const renderSuggestions = (suggestions) => {
 };
 
 /**
- * A funnelback specific qld-search event handler. Listen out for the search event, perform some action then update "dataset.suggestions" or "dataset.autocomplete". The component will react to the update accordingly.
+ * A funnelback specific qld-search-input event handler. Listen out for the search event, perform some action then update "dataset.suggestions" or "dataset.autocomplete". The component will react to the update accordingly.
  * @param {QLDSearchEvent} e
  */
 async function handleDefaultSearch(e) {
-  // The `qld-search` event is still fired even when the value is cleared.
+  // The `qld-search-input` event is still fired even when the value is cleared.
   // The component will automatically fall back to initialSuggestions state and clear autocomplete list.
   // In this case there is nothing to do.
   if (e.detail.query === "") {
@@ -422,8 +436,13 @@ async function handleDefaultSearch(e) {
     if (!searchComponent) return;
     // autocompleteEndpoint and searchResultsEndpoint are provided as configurable dataset props on the component.
     // There is no requirement to use them at all, any custom handler may simply use hard coded urls instead.
-    const autocompleteEndpoint = searchComponent.dataset.autocompleteEndpoint;
-    const resultsEndpoint = searchComponent.dataset.searchResultsEndpoint;
+    const dynamicSuggestionsConfig = JSON.parse(
+      searchComponent.dataset.dynamicSuggestions || "{}",
+    );
+    const autocompleteEndpoint =
+      dynamicSuggestionsConfig.autocomplete?.endpoint;
+    const searchResultsEndpoint =
+      dynamicSuggestionsConfig.searchResults?.endpoint;
 
     // Use .then chaining rather than await so both requests can run concurrently and update asyncronously.
     if (autocompleteEndpoint) {
@@ -432,24 +451,31 @@ async function handleDefaultSearch(e) {
       ).then((data) => {
         // update the autocomplete list
         if (Array.isArray(data)) {
-          searchComponent.dataset.autocomplete = JSON.stringify(data);
+          const itemLimit =
+            dynamicSuggestionsConfig.autocomplete?.itemLimit || 10;
+          searchComponent.dataset.autocomplete = JSON.stringify(
+            data.slice(0, itemLimit),
+          );
         }
       });
     }
 
-    if (resultsEndpoint) {
+    if (searchResultsEndpoint) {
       // Fetch related services from services API
       fetchData(
-        `${resultsEndpoint}&query=${encodeURIComponent(e.detail.query)}`,
+        `${searchResultsEndpoint}&query=${encodeURIComponent(e.detail.query)}`,
       ).then((/** @type any*/ results) => {
         const items = results.response?.resultPacket?.results;
 
         if (items && items.length > 0) {
-          // view more url should be the form endpoint plus searchParams
-          let viewMoreUrl;
-          if (e.target instanceof HTMLFormElement) {
-            viewMoreUrl = new URL(e.target.action, window.location.href);
-            const searchParams = new URLSearchParams(viewMoreUrl.searchParams); // in case the existing action href has params
+          // If view more URL is not defined, assume the form endpoint plus searchParams
+          let viewMoreHref;
+          if (dynamicSuggestionsConfig.searchResults?.viewMoreHref)
+            viewMoreHref = dynamicSuggestionsConfig.searchResults.viewMoreHref;
+          else if (e.target instanceof HTMLFormElement) {
+            // Second parameter is required in case form action is relative path eg "/search". A URL object is never relative.
+            viewMoreHref = new URL(e.target.action, window.location.href);
+            const searchParams = new URLSearchParams(viewMoreHref.searchParams); // in case the existing action href has params
             new FormData(e.target).forEach((value, key) => {
               searchParams.append(
                 key,
@@ -457,17 +483,23 @@ async function handleDefaultSearch(e) {
               );
             }); // add the form search params
 
-            viewMoreUrl.search = searchParams.toString();
+            viewMoreHref.search = searchParams.toString();
           }
 
+          const itemLimit =
+            dynamicSuggestionsConfig.searchResults.itemLimit || 4;
+
           // Build your suggestions object
+          /** @type Suggestions */
           const suggestions = {
-            label: "Related services",
-            link: {
-              label: "View more",
-              href: viewMoreUrl,
-            },
-            items: items.slice(0, 4).map((/** @type any */ item) => ({
+            groupLabel:
+              dynamicSuggestionsConfig.searchResults?.groupLabel ||
+              "Related services",
+            viewMoreHref,
+            viewMoreLabel:
+              dynamicSuggestionsConfig.searchResults?.viewMoreLabel ||
+              "View more",
+            items: items.slice(0, itemLimit).map((/** @type any */ item) => ({
               label: item.title,
               href: item.liveUrl,
             })),

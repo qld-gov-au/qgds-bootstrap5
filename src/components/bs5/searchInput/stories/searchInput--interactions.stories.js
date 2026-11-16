@@ -9,11 +9,10 @@ import { action } from "storybook/actions";
 
 /**@type Suggestions */
 const mockResults = {
-  label: "Related services",
-  link: {
-    label: "View more",
-    href: "https://uat.forgov.qld.gov.au/search?query=apply&collection=ssqld%7Esp-search&profile=qld&numranks=10&tiers=off",
-  },
+  groupLabel: "Related services",
+  viewMoreLabel: "View more",
+  viewMoreHref:
+    "https://uat.forgov.qld.gov.au/search?query=apply&collection=ssqld%7Esp-search&profile=qld&numranks=10&tiers=off",
   items: [
     {
       label: "Apply for a blue card or exemption card - qld.gov.au",
@@ -71,12 +70,12 @@ export default {
       action(e.type, { depth: 2 })({ target: e.target });
     };
 
-    canvasElement.addEventListener("qld-search", handleSearch);
+    canvasElement.addEventListener("qld-search-input", handleSearch);
     canvasElement.addEventListener("submit", handleSubmit);
 
     // Clean up function runs when switching between stories.
     return () => {
-      canvasElement.removeEventListener("qld-search", handleSearch);
+      canvasElement.removeEventListener("qld-search-input", handleSearch);
       canvasElement.removeEventListener("submit", handleSubmit);
     };
   },
