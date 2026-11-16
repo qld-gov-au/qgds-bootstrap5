@@ -7,6 +7,11 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { waitForEventOn } from "../../../js/testingutils.js";
 
+import Handlebars from "handlebars";
+import handlebarsHelpers from "../../../js/handlebars.helpers.js";
+
+handlebarsHelpers(Handlebars);
+
 /**
  *
  * Test suite for the Breadcrumbs component.
