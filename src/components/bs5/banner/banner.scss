@@ -77,7 +77,7 @@
     }
   }
 
-  // Default padding and margins (mobile first)
+  // Default padding and margins (XS/SM mobile first)
   --#{$prefix}banner-padding-top: 1rem;
   --#{$prefix}banner-padding-bottom: 2rem;
 
@@ -85,6 +85,7 @@
   // &.banner-basic,
   // &.banner-advanced {}
 
+  // no-banner in this context means the banner contains only breadcrumbs and no title or abstract
   &.no-banner {
     --#{$prefix}banner-padding-top: 1rem;
     --#{$prefix}banner-padding-bottom: 1rem;
@@ -96,7 +97,7 @@
     --#{$prefix}banner-padding-top: 2rem;
     --#{$prefix}banner-padding-bottom: 2rem;
 
-    //No banner — top matches default banner so breadcrumb position is consistent across page types
+    // No banner — top matches default banner so breadcrumb position is consistent when switching pages
     &.no-banner {
       --#{$prefix}banner-padding-top: 2rem;
       --#{$prefix}banner-padding-bottom: 1.5rem;
@@ -117,6 +118,7 @@
     --#{$prefix}banner-padding-bottom: 3rem;
 
     &.no-banner {
+      // No banner — top matches default banner so breadcrumb position is consistent when switching pages
       --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 2rem;
     }
@@ -127,8 +129,8 @@
     }
 
     &.banner-advanced {
-      --#{$prefix}banner-padding-top: 4rem;
-      --#{$prefix}banner-padding-bottom: 4rem;
+      --#{$prefix}banner-padding-top: 3rem;
+      --#{$prefix}banner-padding-bottom: 3rem;
     }
   }
 
@@ -138,17 +140,16 @@
     --#{$prefix}banner-padding-bottom: 4rem;
 
     &.no-banner {
+      // No banner — top matches default banner so breadcrumb position is consistent when switching pages
       --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 2rem;
     }
 
-    &.banner-basic {
+    &.banner-basic,
+    &.banner-advanced {
       --#{$prefix}banner-padding-top: 3rem;
       --#{$prefix}banner-padding-bottom: 4rem;
     }
-
-    // Same as default banner
-    // &.banner-advanced {}
   }
 }
 
@@ -405,14 +406,6 @@
   .banner-content {
     padding-right: 1rem;
 
-    &:has(.banner-title-wrap) {
-      --#{$prefix}banner-padding-bottom: 4rem;
-    }
-
-    &:has(.banner-abstract) {
-      --#{$prefix}banner-padding-bottom: 3rem;
-    }
-
     @include media-breakpoint-down(md) {
       padding-right: 0;
     }
@@ -420,7 +413,7 @@
 
   .banner-title-wrap {
     display: block;
-    margin: 1.5rem 0 0 0;
+    margin: 0;
     font-size: $h1-font-size-mobile;
     line-height: $h1-line-height-mobile;
 
@@ -475,6 +468,17 @@
           -8px 0px 0 6px var(--qld-default-background),
           -12px 0px 0 6px var(--qld-light-accent),
           0px 4px 16px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  &:has(.banner-breadcrumbs) {
+    .banner-title-wrap {
+      margin-block-start: 1.5rem;
+
+      // Gap between .banner-breadcrumbs and .banner-title-wrap on medium viewports only
+      @include media-breakpoint-only(md) {
+        margin-block-start: 1.25rem;
       }
     }
   }
@@ -544,18 +548,6 @@
     // Re-scope focus color for breadcrumb vertical variant inside banners
     .breadcrumb .breadcrumb-vertical {
       --qld-focus-color: var(--qld-light-focus);
-    }
-  }
-
-  /* Handle missing or null breadcrumbs edge case */
-  &:not(:has(.banner-breadcrumbs nav)) {
-    --qld-banner-padding-top: 2rem;
-
-    .banner-breadcrumbs {
-      display: none;
-    }
-    .banner-title-wrap {
-      margin-top: 0;
     }
   }
 

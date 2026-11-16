@@ -121,7 +121,7 @@ export default {
 
   argTypes: {
     // Disable controls for these fields
-    breadcrumbs: { table: { disable: true } },
+    breadcrumbs: { table: { disable: false } },
     cards: { table: { disable: true } },
     buttons: { table: { disable: true } },
     subtitle: { table: { disable: true } },
@@ -278,7 +278,7 @@ export const BannerBasic = {
   args: {
     ...defaultdata,
     variantClass: "dark",
-    bannerType: "banner-basic ",
+    bannerType: "banner-basic",
     title: "Heading 1",
     subtitle: false,
     image: false,
@@ -505,6 +505,6 @@ export const BannerBasicNoBreadcrumbs = {
     backgroundType: "with-texture",
     abstract:
       "Renew your licence at a customer service centre, government office or police station.",
-    breadcrumbs: false,
+    breadcrumbs: [],
   },
 };
