@@ -229,6 +229,9 @@ The Search input fires a custom `qld-search-input` event with the search query a
 - User types into the search field, with a delay controlled by the `searchDelay` parameter.
 - User clears the input field.
 
+The `qld-search-input` should be used to perform dynamic updates based on the input's current value,
+for example filtering a list of cards or showing autocomplete suggestions. It is different to the standard `submit` event which is only fired from a form element once the submit button is clicked.
+
 <Markdown>
 {`
 

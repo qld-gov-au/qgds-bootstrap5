@@ -15,13 +15,10 @@
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
-
-    {{~#each searchParams}}
+    {{#each searchParams}}
     <input id="{{../inputID}}_{{@key}}" name="{{@key}}" value="{{this}}" type="hidden" />
-    {{/each~}}
-
+    {{/each}}
     <div class="suggestions default">
-        <div class="suggestions-inner">
-        </div>
+        <div class="suggestions-inner"></div>
     </div>
 </{{#if form}}form{{else}}div{{/if}}>
