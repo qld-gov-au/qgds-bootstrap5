@@ -149,7 +149,7 @@ function initSearch(component) {
     if (
       shouldContinue &&
       value &&
-      dynamicSuggestionsConfig?.useDefaultHandler === "true"
+      dynamicSuggestionsConfig?.useDefaultHandler === true
     ) {
       handleDefaultSearch(event);
     }
@@ -439,6 +439,8 @@ async function handleDefaultSearch(e) {
     const dynamicSuggestionsConfig = JSON.parse(
       searchComponent.dataset.dynamicSuggestions || "{}",
     );
+
+    console.log(dynamicSuggestionsConfig);
     const autocompleteEndpoint =
       dynamicSuggestionsConfig.autocomplete?.endpoint;
     const searchResultsEndpoint =
