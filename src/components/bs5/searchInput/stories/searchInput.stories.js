@@ -123,9 +123,6 @@ export const Default = {
   argTypes: {
     initialSuggestions: {
       control: false,
-      // table: {
-      //   disable: true,
-      // },
     },
   },
 };
@@ -173,14 +170,9 @@ export const WithForm = {
     new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
 };
 
+/** @type StoryObj */
 export const DefaultSearchHandler = {
   parameters: {
-    docs: {
-      description: {
-        story: `Description goes here.
-        `,
-      },
-    },
     chromatic: { disableSnapshot: true },
   },
   args: {
@@ -190,6 +182,7 @@ export const DefaultSearchHandler = {
     new SearchInput({ ...args, inputID: name.replace(/\s+/g, "") }).html,
 };
 
+/** @type StoryObj */
 export const CustomSearchHandler = {
   parameters: {
     chromatic: { disableSnapshot: true },

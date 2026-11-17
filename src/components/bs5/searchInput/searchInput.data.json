@@ -33,7 +33,7 @@
       ]
     },
     {
-      "label": "Featured",
+      "groupLabel": "Featured",
       "viewMoreLabel": "Find out more",
       "viewMoreHref": "/queenslanders",
       "items": [
