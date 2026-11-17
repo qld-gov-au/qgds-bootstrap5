@@ -79,12 +79,6 @@ export default function handlebarsHelpers(handlebars) {
     return cond(v1, operator, v2);
   });
 
-  // Utility helper - true only for an array with at least one item
-  // example: {{#if (hasItems breadcrumbs)}} ... {{/if}}
-  handlebars.registerHelper("hasItems", (value) => {
-    return Array.isArray(value) && value.length > 0;
-  });
-
   // isType - Checks is expected type
   handlebars.registerHelper("isType", function (value, expected, options) {
     if (value === expected) {
