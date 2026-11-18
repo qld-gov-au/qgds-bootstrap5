@@ -11,9 +11,10 @@
     >
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
-    <button class="btn btn-primary js-search-button" {{#if buttonID }}id="{{ buttonID }}"{{/if}} type="{{#if form}}submit{{else}}{{isdefined buttonType "button"}}{{/if}}">
+    <button class="btn btn-primary js-search-button" {{#if buttonID }}id="{{ buttonID }}"{{/if}} type="{{#if form}}submit{{else}}{{isdefined buttonType "button"}}{{/if}}" 
+        aria-label="{{ buttonLabel }}">
         <span class="btn-icon" aria-hidden="true"></span>
-        <span class="btn-label">{{ buttonLabel }}</span>
+        <span class="btn-label" aria-hidden="true">{{ buttonLabel }}</span>
     </button>
     {{#each searchParams}}
     <input id="{{../inputID}}_{{@key}}" name="{{@key}}" value="{{this}}" type="hidden" />
