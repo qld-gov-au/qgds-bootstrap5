@@ -124,15 +124,5 @@
       "src": "assets/img/endorsed.svg",
       "altText": ""
     }
-  },
-  "assets": {
-    "siteSearch": {
-      "value": "#",
-      "placeholder": "",
-      "label": "",
-      "formAction": {
-        "url": "https://www.forgov.qld.gov.au/search"
-      }
-    }
   }
 }

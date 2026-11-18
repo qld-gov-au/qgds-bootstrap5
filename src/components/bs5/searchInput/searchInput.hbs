@@ -1,47 +1,25 @@
 <!-- 
     QGDS Component: Search input 
 -->
-<div class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}}>
+<{{#if form}}form{{#if form.action}} action="{{form.action}}"{{/if}} method="{{isdefined form.method 'GET'}}" {{~#if form.target}} target="{{form.target}}" {{/if~}} {{~#ifCond form.target "===" "_blank"}} rel="noopener noreferrer" {{/ifCond~}} 
+    {{~else}}div {{/if~}} 
+    {{~#if containerID}} id="{{containerID}}" {{/if~}}
+    class="qld-search-input {{customClass}}" role="search" data-search-delay="{{isdefined searchDelay 300}}" 
+    {{~#if ariaLabelContainer}} aria-label="{{ ariaLabelContainer }}" {{/if~}} 
+    {{~#if initialSuggestions}} data-suggestions="{{stringify initialSuggestions}}" {{/if~}}
+    {{~#if dynamicSuggestions}} data-dynamic-suggestions="{{stringify dynamicSuggestions}}" {{/if~}}
+    >
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
-    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" >
+        aria-label="{{ ariaLabel }}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
+    <button class="btn btn-primary js-search-button" {{#if buttonID }}id="{{ buttonID }}"{{/if}} type="{{#if form}}submit{{else}}{{isdefined buttonType "button"}}{{/if}}" 
+        aria-label="{{ buttonLabel }}">
         <span class="btn-icon" aria-hidden="true"></span>
-        <span class="btn-label">{{ buttonLabel }}</span>
+        <span class="btn-label" aria-hidden="true">{{ buttonLabel }}</span>
     </button>
-    {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
-    
+    {{#each searchParams}}
+    <input id="{{../inputID}}_{{@key}}" name="{{@key}}" value="{{this}}" type="hidden" />
+    {{/each}}
     <div class="suggestions default">
-        {{#if hasDefaultSuggestions}}
-            <div class="default-suggestions">
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
-                    <ul>
-                        {{#each defaultSuggestions.popularServices}}
-                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
-                        {{/each}}
-                        {{#if defaultSuggestions.popularServicesLink}}
-                        <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
-                        {{/if}}
-                    </ul>
-                </div>
-                {{#if defaultSuggestions.categories}}
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
-                    <ul>
-                        {{#each defaultSuggestions.categories}}
-                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
-                        {{/each}}
-                        {{#if defaultSuggestions.categoriesLink}}
-                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
-                        {{/if}}
-                    </ul>
-                </div>
-                {{/if}}
-            </div>
-        {{/if}}
-        {{#if hasDynamicSuggestions}}
-            <div class="dynamic-suggestions" {{#if dynamicSuggestionsServiceLink.href}}data-view-more="{{dynamicSuggestionsServiceLink.href}}"{{/if}}></div>
-        {{/if}}
+        <div class="suggestions-inner"></div>
     </div>
-    {{/ifCond}}    
-</div>
+</{{#if form}}form{{else}}div{{/if}}>

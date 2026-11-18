@@ -2,6 +2,7 @@ import { defineConfig } from "eslint/config";
 import globals from "globals";
 import json from "@eslint/json";
 import storybookPlugin from "eslint-plugin-storybook"; // Storybook plugin
+import * as mdx from "eslint-plugin-mdx";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default defineConfig([
@@ -68,5 +69,9 @@ export default defineConfig([
     languageOptions: {
       sourceType: "script", // For CommonJS files
     },
+  },
+  {
+    files: ["**/*/.mdx"],
+    ...mdx.flat,
   },
 ]);

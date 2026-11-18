@@ -78,7 +78,7 @@
                 {{/if}}
 
                 <div class="qld-header-mobile-controls">
-                    {{#if assets.siteSearch.value}}
+                    {{#if searchInputData}}
                     <button id="qld-header-toggle-search-button" aria-controls="qld-header-search"
                         class="qld-header-mobile-button is-search-toggle" aria-expanded="false"
                         aria-label="Open search">Search</button>
@@ -122,15 +122,12 @@
                     {{/ifAny}}
                 </div>
 
-                {{#if assets.siteSearch.value}}
+                {{#if searchInputData}}
                 <div class="col-lg-4">
                     <div id="qld-header-search" class="qld-header-site-search is-closed">
-                        <form 
-                        class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
-                        action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
-                        >
-                          {{{ searchInput }}}
-                        </form>
+                        {{#>searchInput searchInputData}}
+                        Missing partial: searchInput
+                        {{/searchInput}}
                     </div>
                 </div>
                 {{/if}}
