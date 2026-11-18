@@ -1,0 +1,60 @@
+{
+  "id": "example-1",
+  "isDisabled": false,
+  "isRequired": true,
+  "isFilled": false,
+  "isValid": null,
+  "customClass": "",
+  "label-text": "Label",
+  "placeholder": "Please select",
+  "optional-text": "optional",
+  "hint-text": "Hint",
+  "successMessageText": "Success message",
+  "errorMessageText": "Error message",
+  "optionGroups": [
+    {
+      "groupLabel": "Group A",
+      "options": [
+        {
+          "label": "Option 1",
+          "value": 1,
+          "selected": false,
+          "disabled": false
+        },
+        {
+          "label": "Option 2",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "groupLabel": "Group B",
+      "options": [
+        {
+          "label": "Option 3",
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "options": [
+    {
+      "label": "Option 4",
+      "value": 4,
+      "selected": false,
+      "disabled": false
+    },
+    {
+      "label": "Option 5",
+      "value": 5,
+      "selected": false,
+      "disabled": false
+    },
+    {
+      "label": "Option 6",
+      "value": 6,
+      "selected": false,
+      "disabled": false
+    }
+  ]
+}
