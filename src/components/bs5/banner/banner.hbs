@@ -3,9 +3,11 @@
     <div class="container-fluid">
       <div class="banner-inner">
 
+        {{#if breadcrumbs.breadcrumbs}} 
         <div class="banner-breadcrumbs">
           {{> breadcrumbs breadcrumbs }}
         </div>
+        {{/if}}
 
         <div class="banner-content">
 

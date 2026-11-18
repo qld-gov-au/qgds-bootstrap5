@@ -153,8 +153,14 @@ export const Home = {
     title: "Full Width Landing Page",
     banner: {
       ...bannerData,
-      title: "Welcome to Queensland Government",
-      abstract: "Your gateway to government services and information.",
+      image: {
+        url: "assets/img/image-example-couple-beach-md.jpg",
+        classes: [""],
+        alt: "Alt text for the image",
+      },
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing sed",
+      abstract:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum purus at efficitur imperdiet. Maecenas placerat accumn nulla, vel semper enim. In turpis.",
       bannerType: "banner-advanced",
       backgroundType: "with-hero-image",
       ["image.classes"]: "align-grid",
