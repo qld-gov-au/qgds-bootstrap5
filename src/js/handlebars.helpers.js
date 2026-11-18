@@ -87,6 +87,7 @@ export default function handlebarsHelpers(handlebars) {
       return options.inverse(this); // Render the else block if present
     }
   });
+
   // ifAny - {{{#ifAny variable1 variable2 variable3 variable4 etc}}, if any set then return true
   handlebars.registerHelper("ifAny", function (...args) {
     const options = args.pop(); // The last argument is the options object
