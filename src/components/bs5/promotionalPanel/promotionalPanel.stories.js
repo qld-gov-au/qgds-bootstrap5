@@ -1,4 +1,3 @@
-// ComponentExample.stories.js
 /**
  * @file promotionalPanel.stories.js
  * @description Storybook configuration file for the Promotional Panel component.
@@ -22,17 +21,25 @@ export default {
       options: ["promo", "contained", "indent-text", "indent-img"],
     },
     variantClass: {
-      description: "The types of themes that this component supports",
+      description: "The types of colour palette that this component supports",
       control: "select",
-      options: ["light", "alt", "dark", "dark-alt"],
+      options: ["default", "light", "alt", "dark", "dark-alt"],
     },
     promoImage: {
       control: "text",
-      description: "The image to be displayed in the promotional panel.",
+      description:
+        "The image to be displayed in the promotional panel. Background image for 'Promo' type.",
       defaultValue: "./assets/img/banner-example-3-to-2.jpg",
     },
+    promoImageDescription: {
+      control: "text",
+      description:
+        "Alt text for the promotional image, used on these Promo types: 'Contained', 'Indent text', and 'Indent image'.",
+      defaultValue: "Promotional image description",
+    },
     contentAlignment: {
-      description: "Position of the content in the panel within this component",
+      description:
+        "Position of the content in the panel. Default to 'content-left'",
       control: "select",
       options: ["content-left", "content-right"],
     },
@@ -40,12 +47,18 @@ export default {
       control: "select",
       description:
         "Current list of usable icons available in the icon component.",
-      options: ["icon-dot-grid", "icon-phone", "icon-email", "icon-search"],
+      options: ["qld-icon-design", "qld-icon-share", "qld-icon-identity"],
     },
     title: {
       control: "text",
       description: "The title of the promotional panel.",
       defaultValue: "Title goes here and has a maximum of 65 character limit",
+    },
+    headingTag: {
+      name: "Heading Tag",
+      description: "Heading tag. Can be h2, h3, h4, h5 or h6.",
+      control: "select",
+      options: ["h2", "h3", "h4", "h5", "h6"],
     },
     abstract: {
       control: "text",
@@ -87,12 +100,12 @@ export default {
 };
 
 /**
- * Default Promotion Panel story
+ * Promotion Panel story with 'Default' colour palette
  */
-
 export const Default = {
   args: {
     ...defaultdata,
+    variantClass: "default",
   },
 };
 

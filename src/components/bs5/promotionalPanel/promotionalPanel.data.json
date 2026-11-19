@@ -1,18 +1,18 @@
 {
-  "type": "indent-text",
+  "type": "indent-img",
   "variantClass": "light",
-  "promoImage": "./assets/img/banner-example-3-to-2.jpg",
+  "promoImage": "./assets/img/image-example--beach-waves.jpg",
   "promoImageDescription": "I am a promotional image",
   "contentAlignment": "content-left",
-  "icon": "icon-dot-grid",
+  "icon": "qld-icon-design",
   "title": "Title goes here and has a maximum of 65 character limit",
+  "headingTag": "h2",
   "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis.",
   "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor, leo vulputate ut odio mattis. Vel suspendisse mi quisque consequat aliquet egestas.",
   "cta": {
     "items": [
       {
-        "url": "#",
-        "id": "https://www.wired.com",
+        "url": "https://www.qld.gov.au/",
         "value": "Label",
         "target": "_blank",
         "class": [{ "small": false }, { "view-all": false }]
