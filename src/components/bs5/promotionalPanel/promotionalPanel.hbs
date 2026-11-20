@@ -1,16 +1,26 @@
-<section class="qld-promo-panel {{#ifCond type '==' 'indent-text'}}indent{{/ifCond}} {{#ifCond type '==' 'indent-img'}}indent{{/ifCond}} {{type}}">
-    <div class="row {{#ifCond type '==' 'promo'}}bg-img{{else}}{{variantClass}}{{/ifCond}} {{contentAlignment}}" 
-        {{#ifCond type '==' 'promo'}}
-            style="background-image: url({{promoImage}});"
-        {{/ifCond}}>
+{{#*inline "promoBackgroundImage"~}}
+    {{#ifCond type '==' 'promo'}}
+        {{#if promoImage}}style="background-image: url('{{promoImage}}');"{{/if}}
+    {{/ifCond}}
+{{~/inline}}
+
+{{#*inline "nonPromoImageTag"~}}
+    {{#ifCond type '!=' 'promo'}}
+        {{#if promoImage}}
+        <img src="{{promoImage}}" alt="{{promoImageDescription}}">
+        {{/if}}
+    {{/ifCond}}
+{{~/inline}}
+
+{{! Promotional Panel component markup }}
+<section class="qld-promo-panel {{isdefined type 'contained'}} {{isdefined variantClass 'default'}} {{#ifCond contentAlignment '===' 'content-right'}}content-right{{else}}content-left{{/ifCond}} {{#ifCond type 'in' 'indent-text,indent-img'}}indent{{/ifCond}}">
+    <div class="promo-panel-container" {{> promoBackgroundImage}}>
+
         <div class="image-panel">
-            {{#ifCond type '!=' 'promo'}}
-            <img class="promo-panel-image" src="{{promoImage}}" alt="{{promoImageDescription}}">
-            {{else}}
-                <div class="promo-panel-image"></div>
-            {{/ifCond}}
+            {{> nonPromoImageTag}}
         </div>
-        <div class="content-panel {{variantClass}}">      
+
+        <div class="content-panel">
             {{#if icon}}
                 <div class="icon-container">
                     <div class="icon-body">
@@ -20,7 +30,7 @@
             {{/if}}
             <div class="main">
                 {{#if title}}
-                    <h2>{{~{title}~}}</h2>
+                    <{{isdefined headingTag 'h2'}} class="promo-title">{{~{title}~}}</{{isdefined headingTag 'h2'}}>
                 {{/if}}
                 {{#if abstract}}
                     <div class="promo-abstract">
@@ -32,10 +42,10 @@
                 {{/if}}
             </div>
             {{#if cta.items}}
-                <div class="cta-container">                            
-                    {{#each cta.items}}                        
-                        {{> callToAction label=value href=url target=target class=class arialabel=value id=id}}                        
-                    {{/each}}                            
+                <div class="cta-container">
+                    {{#each cta.items}}
+                        {{> callToAction label=value href=url target=target class=class arialabel=value id=id}}
+                    {{/each}}
                 </div>
             {{/if}}
             {{#if btn.items}}
