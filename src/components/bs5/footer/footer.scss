@@ -33,10 +33,6 @@
   --#{$prefix}footer-color-background: var(
     --#{$prefix}color-default-color-light-background-default
   );
-  --#{$prefix}footer-color-alt-button: var(--#{$prefix}light-action-secondary);
-  --#{$prefix}footer-color-alt-button__hover: var(
-    --#{$prefix}light-action-secondary-hover
-  );
   --#{$prefix}footer-color-social-icon: #{$core-default-color-neutral-black};
 
   // ------------------------------------------------------------------------------------------------------------------
@@ -69,12 +65,6 @@
     );
     --#{$prefix}footer-color-designAccent: var(
       --#{$prefix}color-default-color-dark-accent-design-accent
-    );
-    --#{$prefix}footer-color-alt-button: var(
-      --#{$prefix}color-default-color-dark-action-secondary
-    );
-    --#{$prefix}footer-color-alt-button__hover: var(
-      --#{$prefix}color-default-color-dark-action-secondary-hover
     );
     --#{$prefix}footer-color-link: var(
       --#{$prefix}color-default-color-dark-link-default
@@ -289,10 +279,6 @@
               max-height: var(--#{$prefix}footer-social-icon-size-height);
             }
           }
-
-          &:hover {
-            --component-icon-color: var(--#{$prefix}footer-color-crest-fill);
-          }
         }
       }
 
@@ -311,18 +297,6 @@
 
   .footer-crest svg path {
     fill: var(--#{$prefix}footer-color-crest-fill);
-  }
-
-  .btn {
-    --#{$prefix}btn-border-color: var(--#{$prefix}footer-color-alt-button);
-    --#{$prefix}btn-hover-border-color: var(
-      --#{$prefix}footer-color-alt-button
-    );
-    --qld-brand-accent: var(--#{$prefix}footer-color-alt-button);
-
-    &:hover {
-      --qld-brand-accent: var(--#{$prefix}footer-color-alt-button__hover);
-    }
   }
 
   .contact-btn {

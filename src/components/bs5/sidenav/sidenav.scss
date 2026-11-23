@@ -4,7 +4,7 @@
 
 @include color-mode(dark) {
   .nav {
-    --#{$prefix}nav-link-color: #fff;
+    --#{$prefix}nav-link-color: var(--#{$prefix}dark-link);
   }
 }
 

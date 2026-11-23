@@ -24,7 +24,10 @@
 
   .dark &,
   .dark-alt & {
-    --#{$prefix}details-summary-color: var(--#{$prefix}dark-link, #fff);
+    --#{$prefix}details-summary-color: var(
+      --#{$prefix}dark-link,
+      --#{$prefix}white
+    );
     --#{$prefix}details-summary-icon-color: var(
       --#{$prefix}dark-action-secondary
     );
@@ -34,7 +37,10 @@
       --#{$prefix}dark-action-secondary-hover
     );
 
-    --#{$prefix}details-content-color: var(--#{$prefix}dark-text, #fff);
+    --#{$prefix}details-content-color: var(
+      --#{$prefix}dark-text,
+      --#{$prefix}white
+    );
   }
 
   .dark & {

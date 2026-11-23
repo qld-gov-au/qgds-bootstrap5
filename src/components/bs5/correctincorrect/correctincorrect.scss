@@ -44,7 +44,7 @@
 
 .qg-correct {
   $qg-correct-icon-tick: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><mask id='mask0_1057_66071' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20'><path d='M10 1.5625C6.99414 1.5625 4.28516 3.1582 2.80078 5.71875C1.2793 8.31641 1.2793 11.4707 2.80078 14.0312C4.28516 16.6289 6.99414 18.1875 10 18.1875C12.9688 18.1875 15.6777 16.6289 17.1621 14.0312C18.6836 11.4707 18.6836 8.31641 17.1621 5.71875C15.6777 3.1582 12.9688 1.5625 10 1.5625ZM10 19.375C6.58594 19.375 3.46875 17.5938 1.76172 14.625C0.0546875 11.6934 0.0546875 8.09375 1.76172 5.125C3.46875 2.19336 6.58594 0.375 10 0.375C13.377 0.375 16.4941 2.19336 18.2012 5.125C19.9082 8.09375 19.9082 11.6934 18.2012 14.625C16.4941 17.5938 13.377 19.375 10 19.375ZM13.9707 7.94531L9.2207 12.6953C8.99805 12.918 8.58984 12.918 8.36719 12.6953L5.99219 10.3203C5.76953 10.0977 5.76953 9.68945 5.99219 9.4668C6.21484 9.24414 6.62305 9.24414 6.8457 9.4668L8.8125 11.4336L13.1172 7.0918C13.3398 6.86914 13.748 6.86914 13.9707 7.0918C14.1934 7.31445 14.1934 7.72266 13.9707 7.94531Z' fill='#04284C'/></mask><g mask='url(#mask0_1057_66071)'><rect width='20' height='20' fill='#339D37'/></g></svg>");
-  background-color: #f2faf4;
+  background-color: #{$core-default-color-status-success-lighter};
 
   &:before {
     content: #{escape-svg($qg-correct-icon-tick)} / "Tick icon";
@@ -53,7 +53,7 @@
 
 .qg-incorrect {
   $qg-correct-icon-tick: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><mask id='mask0_1057_66079' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='4' y='4' width='12' height='12'><path d='M14.125 14.875L10 10.7188L5.84375 14.875C5.65625 15.0625 5.34375 15.0625 5.125 14.875C4.9375 14.6562 4.9375 14.3438 5.125 14.1562L9.28125 10L5.125 5.875C4.9375 5.6875 4.9375 5.375 5.125 5.15625C5.34375 4.96875 5.65625 4.96875 5.84375 5.15625L10 9.3125L14.125 5.15625C14.3125 4.96875 14.625 4.96875 14.8438 5.15625C15.0312 5.375 15.0312 5.6875 14.8438 5.875L10.6875 10L14.8438 14.1562C15.0312 14.3438 15.0312 14.6562 14.8438 14.875C14.625 15.0625 14.3125 15.0625 14.125 14.875Z' fill='#04284C'/></mask><g mask='url(#mask0_1057_66079)'><rect width='20' height='20' fill='#E22339'/></g><circle cx='10' cy='10' r='9.5' stroke='#E22339'/></svg>");
-  background-color: #fdf0f0;
+  background-color: #{$core-default-color-status-error-lighter};
 
   &:before {
     content: #{escape-svg($qg-correct-icon-tick)} / "Cross icon";

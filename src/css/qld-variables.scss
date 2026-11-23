@@ -121,7 +121,7 @@ $qld-color-error-light: $core-default-color-status-error-lightest;
 $qld-color-success-light: $core-default-color-status-success-lightest;
 
 // Define new figma variables as SASS variables
-$qld-color-background: $core-default-color-neutral-white;
+$qld-color-background: $color-default-color-light-background-default;
 $qld-color-background--shade: $color-default-color-light-background-default-shade;
 $qld-color-light-background: $core-default-color-status-info-lightest;
 $qld-color-light-background--shade: $color-default-color-light-background-light-shade;
@@ -320,7 +320,7 @@ $project-base-colors: (
   "light-yellow": $qld-light-yellow,
   "button-dark-blue": $qld-button-dark-blue,
   "text-darkest": $qld-text-darkest,
-  "dark-hover": $qld-dark-hover
+  "dark-hover": $qld-dark-hover,
 );
 
 $theme-colors: map-merge($theme-colors, $project-base-colors);
