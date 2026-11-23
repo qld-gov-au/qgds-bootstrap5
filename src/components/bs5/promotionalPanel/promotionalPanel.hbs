@@ -30,8 +30,12 @@
             {{/if}}
             <div class="main">
                 {{#if title}}
-                    <{{isdefined headingTag 'h2'}} class="promo-title">{{~{title}~}}</{{isdefined headingTag 'h2'}}>
-                {{/if}}
+    {{#ifCond headingTag 'in' 'h2,h3,h4,h5,h6'}}
+        <{{headingTag}} class="promo-title">{{~{title}~}}</{{headingTag}}>
+    {{else}}
+        <h2 class="promo-title">{{~{title}~}}</h2>
+    {{/ifCond}}
+{{/if}}
                 {{#if abstract}}
                     <div class="promo-abstract">
                         {{~{abstract}~}}
