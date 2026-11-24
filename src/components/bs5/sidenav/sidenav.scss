@@ -26,10 +26,10 @@
   --sidenav-heading-border-color: var(--#{$prefix}light-accent);
   --sidenav-item-border-color: var(--#{$prefix}light-border-alt);
   --sidenav-subitem-border-color: var(--#{$prefix}neutral-lighter);
-
-  --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='var(--#{$prefix}color-light-border)' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
-
   --sidenav-active-item-color: var(--#{$prefix}light-text-heading);
+
+  --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='currentColor' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
+  --stalk-color: #{$color-default-color-light-border-alt};
 
   --#{$prefix}accordion-color: var(--#{$prefix}body-color);
   --#{$prefix}accordion-bg: var(--#{$prefix}body-bg);
@@ -70,6 +70,8 @@
   // Shared 'Dark' theme variables
   .dark &,
   .dark-alt & {
+    --stalk-color: #{$color-default-color-dark-border-alt};
+
     --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon-dark)};
     --#{$prefix}accordion-btn-active-icon: #{escape-svg(
         $accordion-button-active-icon-dark
@@ -97,8 +99,6 @@
 .dark,
 .dark-alt {
   .qld-side-navigation {
-    --sidenav-submenu-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2309ACFE' d='M2 10h12v1H2zM2 5h1v5H2z'/%3E%3C/svg%3E");
-
     --sidenav-hover-bg: var(
       --#{$prefix}color-default-color-dark-background-default-shade
     );
@@ -181,8 +181,6 @@
     color: var(--sidenav-active-color);
   }
 
-  //Side navigation (ul.nav)
-
   ul.nav {
     //Side navigation all items remove all bullets
     //Reset all left padding
@@ -241,13 +239,19 @@
         &:before {
           content: "";
           position: absolute;
-          background: escape-svg(var(--sidenav-submenu-divider));
-          background-repeat: no-repeat;
-
           top: 1rem;
           left: 2rem;
           bottom: 0;
           width: 1rem;
+
+          background-color: var(--stalk-color);
+          -webkit-mask: var(--sidenav-submenu-divider) no-repeat;
+          mask: var(--sidenav-submenu-divider) no-repeat;
+
+          @media (forced-colors: active) {
+            background-color: CanvasText;
+            forced-color-adjust: none;
+          }
         }
       }
     }
