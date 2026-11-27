@@ -16,7 +16,6 @@ handlebarsInit(Handlebars);
  * Focuses on testing the DOM structure, JSON data handling, scrolling and hide/show functionality.
  *
  * @requires vitest
- * @requires jsdom
  * @requires ./backToTop.js
  * @requires ./backToTop.functions.js
  * @requires ./backToTop.data.json
