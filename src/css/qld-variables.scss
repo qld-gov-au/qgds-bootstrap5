@@ -166,7 +166,6 @@ $color-default-color-dark-underline-default-hover: #ffffff;
 // These will NOT create utility classes, only CSS variables on :root
 // Available as var(--qld-[color-name])
 
-// DO NOT override the variables inside the object
 $project-colors: (
   "brand-primary-dark": $qld-brand-primary-dark,
   "brand-primary": $qld-brand-primary,
@@ -325,14 +324,14 @@ $project-base-colors: (
 
 $theme-colors: map-merge($theme-colors, $project-base-colors);
 
-// DO NOT override the variables which is predefined in bootstrap;
-// Cusotm GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
+// Custom GRID breakpoints: https://getbootstrap.com/docs/5.2/layout/grid/#variables
 $grid-breakpoints: (
   xs: 0,
   sm: 400px,
   md: 700px,
   lg: 992px,
   xl: 1312px,
+  xxl: 1599px,
 );
 
 // Map merge to include custom breakpoints
@@ -353,7 +352,6 @@ $qld-border-width-medium: 3px;
 $qld-border-width-thick: 4px;
 $qld-border-width-extra-thick: 8px;
 
-// DO NOT override the variables which is predefined in bootstrap;
 // Extended spacers to procude 8px and 16px increments
 // use px-16, py-sm-16, ml-40, mr-40, etc
 $qld-custom-spacers: (

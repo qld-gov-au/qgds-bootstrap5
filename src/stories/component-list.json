@@ -455,10 +455,10 @@
     "scope": "Core",
     "group": "Components",
     "status": "Published",
-    "description": "",
+    "description": "<h2>Types of promo panels</h2><br>These are the types of promo panels in our design system:<br><br>1. Indented text panel (larger image)<br>2. Indented image panel (larger text container)<br>3. Contained image panel<br>4. Promo (full image panel)<br><br>All types support placing the content on the left or right.",
     "refs": {
       "uikit": "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=1PNeXYXdepnDeW4g-0",
-      "website": ""
+      "website": "https://www.designsystem.qld.gov.au/components/promotional-panel"
     },
     "storyTitle": "3. Components/Promotional Panel",
     "storyPath": "/docs/3-components-promotional-panel"

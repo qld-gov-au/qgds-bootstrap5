@@ -234,6 +234,18 @@ export const Home = {
       ...promotionalPanelData,
       variantClass: "dark",
     },
+    promotionalPanelContained: {
+      ...promotionalPanelData,
+      variantClass: "default",
+      type: "contained",
+    },
+    promotionalPanelPromo: {
+      ...promotionalPanelData,
+      abstract: "",
+      cta: "",
+      variantClass: "dark",
+      type: "promo",
+    },
   },
 };
 
