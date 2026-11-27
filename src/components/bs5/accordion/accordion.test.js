@@ -232,9 +232,9 @@ describe("Nested accordion groups", () => {
   });
 
   test("The outer toggle-all button only changes its own accordion group", async () => {
-    const outerToggle = d.querySelector(
-      "#outer-accordion",
-    ).previousElementSibling.firstElementChild;
+    const outerToggle =
+      d.querySelector("#outer-accordion").previousElementSibling
+        .firstElementChild;
     const outerCollapse = d.querySelector("#collapse-Outer-One");
     const nestedCollapse = d.querySelector("#collapse-Nested-One");
     const nestedShown = waitForEventOn(nestedCollapse, "shown.bs.collapse");
@@ -295,9 +295,7 @@ describe("Nested accordion groups without toggle-all buttons", () => {
   const d = dom.window.document;
 
   test("Hiding a nested item does not hide its expanded parent item", async () => {
-    const outerCollapse = d.querySelector(
-      "#collapse-Outer-Without-Toggle-All",
-    );
+    const outerCollapse = d.querySelector("#collapse-Outer-Without-Toggle-All");
     const nestedCollapse = d.querySelector(
       "#collapse-Nested-Without-Toggle-All",
     );
